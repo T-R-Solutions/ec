@@ -1,0 +1,2 @@
+# Failure taxonomy
+`failed test`: testcase assertion failure; `test error`: test framework exception; `infrastructure`: runner/agent/transport failure; `build failure`: process nonzero or compilation; `cancelled`: explicit cancellation; `unknown`: incomplete evidence. A build may have multiple causes. Preserve statuses per attempt and policy-defined aggregate, not a single overwritten boolean. A report arriving after cancellation requires reconciliation, not silent status replacement.

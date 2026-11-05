@@ -1,0 +1,2 @@
+# Chunk ingestion
+Identity = tenant/project/run/job/step/attempt/stream/sequence. Sequence monotonic per stream, not across independent stdout/stderr streams. Persist before acknowledgment. Repeated same sequence/digest is idempotent; different digest conflicts. Missing ranges are visible and block complete status until recovered or explicitly truncated. On reconnect resume from durable cursor; do not confuse producer clock with ingestion clock. Bound chunks, queue and retention. Do not claim exactly-once external effects.

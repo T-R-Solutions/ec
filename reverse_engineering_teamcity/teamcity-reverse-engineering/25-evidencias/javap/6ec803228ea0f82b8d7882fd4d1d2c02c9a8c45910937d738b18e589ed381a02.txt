@@ -1,0 +1,8 @@
+public class org.hsqldb.Server extends org.hsqldb.server.Server {
+  public org.hsqldb.Server();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method org/hsqldb/server/Server."<init>":()V
+         4: return
+}

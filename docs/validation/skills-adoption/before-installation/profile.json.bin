@@ -1,0 +1,2285 @@
+{
+  "schema_version": 1,
+  "project": "Ec",
+  "installation_status": "prepared",
+  "skill_root": ".local/skill-installation/skills",
+  "target_root": ".codex/skills",
+  "selected_count": 67,
+  "conditional_count": 6,
+  "excluded_count": 4,
+  "source_documents": {
+    "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+    "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+    "docs/ec-arquitetura-comunicacao-e-validacao.md": "f9689af6e68baae223d1c213518163e3506339c84519bff40d3ecb33f57296a6",
+    "docs/readme-lifecycle-engineering-SKILL.md": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+    "docs/reavaliacao-skills-ec-dois-monolitos-atualizada.md": "e83e5df769211bef1f08fe029c6020f2f9c45fe0de4bb0ac337414491d235bf3"
+  },
+  "source_archives": {
+    "skills_to_use/ec_skills.zip": "d37bc5d3066d5786b0efdbbbde5f8b1a5031ab535fef8469b6609710f83d7e67",
+    "skills_to_use/ox_resume.zip": "f8a26ebbc863922bd2e6521e2ceebdd0560dcb9418317f49fdeaecfd8884d92d"
+  },
+  "skills": [
+    {
+      "name": "cicd-agent-runtime",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD agent lifecycle, capability reporting, local capacity and recovery. Skip scheduler allocation, product wire protocols and step process isolation.",
+      "reason": "Implement or review CI/CD agent lifecycle, capability reporting, local capacity and recovery. Skip scheduler allocation, product wire protocols and step process isolation.",
+      "source_files": {
+        "SKILL.md": "7ce1bbc2b1b41056fd939e109ff19d40fd683c85c81122e2916051f17d820920",
+        "references/capabilities-and-slots.md": "41dff968395699e29507203018ba67a8aeac8be9b2018c552c639cfb39aae18b",
+        "references/implementation-details.md": "a7b91c4d64f7d53cd37de1f5da8155a3a6d3f7a1c6427080f3e8ebe7d0805643",
+        "references/lifecycle-and-liveness.md": "046721855919b001d70d92ed1e1098bbc465f94cef352a93d8af3d210fdcec7b",
+        "references/recovery-and-fencing.md": "fbd86ff39c5db98bc826299955ff8573f4116779feba070e2abed5be4791ea8f",
+        "references/routing-and-oracles.md": "ec60f8f11254f5dfedfdf1278a48e4be5645bd1bef3ecabf7af74d1d57e0c8ce",
+        "references/security-and-observability.md": "f446b19a2f326b5b12457aa772d35cc11b26d024f548f449ef17680483b0cb7a",
+        "references/sources-and-decisions.md": "170f5739b85c33a5a3c30dc21eba9ef773d5f7e5cd314b929e64e6ea0fae9c62"
+      },
+      "adaptations": [
+        "Slots e recuperação pertencem ao Agent, a autoridade de tentativa pertence ao Server. SQLite privado/outbox persist-before-send/limpeza após ACK são propostas condicionadas a ADR e testes de crash e disco cheio; não declarar adoção por instalar esta skill.",
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-agent-runtime/SKILL.md",
+      "target_path": ".codex/skills/cicd-agent-runtime/SKILL.md",
+      "files": {
+        "SKILL.md": "38318abea006ead9ea43dc4ec060b170f4d28833b724f2b08ca305433636976f",
+        "agents/openai.yaml": "95567abd2222f01c0382267cd0caf1ed937bd712baf5d27f24ac29757c8eb7e9",
+        "references/capabilities-and-slots.md": "41dff968395699e29507203018ba67a8aeac8be9b2018c552c639cfb39aae18b",
+        "references/implementation-details.md": "a7b91c4d64f7d53cd37de1f5da8155a3a6d3f7a1c6427080f3e8ebe7d0805643",
+        "references/lifecycle-and-liveness.md": "046721855919b001d70d92ed1e1098bbc465f94cef352a93d8af3d210fdcec7b",
+        "references/recovery-and-fencing.md": "fbd86ff39c5db98bc826299955ff8573f4116779feba070e2abed5be4791ea8f",
+        "references/routing-and-oracles.md": "ec60f8f11254f5dfedfdf1278a48e4be5645bd1bef3ecabf7af74d1d57e0c8ce",
+        "references/security-and-observability.md": "f446b19a2f326b5b12457aa772d35cc11b26d024f548f449ef17680483b0cb7a",
+        "references/sources-and-decisions.md": "170f5739b85c33a5a3c30dc21eba9ef773d5f7e5cd314b929e64e6ea0fae9c62"
+      }
+    },
+    {
+      "name": "cicd-artifacts-and-retention",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD artifact ingestion, integrity, provenance, retrieval and retention. Skip build caches and process execution.",
+      "reason": "Implement or review CI/CD artifact ingestion, integrity, provenance, retrieval and retention. Skip build caches and process execution.",
+      "source_files": {
+        "SKILL.md": "5a856e3153b92859a416e87862e64e7c547ca5d1fa4caeec19b4910d9691ddcf",
+        "references/implementation-details.md": "d561bf7836154071490ebf0f30d3444f013302e52e827f65f183cfe6e067cdbd",
+        "references/integrity-and-upload.md": "caf53d4973025cb11df979b4e12b7582f84264f1d98c520e1283d1a4beab2cb5",
+        "references/provenance-and-access.md": "7a67f54bb89a749a5839aa12f5a1d123409c86f4919c2e972af2fd97fc9c62d5",
+        "references/retention-and-gc.md": "ffe7a476fb3eb512b25fcdf3c3dd605f77100e2c8c6d2696b58c00fbf7c4cab9",
+        "references/routing-and-oracles.md": "dc478af065ee06c7477581c58b414f5594b154f6dc850abf95daaa8ab57d2fe4",
+        "references/sources-and-evidence.md": "18c040e1cf2d360e2d350447275059af415c012581743a40c2da87c0e4211786",
+        "references/storage-and-deletion.md": "459b5b533217512ba93d49fa88b4a60e92e5aa73fecf6e2169a9dc910e5cf41c"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/SKILL.md",
+      "target_path": ".codex/skills/cicd-artifacts-and-retention/SKILL.md",
+      "files": {
+        "SKILL.md": "5a856e3153b92859a416e87862e64e7c547ca5d1fa4caeec19b4910d9691ddcf",
+        "agents/openai.yaml": "b71d8c463cd2de2a088ca950a58cc5518cf7ab798daa14112689fae7ea0a3b7a",
+        "references/implementation-details.md": "d561bf7836154071490ebf0f30d3444f013302e52e827f65f183cfe6e067cdbd",
+        "references/integrity-and-upload.md": "caf53d4973025cb11df979b4e12b7582f84264f1d98c520e1283d1a4beab2cb5",
+        "references/provenance-and-access.md": "7a67f54bb89a749a5839aa12f5a1d123409c86f4919c2e972af2fd97fc9c62d5",
+        "references/retention-and-gc.md": "ffe7a476fb3eb512b25fcdf3c3dd605f77100e2c8c6d2696b58c00fbf7c4cab9",
+        "references/routing-and-oracles.md": "dc478af065ee06c7477581c58b414f5594b154f6dc850abf95daaa8ab57d2fe4",
+        "references/sources-and-evidence.md": "18c040e1cf2d360e2d350447275059af415c012581743a40c2da87c0e4211786",
+        "references/storage-and-deletion.md": "459b5b533217512ba93d49fa88b4a60e92e5aa73fecf6e2169a9dc910e5cf41c"
+      }
+    },
+    {
+      "name": "cicd-build-cache",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD build-cache keys, trust scopes, integrity and eviction. Skip immutable run-artifact retention and runtime scheduling.",
+      "reason": "Implement or review CI/CD build-cache keys, trust scopes, integrity and eviction. Skip immutable run-artifact retention and runtime scheduling.",
+      "source_files": {
+        "SKILL.md": "ff99931b7bd2b28b8feb21e3ed129b1aa89d862ac2e671874cdd01c933730dca",
+        "references/cas-and-integrity.md": "38d6aaff93f0ef2a6a2a2e370247b875cc839ede18e55dfef929e69a256a80d4",
+        "references/implementation-details.md": "b768d0c587bd9ff8793c39197bcf815a2d82e6953e0b698b84599bf7b5d46476",
+        "references/invalidation-and-eviction.md": "ea7297ae2fc746d3d6eb3f52bbee805a632c7ca2d9919b432c53ad34275ed8f5",
+        "references/keys-and-hermeticity.md": "5eb841407e0c5a0377a97db8ec63760286a611856e002b5b217de10dcf141e6b",
+        "references/sources-and-evidence.md": "880d925e5ee8ff7c4d5d233e6efcb17c0f0abc8b1c82c3363296ee9865ce9dd0",
+        "references/testing-and-routing.md": "e4e08ee212ed9858839546354365e648fb651b742db9a74587c94b4e32edd1dc",
+        "references/trust-and-poisoning.md": "8f5cbd87555a6fb91c8ec88e663c68a325caba0cf18122ec56ef3a2878fa44e9"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-build-cache/SKILL.md",
+      "target_path": ".codex/skills/cicd-build-cache/SKILL.md",
+      "files": {
+        "SKILL.md": "ff99931b7bd2b28b8feb21e3ed129b1aa89d862ac2e671874cdd01c933730dca",
+        "agents/openai.yaml": "fa5ad6a500866f07e5dd888cc6e94f8727877ce23ada0c9c3aed80381a3dd492",
+        "references/cas-and-integrity.md": "38d6aaff93f0ef2a6a2a2e370247b875cc839ede18e55dfef929e69a256a80d4",
+        "references/implementation-details.md": "b768d0c587bd9ff8793c39197bcf815a2d82e6953e0b698b84599bf7b5d46476",
+        "references/invalidation-and-eviction.md": "ea7297ae2fc746d3d6eb3f52bbee805a632c7ca2d9919b432c53ad34275ed8f5",
+        "references/keys-and-hermeticity.md": "5eb841407e0c5a0377a97db8ec63760286a611856e002b5b217de10dcf141e6b",
+        "references/sources-and-evidence.md": "880d925e5ee8ff7c4d5d233e6efcb17c0f0abc8b1c82c3363296ee9865ce9dd0",
+        "references/testing-and-routing.md": "e4e08ee212ed9858839546354365e648fb651b742db9a74587c94b4e32edd1dc",
+        "references/trust-and-poisoning.md": "8f5cbd87555a6fb91c8ec88e663c68a325caba0cf18122ec56ef3a2878fa44e9"
+      }
+    },
+    {
+      "name": "cicd-execution-runtime",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD step execution, output draining, deadlines, cancellation and process isolation. Skip queue scheduling, agent protocols and log storage.",
+      "reason": "Implement or review CI/CD step execution, output draining, deadlines, cancellation and process isolation. Skip queue scheduling, agent protocols and log storage.",
+      "source_files": {
+        "SKILL.md": "e02d50ec3615b7d470bd2b4980edbc386925ec36fc17c1724482fd174fb37401",
+        "references/cancellation.md": "f9883586141df8b76974c4db71afda5780c4df9279bc463b026bfab7d70c8163",
+        "references/implementation-details.md": "90051a7284f486e2e6e4137237c2f94f14f66208ebac8876279af4201d583ff7",
+        "references/isolation.md": "b867cc5842ffe249d7c081c036dc0d3e27673296152c4601dcde019f92baf987",
+        "references/oracles-and-routing.md": "a717c4ae8b13e5784c8ca354ed16d10fb314b5064b6a6f955f30595c4036ad92",
+        "references/process-execution.md": "cbb5b8d470e915e56f329537d8a452bae3b37b3ea40f89b739e09e8bfbb72d6d",
+        "references/sources.md": "5ac309981a079691e5da48ad10545c336b2d636700d3917ebba52da9c5cafc07",
+        "references/streaming.md": "0dd78a0761112202bc4482b46685acd457e5d182b148f0a4eb81033246362f19"
+      },
+      "adaptations": [
+        "Distinguir comando recebido, processo iniciado, término observado e resultado persistido no Server. Cancelamento exige observar descendentes e coleta; testar corridas e efeitos parciais.",
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-execution-runtime/SKILL.md",
+      "target_path": ".codex/skills/cicd-execution-runtime/SKILL.md",
+      "files": {
+        "SKILL.md": "4bafb0730fa09237a9e75082cb2328c003c8b0e69a4dfab9141a7616672b0f7b",
+        "agents/openai.yaml": "4c6677ab242bc3c391b64a26922351e047bc3242c09e8d21fa9f145e2a970d47",
+        "references/cancellation.md": "f9883586141df8b76974c4db71afda5780c4df9279bc463b026bfab7d70c8163",
+        "references/implementation-details.md": "90051a7284f486e2e6e4137237c2f94f14f66208ebac8876279af4201d583ff7",
+        "references/isolation.md": "b867cc5842ffe249d7c081c036dc0d3e27673296152c4601dcde019f92baf987",
+        "references/oracles-and-routing.md": "a717c4ae8b13e5784c8ca354ed16d10fb314b5064b6a6f955f30595c4036ad92",
+        "references/process-execution.md": "cbb5b8d470e915e56f329537d8a452bae3b37b3ea40f89b739e09e8bfbb72d6d",
+        "references/sources.md": "5ac309981a079691e5da48ad10545c336b2d636700d3917ebba52da9c5cafc07",
+        "references/streaming.md": "0dd78a0761112202bc4482b46685acd457e5d182b148f0a4eb81033246362f19"
+      }
+    },
+    {
+      "name": "cicd-logs-and-test-results",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD log chunks, replay, redaction and test-report ingestion. Skip platform telemetry design, process output capture and UI layout.",
+      "reason": "Implement or review CI/CD log chunks, replay, redaction and test-report ingestion. Skip platform telemetry design, process output capture and UI layout.",
+      "source_files": {
+        "SKILL.md": "8799aa000e50d5720c6f82e403ad5f2cb802804da0365c3b4665a015040f3f69",
+        "references/chunks-and-replay.md": "754f3650886f472957cb82c740d85139d7613a35ac46d4b4e981cd5a0c06200e",
+        "references/failure-taxonomy.md": "4772ea4356656d51520150cd9e1fb7608a5f210adbbba740640e3c11f0c3f6d1",
+        "references/implementation-details.md": "c1c0b8536c6ec939e9d2aaa1dcdf0a47ba2703cdffb0fe4a32de5e7adf03ce5b",
+        "references/routing-and-oracles.md": "d5277d2c64314e174ab28aeead660f36cf73dc53f7cd10a19ed61298fad7f86f",
+        "references/security-and-redaction.md": "04dbe8ad752e9b16722ff5a0b0eeb52eb2c5dc3c260c1b6ee62122128b824cce",
+        "references/sources-and-evidence.md": "52c759fc6c2b4bbb4bfdd352464764a8a5ee8ff50f8939ead99c758dc7388ca0",
+        "references/test-report-ingestion.md": "551f377500a9ad198025469bdbbbc138af5c1064f374f7dba033c6d39dcdaa10"
+      },
+      "adaptations": [
+        "Identificar chunks por job/attempt/stream/offset; testar duplicatas, gaps, replay e redaction entre chunks. Controlar volume sem impedir cancelamento; truncamento nunca silencioso.",
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-logs-and-test-results/SKILL.md",
+      "target_path": ".codex/skills/cicd-logs-and-test-results/SKILL.md",
+      "files": {
+        "SKILL.md": "bd1f984084707137b5aeeabe6978c2a629c9f25810c2ec30e868862af24b935d",
+        "agents/openai.yaml": "ffea3dfe0b15fcbecee0b8f97f88e5dfd829944bfbfbbd97b9867db86f6d0f3f",
+        "references/chunks-and-replay.md": "754f3650886f472957cb82c740d85139d7613a35ac46d4b4e981cd5a0c06200e",
+        "references/failure-taxonomy.md": "4772ea4356656d51520150cd9e1fb7608a5f210adbbba740640e3c11f0c3f6d1",
+        "references/implementation-details.md": "c1c0b8536c6ec939e9d2aaa1dcdf0a47ba2703cdffb0fe4a32de5e7adf03ce5b",
+        "references/routing-and-oracles.md": "d5277d2c64314e174ab28aeead660f36cf73dc53f7cd10a19ed61298fad7f86f",
+        "references/security-and-redaction.md": "04dbe8ad752e9b16722ff5a0b0eeb52eb2c5dc3c260c1b6ee62122128b824cce",
+        "references/sources-and-evidence.md": "52c759fc6c2b4bbb4bfdd352464764a8a5ee8ff50f8939ead99c758dc7388ca0",
+        "references/test-report-ingestion.md": "551f377500a9ad198025469bdbbbc138af5c1064f374f7dba033c6d39dcdaa10"
+      }
+    },
+    {
+      "name": "cicd-pipeline-graph",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD dependency-graph validation, cycle diagnostics, deterministic ordering and readiness. Skip canvas interactions, resource scheduling and execution.",
+      "reason": "Implement or review CI/CD dependency-graph validation, cycle diagnostics, deterministic ordering and readiness. Skip canvas interactions, resource scheduling and execution.",
+      "source_files": {
+        "SKILL.md": "c35918f31a290c847dc6b17e7e892adafff5dfdc1f8ec3237f931f9bba0f0f46",
+        "references/cycle-diagnostics.md": "f1af36e3fad0985da3773f81f8f07a4d39c8ba6f46b6d07a450550f97cc0aa8c",
+        "references/evidence-and-reporting.md": "b18f74b7c2fa06807364ce51dd54ac7c3beba7afa32f00669326e5b2c57bc548",
+        "references/fan-in-fan-out.md": "8a2064454165da4f962265ec0b8870020d36cfa11cb5d61cc07d9b872027b609",
+        "references/graph-contract-and-trust-boundaries.md": "46c65be9ad28480cdb4a27f24b4bfbb84a8c832e0c00fb9b6ee08b0d78501c44",
+        "references/graph-edits-and-revisions.md": "e96e5bafbcb833827ab83259501f61fc0b9f900eacb48839a06f3cd5ab5ce328",
+        "references/implementation-details.md": "4dd11a4362456b5145823c9a0c06bb72baebc6e74afe6f34893b3aedae75362e",
+        "references/performance-and-limits.md": "86774ca37879e4dfb3bc47b047d09bf98a36a506bdde084418923ff013b7f2f1",
+        "references/readiness-and-status.md": "028db20ae07e2581a947ccba4f4c92008f0052be1a3d3d4c0ecb3242a4f17485",
+        "references/routing-and-test-oracles.md": "f3fae40cf2c30d6420188f3d2f79a7ea048a8e05122f1cd445b6e722135bd3f3",
+        "references/scientific-evidence-and-limits.md": "6cd54c855603513d4a1e76a8ebba3f10d4607cd8e6c306ee0444096aa3dc98ab",
+        "references/sources-and-decisions.md": "83e9103fba0abbde96b7171ed7247a85d1dd7a79c1057399725957209daa58e1",
+        "references/testing-and-oracles.md": "da0524acec7a7bce617fad3c1f2c3db672a1277d2869a0b2e9fa9c2eab9a9b46",
+        "references/topological-ordering.md": "3a8ace5c92dd4695531dcf15ba93516d56e4e939ff48dc88c01eea517d4ce51b",
+        "references/validation-and-diagnostics.md": "dbe229ba65fc87786d2525d3369fb3f0058321f232cc95911b1cb8889b033318"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-pipeline-graph/SKILL.md",
+      "target_path": ".codex/skills/cicd-pipeline-graph/SKILL.md",
+      "files": {
+        "SKILL.md": "c35918f31a290c847dc6b17e7e892adafff5dfdc1f8ec3237f931f9bba0f0f46",
+        "agents/openai.yaml": "4ac2adccf8aae511308bc6c53979924610a8977abcee91313638c5eb14bd8a37",
+        "references/cycle-diagnostics.md": "f1af36e3fad0985da3773f81f8f07a4d39c8ba6f46b6d07a450550f97cc0aa8c",
+        "references/evidence-and-reporting.md": "b18f74b7c2fa06807364ce51dd54ac7c3beba7afa32f00669326e5b2c57bc548",
+        "references/fan-in-fan-out.md": "8a2064454165da4f962265ec0b8870020d36cfa11cb5d61cc07d9b872027b609",
+        "references/graph-contract-and-trust-boundaries.md": "46c65be9ad28480cdb4a27f24b4bfbb84a8c832e0c00fb9b6ee08b0d78501c44",
+        "references/graph-edits-and-revisions.md": "e96e5bafbcb833827ab83259501f61fc0b9f900eacb48839a06f3cd5ab5ce328",
+        "references/implementation-details.md": "4dd11a4362456b5145823c9a0c06bb72baebc6e74afe6f34893b3aedae75362e",
+        "references/performance-and-limits.md": "86774ca37879e4dfb3bc47b047d09bf98a36a506bdde084418923ff013b7f2f1",
+        "references/readiness-and-status.md": "028db20ae07e2581a947ccba4f4c92008f0052be1a3d3d4c0ecb3242a4f17485",
+        "references/routing-and-test-oracles.md": "f3fae40cf2c30d6420188f3d2f79a7ea048a8e05122f1cd445b6e722135bd3f3",
+        "references/scientific-evidence-and-limits.md": "6cd54c855603513d4a1e76a8ebba3f10d4607cd8e6c306ee0444096aa3dc98ab",
+        "references/sources-and-decisions.md": "83e9103fba0abbde96b7171ed7247a85d1dd7a79c1057399725957209daa58e1",
+        "references/testing-and-oracles.md": "da0524acec7a7bce617fad3c1f2c3db672a1277d2869a0b2e9fa9c2eab9a9b46",
+        "references/topological-ordering.md": "3a8ace5c92dd4695531dcf15ba93516d56e4e939ff48dc88c01eea517d4ce51b",
+        "references/validation-and-diagnostics.md": "dbe229ba65fc87786d2525d3369fb3f0058321f232cc95911b1cb8889b033318"
+      }
+    },
+    {
+      "name": "cicd-release-and-deployment",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD artifact promotion, rollout gates, deployment state and recovery. Skip product-specific environment resources, scheduling and artifact-storage internals.",
+      "reason": "Implement or review CI/CD artifact promotion, rollout gates, deployment state and recovery. Skip product-specific environment resources, scheduling and artifact-storage internals.",
+      "source_files": {
+        "SKILL.md": "a2bdbc5f70b8dbd97cbd7f74a6589b5a2a630c14071faf345d876986880231e0",
+        "references/abort-rollback-and-recovery.md": "4cb270ffd6cf81daf7d6af896550007300d636717564fdc20e35eef8cc367a0d",
+        "references/approvals-and-change-windows.md": "226339d081ecf20194029d2b6737e459f379b901bfeb98e4f62b7eeb2038cfbe",
+        "references/concurrency-and-reconciliation.md": "827e1205b04aa9ce42c758f6d8cd6b9267bebb1380e23b498d83ef947da40654",
+        "references/deployment-state-contract.md": "b370ca107fb30ebf9d23b854c14b28367fe8164b55120923ea052644adc125ea",
+        "references/evidence-and-reporting.md": "42cdc0cbca6e404d57f54a7fe049531fda16dfdfa256e6ed169a545f30f22414",
+        "references/health-gates-and-statistics.md": "6541608a2e6fff035c1fe7e12fc601748bc59ea007c03ad0de65f1ffb4991ca1",
+        "references/implementation-details.md": "aea66f4f540f9a9b962742da405733208648d5d8958ea84d1f26b52749277af9",
+        "references/promotion-and-environments.md": "9ea437f6dee062de8547d1435e3e2eda3b36b2cd48cdd6c1132ec11f62feda8a",
+        "references/release-identity-and-provenance.md": "5549edfc04dd3aeade59b133c4d91ed1dec874399f4af35e583615a48ad89115",
+        "references/schema-migration-safety.md": "8d5e4712511a6aa5c0a57139acf1e743f197d3d4b7e0347e50561939952492d9",
+        "references/scientific-evidence-and-limits.md": "d8becb36baff45441965139d47d44545da6cd7402c82e48c59cf4e200f2cd99d",
+        "references/security-and-supply-chain.md": "f2e0b59bd69db53a884b6119520f93bdcee4dc8796cf5c308088fc0f69d9eb98",
+        "references/selection-and-boundaries.md": "0a1024395cf6b3caa3990047f94013bc964deddb833cb751a59b1743d0815820",
+        "references/sources-and-decisions.md": "d60f36f472ad613bdf3e003acc50a044df5c31b47d563e0e9cc70e131db2196f",
+        "references/strategies-and-traffic.md": "d6042aa2530ea9267b3a0ec941e2753bc897a5d6618c8ccfd574b0243c757a98",
+        "references/testing-and-test-oracles.md": "ceec107bd010d157b365c0e07bbc83409dd1deec6e136f906725e411e101fa66"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-release-and-deployment/SKILL.md",
+      "target_path": ".codex/skills/cicd-release-and-deployment/SKILL.md",
+      "files": {
+        "SKILL.md": "a2bdbc5f70b8dbd97cbd7f74a6589b5a2a630c14071faf345d876986880231e0",
+        "agents/openai.yaml": "2c1c0c9c027ba8f79cffbc27e0d3f7d1663cefb9e059011c13e7ecd60bbca2a5",
+        "references/abort-rollback-and-recovery.md": "4cb270ffd6cf81daf7d6af896550007300d636717564fdc20e35eef8cc367a0d",
+        "references/approvals-and-change-windows.md": "226339d081ecf20194029d2b6737e459f379b901bfeb98e4f62b7eeb2038cfbe",
+        "references/concurrency-and-reconciliation.md": "827e1205b04aa9ce42c758f6d8cd6b9267bebb1380e23b498d83ef947da40654",
+        "references/deployment-state-contract.md": "b370ca107fb30ebf9d23b854c14b28367fe8164b55120923ea052644adc125ea",
+        "references/evidence-and-reporting.md": "42cdc0cbca6e404d57f54a7fe049531fda16dfdfa256e6ed169a545f30f22414",
+        "references/health-gates-and-statistics.md": "6541608a2e6fff035c1fe7e12fc601748bc59ea007c03ad0de65f1ffb4991ca1",
+        "references/implementation-details.md": "aea66f4f540f9a9b962742da405733208648d5d8958ea84d1f26b52749277af9",
+        "references/promotion-and-environments.md": "9ea437f6dee062de8547d1435e3e2eda3b36b2cd48cdd6c1132ec11f62feda8a",
+        "references/release-identity-and-provenance.md": "5549edfc04dd3aeade59b133c4d91ed1dec874399f4af35e583615a48ad89115",
+        "references/schema-migration-safety.md": "8d5e4712511a6aa5c0a57139acf1e743f197d3d4b7e0347e50561939952492d9",
+        "references/scientific-evidence-and-limits.md": "d8becb36baff45441965139d47d44545da6cd7402c82e48c59cf4e200f2cd99d",
+        "references/security-and-supply-chain.md": "f2e0b59bd69db53a884b6119520f93bdcee4dc8796cf5c308088fc0f69d9eb98",
+        "references/selection-and-boundaries.md": "0a1024395cf6b3caa3990047f94013bc964deddb833cb751a59b1743d0815820",
+        "references/sources-and-decisions.md": "d60f36f472ad613bdf3e003acc50a044df5c31b47d563e0e9cc70e131db2196f",
+        "references/strategies-and-traffic.md": "d6042aa2530ea9267b3a0ec941e2753bc897a5d6618c8ccfd574b0243c757a98",
+        "references/testing-and-test-oracles.md": "ceec107bd010d157b365c0e07bbc83409dd1deec6e136f906725e411e101fa66"
+      }
+    },
+    {
+      "name": "cicd-scheduler",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD eligibility, queue fairness, capacity reservations, leases and recovery. Skip graph editing, agent wire protocols and step execution.",
+      "reason": "Implement or review CI/CD eligibility, queue fairness, capacity reservations, leases and recovery. Skip graph editing, agent wire protocols and step execution.",
+      "source_files": {
+        "SKILL.md": "2a691b10fe90bb702a9a0005b8987e404042ecb61da79185a788fd7fd9723177",
+        "references/fairness.md": "6ebdd9a7929a6f2c8a67af3a7d33070f161e1c32b94b8446e0953dd4665af34c",
+        "references/implementation-details.md": "11e94bb54227bca06a77b97dc94d1d4f629a896d4627c89c61547c601859c0fd",
+        "references/leases.md": "318190edc75721f804379e6a01164caa07ead8337e2aa00163df0ff04f0aeff2",
+        "references/oracles.md": "fcc52db62e8773e95913b8ab27fa72ec173aca64eb781a46901ada33825f5b3c",
+        "references/routing.md": "bd02e190ee0c2cf13b4faf66f3e109ec745b7bb9b160db6bb092102403c86c34",
+        "references/sources.md": "ef90a04b0236422d96d84a39dca89ff4fcd29db3f11264e16229ea7763a8b927",
+        "references/transactions.md": "f14d77f5d257bd557c84743f0530126727ed6e32333c8699cb134282019e0576"
+      },
+      "adaptations": [
+        "PostgreSQL é a autoridade global planejada de fila, tentativas, quotas e leases. Testar duas reservas concorrentes, fencing obsoleto e reatribuição; lease expirado não encerra efeitos externos.",
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-scheduler/SKILL.md",
+      "target_path": ".codex/skills/cicd-scheduler/SKILL.md",
+      "files": {
+        "SKILL.md": "1f4b793380998c8a8a64a58e1587e2ee3a6363880e63c0b54dab1a4228e14fb4",
+        "agents/openai.yaml": "15ed3ec1d52641b24220d1ea1e2a6a6336e815a5560011fec7fb61030daee4f8",
+        "references/fairness.md": "6ebdd9a7929a6f2c8a67af3a7d33070f161e1c32b94b8446e0953dd4665af34c",
+        "references/implementation-details.md": "11e94bb54227bca06a77b97dc94d1d4f629a896d4627c89c61547c601859c0fd",
+        "references/leases.md": "318190edc75721f804379e6a01164caa07ead8337e2aa00163df0ff04f0aeff2",
+        "references/oracles.md": "fcc52db62e8773e95913b8ab27fa72ec173aca64eb781a46901ada33825f5b3c",
+        "references/routing.md": "bd02e190ee0c2cf13b4faf66f3e109ec745b7bb9b160db6bb092102403c86c34",
+        "references/sources.md": "ef90a04b0236422d96d84a39dca89ff4fcd29db3f11264e16229ea7763a8b927",
+        "references/transactions.md": "f14d77f5d257bd557c84743f0530126727ed6e32333c8699cb134282019e0576"
+      }
+    },
+    {
+      "name": "cicd-vcs-event-processing",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review CI/CD VCS webhook authentication, event normalization, revision resolution and durable triggers. Skip connector administration and scheduler dispatch.",
+      "reason": "Implement or review CI/CD VCS webhook authentication, event normalization, revision resolution and durable triggers. Skip connector administration and scheduler dispatch.",
+      "source_files": {
+        "SKILL.md": "028518fb68870bf856cf37d7ba292d01a2e5ade9f08cd726eb9f6cca6a3afb84",
+        "references/authentication.md": "0f05d439055433a90f7e1b7e9f6bf3bf0dd253b08a53b7c92ddd8e8db4881185",
+        "references/durability-and-idempotency.md": "8b1d8e46408f9892df2b74b70ddbe2b8eebf31df854222796c90b096b1b82015",
+        "references/failure-oracles.md": "09db9e48ed7e49afccd9231700af5135a99214138784413806d93b7c27eb90d0",
+        "references/implementation-details.md": "90a60fd88db9167f1346502362dec0270ec8510464d43433e779a01920f0ffcd",
+        "references/normalization-and-filters.md": "2bb5963c91dd9bda24b1ebce32e8abb988dc85bcdabdc62b26090072ec085033",
+        "references/revisions-and-trust.md": "f665a8df6c2d0d9effc08f53ab49109fd072f8742f3e725a68f055e6a9d3171c",
+        "references/sources-and-evidence.md": "97eaa96bfd76bf425177598209ba02a53c60a99e4204cbf105d3b0e144d69e77"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cicd-vcs-event-processing/SKILL.md",
+      "target_path": ".codex/skills/cicd-vcs-event-processing/SKILL.md",
+      "files": {
+        "SKILL.md": "028518fb68870bf856cf37d7ba292d01a2e5ade9f08cd726eb9f6cca6a3afb84",
+        "agents/openai.yaml": "a3474823a93fd3695cbf7f655274c174ff1c48ff60a76064aa1e4ef7e81d3d39",
+        "references/authentication.md": "0f05d439055433a90f7e1b7e9f6bf3bf0dd253b08a53b7c92ddd8e8db4881185",
+        "references/durability-and-idempotency.md": "8b1d8e46408f9892df2b74b70ddbe2b8eebf31df854222796c90b096b1b82015",
+        "references/failure-oracles.md": "09db9e48ed7e49afccd9231700af5135a99214138784413806d93b7c27eb90d0",
+        "references/implementation-details.md": "90a60fd88db9167f1346502362dec0270ec8510464d43433e779a01920f0ffcd",
+        "references/normalization-and-filters.md": "2bb5963c91dd9bda24b1ebce32e8abb988dc85bcdabdc62b26090072ec085033",
+        "references/revisions-and-trust.md": "f665a8df6c2d0d9effc08f53ab49109fd072f8742f3e725a68f055e6a9d3171c",
+        "references/sources-and-evidence.md": "97eaa96bfd76bf425177598209ba02a53c60a99e4204cbf105d3b0e144d69e77"
+      }
+    },
+    {
+      "name": "cli-engineering",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design, implement, or review command-line behavior, help, machine output, exit codes, and safe retries. Use for CLI consumer contracts; skip shell scripting without a CLI design question.",
+      "reason": "Design, implement, or review command-line behavior, help, machine output, exit codes, and safe retries. Use for CLI consumer contracts; skip shell scripting without a CLI design question.",
+      "source_files": {
+        "SKILL.md": "530da9febf3cc02dad798db1c484a4dcffcdd40a5df3d660c755b197563ee466",
+        "references/argument-parsing-and-exit-status.md": "a21be713a5b97ae78ae9a63966f9e7fd81329de0fb21313976ee0e6b0d2d9453",
+        "references/authentication-and-secrets.md": "f5fa6175c868fec38192a404d3c073259a34d59edef64a6110702a7eebb0e862",
+        "references/command-taxonomy-and-help.md": "91f37b6f5ae2aa8818c77f88d0d9cf1180ebc7dd85372b67ca054d9e062ec6ed",
+        "references/config-environment-and-portability.md": "2733075753df6c8ff91c762a88eb9927bda586e82eb29ca766664a500256ab7c",
+        "references/confirmation-and-risk.md": "bfd8587ad29f270f58de9e05ffdb3b72f644749db7c2fbf057ead7892f28de0f",
+        "references/idempotency-and-concurrency.md": "0ab17308a5320c3151e5169602947992afdb0ac1dfa17d55767abff5c185bba3",
+        "references/implementation-details.md": "da2e34e42ee71f06d0a25e1e9e06ddfbe10da342e5909e675671010035607195",
+        "references/integration-and-evidence.md": "4a6fd90c3f269c3fca01b3058e780abf288223e3ae97a8d1e5649788dd60a914",
+        "references/output-and-automation.md": "e58e09e23be2ca8bfe43213e82f6f2ced82282f6cadba76f8d17395d6176153a",
+        "references/routing-and-test-oracles.md": "7d2408ae97339cac6d746387d42eea414f3b5026aa1dacf486cda912abf662ba",
+        "references/scientific-evidence-and-limits.md": "82e6fbe9349523dc4f7393738eea5f955dc9739a5710b64e7d831261de060b99",
+        "references/sources-and-decisions.md": "059171d9684e0699d47c70a9d77732c9d8b59577037e63f3f5ebf26678d0799a",
+        "references/subprocess-and-terminal-safety.md": "e08f924ab71128a0e833b748cfcaa36688bffda222322d36c596f6058215d174"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/cli-engineering/SKILL.md",
+      "target_path": ".codex/skills/cli-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "530da9febf3cc02dad798db1c484a4dcffcdd40a5df3d660c755b197563ee466",
+        "agents/openai.yaml": "a360336a68ff28f5bf02611cbffb1113fa819f29e87d8011f33fd5b8b65af932",
+        "references/argument-parsing-and-exit-status.md": "a21be713a5b97ae78ae9a63966f9e7fd81329de0fb21313976ee0e6b0d2d9453",
+        "references/authentication-and-secrets.md": "f5fa6175c868fec38192a404d3c073259a34d59edef64a6110702a7eebb0e862",
+        "references/command-taxonomy-and-help.md": "91f37b6f5ae2aa8818c77f88d0d9cf1180ebc7dd85372b67ca054d9e062ec6ed",
+        "references/config-environment-and-portability.md": "2733075753df6c8ff91c762a88eb9927bda586e82eb29ca766664a500256ab7c",
+        "references/confirmation-and-risk.md": "bfd8587ad29f270f58de9e05ffdb3b72f644749db7c2fbf057ead7892f28de0f",
+        "references/idempotency-and-concurrency.md": "0ab17308a5320c3151e5169602947992afdb0ac1dfa17d55767abff5c185bba3",
+        "references/implementation-details.md": "da2e34e42ee71f06d0a25e1e9e06ddfbe10da342e5909e675671010035607195",
+        "references/integration-and-evidence.md": "4a6fd90c3f269c3fca01b3058e780abf288223e3ae97a8d1e5649788dd60a914",
+        "references/output-and-automation.md": "e58e09e23be2ca8bfe43213e82f6f2ced82282f6cadba76f8d17395d6176153a",
+        "references/routing-and-test-oracles.md": "7d2408ae97339cac6d746387d42eea414f3b5026aa1dacf486cda912abf662ba",
+        "references/scientific-evidence-and-limits.md": "82e6fbe9349523dc4f7393738eea5f955dc9739a5710b64e7d831261de060b99",
+        "references/sources-and-decisions.md": "059171d9684e0699d47c70a9d77732c9d8b59577037e63f3f5ebf26678d0799a",
+        "references/subprocess-and-terminal-safety.md": "e08f924ab71128a0e833b748cfcaa36688bffda222322d36c596f6058215d174"
+      }
+    },
+    {
+      "name": "css-layout-engineering",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or diagnose CSS sizing, Grid/Flexbox, responsive layout, overflow and reflow. Use for concrete layout behavior; skip branding, navigation taxonomy and framework state.",
+      "reason": "Implement or diagnose CSS sizing, Grid/Flexbox, responsive layout, overflow and reflow. Use for concrete layout behavior; skip branding, navigation taxonomy and framework state.",
+      "source_files": {
+        "SKILL.md": "416124f7ceaa90340f63219ff9082d25f3b3c865d5a7a9db344241f7850849c4",
+        "references/browser-verification-and-oracles.md": "a85d91914d015f9d6df621d6c8230dea994ed5e3277d0bf6bc205b4b32f5189b",
+        "references/cascade-performance-and-resilience.md": "fadb2946388f970f6b957a7743cfc6f4403ce8f5962032edb5c28d6b1ed231e5",
+        "references/container-media-and-feature-queries.md": "aa807dd66ac04f59ee6b58b1db65399f112e0a359c80e93a30124e290cfd902b",
+        "references/flexbox-and-content-flow.md": "0121a89842f3c91662200d57bbf2fd43032f71d7bf19132761359b08911be705",
+        "references/grid-and-intrinsic-sizing.md": "6f5b7ad7e7664783ac678b2decb29dd3df00975ebae4483a760e5cd93700e94a",
+        "references/implementation-details.md": "1fc83849bac8dc4579f3a2447be97c2130da3e578ee012e2bcb0262c88efdfa2",
+        "references/layout-accessibility-and-zoom.md": "0b06918b5fecc35a3ebc0f8099fff57c209532df8aa9fdfce6b2d3d6178127c3",
+        "references/logical-properties-and-localization.md": "deb40bf21d0af5270aaffeb39f2100d65ab2c67631b83fc2d58a6ef1b9718046",
+        "references/responsive-shells-and-overflow.md": "057453dcb5b283494be53f3108447bd6485b66f1f325417605daed7453756453",
+        "references/routing-and-selection-oracles.md": "885521771467b456a4d2c55b7b3fd6d1dd8accb30e7cbeccfeec3cbb7f45fb39",
+        "references/sources-and-decisions.md": "de30a12d81d09e080ee16205f519457b6b8b65f2bc3196eb2c16a6dd8719b9e6"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/css-layout-engineering/SKILL.md",
+      "target_path": ".codex/skills/css-layout-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "416124f7ceaa90340f63219ff9082d25f3b3c865d5a7a9db344241f7850849c4",
+        "agents/openai.yaml": "eedf67fc6a5edfbe2c13ec29dc3825bbfebdecbcc6f3d094865146d7c7c7d191",
+        "references/browser-verification-and-oracles.md": "a85d91914d015f9d6df621d6c8230dea994ed5e3277d0bf6bc205b4b32f5189b",
+        "references/cascade-performance-and-resilience.md": "fadb2946388f970f6b957a7743cfc6f4403ce8f5962032edb5c28d6b1ed231e5",
+        "references/container-media-and-feature-queries.md": "aa807dd66ac04f59ee6b58b1db65399f112e0a359c80e93a30124e290cfd902b",
+        "references/flexbox-and-content-flow.md": "0121a89842f3c91662200d57bbf2fd43032f71d7bf19132761359b08911be705",
+        "references/grid-and-intrinsic-sizing.md": "6f5b7ad7e7664783ac678b2decb29dd3df00975ebae4483a760e5cd93700e94a",
+        "references/implementation-details.md": "1fc83849bac8dc4579f3a2447be97c2130da3e578ee012e2bcb0262c88efdfa2",
+        "references/layout-accessibility-and-zoom.md": "0b06918b5fecc35a3ebc0f8099fff57c209532df8aa9fdfce6b2d3d6178127c3",
+        "references/logical-properties-and-localization.md": "deb40bf21d0af5270aaffeb39f2100d65ab2c67631b83fc2d58a6ef1b9718046",
+        "references/responsive-shells-and-overflow.md": "057453dcb5b283494be53f3108447bd6485b66f1f325417605daed7453756453",
+        "references/routing-and-selection-oracles.md": "885521771467b456a4d2c55b7b3fd6d1dd8accb30e7cbeccfeec3cbb7f45fb39",
+        "references/sources-and-decisions.md": "de30a12d81d09e080ee16205f519457b6b8b65f2bc3196eb2c16a6dd8719b9e6"
+      }
+    },
+    {
+      "name": "ec-agent-control-protocol",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec agent/control-plane authentication, version negotiation, heartbeats, leases and result receipts. Skip scheduling policy and local process execution.",
+      "reason": "Implement or review Ec agent/control-plane authentication, version negotiation, heartbeats, leases and result receipts. Skip scheduling policy and local process execution.",
+      "source_files": {
+        "SKILL.md": "f552be9c982eadea436a0443bd13119024deb41decb39d63533bd7da81ea72f4",
+        "references/implementation-details.md": "1810571553097298ffbbf119b7c95723e6409f1cfc7e572624583306276812ee",
+        "references/protocol-decision-guide.md": "e364fa4669a587281cb3197f5b0739bf84bb2e6b0616581caf284150db26ec4e",
+        "references/routing-and-test-oracles.md": "bdd422c396e9fbef4e5d9c17ddbd47dca43d876dbc557bfe7ea025709f9af6dd",
+        "references/sources-and-decisions.md": "fdc89bc0422880f3fae7a5203912eb16865c4bd3c07503178024d9ed5477af7f",
+        "references/threat-and-compatibility-matrix.md": "c41148d3e7484ae8f66aa114c239627eda83bbb34a97fc02e5b29f20543dab3d"
+      },
+      "adaptations": [
+        "HTTP versionado é a decisão vigente. gRPC bidirecional/HTTP2/Protobuf e compatibilidade N/N−1 específica são propostas sujeitas a ADR e ensaios. Separar ACK durável, efeito aplicado e conclusão; verificar autenticação, sessão, tentativa, fencing, replay, reconexão e backpressure.",
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-agent-control-protocol/SKILL.md",
+      "target_path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
+      "files": {
+        "SKILL.md": "34ad20d94bec1006d92718ecde9976e1326ef4dc65854b0b9fc0d716d2a4136f",
+        "agents/openai.yaml": "92a57fedf4cf7741b0d88f4ddd95a3e623222f47c2b15f8a0c2239937c5d47d6",
+        "references/implementation-details.md": "1810571553097298ffbbf119b7c95723e6409f1cfc7e572624583306276812ee",
+        "references/protocol-decision-guide.md": "e364fa4669a587281cb3197f5b0739bf84bb2e6b0616581caf284150db26ec4e",
+        "references/routing-and-test-oracles.md": "bdd422c396e9fbef4e5d9c17ddbd47dca43d876dbc557bfe7ea025709f9af6dd",
+        "references/sources-and-decisions.md": "fdc89bc0422880f3fae7a5203912eb16865c4bd3c07503178024d9ed5477af7f",
+        "references/threat-and-compatibility-matrix.md": "c41148d3e7484ae8f66aa114c239627eda83bbb34a97fc02e5b29f20543dab3d"
+      }
+    },
+    {
+      "name": "ec-agent-pool-console",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec agent/pool administration and explainable eligibility views. Skip scheduler placement algorithms, agent wire protocols and local execution.",
+      "reason": "Implement or review Ec agent/pool administration and explainable eligibility views. Skip scheduler placement algorithms, agent wire protocols and local execution.",
+      "source_files": {
+        "SKILL.md": "9109b1500a75644e244daa0d5c75383fe38a63339c72b5cd03a4d77b2882a100",
+        "references/administration-and-ui.md": "1951e12fa090dadaaa2d8c1eb423fa11885d62b12334f0c6081056f5a8b6886a",
+        "references/eligibility-and-evidence.md": "187e267b66298147804879f27fef3b31fd45975666d0c06f6236c5aa8d3f3147",
+        "references/implementation-details.md": "4c16a4466cd4d6a92023cbde7d7fa0ffa95ba1788f3ab9356aa64070cf8921e2",
+        "references/routing-and-test-oracles.md": "0c11644a8f5e55cad63949fcebdb7194c171081a5c2dc778ed0551c6b054c19b",
+        "references/sources-and-decisions.md": "21ae4841c179c51187d766763aaf501d4e7eeca73d1d7717973b1774f870588e"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-agent-pool-console/SKILL.md",
+      "target_path": ".codex/skills/ec-agent-pool-console/SKILL.md",
+      "files": {
+        "SKILL.md": "9109b1500a75644e244daa0d5c75383fe38a63339c72b5cd03a4d77b2882a100",
+        "agents/openai.yaml": "5cf14233acefd45f4701b8629fad4989931b2b866928caa2adc4b7e353f01012",
+        "references/administration-and-ui.md": "1951e12fa090dadaaa2d8c1eb423fa11885d62b12334f0c6081056f5a8b6886a",
+        "references/eligibility-and-evidence.md": "187e267b66298147804879f27fef3b31fd45975666d0c06f6236c5aa8d3f3147",
+        "references/implementation-details.md": "4c16a4466cd4d6a92023cbde7d7fa0ffa95ba1788f3ab9356aa64070cf8921e2",
+        "references/routing-and-test-oracles.md": "0c11644a8f5e55cad63949fcebdb7194c171081a5c2dc778ed0551c6b054c19b",
+        "references/sources-and-decisions.md": "21ae4841c179c51187d766763aaf501d4e7eeca73d1d7717973b1774f870588e"
+      }
+    },
+    {
+      "name": "ec-configuration-publication",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec configuration publication, immutable revisions, approval binding, conflicts and reconciliation. Skip schema definitions, editor projections and application deployment.",
+      "reason": "Implement or review Ec configuration publication, immutable revisions, approval binding, conflicts and reconciliation. Skip schema definitions, editor projections and application deployment.",
+      "source_files": {
+        "SKILL.md": "d849d9a2183bfc9ad4d1e0a4fc0a740b309954383dd8269c4256d4fe59a103ee",
+        "references/implementation-details.md": "1e3352ba6e2faf0e12d3ad008ea35b7d9f7fe2fbe73d3aca7a3079775d83b0a6",
+        "references/sources-and-decisions.md": "a25afdc0ad5d4c408e1d94b4d4a27d9f6cc0d4627b26af5e6fce502deae11ecb",
+        "references/state-machine-and-boundaries.md": "2d2972f2109fbefb92bb7cc6f7319940b5f0d501d652b1008f3fac73c1b1f0e1",
+        "references/test-oracles-and-routing.md": "de3ce232d9bb5075abcbc509fc1d70f170dba3af6d4864d87511291b18c8eb23"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-configuration-publication/SKILL.md",
+      "target_path": ".codex/skills/ec-configuration-publication/SKILL.md",
+      "files": {
+        "SKILL.md": "d849d9a2183bfc9ad4d1e0a4fc0a740b309954383dd8269c4256d4fe59a103ee",
+        "agents/openai.yaml": "5f3d4dd100ad91d282133625ba19db3ba99e56b53f23b5fbd21446da46e2291b",
+        "references/implementation-details.md": "1e3352ba6e2faf0e12d3ad008ea35b7d9f7fe2fbe73d3aca7a3079775d83b0a6",
+        "references/sources-and-decisions.md": "a25afdc0ad5d4c408e1d94b4d4a27d9f6cc0d4627b26af5e6fce502deae11ecb",
+        "references/state-machine-and-boundaries.md": "2d2972f2109fbefb92bb7cc6f7319940b5f0d501d652b1008f3fac73c1b1f0e1",
+        "references/test-oracles-and-routing.md": "de3ce232d9bb5075abcbc509fc1d70f170dba3af6d4864d87511291b18c8eb23"
+      }
+    },
+    {
+      "name": "ec-declarative-resource-schemas",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design or review Ec YAML resource schemas, parser boundaries, validation, evolution and diagnostics. Skip editor presentation, publication and execution without a schema question.",
+      "reason": "Design or review Ec YAML resource schemas, parser boundaries, validation, evolution and diagnostics. Skip editor presentation, publication and execution without a schema question.",
+      "source_files": {
+        "SKILL.md": "0582d13a8beb309350d1de838b35c2b1b57cfbde465de5c87b76f4191b720867",
+        "references/checks-and-examples.md": "ec1b0bb65636c4f52eaa100254ae051945c6ee6b0e2acb6206b9857636f40750",
+        "references/implementation-details.md": "c08b2c96de82b3bd1f41e0028a6d9ff30289d7e498f4df5cd156a060a752808f",
+        "references/sources-and-decisions.md": "620231e4a260f788290690fda3d13af008a5378d1a34dd14c5f484ec27909a82"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-declarative-resource-schemas/SKILL.md",
+      "target_path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
+      "files": {
+        "SKILL.md": "0582d13a8beb309350d1de838b35c2b1b57cfbde465de5c87b76f4191b720867",
+        "agents/openai.yaml": "a234db6784a1ca198e1c322d1dd2da72b9a251aa983e85616c1bdce90360ef08",
+        "references/checks-and-examples.md": "ec1b0bb65636c4f52eaa100254ae051945c6ee6b0e2acb6206b9857636f40750",
+        "references/implementation-details.md": "c08b2c96de82b3bd1f41e0028a6d9ff30289d7e498f4df5cd156a060a752808f",
+        "references/sources-and-decisions.md": "620231e4a260f788290690fda3d13af008a5378d1a34dd14c5f484ec27909a82"
+      }
+    },
+    {
+      "name": "ec-effective-permissions",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec effective authorization, inherited grants, provenance, freshness and delegation controls. Skip authentication federation and access-administration UI alone.",
+      "reason": "Implement or review Ec effective authorization, inherited grants, provenance, freshness and delegation controls. Skip authentication federation and access-administration UI alone.",
+      "source_files": {
+        "SKILL.md": "4a0083d154d2f8cfb72663901ad879077615a153802888ea5d916277ac176e28",
+        "references/evaluation-contract-and-freshness.md": "4834ee6aea6f282723ccee0261edd9b7279ef2dc792c79bee367aad6af7956a2",
+        "references/implementation-details.md": "596d9cb95471cdab45b9093bcf34c3bf913547b7f2e3c262b4eb28bbea10982a",
+        "references/routing-and-test-oracles.md": "3eeadc07c070491b409cf861e042015dc2e6da3e8a33361d1648ed7d835c6677",
+        "references/sources-and-decisions.md": "42465f05ab384334c8baa3df1f0ed737ba4d387110180c93a4dc2bacbf7627f7"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-effective-permissions/SKILL.md",
+      "target_path": ".codex/skills/ec-effective-permissions/SKILL.md",
+      "files": {
+        "SKILL.md": "4a0083d154d2f8cfb72663901ad879077615a153802888ea5d916277ac176e28",
+        "agents/openai.yaml": "29ed645c245955ff1974a3a117657b34200f5823ade22948eec4d1247179ae24",
+        "references/evaluation-contract-and-freshness.md": "4834ee6aea6f282723ccee0261edd9b7279ef2dc792c79bee367aad6af7956a2",
+        "references/implementation-details.md": "596d9cb95471cdab45b9093bcf34c3bf913547b7f2e3c262b4eb28bbea10982a",
+        "references/routing-and-test-oracles.md": "3eeadc07c070491b409cf861e042015dc2e6da3e8a33361d1648ed7d835c6677",
+        "references/sources-and-decisions.md": "42465f05ab384334c8baa3df1f0ed737ba4d387110180c93a4dc2bacbf7627f7"
+      }
+    },
+    {
+      "name": "ec-environments-and-approvals",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec environment resources, promotion requests, approval gates and operational feedback. Skip generic rollout algorithms and configuration publication.",
+      "reason": "Implement or review Ec environment resources, promotion requests, approval gates and operational feedback. Skip generic rollout algorithms and configuration publication.",
+      "source_files": {
+        "SKILL.md": "4f54ac8e0370d2393011e4f7534c2075daaac2ee6d3e65d166cb80104883c7ef",
+        "references/gates-and-promotion-lifecycle.md": "ff06dba2bd07390ae461a0ebe975e22bb232b9166172c3ed1a135e5bd259cc00",
+        "references/implementation-details.md": "d0c43885c0af2fb09f0d5ab3373cd7c9f6bf9dec6c76b451371fff32acf202c7",
+        "references/routing-and-test-oracles.md": "33acf7e8ae1185e20d1674bb43472924c8ebc6319cba64172be873bc387b0cf6",
+        "references/security-and-ui.md": "37718085e57aaf264bcabe590acb41548854d9b9501615580a61a73539e413dd",
+        "references/sources-and-decisions.md": "7f9cbdbbcfd356e19e585c2ff98ac4754683cffe078dc43abed80a599bcdd43d"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-environments-and-approvals/SKILL.md",
+      "target_path": ".codex/skills/ec-environments-and-approvals/SKILL.md",
+      "files": {
+        "SKILL.md": "4f54ac8e0370d2393011e4f7534c2075daaac2ee6d3e65d166cb80104883c7ef",
+        "agents/openai.yaml": "b99648a0556a77a75015d91f4aaf40732f11b5aecd1c04d71d2e641a2e61697b",
+        "references/gates-and-promotion-lifecycle.md": "ff06dba2bd07390ae461a0ebe975e22bb232b9166172c3ed1a135e5bd259cc00",
+        "references/implementation-details.md": "d0c43885c0af2fb09f0d5ab3373cd7c9f6bf9dec6c76b451371fff32acf202c7",
+        "references/routing-and-test-oracles.md": "33acf7e8ae1185e20d1674bb43472924c8ebc6319cba64172be873bc387b0cf6",
+        "references/security-and-ui.md": "37718085e57aaf264bcabe590acb41548854d9b9501615580a61a73539e413dd",
+        "references/sources-and-decisions.md": "7f9cbdbbcfd356e19e585c2ff98ac4754683cffe078dc43abed80a599bcdd43d"
+      }
+    },
+    {
+      "name": "ec-integrations-and-webhooks",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec connector administration, credential references, webhook setup and diagnostics. Skip generic VCS event processing and identity-federation protocol design.",
+      "reason": "Implement or review Ec connector administration, credential references, webhook setup and diagnostics. Skip generic VCS event processing and identity-federation protocol design.",
+      "source_files": {
+        "SKILL.md": "cc5568f5b3ca4fd46d9ad72fbc1a199ca720c43000eb717ac9cf15bd9fcd6eab",
+        "references/connector-configuration-and-credentials.md": "f264d2bcbfcae07d4df58915ae19a2847ddc49d40bab10403dcc65d5edfbe0b6",
+        "references/implementation-details.md": "9ddf0123c2f496e96276d76fe4c6b8a6e6c12a923a722c1f6e9515f2374af0a3",
+        "references/inbound-webhook-security-and-admission.md": "b2f906c540fc9089015ea7816adf66a1b555e41e8f9de20443ccfa6aaec4bfcb",
+        "references/outbound-delivery-and-observability.md": "910f8aec2501ea42e80da75ee14481347bf5b827dcb929bb977e1a14596f264e",
+        "references/routing-and-test-oracles.md": "5707ab2f7975ba0cac31386382d4da1aae32c8c54127ab35b43e71d5448a6796",
+        "references/sources-and-decisions.md": "34619d36c40793cd8e22f2c814ac60a070019b10454ffa96b687c68ece528d9e"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/SKILL.md",
+      "target_path": ".codex/skills/ec-integrations-and-webhooks/SKILL.md",
+      "files": {
+        "SKILL.md": "cc5568f5b3ca4fd46d9ad72fbc1a199ca720c43000eb717ac9cf15bd9fcd6eab",
+        "agents/openai.yaml": "ba2741560dc19c1a1d49440dcc647916876ecacf4b8d297449a3c54414259c67",
+        "references/connector-configuration-and-credentials.md": "f264d2bcbfcae07d4df58915ae19a2847ddc49d40bab10403dcc65d5edfbe0b6",
+        "references/implementation-details.md": "9ddf0123c2f496e96276d76fe4c6b8a6e6c12a923a722c1f6e9515f2374af0a3",
+        "references/inbound-webhook-security-and-admission.md": "b2f906c540fc9089015ea7816adf66a1b555e41e8f9de20443ccfa6aaec4bfcb",
+        "references/outbound-delivery-and-observability.md": "910f8aec2501ea42e80da75ee14481347bf5b827dcb929bb977e1a14596f264e",
+        "references/routing-and-test-oracles.md": "5707ab2f7975ba0cac31386382d4da1aae32c8c54127ab35b43e71d5448a6796",
+        "references/sources-and-decisions.md": "34619d36c40793cd8e22f2c814ac60a070019b10454ffa96b687c68ece528d9e"
+      }
+    },
+    {
+      "name": "ec-operations-and-administration-console",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec health, audit, diagnostics and administrative operations screens. Skip run controls, pool management and telemetry-backend design without a console concern.",
+      "reason": "Implement or review Ec health, audit, diagnostics and administrative operations screens. Skip run controls, pool management and telemetry-backend design without a console concern.",
+      "source_files": {
+        "SKILL.md": "19d1de008c56c381ce600f561fd7084b266f306fad8cb0d83be32e04fb699b60",
+        "references/admin-command-and-audit-safety.md": "33fde06a738f6f6299bc17047b656d75c8e82ed6b960c0e09348cf8ae8996f12",
+        "references/health-evidence-and-information-architecture.md": "07b12e908867cdcce5840e45017e4094190a80a91b0abe2dc1f4a8cdf8feec95",
+        "references/implementation-details.md": "ac435f60946235a972223a0f425aa6787cfbc69b00c68faa630b9ef18300e12b",
+        "references/recovery-and-ux-oracles.md": "16b55c13135679beb3c4c9b09fcc9a46713efb8b049ebe8c8a142afafc85a3de",
+        "references/routing-and-test-oracles.md": "d2b3b567fa1768d275280a29a0cf3647f13a8a3d54e6e8c9f0095ab88da1dbc3",
+        "references/sources-and-decisions.md": "0e9d5a7c981a318576a7c3b0c492a604813dbef3bc6eed9ecc57da561f182d30"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-operations-and-administration-console/SKILL.md",
+      "target_path": ".codex/skills/ec-operations-and-administration-console/SKILL.md",
+      "files": {
+        "SKILL.md": "19d1de008c56c381ce600f561fd7084b266f306fad8cb0d83be32e04fb699b60",
+        "agents/openai.yaml": "6d8052dd811a8106d1302123a10e6091878152fc30ab548d4750ba88c8c37fd7",
+        "references/admin-command-and-audit-safety.md": "33fde06a738f6f6299bc17047b656d75c8e82ed6b960c0e09348cf8ae8996f12",
+        "references/health-evidence-and-information-architecture.md": "07b12e908867cdcce5840e45017e4094190a80a91b0abe2dc1f4a8cdf8feec95",
+        "references/implementation-details.md": "ac435f60946235a972223a0f425aa6787cfbc69b00c68faa630b9ef18300e12b",
+        "references/recovery-and-ux-oracles.md": "16b55c13135679beb3c4c9b09fcc9a46713efb8b049ebe8c8a142afafc85a3de",
+        "references/routing-and-test-oracles.md": "d2b3b567fa1768d275280a29a0cf3647f13a8a3d54e6e8c9f0095ab88da1dbc3",
+        "references/sources-and-decisions.md": "0e9d5a7c981a318576a7c3b0c492a604813dbef3bc6eed9ecc57da561f182d30"
+      }
+    },
+    {
+      "name": "ec-people-and-access-administration",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec users, teams, groups, memberships and role-binding administration. Skip federation protocols and the effective-permission evaluation algorithm.",
+      "reason": "Implement or review Ec users, teams, groups, memberships and role-binding administration. Skip federation protocols and the effective-permission evaluation algorithm.",
+      "source_files": {
+        "SKILL.md": "95bb7906f62f62ad4e9d8eb9b4022b8d2ac33f54cb1e995873a1047873bac3d9",
+        "references/identity-lifecycle-and-bindings.md": "3ab7585d8120e4b8ab066777c3fcd45e91729454b8113a41301d06d17bdb508d",
+        "references/implementation-details.md": "40a47dc348f0b817d121d9b483d2d631742b4157ebf37a9e064b570abec4411e",
+        "references/routing-and-test-oracles.md": "2fb773f38feee0e333000e21c73142674fb0f7c9ea46b7b9b81f6152f376a527",
+        "references/sources-and-decisions.md": "6fd332e150e8cb771e45c2492d7ecf53eba95f3e72306c96a2ee8ea9108ad734"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-people-and-access-administration/SKILL.md",
+      "target_path": ".codex/skills/ec-people-and-access-administration/SKILL.md",
+      "files": {
+        "SKILL.md": "95bb7906f62f62ad4e9d8eb9b4022b8d2ac33f54cb1e995873a1047873bac3d9",
+        "agents/openai.yaml": "6acd78b29fe8a2b8343a39698a3829aa647b785070e69ce63bb8335436580b7e",
+        "references/identity-lifecycle-and-bindings.md": "3ab7585d8120e4b8ab066777c3fcd45e91729454b8113a41301d06d17bdb508d",
+        "references/implementation-details.md": "40a47dc348f0b817d121d9b483d2d631742b4157ebf37a9e064b570abec4411e",
+        "references/routing-and-test-oracles.md": "2fb773f38feee0e333000e21c73142674fb0f7c9ea46b7b9b81f6152f376a527",
+        "references/sources-and-decisions.md": "6fd332e150e8cb771e45c2492d7ecf53eba95f3e72306c96a2ee8ea9108ad734"
+      }
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec pipeline canvas, inspector, Form/YAML coordination and draft interactions. Skip DAG algorithms, schema ownership and execution scheduling.",
+      "reason": "Implement or review Ec pipeline canvas, inspector, Form/YAML coordination and draft interactions. Skip DAG algorithms, schema ownership and execution scheduling.",
+      "source_files": {
+        "SKILL.md": "faba43c0ebe850d82aebbcbf802f188b1c47bec4acdef35ec7a884a4578b170b",
+        "references/implementation-details.md": "0b8d391efc6390c7391d4f7be3f0c873b7c24c05c66d302e98d3113474d6ab02",
+        "references/interaction-and-state-contract.md": "05f66f430c4914c09a0a00b9dc64c9613da9656305970cd82f183e10cf41e8ac",
+        "references/routing-and-test-oracles.md": "c3a8ffbdb787a6ce487e01d3bc56dac36b5a5b67db247239ef1c0268f47f03b0",
+        "references/sources-and-decisions.md": "fe067b6ff340d443c7a9654a447f4b60ca4a179af35f84fcf1a2025cd1a9aa67"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/SKILL.md",
+      "target_path": ".codex/skills/ec-pipeline-authoring-workspace/SKILL.md",
+      "files": {
+        "SKILL.md": "faba43c0ebe850d82aebbcbf802f188b1c47bec4acdef35ec7a884a4578b170b",
+        "agents/openai.yaml": "70afd3101d1df8ae2d5a4ee94edf93b71cf70df49f3771810288f195947d305d",
+        "references/implementation-details.md": "0b8d391efc6390c7391d4f7be3f0c873b7c24c05c66d302e98d3113474d6ab02",
+        "references/interaction-and-state-contract.md": "05f66f430c4914c09a0a00b9dc64c9613da9656305970cd82f183e10cf41e8ac",
+        "references/routing-and-test-oracles.md": "c3a8ffbdb787a6ce487e01d3bc56dac36b5a5b67db247239ef1c0268f47f03b0",
+        "references/sources-and-decisions.md": "fe067b6ff340d443c7a9654a447f4b60ca4a179af35f84fcf1a2025cd1a9aa67"
+      }
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec plugin artifact trust, isolation, granted capabilities and lifecycle recovery. Skip manifest compatibility alone and unrelated extension UI.",
+      "reason": "Implement or review Ec plugin artifact trust, isolation, granted capabilities and lifecycle recovery. Skip manifest compatibility alone and unrelated extension UI.",
+      "source_files": {
+        "SKILL.md": "f5a38d6a000b249f1bdfe87b26bcd678159a65c9ef404f229a20590a73ab98e4",
+        "references/artifact-verification-and-trust.md": "31f3b36c878fbe89cf53a864c8b75d5c04f50c7406ab0c430e2251e8b10bd48c",
+        "references/implementation-details.md": "297703b36c6ca22463d79eb33265f291752561cbaa53a0e732c5156adc48023e",
+        "references/isolation-and-capability-enforcement.md": "75ba08d0cd8ecdcd4c1ec13845e231e549605b0efcf09399d5d882a25a59cd44",
+        "references/lifecycle-and-reconciliation.md": "39a0de2dd67f2e3829fb432fe2c5d0005630684050af78f443207f2eeb45fd3c",
+        "references/routing-and-test-oracles.md": "2c93cbccf580a88c9002e08af127f1a73d75a313897d5f39c5bab077368a7101",
+        "references/sources-and-decisions.md": "00201d8fd9bf699f0fa2abaee90f54bde813147f2cc672a71b2357fb24daefb8"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
+      "target_path": ".codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
+      "files": {
+        "SKILL.md": "f5a38d6a000b249f1bdfe87b26bcd678159a65c9ef404f229a20590a73ab98e4",
+        "agents/openai.yaml": "c88fa8c117165c0e042c9e6d20ccddc73038f3d9e9dadb61ea326a6617d47d39",
+        "references/artifact-verification-and-trust.md": "31f3b36c878fbe89cf53a864c8b75d5c04f50c7406ab0c430e2251e8b10bd48c",
+        "references/implementation-details.md": "297703b36c6ca22463d79eb33265f291752561cbaa53a0e732c5156adc48023e",
+        "references/isolation-and-capability-enforcement.md": "75ba08d0cd8ecdcd4c1ec13845e231e549605b0efcf09399d5d882a25a59cd44",
+        "references/lifecycle-and-reconciliation.md": "39a0de2dd67f2e3829fb432fe2c5d0005630684050af78f443207f2eeb45fd3c",
+        "references/routing-and-test-oracles.md": "2c93cbccf580a88c9002e08af127f1a73d75a313897d5f39c5bab077368a7101",
+        "references/sources-and-decisions.md": "00201d8fd9bf699f0fa2abaee90f54bde813147f2cc672a71b2357fb24daefb8"
+      }
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design or review Ec plugin manifests, extension contracts and dependency compatibility. Skip runtime isolation, artifact trust verification and generic package upgrades.",
+      "reason": "Design or review Ec plugin manifests, extension contracts and dependency compatibility. Skip runtime isolation, artifact trust verification and generic package upgrades.",
+      "source_files": {
+        "SKILL.md": "1df686cccab0aa2c4491505d302a2520713221b71ab003471e00b8757a83aa4d",
+        "references/constraint-resolution-and-contract-tests.md": "6bb32ed88e1163356353cd02b73a0c7af8bb41cb137e949a881060b2374b81f6",
+        "references/implementation-details.md": "16d58249f7bdb753f1c53b658c568ff3f88c2e08cebb4a2e2e272326989e986e",
+        "references/manifest-and-version-matrix.md": "8c2b74ce621b6982da4dc6e278da4107cdf3bd4c05e2c7688286cb3c05e57229",
+        "references/routing-and-test-oracles.md": "d38b3b3a055b8869e123e5b93ded5c478be0f84b5b094573d185effb4b7a4a93",
+        "references/security-catalog-and-ui.md": "d0ba1f20b1d6f8e3a467fd3ad536b84da020ae7192114f2fd8c36d46739bc8d0",
+        "references/sources-and-decisions.md": "0c48eb014acc0f2bc26e36f4e8d5aaae08d341d079e9e4210b29f44420452a01"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
+      "target_path": ".codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
+      "files": {
+        "SKILL.md": "1df686cccab0aa2c4491505d302a2520713221b71ab003471e00b8757a83aa4d",
+        "agents/openai.yaml": "bdf72e62b2f43916f2c5d9f2bf93cef0171eed36344402b64d67c9ee1ab174b0",
+        "references/constraint-resolution-and-contract-tests.md": "6bb32ed88e1163356353cd02b73a0c7af8bb41cb137e949a881060b2374b81f6",
+        "references/implementation-details.md": "16d58249f7bdb753f1c53b658c568ff3f88c2e08cebb4a2e2e272326989e986e",
+        "references/manifest-and-version-matrix.md": "8c2b74ce621b6982da4dc6e278da4107cdf3bd4c05e2c7688286cb3c05e57229",
+        "references/routing-and-test-oracles.md": "d38b3b3a055b8869e123e5b93ded5c478be0f84b5b094573d185effb4b7a4a93",
+        "references/security-catalog-and-ui.md": "d0ba1f20b1d6f8e3a467fd3ad536b84da020ae7192114f2fd8c36d46739bc8d0",
+        "references/sources-and-decisions.md": "0c48eb014acc0f2bc26e36f4e8d5aaae08d341d079e9e4210b29f44420452a01"
+      }
+    },
+    {
+      "name": "ec-product-contract-test-harness",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Build or review an Ec cross-layer test harness for configuration, authorization, revision and execution contracts. Skip generic test strategy and product-policy invention.",
+      "reason": "Build or review an Ec cross-layer test harness for configuration, authorization, revision and execution contracts. Skip generic test strategy and product-policy invention.",
+      "source_files": {
+        "SKILL.md": "c829acf054b88a08c21ee277edc0f82db38d815a5dd6808f96030340910259de",
+        "references/authorization-version-and-reconciliation-oracles.md": "3f98278c52ebda0c0a860ba55b3d9f0dbf3631c01ba41578450ab6e9d94aa927",
+        "references/execution-evidence-and-fault-injection.md": "eb905d27421a732ec5d914d9d31ef50cdd51f283676b3c4bdfe51893c8867a62",
+        "references/harness-architecture-and-adapters.md": "a9ec822dcb2271c020dfde665271c1efbb0bf9ea52e4861e99851c8149a3cb30",
+        "references/implementation-details.md": "a3396b7fa28cb939bca2625454729ae4a1c8a88b8e5c003060753d9e9456bcfa",
+        "references/routing-and-test-oracles.md": "65cd938bfd23d83701ff0ed60b24c45e592405f8c6908695ea3b5c544a8f34a9",
+        "references/semantic-config-contract-vectors.md": "b7b47f94dd68040cab7cdffe95b4d341ea3da8370a65714e98148830d51a546d",
+        "references/sources-and-decisions.md": "8029a35e8e375bb6adaef927d590c0ad3d0c20c514af519d0e7dd889799b5645"
+      },
+      "adaptations": [
+        "Testar parser YAML real, autorização, revisão imutável e paridade Visual/Formulário/YAML quando implementados. Contratos gRPC/SQLite somente após ADR; não substituir integração real por um segundo produto simulado.",
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-product-contract-test-harness/SKILL.md",
+      "target_path": ".codex/skills/ec-product-contract-test-harness/SKILL.md",
+      "files": {
+        "SKILL.md": "8a9fc535edbb905a580f73b721f6707ec62a4462328e2a5560f8721c44c679a4",
+        "agents/openai.yaml": "ffbd47a2f2b8c00050b48a206dedd015dbb7233b1ba1bc148894dba10e25b6f8",
+        "references/authorization-version-and-reconciliation-oracles.md": "3f98278c52ebda0c0a860ba55b3d9f0dbf3631c01ba41578450ab6e9d94aa927",
+        "references/execution-evidence-and-fault-injection.md": "eb905d27421a732ec5d914d9d31ef50cdd51f283676b3c4bdfe51893c8867a62",
+        "references/harness-architecture-and-adapters.md": "a9ec822dcb2271c020dfde665271c1efbb0bf9ea52e4861e99851c8149a3cb30",
+        "references/implementation-details.md": "a3396b7fa28cb939bca2625454729ae4a1c8a88b8e5c003060753d9e9456bcfa",
+        "references/routing-and-test-oracles.md": "65cd938bfd23d83701ff0ed60b24c45e592405f8c6908695ea3b5c544a8f34a9",
+        "references/semantic-config-contract-vectors.md": "b7b47f94dd68040cab7cdffe95b4d341ea3da8370a65714e98148830d51a546d",
+        "references/sources-and-decisions.md": "8029a35e8e375bb6adaef927d590c0ad3d0c20c514af519d0e7dd889799b5645"
+      }
+    },
+    {
+      "name": "ec-project-hierarchy-management",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec project trees, inheritance and hierarchy mutations. Skip pipeline DAGs, membership graphs and schema or permission-engine ownership.",
+      "reason": "Implement or review Ec project trees, inheritance and hierarchy mutations. Skip pipeline DAGs, membership graphs and schema or permission-engine ownership.",
+      "source_files": {
+        "SKILL.md": "41598585c8b42d77cdee08156ddf1db9a961a0785aa06102a8fba24c771b2b20",
+        "references/hierarchy-model-and-inheritance.md": "eb1359828edad83c522d5be930211dc0d5897e08e152bb5aa5565041a7b31744",
+        "references/implementation-details.md": "294f69a81bb7374cb0d91d545301359c6590ceb9a00aed5607363899df56c2b7",
+        "references/routing-and-test-oracles.md": "10f0135ace7a12d6bb68b6f4aedbbb4e49b59b460ea24d9071fd30969d2bb9af",
+        "references/sources-and-decisions.md": "c54572729d1e46baf532ca5bd3f330d30d39cb844e44fa37041b05db1c895cc8"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-project-hierarchy-management/SKILL.md",
+      "target_path": ".codex/skills/ec-project-hierarchy-management/SKILL.md",
+      "files": {
+        "SKILL.md": "41598585c8b42d77cdee08156ddf1db9a961a0785aa06102a8fba24c771b2b20",
+        "agents/openai.yaml": "66a307d5c5da2a7c6e300590699e0726802c7730870ccbda5cf862781cabbe28",
+        "references/hierarchy-model-and-inheritance.md": "eb1359828edad83c522d5be930211dc0d5897e08e152bb5aa5565041a7b31744",
+        "references/implementation-details.md": "294f69a81bb7374cb0d91d545301359c6590ceb9a00aed5607363899df56c2b7",
+        "references/routing-and-test-oracles.md": "10f0135ace7a12d6bb68b6f4aedbbb4e49b59b460ea24d9071fd30969d2bb9af",
+        "references/sources-and-decisions.md": "c54572729d1e46baf532ca5bd3f330d30d39cb844e44fa37041b05db1c895cc8"
+      }
+    },
+    {
+      "name": "ec-run-execution-operations",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Ec operator-facing run/job/attempt status, cancellation, retry and diagnostics. Skip scheduler allocation, local process control and configuration publication.",
+      "reason": "Implement or review Ec operator-facing run/job/attempt status, cancellation, retry and diagnostics. Skip scheduler allocation, local process control and configuration publication.",
+      "source_files": {
+        "SKILL.md": "5fe19e1dababa67b9b2cf146cd593fe287c7c4d1a60391fa9f2cb5bfcde27dea",
+        "references/implementation-details.md": "f25b9c7f6acd1c7f50f6558b957104ef0a012335d4a6f451b04720091462d2d5",
+        "references/lifecycle-and-operation-contract.md": "e8c18234c3172f7f3a2b7b8ea3aae5c1cee74a6c690feb1043b73a9ba1fb23b3",
+        "references/routing-and-test-oracles.md": "a65e84e48d43919805f027db082f85804a03a1dc6974e3dee0cece5b3073d4a8",
+        "references/sources-and-decisions.md": "8e80a8d0817aa1d182909772ae20f6455f091fc3944c536f58307c958a0e22bd"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-run-execution-operations/SKILL.md",
+      "target_path": ".codex/skills/ec-run-execution-operations/SKILL.md",
+      "files": {
+        "SKILL.md": "5fe19e1dababa67b9b2cf146cd593fe287c7c4d1a60391fa9f2cb5bfcde27dea",
+        "agents/openai.yaml": "432227a56f950ef280cce3f658dcffcfdd4a7d2948606de895c8c13b1834998f",
+        "references/implementation-details.md": "f25b9c7f6acd1c7f50f6558b957104ef0a012335d4a6f451b04720091462d2d5",
+        "references/lifecycle-and-operation-contract.md": "e8c18234c3172f7f3a2b7b8ea3aae5c1cee74a6c690feb1043b73a9ba1fb23b3",
+        "references/routing-and-test-oracles.md": "a65e84e48d43919805f027db082f85804a03a1dc6974e3dee0cece5b3073d4a8",
+        "references/sources-and-decisions.md": "8e80a8d0817aa1d182909772ae20f6455f091fc3944c536f58307c958a0e22bd"
+      }
+    },
+    {
+      "name": "ec-semantic-configuration-projections",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review loss-preserving Ec YAML/Form/Visual projections and draft synchronization. Skip schema definition, publication and styling without semantic edits.",
+      "reason": "Implement or review loss-preserving Ec YAML/Form/Visual projections and draft synchronization. Skip schema definition, publication and styling without semantic edits.",
+      "source_files": {
+        "SKILL.md": "d8e833a14c393737a0f9472873e3c989408b99958d431feec4ba747e85208477",
+        "references/implementation-details.md": "abcb1fe38bff33f27df0b93e9c16ccf8ecc202a9cf813b0c6c9998c0edf206b9",
+        "references/lens-laws-and-data-model.md": "eed446f520041b0d6bdef969d82facdd16be02f5224b249eae2a3d4e0e2d373b",
+        "references/sources-and-decisions.md": "05bce94632b98a5d2497e53b08ffb73017d83d6ecbc9b2b5b9f444d0576774a9",
+        "references/test-oracles-and-routing.md": "4435b452c0bd69c8086e29835394d947963f164c960e672e3b23256a33719d11"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/SKILL.md",
+      "target_path": ".codex/skills/ec-semantic-configuration-projections/SKILL.md",
+      "files": {
+        "SKILL.md": "d8e833a14c393737a0f9472873e3c989408b99958d431feec4ba747e85208477",
+        "agents/openai.yaml": "880cc8a29a7be0186c7d3b8d418d05aadd9163ff175f1356d6f15327f79890d1",
+        "references/implementation-details.md": "abcb1fe38bff33f27df0b93e9c16ccf8ecc202a9cf813b0c6c9998c0edf206b9",
+        "references/lens-laws-and-data-model.md": "eed446f520041b0d6bdef969d82facdd16be02f5224b249eae2a3d4e0e2d373b",
+        "references/sources-and-decisions.md": "05bce94632b98a5d2497e53b08ffb73017d83d6ecbc9b2b5b9f444d0576774a9",
+        "references/test-oracles-and-routing.md": "4435b452c0bd69c8086e29835394d947963f164c960e672e3b23256a33719d11"
+      }
+    },
+    {
+      "name": "frontend-form-engineering",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review web form state, validation, submission and recovery. Use for interactive field and commit semantics; skip resource-schema ownership and unrelated component styling.",
+      "reason": "Implement or review web form state, validation, submission and recovery. Use for interactive field and commit semantics; skip resource-schema ownership and unrelated component styling.",
+      "source_files": {
+        "SKILL.md": "167196a12da8db4979728adc201ba551d73eba192bdfe71757a53574900580c4",
+        "references/async-submission-and-concurrency.md": "f35774d80ad8e089260685db0a528f638534a3180e6476df606f3d0cd112b828",
+        "references/conditional-and-dynamic-fields.md": "665b135ec997e2899d838c34006d30e92e1a5634a08289a3b4a6afeda0f04d32",
+        "references/field-types-and-formatting.md": "8a3d4ac959a174a9a388287fb0b8f3832bb5ad94c7498d6f5462ca696426fcab",
+        "references/form-contract-and-state.md": "e5f5ea4efb726349da3507850bc3aafe5fb2ed75e5adf615e717be356d58ff73",
+        "references/implementation-details.md": "f7305952f30ec04d30317537cf3e7382e1ae5fa5a07a2535790969590d4561e4",
+        "references/native-accessible-controls.md": "0f7892c2616e8e5a4bb39eabd75311658785375b3b960d692ab22ccc3c047b04",
+        "references/routing-and-selection-oracles.md": "c8a2da56b7d2812c62a4c40bdffd22a5c3310e0cd48d9abe5cb3e6057bc89544",
+        "references/scientific-evidence-and-limits.md": "2364e42430dfb3f3dc24c9f294a294e65db1eb326a3d913ececfee4001ce0f01",
+        "references/server-reconciliation-and-security.md": "025e1d92f24bcc4095c4f6c52370c6c041bfdca5537299928ffd02247ee25c2a",
+        "references/sources-and-decisions.md": "e4ac35f82cce78928ac1527f258f71d30e6f66eecde80361e07f53f34fbbc0f1",
+        "references/tests-and-evidence-oracles.md": "ae4c9777ab219eaa65662f1ec6e904581c8040237f69f668a72a5fd927cefcf9",
+        "references/validation-and-errors.md": "8b0242eb77c178e9b013cb30b09297ebcfd39e7b6f891a5d148822c3fc49902d",
+        "references/vue-adapter-boundaries.md": "3e49226dde206a9e2028ecdfc4df7ff59df87cb7cc2b8151395f94f2d3d934f5"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/frontend-form-engineering/SKILL.md",
+      "target_path": ".codex/skills/frontend-form-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "167196a12da8db4979728adc201ba551d73eba192bdfe71757a53574900580c4",
+        "agents/openai.yaml": "e0344eedc526d16e52aa657246c5b475464aa6c83127c47770f181026a95c17a",
+        "references/async-submission-and-concurrency.md": "f35774d80ad8e089260685db0a528f638534a3180e6476df606f3d0cd112b828",
+        "references/conditional-and-dynamic-fields.md": "665b135ec997e2899d838c34006d30e92e1a5634a08289a3b4a6afeda0f04d32",
+        "references/field-types-and-formatting.md": "8a3d4ac959a174a9a388287fb0b8f3832bb5ad94c7498d6f5462ca696426fcab",
+        "references/form-contract-and-state.md": "e5f5ea4efb726349da3507850bc3aafe5fb2ed75e5adf615e717be356d58ff73",
+        "references/implementation-details.md": "f7305952f30ec04d30317537cf3e7382e1ae5fa5a07a2535790969590d4561e4",
+        "references/native-accessible-controls.md": "0f7892c2616e8e5a4bb39eabd75311658785375b3b960d692ab22ccc3c047b04",
+        "references/routing-and-selection-oracles.md": "c8a2da56b7d2812c62a4c40bdffd22a5c3310e0cd48d9abe5cb3e6057bc89544",
+        "references/scientific-evidence-and-limits.md": "2364e42430dfb3f3dc24c9f294a294e65db1eb326a3d913ececfee4001ce0f01",
+        "references/server-reconciliation-and-security.md": "025e1d92f24bcc4095c4f6c52370c6c041bfdca5537299928ffd02247ee25c2a",
+        "references/sources-and-decisions.md": "e4ac35f82cce78928ac1527f258f71d30e6f66eecde80361e07f53f34fbbc0f1",
+        "references/tests-and-evidence-oracles.md": "ae4c9777ab219eaa65662f1ec6e904581c8040237f69f668a72a5fd927cefcf9",
+        "references/validation-and-errors.md": "8b0242eb77c178e9b013cb30b09297ebcfd39e7b6f891a5d148822c3fc49902d",
+        "references/vue-adapter-boundaries.md": "3e49226dde206a9e2028ecdfc4df7ff59df87cb7cc2b8151395f94f2d3d934f5"
+      }
+    },
+    {
+      "name": "frontend-routing",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review client-side URL, navigation, history and guard contracts, including Vue Router adapters. Skip information architecture, data-cache ownership and backend authorization design.",
+      "reason": "Implement or review client-side URL, navigation, history and guard contracts, including Vue Router adapters. Skip information architecture, data-cache ownership and backend authorization design.",
+      "source_files": {
+        "SKILL.md": "fb43d2562a11553f6b1505f50f6aaabd8cc488c513d101902b2cf2c26cd8b960",
+        "references/accessibility-focus-and-scroll.md": "f9fac0e5596c4fe4fb927ef33fc668b3e45e9d15fbd943b05036186920b49ba9",
+        "references/data-loading-and-race-avoidance.md": "772b4abc4acbfe49177bed90d2f1b221e3a7f5abc97c68c7ff20fe518591ccb2",
+        "references/guards-and-navigation-failures.md": "de4909764f36f4798775c792ccd415f86dacd53083413a663f4913c4882f215c",
+        "references/history-and-deep-links.md": "add9197a16319520ec7aa0897fca1771c5ccddc7cbc10e65777cdc806c2a97c6",
+        "references/implementation-details.md": "d047bd7129083f1fb0623747d882188b5159301d106968ac3a64541e499d869a",
+        "references/performance-and-migrations.md": "6c830af6908b86de5d374d6b741f0d59c7d9f478d2f0790071e3b268f7f8f653",
+        "references/route-identity-and-boundaries.md": "e62a4fe1f12270b486eef5c9ea8c7af06362426a02b2bd32151c40876aaa60f0",
+        "references/route-testing-and-evidence.md": "4cb4141fcd9a34b3bb52651044475e6e27cfb56dedeaed93cddfaa173ee11853",
+        "references/routing-and-selection-oracles.md": "d7a58d1700732c84667c189ebe33e525f9794473594610c3c50831fc5669ebf0",
+        "references/safe-redirects-and-url-security.md": "07bf554f4abdb86fcac94605c001e491f8ad2f9714375bfa9b5bb2d28fe45025",
+        "references/scientific-evidence-and-limits.md": "09a2c7587bfafae423f2bd7acd9c8f504f9bda88e72cab0b28efd039057cedae",
+        "references/scope-transitions-and-permissions.md": "2bf1896072845acbe681d002328e30952df6e0c60b5de98bc1858143f0efb670",
+        "references/server-fallback-and-ssr.md": "391c349b68791c949ad255bbd797335f6418d35b5f258e423d69af8625325f07",
+        "references/sources-and-decisions.md": "c981a19fb87c2a8688152ff22cffb3068f560857923f743ee0ce8137aff57633",
+        "references/url-contracts-and-query-parameters.md": "df5f7ccd14c51eb36a3d0a73bd5d758b52a998844229862a01b4bb1eacbcefc8",
+        "references/vue-router-implementation.md": "ce6d1aadf3bef9316e4d318ee4c277751c6f2ad1c4b5ba08de70f2c52b9baa5e"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/frontend-routing/SKILL.md",
+      "target_path": ".codex/skills/frontend-routing/SKILL.md",
+      "files": {
+        "SKILL.md": "fb43d2562a11553f6b1505f50f6aaabd8cc488c513d101902b2cf2c26cd8b960",
+        "agents/openai.yaml": "3f6436cc68e9b25ec139f6d7dc753b906ba659b4a79b7a31dcd0b9b0e8a1f88a",
+        "references/accessibility-focus-and-scroll.md": "f9fac0e5596c4fe4fb927ef33fc668b3e45e9d15fbd943b05036186920b49ba9",
+        "references/data-loading-and-race-avoidance.md": "772b4abc4acbfe49177bed90d2f1b221e3a7f5abc97c68c7ff20fe518591ccb2",
+        "references/guards-and-navigation-failures.md": "de4909764f36f4798775c792ccd415f86dacd53083413a663f4913c4882f215c",
+        "references/history-and-deep-links.md": "add9197a16319520ec7aa0897fca1771c5ccddc7cbc10e65777cdc806c2a97c6",
+        "references/implementation-details.md": "d047bd7129083f1fb0623747d882188b5159301d106968ac3a64541e499d869a",
+        "references/performance-and-migrations.md": "6c830af6908b86de5d374d6b741f0d59c7d9f478d2f0790071e3b268f7f8f653",
+        "references/route-identity-and-boundaries.md": "e62a4fe1f12270b486eef5c9ea8c7af06362426a02b2bd32151c40876aaa60f0",
+        "references/route-testing-and-evidence.md": "4cb4141fcd9a34b3bb52651044475e6e27cfb56dedeaed93cddfaa173ee11853",
+        "references/routing-and-selection-oracles.md": "d7a58d1700732c84667c189ebe33e525f9794473594610c3c50831fc5669ebf0",
+        "references/safe-redirects-and-url-security.md": "07bf554f4abdb86fcac94605c001e491f8ad2f9714375bfa9b5bb2d28fe45025",
+        "references/scientific-evidence-and-limits.md": "09a2c7587bfafae423f2bd7acd9c8f504f9bda88e72cab0b28efd039057cedae",
+        "references/scope-transitions-and-permissions.md": "2bf1896072845acbe681d002328e30952df6e0c60b5de98bc1858143f0efb670",
+        "references/server-fallback-and-ssr.md": "391c349b68791c949ad255bbd797335f6418d35b5f258e423d69af8625325f07",
+        "references/sources-and-decisions.md": "c981a19fb87c2a8688152ff22cffb3068f560857923f743ee0ce8137aff57633",
+        "references/url-contracts-and-query-parameters.md": "df5f7ccd14c51eb36a3d0a73bd5d758b52a998844229862a01b4bb1eacbcefc8",
+        "references/vue-router-implementation.md": "ce6d1aadf3bef9316e4d318ee4c277751c6f2ad1c4b5ba08de70f2c52b9baa5e"
+      }
+    },
+    {
+      "name": "frontend-state-and-cache",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design or repair frontend state ownership, remote-query caches, invalidation and optimistic updates. Use for cross-view consistency or stale-state defects; skip local bindings and server persistence design.",
+      "reason": "Design or repair frontend state ownership, remote-query caches, invalidation and optimistic updates. Use for cross-view consistency or stale-state defects; skip local bindings and server persistence design.",
+      "source_files": {
+        "SKILL.md": "87ef78391852027062bc56e611f01325ea0873488b6639189b1b5de8f102c1d0",
+        "references/cache-freshness-and-invalidation.md": "57a11553cdbfd08f54679a123555b28a719283030c4b83d6d8bde60fb9f5aafa",
+        "references/concurrency-cancellation-and-fencing.md": "0bfb68e5a92904ea8461008906ab0c0136fa7dbd5bf5a8652620f94a2eeb1da0",
+        "references/implementation-details.md": "e6dca22f26d5fa3c1eef62d0dde76f1b9dafe07762b49af060ce91d68fc3d637",
+        "references/lifecycle-memory-and-ssr.md": "960147a1604cfe83935bb440b9bf6242ffb6a3350e6543f317ec0311f24ab14f",
+        "references/mutation-and-optimistic-safety.md": "ad63046de46c917dd66717331f4cab891c2a405eca7a0eeca626f1804acd0664",
+        "references/query-identity-and-isolation.md": "40599ddb043814432b036ed34f9790af10388525184cf22f0cce624911064a49",
+        "references/realtime-offline-and-resumption.md": "41b712178ff2e02cf46dd261fa00c521334fa1cc23682107822430f93af2944f",
+        "references/routing-and-selection-oracles.md": "cf6206989375324cf22f94e8c9efd0afe1feff601d0211142c9d26823e448c0b",
+        "references/scientific-evidence-and-limits.md": "9d17523fc148b0878494276ac45ed63a78e2dcaa893f013d571407859c0a61eb",
+        "references/security-privacy-and-http-cache.md": "f4b43e8e436a7dabf4461ff5bfc41e22e384c4f06b2b9118c38010b2249d2642",
+        "references/server-ack-conflict-and-revisions.md": "ee4f801c507b527c6c7aacc8ae4c66b24e4fe2e01308a326f52145d1a29e384d",
+        "references/sources-and-decisions.md": "d19f8c09200b29bef71d2c5616cecd52a675d36def22c18328591baf9feb30d3",
+        "references/state-ownership-and-projections.md": "eebdce3436c5dbbfd7d0a9ae45b61861f1782372215f6101e837513bc6b1eb1b",
+        "references/testing-and-evidence-oracles.md": "8ac97fde9885b39be8620f3c113b83378bc20bb43fca27ffc073a1f4457c1049",
+        "references/vue-pinia-query-adapters.md": "748cf387b01c84880bd6fcec8de2dc0d50a7094a12bde7116c860235f73f6d41"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/frontend-state-and-cache/SKILL.md",
+      "target_path": ".codex/skills/frontend-state-and-cache/SKILL.md",
+      "files": {
+        "SKILL.md": "87ef78391852027062bc56e611f01325ea0873488b6639189b1b5de8f102c1d0",
+        "agents/openai.yaml": "0e68545c003d38dc78b5536d82015f6c68b955ad9a68f27c1329269b7a8746ff",
+        "references/cache-freshness-and-invalidation.md": "57a11553cdbfd08f54679a123555b28a719283030c4b83d6d8bde60fb9f5aafa",
+        "references/concurrency-cancellation-and-fencing.md": "0bfb68e5a92904ea8461008906ab0c0136fa7dbd5bf5a8652620f94a2eeb1da0",
+        "references/implementation-details.md": "e6dca22f26d5fa3c1eef62d0dde76f1b9dafe07762b49af060ce91d68fc3d637",
+        "references/lifecycle-memory-and-ssr.md": "960147a1604cfe83935bb440b9bf6242ffb6a3350e6543f317ec0311f24ab14f",
+        "references/mutation-and-optimistic-safety.md": "ad63046de46c917dd66717331f4cab891c2a405eca7a0eeca626f1804acd0664",
+        "references/query-identity-and-isolation.md": "40599ddb043814432b036ed34f9790af10388525184cf22f0cce624911064a49",
+        "references/realtime-offline-and-resumption.md": "41b712178ff2e02cf46dd261fa00c521334fa1cc23682107822430f93af2944f",
+        "references/routing-and-selection-oracles.md": "cf6206989375324cf22f94e8c9efd0afe1feff601d0211142c9d26823e448c0b",
+        "references/scientific-evidence-and-limits.md": "9d17523fc148b0878494276ac45ed63a78e2dcaa893f013d571407859c0a61eb",
+        "references/security-privacy-and-http-cache.md": "f4b43e8e436a7dabf4461ff5bfc41e22e384c4f06b2b9118c38010b2249d2642",
+        "references/server-ack-conflict-and-revisions.md": "ee4f801c507b527c6c7aacc8ae4c66b24e4fe2e01308a326f52145d1a29e384d",
+        "references/sources-and-decisions.md": "d19f8c09200b29bef71d2c5616cecd52a675d36def22c18328591baf9feb30d3",
+        "references/state-ownership-and-projections.md": "eebdce3436c5dbbfd7d0a9ae45b61861f1782372215f6101e837513bc6b1eb1b",
+        "references/testing-and-evidence-oracles.md": "8ac97fde9885b39be8620f3c113b83378bc20bb43fca27ffc073a1f4457c1049",
+        "references/vue-pinia-query-adapters.md": "748cf387b01c84880bd6fcec8de2dc0d50a7094a12bde7116c860235f73f6d41"
+      }
+    },
+    {
+      "name": "frontend-testing",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or diagnose frontend unit, component, browser and end-to-end tests. Use for interaction or harness evidence; skip generic test strategy and backend-only contracts.",
+      "reason": "Implement or diagnose frontend unit, component, browser and end-to-end tests. Use for interaction or harness evidence; skip generic test strategy and backend-only contracts.",
+      "source_files": {
+        "SKILL.md": "343c078d7785b63096deea640584fc9e7ccfece6ef3eda86ce7d66513d0d610f",
+        "references/acceptance-oracles-and-traceability.md": "1d57605a3b704a1d49eae45f71cbe4b633af4f5c8c51df54ab013bf0cba0ab14",
+        "references/asynchronous-behavior-and-timers.md": "08b5927991446fba753f636b73eafe4fde5e6f1b36659b59c77617e91ab1d19b",
+        "references/browser-matrix-and-accessibility.md": "b811e2b9f07e4b2412172215a3c95f99862ce0a3908d607b03c3de80aab74bb1",
+        "references/fixtures-and-isolation.md": "57d162e24ec10433302ff1780afae90dfb5d4156f70876f75274e2653e1bc2d8",
+        "references/flakiness-and-ci-diagnostics.md": "e04c4dd76f7e1a24d05c05baf41e9f455857adf91038cf8e81a4f61ecca10a8a",
+        "references/implementation-details.md": "0ce03f46bb22a11cb902acc55289a15c6970e2fb4376559eb5db6f0d87c06c6f",
+        "references/mutation-and-coverage.md": "aeb7ab9f206e695e5778c8489e5f3cb619ce7887abb1acfde8772dcba0ebd7ec",
+        "references/network-and-contract-testing.md": "cffe7315a977db8b335be5462fba7be410ba99a5124f697af796c0cbaeafcbed",
+        "references/playwright-e2e-and-locators.md": "16a143869f309bb6f2bc22f0ad71c5e32119a49ca43fe78a7bb2c1c0280ad231",
+        "references/routing-and-test-oracles.md": "179486b2d00dd006a2b03a939d7e021ade1f6f50dcdb3965340136347f541536",
+        "references/scientific-evidence-and-limits.md": "a2b5cb63de98fd44e8e90fad9afed202562a9d6f3c4b375fbf304ec5c26da036",
+        "references/sources-and-decisions.md": "7c395fb1a084a38ba5c10b9167a85a37e621cd647851489b9755f55a1dd5e5c2",
+        "references/test-evidence-and-reporting.md": "cc90a6b4742b7e758f17dc531481cb0225fc60bbf9ef68a18e5c77bad14e3667",
+        "references/test-layers-and-scope.md": "d376cd6ad04c231dad116307f5ae868911f33f4db05219cd8f4afbe96c2af894",
+        "references/vitest-and-test-environments.md": "215c58f5da5570763a1ed4f83112a2fd84b8c97a4fc3eb59f9d648c55a8da614",
+        "references/vue-component-testing.md": "55365a2bd9b3d3ed2af6bf6c86b9cb297f437a6e0aebc5c12de09a4154fc6545"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/frontend-testing/SKILL.md",
+      "target_path": ".codex/skills/frontend-testing/SKILL.md",
+      "files": {
+        "SKILL.md": "343c078d7785b63096deea640584fc9e7ccfece6ef3eda86ce7d66513d0d610f",
+        "agents/openai.yaml": "16a9553783909196411a7d89a5a9ee1ab960687cdd3761b95b7981104427360e",
+        "references/acceptance-oracles-and-traceability.md": "1d57605a3b704a1d49eae45f71cbe4b633af4f5c8c51df54ab013bf0cba0ab14",
+        "references/asynchronous-behavior-and-timers.md": "08b5927991446fba753f636b73eafe4fde5e6f1b36659b59c77617e91ab1d19b",
+        "references/browser-matrix-and-accessibility.md": "b811e2b9f07e4b2412172215a3c95f99862ce0a3908d607b03c3de80aab74bb1",
+        "references/fixtures-and-isolation.md": "57d162e24ec10433302ff1780afae90dfb5d4156f70876f75274e2653e1bc2d8",
+        "references/flakiness-and-ci-diagnostics.md": "e04c4dd76f7e1a24d05c05baf41e9f455857adf91038cf8e81a4f61ecca10a8a",
+        "references/implementation-details.md": "0ce03f46bb22a11cb902acc55289a15c6970e2fb4376559eb5db6f0d87c06c6f",
+        "references/mutation-and-coverage.md": "aeb7ab9f206e695e5778c8489e5f3cb619ce7887abb1acfde8772dcba0ebd7ec",
+        "references/network-and-contract-testing.md": "cffe7315a977db8b335be5462fba7be410ba99a5124f697af796c0cbaeafcbed",
+        "references/playwright-e2e-and-locators.md": "16a143869f309bb6f2bc22f0ad71c5e32119a49ca43fe78a7bb2c1c0280ad231",
+        "references/routing-and-test-oracles.md": "179486b2d00dd006a2b03a939d7e021ade1f6f50dcdb3965340136347f541536",
+        "references/scientific-evidence-and-limits.md": "a2b5cb63de98fd44e8e90fad9afed202562a9d6f3c4b375fbf304ec5c26da036",
+        "references/sources-and-decisions.md": "7c395fb1a084a38ba5c10b9167a85a37e621cd647851489b9755f55a1dd5e5c2",
+        "references/test-evidence-and-reporting.md": "cc90a6b4742b7e758f17dc531481cb0225fc60bbf9ef68a18e5c77bad14e3667",
+        "references/test-layers-and-scope.md": "d376cd6ad04c231dad116307f5ae868911f33f4db05219cd8f4afbe96c2af894",
+        "references/vitest-and-test-environments.md": "215c58f5da5570763a1ed4f83112a2fd84b8c97a4fc3eb59f9d648c55a8da614",
+        "references/vue-component-testing.md": "55365a2bd9b3d3ed2af6bf6c86b9cb297f437a6e0aebc5c12de09a4154fc6545"
+      }
+    },
+    {
+      "name": "http-api-contracts",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design or evolve HTTP resource, method, representation, error and compatibility contracts. Use for HTTP semantics and consumer-facing changes; skip non-HTTP protocols and test-suite strategy alone.",
+      "reason": "Design or evolve HTTP resource, method, representation, error and compatibility contracts. Use for HTTP semantics and consumer-facing changes; skip non-HTTP protocols and test-suite strategy alone.",
+      "source_files": {
+        "SKILL.md": "616964b9319cd105fb72e18c05c25ac34abd62bcee186b517642854ecb8dac31",
+        "references/asynchronous-operations-and-idempotency.md": "6a0bd9e03e9dffc6ff3925cad5d6c2daea486ba2348fcb0ca5f602d0373c56df",
+        "references/caching-privacy-and-validators.md": "948315bb16dc34bfa77f79f450f08ae52ff2f2ea7459ebd455f7fda55c780b9d",
+        "references/conditional-requests-and-lost-update.md": "e138fcdb53af5e896a78918180c8fcac9835ebafdc1881f134defc0c65f62cc9",
+        "references/errors-and-problem-details.md": "8e262e2424e39e9b52b8c8aa04ec6556f5bd7f24741f0ca43a64bd95de0d4850",
+        "references/implementation-details.md": "fe9db5a0493a4e79c1b8c051fa977c2db79cdfaacfe38c6cf208683ca3d322f4",
+        "references/integration-and-evidence.md": "2b6c0286669ba4e2179802eee3025507653b1980d90007ea10584ffdefb683b9",
+        "references/openapi-and-schema-evolution.md": "c9ad02795b6d813fafd571720e2a195a5af5f319ff8a56aaa5c058cbce2779f2",
+        "references/pagination-filtering-and-linking.md": "2e684b1e29b86edd98f47d1f9eb7d8dbaa4fde16ebfbc318572e5f9e5dc56a55",
+        "references/rate-limits-and-client-resilience.md": "1c54e0c4823f1fdaee70e489f757c689a4307a77832ae9f299dbc87206859fed",
+        "references/request-response-media-and-validation.md": "4be606ae710a1ddc2a70f23baa27ee03910eaf65eb65182b50c53241240abe78",
+        "references/resource-and-method-semantics.md": "6803960fdd795a123bb6f260bc81d398763e1bb742e4067c553b01cc64382a64",
+        "references/routing-and-test-oracles.md": "767ea3698fbba686d29c220b9bb1ff8e723a74f7b507ec39f03314b0ecbdb6f2",
+        "references/scientific-evidence-and-limits.md": "101de64bcf007795cee20daee59ce030ae9341811a4b52990575071b59c07da1",
+        "references/security-boundaries.md": "b49a4cb80fd08424de36faa1404a9035fa49a59a53260faba6beb92f79f12f26",
+        "references/sources-and-decisions.md": "66ea0112702ac50c233be88fd2fc48500fde063d1c2c70d182ab7ebb8177421c",
+        "references/testing-and-evidence-matrix.md": "9fa5665187211059a506f38289741b5a2d32a86b9c510f5b5f83a790e1e12da2",
+        "references/versioning-deprecation-and-compatibility.md": "bc61f10ba9ba5c6ebf52c9816f0241086cab2551367c732562f394d6fbae4b4f"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/http-api-contracts/SKILL.md",
+      "target_path": ".codex/skills/http-api-contracts/SKILL.md",
+      "files": {
+        "SKILL.md": "616964b9319cd105fb72e18c05c25ac34abd62bcee186b517642854ecb8dac31",
+        "agents/openai.yaml": "e4270e3cb633b9ffbed455e560760af4816cae876fd128ded9eb2e0299757080",
+        "references/asynchronous-operations-and-idempotency.md": "6a0bd9e03e9dffc6ff3925cad5d6c2daea486ba2348fcb0ca5f602d0373c56df",
+        "references/caching-privacy-and-validators.md": "948315bb16dc34bfa77f79f450f08ae52ff2f2ea7459ebd455f7fda55c780b9d",
+        "references/conditional-requests-and-lost-update.md": "e138fcdb53af5e896a78918180c8fcac9835ebafdc1881f134defc0c65f62cc9",
+        "references/errors-and-problem-details.md": "8e262e2424e39e9b52b8c8aa04ec6556f5bd7f24741f0ca43a64bd95de0d4850",
+        "references/implementation-details.md": "fe9db5a0493a4e79c1b8c051fa977c2db79cdfaacfe38c6cf208683ca3d322f4",
+        "references/integration-and-evidence.md": "2b6c0286669ba4e2179802eee3025507653b1980d90007ea10584ffdefb683b9",
+        "references/openapi-and-schema-evolution.md": "c9ad02795b6d813fafd571720e2a195a5af5f319ff8a56aaa5c058cbce2779f2",
+        "references/pagination-filtering-and-linking.md": "2e684b1e29b86edd98f47d1f9eb7d8dbaa4fde16ebfbc318572e5f9e5dc56a55",
+        "references/rate-limits-and-client-resilience.md": "1c54e0c4823f1fdaee70e489f757c689a4307a77832ae9f299dbc87206859fed",
+        "references/request-response-media-and-validation.md": "4be606ae710a1ddc2a70f23baa27ee03910eaf65eb65182b50c53241240abe78",
+        "references/resource-and-method-semantics.md": "6803960fdd795a123bb6f260bc81d398763e1bb742e4067c553b01cc64382a64",
+        "references/routing-and-test-oracles.md": "767ea3698fbba686d29c220b9bb1ff8e723a74f7b507ec39f03314b0ecbdb6f2",
+        "references/scientific-evidence-and-limits.md": "101de64bcf007795cee20daee59ce030ae9341811a4b52990575071b59c07da1",
+        "references/security-boundaries.md": "b49a4cb80fd08424de36faa1404a9035fa49a59a53260faba6beb92f79f12f26",
+        "references/sources-and-decisions.md": "66ea0112702ac50c233be88fd2fc48500fde063d1c2c70d182ab7ebb8177421c",
+        "references/testing-and-evidence-matrix.md": "9fa5665187211059a506f38289741b5a2d32a86b9c510f5b5f83a790e1e12da2",
+        "references/versioning-deprecation-and-compatibility.md": "bc61f10ba9ba5c6ebf52c9816f0241086cab2551367c732562f394d6fbae4b4f"
+      }
+    },
+    {
+      "name": "identity-federation",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review federated authentication, OIDC/OAuth flows, session lifecycle and identity-provider interoperability. Skip application RBAC policy and generic security reviews without federation.",
+      "reason": "Implement or review federated authentication, OIDC/OAuth flows, session lifecycle and identity-provider interoperability. Skip application RBAC policy and generic security reviews without federation.",
+      "source_files": {
+        "SKILL.md": "595df8b3c43c062527f4f0ec63c6745a1fa71127f00bccb319cf53cc17631496",
+        "references/authorization-code-pkce-and-callback.md": "7ca1b88aa1d446947d582b67c861c0b62cd71acf4e649acb581398e75da5c7e1",
+        "references/browser-clients-and-bff.md": "e4f7dda656e4d517778da7f216c10542406c37e804cebf78f14ffdf68a5aec4e",
+        "references/browser-sessions-and-csrf.md": "4277cbd08dddf7aa037e2bc40b7572fa6a554a8b5d22fb3c44d889c8aa10f566",
+        "references/id-token-validation-and-jose.md": "6af2a6ed0eda2c3c79311e2298dc5bb724e95853bac8aca9b5eaec5407f0d862",
+        "references/implementation-details.md": "85adafe3c53c390a4802472b331f84700c1b8ae2abd8c71191b8a01335148fcb",
+        "references/integration-and-evidence.md": "8f48a56c33993179c9d51d00a898dc7d50d9970bae5c5b3e35eb31742c246a9d",
+        "references/interoperability-and-test-oracles.md": "0f20cbdb1a8da503eb4f24ea9720f751321939d1b11b630bebd1c65c11b63650",
+        "references/logout-and-recovery.md": "2e2cc027768e5fe6db6ad4f7ca8089ff49f40153378a4e0a27b9130e64fd1f2e",
+        "references/multi-issuer-and-account-linkage.md": "287d0467eb837c0acfaa6ca3f5f3876b5ef4fda87f51c9786a77dba58be66ede",
+        "references/provider-discovery-and-key-management.md": "336ffdfaf37151f58937efa0db04b21d52cb11221418fb4e567aa3a6fc759af1",
+        "references/refresh-rotation-and-revocation.md": "a3b70fbefcfccf029241079558fef94cbc058aa2c635f84c39b8e6802c68338d",
+        "references/routing-and-test-oracles.md": "7844fe76b8f6ab58c7449a3fbd68edd98876c50e738276d22ce835a6277778fc",
+        "references/scientific-evidence-and-limits.md": "e5f8f77144400f11c31d231f23f62fafa7c2cdee08f7fe52165817a7816946ee",
+        "references/sources-and-decisions.md": "03096fbabcaa30ab5f7335a0d0da2e80313f74d1329d96330c139e6e487e8b2b",
+        "references/tokens-and-api-audiences.md": "2d3ef4ee9d02d7f643053472c8f61a581e1965be8c824f3f3c3dd665cacd4b6b",
+        "references/trust-boundaries-and-threat-model.md": "9ea847402cc0ac31cfe5f8bca3648c803d7e7e964119c9a31c0f2ccf85016b9c"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/identity-federation/SKILL.md",
+      "target_path": ".codex/skills/identity-federation/SKILL.md",
+      "files": {
+        "SKILL.md": "595df8b3c43c062527f4f0ec63c6745a1fa71127f00bccb319cf53cc17631496",
+        "agents/openai.yaml": "356e430ea42ed4bdba1f0c59f7cfdc09aa105773f8beeff6bb9ee84487e97218",
+        "references/authorization-code-pkce-and-callback.md": "7ca1b88aa1d446947d582b67c861c0b62cd71acf4e649acb581398e75da5c7e1",
+        "references/browser-clients-and-bff.md": "e4f7dda656e4d517778da7f216c10542406c37e804cebf78f14ffdf68a5aec4e",
+        "references/browser-sessions-and-csrf.md": "4277cbd08dddf7aa037e2bc40b7572fa6a554a8b5d22fb3c44d889c8aa10f566",
+        "references/id-token-validation-and-jose.md": "6af2a6ed0eda2c3c79311e2298dc5bb724e95853bac8aca9b5eaec5407f0d862",
+        "references/implementation-details.md": "85adafe3c53c390a4802472b331f84700c1b8ae2abd8c71191b8a01335148fcb",
+        "references/integration-and-evidence.md": "8f48a56c33993179c9d51d00a898dc7d50d9970bae5c5b3e35eb31742c246a9d",
+        "references/interoperability-and-test-oracles.md": "0f20cbdb1a8da503eb4f24ea9720f751321939d1b11b630bebd1c65c11b63650",
+        "references/logout-and-recovery.md": "2e2cc027768e5fe6db6ad4f7ca8089ff49f40153378a4e0a27b9130e64fd1f2e",
+        "references/multi-issuer-and-account-linkage.md": "287d0467eb837c0acfaa6ca3f5f3876b5ef4fda87f51c9786a77dba58be66ede",
+        "references/provider-discovery-and-key-management.md": "336ffdfaf37151f58937efa0db04b21d52cb11221418fb4e567aa3a6fc759af1",
+        "references/refresh-rotation-and-revocation.md": "a3b70fbefcfccf029241079558fef94cbc058aa2c635f84c39b8e6802c68338d",
+        "references/routing-and-test-oracles.md": "7844fe76b8f6ab58c7449a3fbd68edd98876c50e738276d22ce835a6277778fc",
+        "references/scientific-evidence-and-limits.md": "e5f8f77144400f11c31d231f23f62fafa7c2cdee08f7fe52165817a7816946ee",
+        "references/sources-and-decisions.md": "03096fbabcaa30ab5f7335a0d0da2e80313f74d1329d96330c139e6e487e8b2b",
+        "references/tokens-and-api-audiences.md": "2d3ef4ee9d02d7f643053472c8f61a581e1965be8c824f3f3c3dd665cacd4b6b",
+        "references/trust-boundaries-and-threat-model.md": "9ea847402cc0ac31cfe5f8bca3648c803d7e7e964119c9a31c0f2ccf85016b9c"
+      }
+    },
+    {
+      "name": "information-architecture",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design or evaluate navigation, taxonomy, labels and search for findability. Use for task-to-destination ambiguity; skip visual styling, router implementation and unsupported aesthetic judgments.",
+      "reason": "Design or evaluate navigation, taxonomy, labels and search for findability. Use for task-to-destination ambiguity; skip visual styling, router implementation and unsupported aesthetic judgments.",
+      "source_files": {
+        "SKILL.md": "73f4d95df780a2630ac401f02913f9c47b6edb1a5f3b16143a05e205f6abbe7d",
+        "references/acceptance-contracts-and-reporting.md": "6b60c287b14ff9734b10bd0c24901c3c7c95cd25081514f58d7b49c4d4d91dd2",
+        "references/content-model-and-taxonomy.md": "c26f11c2cd216a709cc3897f3a4a5931d4eb9e1b7e950eafb04ece1b6a4a43ef",
+        "references/discovery-and-evidence.md": "344c823cd67262085cb31fbaaea75ae2e00a5cc669c8b0b6764e51beeae11eb8",
+        "references/experiments-and-metrics.md": "003d3b23275671bea0c0033861904844320830d93e5ceb20d2f7a66fab4bb5a5",
+        "references/implementation-details.md": "e2be98cf857ab3ffc2d5ed67df39a61811ec826bcb2ffbd9530d8e5f273bb972",
+        "references/labeling-and-information-scent.md": "e154fad803b367889dbedc3b1b87666a740ca561a18294c8a2aa6f9d43c44238",
+        "references/migration-and-url-governance.md": "ec102f33ccf1701ab079e9e4dc418338a484ce1cd93e677e55a40c8a6e698b84",
+        "references/navigation-and-context.md": "294a927c25da2bd0985edf8a06aef8dba742e093c6fce6cc6db0335acc6234d8",
+        "references/routing-and-selection-oracles.md": "331316925fd9831f64680262d11d3b6c7fa834fa9a6ff5d3000ba65926a4cf11",
+        "references/scientific-evidence-and-limits.md": "34c19b45b414721ebdc3e9b688ae1ba45894ee938e15921f09bdc6b0753fb0f1",
+        "references/search-and-findability.md": "eedab3d09725f63e2634aacb8ffcad2b762aaaffd5d31d3ad2be301ea81e0d3f",
+        "references/sources-and-decisions.md": "6fc0cce210c83415af5de0c0b766748c23b6d14d081b1f447e6d960444849073",
+        "references/wayfinding-and-accessibility.md": "b552ce6246c75d9255ed6d672ce2336f24cf506dfe3c99f6a2366768db130f60"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/information-architecture/SKILL.md",
+      "target_path": ".codex/skills/information-architecture/SKILL.md",
+      "files": {
+        "SKILL.md": "73f4d95df780a2630ac401f02913f9c47b6edb1a5f3b16143a05e205f6abbe7d",
+        "agents/openai.yaml": "49f95c930c2663802ae6917e334268757ac4dc39aa12b426abf50748361691d3",
+        "references/acceptance-contracts-and-reporting.md": "6b60c287b14ff9734b10bd0c24901c3c7c95cd25081514f58d7b49c4d4d91dd2",
+        "references/content-model-and-taxonomy.md": "c26f11c2cd216a709cc3897f3a4a5931d4eb9e1b7e950eafb04ece1b6a4a43ef",
+        "references/discovery-and-evidence.md": "344c823cd67262085cb31fbaaea75ae2e00a5cc669c8b0b6764e51beeae11eb8",
+        "references/experiments-and-metrics.md": "003d3b23275671bea0c0033861904844320830d93e5ceb20d2f7a66fab4bb5a5",
+        "references/implementation-details.md": "e2be98cf857ab3ffc2d5ed67df39a61811ec826bcb2ffbd9530d8e5f273bb972",
+        "references/labeling-and-information-scent.md": "e154fad803b367889dbedc3b1b87666a740ca561a18294c8a2aa6f9d43c44238",
+        "references/migration-and-url-governance.md": "ec102f33ccf1701ab079e9e4dc418338a484ce1cd93e677e55a40c8a6e698b84",
+        "references/navigation-and-context.md": "294a927c25da2bd0985edf8a06aef8dba742e093c6fce6cc6db0335acc6234d8",
+        "references/routing-and-selection-oracles.md": "331316925fd9831f64680262d11d3b6c7fa834fa9a6ff5d3000ba65926a4cf11",
+        "references/scientific-evidence-and-limits.md": "34c19b45b414721ebdc3e9b688ae1ba45894ee938e15921f09bdc6b0753fb0f1",
+        "references/search-and-findability.md": "eedab3d09725f63e2634aacb8ffcad2b762aaaffd5d31d3ad2be301ea81e0d3f",
+        "references/sources-and-decisions.md": "6fc0cce210c83415af5de0c0b766748c23b6d14d081b1f447e6d960444849073",
+        "references/wayfinding-and-accessibility.md": "b552ce6246c75d9255ed6d672ce2336f24cf506dfe3c99f6a2366768db130f60"
+      }
+    },
+    {
+      "name": "internationalization",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review locale negotiation, message resources, formatting, pluralization and bidirectional UI. Skip translation-only writing and product language policy decisions.",
+      "reason": "Implement or review locale negotiation, message resources, formatting, pluralization and bidirectional UI. Skip translation-only writing and product language policy decisions.",
+      "source_files": {
+        "SKILL.md": "decc3a8e0eaf250e48124abd8683566d59c24ca73312fa1d2465f7988a05d40a",
+        "references/bidi-rtl-and-input.md": "b2b7265f6681b3c7bf832733357716836c2a5cc67c1ba42f4bff8779c0287da2",
+        "references/date-time-and-time-zones.md": "ecb15336e4f71fabebb8ba0ded1ff89a2b16043f310dfce318476985e44f68b5",
+        "references/implementation-details.md": "0840ec552e6a2aeb0f85c6ea84d210b6deadd9e1a20a4ed0ce35ed509b779979",
+        "references/integration-and-evidence.md": "f1d9715a54c6400ee7e794a29bae18a907d70e9bf92fcbd2a9ea1128b7900c93",
+        "references/locale-negotiation-bcp47.md": "b8cac8d46a337f19dbd0ec352cd72c8e8a33f35019e87db073ed283f40ae1a40",
+        "references/numeric-currency-unit-duration.md": "0f4e8af6e3b36aac585124899a0985e705c8857e028372ed6be45f172625e6ed",
+        "references/plural-messageformat-and-context.md": "23f1439c901b5429a6db8dde379faa5091ab47d91afcd2252f782116f308cb97",
+        "references/resource-contracts-and-extraction.md": "4de052ef6ff3ad9a9148868eaa240b4118b617dadf623f1945d3fb9810184cc1",
+        "references/routing-and-test-oracles.md": "bfdb376d009dfc193bd6b6f9f0bed544ed5fd5ee82ad3fe09ea14e99095bfa5e",
+        "references/scientific-evidence-and-limits.md": "1fac3bb41ff111f3116fab3e1db6d7cbe3f69f0a0990ce5b13ddaf7ae12767af",
+        "references/sort-search-segmentation.md": "f41cd50bc99a7367fae2d31c35d52721ba934cec522fdb563c30192604f3f470",
+        "references/sources-and-decisions.md": "04c611b09c78afe9c74df29e52980c6f6477e94b2f2fb22e60c74b64a57ab84d",
+        "references/testing-matrix-and-oracles.md": "f2acc2a5ae6719d1890190580d3f36bc33fdc5dc4409f9a509623abe35f28d23",
+        "references/text-length-pseudolocalization-and-layout.md": "1d050e76697700bffafeb9230fe532040a8145a6be8dd83514224b26ac213d8b",
+        "references/translation-workflow-and-security.md": "01da2fb29cc2526972029f5677724735d85e6cc612039164b315fbed0e9b57ac",
+        "references/vue-integration.md": "56892da05fba9455d4c33cc771d3bf6e1793da90620210216e3e23e4e88c6661"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/internationalization/SKILL.md",
+      "target_path": ".codex/skills/internationalization/SKILL.md",
+      "files": {
+        "SKILL.md": "decc3a8e0eaf250e48124abd8683566d59c24ca73312fa1d2465f7988a05d40a",
+        "agents/openai.yaml": "ce97f2180b037001e7cf854637ae5e6a2a5acf60c3a395e5de15036c81b1c7b8",
+        "references/bidi-rtl-and-input.md": "b2b7265f6681b3c7bf832733357716836c2a5cc67c1ba42f4bff8779c0287da2",
+        "references/date-time-and-time-zones.md": "ecb15336e4f71fabebb8ba0ded1ff89a2b16043f310dfce318476985e44f68b5",
+        "references/implementation-details.md": "0840ec552e6a2aeb0f85c6ea84d210b6deadd9e1a20a4ed0ce35ed509b779979",
+        "references/integration-and-evidence.md": "f1d9715a54c6400ee7e794a29bae18a907d70e9bf92fcbd2a9ea1128b7900c93",
+        "references/locale-negotiation-bcp47.md": "b8cac8d46a337f19dbd0ec352cd72c8e8a33f35019e87db073ed283f40ae1a40",
+        "references/numeric-currency-unit-duration.md": "0f4e8af6e3b36aac585124899a0985e705c8857e028372ed6be45f172625e6ed",
+        "references/plural-messageformat-and-context.md": "23f1439c901b5429a6db8dde379faa5091ab47d91afcd2252f782116f308cb97",
+        "references/resource-contracts-and-extraction.md": "4de052ef6ff3ad9a9148868eaa240b4118b617dadf623f1945d3fb9810184cc1",
+        "references/routing-and-test-oracles.md": "bfdb376d009dfc193bd6b6f9f0bed544ed5fd5ee82ad3fe09ea14e99095bfa5e",
+        "references/scientific-evidence-and-limits.md": "1fac3bb41ff111f3116fab3e1db6d7cbe3f69f0a0990ce5b13ddaf7ae12767af",
+        "references/sort-search-segmentation.md": "f41cd50bc99a7367fae2d31c35d52721ba934cec522fdb563c30192604f3f470",
+        "references/sources-and-decisions.md": "04c611b09c78afe9c74df29e52980c6f6477e94b2f2fb22e60c74b64a57ab84d",
+        "references/testing-matrix-and-oracles.md": "f2acc2a5ae6719d1890190580d3f36bc33fdc5dc4409f9a509623abe35f28d23",
+        "references/text-length-pseudolocalization-and-layout.md": "1d050e76697700bffafeb9230fe532040a8145a6be8dd83514224b26ac213d8b",
+        "references/translation-workflow-and-security.md": "01da2fb29cc2526972029f5677724735d85e6cc612039164b315fbed0e9b57ac",
+        "references/vue-integration.md": "56892da05fba9455d4c33cc771d3bf6e1793da90620210216e3e23e4e88c6661"
+      }
+    },
+    {
+      "name": "property-based-testing",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Design or repair generated-input, metamorphic and state-machine tests with meaningful oracles, shrinking and replay. Skip generic suite strategy and claims of correctness from random sampling.",
+      "reason": "Design or repair generated-input, metamorphic and state-machine tests with meaningful oracles, shrinking and replay. Skip generic suite strategy and claims of correctness from random sampling.",
+      "source_files": {
+        "SKILL.md": "05c18da5af596d6bf5bdf413137b2e1a2f8bdfd18e91f6c9aea72e869043ffdc",
+        "references/evidence-and-reporting.md": "7a59762c568d93d7eeab266a3011d802ebf0dd96c785ecf49492aca3c94d649c",
+        "references/framework-matrix.md": "1f522cca8874b36adefd3921c5492c8eab4215e5b273030c0a4b86b893f19ebb",
+        "references/fuzzing-parser-and-security.md": "804ed6f3c7a71b6719f3f846e308808c1c0467f39dc9ef83a45b024af14b532b",
+        "references/generators-and-domain-partitions.md": "db78884f82f435d52468d4c1476ee2d8a135c7691e0340d057f606d2a893df93",
+        "references/implementation-details.md": "41679f365bfe0c91f1aad5a8c1b93d761ee84363380250c98b779c665a117480",
+        "references/mutation-oracle-quality.md": "13779ea89be6f95f2ec43c2d97213a47ac55f5f05ed0d90be4d81565cbfafa8e",
+        "references/property-oracles-and-metaprops.md": "6f3e0a4e0fa00a18d898102e6ce605ed5414db97a2107be9c8d3914eeb1587b8",
+        "references/reproducibility-and-corpus.md": "9964e7d7c3f0ef6ffe2a537f7e08b47c09c08b348e6e7ef1823af9f4a2a3ae22",
+        "references/routing-and-test-oracles.md": "6aaa6c36460f18fb42789df5c9d0fa780f464746b5dafae2c7141374a67d80d8",
+        "references/scientific-evidence-and-limits.md": "86a232227aeb8ddc3423fa23a4bc0dbaa659d39090692fe7e0f04a0db2b9ebc9",
+        "references/shrinking-and-minimization.md": "d5cd7308d8641f2c27a23fd316f377c120bec304295707c40c6eff69cf49a8ca",
+        "references/sources-and-decisions.md": "dcc337b078edb12c9f465b3452963e99f93f1a9dbf50528ee9bb6d0c5d4fe584",
+        "references/state-machine-testing.md": "cb3517faf84cadd8e5ef305f23f0240dd19cf77d2a9cf80ab587bb69aec75463"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/property-based-testing/SKILL.md",
+      "target_path": ".codex/skills/property-based-testing/SKILL.md",
+      "files": {
+        "SKILL.md": "05c18da5af596d6bf5bdf413137b2e1a2f8bdfd18e91f6c9aea72e869043ffdc",
+        "agents/openai.yaml": "25f00e1d15c003d451553cd9bd97f7585067aff0e15ff5ce1e709c8737b981bc",
+        "references/evidence-and-reporting.md": "7a59762c568d93d7eeab266a3011d802ebf0dd96c785ecf49492aca3c94d649c",
+        "references/framework-matrix.md": "1f522cca8874b36adefd3921c5492c8eab4215e5b273030c0a4b86b893f19ebb",
+        "references/fuzzing-parser-and-security.md": "804ed6f3c7a71b6719f3f846e308808c1c0467f39dc9ef83a45b024af14b532b",
+        "references/generators-and-domain-partitions.md": "db78884f82f435d52468d4c1476ee2d8a135c7691e0340d057f606d2a893df93",
+        "references/implementation-details.md": "41679f365bfe0c91f1aad5a8c1b93d761ee84363380250c98b779c665a117480",
+        "references/mutation-oracle-quality.md": "13779ea89be6f95f2ec43c2d97213a47ac55f5f05ed0d90be4d81565cbfafa8e",
+        "references/property-oracles-and-metaprops.md": "6f3e0a4e0fa00a18d898102e6ce605ed5414db97a2107be9c8d3914eeb1587b8",
+        "references/reproducibility-and-corpus.md": "9964e7d7c3f0ef6ffe2a537f7e08b47c09c08b348e6e7ef1823af9f4a2a3ae22",
+        "references/routing-and-test-oracles.md": "6aaa6c36460f18fb42789df5c9d0fa780f464746b5dafae2c7141374a67d80d8",
+        "references/scientific-evidence-and-limits.md": "86a232227aeb8ddc3423fa23a4bc0dbaa659d39090692fe7e0f04a0db2b9ebc9",
+        "references/shrinking-and-minimization.md": "d5cd7308d8641f2c27a23fd316f377c120bec304295707c40c6eff69cf49a8ca",
+        "references/sources-and-decisions.md": "dcc337b078edb12c9f465b3452963e99f93f1a9dbf50528ee9bb6d0c5d4fe584",
+        "references/state-machine-testing.md": "cb3517faf84cadd8e5ef305f23f0240dd19cf77d2a9cf80ab587bb69aec75463"
+      }
+    },
+    {
+      "name": "typescript-engineering",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement, refactor or review TypeScript types, boundaries, public APIs and compiler/module configuration. Skip framework lifecycle and runtime validation claims based only on type checking.",
+      "reason": "Implement, refactor or review TypeScript types, boundaries, public APIs and compiler/module configuration. Skip framework lifecycle and runtime validation claims based only on type checking.",
+      "source_files": {
+        "SKILL.md": "b7938345056884d65f1c55feb758ac22ffd439cd144bfb33df919864dc3b6005",
+        "references/generics-and-public-api-design.md": "e8a0f792a2c58eaaa54f8b83b5483935ee224aac3f2b6fb8a714c2a1881add78",
+        "references/implementation-details.md": "10d57a2ab746076d82e81f848c50a2b529c7b2de3b2bd8d80c038a16aa7f940b",
+        "references/migration-and-version-gates.md": "82a50bbf084e01299f8a73e0c55d6d0c29c0a13aaecb8399409925ff3614ba3e",
+        "references/module-resolution-and-runtime.md": "25fbcc5fe436766480f339c6f4bc78c1bc86b2b8c39812ddb83a36070ee1f001",
+        "references/routing-and-selection-oracles.md": "4e1298cdbcca0a8ab0f44d96a55138c3d53c8eb728609417550559bbe580a717",
+        "references/runtime-interop-and-safety.md": "afc35e92f8ebb560d42782ef8c2d5eacc8773839e844cfe50ea4e1f04467b631",
+        "references/sources-and-decisions.md": "06f4a80a957232632efa8c282d447cd2c476cf88f70affaa5abd2cf0de81ca62",
+        "references/strictness-control-flow-and-boundaries.md": "8cdb15a795e4b1245dd4065c30586f31817a60f576e7c8d244d790ec774a3aee",
+        "references/tsconfig-build-and-declarations.md": "0ee56eaf98a01e51e5ee9d211cc7224459799834b6bfb01bfce426931e38a018",
+        "references/verification-and-diagnostic-oracles.md": "d6a72f0b0271fcbc9b4d3c43e5a64181bcd3ba418d7751408308fe01b3754b86"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/typescript-engineering/SKILL.md",
+      "target_path": ".codex/skills/typescript-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "b7938345056884d65f1c55feb758ac22ffd439cd144bfb33df919864dc3b6005",
+        "agents/openai.yaml": "2d67746413ca0f2e85a42aaa47d9b2bd4bfff51ed3f22a0e765bd50397d5b7ee",
+        "references/generics-and-public-api-design.md": "e8a0f792a2c58eaaa54f8b83b5483935ee224aac3f2b6fb8a714c2a1881add78",
+        "references/implementation-details.md": "10d57a2ab746076d82e81f848c50a2b529c7b2de3b2bd8d80c038a16aa7f940b",
+        "references/migration-and-version-gates.md": "82a50bbf084e01299f8a73e0c55d6d0c29c0a13aaecb8399409925ff3614ba3e",
+        "references/module-resolution-and-runtime.md": "25fbcc5fe436766480f339c6f4bc78c1bc86b2b8c39812ddb83a36070ee1f001",
+        "references/routing-and-selection-oracles.md": "4e1298cdbcca0a8ab0f44d96a55138c3d53c8eb728609417550559bbe580a717",
+        "references/runtime-interop-and-safety.md": "afc35e92f8ebb560d42782ef8c2d5eacc8773839e844cfe50ea4e1f04467b631",
+        "references/sources-and-decisions.md": "06f4a80a957232632efa8c282d447cd2c476cf88f70affaa5abd2cf0de81ca62",
+        "references/strictness-control-flow-and-boundaries.md": "8cdb15a795e4b1245dd4065c30586f31817a60f576e7c8d244d790ec774a3aee",
+        "references/tsconfig-build-and-declarations.md": "0ee56eaf98a01e51e5ee9d211cc7224459799834b6bfb01bfce426931e38a018",
+        "references/verification-and-diagnostic-oracles.md": "d6a72f0b0271fcbc9b4d3c43e5a64181bcd3ba418d7751408308fe01b3754b86"
+      }
+    },
+    {
+      "name": "vue3-engineering",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or review Vue 3 components and composables, reactivity, typed bindings and lifecycle cleanup. Skip standalone TypeScript, routing and remote-cache policy without a Vue-specific issue.",
+      "reason": "Implement or review Vue 3 components and composables, reactivity, typed bindings and lifecycle cleanup. Skip standalone TypeScript, routing and remote-cache policy without a Vue-specific issue.",
+      "source_files": {
+        "SKILL.md": "ab9a21bcebafb5fc98cfb01d29da77a32c2dbc612d03276340f54a1691cf5180",
+        "references/composables-lifecycle-and-ssr.md": "c0a6e786ed4f599a73d4b784577b9ec28407e7f3defae5c8164b9503c681d262",
+        "references/implementation-details.md": "a4390a2ee3cf89939f263e337e50164156922aab7ac1c11357785bf7f87ace71",
+        "references/reactivity-and-watchers.md": "740115dbec0dc2adca8bb5dd8039dc5f3c2a30684c72b3b38782617b8dfde49e",
+        "references/rendering-performance-and-testing.md": "ade39e3d45ac9dae82ab1ed6bd8e7fcd6bad2a5dee5a623501c82afc851a270b",
+        "references/routing-and-selection-oracles.md": "b91e92853b3e46fc6cd2d82f7947d480e4d1d911d96757aff2b44198b2a2ddcd",
+        "references/security-accessibility-and-product-boundaries.md": "3541113689cd8dc37f5bd7954e5a2912ab4259dd1a2f35a4a2888d4e0b1e3f21",
+        "references/sfc-and-typed-component-contracts.md": "0cd9fb9f21c5fa916a6a29a89784f69757dc71ee7962a230296426ee3ece94be",
+        "references/sources-and-decisions.md": "ff98f1136e96c683f7b249c941c5d550dde128e47a68e9b9c58e9649121024bd"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/vue3-engineering/SKILL.md",
+      "target_path": ".codex/skills/vue3-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "ab9a21bcebafb5fc98cfb01d29da77a32c2dbc612d03276340f54a1691cf5180",
+        "agents/openai.yaml": "8d535159dadc2001294b756550b51cc1dc8035189df4ab83edaa0bb8886bd332",
+        "references/composables-lifecycle-and-ssr.md": "c0a6e786ed4f599a73d4b784577b9ec28407e7f3defae5c8164b9503c681d262",
+        "references/implementation-details.md": "a4390a2ee3cf89939f263e337e50164156922aab7ac1c11357785bf7f87ace71",
+        "references/reactivity-and-watchers.md": "740115dbec0dc2adca8bb5dd8039dc5f3c2a30684c72b3b38782617b8dfde49e",
+        "references/rendering-performance-and-testing.md": "ade39e3d45ac9dae82ab1ed6bd8e7fcd6bad2a5dee5a623501c82afc851a270b",
+        "references/routing-and-selection-oracles.md": "b91e92853b3e46fc6cd2d82f7947d480e4d1d911d96757aff2b44198b2a2ddcd",
+        "references/security-accessibility-and-product-boundaries.md": "3541113689cd8dc37f5bd7954e5a2912ab4259dd1a2f35a4a2888d4e0b1e3f21",
+        "references/sfc-and-typed-component-contracts.md": "0cd9fb9f21c5fa916a6a29a89784f69757dc71ee7962a230296426ee3ece94be",
+        "references/sources-and-decisions.md": "ff98f1136e96c683f7b249c941c5d550dde128e47a68e9b9c58e9649121024bd"
+      }
+    },
+    {
+      "name": "web-accessibility",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or evaluate semantic, keyboard, focus, perception and assistive-technology behavior on the web. Use for concrete accessibility requirements; skip visual taste and conformance claims from screenshots.",
+      "reason": "Implement or evaluate semantic, keyboard, focus, perception and assistive-technology behavior on the web. Use for concrete accessibility requirements; skip visual taste and conformance claims from screenshots.",
+      "source_files": {
+        "SKILL.md": "a10ddd66b0db21879e5c482f4e2f428541c8ae8518f08c1e5a766a892bc512c9",
+        "references/composite-widgets-and-structured-alternatives.md": "17c09130c6e0f05ec72713438de5ccb5e2d25fc85de95d9d157d03089d484e4d",
+        "references/contrast-reflow-motion-pointer.md": "203fa799eff2ce946b3ea7d8dce13b19b255695360d36791145195059fb8a61f",
+        "references/evaluation-matrix.md": "646beb450e792257fc92c8aaad3f7314cdd47a12b062c6aff332ec1863f3fa87",
+        "references/forms-errors-and-feedback.md": "0b6ca754f766653612024ab7fd53fc3118f78eb486794faf940a780825900420",
+        "references/implementation-details.md": "8e0fa44ad09e6b1f35e66f03ecbe6359a9a892d433f82e92a9930b70bef67bd2",
+        "references/keyboard-focus-and-dialogs.md": "d637de969e228bbd73587386a4367a18ce1e4dd1a5e665ca0bc9dbdd679a75d4",
+        "references/routing-and-selection-oracles.md": "60b9729df605ceb826151edc1c03dee57ea8036d50f735a233849e01ac1eddb1",
+        "references/scientific-evidence-and-limits.md": "ced4bb11488735eb876298472d45b19088bac8a013a6875ddde78ef007da8d7f",
+        "references/semantics-and-names.md": "7759a0d13876c130eeb4fb6aa9a05e135ceadaad1cc69a27ba10185ccba9e352",
+        "references/sources-and-decisions.md": "a48d7b8beb935cc63389532e4560e9e88684d8564a438b96cb0caca04b40bcf7",
+        "references/standards-and-scope.md": "5b8c5a6ec67dd537f46f364a70dc6814385fff239a1ab0323fbd073c0c6977a4",
+        "references/testing-oracles-and-assistive-technology.md": "a36a0c65a95bed490b3a8e90f7baf4178b08fdc7cd81d16fcd4df4534020488a"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/web-accessibility/SKILL.md",
+      "target_path": ".codex/skills/web-accessibility/SKILL.md",
+      "files": {
+        "SKILL.md": "a10ddd66b0db21879e5c482f4e2f428541c8ae8518f08c1e5a766a892bc512c9",
+        "agents/openai.yaml": "c1d6b22e8be8a8e294da4e92cdb3da7ca43b55b7137c1621d0a78da99fc7564e",
+        "references/composite-widgets-and-structured-alternatives.md": "17c09130c6e0f05ec72713438de5ccb5e2d25fc85de95d9d157d03089d484e4d",
+        "references/contrast-reflow-motion-pointer.md": "203fa799eff2ce946b3ea7d8dce13b19b255695360d36791145195059fb8a61f",
+        "references/evaluation-matrix.md": "646beb450e792257fc92c8aaad3f7314cdd47a12b062c6aff332ec1863f3fa87",
+        "references/forms-errors-and-feedback.md": "0b6ca754f766653612024ab7fd53fc3118f78eb486794faf940a780825900420",
+        "references/implementation-details.md": "8e0fa44ad09e6b1f35e66f03ecbe6359a9a892d433f82e92a9930b70bef67bd2",
+        "references/keyboard-focus-and-dialogs.md": "d637de969e228bbd73587386a4367a18ce1e4dd1a5e665ca0bc9dbdd679a75d4",
+        "references/routing-and-selection-oracles.md": "60b9729df605ceb826151edc1c03dee57ea8036d50f735a233849e01ac1eddb1",
+        "references/scientific-evidence-and-limits.md": "ced4bb11488735eb876298472d45b19088bac8a013a6875ddde78ef007da8d7f",
+        "references/semantics-and-names.md": "7759a0d13876c130eeb4fb6aa9a05e135ceadaad1cc69a27ba10185ccba9e352",
+        "references/sources-and-decisions.md": "a48d7b8beb935cc63389532e4560e9e88684d8564a438b96cb0caca04b40bcf7",
+        "references/standards-and-scope.md": "5b8c5a6ec67dd537f46f364a70dc6814385fff239a1ab0323fbd073c0c6977a4",
+        "references/testing-oracles-and-assistive-technology.md": "a36a0c65a95bed490b3a8e90f7baf4178b08fdc7cd81d16fcd4df4534020488a"
+      }
+    },
+    {
+      "name": "web-realtime-streaming",
+      "origin": "ec",
+      "decision": "adopt",
+      "description": "Implement or diagnose browser SSE/WebSocket delivery, lifecycle, replay and bounded buffering. Skip durable server messaging guarantees and UI rendering without a streaming concern.",
+      "reason": "Implement or diagnose browser SSE/WebSocket delivery, lifecycle, replay and bounded buffering. Skip durable server messaging guarantees and UI rendering without a streaming concern.",
+      "source_files": {
+        "SKILL.md": "48380c1e7312e071f9b57dd8f855c8bea865460a162d2ced8eecd7d99e853401",
+        "references/backpressure-bounded-queues-and-flow-control.md": "9f8393914fe8c852af693da310eb1d77ec1e17641e70bee0731bc28345473ab1",
+        "references/failure-and-recovery-matrix.md": "027b6ed66c4294ef2994ee92d33de7823980e23e4f8cbcc3ba7df3db50fb7e5c",
+        "references/implementation-details.md": "c8ad37d11eb91ccd772709db8deb1f3e1b72acd6ac59bd5fd7ee72906756c3ea",
+        "references/integration-contract-and-evidence.md": "6405d6ee75ca7688420630dc1f297b24f663f56518f4c8a2477cdf53d96c0b4e",
+        "references/observability-and-reliability.md": "7595a140e53f1889602ea64ec6915fa61977817c2dceb5282e54bb08f3665c7f",
+        "references/reconnect-retry-and-offline.md": "8d115746e4ffa5f357000ef43851d9a65a12a7d180857575644e94e925ab3dd6",
+        "references/routing-and-test-oracles.md": "9f5dcca75acc27c26e1ae029a366ab69d9917661c8202fd8ed83e1ed15bf94ba",
+        "references/scientific-evidence-and-limits.md": "e754f94bdfe8c820660469b890e5e4a5a3a85a1b380886ad390c093cad0bf603",
+        "references/security-origin-auth-and-data-isolation.md": "544877a7a0ced7115cf08afe59a9ec22f6beae86e6562e71fe0b82e014f4a994",
+        "references/sequencing-deduplication-and-snapshots.md": "aee29d6a68a3fb19926bc7c8d48219f5b07a7497ff3f7a8770e0ce16e706344a",
+        "references/sources-and-decisions.md": "32a37761437c4a1a5e51c05865333471e53c8522f5bb84160a87a58b9a19f00a",
+        "references/sse-event-stream-format-and-resume.md": "0d3cd410646ba7193d3c5cbec96438c78fe9f70fb5d343849ddf4a61749a5099",
+        "references/testing-transport-and-browser-matrix.md": "ec241037b830af4fb36a90e9deda4c9fa6e0ec25efdac2a16be4b0fe09648534",
+        "references/transport-choice-and-protocols.md": "b3b398bb025178d411c9d0aa3df70bb61eba4adbebe713514e8ae87b11c6bb66",
+        "references/vue-lifecycle-and-client-architecture.md": "0e5671aa280eace19ad45588cfc26b0b8e814fb2d7a28aec3adaa9c78bd6dfc1",
+        "references/websocket-lifecycle-and-message-contracts.md": "c771e5b949e900e1ccd0180c437e041b18e6fbb96343810b8b18cab1df5d0a92"
+      },
+      "adaptations": [
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+      ],
+      "path": ".local/skill-installation/skills/web-realtime-streaming/SKILL.md",
+      "target_path": ".codex/skills/web-realtime-streaming/SKILL.md",
+      "files": {
+        "SKILL.md": "48380c1e7312e071f9b57dd8f855c8bea865460a162d2ced8eecd7d99e853401",
+        "agents/openai.yaml": "4d80e723f37d08d61cb4ee0700d3b8c81c2d1e1bb0dbbbccbf4a5f0b369615d9",
+        "references/backpressure-bounded-queues-and-flow-control.md": "9f8393914fe8c852af693da310eb1d77ec1e17641e70bee0731bc28345473ab1",
+        "references/failure-and-recovery-matrix.md": "027b6ed66c4294ef2994ee92d33de7823980e23e4f8cbcc3ba7df3db50fb7e5c",
+        "references/implementation-details.md": "c8ad37d11eb91ccd772709db8deb1f3e1b72acd6ac59bd5fd7ee72906756c3ea",
+        "references/integration-contract-and-evidence.md": "6405d6ee75ca7688420630dc1f297b24f663f56518f4c8a2477cdf53d96c0b4e",
+        "references/observability-and-reliability.md": "7595a140e53f1889602ea64ec6915fa61977817c2dceb5282e54bb08f3665c7f",
+        "references/reconnect-retry-and-offline.md": "8d115746e4ffa5f357000ef43851d9a65a12a7d180857575644e94e925ab3dd6",
+        "references/routing-and-test-oracles.md": "9f5dcca75acc27c26e1ae029a366ab69d9917661c8202fd8ed83e1ed15bf94ba",
+        "references/scientific-evidence-and-limits.md": "e754f94bdfe8c820660469b890e5e4a5a3a85a1b380886ad390c093cad0bf603",
+        "references/security-origin-auth-and-data-isolation.md": "544877a7a0ced7115cf08afe59a9ec22f6beae86e6562e71fe0b82e014f4a994",
+        "references/sequencing-deduplication-and-snapshots.md": "aee29d6a68a3fb19926bc7c8d48219f5b07a7497ff3f7a8770e0ce16e706344a",
+        "references/sources-and-decisions.md": "32a37761437c4a1a5e51c05865333471e53c8522f5bb84160a87a58b9a19f00a",
+        "references/sse-event-stream-format-and-resume.md": "0d3cd410646ba7193d3c5cbec96438c78fe9f70fb5d343849ddf4a61749a5099",
+        "references/testing-transport-and-browser-matrix.md": "ec241037b830af4fb36a90e9deda4c9fa6e0ec25efdac2a16be4b0fe09648534",
+        "references/transport-choice-and-protocols.md": "b3b398bb025178d411c9d0aa3df70bb61eba4adbebe713514e8ae87b11c6bb66",
+        "references/vue-lifecycle-and-client-architecture.md": "0e5671aa280eace19ad45588cfc26b0b8e814fb2d7a28aec3adaa9c78bd6dfc1",
+        "references/websocket-lifecycle-and-message-contracts.md": "c771e5b949e900e1ccd0180c437e041b18e6fbb96343810b8b18cab1df5d0a92"
+      }
+    },
+    {
+      "name": "agent-runtime-engineering",
+      "origin": "ox",
+      "decision": "conditional",
+      "description": "Engineer CLI agent supervision, session state, event ordering, cancellation and recovery. Use for process adapters and execution lifecycles; skip prompt writing and model-quality evaluation without process effects.",
+      "reason": "CONDICIONAL — aproveitar supervisão de processos, eventos, cancelamento e retomada; excluir semântica de sessões LLM/ACP quando não aplicável. Complementa cicd-agent-runtime e cicd-execution-runtime.",
+      "source_files": {
+        "SKILL.md": "8222848e53bb07724becc6d67a854f233cd3eb370881f8ee153d0e7b264c8a08",
+        "agents/openai.yaml": "5b0622c834438ed024894e558b6a557223f470226ac1924c6218a594c8c0472e",
+        "references/acp-and-cli-adapters.md": "d7f5ad8f2650cd0215299102b2c9a98983bc672cf0da2eec5f9a1c1125b3d9af",
+        "references/evaluation-cases.md": "4e216a83e617e653e986ae7b685350138ccac64b8b666c9198c7ee5968deadfb",
+        "references/process-supervision.md": "3a78f316900838d0b9bd41eec76cae7b8938d339f1f4d1de9b3099d7bdc2f333",
+        "references/session-state-machine.md": "3ccea3d90a99bf6048a4200eece20a1abb6d9294c4bab8f416167155e78fc490"
+      },
+      "adaptations": [
+        "Use como auxiliar somente para supervisão, eventos, cancelamento e recuperação de processos. As primárias são cicd-agent-runtime e cicd-execution-runtime. Sessões LLM, ACP e uso de tokens não são contratos do Ec Agent."
+      ],
+      "path": ".local/skill-installation/skills/agent-runtime-engineering/SKILL.md",
+      "target_path": ".codex/skills/agent-runtime-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "9f9f7d19a7577882e14bbe04c655684bb41a9f49c032cf03cbbb2576b379ff49",
+        "agents/openai.yaml": "e4c60afd1920354fd289abdb5f1f617ed90395bea44ef0b0042eec3078a0a12a",
+        "references/acp-and-cli-adapters.md": "d7f5ad8f2650cd0215299102b2c9a98983bc672cf0da2eec5f9a1c1125b3d9af",
+        "references/evaluation-cases.md": "4e216a83e617e653e986ae7b685350138ccac64b8b666c9198c7ee5968deadfb",
+        "references/process-supervision.md": "3a78f316900838d0b9bd41eec76cae7b8938d339f1f4d1de9b3099d7bdc2f333",
+        "references/session-state-machine.md": "3ccea3d90a99bf6048a4200eece20a1abb6d9294c4bab8f416167155e78fc490"
+      }
+    },
+    {
+      "name": "agent-usage-accounting",
+      "origin": "ox",
+      "decision": "excluded",
+      "description": "Model and reconcile agent token, cache and cost usage with provenance, idempotency and explicit uncertainty. Use for multi-session usage ledgers; skip generic CPU metrics and task-progress scoring.",
+      "reason": "NÃO ADOTAR — ledger de tokens, cache e custo de modelos, não contabilidade de CPU, duração ou quota de CI/CD. Reavaliar somente se o Ec incorporar agentes de IA cobrados por tokens.",
+      "source_files": {
+        "SKILL.md": "1eb3a7c2e18ffbc2e7fec5b9726bb1075eff644b822d26e248f49da8e1bde156",
+        "agents/openai.yaml": "7a2d1cae08f0bf6779839b0216ec235cba3f610be8f5ba481a753d8d6a8097cd",
+        "references/accounting-and-reconciliation.md": "c0a5e861f7ec82586461da4f1f6b64bdfdf10eb59f1b0ea20f54e43b2ff3eb85",
+        "references/context-and-cost-estimates.md": "a510e73cd05ce0e7de8483a0b557c18dc94c47c5a7b2e350fd63764a2021564e",
+        "references/evaluation-cases.md": "960ce766ce26185f6f795f25ac7cab6f9feac712e648a212d82e776e13f937c5",
+        "references/usage-event-schema.md": "e309f4f46ef2af4db7490de63e9b3047aef6dde232e7945f5cb2370f91a985a8"
+      },
+      "adaptations": []
+    },
+    {
+      "name": "ai-engineering",
+      "origin": "ox",
+      "decision": "conditional",
+      "description": "Build, evaluate, and diagnose applications using foundation models, including retrieval, tool-using agents, model adaptation, and inference trade-offs. Use for implementation or evaluation of an AI application; skip prompt-only writing, ordinary deterministic software, and training a foundation model from scratch.",
+      "reason": "CONDICIONAL — aplicável apenas a recursos de IA explicitamente aprovados; não é requisito do scheduler ou agent de CI/CD.",
+      "source_files": {
+        "SKILL.md": "af749b1b5b65d5116c69b637f8d5c6407cec37b3f200a0157566895a11ebf079",
+        "agents/openai.yaml": "9df477edca976ad8330169ac97da67053fed5f6b82de8f537ea5e2e9d068e903",
+        "references/adaptation-and-operation.md": "5ab9d2b9159cf50ad2ec66c5667efae4c5bf04a5382babbb2f05edf9023fd711",
+        "references/agent-boundaries.md": "426dbdb2cc6ea7af7973b50fe016ec31b5153c1344cd149d3951f4721e4d03f5",
+        "references/evaluation-and-data.md": "e99f783f28d5d1b6509ea54c98dd71496ff962886d065b5deb8c4287449d8005",
+        "references/model-resource-diagnosis.md": "a8b0405d0fdabd4f3775252924697708999f32365c5c990a06a91f86ae05d063",
+        "references/retrieval.md": "70454eb39597b76d18f1c436e726002b6e4fb58c9b3f21bec30ebe36602ffb47"
+      },
+      "adaptations": [
+        "Condicional a recurso de IA explicitamente incluído no escopo. Scheduler e Agent CI/CD não são agentes de IA."
+      ],
+      "path": ".local/skill-installation/skills/ai-engineering/SKILL.md",
+      "target_path": ".codex/skills/ai-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "ad2c15cce5a38cd52fae001ffa3350ad131675a98ac70f921e957c1170461dba",
+        "agents/openai.yaml": "9df477edca976ad8330169ac97da67053fed5f6b82de8f537ea5e2e9d068e903",
+        "references/adaptation-and-operation.md": "5ab9d2b9159cf50ad2ec66c5667efae4c5bf04a5382babbb2f05edf9023fd711",
+        "references/agent-boundaries.md": "426dbdb2cc6ea7af7973b50fe016ec31b5153c1344cd149d3951f4721e4d03f5",
+        "references/evaluation-and-data.md": "e99f783f28d5d1b6509ea54c98dd71496ff962886d065b5deb8c4287449d8005",
+        "references/model-resource-diagnosis.md": "a8b0405d0fdabd4f3775252924697708999f32365c5c990a06a91f86ae05d063",
+        "references/retrieval.md": "70454eb39597b76d18f1c436e726002b6e4fb58c9b3f21bec30ebe36602ffb47"
+      }
+    },
+    {
+      "name": "api-testing",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Design, implement, or diagnose tests of API contracts, authorization, consumer/provider compatibility, and boundary effects. Use when those boundary guarantees need verification; ordinary calculations behind an API and unrelated API implementation do not alone require this skill.",
+      "reason": "ADOTAR — contratos HTTP e, **se a ADR for aprovada**, gRPC/Protobuf versionados; compatibilidade N/N−1, autenticação, ACK, streams interrompidos e fluxos negativos.",
+      "source_files": {
+        "SKILL.md": "10007c2c78eb4249ae7c646107b32a21b63b0d7eb1a98860ff420e6d0a33cf5e",
+        "agents/openai.yaml": "f47440dfb0f47575a4b09d6c0d440195f43ae3b6f343c24e67bcb711c16e1b10",
+        "references/access-control-matrix.md": "f976a0a37386816b3067c8655779152ab55f5b8307df4d5052bb0b405e001ae1",
+        "references/boundary-scenarios.md": "57dc592fc932386de450ee57a4f2aef96291df0779952d7e71d0a45bd8dddec3",
+        "references/contracts.md": "ef92a1c361215fa186d4060bc20504bb77a6e386701dc1ce1aed16f4986af98a",
+        "references/portable-sources.md": "af3956a95bc9da214bc627dc08d7ef547bfa8f3f795729b8b51decf97ce9f2b2"
+      },
+      "adaptations": [
+        "Verificar API pública HTTP, permissões e efeitos duráveis. Testes de gRPC/Protobuf e pares N/N−1 dependem da ADR e implementação; mocks não validam consumidores/provedores reais."
+      ],
+      "path": ".local/skill-installation/skills/api-testing/SKILL.md",
+      "target_path": ".codex/skills/api-testing/SKILL.md",
+      "files": {
+        "SKILL.md": "1ef6434deb21c5499073796503f92b6c8a43f008ff51f1c4b083ffe11b4ef7c7",
+        "agents/openai.yaml": "f47440dfb0f47575a4b09d6c0d440195f43ae3b6f343c24e67bcb711c16e1b10",
+        "references/access-control-matrix.md": "f976a0a37386816b3067c8655779152ab55f5b8307df4d5052bb0b405e001ae1",
+        "references/boundary-scenarios.md": "57dc592fc932386de450ee57a4f2aef96291df0779952d7e71d0a45bd8dddec3",
+        "references/contracts.md": "ef92a1c361215fa186d4060bc20504bb77a6e386701dc1ce1aed16f4986af98a",
+        "references/portable-sources.md": "af3956a95bc9da214bc627dc08d7ef547bfa8f3f795729b8b51decf97ce9f2b2"
+      }
+    },
+    {
+      "name": "application-security",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Implement or assess application security boundaries and controls, investigate vulnerabilities, or model concrete threats. Use for security decisions involving identity, permissions, untrusted data, secrets, dependencies, or configuration; their mere presence in ordinary code does not require a specialized review.",
+      "reason": "ADOTAR — isolamento de workloads, autorização, credenciais, plugins, APIs e fronteiras de confiança.",
+      "source_files": {
+        "SKILL.md": "0d992c0538df30bd5e0c6be689990184ec51671225809eac0f01759cc08257c4",
+        "agents/openai.yaml": "18ad79ae563118e3800a61adedda1e646e3dbaa930732b721e4440de2331223d",
+        "references/bound-credentials-and-replay.md": "1b395ca1306242f97719df0717deba77b8e309198f739265af5ce59e4a300323",
+        "references/controls.md": "80ef899acf741a7a018b4aaacf7aabb0eb6b1c0b298ab5bd53d86df1dff1600b",
+        "references/delegation-and-artifacts.md": "5cdf9dae49ea3ceeb5fef4bf0021d32e02ebff30347b51bb462742f9fc8040ec",
+        "references/imported/api-testing/access-control-matrix.md": "5423aef399dc91b815dba2646161b2ec69fd92010533ed8fce04898e18e9a585",
+        "references/imported/api-testing/portable-sources.md": "47782cca58ddeb1595c4bd2707d6e6b2b63a0412696144758bc016e738afe1d4",
+        "references/imported/prompt/evaluation-and-trust.md": "70b0fc55131e55e958aa81bea69dba2f5891285e50080642dace052cfc48068d",
+        "references/imported/prompt/portable-sources.md": "7428aee9fd2f2eb324a5b419038200c0e81cee0fcdafa74e2dced9b213f38b5b",
+        "references/imported/reliability-engineering/resource-lifecycle.md": "e03d0d45be3a62e5f37179fe827560acd3cb51f431e7659e9aace042569e1db1",
+        "references/portable-sources.md": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/application-security/SKILL.md",
+      "target_path": ".codex/skills/application-security/SKILL.md",
+      "files": {
+        "SKILL.md": "0d992c0538df30bd5e0c6be689990184ec51671225809eac0f01759cc08257c4",
+        "agents/openai.yaml": "18ad79ae563118e3800a61adedda1e646e3dbaa930732b721e4440de2331223d",
+        "references/bound-credentials-and-replay.md": "1b395ca1306242f97719df0717deba77b8e309198f739265af5ce59e4a300323",
+        "references/controls.md": "80ef899acf741a7a018b4aaacf7aabb0eb6b1c0b298ab5bd53d86df1dff1600b",
+        "references/delegation-and-artifacts.md": "5cdf9dae49ea3ceeb5fef4bf0021d32e02ebff30347b51bb462742f9fc8040ec",
+        "references/imported/api-testing/access-control-matrix.md": "5423aef399dc91b815dba2646161b2ec69fd92010533ed8fce04898e18e9a585",
+        "references/imported/api-testing/portable-sources.md": "47782cca58ddeb1595c4bd2707d6e6b2b63a0412696144758bc016e738afe1d4",
+        "references/imported/prompt/evaluation-and-trust.md": "70b0fc55131e55e958aa81bea69dba2f5891285e50080642dace052cfc48068d",
+        "references/imported/prompt/portable-sources.md": "7428aee9fd2f2eb324a5b419038200c0e81cee0fcdafa74e2dced9b213f38b5b",
+        "references/imported/reliability-engineering/resource-lifecycle.md": "e03d0d45be3a62e5f37179fe827560acd3cb51f431e7659e9aace042569e1db1",
+        "references/portable-sources.md": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3"
+      }
+    },
+    {
+      "name": "autonomous-verification-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Design criterion-based acceptance gates for autonomous work, binding verdicts to observed inputs and independent oracles. Use for evidence and approval engines; skip ordinary unit-test authoring without acceptance orchestration.",
+      "reason": "ADOTAR — gates e evidências de execução/aceitação, com oráculos independentes para SDD e CI/CD.",
+      "source_files": {
+        "SKILL.md": "3b8e2a6fbd6b09ba79f2316fdb444de0d2dda2ac0907b34c352ad09d1e360c94",
+        "agents/openai.yaml": "36e71ebbc575868be39fbd325d1f9f0efff32cc725b9d993624793f94e7afec9",
+        "references/acceptance-verdicts.md": "82bfb6801c64939710ef17b83a7816e0f399ef82de99a7264c30d16756ad73c9",
+        "references/evaluation-cases.md": "aca5982f048888099b13d27da224742dfc27598e0a5ce297d447b4eaa668263e",
+        "references/evidence-provenance.md": "f5d308b8c0a1bf60bcf2a595df465571b2636918f70698a86bbb3986a9cb9356",
+        "references/independent-oracles.md": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/autonomous-verification-engineering/SKILL.md",
+      "target_path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "3b8e2a6fbd6b09ba79f2316fdb444de0d2dda2ac0907b34c352ad09d1e360c94",
+        "agents/openai.yaml": "36e71ebbc575868be39fbd325d1f9f0efff32cc725b9d993624793f94e7afec9",
+        "references/acceptance-verdicts.md": "82bfb6801c64939710ef17b83a7816e0f399ef82de99a7264c30d16756ad73c9",
+        "references/evaluation-cases.md": "aca5982f048888099b13d27da224742dfc27598e0a5ce297d447b4eaa668263e",
+        "references/evidence-provenance.md": "f5d308b8c0a1bf60bcf2a595df465571b2636918f70698a86bbb3986a9cb9356",
+        "references/independent-oracles.md": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e"
+      }
+    },
+    {
+      "name": "code-context-engineering",
+      "origin": "ox",
+      "decision": "excluded",
+      "description": "Engineer incremental code indexing and retrieval with snapshot-bound symbols, ranges, invalidation and semantic fallback. Use for repository context engines; skip generic document RAG and graph visualization alone.",
+      "reason": "NÃO ADOTAR — indexação AST/LSP de símbolos é motor de contexto para IA/IDE, não exigência para checkout/build; reconsiderar em análise de impacto de código.",
+      "source_files": {
+        "SKILL.md": "1c1aed61b045d68576152c000a2bf25987c31b141d962cead4ddca12a8d492e5",
+        "agents/openai.yaml": "cf5b01e100a69053b589e6d228e4f72daf80f33ccd2714eb1b43d1b10f492315",
+        "references/evaluation-cases.md": "809a3cddea94e126f1f18f63efb80a0d042c9369c50426796731f9a9b5112c5a",
+        "references/incremental-indexing.md": "99613f66807e350f89aca41567afcca907d030c6f4e1597d0663a0aa8dfea0c6",
+        "references/retrieval-evaluation.md": "a170aa9cc7f3ee4c0751e95f7584a5f4fae8432eae8fa0dc676f3f25661b2f44",
+        "references/symbols-and-resolution.md": "57bca6baf7bd639927472ab660386b26b622ea69712740f36ac6541fd28c037a"
+      },
+      "adaptations": []
+    },
+    {
+      "name": "code-knowledge-graph-engineering",
+      "origin": "ox",
+      "decision": "excluded",
+      "description": "Design typed code knowledge graphs with evidence-backed edges, incremental invalidation and bounded impact queries. Use for code relationship semantics; skip static diagrams and embedding similarity presented as resolved calls.",
+      "reason": "NÃO ADOTAR — grafo semântico de código não é o DAG de pipeline nem a árvore de projetos.",
+      "source_files": {
+        "SKILL.md": "cb19c8def84a62fe29de37903eddde1fe0740f585ed877c4f241635275e8a996",
+        "agents/openai.yaml": "a09878205c213ba04578d3eabe72b7356bd1717ca27f51498bedb89b6e847293",
+        "references/evaluation-cases.md": "aa62eb5bed0b065cae651973eeda40164d09549cc2f98aae9de8169cbb2f64ec",
+        "references/graph-queries-and-visualization.md": "2907491e6e39c230e48a0895dbe034f0be2fd6fd25aec8a1f3c36e5b27017a24",
+        "references/graph-schema-and-evidence.md": "dc53e7fca846fa421954c7c27090084aeaf88084e6245116cd3d61a472de98b4",
+        "references/incremental-graph-updates.md": "16ffceeb5b360eea21fb211f3db5124cbbe6554b11a54237b9ae41bea91d60a6"
+      },
+      "adaptations": []
+    },
+    {
+      "name": "commit-governance",
+      "origin": "ox",
+      "decision": "conditional",
+      "description": "Classify and govern authorized Ox commits with Conventional Commits, map GitHub labels, and manage explicitly requested version tags and publication.",
+      "reason": "CONDICIONAL — útil no desenvolvimento do Ec quando commits/tags forem solicitados, não implica commits automáticos.",
+      "source_files": {
+        "SKILL.md": "ba960d6f089969c73c2b75a0ebe29aba01b82d9194c24c5b52c54f3dcdf57e43",
+        "agents/openai.yaml": "855bab233567cb2789f80084db06d18fb5110250265eb6c54e11291405d76aca"
+      },
+      "adaptations": [
+        "Procedimento Git reescrito para Ec sem paths/versões/autorização do Ox."
+      ],
+      "path": ".local/skill-installation/skills/commit-governance/SKILL.md",
+      "target_path": ".codex/skills/commit-governance/SKILL.md",
+      "files": {
+        "SKILL.md": "87cf79be8cfa3341f3ca8034a3e536f51dcb320954ebc412f70e8132ec77cef8",
+        "agents/openai.yaml": "0e4ef65891b33c49828a221e981957840db4b2c33831ccbd9a99f8c4b2217ee7"
+      }
+    },
+    {
+      "name": "database-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Design and change application persistence, relational schemas, transactional invariants, query access paths, and data migrations. Use for substantive database decisions across engines; skip analytical platforms, routine field mapping, and edits without persistence consequences.",
+      "reason": "ADOTAR — PostgreSQL global (fila, estados, inbox/outbox, unicidade e transações) e SQLite local privado por Agent (WAL, durabilidade crítica e recuperação), com migrações e limites operacionais.",
+      "source_files": {
+        "SKILL.md": "9fcee66df99fda30e51a004dd16143e2ac1fde12a4398cb8da88ec4ca72ab686",
+        "agents/openai.yaml": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
+        "references/access-and-change.md": "e243a93a0839564f2acf3bdf287ad86060fd5cfe667592c1d2f184862b2bb6ba",
+        "references/model-and-transactions.md": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2"
+      },
+      "adaptations": [
+        "PostgreSQL é a autoridade global planejada. SQLite privado por Agent, WAL e synchronous=FULL são hipóteses de durabilidade a ensaiar se a ADR for adotada. Avaliar inbox/outbox, UNIQUE e transações; não afirmar atomicidade entre Git e PostgreSQL."
+      ],
+      "path": ".local/skill-installation/skills/database-engineering/SKILL.md",
+      "target_path": ".codex/skills/database-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "7e1a29e4043ad60785660e677d8c9dd6ef50c69017d1b8aacdcae63e9ac9a9d3",
+        "agents/openai.yaml": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
+        "references/access-and-change.md": "e243a93a0839564f2acf3bdf287ad86060fd5cfe667592c1d2f184862b2bb6ba",
+        "references/model-and-transactions.md": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2"
+      }
+    },
+    {
+      "name": "design-review",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Review user journeys, interface behavior, hierarchy and usability; explain design trade-offs and respond to stakeholder feedback using evidence. Use for UX critiques, design decision presentations and review follow-up. Do not use for backend code design, generic meeting advice, unsupported aesthetic judgments or routine implementation of an already agreed component contract.",
+      "reason": "ADOTAR — revisão UX de fluxos de operação, administração, autoria e recuperação.",
+      "source_files": {
+        "SKILL.md": "b5b4716458d9f14a43292434f46f5c46ce523bffbf90f30b9cfad0d929252c29",
+        "agents/openai.yaml": "910d8b636b7cfefdfde51abe38c17ca13df3d44df2569a24bf30eb30d1ee2085",
+        "references/decision-communication.md": "85f7a961c743a78a20bd032fdba58babc75c0bf05011c5f98ed3c9a219314edf",
+        "references/review-method.md": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/design-review/SKILL.md",
+      "target_path": ".codex/skills/design-review/SKILL.md",
+      "files": {
+        "SKILL.md": "b5b4716458d9f14a43292434f46f5c46ce523bffbf90f30b9cfad0d929252c29",
+        "agents/openai.yaml": "910d8b636b7cfefdfde51abe38c17ca13df3d44df2569a24bf30eb30d1ee2085",
+        "references/decision-communication.md": "85f7a961c743a78a20bd032fdba58babc75c0bf05011c5f98ed3c9a219314edf",
+        "references/review-method.md": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf"
+      }
+    },
+    {
+      "name": "design-system",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Create or evolve shared UI tokens, components, variants, states, and usage contracts. Use when implementing reusable interfaces, resolving component inconsistency, or maintaining a design system. Do not use for unrelated backend work or a purely aesthetic opinion; use design-review for evidence-based journey evaluation.",
+      "reason": "ADOTAR — componentes e tokens próprios do Ec em Vue/TypeScript.",
+      "source_files": {
+        "SKILL.md": "bd5c8bac71c275efc4cfc2ae31b2ac7d2e009014a32ffecb91918e5b39279e96",
+        "agents/openai.yaml": "244440a0047dcc4a00e1784de92aa7fbeeef6d6ce514fb30590f4b4b290f9ae7",
+        "references/accessibility.md": "54c2064005c5bf560a7010cb21cc7189c9862759b55e789b2ffc331a6278885b",
+        "references/pattern-decisions.md": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/design-system/SKILL.md",
+      "target_path": ".codex/skills/design-system/SKILL.md",
+      "files": {
+        "SKILL.md": "bd5c8bac71c275efc4cfc2ae31b2ac7d2e009014a32ffecb91918e5b39279e96",
+        "agents/openai.yaml": "244440a0047dcc4a00e1784de92aa7fbeeef6d6ce514fb30590f4b4b290f9ae7",
+        "references/accessibility.md": "54c2064005c5bf560a7010cb21cc7189c9862759b55e789b2ffc331a6278885b",
+        "references/pattern-decisions.md": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e"
+      }
+    },
+    {
+      "name": "distributed-systems",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Analyze and implement guarantees across independently failing processes, stores, replicas, or regions. Use for consistency, concurrent updates, replication, partitioning, ordering, messaging, distributed transactions, and recovery; skip local changes with no distributed guarantee question and do not introduce distribution by default.",
+      "reason": "ADOTAR COMO PRIORIDADE FUNDACIONAL — Server e Agents falham independentemente; *at least once*, ACK pós-commit, perda de ACK, replay/deduplicação, leases, fencing, backpressure, reconexão com jitter e recuperação.",
+      "source_files": {
+        "SKILL.md": "8b23f56dfa9e47ad13153e4118cc9c0a2433faf0bf27470200a1bf65c5849f16",
+        "agents/openai.yaml": "49f8aeac3efa97fc428c48e07fe438082bf4b04cbbd30847992b1057cc721876",
+        "references/guarantees-and-failures.md": "0e9d33e8c9ec56c3b14a7d03aa10836c5dc5cd49bff6e4add73b323022eaa79f"
+      },
+      "adaptations": [
+        "Dois monólitos em hosts independentes têm falhas distribuídas. Explicitar ACK após commit, IDs estáveis, deduplicação, ordem por tentativa, fencing e recuperação. Não prometer exactly-once externo nem exigir broker/microsserviços."
+      ],
+      "path": ".local/skill-installation/skills/distributed-systems/SKILL.md",
+      "target_path": ".codex/skills/distributed-systems/SKILL.md",
+      "files": {
+        "SKILL.md": "bd6ccf6a978167d3d047b12409e2e4a5a1923701ae969034bbc9e9ce427d657b",
+        "agents/openai.yaml": "49f8aeac3efa97fc428c48e07fe438082bf4b04cbbd30847992b1057cc721876",
+        "references/guarantees-and-failures.md": "0e9d33e8c9ec56c3b14a7d03aa10836c5dc5cd49bff6e4add73b323022eaa79f"
+      }
+    },
+    {
+      "name": "domain-modeling",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Model business rules, domain language, valid states, invariants, and transactional boundaries when implementing or changing behavior whose meaning or consistency is uncertain. Use for domain modeling and proportional DDD; do not activate for routine persistence mapping or purely mechanical code edits.",
+      "reason": "ADOTAR — entidades e invariantes de projeto, pipeline, job, attempt, agente, pool e configuração.",
+      "source_files": {
+        "SKILL.md": "abf26d78093f28ec3491415c9eb5cfd8ed1ae878a00513caf0c9a7a461faa87f",
+        "agents/openai.yaml": "26e6d1f0521f2136b8e3802b45481cdbcd849bc32d93ad92d0a0683ff11513b8",
+        "references/integration-and-evolution.md": "628997b195dbdf83950b38356afe99ef0828b4364071c8c890dd8d8f84d8a9ac",
+        "references/modeling-decisions.md": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/domain-modeling/SKILL.md",
+      "target_path": ".codex/skills/domain-modeling/SKILL.md",
+      "files": {
+        "SKILL.md": "abf26d78093f28ec3491415c9eb5cfd8ed1ae878a00513caf0c9a7a461faa87f",
+        "agents/openai.yaml": "26e6d1f0521f2136b8e3802b45481cdbcd849bc32d93ad92d0a0683ff11513b8",
+        "references/integration-and-evolution.md": "628997b195dbdf83950b38356afe99ef0828b4364071c8c890dd8d8f84d8a9ac",
+        "references/modeling-decisions.md": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929"
+      }
+    },
+    {
+      "name": "engineering-productivity",
+      "origin": "ox",
+      "decision": "conditional",
+      "description": "Evaluate engineering tools, workflows, and process changes through actionable questions, appropriate evidence, and explicit decision criteria. Use for developer experience and team workflow decisions; skip runtime profiling, product analytics, individual rankings, and routine code edits.",
+      "reason": "CONDICIONAL — medir melhoria no trabalho dos desenvolvedores; não confundir com performance de jobs.",
+      "source_files": {
+        "SKILL.md": "35dc54ead1b8bd7bcc0fa2dc348aa154cf3d11137bcdf38f972d74441416feac",
+        "agents/openai.yaml": "0b3b325bd05637d16d229edca798b2800e304c6ab1949d87ef8074fc98caf17c"
+      },
+      "adaptations": [
+        "Condicional a pergunta sobre fluxo de trabalho dos desenvolvedores. Desempenho de jobs é responsabilidade de performance-engineering."
+      ],
+      "path": ".local/skill-installation/skills/engineering-productivity/SKILL.md",
+      "target_path": ".codex/skills/engineering-productivity/SKILL.md",
+      "files": {
+        "SKILL.md": "167d5216a4069405e48d8f56886a2ab796b7c0f4a1e73617ef6bc6b9173e4c38",
+        "agents/openai.yaml": "0b3b325bd05637d16d229edca798b2800e304c6ab1949d87ef8074fc98caf17c"
+      }
+    },
+    {
+      "name": "iced-engineering",
+      "origin": "ox",
+      "decision": "excluded",
+      "description": "Implement and review Iced desktop interfaces using explicit state, messages, tasks, subscriptions and widget contracts. Use for Iced-specific rendering and interaction; skip non-Iced UIs and visual strategy alone.",
+      "reason": "NÃO ADOTAR — framework desktop do Ox incompatível com UI Vue 3 do Ec.",
+      "source_files": {
+        "SKILL.md": "5e01a7f693441317cd13bb1e2f9236ead921f6d0834594392044dda5f42da7db",
+        "agents/openai.yaml": "57b174e0c0f88f5e5f8d2b35a8c87eb4ca109f4c3bd737e3d3259e73dd8e9728",
+        "references/desktop-performance-and-accessibility.md": "d9f04bbb1b1443eb8a786b0503e800e2111f81e9c50f565f09be8151b51ebc12",
+        "references/evaluation-cases.md": "4f9328f318b66b6181a9362c20d3128faa567d96866d229f78779140efec8614",
+        "references/layout-and-custom-widgets.md": "a2a797e843b93904f00c46c191a6cfade6d3d7325fb23f7d1e5f466437c44a31",
+        "references/message-update-state.md": "7f839c26a57da34de2728202a27fdc23d0249e5765db5548b03d39221d25ac9c"
+      },
+      "adaptations": []
+    },
+    {
+      "name": "observability-and-diagnostics",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Design telemetry or investigate operational symptoms using correlated signals and discriminating observations. Use for missing diagnostic context, instrumentation correctness, or an evidence-led runtime investigation; skip routine logging edits, straightforward local defects, and tuning or recovery policy with no diagnostic question.",
+      "reason": "ADOTAR — diagnosticar Server/Agents, jobs e filas; observar backlog SQLite/PostgreSQL, ACK/retries, heartbeats, latências, pools, sessões gRPC, perdas e degradação.",
+      "source_files": {
+        "SKILL.md": "1d8e057e9dbfa7050a8315f35fbca65aa7e86de2678621f8e97fe424956ffc4f",
+        "agents/openai.yaml": "fdb89e79567f000e74d8d4d714a93af87d18e3db264a3a08c37df41d0ea79f28",
+        "references/hypothesis-and-evidence.md": "78baa562d0631c66db394658c0e772b168495df0a9656702723e5c5641d276f6",
+        "references/signal-design.md": "a8b5327558d996b8fbf9232ab2476be2da26b9170cf18a2a633c67c9174d3d2b"
+      },
+      "adaptations": [
+        "Correlacionar sessão, job/attempt, fila, leases, ACK/retry, backlog e ingestão de logs. Métricas gRPC/SQLite só quando esses componentes existirem; ausência de telemetria não é zero."
+      ],
+      "path": ".local/skill-installation/skills/observability-and-diagnostics/SKILL.md",
+      "target_path": ".codex/skills/observability-and-diagnostics/SKILL.md",
+      "files": {
+        "SKILL.md": "31a797d9cf58bf9e9f60ca325121df07322ad472e1004393f4be16fdeeb54cfb",
+        "agents/openai.yaml": "fdb89e79567f000e74d8d4d714a93af87d18e3db264a3a08c37df41d0ea79f28",
+        "references/hypothesis-and-evidence.md": "78baa562d0631c66db394658c0e772b168495df0a9656702723e5c5641d276f6",
+        "references/signal-design.md": "a8b5327558d996b8fbf9232ab2476be2da26b9170cf18a2a633c67c9174d3d2b"
+      }
+    },
+    {
+      "name": "performance-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Investigate software latency, throughput, resource consumption, capacity, and performance regressions using representative workloads, measurements, profiling, and controlled comparisons. Use for explicit performance objectives or evidence of a bottleneck; avoid speculative optimization during ordinary feature work.",
+      "reason": "ADOTAR — ensaiar 100/500/1.000/2.000 agentes, distinguindo ociosos de jobs ativos; medir scheduler, PostgreSQL, ingestão de logs, CPU, RAM, conexões, recuperação e SLOs definidos por teste. **1.000 é meta experimental, não capacidade comprovada.**",
+      "source_files": {
+        "SKILL.md": "e2fe6bd6724a3b176fd559875252d6ac5479a83bf453dddb4e31a3fc7da9692e",
+        "agents/openai.yaml": "efcf46fd9163d5b55f574fcb2a8adb505717ecf88ea5165ed6f4ccfa09799055",
+        "references/benchmark-inference.md": "29ab4059971a6765755711806a6147bd1a05e379219a707724bc24d366613911",
+        "references/changes-and-comparisons.md": "007394ab92f32df7c82fa25bbf8bb304c261ca7ad7b5b3eb04600fb56b21c211",
+        "references/gc-diagnosis.md": "195b5e05d42cc17ff581d9807908e3e5353402a0148363d7d20577c5fdce21c2",
+        "references/measurement-and-diagnosis.md": "c5a62cb8f3bbcfcd7dbb29cff9978f9d382ab78838bc8fe857332ee739a1b090",
+        "references/memory-and-work.md": "5f1dd350fe4af41630f0b1597c792c3b2af1639424aaa10c9578c28bf4507195",
+        "references/observation-boundaries.md": "068cb076029bacf5c04baa1011fc421b8cb02bdffedc200aceeb66328c3e6b66",
+        "references/portable-sources.md": "7168585bc1b4a485d99b5cce658503c5ed4aeebc5d8c753e1bb48ee38b05911c"
+      },
+      "adaptations": [
+        "100/500/1.000/2.000 agentes são patamares propostos de ensaio. Separar conectados/ociosos/executando, hardware, duração, perfil de logs, percentis e erros; 1.000 não é capacidade comprovada. Não adotar os números ilustrativos como SLO/default."
+      ],
+      "path": ".local/skill-installation/skills/performance-engineering/SKILL.md",
+      "target_path": ".codex/skills/performance-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "b058f2af783c68552be3a2c4634a633cf9e765920dd85c0c277d22941b24b6f0",
+        "agents/openai.yaml": "efcf46fd9163d5b55f574fcb2a8adb505717ecf88ea5165ed6f4ccfa09799055",
+        "references/benchmark-inference.md": "29ab4059971a6765755711806a6147bd1a05e379219a707724bc24d366613911",
+        "references/changes-and-comparisons.md": "007394ab92f32df7c82fa25bbf8bb304c261ca7ad7b5b3eb04600fb56b21c211",
+        "references/gc-diagnosis.md": "195b5e05d42cc17ff581d9807908e3e5353402a0148363d7d20577c5fdce21c2",
+        "references/measurement-and-diagnosis.md": "c5a62cb8f3bbcfcd7dbb29cff9978f9d382ab78838bc8fe857332ee739a1b090",
+        "references/memory-and-work.md": "5f1dd350fe4af41630f0b1597c792c3b2af1639424aaa10c9578c28bf4507195",
+        "references/observation-boundaries.md": "068cb076029bacf5c04baa1011fc421b8cb02bdffedc200aceeb66328c3e6b66",
+        "references/portable-sources.md": "7168585bc1b4a485d99b5cce658503c5ed4aeebc5d8c753e1bb48ee38b05911c"
+      }
+    },
+    {
+      "name": "plugin-protocol-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Design and verify versioned host-plugin protocols, capability negotiation and lifecycle failure boundaries. Use for plugin hosts or compatibility changes; skip clients of an unchanged SDK.",
+      "reason": "ADOTAR — contrato host-plugin versionado e permissões, subordinado à segurança específica de plugins do Ec.",
+      "source_files": {
+        "SKILL.md": "c6b9857e9bd80734b4c4c98a3227406b46d8e7fa2149c0881bd93f452efada95",
+        "agents/openai.yaml": "9db53b60491567395cfb75f150829356af1e2ca2ba56366479785894c60916b8",
+        "references/evaluation-cases.md": "2c93959130236da7623aa72b9eff187655d9cd0428c7ab70fab21baa27447222",
+        "references/permissions-and-isolation.md": "fe7138487cbe61edf732b763f451e2e5ebeeeccaf8932e770ee49afca245e66e",
+        "references/protocol-negotiation.md": "3a9c0fdcd141a6cb71166db6ef054861a6299663de0e5d37dfe3e508fcec6879",
+        "references/versioning-and-faults.md": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/plugin-protocol-engineering/SKILL.md",
+      "target_path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "c6b9857e9bd80734b4c4c98a3227406b46d8e7fa2149c0881bd93f452efada95",
+        "agents/openai.yaml": "9db53b60491567395cfb75f150829356af1e2ca2ba56366479785894c60916b8",
+        "references/evaluation-cases.md": "2c93959130236da7623aa72b9eff187655d9cd0428c7ab70fab21baa27447222",
+        "references/permissions-and-isolation.md": "fe7138487cbe61edf732b763f451e2e5ebeeeccaf8932e770ee49afca245e66e",
+        "references/protocol-negotiation.md": "3a9c0fdcd141a6cb71166db6ef054861a6299663de0e5d37dfe3e508fcec6879",
+        "references/versioning-and-faults.md": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72"
+      }
+    },
+    {
+      "name": "prompt",
+      "origin": "ox",
+      "decision": "conditional",
+      "description": "Create, rewrite, or refine prompts from user input, translating intent into technical requirements and verifiable criteria, with clarifying questions when needed. Use when the user asks to write, build, improve, or refine a prompt; do not execute the task described in it unless explicitly requested.",
+      "reason": "CONDICIONAL — autoria de prompts quando houver tarefa de IA ou instruções de execução de modelos; não converter jobs CI/CD em prompts.",
+      "source_files": {
+        "SKILL.md": "b03935db88ba5a2da0e3e367bd1cd5424a7d5983c8e8bc915c16d3d86327f561",
+        "agents/openai.yaml": "e95795a175718df6b56bf5fde549dc74cfa318cfef40fd47ffe4e406425a48d7",
+        "references/evaluation-and-trust.md": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
+        "references/portable-sources.md": "319f0741ec3bc974479b8716f40da15cdc842ae9a1d21947f6b7d3fd0fff9244"
+      },
+      "adaptations": [
+        "Condicional a autoria ou revisão de prompts solicitada; não interpretar jobs CI/CD como prompts."
+      ],
+      "path": ".local/skill-installation/skills/prompt/SKILL.md",
+      "target_path": ".codex/skills/prompt/SKILL.md",
+      "files": {
+        "SKILL.md": "4b4b32232ce2ba74d90fbc922c66f3918b98ff3a01156a42c486c259b49af325",
+        "agents/openai.yaml": "e95795a175718df6b56bf5fde549dc74cfa318cfef40fd47ffe4e406425a48d7",
+        "references/evaluation-and-trust.md": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
+        "references/portable-sources.md": "319f0741ec3bc974479b8716f40da15cdc842ae9a1d21947f6b7d3fd0fff9244"
+      }
+    },
+    {
+      "name": "reliability-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Design or verify failure containment, bounded retries and resources, degradation, service objectives, and recovery. Use when behavior under dependency failure, overload, restart, or rollout needs a reliability decision; ordinary errors, background code, telemetry plumbing, or measured tuning alone do not trigger this workflow.",
+      "reason": "ADOTAR — recuperação após queda em qualquer ponto do fluxo SQLite→gRPC→PostgreSQL→ACK; órfãos, disk-full, indisponibilidade do banco, timeouts, retries limitados e efeitos externos duplicáveis.",
+      "source_files": {
+        "SKILL.md": "28651751ea7505bae0bcc67b0fff54b87c062bbe772e500d45d8cca627a67a9d",
+        "agents/openai.yaml": "7c05b297f31439fd24dd606d7096141ca39a3840c58edcb752d8280a62139782",
+        "references/deployment-and-recovery.md": "2b152ba8f22c553cf0ba8a4887f900787cc6c22b26d63d5b25d5266cf2bd95e1",
+        "references/failure-controls.md": "5ba76483d998449412263773cf5a88325507110ebe319d395e68d6ad903b1cf7",
+        "references/operational-signals.md": "5bdcac50859d3e93a98c9e942e11ea91e9878ced6f52e25344b5585ef79f99fa",
+        "references/portable-sources.md": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3",
+        "references/resource-lifecycle.md": "aec134afdf83f5cbc813820e834cda721720d9e1e0e8064403d558f6b78f903e",
+        "references/trust-preserving-recovery.md": "4bf45f7777b29633160a49d50573fd9c8e24e5ce24be70eb560471b2d40242ce"
+      },
+      "adaptations": [
+        "Cobrir perda de ACK, crash antes/depois de commit, partições, falha de banco, esgotamento de armazenamento e reconexão coletiva. Outbox SQLite é proposta; deadlines/backoff/jitter precisam de contratos e limites verificáveis."
+      ],
+      "path": ".local/skill-installation/skills/reliability-engineering/SKILL.md",
+      "target_path": ".codex/skills/reliability-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "f26b2f983cfa79b8487e696167edddbaef706aac658e0e447e44ec1fb3110a6d",
+        "agents/openai.yaml": "7c05b297f31439fd24dd606d7096141ca39a3840c58edcb752d8280a62139782",
+        "references/deployment-and-recovery.md": "2b152ba8f22c553cf0ba8a4887f900787cc6c22b26d63d5b25d5266cf2bd95e1",
+        "references/failure-controls.md": "5ba76483d998449412263773cf5a88325507110ebe319d395e68d6ad903b1cf7",
+        "references/operational-signals.md": "5bdcac50859d3e93a98c9e942e11ea91e9878ced6f52e25344b5585ef79f99fa",
+        "references/portable-sources.md": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3",
+        "references/resource-lifecycle.md": "aec134afdf83f5cbc813820e834cda721720d9e1e0e8064403d558f6b78f903e",
+        "references/trust-preserving-recovery.md": "4bf45f7777b29633160a49d50573fd9c8e24e5ce24be70eb560471b2d40242ce"
+      }
+    },
+    {
+      "name": "rust",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Implement, refactor, debug, or review Rust code with idiomatic ownership, explicit invariants, appropriate error handling, and validation compatible with the project's edition, MSRV, and tooling. Use for Rust crates, libraries, applications, and Rust API design.",
+      "reason": "ADOTAR — ambos os monólitos Rust; definir toolchain e políticas reais antes de compilar.",
+      "source_files": {
+        "SKILL.md": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+        "agents/openai.yaml": "61c496ae4d9bb073390dfb9375129eaf4e0a36fc43cfbfa2ba104806e42eb399",
+        "references/advanced-boundaries.md": "3c4e88ae866a1c304f1cf74752f9436bd0864d053787defeeb9fdc3916e41535",
+        "references/atomic-publication.md": "b6f38d5d5c4f02efa32fa43bf4f00de98d8f230040484796d3186a37a6e3ee15",
+        "references/concurrency-and-safety.md": "9c2ab9cec0d1794bd7a67221d223a1d6e2fb64da157985512495d68f36abd60c",
+        "references/concurrent-primitives.md": "486f5604fbe29e7bbcdb12a0ab8985cac9e8f0cc5dcf6b27e0b5af07505a6fbd",
+        "references/design.md": "050b1a84770236986c40d81169155decbfd0a05f3077db964321763727e063c1",
+        "references/examples.md": "79b684bd733de8f982193c620484dac444355d8df303a24400228874c9ebd5c7",
+        "references/portable-sources.md": "38c5f6bd80984e10a98519a87c1eb9dfead8e26eee3300300be559b1580916c8",
+        "references/service-engineering.md": "0d2c1300f079aa27cacbf06c33927a3870e9a602e4f2bcd8045e7a3647e42586",
+        "references/source-conflicts.md": "11cf8fc3d569ead02cc59d5f0c094964a1d04563ddecbe9e50ae567cb392a166",
+        "references/sources.md": "29a20f4bb00af9053c73f5bd4d7944d0161d6ed8acedaf9e89bdf0e3feca72d8",
+        "references/validation-and-maintenance.md": "092ec4d268ad8516a95f5676fe49972cd9b7ed965e558dfe6aab59082d9d515c"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/rust/SKILL.md",
+      "target_path": ".codex/skills/rust/SKILL.md",
+      "files": {
+        "SKILL.md": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+        "agents/openai.yaml": "61c496ae4d9bb073390dfb9375129eaf4e0a36fc43cfbfa2ba104806e42eb399",
+        "references/advanced-boundaries.md": "3c4e88ae866a1c304f1cf74752f9436bd0864d053787defeeb9fdc3916e41535",
+        "references/atomic-publication.md": "b6f38d5d5c4f02efa32fa43bf4f00de98d8f230040484796d3186a37a6e3ee15",
+        "references/concurrency-and-safety.md": "9c2ab9cec0d1794bd7a67221d223a1d6e2fb64da157985512495d68f36abd60c",
+        "references/concurrent-primitives.md": "486f5604fbe29e7bbcdb12a0ab8985cac9e8f0cc5dcf6b27e0b5af07505a6fbd",
+        "references/design.md": "050b1a84770236986c40d81169155decbfd0a05f3077db964321763727e063c1",
+        "references/examples.md": "79b684bd733de8f982193c620484dac444355d8df303a24400228874c9ebd5c7",
+        "references/portable-sources.md": "38c5f6bd80984e10a98519a87c1eb9dfead8e26eee3300300be559b1580916c8",
+        "references/service-engineering.md": "0d2c1300f079aa27cacbf06c33927a3870e9a602e4f2bcd8045e7a3647e42586",
+        "references/source-conflicts.md": "11cf8fc3d569ead02cc59d5f0c094964a1d04563ddecbe9e50ae567cb392a166",
+        "references/sources.md": "29a20f4bb00af9053c73f5bd4d7944d0161d6ed8acedaf9e89bdf0e3feca72d8",
+        "references/validation-and-maintenance.md": "092ec4d268ad8516a95f5676fe49972cd9b7ed965e558dfe6aab59082d9d515c"
+      }
+    },
+    {
+      "name": "software-architecture",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Choose or review system boundaries, ownership, integration styles, and quality-attribute trade-offs. Use for structural decisions and migrations that change them; local interfaces belong to code design, and coexistence or cutover without an unresolved structural choice does not alone require architecture work.",
+      "reason": "ADOTAR — limites modulares, dependências, contratos e isolamento sem fragmentação prematura.",
+      "source_files": {
+        "SKILL.md": "739571c2d2d28a4bd8ad389cc30ed59e599f4c8d65068f6d7e86ee0094dcefba",
+        "agents/openai.yaml": "2df6efff9a60518d3e99c5f9e2206afed6fabd189649315e4545a563172cf5d7",
+        "references/architecture-decisions.md": "55c3b5b5c36bd7ae34550816883b818de789debd032d90404a18dd3e77d745aa",
+        "references/fitness-functions.md": "e0665214ea44bb94a565d8f85294e1dc383af87b4806e83e8f0c041ad9e43422",
+        "references/portable-sources.md": "b8dfa0354beb49d7a544535af1edf11c77199d0df1c299b6b6d31906d70b0650"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/software-architecture/SKILL.md",
+      "target_path": ".codex/skills/software-architecture/SKILL.md",
+      "files": {
+        "SKILL.md": "739571c2d2d28a4bd8ad389cc30ed59e599f4c8d65068f6d7e86ee0094dcefba",
+        "agents/openai.yaml": "2df6efff9a60518d3e99c5f9e2206afed6fabd189649315e4545a563172cf5d7",
+        "references/architecture-decisions.md": "55c3b5b5c36bd7ae34550816883b818de789debd032d90404a18dd3e77d745aa",
+        "references/fitness-functions.md": "e0665214ea44bb94a565d8f85294e1dc383af87b4806e83e8f0c041ad9e43422",
+        "references/portable-sources.md": "b8dfa0354beb49d7a544535af1edf11c77199d0df1c299b6b6d31906d70b0650"
+      }
+    },
+    {
+      "name": "software-delivery",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Build, verify, package, promote, and release software through controlled inputs, dependency trust, pipelines, and recovery-aware rollouts. Use for build or release changes and diagnosis; skip ordinary code edits, team-productivity studies, and runtime incidents without a delivery question.",
+      "reason": "ADOTAR — build, release e distribuição do Server, Agent e frontend com artefatos rastreáveis.",
+      "source_files": {
+        "SKILL.md": "cfa0249938fb4dd95fe8dc9b93ffd5dfd71ca137014327090aaeb8e196dc7480",
+        "agents/openai.yaml": "64816ff241416f2f0880a87ebf6b9e5e93ba391e1a7ed1425fc0982d728fd078",
+        "references/build-inputs-and-trust.md": "e1a6e47a7f79101f2f940e70b7c0c81745531f2fb93d00fb0ca9d76593eff7ad",
+        "references/release-and-state.md": "39eedb1662cf3c6b53cd19f8ac713a89c58c1911808717420d87a192fc83e99d"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/software-delivery/SKILL.md",
+      "target_path": ".codex/skills/software-delivery/SKILL.md",
+      "files": {
+        "SKILL.md": "cfa0249938fb4dd95fe8dc9b93ffd5dfd71ca137014327090aaeb8e196dc7480",
+        "agents/openai.yaml": "64816ff241416f2f0880a87ebf6b9e5e93ba391e1a7ed1425fc0982d728fd078",
+        "references/build-inputs-and-trust.md": "e1a6e47a7f79101f2f940e70b7c0c81745531f2fb93d00fb0ca9d76593eff7ad",
+        "references/release-and-state.md": "39eedb1662cf3c6b53cd19f8ac713a89c58c1911808717420d87a192fc83e99d"
+      }
+    },
+    {
+      "name": "software-design",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Implement, refactor, or review code by examining responsibilities, cohesion, coupling, interfaces, information hiding, and maintenance costs. Use for concrete code-level design decisions and behavior-preserving changes. Do not use for cosmetic edits alone or to choose system architecture without architectural requirements.",
+      "reason": "ADOTAR — separação de módulos sem dispersão física em microsserviços.",
+      "source_files": {
+        "SKILL.md": "4e214fd5dbf141ee437814a5c817b6924a05e8ad75cf6bc208281155204f6143",
+        "agents/openai.yaml": "01fbc2fca737f8ca307453866bd8ad07ef3b1a18cfdfe9d1d0102e159c460eb9",
+        "references/algorithm-decisions.md": "f98d4fe6d7754315c33ded2a678bd66295f797320eb17ffff798332c7ec3eade",
+        "references/design-decisions.md": "e52de77b16c2da4706adb72c07ac2ecbdfca6be396159c9b99c591c86a209046",
+        "references/refactoring-evidence.md": "88a789f669b9f7a34b2fc74d9b20556cdbb53604147fa78c6ab2883b44e44b7d"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/software-design/SKILL.md",
+      "target_path": ".codex/skills/software-design/SKILL.md",
+      "files": {
+        "SKILL.md": "4e214fd5dbf141ee437814a5c817b6924a05e8ad75cf6bc208281155204f6143",
+        "agents/openai.yaml": "01fbc2fca737f8ca307453866bd8ad07ef3b1a18cfdfe9d1d0102e159c460eb9",
+        "references/algorithm-decisions.md": "f98d4fe6d7754315c33ded2a678bd66295f797320eb17ffff798332c7ec3eade",
+        "references/design-decisions.md": "e52de77b16c2da4706adb72c07ac2ecbdfca6be396159c9b99c591c86a209046",
+        "references/refactoring-evidence.md": "88a789f669b9f7a34b2fc74d9b20556cdbb53604147fa78c6ab2883b44e44b7d"
+      }
+    },
+    {
+      "name": "software-evolution",
+      "origin": "ox",
+      "decision": "conditional",
+      "description": "Change existing systems through characterized behavior, compatibility, mixed-version transitions, and incremental modernization. Use for consequential replacement, data/contract migration, or coexistence; skip cosmetic changes and local behavior-preserving refactors without a transition problem.",
+      "reason": "CONDICIONAL — mudanças de contrato, migrações e rollout servidor/agentes em versões distintas.",
+      "source_files": {
+        "SKILL.md": "b6649a9db5f2653cccca8b9e53c0489face98a398f2cca8ca7473087ff8b124c",
+        "agents/openai.yaml": "f8b80a5637ea6e49cd798d3b62798a14afb44762858a4036b038958ae681d541",
+        "references/state-migration.md": "77fd0706b58a32bf45c8a6c87783388d1f2ed74883afaf3e534fc6416c984dff",
+        "references/transition-decisions.md": "9f9abae4f80618b0f98637b42cf175981d4179da9d614fe512dc2b5a6be3d8f0"
+      },
+      "adaptations": [
+        "Condicional a migração, coexistência ou rollout de contratos/dados entre versões; não exigir workflow de migração para correção textual."
+      ],
+      "path": ".local/skill-installation/skills/software-evolution/SKILL.md",
+      "target_path": ".codex/skills/software-evolution/SKILL.md",
+      "files": {
+        "SKILL.md": "00ae1e5fd99ae1a727278d234ddf0427e410cdaf7914bd1e3c1b97b8d635bbf1",
+        "agents/openai.yaml": "f8b80a5637ea6e49cd798d3b62798a14afb44762858a4036b038958ae681d541",
+        "references/state-migration.md": "77fd0706b58a32bf45c8a6c87783388d1f2ed74883afaf3e534fc6416c984dff",
+        "references/transition-decisions.md": "9f9abae4f80618b0f98637b42cf175981d4179da9d614fe512dc2b5a6be3d8f0"
+      }
+    },
+    {
+      "name": "software-testing",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Plan, implement, or review risk-based software tests; diagnose weak or flaky suites and preserve behavior during changes. Use for test strategy, case design, test doubles, or meaningful regression coverage, rather than unrelated edits or a requirement to add tests to every change.",
+      "reason": "ADOTAR — unitário, integração, sistema, falha e cenários reproduzíveis.",
+      "source_files": {
+        "SKILL.md": "2d2fbc0b44e19a2d4428eb98b8602fc7dc58884294a9f6902606423959f34aba",
+        "agents/openai.yaml": "ad921163723ad852df45b7c88b38e7a0d7fa2604f7937f82ebe314a42e6adf61",
+        "references/boundary-evidence.md": "32a79b7001cfb8b0a7b76d7c89afe55fb8468ebcdee24f8426e199f56f30e15c",
+        "references/case-design.md": "d13fe4d628689203be043b568eab997b16ecf1a387e3c779775bd8737ae3eb4b",
+        "references/coverage-guided-fuzzing.md": "eed081e17416f75166282e1ddff828a86cc2c71e7343823e047e7b916b460a8a",
+        "references/suite-quality.md": "1f56d2ca697d36c1039ac2b03e404e319bf77ccb98005d038b313f16607e5c39",
+        "references/visual-regression.md": "c874d4c78c3be1bcaa2791acdf4a2ff57c9537e2dca1d3ee333cd91daf362976"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/software-testing/SKILL.md",
+      "target_path": ".codex/skills/software-testing/SKILL.md",
+      "files": {
+        "SKILL.md": "2d2fbc0b44e19a2d4428eb98b8602fc7dc58884294a9f6902606423959f34aba",
+        "agents/openai.yaml": "ad921163723ad852df45b7c88b38e7a0d7fa2604f7937f82ebe314a42e6adf61",
+        "references/boundary-evidence.md": "32a79b7001cfb8b0a7b76d7c89afe55fb8468ebcdee24f8426e199f56f30e15c",
+        "references/case-design.md": "d13fe4d628689203be043b568eab997b16ecf1a387e3c779775bd8737ae3eb4b",
+        "references/coverage-guided-fuzzing.md": "eed081e17416f75166282e1ddff828a86cc2c71e7343823e047e7b916b460a8a",
+        "references/suite-quality.md": "1f56d2ca697d36c1039ac2b03e404e319bf77ccb98005d038b313f16607e5c39",
+        "references/visual-regression.md": "c874d4c78c3be1bcaa2791acdf4a2ff57c9537e2dca1d3ee333cd91daf362976"
+      }
+    },
+    {
+      "name": "technical-documentation",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Create or maintain technical tutorials, how-to guides, API references, and conceptual documentation as the main deliverable, grounded in a versioned implementation or contract. Skip routine inline comments, standalone ADR decisions, binary document layout, and prompt-only writing.",
+      "reason": "ADOTAR — contratos, runbooks, SDD, instalação, manutenção e operação.",
+      "source_files": {
+        "SKILL.md": "66818d9b61bd373fc64eee7bbcfec7a61f0825b37bf8a2f135fdf2c4f1ead059",
+        "agents/openai.yaml": "1ea12cbfb19d87253cb821cb701d5486db63626490361d22334bc8936af78300"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/technical-documentation/SKILL.md",
+      "target_path": ".codex/skills/technical-documentation/SKILL.md",
+      "files": {
+        "SKILL.md": "66818d9b61bd373fc64eee7bbcfec7a61f0825b37bf8a2f135fdf2c4f1ead059",
+        "agents/openai.yaml": "1ea12cbfb19d87253cb821cb701d5486db63626490361d22334bc8936af78300"
+      }
+    },
+    {
+      "name": "tool-output-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Transform CLI output conservatively while preserving raw bytes, exit status, failure signals and explicit loss metadata. Use for tool parsers and token-budget summaries; skip destructive audit-log rewriting.",
+      "reason": "ADOTAR — captura e normalização não destrutiva de stdout/stderr de builds e testes; complementar cicd-logs-and-test-results.",
+      "source_files": {
+        "SKILL.md": "fd130ef1657f87d540dc3e2577869926d5b41f4b2990dc6d1b6c92330f829529",
+        "agents/openai.yaml": "34332f59e9be0409aa25d26ce68561c4763d1de99ffa804a92cd2f0d61a1da06",
+        "references/evaluation-cases.md": "d3bee6289434dd9d3c8fabc3429fa8ad7b5f2fe792a6f99585363724ce3acf9f",
+        "references/loss-aware-transformations.md": "fb4b14a18194d6d6f9a7a592f095bc22e8f3c03cbb080c5605fa73b01d282647",
+        "references/token-measurement.md": "05f7fb7d405b84e2680518031486b8a843b0891f47fd11464105b8f410ee3303",
+        "references/tool-parsers-and-fallbacks.md": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/tool-output-engineering/SKILL.md",
+      "target_path": ".codex/skills/tool-output-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "fd130ef1657f87d540dc3e2577869926d5b41f4b2990dc6d1b6c92330f829529",
+        "agents/openai.yaml": "34332f59e9be0409aa25d26ce68561c4763d1de99ffa804a92cd2f0d61a1da06",
+        "references/evaluation-cases.md": "d3bee6289434dd9d3c8fabc3429fa8ad7b5f2fe792a6f99585363724ce3acf9f",
+        "references/loss-aware-transformations.md": "fb4b14a18194d6d6f9a7a592f095bc22e8f3c03cbb080c5605fa73b01d282647",
+        "references/token-measurement.md": "05f7fb7d405b84e2680518031486b8a843b0891f47fd11464105b8f410ee3303",
+        "references/tool-parsers-and-fallbacks.md": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95"
+      }
+    },
+    {
+      "name": "workspace-integrity-engineering",
+      "origin": "ox",
+      "decision": "adopt",
+      "description": "Protect multiauthor workspaces through content preconditions, path boundaries, conflict detection and crash recovery. Use for concurrent file edits, watchers and Git worktrees; skip ordinary schema migrations.",
+      "reason": "ADOTAR — integridade de checkout e workspace de jobs, concorrência e limpeza; adaptar sem supor editor multiagente.",
+      "source_files": {
+        "SKILL.md": "3156e92baceb75376182423952607da665ff2c8db0d8cdc4296b44431b5c915a",
+        "agents/openai.yaml": "7f2e47dce012aeae680eafaa5018d4e674df0dab4a6e9c36e6677f4f5d08e38a",
+        "references/evaluation-cases.md": "14a0da21921ed8fc1a22a80c4b67f879e59d3f6353aa8e4807d5e7384d5e56f6",
+        "references/file-operations.md": "8a74d3e3725a3c1bd64a1f44cff0ec769738fe28e9f67fa0dcaea1948ed6d32c",
+        "references/git-worktrees-and-conflicts.md": "775bc0fc1519f1e7365d20835538b9cabaf65f8373c75b01959df40a68b46358",
+        "references/watcher-and-recovery.md": "046382bbb97faa08006f341eedcce2720c499a83b05bce71566d948710693867"
+      },
+      "adaptations": [
+        "Aplicar a checkout em revisão fixa, workspace por tentativa, contenção de caminhos/symlinks, concorrência e limpeza. Não pressupor editor multiagente nem reconstruir Git."
+      ],
+      "path": ".local/skill-installation/skills/workspace-integrity-engineering/SKILL.md",
+      "target_path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "6811f2e83a4bdc376eb37df172fe3112f8ac02d2eb25f65821dabdf41dfa6bc8",
+        "agents/openai.yaml": "7f2e47dce012aeae680eafaa5018d4e674df0dab4a6e9c36e6677f4f5d08e38a",
+        "references/evaluation-cases.md": "14a0da21921ed8fc1a22a80c4b67f879e59d3f6353aa8e4807d5e7384d5e56f6",
+        "references/file-operations.md": "8a74d3e3725a3c1bd64a1f44cff0ec769738fe28e9f67fa0dcaea1948ed6d32c",
+        "references/git-worktrees-and-conflicts.md": "775bc0fc1519f1e7365d20835538b9cabaf65f8373c75b01959df40a68b46358",
+        "references/watcher-and-recovery.md": "046382bbb97faa08006f341eedcce2720c499a83b05bce71566d948710693867"
+      }
+    },
+    {
+      "name": "readme-lifecycle-engineering",
+      "origin": "readme",
+      "decision": "adopt",
+      "description": "Create, audit, restructure, and keep repository or package READMEs accurate as software evolves. Use for README entry points, runnable onboarding, documentation splitting, navigation, and drift checks; skip API reference writing or general technical-documentation tasks without a README lifecycle issue.",
+      "reason": "Create, audit, restructure, and keep repository or package READMEs accurate as software evolves. Use for README entry points, runnable onboarding, documentation splitting, navigation, and drift checks; skip API reference writing or general technical-documentation tasks without a README lifecycle issue.",
+      "source_files": {
+        "SKILL.md": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+        "agents/openai.yaml": "a284c53da7d7f26fea4670c2d5725eeb9f1f9b790fe949093705812fa6951e38",
+        "references/documentation-topology-and-diataxis.md": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
+        "references/ec-consumer-boundaries.md": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",
+        "references/implementation-details.md": "c1a56adf3d4dc27ef98ce9f5910780e4eb5d84b7a26d4dc66f5df1cfa6047081",
+        "references/maintenance-and-change-triggers.md": "12a5a8b9e523a54abc35011c3b0c09fe278b972e9580c96e7b87be5e7a2b6ba9",
+        "references/readme-scope-and-content.md": "808c804407c11765788b79b973eb026fa7998be3f68a3634bf4d2b6e86fa43c2",
+        "references/routing-and-oracles.md": "3ceb6ef81c44a87041132a92eced77dcea805452d22511b659c886ca7200f38e",
+        "references/scientific-evidence-and-limits.md": "6e1e14f826fa0da31a3689fdbf907483e78be15f9345df82040789365a58527e",
+        "references/sources-and-decisions.md": "9be659af822a906bde93f84fe7282c9d8e84b137d7bd92ffd5a206e204698005",
+        "references/verification-and-acceptance.md": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336"
+      },
+      "adaptations": [],
+      "path": ".local/skill-installation/skills/readme-lifecycle-engineering/SKILL.md",
+      "target_path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
+      "files": {
+        "SKILL.md": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+        "agents/openai.yaml": "a284c53da7d7f26fea4670c2d5725eeb9f1f9b790fe949093705812fa6951e38",
+        "references/documentation-topology-and-diataxis.md": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
+        "references/ec-consumer-boundaries.md": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",
+        "references/implementation-details.md": "c1a56adf3d4dc27ef98ce9f5910780e4eb5d84b7a26d4dc66f5df1cfa6047081",
+        "references/maintenance-and-change-triggers.md": "12a5a8b9e523a54abc35011c3b0c09fe278b972e9580c96e7b87be5e7a2b6ba9",
+        "references/readme-scope-and-content.md": "808c804407c11765788b79b973eb026fa7998be3f68a3634bf4d2b6e86fa43c2",
+        "references/routing-and-oracles.md": "3ceb6ef81c44a87041132a92eced77dcea805452d22511b659c886ca7200f38e",
+        "references/scientific-evidence-and-limits.md": "6e1e14f826fa0da31a3689fdbf907483e78be15f9345df82040789365a58527e",
+        "references/sources-and-decisions.md": "9be659af822a906bde93f84fe7282c9d8e84b137d7bd92ffd5a206e204698005",
+        "references/verification-and-acceptance.md": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336"
+      }
+    }
+  ]
+}

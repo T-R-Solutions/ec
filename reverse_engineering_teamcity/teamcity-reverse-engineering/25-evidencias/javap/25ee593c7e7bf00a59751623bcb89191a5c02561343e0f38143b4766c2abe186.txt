@@ -1,0 +1,449 @@
+Compiled from "BuildTypePredicates.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.BuildTypePredicates {
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.BuildTypePredicates();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #78                 // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 28: 0
+
+  public static java.util.Map<java.util.function.Predicate<jetbrains.buildServer.serverSide.SBuildType>, java.util.Map<jetbrains.buildServer.serverSide.agentTypes.SAgentType, java.util.List<jetbrains.buildServer.serverSide.SBuildAgent>>> createBuildTypePredicatesForAgents(java.util.Collection<jetbrains.buildServer.serverSide.SBuildAgent>);
+    descriptor: (Ljava/util/Collection;)Ljava/util/Map;
+    Code:
+         0: aload_0
+         1: ifnonnull     15
+         4: iconst_0
+         5: invokestatic  #241                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_0
+        16: invokeinterface #204,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+        21: invokedynamic #194,  0            // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+        26: invokestatic  #22                 // Method java/util/stream/Collectors.groupingBy:(Ljava/util/function/Function;)Ljava/util/stream/Collector;
+        29: invokeinterface #21,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+        34: checkcast     #223                // class java/util/Map
+        37: astore_1
+        38: new           #171                // class java/util/HashMap
+        41: dup
+        42: invokespecial #189                // Method java/util/HashMap."<init>":()V
+        45: astore_2
+        46: aload_1
+        47: aload_2
+        48: invokedynamic #247,  0            // InvokeDynamic #1:accept:(Ljava/util/Map;)Ljava/util/function/BiConsumer;
+        53: invokeinterface #90,  2           // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+        58: aload_2
+        59: dup
+        60: ifnonnull     74
+        63: iconst_1
+        64: invokestatic  #241                // Method $$$reportNull$$$0:(I)V
+        67: goto          74
+        70: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        73: athrow
+        74: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            46    67    70   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 20: 15
+        line 17: 38
+        line 35: 46
+        line 3: 58
+
+  public static java.util.Map<java.util.function.Predicate<jetbrains.buildServer.serverSide.SBuildType>, java.util.List<jetbrains.buildServer.serverSide.agentTypes.SAgentType>> createBuildTypePredicatesForAgentTypes(java.util.Collection<jetbrains.buildServer.serverSide.agentTypes.SAgentType>);
+    descriptor: (Ljava/util/Collection;)Ljava/util/Map;
+    Code:
+         0: aload_0
+         1: ifnonnull     15
+         4: iconst_2
+         5: invokestatic  #241                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: new           #171                // class java/util/HashMap
+        18: dup
+        19: invokespecial #189                // Method java/util/HashMap."<init>":()V
+        22: astore_1
+        23: aload_0
+        24: invokeinterface #156,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        29: astore_2
+        30: aload_2
+        31: invokeinterface #191,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        36: ifeq          124
+        39: aload_2
+        40: invokeinterface #209,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        45: checkcast     #182                // class jetbrains/buildServer/serverSide/agentTypes/SAgentType
+        48: astore_3
+        49: aload_3
+        50: invokeinterface #106,  1          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/SAgentType.getPolicy:()Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;
+        55: astore        4
+        57: aload         4
+        59: invokeinterface #188,  1          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy.getPolicyKind:()I
+        64: iconst_1
+        65: if_icmpne     103
+        68: aload_1
+        69: new           #176                // class jetbrains/buildServer/serverSide/impl/buildDistribution/BuildTypePredicates$AgentPoolPredicate
+        72: dup
+        73: aload_3
+        74: invokeinterface #246,  1          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/SAgentType.getAgentPoolId:()I
+        79: aload         4
+        81: invokespecial #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildTypePredicates$AgentPoolPredicate."<init>":(ILjetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;)V
+        84: aload_3
+        85: invokedynamic #175,  0            // InvokeDynamic #2:apply:(Ljetbrains/buildServer/serverSide/agentTypes/SAgentType;)Ljava/util/function/BiFunction;
+        90: invokeinterface #151,  3          // InterfaceMethod java/util/Map.compute:(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
+        95: pop
+        96: goto          121
+        99: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       102: athrow
+       103: aload_1
+       104: aload         4
+       106: invokedynamic #103,  0            // InvokeDynamic #3:test:(Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;)Ljava/util/function/Predicate;
+       111: aload_3
+       112: invokestatic  #218                // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+       115: invokeinterface #48,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       120: pop
+       121: goto          30
+       124: aload_1
+       125: dup
+       126: ifnonnull     140
+       129: iconst_3
+       130: invokestatic  #241                // Method $$$reportNull$$$0:(I)V
+       133: goto          140
+       136: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       139: athrow
+       140: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            57    99    99   Class java/lang/IllegalArgumentException
+           124   133   136   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 9: 15
+        line 4: 23
+        line 29: 49
+        line 2: 57
+        line 26: 68
+        line 27: 103
+        line 18: 121
+        line 25: 124
+
+  private static boolean lambda$createBuildTypePredicatesForAgentTypes$5(jetbrains.buildServer.serverSide.agentTypes.AgentTypePolicy, jetbrains.buildServer.serverSide.SBuildType);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;Ljetbrains/buildServer/serverSide/SBuildType;)Z
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getProjectId:()Ljava/lang/String;
+         7: aload_1
+         8: invokeinterface #42,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getBuildTypeId:()Ljava/lang/String;
+        13: invokeinterface #137,  3          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy.isAllowedToRun:(Ljava/lang/String;Ljava/lang/String;)Z
+        18: ireturn
+      LineNumberTable:
+        line 5: 0
+
+  private static java.util.List lambda$createBuildTypePredicatesForAgentTypes$4(jetbrains.buildServer.serverSide.agentTypes.SAgentType, java.util.function.Predicate, java.util.List);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/SAgentType;Ljava/util/function/Predicate;Ljava/util/List;)Ljava/util/List;
+    Code:
+         0: aload_2
+         1: ifnull        18
+         4: aload_2
+         5: aload_0
+         6: invokeinterface #64,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        11: pop
+        12: aload_2
+        13: areturn
+        14: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        17: athrow
+        18: new           #110                // class java/util/ArrayList
+        21: dup
+        22: invokespecial #12                 // Method java/util/ArrayList."<init>":()V
+        25: astore_3
+        26: aload_3
+        27: aload_0
+        28: invokeinterface #64,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        33: pop
+        34: aload_3
+        35: areturn
+      Exception table:
+         from    to  target type
+             0    14    14   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 31: 0
+        line 8: 4
+        line 23: 12
+        line 12: 18
+        line 30: 26
+        line 14: 34
+
+  private static void lambda$createBuildTypePredicatesForAgents$3(java.util.Map, java.lang.Integer, java.util.List);
+    descriptor: (Ljava/util/Map;Ljava/lang/Integer;Ljava/util/List;)V
+    Code:
+         0: aload_2
+         1: invokeinterface #252,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+         6: ifeq          14
+         9: return
+        10: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        13: athrow
+        14: aload_2
+        15: iconst_0
+        16: invokeinterface #165,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        21: checkcast     #59                 // class jetbrains/buildServer/serverSide/BuildAgentEx
+        24: invokeinterface #40,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildAgentEx.getAgentType:()Ljetbrains/buildServer/serverSide/agentTypes/SAgentType;
+        29: astore_3
+        30: aload_3
+        31: invokeinterface #106,  1          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/SAgentType.getPolicy:()Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;
+        36: astore        4
+        38: aload         4
+        40: invokeinterface #188,  1          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy.getPolicyKind:()I
+        45: iconst_1
+        46: if_icmpne     85
+        49: aload_0
+        50: new           #176                // class jetbrains/buildServer/serverSide/impl/buildDistribution/BuildTypePredicates$AgentPoolPredicate
+        53: dup
+        54: aload_3
+        55: invokeinterface #246,  1          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/SAgentType.getAgentPoolId:()I
+        60: aload         4
+        62: invokespecial #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildTypePredicates$AgentPoolPredicate."<init>":(ILjetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;)V
+        65: aload_3
+        66: aload_2
+        67: invokedynamic #198,  0            // InvokeDynamic #4:apply:(Ljetbrains/buildServer/serverSide/agentTypes/SAgentType;Ljava/util/List;)Ljava/util/function/BiFunction;
+        72: invokeinterface #151,  3          // InterfaceMethod java/util/Map.compute:(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
+        77: pop
+        78: goto          120
+        81: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        84: athrow
+        85: new           #171                // class java/util/HashMap
+        88: dup
+        89: invokespecial #189                // Method java/util/HashMap."<init>":()V
+        92: astore        5
+        94: aload         5
+        96: aload_3
+        97: aload_2
+        98: invokeinterface #48,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       103: pop
+       104: aload_0
+       105: aload         4
+       107: invokedynamic #25,  0             // InvokeDynamic #5:test:(Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;)Ljava/util/function/Predicate;
+       112: aload         5
+       114: invokeinterface #48,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       119: pop
+       120: return
+      Exception table:
+         from    to  target type
+             0    10    10   Class java/lang/IllegalArgumentException
+            38    81    81   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 11: 0
+        line 7: 14
+        line 34: 30
+        line 32: 38
+        line 6: 49
+        line 24: 85
+        line 22: 94
+        line 19: 104
+        line 1: 120
+
+  private static boolean lambda$createBuildTypePredicatesForAgents$2(jetbrains.buildServer.serverSide.agentTypes.AgentTypePolicy, jetbrains.buildServer.serverSide.SBuildType);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;Ljetbrains/buildServer/serverSide/SBuildType;)Z
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getProjectId:()Ljava/lang/String;
+         7: aload_1
+         8: invokeinterface #42,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getBuildTypeId:()Ljava/lang/String;
+        13: invokeinterface #137,  3          // InterfaceMethod jetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy.isAllowedToRun:(Ljava/lang/String;Ljava/lang/String;)Z
+        18: ireturn
+      LineNumberTable:
+        line 13: 0
+
+  private static java.util.Map lambda$createBuildTypePredicatesForAgents$1(jetbrains.buildServer.serverSide.agentTypes.SAgentType, java.util.List, java.util.function.Predicate, java.util.Map);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/SAgentType;Ljava/util/List;Ljava/util/function/Predicate;Ljava/util/Map;)Ljava/util/Map;
+    Code:
+         0: aload_3
+         1: ifnull        32
+         4: aload_3
+         5: aload_0
+         6: invokedynamic #245,  0            // InvokeDynamic #6:apply:()Ljava/util/function/Function;
+        11: invokeinterface #163,  3          // InterfaceMethod java/util/Map.computeIfAbsent:(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
+        16: checkcast     #95                 // class java/util/List
+        19: aload_1
+        20: invokeinterface #142,  2          // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+        25: pop
+        26: aload_3
+        27: areturn
+        28: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        31: athrow
+        32: new           #171                // class java/util/HashMap
+        35: dup
+        36: invokespecial #189                // Method java/util/HashMap."<init>":()V
+        39: astore_3
+        40: aload_3
+        41: aload_0
+        42: aload_1
+        43: invokeinterface #48,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        48: pop
+        49: aload_3
+        50: areturn
+      Exception table:
+         from    to  target type
+             0    28    28   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 15: 0
+        line 36: 4
+        line 10: 26
+        line 16: 32
+        line 21: 40
+        line 33: 49
+
+  private static java.util.List lambda$createBuildTypePredicatesForAgents$0(jetbrains.buildServer.serverSide.agentTypes.SAgentType);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/SAgentType;)Ljava/util/List;
+    Code:
+         0: new           #110                // class java/util/ArrayList
+         3: dup
+         4: invokespecial #12                 // Method java/util/ArrayList."<init>":()V
+         7: areturn
+      LineNumberTable:
+        line 37: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 3
+                       0: 32
+                       1: 41
+                       2: 32
+                       3: 41
+                 default: 32
+            }
+        32: ldc           #2                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        34: goto          46
+        37: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        40: athrow
+        41: ldc           #4                  // String @NotNull method %s.%s must not return null
+        43: goto          46
+        46: iload_0
+        47: tableswitch   { // 0 to 3
+                       0: 76
+                       1: 84
+                       2: 76
+                       3: 84
+                 default: 76
+            }
+        76: iconst_3
+        77: goto          88
+        80: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        83: athrow
+        84: iconst_2
+        85: goto          88
+        88: anewarray     #113                // class java/lang/Object
+        91: iload_0
+        92: tableswitch   { // 0 to 3
+                       0: 124
+                       1: 136
+                       2: 144
+                       3: 136
+                 default: 124
+            }
+       124: dup
+       125: iconst_0
+       126: ldc           #1                  // String agents
+       128: aastore
+       129: goto          152
+       132: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       135: athrow
+       136: dup
+       137: iconst_0
+       138: ldc           #3                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/BuildTypePredicates
+       140: aastore
+       141: goto          152
+       144: dup
+       145: iconst_0
+       146: ldc           #7                  // String agentTypes
+       148: aastore
+       149: goto          152
+       152: iload_0
+       153: tableswitch   { // 0 to 3
+                       0: 184
+                       1: 196
+                       2: 184
+                       3: 204
+                 default: 184
+            }
+       184: dup
+       185: iconst_1
+       186: ldc           #3                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/BuildTypePredicates
+       188: aastore
+       189: goto          212
+       192: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       195: athrow
+       196: dup
+       197: iconst_1
+       198: ldc           #6                  // String createBuildTypePredicatesForAgents
+       200: aastore
+       201: goto          212
+       204: dup
+       205: iconst_1
+       206: ldc           #5                  // String createBuildTypePredicatesForAgentTypes
+       208: aastore
+       209: goto          212
+       212: iload_0
+       213: tableswitch   { // 0 to 3
+                       0: 244
+                       1: 256
+                       2: 259
+                       3: 256
+                 default: 244
+            }
+       244: dup
+       245: iconst_2
+       246: ldc           #6                  // String createBuildTypePredicatesForAgents
+       248: aastore
+       249: goto          267
+       252: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       255: athrow
+       256: goto          267
+       259: dup
+       260: iconst_2
+       261: ldc           #5                  // String createBuildTypePredicatesForAgentTypes
+       263: aastore
+       264: goto          267
+       267: invokestatic  #227                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       270: iload_0
+       271: tableswitch   { // 0 to 3
+                       0: 300
+                       1: 315
+                       2: 300
+                       3: 315
+                 default: 300
+            }
+       300: new           #74                 // class java/lang/IllegalArgumentException
+       303: dup_x1
+       304: swap
+       305: invokespecial #136                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       308: goto          326
+       311: invokestatic  #205                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       314: athrow
+       315: new           #16                 // class java/lang/IllegalStateException
+       318: dup_x1
+       319: swap
+       320: invokespecial #214                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       323: goto          326
+       326: athrow
+      Exception table:
+         from    to  target type
+             0    37    37   Class java/lang/IllegalArgumentException
+            46    80    80   Class java/lang/IllegalArgumentException
+            88   132   132   Class java/lang/IllegalArgumentException
+           152   192   192   Class java/lang/IllegalArgumentException
+           212   252   252   Class java/lang/IllegalArgumentException
+           267   311   311   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

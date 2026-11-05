@@ -1,0 +1,13 @@
+# Recuperação do instalador de skills
+
+A falha foi reproduzida antes da alteração exclusivamente em fixture: OSError na segunda ponte, auditoria FAIL e retry recusado. [Reprodução](reproduction.json). A instalação real não foi convertida para preparação. Fontes importadas, pacotes e baseline não foram alterados.
+
+A correção usa journal write-ahead de conteúdo e flock Linux não bloqueante. O journal contém o conjunto exato de metadados anteriores/esperados; o estado esperado é recalculado e comparado, sem atualizar hashes para tolerar divergências. Cópias integrais são verificadas antes de promoção. Metadados usam replace/fsync individuais; o perfil é o último commit. A recuperação audita uma visão temporária dos metadados anteriores e verifica conflitos no destino real. A auditoria pública continua estrita e rejeita estados intermediários.
+
+Não há transação atômica entre arquivos. A retomada aceita somente bytes anteriores ou esperados de cada arquivo e reaudita baseline/fontes. Conteúdo externo divergente impede qualquer continuação; temporários órfãos são preservados e nunca tratados como pacotes ativos. O journal só é removido após auditoria final. Crash depois da gravação do perfil ainda é recuperável. --check é leitura e não repara. Lock persiste como inode, mas sua posse termina com o processo. Outra instalação cooperante é rejeitada.
+
+34 testes passaram: interrupção de cópia; antes/depois de pontes no início/meio/fim e do perfil; interrupção após journal; morte real do subprocesso durante cópia e após ponte; conflito de ponte/perfil/pacote/baseline/journal; journal ausente; concorrência entre processos; idempotência e controles negativos anteriores. [Log](tests.log). Falha inicial da implementação corrigida: visão temporária da auditoria omitia tools/governance; [log preservado](initial-suite-failure.log).
+
+A auditoria --require-installed retornou PASS e o preflight real ALREADY_INSTALLED. O gate SDD passou para sete critérios de governança antes da criação da feature de produto. Após a feature separada, o gate global deve rejeitar seus critérios de produto ainda UNVERIFIED. Consulte [reobservação por critério](checks.json) e a [evidência atual de governança](../../../sdd/features/governance-adoption/evidence.json). O histórico foi preservado em [previous.zip](previous.zip).
+
+Limites: Linux/filesystem local; não ensaiado corte físico de energia nem filesystem de rede. Exclusão pressupõe escritores cooperantes: um editor que ignora flock pode correr entre comparação e substituição. Journal não autentica um adversário capaz de alterar coordenadamente todos os arquivos. Cobertura de fronteiras representativas não é interrupção em todas as 67 pontes. Nenhum resultado desta entrega aceita runtime de produto.

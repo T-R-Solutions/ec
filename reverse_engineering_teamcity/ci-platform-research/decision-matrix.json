@@ -1,0 +1,431 @@
+[
+  {
+    "feature_id": "F01",
+    "feature": "Projetos, configuração e parâmetros",
+    "teamcity_behavior": "Projetos organizam configurações; parâmetros compõem settings e ambiente; permissões são concedidas por papéis.",
+    "evidence": [
+      "D-PROJECT",
+      "D-PARAM",
+      "D-AUTH",
+      "TC-015"
+    ],
+    "problem": "Organizar builds e limitar quem pode alterar ou executar cada projeto.",
+    "independent_requirements": [
+      "R02"
+    ],
+    "rust_alternatives": [
+      "JSON versus YAML versus TOML versus DSL Rust e UI geradora"
+    ],
+    "chosen_solution": "Adaptar: projeto simples com revisão imutável; templates adiados.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Regras completas de herança, templates e precedência não reconstruídas.",
+    "acceptance": [
+      "A02"
+    ],
+    "adrs": [
+      "ADR-005"
+    ]
+  },
+  {
+    "feature_id": "F02",
+    "feature": "Solicitação e validação",
+    "teamcity_behavior": "Endpoint de fila consulta usuário e chama triggerBuild; compilador DSL converte diagnóstico em erro.",
+    "evidence": [
+      "TC-013",
+      "TC-016"
+    ],
+    "problem": "Recusar solicitações inválidas e criar execução identificável.",
+    "independent_requirements": [
+      "R01",
+      "R02"
+    ],
+    "rust_alternatives": [
+      "controle único versus microsserviços versus processo único com executor",
+      "JSON versus YAML versus TOML versus DSL Rust e UI geradora",
+      "std somente versus stack async versus abstrações genéricas"
+    ],
+    "chosen_solution": "Substituir: JSON declarativo validado sem compilação de código no servidor.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Não se demonstrou atomicidade entre REST, configuração e fila.",
+    "acceptance": [
+      "A01",
+      "A02"
+    ],
+    "adrs": [
+      "ADR-001",
+      "ADR-005",
+      "ADR-009"
+    ]
+  },
+  {
+    "feature_id": "F03",
+    "feature": "Fila durável",
+    "teamcity_behavior": "Há índices de fila em memória e inserção parametrizada em build_queue.",
+    "evidence": [
+      "TC-003",
+      "TC-004",
+      "D-QUEUE"
+    ],
+    "problem": "Manter pedidos pendentes até haver capacidade.",
+    "independent_requirements": [
+      "R01",
+      "R03"
+    ],
+    "rust_alternatives": [
+      "controle único versus microsserviços versus processo único com executor",
+      "PostgreSQL versus SQLite versus broker externo",
+      "std somente versus stack async versus abstrações genéricas"
+    ],
+    "chosen_solution": "Adotar o requisito; fila é consulta ao estado SQL, sem cópia autoritativa em memória.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Isolamento e recuperação TeamCity desconhecidos.",
+    "acceptance": [
+      "A01",
+      "A02",
+      "A03",
+      "A06"
+    ],
+    "adrs": [
+      "ADR-001",
+      "ADR-002",
+      "ADR-009"
+    ]
+  },
+  {
+    "feature_id": "F04",
+    "feature": "Compatibilidade e seleção",
+    "teamcity_behavior": "Distribuidor processa fila; filtro pode ordenar agentes por prioridade limitada; requisitos restringem agentes.",
+    "evidence": [
+      "TC-005",
+      "TC-006",
+      "TC-007",
+      "D-MATCH",
+      "D-QUEUE"
+    ],
+    "problem": "Executar onde existem recursos e ferramentas necessários.",
+    "independent_requirements": [
+      "R04",
+      "R05",
+      "R16"
+    ],
+    "rust_alternatives": [
+      "PostgreSQL versus SQLite versus broker externo",
+      "HTTP JSON versus Tonic/gRPC versus protocolo privado",
+      "FIFO versus prioridade versus fair/weighted versus duração estimada",
+      "execução única presumida versus reentrega automática versus lease/fence",
+      "std somente versus stack async versus abstrações genéricas"
+    ],
+    "chosen_solution": "Adaptar: FIFO entre jobs elegíveis e slots autenticados; prioridade de agentes descartada inicialmente.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Justiça global, reserva e otimização global não demonstradas.",
+    "acceptance": [
+      "A04",
+      "A05",
+      "A07",
+      "A17"
+    ],
+    "adrs": [
+      "ADR-002",
+      "ADR-003",
+      "ADR-004",
+      "ADR-006",
+      "ADR-009"
+    ]
+  },
+  {
+    "feature_id": "F05",
+    "feature": "Registro e transporte",
+    "teamcity_behavior": "Registro evita concorrência local; agente consulta comandos e lê identificadores da resposta.",
+    "evidence": [
+      "TC-008",
+      "TC-009",
+      "TC-017",
+      "TC-018",
+      "D-AGENT"
+    ],
+    "problem": "Conectar executores ao orquestrador e transferir trabalho.",
+    "independent_requirements": [
+      "R04",
+      "R12"
+    ],
+    "rust_alternatives": [
+      "controle único versus microsserviços versus processo único com executor",
+      "HTTP JSON versus Tonic/gRPC versus protocolo privado",
+      "FIFO versus prioridade versus fair/weighted versus duração estimada",
+      "processo versus namespaces/cgroups/seccomp versus OCI versus VM/microVM"
+    ],
+    "chosen_solution": "Substituir por HTTP versionado, credenciais de agente e leases próprios.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Autenticação interna, serialização e leases não recuperados.",
+    "acceptance": [
+      "A04",
+      "A13"
+    ],
+    "adrs": [
+      "ADR-001",
+      "ADR-003",
+      "ADR-004",
+      "ADR-007"
+    ]
+  },
+  {
+    "feature_id": "F06",
+    "feature": "Steps e processos",
+    "teamcity_behavior": "Estágios consultam interrupção e resultado; scripts podem executar ferramentas instaladas no agente.",
+    "evidence": [
+      "TC-010",
+      "D-STEPS",
+      "D-PARAM"
+    ],
+    "problem": "Executar comandos reproduzíveis e propagar falha.",
+    "independent_requirements": [
+      "R06",
+      "R12",
+      "R18"
+    ],
+    "rust_alternatives": [
+      "controle único versus microsserviços versus processo único com executor",
+      "processo versus namespaces/cgroups/seccomp versus OCI versus VM/microVM",
+      "std somente versus stack async versus abstrações genéricas"
+    ],
+    "chosen_solution": "Adaptar: argv explícito, workspace isolado, steps sequenciais e timeout.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Montagem completa de estágios e subprocessos não reconstruída.",
+    "acceptance": [
+      "A08",
+      "A13"
+    ],
+    "adrs": [
+      "ADR-001",
+      "ADR-007",
+      "ADR-009"
+    ]
+  },
+  {
+    "feature_id": "F07",
+    "feature": "Logs, testes e diagnóstico",
+    "teamcity_behavior": "Log inclui eventos e saída de processos; relatórios podem ser artefatos.",
+    "evidence": [
+      "D-LOG",
+      "D-ART"
+    ],
+    "problem": "Explicar resultado e disponibilizar evidência ao usuário.",
+    "independent_requirements": [
+      "R07",
+      "R13"
+    ],
+    "rust_alternatives": [
+      "HTTP JSON versus Tonic/gRPC versus protocolo privado",
+      "blobs no SQL versus filesystem local versus object storage"
+    ],
+    "chosen_solution": "Adaptar: chunks numerados; relatórios como artefatos no CORE, parsing em fase posterior.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Parsing de testes, consistência do stream e limites internos UNKNOWN.",
+    "acceptance": [
+      "A03",
+      "A09",
+      "A14"
+    ],
+    "adrs": [
+      "ADR-003",
+      "ADR-008"
+    ]
+  },
+  {
+    "feature_id": "F08",
+    "feature": "Artefatos e finalização",
+    "teamcity_behavior": "Finalização inspecionada aguarda publicação de artefatos e informa término ou detached state.",
+    "evidence": [
+      "TC-012",
+      "D-ART"
+    ],
+    "problem": "Vincular resultado aos produtos do build.",
+    "independent_requirements": [
+      "R08",
+      "R09"
+    ],
+    "rust_alternatives": [
+      "execução única presumida versus reentrega automática versus lease/fence",
+      "blobs no SQL versus filesystem local versus object storage"
+    ],
+    "chosen_solution": "Adaptar: manifesto verificado e conclusão idempotente com fencing.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Confirmação remota e commit no servidor não comprovados.",
+    "acceptance": [
+      "A10",
+      "A11"
+    ],
+    "adrs": [
+      "ADR-006",
+      "ADR-008"
+    ]
+  },
+  {
+    "feature_id": "F09",
+    "feature": "Cancelamento, retry e perda de agente",
+    "teamcity_behavior": "Interrupção marca estado e alcança estágio atual; poller captura falhas e continua.",
+    "evidence": [
+      "TC-011",
+      "TC-012",
+      "TC-018"
+    ],
+    "problem": "Interromper trabalho e tolerar falhas de comunicação.",
+    "independent_requirements": [
+      "R05",
+      "R09",
+      "R10",
+      "R11"
+    ],
+    "rust_alternatives": [
+      "PostgreSQL versus SQLite versus broker externo",
+      "HTTP JSON versus Tonic/gRPC versus protocolo privado",
+      "FIFO versus prioridade versus fair/weighted versus duração estimada",
+      "execução única presumida versus reentrega automática versus lease/fence",
+      "blobs no SQL versus filesystem local versus object storage",
+      "std somente versus stack async versus abstrações genéricas"
+    ],
+    "chosen_solution": "Substituir por lease, fencing e cancelamento persistente; retry somente sob política explícita.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Reagendamento, exatamente uma vez e recuperação sob partição UNKNOWN.",
+    "acceptance": [
+      "A05",
+      "A06",
+      "A07",
+      "A11",
+      "A12"
+    ],
+    "adrs": [
+      "ADR-002",
+      "ADR-003",
+      "ADR-004",
+      "ADR-006",
+      "ADR-008",
+      "ADR-009"
+    ]
+  },
+  {
+    "feature_id": "F10",
+    "feature": "DAG e cadeias",
+    "teamcity_behavior": "Dependências snapshot relacionam builds e sincronizam revisão segundo a documentação.",
+    "evidence": [
+      "D-DAG",
+      "TC-005"
+    ],
+    "problem": "Coordenar trabalho paralelo sobre entradas consistentes.",
+    "independent_requirements": [
+      "R14"
+    ],
+    "rust_alternatives": [
+      "JSON versus YAML versus TOML versus DSL Rust e UI geradora"
+    ],
+    "chosen_solution": "Adaptar: DAG estático com revisão fixada e falha propagada; reúso complexo adiado.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Otimizações internas de reúso e transações não reconstruídas.",
+    "acceptance": [
+      "A15"
+    ],
+    "adrs": [
+      "ADR-005"
+    ]
+  },
+  {
+    "feature_id": "F11",
+    "feature": "VCS e triggers",
+    "teamcity_behavior": "Detecção por polling considera commit hooks e mudanças pendentes compatíveis com checkout rules.",
+    "evidence": [
+      "D-VCS",
+      "D-PROJECT"
+    ],
+    "problem": "Iniciar builds sobre alterações relevantes.",
+    "independent_requirements": [
+      "R06",
+      "R15"
+    ],
+    "rust_alternatives": [
+      "controle único versus microsserviços versus processo único com executor",
+      "processo versus namespaces/cgroups/seccomp versus OCI versus VM/microVM",
+      "std somente versus stack async versus abstrações genéricas"
+    ],
+    "chosen_solution": "Adaptar: Git com revisão imutável primeiro; webhooks autenticados e polling posteriormente.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Drivers VCS, retries e validação de credenciais não inspecionados.",
+    "acceptance": [
+      "A08",
+      "A16"
+    ],
+    "adrs": [
+      "ADR-001",
+      "ADR-007",
+      "ADR-009"
+    ]
+  },
+  {
+    "feature_id": "F12",
+    "feature": "Plugins e APIs",
+    "teamcity_behavior": "REST oferece submissão; carregamento de plugin cria contexto e publica eventos de carga.",
+    "evidence": [
+      "TC-013",
+      "TC-014",
+      "TC-016"
+    ],
+    "problem": "Integrar sistemas e acrescentar capacidades.",
+    "independent_requirements": [
+      "R19",
+      "R20"
+    ],
+    "rust_alternatives": [
+      "JSON versus YAML versus TOML versus DSL Rust e UI geradora"
+    ],
+    "chosen_solution": "Adotar API própria; rejeitar plugins JVM e execução de DSL; extensões externas adiadas.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "ABI, segurança e isolamento de plugins não comprovados.",
+    "acceptance": [
+      "A19",
+      "A20"
+    ],
+    "adrs": [
+      "ADR-005"
+    ]
+  },
+  {
+    "feature_id": "F13",
+    "feature": "Retenção e cache",
+    "teamcity_behavior": "Limpeza remove dados antigos; cache reutiliza arquivos publicados entre builds.",
+    "evidence": [
+      "D-GC",
+      "D-CACHE"
+    ],
+    "problem": "Conter armazenamento e evitar trabalho repetido.",
+    "independent_requirements": [
+      "R13",
+      "R17"
+    ],
+    "rust_alternatives": [
+      "blobs no SQL versus filesystem local versus object storage"
+    ],
+    "chosen_solution": "Adotar retenção básica; cache adiado até namespace por confiança e integridade.",
+    "justification": "Contrato próprio e menor complexidade conforme ADRs vinculados.",
+    "improvements": "IDs tipados, estado durável e falhas explícitas; benefícios de desempenho ainda não medidos.",
+    "limitations": "Atomicidade do GC e proteção contra cache poisoning não verificadas.",
+    "acceptance": [
+      "A03",
+      "A14",
+      "A18"
+    ],
+    "adrs": [
+      "ADR-008"
+    ]
+  }
+]

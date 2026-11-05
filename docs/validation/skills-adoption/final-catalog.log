@@ -1,0 +1,15 @@
+COMMAND: python3 tools/governance/validate.py
+EXIT: 0
+{
+  "status": "PASS",
+  "installation_status": "prepared",
+  "selected": 67,
+  "conditional": 6,
+  "excluded": 4,
+  "skill_files": 594,
+  "errors": [],
+  "limits": [
+    "Local structure, integrity and routing only; no product or skill effectiveness certification.",
+    "External URLs and upstream technical claims are not revalidated."
+  ]
+}

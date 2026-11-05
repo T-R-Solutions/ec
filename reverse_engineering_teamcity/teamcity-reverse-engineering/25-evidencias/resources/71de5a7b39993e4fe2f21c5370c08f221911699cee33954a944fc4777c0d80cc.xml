@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+        default-autowire="constructor"
+        >
+
+    <bean id="xmlRpcDispatcher" class="jetbrains.buildServer.serverSide.impl.XmlRpcDispatcher" autowire-candidate="false"/>
+
+    <bean id="buildAgentFactory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildAgentFactory" lazy-init="true">
+      <property name="delegate" ref="hiddenBuildAgentFactory"/>
+    </bean>
+
+    <bean id="hiddenBuildAgentFactory" class="jetbrains.buildServer.serverSide.impl.BuildAgentFactoryImpl" lazy-init="true" autowire-candidate="false">
+      <property name="descriptionFactory" ref="agentDescriptionFactory"/>
+      <property name="context" ref="buildTypeContext"/>
+    </bean>
+
+    <bean class="jetbrains.buildServer.serverSide.impl.XmlRpcSessionManager"/>
+
+    <bean class="jetbrains.buildServer.serverSide.impl.XmlRpcBasedServer" lazy-init="true">
+      <property name="runningBuildsManager" ref="runningBuildsManager"/>
+      <property name="buildAgentFactory" ref="buildAgentFactory"/>
+      <property name="buildAgentManager" ref="agentManager"/>
+      <property name="agentPersister" ref="agentPersistenceFacade"/>
+    </bean>
+
+    <bean class="jetbrains.buildServer.serverSide.TeamCitySummaryFactory" lazy-init="true"/>
+    <bean class="jetbrains.buildServer.serverSide.SuitableConfigurationsProvider" lazy-init="true"/>
+
+
+</beans>

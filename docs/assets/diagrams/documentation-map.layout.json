@@ -1,0 +1,48 @@
+{
+  "title": "Um caminho para cada leitor",
+  "question": "Por onde começar a leitura?",
+  "status": "Navegação documental",
+  "sources": [
+    "README.md",
+    "docs/README.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "START": {
+      "icon": "book-open",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "PRODUCT": {
+      "icon": "workflow",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "CONTRIB": {
+      "icon": "wrench",
+      "tone": "purple",
+      "column": 2,
+      "row": 0
+    },
+    "SOURCES": {
+      "icon": "shield-check",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "METHOD": {
+      "icon": "list-checks",
+      "tone": "blue",
+      "column": 1,
+      "row": 1
+    },
+    "RECORD": {
+      "icon": "archive",
+      "tone": "purple",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

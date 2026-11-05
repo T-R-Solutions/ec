@@ -1,0 +1,1073 @@
+Compiled from "EventDispatcher.java"
+public class jetbrains.buildServer.util.EventDispatcher<T extends java.util.EventListener> {
+  private static final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private static final long THRESHOLD;
+    descriptor: J
+
+  private final T myMulticaster;
+    descriptor: Ljava/util/EventListener;
+
+  private final jetbrains.buildServer.util.EventDispatcherHandlers<T> myHandlers;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcherHandlers;
+
+  private final java.lang.Class<T> myListenerClass;
+    descriptor: Ljava/lang/Class;
+
+  private volatile java.util.Map<java.lang.reflect.Method, java.util.List<T>> myMethodsToCall;
+    descriptor: Ljava/util/Map;
+
+  private final java.util.List<jetbrains.buildServer.util.EventDispatcher<?>> myParentDispatchers;
+    descriptor: Ljava/util/List;
+
+  private jetbrains.buildServer.util.EventDispatcher$ErrorHandler myErrorHandler;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+
+  public static final jetbrains.buildServer.util.EventDispatcher$ErrorHandler DEFAULT_ERROR_HANDLER;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+
+  public static <T extends java.util.EventListener> jetbrains.buildServer.util.EventDispatcher<T> create(java.lang.Class<T>);
+    descriptor: (Ljava/lang/Class;)Ljetbrains/buildServer/util/EventDispatcher;
+    Code:
+         0: aload_0
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+         8: new           #1                  // class jetbrains/buildServer/util/EventDispatcher
+        11: dup
+        12: aload_0
+        13: invokespecial #3                  // Method "<init>":(Ljava/lang/Class;)V
+        16: areturn
+      LineNumberTable:
+        line 68: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0 listenerClass   Ljava/lang/Class;
+
+  protected jetbrains.buildServer.util.EventDispatcher(java.lang.Class<T>);
+    descriptor: (Ljava/lang/Class;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_1
+         5: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #7                  // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aconst_null
+        14: putfield      #12                 // Field myMethodsToCall:Ljava/util/Map;
+        17: aload_0
+        18: new           #16                 // class java/util/concurrent/CopyOnWriteArrayList
+        21: dup
+        22: invokespecial #18                 // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+        25: putfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+        28: aload_0
+        29: getstatic     #23                 // Field DEFAULT_ERROR_HANDLER:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+        32: putfield      #27                 // Field myErrorHandler:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+        35: aload_0
+        36: new           #30                 // class jetbrains/buildServer/util/EventDispatcherHandlers
+        39: dup
+        40: aload_1
+        41: invokespecial #32                 // Method jetbrains/buildServer/util/EventDispatcherHandlers."<init>":(Ljava/lang/Class;)V
+        44: putfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+        47: aload_0
+        48: aload_1
+        49: putfield      #37                 // Field myListenerClass:Ljava/lang/Class;
+        52: new           #41                 // class jetbrains/buildServer/util/EventDispatcher$2
+        55: dup
+        56: aload_0
+        57: invokespecial #43                 // Method jetbrains/buildServer/util/EventDispatcher$2."<init>":(Ljetbrains/buildServer/util/EventDispatcher;)V
+        60: astore_2
+        61: aload_0
+        62: aload_1
+        63: aload_1
+        64: invokevirtual #46                 // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+        67: iconst_1
+        68: anewarray     #47                 // class java/lang/Class
+        71: dup
+        72: iconst_0
+        73: aload_1
+        74: aastore
+        75: aload_2
+        76: invokestatic  #52                 // Method java/lang/reflect/Proxy.newProxyInstance:(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+        79: invokevirtual #58                 // Method java/lang/Class.cast:(Ljava/lang/Object;)Ljava/lang/Object;
+        82: checkcast     #62                 // class java/util/EventListener
+        85: putfield      #64                 // Field myMulticaster:Ljava/util/EventListener;
+        88: return
+      LineNumberTable:
+        line 71: 8
+        line 46: 12
+        line 47: 17
+        line 49: 28
+        line 72: 35
+        line 73: 47
+        line 74: 52
+        line 86: 61
+        line 87: 88
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      89     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      89     1 listenerClass   Ljava/lang/Class;
+           61      28     2 handler   Ljava/lang/reflect/InvocationHandler;
+
+  public T getMulticaster();
+    descriptor: ()Ljava/util/EventListener;
+    Code:
+         0: aload_0
+         1: getfield      #64                 // Field myMulticaster:Ljava/util/EventListener;
+         4: areturn
+      LineNumberTable:
+        line 90: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public jetbrains.buildServer.util.EventDispatcher$ErrorHandler getErrorHandler();
+    descriptor: ()Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+    Code:
+         0: aload_0
+         1: getfield      #27                 // Field myErrorHandler:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+         4: areturn
+      LineNumberTable:
+        line 99: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public void setErrorHandler(jetbrains.buildServer.util.EventDispatcher$ErrorHandler);
+    descriptor: (Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #27                 // Field myErrorHandler:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+         5: return
+      LineNumberTable:
+        line 103: 0
+        line 104: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0       6     1 errorHandler   Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+
+  public void clearErrorHandler();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: aconst_null
+         2: putfield      #27                 // Field myErrorHandler:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+         5: return
+      LineNumberTable:
+        line 107: 0
+        line 108: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  protected java.lang.Object dispatch(java.lang.Object, java.lang.reflect.Method, java.lang.Object[]);
+    descriptor: (Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+    Code:
+         0: aload_2
+         1: invokevirtual #68                 // Method java/lang/reflect/Method.getDeclaringClass:()Ljava/lang/Class;
+         4: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+         7: ldc           #78                 // String java.lang.Object
+         9: invokevirtual #80                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        12: ifeq          94
+        15: aload_2
+        16: invokevirtual #86                 // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+        19: astore        4
+        21: aload         4
+        23: ldc           #87                 // String toString
+        25: invokevirtual #80                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        28: ifeq          34
+        31: ldc           #89                 // String Multicaster
+        33: areturn
+        34: aload         4
+        36: ldc           #91                 // String hashCode
+        38: invokevirtual #80                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        41: ifeq          52
+        44: aload_1
+        45: invokestatic  #93                 // Method java/lang/System.identityHashCode:(Ljava/lang/Object;)I
+        48: invokestatic  #99                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        51: areturn
+        52: aload         4
+        54: ldc           #105                // String equals
+        56: invokevirtual #80                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        59: ifeq          79
+        62: aload_1
+        63: aload_3
+        64: iconst_0
+        65: aaload
+        66: if_acmpne     75
+        69: getstatic     #106                // Field java/lang/Boolean.TRUE:Ljava/lang/Boolean;
+        72: goto          78
+        75: getstatic     #112                // Field java/lang/Boolean.FALSE:Ljava/lang/Boolean;
+        78: areturn
+        79: getstatic     #115                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        82: aload         4
+        84: invokedynamic #119,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        89: invokevirtual #123                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;)V
+        92: aconst_null
+        93: areturn
+        94: invokestatic  #129                // Method java/lang/System.nanoTime:()J
+        97: lstore        4
+        99: aload_0
+       100: invokevirtual #133                // Method getCachedListeners:()Ljava/util/Map;
+       103: aload_2
+       104: invokeinterface #137,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       109: checkcast     #142                // class java/util/List
+       112: astore        6
+       114: aload         6
+       116: ifnonnull     121
+       119: aconst_null
+       120: areturn
+       121: aload_2
+       122: invokevirtual #68                 // Method java/lang/reflect/Method.getDeclaringClass:()Ljava/lang/Class;
+       125: invokevirtual #144                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+       128: aload_2
+       129: invokevirtual #86                 // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+       132: invokedynamic #147,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       137: astore        7
+       139: aload_0
+       140: aload_2
+       141: aload_3
+       142: aload         6
+       144: aload         7
+       146: invokevirtual #150                // Method invokeListeners:(Ljava/lang/reflect/Method;[Ljava/lang/Object;Ljava/util/List;Ljava/lang/String;)V
+       149: getstatic     #154                // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+       152: invokestatic  #129                // Method java/lang/System.nanoTime:()J
+       155: lload         4
+       157: lsub
+       158: getstatic     #160                // Field java/util/concurrent/TimeUnit.NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+       161: invokevirtual #163                // Method java/util/concurrent/TimeUnit.convert:(JLjava/util/concurrent/TimeUnit;)J
+       164: lstore        8
+       166: aload         6
+       168: invokeinterface #167,  1          // InterfaceMethod java/util/List.size:()I
+       173: istore        10
+       175: iload         10
+       177: iconst_1
+       178: if_icmple     215
+       181: lload         8
+       183: ldc           #171                // String teamcity.event.total.logProcessingThreshold.ms
+       185: ldc2_w        #173                // long 30000l
+       188: invokestatic  #175                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getLong:(Ljava/lang/String;J)J
+       191: lcmp
+       192: iflt          215
+       195: getstatic     #115                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       198: iload         10
+       200: lload         8
+       202: invokestatic  #181                // Method jetbrains/buildServer/util/TimePrinter.formatMillis:(J)Ljava/lang/String;
+       205: aload         7
+       207: invokedynamic #187,  0            // InvokeDynamic #2:makeConcatWithConstants:(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       212: invokevirtual #190                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       215: aconst_null
+       216: areturn
+      LineNumberTable:
+        line 111: 0
+        line 112: 15
+        line 113: 21
+        line 114: 31
+        line 116: 34
+        line 117: 44
+        line 119: 52
+        line 120: 62
+        line 123: 79
+        line 124: 92
+        line 127: 94
+        line 128: 99
+        line 129: 114
+        line 131: 121
+        line 134: 139
+        line 135: 149
+        line 137: 166
+        line 138: 175
+        line 139: 195
+        line 143: 215
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           21      73     4 methodName   Ljava/lang/String;
+            0     217     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0     217     1 proxy   Ljava/lang/Object;
+            0     217     2 method   Ljava/lang/reflect/Method;
+            0     217     3  args   [Ljava/lang/Object;
+           99     118     4 startTimeTotal   J
+          114     103     6 listeners   Ljava/util/List;
+          139      78     7 methodDetails   Ljava/lang/String;
+          166      51     8 elapsedMillis   J
+          175      42    10 listenersCount   I
+
+  private void invokeListeners(java.lang.reflect.Method, java.lang.Object[], java.util.List<T>, java.lang.String);
+    descriptor: (Ljava/lang/reflect/Method;[Ljava/lang/Object;Ljava/util/List;Ljava/lang/String;)V
+    Code:
+         0: aload_3
+         1: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+         6: astore        5
+         8: aload         5
+        10: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        15: ifeq          244
+        18: aload         5
+        20: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        25: checkcast     #62                 // class java/util/EventListener
+        28: astore        6
+        30: invokestatic  #129                // Method java/lang/System.nanoTime:()J
+        33: lstore        7
+        35: aload_1
+        36: aload         6
+        38: aload_2
+        39: invokevirtual #207                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+        42: pop
+        43: getstatic     #154                // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+        46: invokestatic  #129                // Method java/lang/System.nanoTime:()J
+        49: lload         7
+        51: lsub
+        52: getstatic     #160                // Field java/util/concurrent/TimeUnit.NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+        55: invokevirtual #163                // Method java/util/concurrent/TimeUnit.convert:(JLjava/util/concurrent/TimeUnit;)J
+        58: lstore        9
+        60: lload         9
+        62: aload_0
+        63: aload         6
+        65: invokeinterface #300,  1          // InterfaceMethod java/util/EventListener.getClass:()Ljava/lang/Class;
+        70: invokevirtual #214                // Method getLogThresholdMs:(Ljava/lang/Class;)J
+        73: lcmp
+        74: iflt          105
+        77: getstatic     #115                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        80: lload         9
+        82: invokestatic  #181                // Method jetbrains/buildServer/util/TimePrinter.formatMillis:(J)Ljava/lang/String;
+        85: aload         4
+        87: aload         6
+        89: invokeinterface #300,  1          // InterfaceMethod java/util/EventListener.getClass:()Ljava/lang/Class;
+        94: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+        97: invokedynamic #219,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       102: invokevirtual #190                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       105: goto          241
+       108: astore        7
+       110: getstatic     #115                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       113: aload         4
+       115: aload         6
+       117: invokeinterface #300,  1          // InterfaceMethod java/util/EventListener.getClass:()Ljava/lang/Class;
+       122: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+       125: invokedynamic #225,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       130: invokevirtual #226                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       133: goto          241
+       136: astore        7
+       138: aload         7
+       140: invokevirtual #231                // Method java/lang/Throwable.getCause:()Ljava/lang/Throwable;
+       143: ifnull        154
+       146: aload         7
+       148: invokevirtual #231                // Method java/lang/Throwable.getCause:()Ljava/lang/Throwable;
+       151: goto          156
+       154: aload         7
+       156: astore        8
+       158: aload         8
+       160: instanceof    #222                // class java/lang/AbstractMethodError
+       163: ifeq          192
+       166: getstatic     #115                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       169: aload         4
+       171: aload         6
+       173: invokeinterface #300,  1          // InterfaceMethod java/util/EventListener.getClass:()Ljava/lang/Class;
+       178: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+       181: invokedynamic #225,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       186: invokevirtual #226                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       189: goto          241
+       192: aload_0
+       193: getfield      #27                 // Field myErrorHandler:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+       196: astore        9
+       198: aload         9
+       200: ifnonnull     208
+       203: aload         8
+       205: invokestatic  #236                // Method jetbrains/buildServer/util/ExceptionUtil.rethrowAsRuntimeException:(Ljava/lang/Throwable;)V
+       208: aload         9
+       210: new           #242                // class jetbrains/buildServer/util/EventDispatcher$WrapException
+       213: dup
+       214: aload         4
+       216: aload         6
+       218: invokeinterface #300,  1          // InterfaceMethod java/util/EventListener.getClass:()Ljava/lang/Class;
+       223: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+       226: invokedynamic #245,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       231: aload         8
+       233: invokespecial #246                // Method jetbrains/buildServer/util/EventDispatcher$WrapException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+       236: invokeinterface #249,  2          // InterfaceMethod jetbrains/buildServer/util/EventDispatcher$ErrorHandler.handle:(Ljava/lang/Throwable;)V
+       241: goto          8
+       244: return
+      Exception table:
+         from    to  target type
+            30   105   108   Class java/lang/AbstractMethodError
+            30   105   136   Class java/lang/Throwable
+      LineNumberTable:
+        line 147: 0
+        line 149: 30
+        line 150: 35
+        line 151: 43
+        line 152: 60
+        line 153: 77
+        line 154: 89
+        line 153: 102
+        line 170: 105
+        line 156: 108
+        line 158: 110
+        line 170: 133
+        line 159: 136
+        line 160: 138
+        line 161: 158
+        line 162: 166
+        line 164: 192
+        line 165: 198
+        line 166: 203
+        line 168: 208
+        line 171: 241
+        line 172: 244
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           35      70     7 startTime   J
+           60      45     9 elapsedMillis   J
+          110      23     7     e   Ljava/lang/AbstractMethodError;
+          198      43     9    eh   Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+          158      83     8 error   Ljava/lang/Throwable;
+          138     103     7     e   Ljava/lang/Throwable;
+           30     211     6 listener   Ljava/util/EventListener;
+            0     245     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0     245     1 method   Ljava/lang/reflect/Method;
+            0     245     2  args   [Ljava/lang/Object;
+            0     245     3 listeners   Ljava/util/List;
+            0     245     4 methodDetails   Ljava/lang/String;
+
+  private long getLogThresholdMs(java.lang.Class);
+    descriptor: (Ljava/lang/Class;)J
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_2
+         5: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+         8: ldc           #254                // String teamcity.event.listener.logProcessingThreshold.ignorePrefix
+        10: invokestatic  #256                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getPropertyOrNull:(Ljava/lang/String;)Ljava/lang/String;
+        13: astore_2
+        14: aload_2
+        15: ifnull        33
+        18: aload_1
+        19: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+        22: aload_2
+        23: invokevirtual #259                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        26: ifeq          33
+        29: ldc2_w        #265                // long 9223372036854775807l
+        32: lreturn
+        33: ldc_w         #267                // String teamcity.event.listener.logProcessingThreshold.ms
+        36: ldc2_w        #269                // long 10000l
+        39: invokestatic  #175                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getLong:(Ljava/lang/String;J)J
+        42: lreturn
+      LineNumberTable:
+        line 175: 8
+        line 176: 14
+        line 177: 29
+        line 179: 33
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      43     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      43     1 clazz   Ljava/lang/Class;
+           14      29     2 ignorePrefix   Ljava/lang/String;
+
+  private java.util.Map<java.lang.reflect.Method, java.util.List<T>> getCachedListeners();
+    descriptor: ()Ljava/util/Map;
+    Code:
+         0: aload_0
+         1: getfield      #12                 // Field myMethodsToCall:Ljava/util/Map;
+         4: astore_1
+         5: aload_1
+         6: ifnull        19
+         9: aload_1
+        10: dup
+        11: ifnonnull     18
+        14: iconst_3
+        15: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+        18: areturn
+        19: aload_0
+        20: dup
+        21: astore_2
+        22: monitorenter
+        23: aload_0
+        24: getfield      #12                 // Field myMethodsToCall:Ljava/util/Map;
+        27: astore_1
+        28: aload_1
+        29: ifnull        44
+        32: aload_1
+        33: aload_2
+        34: monitorexit
+        35: dup
+        36: ifnonnull     43
+        39: iconst_4
+        40: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+        43: areturn
+        44: aload_0
+        45: aload_0
+        46: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+        49: invokevirtual #271                // Method jetbrains/buildServer/util/EventDispatcherHandlers.serialize:()Ljava/util/Map;
+        52: dup_x1
+        53: putfield      #12                 // Field myMethodsToCall:Ljava/util/Map;
+        56: aload_2
+        57: monitorexit
+        58: dup
+        59: ifnonnull     66
+        62: iconst_5
+        63: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+        66: areturn
+        67: astore_3
+        68: aload_2
+        69: monitorexit
+        70: aload_3
+        71: athrow
+      Exception table:
+         from    to  target type
+            23    35    67   any
+            44    58    67   any
+            67    70    67   any
+      LineNumberTable:
+        line 184: 0
+        line 185: 5
+        line 186: 19
+        line 187: 23
+        line 188: 28
+        line 189: 44
+        line 190: 67
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      72     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            5      67     1 methodsToCall   Ljava/util/Map;
+
+  public synchronized void addListener(T);
+    descriptor: (Ljava/util/EventListener;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        6
+         6: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+        13: aload_1
+        14: iconst_0
+        15: invokevirtual #274                // Method jetbrains/buildServer/util/EventDispatcherHandlers.addListener:(Ljava/util/EventListener;Z)V
+        18: aload_0
+        19: invokevirtual #278                // Method resetListenersCache:()V
+        22: aload_0
+        23: getfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+        26: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        31: astore_2
+        32: aload_2
+        33: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        38: ifeq          59
+        41: aload_2
+        42: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        47: checkcast     #1                  // class jetbrains/buildServer/util/EventDispatcher
+        50: astore_3
+        51: aload_3
+        52: aload_1
+        53: invokevirtual #281                // Method addListenerPrivate:(Ljava/util/EventListener;)V
+        56: goto          32
+        59: return
+      LineNumberTable:
+        line 194: 9
+        line 195: 18
+        line 196: 22
+        line 197: 51
+        line 198: 56
+        line 199: 59
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           51       5     3 parentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0      60     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      60     1 listener   Ljava/util/EventListener;
+
+  private synchronized void addListenerPrivate(java.util.EventListener);
+    descriptor: (Ljava/util/EventListener;)V
+    Code:
+         0: aload_0
+         1: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+         4: aload_1
+         5: iconst_1
+         6: invokevirtual #274                // Method jetbrains/buildServer/util/EventDispatcherHandlers.addListener:(Ljava/util/EventListener;Z)V
+         9: aload_0
+        10: invokevirtual #278                // Method resetListenersCache:()V
+        13: aload_0
+        14: getfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+        17: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        22: astore_2
+        23: aload_2
+        24: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        29: ifeq          50
+        32: aload_2
+        33: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        38: checkcast     #1                  // class jetbrains/buildServer/util/EventDispatcher
+        41: astore_3
+        42: aload_3
+        43: aload_1
+        44: invokevirtual #281                // Method addListenerPrivate:(Ljava/util/EventListener;)V
+        47: goto          23
+        50: return
+      LineNumberTable:
+        line 202: 0
+        line 203: 9
+        line 204: 13
+        line 205: 42
+        line 206: 47
+        line 207: 50
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           42       5     3 parentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0      51     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      51     1 listener   Ljava/util/EventListener;
+
+  private void resetListenersCache();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: aconst_null
+         2: putfield      #12                 // Field myMethodsToCall:Ljava/util/Map;
+         5: return
+      LineNumberTable:
+        line 210: 0
+        line 211: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public synchronized void removeListener(T);
+    descriptor: (Ljava/util/EventListener;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        7
+         6: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+        13: aload_1
+        14: invokevirtual #285                // Method jetbrains/buildServer/util/EventDispatcherHandlers.removeListener:(Ljava/util/EventListener;)V
+        17: aload_0
+        18: invokevirtual #278                // Method resetListenersCache:()V
+        21: aload_0
+        22: getfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+        25: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        30: astore_2
+        31: aload_2
+        32: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        37: ifeq          58
+        40: aload_2
+        41: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        46: checkcast     #1                  // class jetbrains/buildServer/util/EventDispatcher
+        49: astore_3
+        50: aload_3
+        51: aload_1
+        52: invokevirtual #288                // Method removeListenerPrivate:(Ljava/util/EventListener;)V
+        55: goto          31
+        58: return
+      LineNumberTable:
+        line 214: 9
+        line 215: 17
+        line 216: 21
+        line 217: 50
+        line 218: 55
+        line 219: 58
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           50       5     3 parentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0      59     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      59     1 listener   Ljava/util/EventListener;
+
+  private synchronized void removeListenerPrivate(java.util.EventListener);
+    descriptor: (Ljava/util/EventListener;)V
+    Code:
+         0: aload_0
+         1: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+         4: aload_1
+         5: invokevirtual #285                // Method jetbrains/buildServer/util/EventDispatcherHandlers.removeListener:(Ljava/util/EventListener;)V
+         8: aload_0
+         9: invokevirtual #278                // Method resetListenersCache:()V
+        12: aload_0
+        13: getfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+        16: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        21: astore_2
+        22: aload_2
+        23: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        28: ifeq          49
+        31: aload_2
+        32: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        37: checkcast     #1                  // class jetbrains/buildServer/util/EventDispatcher
+        40: astore_3
+        41: aload_3
+        42: aload_1
+        43: invokevirtual #288                // Method removeListenerPrivate:(Ljava/util/EventListener;)V
+        46: goto          22
+        49: return
+      LineNumberTable:
+        line 222: 0
+        line 223: 8
+        line 224: 12
+        line 225: 41
+        line 226: 46
+        line 227: 49
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           41       5     3 parentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0      50     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      50     1 listener   Ljava/util/EventListener;
+
+  public synchronized java.util.List<T> getListeners();
+    descriptor: ()Ljava/util/List;
+    Code:
+         0: aload_0
+         1: invokevirtual #291                // Method getAllListeners:()Ljava/util/List;
+         4: astore_1
+         5: new           #295                // class java/util/ArrayList
+         8: dup
+         9: aload_1
+        10: invokeinterface #167,  1          // InterfaceMethod java/util/List.size:()I
+        15: invokespecial #297                // Method java/util/ArrayList."<init>":(I)V
+        18: astore_2
+        19: aload_1
+        20: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        25: astore_3
+        26: aload_3
+        27: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        32: ifeq          75
+        35: aload_3
+        36: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        41: checkcast     #62                 // class java/util/EventListener
+        44: astore        4
+        46: aload_0
+        47: getfield      #37                 // Field myListenerClass:Ljava/lang/Class;
+        50: aload         4
+        52: invokeinterface #300,  1          // InterfaceMethod java/util/EventListener.getClass:()Ljava/lang/Class;
+        57: invokevirtual #301                // Method java/lang/Class.isAssignableFrom:(Ljava/lang/Class;)Z
+        60: ifeq          72
+        63: aload_2
+        64: aload         4
+        66: invokeinterface #305,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        71: pop
+        72: goto          26
+        75: aload_2
+        76: dup
+        77: ifnonnull     85
+        80: bipush        8
+        82: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+        85: areturn
+      LineNumberTable:
+        line 231: 0
+        line 232: 5
+        line 233: 19
+        line 234: 46
+        line 235: 63
+        line 237: 72
+        line 238: 75
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           46      26     4     t   Ljava/util/EventListener;
+            0      86     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            5      81     1 listenersPrivate   Ljava/util/List;
+           19      67     2   res   Ljava/util/List;
+
+  public synchronized java.util.List<java.util.EventListener> getAllListeners();
+    descriptor: ()Ljava/util/List;
+    Code:
+         0: aload_0
+         1: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+         4: invokevirtual #308                // Method jetbrains/buildServer/util/EventDispatcherHandlers.getListeners:()Ljava/util/List;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        9
+        13: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 243: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public synchronized boolean hasListeners();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+         4: invokevirtual #311                // Method jetbrains/buildServer/util/EventDispatcherHandlers.hasListeners:()Z
+         7: ireturn
+      LineNumberTable:
+        line 247: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public synchronized void dispose();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+         4: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+         9: astore_1
+        10: aload_1
+        11: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        16: ifeq          71
+        19: aload_1
+        20: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        25: checkcast     #1                  // class jetbrains/buildServer/util/EventDispatcher
+        28: astore_2
+        29: aload_0
+        30: invokevirtual #291                // Method getAllListeners:()Ljava/util/List;
+        33: invokeinterface #193,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        38: astore_3
+        39: aload_3
+        40: invokeinterface #197,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        45: ifeq          68
+        48: aload_3
+        49: invokeinterface #203,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        54: checkcast     #62                 // class java/util/EventListener
+        57: astore        4
+        59: aload_2
+        60: aload         4
+        62: invokevirtual #288                // Method removeListenerPrivate:(Ljava/util/EventListener;)V
+        65: goto          39
+        68: goto          10
+        71: aload_0
+        72: getfield      #33                 // Field myHandlers:Ljetbrains/buildServer/util/EventDispatcherHandlers;
+        75: invokevirtual #314                // Method jetbrains/buildServer/util/EventDispatcherHandlers.clear:()V
+        78: aload_0
+        79: invokevirtual #278                // Method resetListenersCache:()V
+        82: return
+      LineNumberTable:
+        line 251: 0
+        line 252: 29
+        line 253: 59
+        line 254: 65
+        line 255: 68
+        line 256: 71
+        line 257: 78
+        line 258: 82
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           59       6     4 listener   Ljava/util/EventListener;
+           29      39     2 parentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0      83     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public void attachParentDispatcher(jetbrains.buildServer.util.EventDispatcher<?>);
+    descriptor: (Ljetbrains/buildServer/util/EventDispatcher;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        10
+         6: invokestatic  #436                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #19                 // Field myParentDispatchers:Ljava/util/List;
+        13: aload_1
+        14: invokeinterface #305,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        19: pop
+        20: return
+      LineNumberTable:
+        line 261: 9
+        line 262: 20
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      21     0  this   Ljetbrains/buildServer/util/EventDispatcher;
+            0      21     1 parentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #1                  // class jetbrains/buildServer/util/EventDispatcher
+         2: invokevirtual #74                 // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: invokestatic  #317                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+         8: putstatic     #115                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        11: new           #321                // class jetbrains/buildServer/util/EventDispatcher$1
+        14: dup
+        15: invokespecial #323                // Method jetbrains/buildServer/util/EventDispatcher$1."<init>":()V
+        18: putstatic     #23                 // Field DEFAULT_ERROR_HANDLER:Ljetbrains/buildServer/util/EventDispatcher$ErrorHandler;
+        21: return
+      LineNumberTable:
+        line 39: 0
+        line 50: 11
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 10
+                       0: 60
+                       1: 60
+                       2: 60
+                       3: 66
+                       4: 66
+                       5: 66
+                       6: 60
+                       7: 60
+                       8: 66
+                       9: 66
+                      10: 60
+                 default: 60
+            }
+        60: ldc_w         #438                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        63: goto          72
+        66: ldc_w         #440                // String @NotNull method %s.%s must not return null
+        69: goto          72
+        72: iload_0
+        73: tableswitch   { // 0 to 10
+                       0: 132
+                       1: 132
+                       2: 132
+                       3: 136
+                       4: 136
+                       5: 136
+                       6: 132
+                       7: 132
+                       8: 136
+                       9: 136
+                      10: 132
+                 default: 132
+            }
+       132: iconst_3
+       133: goto          140
+       136: iconst_2
+       137: goto          140
+       140: anewarray     #8                  // class java/lang/Object
+       143: iload_0
+       144: tableswitch   { // 0 to 10
+                       0: 204
+                       1: 204
+                       2: 213
+                       3: 222
+                       4: 222
+                       5: 222
+                       6: 231
+                       7: 231
+                       8: 222
+                       9: 222
+                      10: 240
+                 default: 204
+            }
+       204: dup
+       205: iconst_0
+       206: ldc_w         #441                // String listenerClass
+       209: aastore
+       210: goto          249
+       213: dup
+       214: iconst_0
+       215: ldc_w         #442                // String clazz
+       218: aastore
+       219: goto          249
+       222: dup
+       223: iconst_0
+       224: ldc_w         #443                // String jetbrains/buildServer/util/EventDispatcher
+       227: aastore
+       228: goto          249
+       231: dup
+       232: iconst_0
+       233: ldc_w         #444                // String listener
+       236: aastore
+       237: goto          249
+       240: dup
+       241: iconst_0
+       242: ldc_w         #445                // String parentDispatcher
+       245: aastore
+       246: goto          249
+       249: iload_0
+       250: tableswitch   { // 0 to 10
+                       0: 308
+                       1: 308
+                       2: 308
+                       3: 317
+                       4: 317
+                       5: 317
+                       6: 308
+                       7: 308
+                       8: 326
+                       9: 335
+                      10: 308
+                 default: 308
+            }
+       308: dup
+       309: iconst_1
+       310: ldc_w         #443                // String jetbrains/buildServer/util/EventDispatcher
+       313: aastore
+       314: goto          344
+       317: dup
+       318: iconst_1
+       319: ldc_w         #446                // String getCachedListeners
+       322: aastore
+       323: goto          344
+       326: dup
+       327: iconst_1
+       328: ldc_w         #447                // String getListeners
+       331: aastore
+       332: goto          344
+       335: dup
+       336: iconst_1
+       337: ldc_w         #448                // String getAllListeners
+       340: aastore
+       341: goto          344
+       344: iload_0
+       345: tableswitch   { // 0 to 10
+                       0: 404
+                       1: 413
+                       2: 422
+                       3: 431
+                       4: 431
+                       5: 431
+                       6: 434
+                       7: 443
+                       8: 431
+                       9: 431
+                      10: 452
+                 default: 404
+            }
+       404: dup
+       405: iconst_2
+       406: ldc_w         #449                // String create
+       409: aastore
+       410: goto          461
+       413: dup
+       414: iconst_2
+       415: ldc_w         #450                // String <init>
+       418: aastore
+       419: goto          461
+       422: dup
+       423: iconst_2
+       424: ldc_w         #451                // String getLogThresholdMs
+       427: aastore
+       428: goto          461
+       431: goto          461
+       434: dup
+       435: iconst_2
+       436: ldc_w         #452                // String addListener
+       439: aastore
+       440: goto          461
+       443: dup
+       444: iconst_2
+       445: ldc_w         #453                // String removeListener
+       448: aastore
+       449: goto          461
+       452: dup
+       453: iconst_2
+       454: ldc_w         #454                // String attachParentDispatcher
+       457: aastore
+       458: goto          461
+       461: invokestatic  #458                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       464: iload_0
+       465: tableswitch   { // 0 to 10
+                       0: 524
+                       1: 524
+                       2: 524
+                       3: 535
+                       4: 535
+                       5: 535
+                       6: 524
+                       7: 524
+                       8: 535
+                       9: 535
+                      10: 524
+                 default: 524
+            }
+       524: new           #460                // class java/lang/IllegalArgumentException
+       527: dup_x1
+       528: swap
+       529: invokespecial #462                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       532: goto          546
+       535: new           #464                // class java/lang/IllegalStateException
+       538: dup_x1
+       539: swap
+       540: invokespecial #465                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       543: goto          546
+       546: athrow
+}

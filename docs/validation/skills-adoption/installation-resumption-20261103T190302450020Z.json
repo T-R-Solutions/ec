@@ -1,0 +1,9 @@
+{
+  "time_utc": "2026-11-03T19:03:02.449998+00:00",
+  "command": "python3 tools/governance/install_skills.py --apply",
+  "exit_code": 1,
+  "stdout": "{\"status\": \"BLOCKED\", \"error\": \"[Errno 30] Read-only file system: '/home/rodrigo/Projetos/ec/.codex/skills'\"}\n",
+  "stderr": "",
+  "profile_and_bridges_unchanged": true,
+  "user_authorization": "User authorized writing and continuation in this turn."
+}

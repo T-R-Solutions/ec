@@ -1,0 +1,14 @@
+flowchart TB
+    accTitle: Um caminho para cada leitor
+    accDescr: Por onde começar a leitura? START → PRODUCT: entender. START → CONTRIB: alterar. PRODUCT → SOURCES: confirmar requisitos. CONTRIB → METHOD: executar a mudança. METHOD → RECORD: registrar observação
+    START["README principal<br/>Identidade · estado · primeiros checks"]
+    PRODUCT["Conhecer o produto<br/>Visão · contratos · estado"]
+    CONTRIB["Contribuir<br/>Guia · organização · testes"]
+    SOURCES["Consultar autoridades<br/>Normas · ADRs · precedência"]
+    METHOD["Aplicar o workflow<br/>Skills · tarefas · evidências"]
+    RECORD["Examinar registros<br/>Validações e pesquisa datadas"]
+    START -->|"entender"| PRODUCT
+    START -->|"alterar"| CONTRIB
+    PRODUCT -->|"confirmar requisitos"| SOURCES
+    CONTRIB -->|"executar a mudança"| METHOD
+    METHOD -->|"registrar observação"| RECORD

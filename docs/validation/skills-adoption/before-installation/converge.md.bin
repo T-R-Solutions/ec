@@ -1,0 +1,20 @@
+# Convergência — governança Ec
+
+Data: 2026-11-03. Resultado parcial, sem encerramento do pedido completo.
+
+| Critério | Estado | Evidência e limite |
+|---|---|---|
+| AC-01 / REQ-01 / D-01 / R-01 / T001 | APPROVED | 71 candidatas, 67 pacotes completos, hashes, metadados, fontes e quatro exclusões; preparação local. |
+| AC-02 / REQ-02 / D-02 / R-02 / T002 | APPROVED | Análise das normas e escopos; Ec separado de Ox; propostas permanecem propostas. Revisão documental, não eficácia de modelos. |
+| AC-03 / REQ-03 / D-03 / R-03 / T003 | APPROVED | Pontes reais, templates, links e estrutura SDD; nenhuma falsa aprovação de instalação. |
+| AC-04 / REQ-04 / D-04 / R-04 / T004 | APPROVED | 18 testes negativos/integração isolada e 726 checks de auditoria consolidados; sem teste de produto. |
+| AC-05 / REQ-05 / D-05 / R-05 / T005 | UNVERIFIED | Instalação real retornou EROFS; instalação em fixture não satisfaz o critério. |
+
+## Retomada
+
+Liberar escrita em `.codex` pelo ambiente. Executar instalador `--check` e `--apply`, auditor `--require-installed`, atualizar documentos de estado e reexaminar somente evidências afetadas. Preservar este registro antes de mudar inputs; nunca renovar hash sem observação. Depois exigir `python3 sdd/tools/validate.py --require-approved --require-fresh`.
+Enquanto AC-05 estiver aberto, esse gate deve retornar falha. Consultar [relatório](../../../docs/validation/skills-adoption/report.md) e [evidence.json](evidence.json). Nenhuma publicação ou implementação Ec foi realizada.
+
+## Retomada autorizada — 2026-11-03
+
+O usuário liberou a escrita no pedido, mas o ambiente continuou montando `.codex` como somente leitura. Nova execução do instalador retornou EROFS; perfil e pontes não mudaram. AC-05 continua UNVERIFIED por restrição efetiva do filesystem, sem necessidade de repetir a autorização. [Observação](../../../docs/validation/skills-adoption/installation-resumption-20261103T190302450020Z.json).

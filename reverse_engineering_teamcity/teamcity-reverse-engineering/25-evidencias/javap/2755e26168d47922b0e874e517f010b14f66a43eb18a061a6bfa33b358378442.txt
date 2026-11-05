@@ -1,0 +1,341 @@
+Compiled from "Server.java"
+public class com.jetbrains.launcher.transport.Server extends com.jetbrains.launcher.transport.AbstractServer {
+  private final java.util.Map<java.lang.String, com.jetbrains.launcher.transport.RequestHandler> myHandlers;
+    descriptor: Ljava/util/Map;
+
+  private final com.jetbrains.launcher.log.ErrorLogger myErrorLogger;
+    descriptor: Lcom/jetbrains/launcher/log/ErrorLogger;
+
+  public com.jetbrains.launcher.transport.Server(java.lang.String, com.jetbrains.launcher.log.ErrorLogger) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;Lcom/jetbrains/launcher/log/ErrorLogger;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     40
+         4: new           #17                 // class java/lang/IllegalArgumentException
+         7: dup
+         8: ldc           #19                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        10: ldc           #20                 // int 3
+        12: anewarray     #22                 // class java/lang/Object
+        15: dup
+        16: ldc           #23                 // int 0
+        18: ldc           #25                 // String threadName
+        20: aastore
+        21: dup
+        22: ldc           #26                 // int 1
+        24: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+        26: aastore
+        27: dup
+        28: ldc           #28                 // int 2
+        30: ldc           #29                 // String <init>
+        32: aastore
+        33: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        36: invokespecial #38                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        39: athrow
+        40: aload_2
+        41: ifnonnull     80
+        44: new           #17                 // class java/lang/IllegalArgumentException
+        47: dup
+        48: ldc           #19                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        50: ldc           #20                 // int 3
+        52: anewarray     #22                 // class java/lang/Object
+        55: dup
+        56: ldc           #23                 // int 0
+        58: ldc           #40                 // String errorLogger
+        60: aastore
+        61: dup
+        62: ldc           #26                 // int 1
+        64: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+        66: aastore
+        67: dup
+        68: ldc           #28                 // int 2
+        70: ldc           #29                 // String <init>
+        72: aastore
+        73: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        76: invokespecial #38                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        79: athrow
+        80: aload_0
+        81: aload_1
+        82: invokespecial #41                 // Method com/jetbrains/launcher/transport/AbstractServer."<init>":(Ljava/lang/String;)V
+        85: aload_0
+        86: new           #43                 // class java/util/HashMap
+        89: dup
+        90: invokespecial #46                 // Method java/util/HashMap."<init>":()V
+        93: putfield      #48                 // Field myHandlers:Ljava/util/Map;
+        96: aload_0
+        97: aload_2
+        98: putfield      #50                 // Field myErrorLogger:Lcom/jetbrains/launcher/log/ErrorLogger;
+       101: return
+      LineNumberTable:
+        line 15: 80
+        line 11: 85
+        line 16: 96
+        line 17: 101
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     102     0  this   Lcom/jetbrains/launcher/transport/Server;
+            0     102     1 threadName   Ljava/lang/String;
+            0     102     2 errorLogger   Lcom/jetbrains/launcher/log/ErrorLogger;
+
+  public void addHandler(java.lang.String, com.jetbrains.launcher.transport.RequestHandler);
+    descriptor: (Ljava/lang/String;Lcom/jetbrains/launcher/transport/RequestHandler;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     40
+         4: new           #17                 // class java/lang/IllegalArgumentException
+         7: dup
+         8: ldc           #19                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        10: ldc           #20                 // int 3
+        12: anewarray     #22                 // class java/lang/Object
+        15: dup
+        16: ldc           #23                 // int 0
+        18: ldc           #57                 // String url
+        20: aastore
+        21: dup
+        22: ldc           #26                 // int 1
+        24: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+        26: aastore
+        27: dup
+        28: ldc           #28                 // int 2
+        30: ldc           #58                 // String addHandler
+        32: aastore
+        33: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        36: invokespecial #38                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        39: athrow
+        40: aload_2
+        41: ifnonnull     80
+        44: new           #17                 // class java/lang/IllegalArgumentException
+        47: dup
+        48: ldc           #19                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        50: ldc           #20                 // int 3
+        52: anewarray     #22                 // class java/lang/Object
+        55: dup
+        56: ldc           #23                 // int 0
+        58: ldc           #60                 // String handler
+        60: aastore
+        61: dup
+        62: ldc           #26                 // int 1
+        64: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+        66: aastore
+        67: dup
+        68: ldc           #28                 // int 2
+        70: ldc           #58                 // String addHandler
+        72: aastore
+        73: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        76: invokespecial #38                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        79: athrow
+        80: aload_0
+        81: getfield      #48                 // Field myHandlers:Ljava/util/Map;
+        84: aload_1
+        85: aload_2
+        86: invokeinterface #66,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        91: pop
+        92: return
+      LineNumberTable:
+        line 20: 80
+        line 21: 92
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      93     0  this   Lcom/jetbrains/launcher/transport/Server;
+            0      93     1   url   Ljava/lang/String;
+            0      93     2 handler   Lcom/jetbrains/launcher/transport/RequestHandler;
+
+  protected com.jetbrains.launcher.transport.Response doProcessRequest(com.jetbrains.launcher.transport.Request);
+    descriptor: (Lcom/jetbrains/launcher/transport/Request;)Lcom/jetbrains/launcher/transport/Response;
+    Code:
+         0: aload_1
+         1: ifnonnull     40
+         4: new           #17                 // class java/lang/IllegalArgumentException
+         7: dup
+         8: ldc           #19                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        10: ldc           #20                 // int 3
+        12: anewarray     #22                 // class java/lang/Object
+        15: dup
+        16: ldc           #23                 // int 0
+        18: ldc           #71                 // String request
+        20: aastore
+        21: dup
+        22: ldc           #26                 // int 1
+        24: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+        26: aastore
+        27: dup
+        28: ldc           #28                 // int 2
+        30: ldc           #72                 // String doProcessRequest
+        32: aastore
+        33: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        36: invokespecial #38                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        39: athrow
+        40: aload_1
+        41: invokevirtual #80                 // Method com/jetbrains/launcher/transport/Request.getURL:()Ljava/lang/String;
+        44: astore_2
+        45: aload_0
+        46: getfield      #48                 // Field myHandlers:Ljava/util/Map;
+        49: aload_2
+        50: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        55: checkcast     #86                 // class com/jetbrains/launcher/transport/RequestHandler
+        58: astore_3
+        59: aload_3
+        60: ifnull        190
+        63: aload_3
+        64: aload_1
+        65: invokeinterface #89,  2           // InterfaceMethod com/jetbrains/launcher/transport/RequestHandler.processRequest:(Lcom/jetbrains/launcher/transport/Request;)Lcom/jetbrains/launcher/transport/Response;
+        70: dup
+        71: ifnonnull     104
+        74: new           #91                 // class java/lang/IllegalStateException
+        77: dup
+        78: ldc           #93                 // String @NotNull method %s.%s must not return null
+        80: ldc           #28                 // int 2
+        82: anewarray     #22                 // class java/lang/Object
+        85: dup
+        86: ldc           #23                 // int 0
+        88: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+        90: aastore
+        91: dup
+        92: ldc           #26                 // int 1
+        94: ldc           #72                 // String doProcessRequest
+        96: aastore
+        97: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       100: invokespecial #94                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       103: athrow
+       104: areturn
+       105: astore        4
+       107: aload_0
+       108: getfield      #50                 // Field myErrorLogger:Lcom/jetbrains/launcher/log/ErrorLogger;
+       111: new           #96                 // class java/lang/StringBuilder
+       114: dup
+       115: invokespecial #97                 // Method java/lang/StringBuilder."<init>":()V
+       118: ldc           #99                 // String Failed to process request:
+       120: invokevirtual #103                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       123: aload_1
+       124: invokestatic  #107                // Method describeRequest:(Lcom/jetbrains/launcher/transport/Request;)Ljava/lang/String;
+       127: invokevirtual #103                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       130: invokevirtual #110                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       133: aload         4
+       135: invokeinterface #116,  3          // InterfaceMethod com/jetbrains/launcher/log/ErrorLogger.internalError:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       140: new           #118                // class com/jetbrains/launcher/transport/Response
+       143: dup
+       144: sipush        500
+       147: aload         4
+       149: invokevirtual #121                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+       152: invokespecial #124                // Method com/jetbrains/launcher/transport/Response."<init>":(ILjava/lang/String;)V
+       155: dup
+       156: ifnonnull     189
+       159: new           #91                 // class java/lang/IllegalStateException
+       162: dup
+       163: ldc           #93                 // String @NotNull method %s.%s must not return null
+       165: ldc           #28                 // int 2
+       167: anewarray     #22                 // class java/lang/Object
+       170: dup
+       171: ldc           #23                 // int 0
+       173: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+       175: aastore
+       176: dup
+       177: ldc           #26                 // int 1
+       179: ldc           #72                 // String doProcessRequest
+       181: aastore
+       182: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       185: invokespecial #94                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       188: athrow
+       189: areturn
+       190: new           #118                // class com/jetbrains/launcher/transport/Response
+       193: dup
+       194: sipush        404
+       197: new           #96                 // class java/lang/StringBuilder
+       200: dup
+       201: invokespecial #97                 // Method java/lang/StringBuilder."<init>":()V
+       204: ldc           #126                // String URL \"
+       206: invokevirtual #103                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       209: aload_2
+       210: invokevirtual #103                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       213: ldc           #128                // String \" is not found
+       215: invokevirtual #103                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       218: invokevirtual #110                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       221: invokespecial #124                // Method com/jetbrains/launcher/transport/Response."<init>":(ILjava/lang/String;)V
+       224: dup
+       225: ifnonnull     258
+       228: new           #91                 // class java/lang/IllegalStateException
+       231: dup
+       232: ldc           #93                 // String @NotNull method %s.%s must not return null
+       234: ldc           #28                 // int 2
+       236: anewarray     #22                 // class java/lang/Object
+       239: dup
+       240: ldc           #23                 // int 0
+       242: ldc           #27                 // String com/jetbrains/launcher/transport/Server
+       244: aastore
+       245: dup
+       246: ldc           #26                 // int 1
+       248: ldc           #72                 // String doProcessRequest
+       250: aastore
+       251: invokestatic  #35                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       254: invokespecial #94                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       257: athrow
+       258: areturn
+      Exception table:
+         from    to  target type
+            63    70   105   Class java/lang/Throwable
+      LineNumberTable:
+        line 26: 40
+        line 27: 45
+        line 28: 59
+        line 30: 63
+        line 32: 105
+        line 33: 107
+        line 34: 140
+        line 37: 190
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          107      83     4     e   Ljava/lang/Throwable;
+            0     259     0  this   Lcom/jetbrains/launcher/transport/Server;
+            0     259     1 request   Lcom/jetbrains/launcher/transport/Request;
+           45     214     2   url   Ljava/lang/String;
+           59     200     3 handler   Lcom/jetbrains/launcher/transport/RequestHandler;
+
+  public void shutdown();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #134                // Method com/jetbrains/launcher/transport/AbstractServer.shutdown:()V
+         4: return
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jetbrains/launcher/transport/Server;
+
+  public void run();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #137                // Method com/jetbrains/launcher/transport/AbstractServer.run:()V
+         4: return
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jetbrains/launcher/transport/Server;
+
+  public com.jetbrains.launcher.transport.ConnectionData getConnectionData();
+    descriptor: ()Lcom/jetbrains/launcher/transport/ConnectionData;
+    Code:
+         0: aload_0
+         1: invokespecial #141                // Method com/jetbrains/launcher/transport/AbstractServer.getConnectionData:()Lcom/jetbrains/launcher/transport/ConnectionData;
+         4: areturn
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/jetbrains/launcher/transport/Server;
+
+  public void addCriticalUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokespecial #144                // Method com/jetbrains/launcher/transport/AbstractServer.addCriticalUrl:(Ljava/lang/String;)V
+         5: return
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/jetbrains/launcher/transport/Server;
+            0       6     1    x0   Ljava/lang/String;
+}

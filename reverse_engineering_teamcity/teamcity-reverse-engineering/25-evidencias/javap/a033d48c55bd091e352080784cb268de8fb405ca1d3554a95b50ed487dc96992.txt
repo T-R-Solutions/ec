@@ -1,0 +1,873 @@
+Compiled from "PipelineVersionedSettingsManager.java"
+public class jetbrains.buildServer.pipeline.impl.manager.PipelineVersionedSettingsManager {
+  private final jetbrains.buildServer.serverSide.versionedSettings.VersionedSettingsManager myVersionedSettingsManager;
+    descriptor: Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+
+  private final jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsConfigUpdater myVersionedSettingsConfigUpdater;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater;
+
+  private final jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsUpdater myVersionedSettingsUpdater;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdater;
+
+  private final jetbrains.buildServer.vcs.VcsRootInstancesManagerEx myVcsRootInstancesManager;
+    descriptor: Ljetbrains/buildServer/vcs/VcsRootInstancesManagerEx;
+
+  private final jetbrains.buildServer.serverSide.SecurityContextEx mySecurityContext;
+    descriptor: Ljetbrains/buildServer/serverSide/SecurityContextEx;
+
+  private final jetbrains.buildServer.pipeline.versionedSettings.yaml.YamlPipelineCommitter myYamlPipelineCommitter;
+    descriptor: Ljetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter;
+
+  public jetbrains.buildServer.pipeline.impl.manager.PipelineVersionedSettingsManager(jetbrains.buildServer.serverSide.versionedSettings.VersionedSettingsManager, jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsConfigUpdater, jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsUpdater, jetbrains.buildServer.vcs.VcsRootInstancesManagerEx, jetbrains.buildServer.serverSide.SecurityContextEx, jetbrains.buildServer.pipeline.versionedSettings.yaml.YamlPipelineCommitter);
+    descriptor: (Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater;Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdater;Ljetbrains/buildServer/vcs/VcsRootInstancesManagerEx;Ljetbrains/buildServer/serverSide/SecurityContextEx;Ljetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        33: aload         5
+        35: ifnonnull     42
+        38: iconst_4
+        39: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        42: aload         6
+        44: ifnonnull     51
+        47: iconst_5
+        48: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        51: aload_0
+        52: invokespecial #203                // Method java/lang/Object."<init>":()V
+        55: aload_0
+        56: aload_1
+        57: putfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+        60: aload_0
+        61: aload_2
+        62: putfield      #266                // Field myVersionedSettingsConfigUpdater:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater;
+        65: aload_0
+        66: aload_3
+        67: putfield      #308                // Field myVersionedSettingsUpdater:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdater;
+        70: aload_0
+        71: aload         4
+        73: putfield      #249                // Field myVcsRootInstancesManager:Ljetbrains/buildServer/vcs/VcsRootInstancesManagerEx;
+        76: aload_0
+        77: aload         5
+        79: putfield      #326                // Field mySecurityContext:Ljetbrains/buildServer/serverSide/SecurityContextEx;
+        82: aload_0
+        83: aload         6
+        85: putfield      #362                // Field myYamlPipelineCommitter:Ljetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter;
+        88: return
+      LineNumberTable:
+        line 43: 51
+        line 30: 55
+        line 35: 60
+        line 4: 65
+        line 37: 70
+        line 62: 76
+        line 71: 82
+        line 70: 88
+
+  public jetbrains.buildServer.pipeline.versionedSettings.PipelineVersionedSettings getVersionedSettings(jetbrains.buildServer.pipeline.PipelineProject);
+    descriptor: (Ljetbrains/buildServer/pipeline/PipelineProject;)Ljetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        6
+         6: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_0
+        17: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+        20: aload_1
+        21: invokeinterface #285,  2          // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.readConfig:(Ljetbrains/buildServer/serverSide/SProject;)Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig;
+        26: astore_2
+        27: new           #114                // class jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings
+        30: dup
+        31: aload_0
+        32: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+        35: aload_1
+        36: invokeinterface #64,  2           // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.hasVersionedSettings:(Ljetbrains/buildServer/serverSide/SProject;)Z
+        41: aload_2
+        42: invokevirtual #172                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.getSettingsPath:()Ljava/lang/String;
+        45: aload_2
+        46: invokevirtual #379                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.getVcsRootExternalId:()Ljava/lang/String;
+        49: aconst_null
+        50: aload_0
+        51: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+        54: aload_1
+        55: invokeinterface #158,  2          // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.getEffectiveFormat:(Ljetbrains/buildServer/serverSide/SProject;)Ljava/lang/String;
+        60: invokespecial #303                // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings."<init>":(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        63: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/RuntimeException
+      LineNumberTable:
+        line 63: 16
+        line 53: 27
+        line 32: 42
+        line 59: 46
+        line 61: 55
+        line 12: 63
+
+  public boolean setAndPersistVersionedSettings(jetbrains.buildServer.pipeline.Pipeline, jetbrains.buildServer.pipeline.versionedSettings.PipelineVersionedSettings);
+    descriptor: (Ljetbrains/buildServer/pipeline/Pipeline;Ljetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        7
+         6: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        8
+        22: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        31: athrow
+        32: aload_0
+        33: getfield      #326                // Field mySecurityContext:Ljetbrains/buildServer/serverSide/SecurityContextEx;
+        36: invokeinterface #299,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SecurityContextEx.getAccessChecker:()Ljetbrains/buildServer/serverSide/auth/AccessChecker;
+        41: aload_1
+        42: invokeinterface #388,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getProject:()Ljetbrains/buildServer/pipeline/PipelineProject;
+        47: invokeinterface #355,  2          // InterfaceMethod jetbrains/buildServer/serverSide/auth/AccessChecker.checkCanEditProject:(Ljetbrains/buildServer/serverSide/SProject;)V
+        52: aload_1
+        53: invokeinterface #388,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getProject:()Ljetbrains/buildServer/pipeline/PipelineProject;
+        58: astore_3
+        59: aload_0
+        60: getfield      #326                // Field mySecurityContext:Ljetbrains/buildServer/serverSide/SecurityContextEx;
+        63: invokeinterface #272,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SecurityContextEx.getAuthorityHolder:()Ljetbrains/buildServer/serverSide/auth/AuthorityHolder;
+        68: invokeinterface #302,  1          // InterfaceMethod jetbrains/buildServer/serverSide/auth/AuthorityHolder.getAssociatedUser:()Ljetbrains/buildServer/users/User;
+        73: checkcast     #118                // class jetbrains/buildServer/users/SUser
+        76: astore        4
+        78: aload_0
+        79: aload_3
+        80: invokevirtual #344                // Method isStoredInParentProject:(Ljetbrains/buildServer/serverSide/SProject;)Z
+        83: ifeq          92
+        86: iconst_0
+        87: ireturn
+        88: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        91: athrow
+        92: aload_2
+        93: invokevirtual #42                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getFilename:()Ljava/lang/String;
+        96: invokestatic  #193                // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.validateFilename:(Ljava/lang/String;)V
+        99: aload_2
+       100: invokevirtual #90                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.isEnabled:()Z
+       103: ifne          166
+       106: ldc           #5                  // String import
+       108: aload_2
+       109: invokevirtual #305                // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getConfirmationDecision:()Ljava/lang/String;
+       112: invokevirtual #95                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       115: ifeq          166
+       118: goto          125
+       121: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       124: athrow
+       125: aload_1
+       126: invokeinterface #233,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getVcsRoot:()Ljetbrains/buildServer/pipeline/PipelineVcsRoot;
+       131: ifnonnull     155
+       134: goto          141
+       137: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       140: athrow
+       141: new           #89                 // class java/lang/RuntimeException
+       144: dup
+       145: ldc           #7                  // String Cannot import settings from repository. Main vcs root is not set.
+       147: invokespecial #75                 // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+       150: athrow
+       151: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       154: athrow
+       155: aload_0
+       156: aload_1
+       157: aload_2
+       158: aload_3
+       159: aload         4
+       161: invokevirtual #181                // Method loadPipelineFromVcsOnce:(Ljetbrains/buildServer/pipeline/Pipeline;Ljetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings;Ljetbrains/buildServer/serverSide/SProject;Ljetbrains/buildServer/users/SUser;)V
+       164: iconst_1
+       165: ireturn
+       166: aload_0
+       167: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+       170: aload_3
+       171: invokeinterface #285,  2          // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.readConfig:(Ljetbrains/buildServer/serverSide/SProject;)Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig;
+       176: astore        5
+       178: aload_0
+       179: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+       182: aload_3
+       183: invokeinterface #64,  2           // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.hasVersionedSettings:(Ljetbrains/buildServer/serverSide/SProject;)Z
+       188: aload_2
+       189: invokevirtual #90                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.isEnabled:()Z
+       192: if_icmpne     244
+       195: aload_2
+       196: invokevirtual #42                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getFilename:()Ljava/lang/String;
+       199: aload         5
+       201: invokevirtual #172                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.getSettingsPath:()Ljava/lang/String;
+       204: invokestatic  #41                 // Method java/util/Objects.equals:(Ljava/lang/Object;Ljava/lang/Object;)Z
+       207: ifeq          223
+       210: goto          217
+       213: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       216: athrow
+       217: iconst_0
+       218: ireturn
+       219: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       222: athrow
+       223: aload_2
+       224: invokevirtual #90                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.isEnabled:()Z
+       227: ifeq          244
+       230: new           #259                // class java/lang/IllegalStateException
+       233: dup
+       234: ldc           #17                 // String Cannot update Versioned Settings YAML file path for already enabled Versioned Settings
+       236: invokespecial #357                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       239: athrow
+       240: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       243: athrow
+       244: aload_2
+       245: invokevirtual #216                // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getVcsRootExtId:()Ljava/lang/String;
+       248: astore        6
+       250: aload         6
+       252: ifnonnull     287
+       255: aload_1
+       256: invokeinterface #233,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getVcsRoot:()Ljetbrains/buildServer/pipeline/PipelineVcsRoot;
+       261: ifnull        287
+       264: goto          271
+       267: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       270: athrow
+       271: aload_1
+       272: invokeinterface #233,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getVcsRoot:()Ljetbrains/buildServer/pipeline/PipelineVcsRoot;
+       277: invokevirtual #342                // Method jetbrains/buildServer/pipeline/PipelineVcsRoot.getRoot:()Ljetbrains/buildServer/vcs/SVcsRoot;
+       280: invokeinterface #348,  1          // InterfaceMethod jetbrains/buildServer/vcs/SVcsRoot.getExternalId:()Ljava/lang/String;
+       285: astore        6
+       287: aload_0
+       288: getfield      #266                // Field myVersionedSettingsConfigUpdater:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater;
+       291: aload_3
+       292: aload         4
+       294: aload_2
+       295: invokevirtual #90                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.isEnabled:()Z
+       298: ifeq          310
+       301: ldc           #16                 // String enabled
+       303: goto          312
+       306: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       309: athrow
+       310: ldc           #13                 // String disabled
+       312: aload         6
+       314: iconst_0
+       315: iconst_1
+       316: aload_2
+       317: invokevirtual #305                // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getConfirmationDecision:()Ljava/lang/String;
+       320: ldc           #23                 // String override
+       322: invokestatic  #261                // Method jetbrains/buildServer/util/Util.ofNullable:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       325: checkcast     #289                // class java/lang/String
+       328: ldc           #1                  // String pipelines-yaml
+       330: iconst_1
+       331: iconst_1
+       332: iconst_1
+       333: aload_2
+       334: invokevirtual #42                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getFilename:()Ljava/lang/String;
+       337: getstatic     #145                // Field jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig$BuildSettingsMode.PREFER_VCS:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig$BuildSettingsMode;
+       340: invokevirtual #160                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig$BuildSettingsMode.name:()Ljava/lang/String;
+       343: iconst_0
+       344: getstatic     #67                 // Field jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig$DslExecutionMode.SANDBOX:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig$DslExecutionMode;
+       347: invokevirtual #179                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater.updateConfig:(Ljetbrains/buildServer/serverSide/SProject;Ljetbrains/buildServer/users/SUser;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;ZZZLjava/lang/String;Ljava/lang/String;ZLjetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig$DslExecutionMode;)Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result;
+       350: astore        7
+       352: aload         7
+       354: invokevirtual #321                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result.getStatus:()Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result$ResultStatus;
+       357: getstatic     #175                // Field jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result$ResultStatus.ERROR:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result$ResultStatus;
+       360: invokevirtual #189                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result$ResultStatus.equals:(Ljava/lang/Object;)Z
+       363: ifeq          383
+       366: new           #259                // class java/lang/IllegalStateException
+       369: dup
+       370: aload         7
+       372: invokevirtual #146                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfigUpdater$Result.getMessage:()Ljava/lang/String;
+       375: invokespecial #357                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       378: athrow
+       379: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       382: athrow
+       383: ldc           #5                  // String import
+       385: aload_2
+       386: invokevirtual #305                // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getConfirmationDecision:()Ljava/lang/String;
+       389: invokevirtual #95                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       392: ireturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/RuntimeException
+            16    25    28   Class java/lang/RuntimeException
+            78    88    88   Class java/lang/RuntimeException
+            92   118   121   Class java/lang/RuntimeException
+           106   134   137   Class java/lang/RuntimeException
+           125   151   151   Class java/lang/RuntimeException
+           178   210   213   Class java/lang/RuntimeException
+           195   219   219   Class java/lang/RuntimeException
+           223   240   240   Class java/lang/RuntimeException
+           250   264   267   Class java/lang/RuntimeException
+           287   306   306   Class java/lang/RuntimeException
+           352   379   379   Class java/lang/RuntimeException
+      LineNumberTable:
+        line 18: 32
+        line 58: 52
+        line 42: 59
+        line 33: 78
+        line 16: 86
+        line 9: 92
+        line 2: 99
+        line 48: 125
+        line 14: 141
+        line 39: 155
+        line 17: 164
+        line 23: 166
+        line 10: 178
+        line 49: 195
+        line 66: 217
+        line 15: 223
+        line 57: 230
+        line 50: 244
+        line 55: 250
+        line 54: 271
+        line 21: 287
+        line 20: 294
+        line 46: 317
+        line 27: 334
+        line 22: 340
+        line 11: 347
+        line 26: 352
+        line 25: 366
+        line 38: 383
+
+  private void loadPipelineFromVcsOnce(jetbrains.buildServer.pipeline.Pipeline, jetbrains.buildServer.pipeline.versionedSettings.PipelineVersionedSettings, jetbrains.buildServer.serverSide.SProject, jetbrains.buildServer.users.SUser);
+    descriptor: (Ljetbrains/buildServer/pipeline/Pipeline;Ljetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings;Ljetbrains/buildServer/serverSide/SProject;Ljetbrains/buildServer/users/SUser;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        9
+         6: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        10
+        22: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        31: athrow
+        32: new           #252                // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig
+        35: dup
+        36: invokespecial #384                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig."<init>":()V
+        39: astore        5
+        41: aload         5
+        43: iconst_1
+        44: invokevirtual #239                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.setUseRelativeIds:(Z)V
+        47: aload         5
+        49: iconst_0
+        50: invokevirtual #316                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.setEnabled:(Z)V
+        53: aload         5
+        55: ldc           #1                  // String pipelines-yaml
+        57: invokevirtual #78                 // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.setFormat:(Ljava/lang/String;)V
+        60: aload         5
+        62: aload_2
+        63: invokevirtual #42                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.getFilename:()Ljava/lang/String;
+        66: invokevirtual #359                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig.setSettingsPath:(Ljava/lang/String;)V
+        69: aload_0
+        70: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+        73: aload_3
+        74: aload         4
+        76: ldc           #11                 // String Import pipeline from repository yaml without sync
+        78: invokeinterface #282,  3          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.createConfigAction:(Ljetbrains/buildServer/users/SUser;Ljava/lang/String;)Ljetbrains/buildServer/serverSide/ConfigAction;
+        83: aload_3
+        84: aload         5
+        86: invokeinterface #371,  4          // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.writeConfig:(Ljetbrains/buildServer/serverSide/ConfigAction;Ljetbrains/buildServer/serverSide/SProject;Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig;)Ljava/util/List;
+        91: pop
+        92: aload_0
+        93: getfield      #249                // Field myVcsRootInstancesManager:Ljetbrains/buildServer/vcs/VcsRootInstancesManagerEx;
+        96: aload_1
+        97: invokeinterface #233,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getVcsRoot:()Ljetbrains/buildServer/pipeline/PipelineVcsRoot;
+       102: invokevirtual #342                // Method jetbrains/buildServer/pipeline/PipelineVcsRoot.getRoot:()Ljetbrains/buildServer/vcs/SVcsRoot;
+       105: aload_3
+       106: invokeinterface #245,  3          // InterfaceMethod jetbrains/buildServer/vcs/VcsRootInstancesManagerEx.getVcsRootInstance:(Ljetbrains/buildServer/vcs/SVcsRoot;Ljetbrains/buildServer/serverSide/ParametersSupport;)Ljetbrains/buildServer/vcs/VcsRootInstance;
+       111: astore        6
+       113: aload         6
+       115: invokeinterface #234,  1          // InterfaceMethod jetbrains/buildServer/vcs/VcsRootInstance.getCurrentRevision:()Ljetbrains/buildServer/serverSide/RepositoryVersion;
+       120: invokevirtual #77                 // Method jetbrains/buildServer/serverSide/RepositoryVersion.getVersion:()Ljava/lang/String;
+       123: astore        7
+       125: goto          142
+       128: astore        8
+       130: new           #89                 // class java/lang/RuntimeException
+       133: dup
+       134: ldc           #2                  // String Cannot import settings from repository
+       136: aload         8
+       138: invokespecial #284                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+       141: athrow
+       142: new           #52                 // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig
+       145: dup
+       146: aload         6
+       148: invokeinterface #329,  1          // InterfaceMethod jetbrains/buildServer/vcs/VcsRootInstance.getId:()J
+       153: aload         7
+       155: invokespecial #85                 // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig."<init>":(JLjava/lang/String;)V
+       158: astore        8
+       160: aload         8
+       162: aload_3
+       163: invokeinterface #178,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.getExternalId:()Ljava/lang/String;
+       168: aload         5
+       170: invokevirtual #51                 // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig.importProject:(Ljava/lang/String;Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsConfig;)V
+       173: aload         8
+       175: aload_3
+       176: invokeinterface #178,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.getExternalId:()Ljava/lang/String;
+       181: invokestatic  #313                // Method java/util/Collections.singleton:(Ljava/lang/Object;)Ljava/util/Set;
+       184: invokevirtual #296                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig.updateSpecifiedProjects:(Ljava/util/Set;)V
+       187: aload         8
+       189: ldc           #1                  // String pipelines-yaml
+       191: invokevirtual #200                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig.setSettingsFormat:(Ljava/lang/String;)V
+       194: aload_0
+       195: getfield      #308                // Field myVersionedSettingsUpdater:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdater;
+       198: aload         8
+       200: aconst_null
+       201: invokeinterface #389,  3          // InterfaceMethod jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdater.updateFromVcs:(Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig;Ljava/util/function/Supplier;)V
+       206: return
+      Exception table:
+         from    to  target type
+            16    25    28   Class jetbrains/buildServer/vcs/VcsException
+             0     9    12   Class jetbrains/buildServer/vcs/VcsException
+           113   125   128   Class jetbrains/buildServer/vcs/VcsException
+      LineNumberTable:
+        line 68: 32
+        line 60: 41
+        line 3: 47
+        line 34: 53
+        line 56: 60
+        line 47: 69
+        line 40: 92
+        line 41: 113
+        line 8: 125
+        line 13: 128
+        line 29: 130
+        line 36: 142
+        line 52: 160
+        line 1: 173
+        line 31: 187
+        line 67: 194
+        line 65: 206
+
+  public boolean shouldCommitUpdatesToVersionedSettings(jetbrains.buildServer.pipeline.Pipeline);
+    descriptor: (Ljetbrains/buildServer/pipeline/Pipeline;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        11
+         6: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_1
+        17: invokeinterface #221,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getVersionedSettings:()Ljetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings;
+        22: invokevirtual #90                 // Method jetbrains/buildServer/pipeline/versionedSettings/PipelineVersionedSettings.isEnabled:()Z
+        25: ifeq          34
+        28: iconst_1
+        29: ireturn
+        30: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        33: athrow
+        34: aload_1
+        35: invokeinterface #388,  1          // InterfaceMethod jetbrains/buildServer/pipeline/Pipeline.getProject:()Ljetbrains/buildServer/pipeline/PipelineProject;
+        40: astore_2
+        41: aload_0
+        42: aload_2
+        43: invokevirtual #344                // Method isStoredInParentProject:(Ljetbrains/buildServer/serverSide/SProject;)Z
+        46: ireturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/RuntimeException
+            16    30    30   Class java/lang/RuntimeException
+      LineNumberTable:
+        line 45: 16
+        line 44: 28
+        line 69: 34
+        line 19: 41
+
+  private boolean isStoredInParentProject(jetbrains.buildServer.serverSide.SProject);
+    descriptor: (Ljetbrains/buildServer/serverSide/SProject;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        12
+         6: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_0
+        17: getfield      #312                // Field myVersionedSettingsManager:Ljetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager;
+        20: aload_1
+        21: invokeinterface #367,  2          // InterfaceMethod jetbrains/buildServer/serverSide/versionedSettings/VersionedSettingsManager.getEffectiveProjectConfig:(Ljetbrains/buildServer/serverSide/SProject;)Lcom/intellij/openapi/util/Pair;
+        26: astore_2
+        27: aload_2
+        28: ifnull        59
+        31: aload_2
+        32: invokevirtual #364                // Method com/intellij/openapi/util/Pair.getFirst:()Ljava/lang/Object;
+        35: checkcast     #180                // class jetbrains/buildServer/serverSide/SProject
+        38: astore_3
+        39: aload_1
+        40: aload_3
+        41: invokeinterface #224,  2          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.equals:(Ljava/lang/Object;)Z
+        46: ifne          57
+        49: iconst_1
+        50: goto          58
+        53: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        56: athrow
+        57: iconst_0
+        58: ireturn
+        59: iconst_0
+        60: ireturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/RuntimeException
+            39    53    53   Class java/lang/RuntimeException
+      LineNumberTable:
+        line 51: 16
+        line 64: 27
+        line 24: 31
+        line 6: 39
+        line 5: 59
+
+  public jetbrains.buildServer.pipeline.versionedSettings.yaml.YamlPipelineCommitter$YamlCommitOutcome commitPipelineYamlToBranch(jetbrains.buildServer.pipeline.PipelineProject, java.lang.String, jetbrains.buildServer.serverSide.ConfigAction, java.lang.String, java.lang.String) throws jetbrains.buildServer.vcs.VcsException, jetbrains.buildServer.serverSide.impl.versionedSettings.CommitNotSupported, java.io.IOException;
+    descriptor: (Ljetbrains/buildServer/pipeline/PipelineProject;Ljava/lang/String;Ljetbrains/buildServer/serverSide/ConfigAction;Ljava/lang/String;Ljava/lang/String;)Ljetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter$YamlCommitOutcome;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        13
+         6: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        14
+        22: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        15
+        38: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        47: athrow
+        48: aload_0
+        49: getfield      #326                // Field mySecurityContext:Ljetbrains/buildServer/serverSide/SecurityContextEx;
+        52: invokeinterface #299,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SecurityContextEx.getAccessChecker:()Ljetbrains/buildServer/serverSide/auth/AccessChecker;
+        57: aload_1
+        58: invokeinterface #355,  2          // InterfaceMethod jetbrains/buildServer/serverSide/auth/AccessChecker.checkCanEditProject:(Ljetbrains/buildServer/serverSide/SProject;)V
+        63: aload_0
+        64: getfield      #362                // Field myYamlPipelineCommitter:Ljetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter;
+        67: aload_1
+        68: aload_2
+        69: aload_3
+        70: aload         4
+        72: aload         5
+        74: invokevirtual #275                // Method jetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter.commitToBranch:(Ljetbrains/buildServer/pipeline/PipelineProject;Ljava/lang/String;Ljetbrains/buildServer/serverSide/ConfigAction;Ljava/lang/String;Ljava/lang/String;)Ljetbrains/buildServer/pipeline/versionedSettings/yaml/YamlPipelineCommitter$YamlCommitOutcome;
+        77: dup
+        78: ifnonnull     93
+        81: bipush        16
+        83: invokestatic  #110                // Method $$$reportNull$$$0:(I)V
+        86: goto          93
+        89: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        92: athrow
+        93: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/vcs/VcsException
+            16    25    28   Class jetbrains/buildServer/vcs/VcsException
+            32    41    44   Class jetbrains/buildServer/vcs/VcsException
+            48    86    89   Class jetbrains/buildServer/vcs/VcsException
+      LineNumberTable:
+        line 28: 48
+        line 7: 63
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 16
+                       0: 84
+                       1: 84
+                       2: 84
+                       3: 84
+                       4: 84
+                       5: 84
+                       6: 84
+                       7: 84
+                       8: 84
+                       9: 84
+                      10: 84
+                      11: 84
+                      12: 84
+                      13: 84
+                      14: 84
+                      15: 84
+                      16: 93
+                 default: 84
+            }
+        84: ldc           #24                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        86: goto          98
+        89: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        92: athrow
+        93: ldc           #25                 // String @NotNull method %s.%s must not return null
+        95: goto          98
+        98: iload_0
+        99: tableswitch   { // 0 to 16
+                       0: 180
+                       1: 180
+                       2: 180
+                       3: 180
+                       4: 180
+                       5: 180
+                       6: 180
+                       7: 180
+                       8: 180
+                       9: 180
+                      10: 180
+                      11: 180
+                      12: 180
+                      13: 180
+                      14: 180
+                      15: 180
+                      16: 188
+                 default: 180
+            }
+       180: iconst_3
+       181: goto          192
+       184: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       187: athrow
+       188: iconst_2
+       189: goto          192
+       192: anewarray     #173                // class java/lang/Object
+       195: iload_0
+       196: tableswitch   { // 0 to 16
+                       0: 280
+                       1: 292
+                       2: 300
+                       3: 308
+                       4: 316
+                       5: 324
+                       6: 332
+                       7: 340
+                       8: 348
+                       9: 340
+                      10: 348
+                      11: 340
+                      12: 332
+                      13: 332
+                      14: 356
+                      15: 364
+                      16: 372
+                 default: 280
+            }
+       280: dup
+       281: iconst_0
+       282: ldc           #28                 // String versionedSettingsManager
+       284: aastore
+       285: goto          380
+       288: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       291: athrow
+       292: dup
+       293: iconst_0
+       294: ldc           #29                 // String versionedSettingsConfigUpdater
+       296: aastore
+       297: goto          380
+       300: dup
+       301: iconst_0
+       302: ldc           #4                  // String versionedSettingsUpdater
+       304: aastore
+       305: goto          380
+       308: dup
+       309: iconst_0
+       310: ldc           #27                 // String vcsRootInstancesManager
+       312: aastore
+       313: goto          380
+       316: dup
+       317: iconst_0
+       318: ldc           #18                 // String securityContext
+       320: aastore
+       321: goto          380
+       324: dup
+       325: iconst_0
+       326: ldc           #12                 // String yamlPipelineCommitter
+       328: aastore
+       329: goto          380
+       332: dup
+       333: iconst_0
+       334: ldc           #14                 // String project
+       336: aastore
+       337: goto          380
+       340: dup
+       341: iconst_0
+       342: ldc           #20                 // String pipeline
+       344: aastore
+       345: goto          380
+       348: dup
+       349: iconst_0
+       350: ldc           #21                 // String versionedSettings
+       352: aastore
+       353: goto          380
+       356: dup
+       357: iconst_0
+       358: ldc           #8                  // String yaml
+       360: aastore
+       361: goto          380
+       364: dup
+       365: iconst_0
+       366: ldc           #10                 // String cause
+       368: aastore
+       369: goto          380
+       372: dup
+       373: iconst_0
+       374: ldc           #15                 // String jetbrains/buildServer/pipeline/impl/manager/PipelineVersionedSettingsManager
+       376: aastore
+       377: goto          380
+       380: iload_0
+       381: tableswitch   { // 0 to 16
+                       0: 464
+                       1: 464
+                       2: 464
+                       3: 464
+                       4: 464
+                       5: 464
+                       6: 464
+                       7: 464
+                       8: 464
+                       9: 464
+                      10: 464
+                      11: 464
+                      12: 464
+                      13: 464
+                      14: 464
+                      15: 464
+                      16: 476
+                 default: 464
+            }
+       464: dup
+       465: iconst_1
+       466: ldc           #15                 // String jetbrains/buildServer/pipeline/impl/manager/PipelineVersionedSettingsManager
+       468: aastore
+       469: goto          484
+       472: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       475: athrow
+       476: dup
+       477: iconst_1
+       478: ldc           #3                  // String commitPipelineYamlToBranch
+       480: aastore
+       481: goto          484
+       484: iload_0
+       485: tableswitch   { // 0 to 16
+                       0: 568
+                       1: 568
+                       2: 568
+                       3: 568
+                       4: 568
+                       5: 568
+                       6: 580
+                       7: 588
+                       8: 588
+                       9: 596
+                      10: 596
+                      11: 604
+                      12: 612
+                      13: 620
+                      14: 620
+                      15: 620
+                      16: 628
+                 default: 568
+            }
+       568: dup
+       569: iconst_2
+       570: ldc           #26                 // String <init>
+       572: aastore
+       573: goto          631
+       576: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       579: athrow
+       580: dup
+       581: iconst_2
+       582: ldc           #19                 // String getVersionedSettings
+       584: aastore
+       585: goto          631
+       588: dup
+       589: iconst_2
+       590: ldc           #9                  // String setAndPersistVersionedSettings
+       592: aastore
+       593: goto          631
+       596: dup
+       597: iconst_2
+       598: ldc           #22                 // String loadPipelineFromVcsOnce
+       600: aastore
+       601: goto          631
+       604: dup
+       605: iconst_2
+       606: ldc           #30                 // String shouldCommitUpdatesToVersionedSettings
+       608: aastore
+       609: goto          631
+       612: dup
+       613: iconst_2
+       614: ldc           #6                  // String isStoredInParentProject
+       616: aastore
+       617: goto          631
+       620: dup
+       621: iconst_2
+       622: ldc           #3                  // String commitPipelineYamlToBranch
+       624: aastore
+       625: goto          631
+       628: goto          631
+       631: invokestatic  #153                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       634: iload_0
+       635: tableswitch   { // 0 to 16
+                       0: 716
+                       1: 716
+                       2: 716
+                       3: 716
+                       4: 716
+                       5: 716
+                       6: 716
+                       7: 716
+                       8: 716
+                       9: 716
+                      10: 716
+                      11: 716
+                      12: 716
+                      13: 716
+                      14: 716
+                      15: 716
+                      16: 731
+                 default: 716
+            }
+       716: new           #212                // class java/lang/IllegalArgumentException
+       719: dup_x1
+       720: swap
+       721: invokespecial #248                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       724: goto          742
+       727: invokestatic  #381                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       730: athrow
+       731: new           #259                // class java/lang/IllegalStateException
+       734: dup_x1
+       735: swap
+       736: invokespecial #357                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       739: goto          742
+       742: athrow
+      Exception table:
+         from    to  target type
+             0    89    89   Class java/lang/RuntimeException
+            98   184   184   Class java/lang/RuntimeException
+           192   288   288   Class java/lang/RuntimeException
+           380   472   472   Class java/lang/RuntimeException
+           484   576   576   Class java/lang/RuntimeException
+           631   727   727   Class java/lang/RuntimeException
+
+  private static java.lang.Exception a(java.lang.Exception);
+    descriptor: (Ljava/lang/Exception;)Ljava/lang/Exception;
+    Code:
+         0: aload_0
+         1: areturn
+}

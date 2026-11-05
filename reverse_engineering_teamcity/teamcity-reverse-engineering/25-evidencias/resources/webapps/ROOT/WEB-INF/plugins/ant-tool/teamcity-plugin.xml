@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:schemas-jetbrains-com:teamcity-plugin-v1-xml">
+    <info>
+        <name>ant-tool</name>
+        <display-name>Apache Ant distribution rebundled by JetBrains</display-name>
+        <version>239120</version>
+        <vendor>
+            <name>JetBrains</name>
+            <url>https://www.jetbrains.com</url>
+        </vendor>
+    </info>
+    <deployment
+                node-responsibilities-aware="true"
+    />
+</teamcity-plugin>

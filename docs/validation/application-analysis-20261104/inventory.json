@@ -1,0 +1,485 @@
+{
+  "date": "2026-11-04",
+  "application_file_count": 80,
+  "application_readme_count": 34,
+  "application_marker_count": 46,
+  "modules": [
+    "application/agents/crates/ec-agent-app",
+    "application/agents/crates/ec-agent-control",
+    "application/agents/crates/ec-agent-execution",
+    "application/agents/crates/ec-agent-reporting",
+    "application/agents/crates/ec-agent-workspace",
+    "application/server/backend/crates/ec-server-access",
+    "application/server/backend/crates/ec-server-app",
+    "application/server/backend/crates/ec-server-configuration",
+    "application/server/backend/crates/ec-server-delivery",
+    "application/server/backend/crates/ec-server-extensions",
+    "application/server/backend/crates/ec-server-operations",
+    "application/server/backend/crates/ec-server-orchestration",
+    "application/server/backend/crates/ec-server-projects",
+    "application/server/backend/crates/ec-server-results",
+    "application/server/frontend/src/domains/access",
+    "application/server/frontend/src/domains/administration",
+    "application/server/frontend/src/domains/configuration",
+    "application/server/frontend/src/domains/delivery",
+    "application/server/frontend/src/domains/extensions",
+    "application/server/frontend/src/domains/infrastructure",
+    "application/server/frontend/src/domains/pipelines",
+    "application/server/frontend/src/domains/projects",
+    "application/server/frontend/src/domains/runs"
+  ],
+  "files": [
+    {
+      "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
+      "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9"
+    },
+    {
+      "path": ".codex/skills/technical-documentation/SKILL.md",
+      "sha256": "66818d9b61bd373fc64eee7bbcfec7a61f0825b37bf8a2f135fdf2c4f1ead059"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "a6a44c462cfbc67893b83069ae72160984b79acbc2de2650173056e637094543"
+    },
+    {
+      "path": "README.md",
+      "sha256": "99c6c9c27007d55bfc109c5f31a832e0792b9a8178d2b48c6d83944ed2a89964"
+    },
+    {
+      "path": "application/agents/README.md",
+      "sha256": "6d854d55814d7ddcefe730a71631bbcb81d224b31203d671bf2e03fc0a888225"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/README.md",
+      "sha256": "aebcfd5d5a4a59ce36cf973e81e1b806c97efd50e852cec105196c6068ed8c05"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/README.md",
+      "sha256": "93bc450fd9ffe3ec999a9c7ef0efe483c85e0131f4dd3ab695e2b745082f4c4f"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/README.md",
+      "sha256": "1a6b553aec536d7dc8c5cfb76215ad7796f06db73ee299cb0d34dad3bb1168d6"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/README.md",
+      "sha256": "8fd72bc7fd88f1962d4532e393b886b00928b4ccf8818e82f360b7beb40d8c1d"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/README.md",
+      "sha256": "eccb6970355c530a042b2161f83e1b7d6af9d3687dfd3ea8a68322bf5bcdf9dd"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/integration/tests/README.md",
+      "sha256": "72b5eb890418d754b80f8a2f914b308036327af503202f6c3135b97ee4326c2f"
+    },
+    {
+      "path": "application/integration/tests/e2e/README.md",
+      "sha256": "3bf4c841d6c3d09f749ae0817e85c3e16f52d30d47065fe8afb8e0602faf9626"
+    },
+    {
+      "path": "application/integration/tests/integration/README.md",
+      "sha256": "213220c57e95903e90f101a8baa494fb9f02a073695a186d781b3a91750666a1"
+    },
+    {
+      "path": "application/server/README.md",
+      "sha256": "bf5d27434510f00138e4fd1f45d0cb5778820665fbedf6831a80131b9f52554e"
+    },
+    {
+      "path": "application/server/backend/README.md",
+      "sha256": "5895b8a85e86a602b3b675a6a497d6ef8bab4139b82adcdb03d8cd9b08fdaace"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/README.md",
+      "sha256": "fb3caee7ed2e5495a2b47bd6ff764d26c42b8764fa0cb341a311505d5e463af1"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/README.md",
+      "sha256": "d2c1a7faf173fea306904b877200c721068f8ed78c41b25257a077a8069f0443"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/README.md",
+      "sha256": "92ae23fdd72e5e9717bd36696160451b25dabde46073231fa28513841f061669"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-delivery/README.md",
+      "sha256": "68726c5d7b9bab4b50bd33195816e0320d4534292272e44efa869c533f69194a"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-delivery/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-delivery/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-extensions/README.md",
+      "sha256": "30d611bdf03f37da85050250d79331799c4ac8780a0609f30d192dbd65ba2353"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-extensions/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-extensions/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-operations/README.md",
+      "sha256": "88084a270887175f7d1230220199f8d576dcdc561930c0495ec79f011f594977"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-operations/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-operations/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "sha256": "19300e34bec886cbf53d1493e0673aa95cf66c85119aaaab01fca3ec9a5dd7a0"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/README.md",
+      "sha256": "0ecd1a07c7a83fc004c8b5ed83f5c709afd88831a59dbf3f20055b0b53bee2dc"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/README.md",
+      "sha256": "ff95bfdf423434937bc2377cdc436874e6ce8abfedd0846ad0c951b9d4a037fb"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/README.md",
+      "sha256": "6182c8102325f4c61d456fb9d4e2e97eccd5aa286ee0b947add724533b1762c1"
+    },
+    {
+      "path": "application/server/frontend/src/app/README.md",
+      "sha256": "7dd4e8997ae7bbc148f2fa783de4202123d9013dfe07d2a3a59e9793a1fe378d"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/README.md",
+      "sha256": "80f7359aac280e6f6d4cd293df116332cdb29aabaac44f5e20663764b255972b"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/administration/README.md",
+      "sha256": "7fc3ab1a6c474b31fba80031f3cda5a45f5cac13ad28a6278b2e7410eb38137a"
+    },
+    {
+      "path": "application/server/frontend/src/domains/administration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/administration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/README.md",
+      "sha256": "a419f88dc0e743b4b96509a8f646a22708b0533400abf96de90df1d8b70a4172"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/delivery/README.md",
+      "sha256": "9cfc0907ed4e98de112a103ac96534d14c0b3d50be75ad61cf91d225f04ba5ef"
+    },
+    {
+      "path": "application/server/frontend/src/domains/delivery/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/delivery/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/extensions/README.md",
+      "sha256": "4cc513b5eb8b0c035a6791bb0558a2abad45e01f1be4c95881b029f05c9af192"
+    },
+    {
+      "path": "application/server/frontend/src/domains/extensions/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/extensions/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/README.md",
+      "sha256": "1548b7999d108259e33d8b3f2fde982bc37bf5ca31c57aed86805c41fc53cd3a"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/pipelines/README.md",
+      "sha256": "b5fa13453cc776d7fc32e2537dfeca60afe04eb0c422ca5fb788d8e3739be1f8"
+    },
+    {
+      "path": "application/server/frontend/src/domains/pipelines/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/pipelines/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/README.md",
+      "sha256": "ab0c2ef13dadad8a79fa219ceff885efc5182a3b8dd46fec8893533ce3585852"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/README.md",
+      "sha256": "f0a401c6092ccc11ec420ee9e978cd78d07246607e9a043b7247b4ea5302bf5b"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/shared/README.md",
+      "sha256": "042799f6c007be0465750bc7f5f6e8a845994430d212656532fea25c8c57a6d5"
+    },
+    {
+      "path": "application/server/frontend/tests/e2e/README.md",
+      "sha256": "b7075dcd03100a84b244b5c813499abc78fa1dcff7fc4032231ea3eedfe1f531"
+    },
+    {
+      "path": "application/server/frontend/tests/integration/README.md",
+      "sha256": "4d8f92c69b09a5b567f4f60793bdc2a94f92dd055903995fd84c6d44edc96226"
+    },
+    {
+      "path": "config/governance/profile.json",
+      "sha256": "72eac3edafaaef640619e90fc79a6bbf459e1d8b255aea18659724ae85e3917c"
+    },
+    {
+      "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62"
+    },
+    {
+      "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "2786bc08c04e45d24c8a530de0aaf4c01fdc68f418db503268a6f745b337cbfd"
+    },
+    {
+      "path": "docs/architecture/application-layout.md",
+      "sha256": "1c77d83ee5aad2713cd295b8b06c8e4732a67ee9d988ee54268255e213477c5a"
+    },
+    {
+      "path": "docs/architecture/application-overview.md",
+      "sha256": "46eeeaedcdf62c91df8e23dda21400cfec515d0d3994f6c0ec0857e1318ea7ca"
+    },
+    {
+      "path": "docs/architecture/context.md",
+      "sha256": "4d3d0dfea1aa45430182dd207479a311f8fd02ed54a317bd3ba53e57e560aca7"
+    },
+    {
+      "path": "docs/architecture/contracts.md",
+      "sha256": "c77052ee9b79c91ecf699662c5c3e0b595188227698b011351a34281487eb601"
+    },
+    {
+      "path": "docs/constitution.md",
+      "sha256": "e75e225c611af98acd5d865324f49f56222bcbe3a684662dcf8a43ae5ed96e97"
+    },
+    {
+      "path": "docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "sha256": "964423adcd8933ad36f696c7b140d10321b190da0ac224b4ac360f8644923023"
+    },
+    {
+      "path": "docs/decisions/ADR-002-application-layout.md",
+      "sha256": "10abae52775b554aa64b06c7608c7e195bcfa3c8fe49eccd7d85db81ca18b38f"
+    },
+    {
+      "path": "docs/development/testing.md",
+      "sha256": "1a33397ce9b1f1430656a168364275377805ab920057d4ec61af42b715ffbb0c"
+    },
+    {
+      "path": "docs/ec-arquitetura-comunicacao-e-validacao.md",
+      "sha256": "f9689af6e68baae223d1c213518163e3506339c84519bff40d3ecb33f57296a6"
+    },
+    {
+      "path": "docs/validation/application-analysis-20261104/report.md",
+      "sha256": "3f26ee47a8a36112629be7343a2f5747d6854ffed47fa550d3c63b1896de5728"
+    },
+    {
+      "path": "reverse_engineering_teamcity/ci-platform-research/04-validation/prototypes/lease_model.rs",
+      "sha256": "b6cd65bbcef45b36358e4d4bd58f35f9a25ccdfa48e6ed312bb434260f7b9234"
+    },
+    {
+      "path": "reverse_engineering_teamcity/ci-platform-research/04-validation/tests/validate.py",
+      "sha256": "2bbcc7b3fa0123a7ceb437a6ad18a5440084047a1554a7b10e1461ac7cffd18f"
+    },
+    {
+      "path": "reverse_engineering_teamcity/ci-platform-research/README.md",
+      "sha256": "64b0600a75b3e84b7b10f15c3045d470b7bd18a5f76b39391332550ee30c5b4f"
+    },
+    {
+      "path": "sdd/evidence.md",
+      "sha256": "5aff51a144d4fe800ca1c668c7180a25de1e4109a30d9d07161b85342b920483"
+    },
+    {
+      "path": "sdd/features/governance-adoption/converge.md",
+      "sha256": "3ec8e3179d90d81f02b0978da9f858e4d64246942c3f64ac9e565ec09496e5a8"
+    },
+    {
+      "path": "sdd/features/governance-adoption/plan.md",
+      "sha256": "153e3a8a3f1be4aec40dc446fe5c4382fe1e05d8478a5a00d9aec35825eb52bd"
+    },
+    {
+      "path": "sdd/features/governance-adoption/spec.md",
+      "sha256": "88e765b4fe076aeb2d7a2e8e74150822717b2f05ad602259254ece3dcbc6f153"
+    },
+    {
+      "path": "sdd/features/governance-adoption/tasks.md",
+      "sha256": "28c16fd09a17b76e163eeb31a522e234794e405a3089ef1a5e432d34a6a9ba3a"
+    },
+    {
+      "path": "sdd/features/governance-adoption/traceability.json",
+      "sha256": "a5063690ce55d3a33a8a8a82472ab1af751d9586129c6525a667c0921a400289"
+    },
+    {
+      "path": "sdd/project.md",
+      "sha256": "957f9c08f57d5f70395c3e038f7d90474b2ae23a67170a6b9a0a1eb250d63904"
+    },
+    {
+      "path": "sdd/tools/validate.py",
+      "sha256": "bc4581e9868eb52f4203be5fa05e971d2ba7f2600a70060cce508b07853a04c4"
+    },
+    {
+      "path": "sdd/workflow.md",
+      "sha256": "acbf9400f2ea4cc83b4e67ba8957e58ce51178574d1988a54172117c92d597f9"
+    },
+    {
+      "path": "tools/governance/install_skills.py",
+      "sha256": "3d6b431380e2c3104b5769ea9414ac3444249666dcf0a20b95d88e82123622b2"
+    },
+    {
+      "path": "tools/governance/tests/test_governance.py",
+      "sha256": "6e716cafd87a3c67e929ba311784f92fb7c1c11c3f02aa770337802afaf858a6"
+    },
+    {
+      "path": "tools/governance/validate.py",
+      "sha256": "48bf1e3e5014a405c180df5da3b9430320cfaf03b76c39a73e094e76ce71beb4"
+    }
+  ]
+}

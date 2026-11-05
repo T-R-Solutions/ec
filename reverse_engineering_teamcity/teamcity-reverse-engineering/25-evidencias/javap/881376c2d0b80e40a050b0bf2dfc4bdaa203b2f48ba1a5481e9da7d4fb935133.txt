@@ -1,0 +1,992 @@
+Compiled from "UntrustedBuildsPrecondition.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.UntrustedBuildsPrecondition implements jetbrains.buildServer.serverSide.buildDistribution.StartBuildPrecondition,jetbrains.buildServer.util.positioning.PositionAware {
+  public static final java.lang.String ORDER_ID;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsManager myUntrustedBuildsManager;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+
+  private final jetbrains.buildServer.serverSide.WebLinks myWebLinks;
+    descriptor: Ljetbrains/buildServer/serverSide/WebLinks;
+
+  private final java.util.concurrent.ExecutorService myExecutorService;
+    descriptor: Ljava/util/concurrent/ExecutorService;
+
+  private final java.util.Map<java.lang.Long, java.lang.Boolean> myUntrustedBuildNotLogged;
+    descriptor: Ljava/util/Map;
+
+  private final com.google.common.util.concurrent.Striped<java.util.concurrent.locks.Lock> myLocks;
+    descriptor: Lcom/google/common/util/concurrent/Striped;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.UntrustedBuildsPrecondition(jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsManager, jetbrains.buildServer.serverSide.WebLinks, jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.serverSide.BuildServerListener>, jetbrains.buildServer.serverSide.executors.ExecutorServices);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;Ljetbrains/buildServer/serverSide/WebLinks;Ljetbrains/buildServer/util/EventDispatcher;Ljetbrains/buildServer/serverSide/executors/ExecutorServices;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        33: aload_0
+        34: invokespecial #243                // Method java/lang/Object."<init>":()V
+        37: aload_0
+        38: sipush        1000
+        41: invokestatic  #485                // Method com/google/common/util/concurrent/Striped.lock:(I)Lcom/google/common/util/concurrent/Striped;
+        44: putfield      #138                // Field myLocks:Lcom/google/common/util/concurrent/Striped;
+        47: aload_0
+        48: aload_1
+        49: putfield      #123                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+        52: aload_0
+        53: aload_2
+        54: putfield      #189                // Field myWebLinks:Ljetbrains/buildServer/serverSide/WebLinks;
+        57: aload_0
+        58: aload         4
+        60: invokeinterface #228,  1          // InterfaceMethod jetbrains/buildServer/serverSide/executors/ExecutorServices.getLowPriorityExecutorService:()Ljava/util/concurrent/ExecutorService;
+        65: putfield      #224                // Field myExecutorService:Ljava/util/concurrent/ExecutorService;
+        68: aload_0
+        69: new           #314                // class jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition$1
+        72: dup
+        73: aload_0
+        74: sipush        1000
+        77: invokespecial #417                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition$1."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition;I)V
+        80: invokestatic  #148                // Method java/util/Collections.synchronizedMap:(Ljava/util/Map;)Ljava/util/Map;
+        83: putfield      #107                // Field myUntrustedBuildNotLogged:Ljava/util/Map;
+        86: aload_3
+        87: new           #359                // class jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition$2
+        90: dup
+        91: aload_0
+        92: invokespecial #329                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition$2."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition;)V
+        95: invokevirtual #72                 // Method jetbrains/buildServer/util/EventDispatcher.addListener:(Ljava/util/EventListener;)V
+        98: return
+      LineNumberTable:
+        line 49: 33
+        line 46: 37
+        line 33: 47
+        line 1: 52
+        line 35: 57
+        line 16: 68
+        line 6: 86
+        line 64: 98
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason canStart(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.BuildAgent>, jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Map;Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;Z)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_4
+         5: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_5
+        20: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        29: athrow
+        30: aload_3
+        31: ifnonnull     46
+        34: bipush        6
+        36: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        39: goto          46
+        42: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        45: athrow
+        46: invokestatic  #385                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsConstants.isEnabled:()Z
+        49: ifne          58
+        52: aconst_null
+        53: areturn
+        54: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        57: athrow
+        58: aload_1
+        59: invokeinterface #140,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        64: checkcast     #162                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        67: astore        5
+        69: aload_0
+        70: getfield      #123                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+        73: aload         5
+        75: invokevirtual #362                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager.getUntrustedBuildsSettings:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings;
+        78: astore        6
+        80: aload         6
+        82: ifnonnull     91
+        85: aconst_null
+        86: areturn
+        87: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        90: athrow
+        91: aload         6
+        93: invokevirtual #86                 // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings.getDefaultAction:()Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;
+        96: getstatic     #275                // Field jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction.CANCEL:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;
+        99: if_acmpeq     117
+       102: aload         6
+       104: invokevirtual #172                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings.shouldLogUntrustedBuilds:()Z
+       107: ifeq          263
+       110: goto          117
+       113: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       116: athrow
+       117: aload_0
+       118: getfield      #123                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+       121: aload         5
+       123: invokevirtual #432                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager.isUntrusted:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedCheckResult;
+       126: astore        7
+       128: aload         7
+       130: getstatic     #136                // Field jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedCheckResult.WAITING:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedCheckResult;
+       133: if_acmpne     150
+       136: new           #204                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       139: dup
+       140: ldc           #27                 // String Failed to determine if build is untrusted
+       142: invokespecial #210                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       145: areturn
+       146: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       149: athrow
+       150: aload         7
+       152: getstatic     #360                // Field jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedCheckResult.UNTRUSTED:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedCheckResult;
+       155: if_acmpne     263
+       158: aload         6
+       160: invokevirtual #86                 // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings.getDefaultAction:()Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;
+       163: getstatic     #275                // Field jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction.CANCEL:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;
+       166: if_acmpne     263
+       169: goto          176
+       172: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       175: athrow
+       176: iload         4
+       178: ifeq          202
+       181: goto          188
+       184: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       187: athrow
+       188: new           #204                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       191: dup
+       192: ldc           #11                 // String Build will be canceled
+       194: invokespecial #210                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       197: areturn
+       198: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       201: athrow
+       202: aload_1
+       203: instanceof    #498                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+       206: ifeq          263
+       209: aload_0
+       210: getfield      #123                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+       213: aload         5
+       215: invokevirtual #241                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager.getUntrustedReasons:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/util/List;
+       218: astore        8
+       220: aload         8
+       222: invokeinterface #135,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       227: ifne          263
+       230: aload_0
+       231: aload_1
+       232: checkcast     #498                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+       235: aload_0
+       236: aload         8
+       238: invokevirtual #170                // Method joinReasons:(Ljava/util/Collection;)Ljava/lang/String;
+       241: invokedynamic #213,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       246: invokevirtual #99                 // Method failQueuedBuild:(Ljetbrains/buildServer/serverSide/QueuedBuildEx;Ljava/lang/String;)V
+       249: new           #204                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       252: dup
+       253: ldc           #11                 // String Build will be canceled
+       255: invokespecial #210                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       258: areturn
+       259: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       262: athrow
+       263: aconst_null
+       264: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/util/concurrent/RejectedExecutionException
+            15    23    26   Class java/util/concurrent/RejectedExecutionException
+            30    39    42   Class java/util/concurrent/RejectedExecutionException
+            46    54    54   Class java/util/concurrent/RejectedExecutionException
+            80    87    87   Class java/util/concurrent/RejectedExecutionException
+            91   110   113   Class java/util/concurrent/RejectedExecutionException
+           128   146   146   Class java/util/concurrent/RejectedExecutionException
+           150   169   172   Class java/util/concurrent/RejectedExecutionException
+           158   181   184   Class java/util/concurrent/RejectedExecutionException
+           176   198   198   Class java/util/concurrent/RejectedExecutionException
+           220   259   259   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 29: 46
+        line 31: 52
+        line 32: 58
+        line 57: 69
+        line 41: 80
+        line 66: 85
+        line 9: 91
+        line 43: 117
+        line 2: 128
+        line 53: 136
+        line 26: 150
+        line 20: 176
+        line 28: 188
+        line 3: 202
+        line 8: 209
+        line 45: 220
+        line 30: 230
+        line 18: 249
+        line 24: 263
+
+  public java.lang.String getOrderId();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: getstatic     #70                 // Field ORDER_ID:Ljava/lang/String;
+         3: dup
+         4: ifnonnull     19
+         7: bipush        7
+         9: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 61: 0
+
+  public jetbrains.buildServer.util.positioning.PositionConstraint getConstraint();
+    descriptor: ()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+    Code:
+         0: iconst_2
+         1: anewarray     #209                // class java/lang/String
+         4: dup
+         5: iconst_0
+         6: getstatic     #157                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/CheckingForChangesPrecondition.ORDER_ID:Ljava/lang/String;
+         9: aastore
+        10: dup
+        11: iconst_1
+        12: getstatic     #217                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition.ORDER_ID:Ljava/lang/String;
+        15: aastore
+        16: invokestatic  #271                // Method jetbrains/buildServer/util/positioning/PositionConstraint.after:([Ljava/lang/String;)Ljetbrains/buildServer/util/positioning/PositionConstraint;
+        19: dup
+        20: ifnonnull     35
+        23: bipush        8
+        25: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        28: goto          35
+        31: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        34: athrow
+        35: areturn
+      Exception table:
+         from    to  target type
+             0    28    31   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 42: 0
+
+  private void failQueuedBuild(jetbrains.buildServer.serverSide.QueuedBuildEx, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/serverSide/QueuedBuildEx;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        9
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_1
+        17: iconst_0
+        18: ldc           #14                 // String Build was detected as untrusted
+        20: ldc           #8                  // String PREPARATION_FAILURE_TYPE
+        22: aload_2
+        23: invokestatic  #393                // Method jetbrains/buildServer/problems/BuildProblemUtil.createBuildProblem:(Ljava/lang/String;Ljava/lang/String;)Ljetbrains/buildServer/BuildProblemData;
+        26: invokeinterface #152,  4          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildEx.terminate:(ZLjava/lang/String;Ljetbrains/buildServer/BuildProblemData;)V
+        31: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 27: 16
+        line 21: 31
+
+  public java.lang.String getBuildUrl(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        10
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_0
+        17: getfield      #189                // Field myWebLinks:Ljetbrains/buildServer/serverSide/WebLinks;
+        20: aload_1
+        21: invokeinterface #225,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getRealOrDummyBuild:()Ljetbrains/buildServer/serverSide/SBuild;
+        26: invokevirtual #263                // Method jetbrains/buildServer/serverSide/WebLinks.getViewResultsUrl:(Ljetbrains/buildServer/Build;)Ljava/lang/String;
+        29: astore_2
+        30: aload_2
+        31: ldc           #41                 // String -1
+        33: invokevirtual #335                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+        36: ifeq          62
+        39: aload_2
+        40: iconst_0
+        41: aload_2
+        42: invokevirtual #486                // Method java/lang/String.length:()I
+        45: iconst_2
+        46: isub
+        47: invokevirtual #114                // Method java/lang/String.substring:(II)Ljava/lang/String;
+        50: aload_1
+        51: invokeinterface #496,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        56: invokedynamic #108,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;J)Ljava/lang/String;
+        61: astore_2
+        62: aload_2
+        63: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 56: 16
+        line 15: 30
+        line 5: 39
+        line 44: 62
+
+  private void submitLoggingTask(jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsSettings$DefaultAction);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        11
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        12
+        22: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        31: athrow
+        32: aload_0
+        33: getfield      #224                // Field myExecutorService:Ljava/util/concurrent/ExecutorService;
+        36: aload_0
+        37: aload_1
+        38: aload_2
+        39: invokedynamic #188,  0            // InvokeDynamic #2:run:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)Ljava/lang/Runnable;
+        44: invokeinterface #473,  2          // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+        49: pop
+        50: goto          60
+        53: astore_3
+        54: aload_0
+        55: aload_1
+        56: aload_2
+        57: invokevirtual #81                 // Method logToServerAndBuildLog:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)V
+        60: return
+      Exception table:
+         from    to  target type
+            16    25    28   Class java/util/concurrent/RejectedExecutionException
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            32    50    53   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 47: 32
+        line 14: 50
+        line 23: 53
+        line 37: 54
+        line 25: 60
+
+  private void logToServerAndBuildLog(jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsSettings$DefaultAction);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        13
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        14
+        22: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        31: athrow
+        32: aload_0
+        33: getfield      #123                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+        36: aload_1
+        37: invokevirtual #241                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager.getUntrustedReasons:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/util/List;
+        40: astore_3
+        41: aload_3
+        42: invokeinterface #135,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        47: ifne          125
+        50: aload_0
+        51: aload_0
+        52: aload_1
+        53: invokevirtual #284                // Method getBuildUrl:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/String;
+        56: aload_1
+        57: aload_3
+        58: invokevirtual #265                // Method logUntrustedBuild:(Ljava/lang/String;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/util/List;)V
+        61: invokestatic  #223                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsConstants.isBuildLogEnabled:()Z
+        64: ifeq          125
+        67: goto          74
+        70: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        73: athrow
+        74: invokestatic  #250                // Method jetbrains/buildServer/serverSide/CurrentNodeInfo.isMainNode:()Z
+        77: ifeq          125
+        80: goto          87
+        83: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        86: athrow
+        87: aload_0
+        88: aload_3
+        89: aload_2
+        90: invokevirtual #349                // Method getBuildLogMessage:(Ljava/util/List;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)Ljava/lang/String;
+        93: astore        4
+        95: aload_1
+        96: invokeinterface #176,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBuildLog:()Ljetbrains/buildServer/serverSide/buildLog/BuildLogEx;
+       101: astore        5
+       103: aload         5
+       105: aload         4
+       107: getstatic     #281                // Field jetbrains/buildServer/messages/Status.WARNING:Ljetbrains/buildServer/messages/Status;
+       110: invokestatic  #474                // Method jetbrains/buildServer/serverSide/buildLog/MessageAttrs.serverMessage:()Ljetbrains/buildServer/serverSide/buildLog/MessageAttrs;
+       113: invokeinterface #312,  4          // InterfaceMethod jetbrains/buildServer/serverSide/buildLog/BuildLogEx.messageAsync:(Ljava/lang/String;Ljetbrains/buildServer/messages/Status;Ljetbrains/buildServer/serverSide/buildLog/MessageAttrs;)V
+       118: aload         5
+       120: invokeinterface #249,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildLog/BuildLogEx.flush:()V
+       125: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            16    25    28   Class java/util/concurrent/RejectedExecutionException
+            41    67    70   Class java/util/concurrent/RejectedExecutionException
+            50    80    83   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 59: 32
+        line 40: 41
+        line 38: 50
+        line 52: 61
+        line 55: 87
+        line 4: 95
+        line 7: 103
+        line 11: 110
+        line 10: 113
+        line 62: 118
+        line 51: 125
+
+  private java.lang.String getBuildLogMessage(java.util.List<jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildReason>, jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsSettings$DefaultAction);
+    descriptor: (Ljava/util/List;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        15
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        16
+        22: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        31: athrow
+        32: getstatic     #341                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition$3.$SwitchMap$jetbrains$buildServer$serverSide$impl$untrustedBuilds$UntrustedBuildsSettings$DefaultAction:[I
+        35: aload_2
+        36: invokevirtual #100                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction.ordinal:()I
+        39: iaload
+        40: lookupswitch  { // 1
+                       1: 60
+                 default: 66
+            }
+        60: ldc           #19                 // String Build is untrusted, so it won\'t be started until it is approved
+        62: astore_3
+        63: goto          69
+        66: ldc           #14                 // String Build was detected as untrusted
+        68: astore_3
+        69: aload_3
+        70: aload_0
+        71: aload_1
+        72: invokevirtual #170                // Method joinReasons:(Ljava/util/Collection;)Ljava/lang/String;
+        75: invokedynamic #321,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        80: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            16    25    28   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 54: 32
+        line 36: 60
+        line 22: 63
+        line 39: 66
+        line 67: 69
+
+  private void logUntrustedBuild(java.lang.String, jetbrains.buildServer.serverSide.BuildPromotionEx, java.util.List<jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildReason>);
+    descriptor: (Ljava/lang/String;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/util/List;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        17
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        18
+        22: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        19
+        38: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        47: athrow
+        48: getstatic     #182                // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+        51: ldc           #3                  // String Build(promotion id: %d, configuration id: %s) detected as untrusted. Reasons: %s Build URL: %s
+        53: iconst_4
+        54: anewarray     #97                 // class java/lang/Object
+        57: dup
+        58: iconst_0
+        59: aload_2
+        60: invokeinterface #496,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        65: invokestatic  #300                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+        68: aastore
+        69: dup
+        70: iconst_1
+        71: aload_2
+        72: invokeinterface #262,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBuildTypeExternalId:()Ljava/lang/String;
+        77: aastore
+        78: dup
+        79: iconst_2
+        80: aload_3
+        81: invokeinterface #58,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+        86: invokedynamic #147,  0            // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+        91: invokeinterface #469,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+        96: ldc           #25                 // String  |
+        98: ldc           #26                 // String {
+       100: ldc           #10                 // String }
+       102: invokestatic  #361                // Method java/util/stream/Collectors.joining:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector;
+       105: invokeinterface #282,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+       110: aastore
+       111: dup
+       112: iconst_3
+       113: aload_1
+       114: aastore
+       115: invokestatic  #428                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       118: invokevirtual #77                 // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       121: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            16    25    28   Class java/util/concurrent/RejectedExecutionException
+            32    41    44   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 63: 48
+        line 58: 60
+        line 34: 72
+        line 19: 81
+        line 13: 115
+        line 17: 121
+
+  private java.lang.String joinReasons(java.util.Collection<jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildReason>);
+    descriptor: (Ljava/util/Collection;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        20
+         6: invokestatic  #126                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+        15: athrow
+        16: aload_1
+        17: invokeinterface #375,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+        22: invokedynamic #305,  0            // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+        27: invokeinterface #469,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+        32: ldc           #33                 // String ,
+        34: invokestatic  #405                // Method java/util/stream/Collectors.joining:(Ljava/lang/CharSequence;)Ljava/util/stream/Collector;
+        37: invokeinterface #282,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+        42: checkcast     #209                // class java/lang/String
+        45: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 48: 16
+
+  private static java.lang.String lambda$joinReasons$2(jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildReason;)Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: invokevirtual #299                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildReason.getLogDescription:()Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 65: 0
+
+  private static java.lang.String lambda$logUntrustedBuild$1(jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildReason;)Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: invokevirtual #299                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildReason.getLogDescription:()Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 50: 0
+
+  private void lambda$submitLoggingTask$0(jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsSettings$DefaultAction);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: aload_2
+         3: invokevirtual #81                 // Method logToServerAndBuildLog:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings$DefaultAction;)V
+         6: return
+      LineNumberTable:
+        line 60: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #15                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition
+         2: invokevirtual #166                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+         5: putstatic     #70                 // Field ORDER_ID:Ljava/lang/String;
+         8: return
+      LineNumberTable:
+        line 12: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 20
+                       0: 100
+                       1: 100
+                       2: 100
+                       3: 100
+                       4: 100
+                       5: 100
+                       6: 100
+                       7: 109
+                       8: 109
+                       9: 100
+                      10: 100
+                      11: 100
+                      12: 100
+                      13: 100
+                      14: 100
+                      15: 100
+                      16: 100
+                      17: 100
+                      18: 100
+                      19: 100
+                      20: 100
+                 default: 100
+            }
+       100: ldc           #23                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+       102: goto          114
+       105: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       108: athrow
+       109: ldc           #21                 // String @NotNull method %s.%s must not return null
+       111: goto          114
+       114: iload_0
+       115: tableswitch   { // 0 to 20
+                       0: 212
+                       1: 212
+                       2: 212
+                       3: 212
+                       4: 212
+                       5: 212
+                       6: 212
+                       7: 220
+                       8: 220
+                       9: 212
+                      10: 212
+                      11: 212
+                      12: 212
+                      13: 212
+                      14: 212
+                      15: 212
+                      16: 212
+                      17: 212
+                      18: 212
+                      19: 212
+                      20: 212
+                 default: 212
+            }
+       212: iconst_3
+       213: goto          224
+       216: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       219: athrow
+       220: iconst_2
+       221: goto          224
+       224: anewarray     #97                 // class java/lang/Object
+       227: iload_0
+       228: tableswitch   { // 0 to 20
+                       0: 328
+                       1: 340
+                       2: 348
+                       3: 356
+                       4: 364
+                       5: 372
+                       6: 380
+                       7: 388
+                       8: 388
+                       9: 396
+                      10: 404
+                      11: 404
+                      12: 412
+                      13: 420
+                      14: 412
+                      15: 428
+                      16: 412
+                      17: 436
+                      18: 444
+                      19: 452
+                      20: 452
+                 default: 328
+            }
+       328: dup
+       329: iconst_0
+       330: ldc           #9                  // String untrustedBuildsManager
+       332: aastore
+       333: goto          460
+       336: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       339: athrow
+       340: dup
+       341: iconst_0
+       342: ldc           #40                 // String webLinks
+       344: aastore
+       345: goto          460
+       348: dup
+       349: iconst_0
+       350: ldc           #29                 // String dispatcher
+       352: aastore
+       353: goto          460
+       356: dup
+       357: iconst_0
+       358: ldc           #18                 // String executorServices
+       360: aastore
+       361: goto          460
+       364: dup
+       365: iconst_0
+       366: ldc           #38                 // String queuedBuild
+       368: aastore
+       369: goto          460
+       372: dup
+       373: iconst_0
+       374: ldc           #39                 // String canBeStarted
+       376: aastore
+       377: goto          460
+       380: dup
+       381: iconst_0
+       382: ldc           #31                 // String buildDistributorInput
+       384: aastore
+       385: goto          460
+       388: dup
+       389: iconst_0
+       390: ldc           #6                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition
+       392: aastore
+       393: goto          460
+       396: dup
+       397: iconst_0
+       398: ldc           #32                 // String build
+       400: aastore
+       401: goto          460
+       404: dup
+       405: iconst_0
+       406: ldc           #7                  // String promotion
+       408: aastore
+       409: goto          460
+       412: dup
+       413: iconst_0
+       414: ldc           #30                 // String defaultAction
+       416: aastore
+       417: goto          460
+       420: dup
+       421: iconst_0
+       422: ldc           #36                 // String buildPromotionEx
+       424: aastore
+       425: goto          460
+       428: dup
+       429: iconst_0
+       430: ldc           #4                  // String untrustedBuildReasons
+       432: aastore
+       433: goto          460
+       436: dup
+       437: iconst_0
+       438: ldc           #1                  // String buildUrl
+       440: aastore
+       441: goto          460
+       444: dup
+       445: iconst_0
+       446: ldc           #5                  // String buildPromotion
+       448: aastore
+       449: goto          460
+       452: dup
+       453: iconst_0
+       454: ldc           #37                 // String reasons
+       456: aastore
+       457: goto          460
+       460: iload_0
+       461: tableswitch   { // 0 to 20
+                       0: 560
+                       1: 560
+                       2: 560
+                       3: 560
+                       4: 560
+                       5: 560
+                       6: 560
+                       7: 572
+                       8: 580
+                       9: 560
+                      10: 560
+                      11: 560
+                      12: 560
+                      13: 560
+                      14: 560
+                      15: 560
+                      16: 560
+                      17: 560
+                      18: 560
+                      19: 560
+                      20: 560
+                 default: 560
+            }
+       560: dup
+       561: iconst_1
+       562: ldc           #6                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/UntrustedBuildsPrecondition
+       564: aastore
+       565: goto          588
+       568: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       571: athrow
+       572: dup
+       573: iconst_1
+       574: ldc           #22                 // String getOrderId
+       576: aastore
+       577: goto          588
+       580: dup
+       581: iconst_1
+       582: ldc           #13                 // String getConstraint
+       584: aastore
+       585: goto          588
+       588: iload_0
+       589: tableswitch   { // 0 to 20
+                       0: 688
+                       1: 688
+                       2: 688
+                       3: 688
+                       4: 700
+                       5: 700
+                       6: 700
+                       7: 708
+                       8: 708
+                       9: 711
+                      10: 719
+                      11: 727
+                      12: 727
+                      13: 735
+                      14: 735
+                      15: 743
+                      16: 743
+                      17: 751
+                      18: 751
+                      19: 751
+                      20: 759
+                 default: 688
+            }
+       688: dup
+       689: iconst_2
+       690: ldc           #12                 // String <init>
+       692: aastore
+       693: goto          767
+       696: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       699: athrow
+       700: dup
+       701: iconst_2
+       702: ldc           #34                 // String canStart
+       704: aastore
+       705: goto          767
+       708: goto          767
+       711: dup
+       712: iconst_2
+       713: ldc           #16                 // String failQueuedBuild
+       715: aastore
+       716: goto          767
+       719: dup
+       720: iconst_2
+       721: ldc           #2                  // String getBuildUrl
+       723: aastore
+       724: goto          767
+       727: dup
+       728: iconst_2
+       729: ldc           #17                 // String submitLoggingTask
+       731: aastore
+       732: goto          767
+       735: dup
+       736: iconst_2
+       737: ldc           #24                 // String logToServerAndBuildLog
+       739: aastore
+       740: goto          767
+       743: dup
+       744: iconst_2
+       745: ldc           #35                 // String getBuildLogMessage
+       747: aastore
+       748: goto          767
+       751: dup
+       752: iconst_2
+       753: ldc           #28                 // String logUntrustedBuild
+       755: aastore
+       756: goto          767
+       759: dup
+       760: iconst_2
+       761: ldc           #20                 // String joinReasons
+       763: aastore
+       764: goto          767
+       767: invokestatic  #428                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       770: iload_0
+       771: tableswitch   { // 0 to 20
+                       0: 868
+                       1: 868
+                       2: 868
+                       3: 868
+                       4: 868
+                       5: 868
+                       6: 868
+                       7: 883
+                       8: 883
+                       9: 868
+                      10: 868
+                      11: 868
+                      12: 868
+                      13: 868
+                      14: 868
+                      15: 868
+                      16: 868
+                      17: 868
+                      18: 868
+                      19: 868
+                      20: 868
+                 default: 868
+            }
+       868: new           #264                // class java/lang/IllegalArgumentException
+       871: dup_x1
+       872: swap
+       873: invokespecial #230                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       876: goto          894
+       879: invokestatic  #133                // Method a:(Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+       882: athrow
+       883: new           #464                // class java/lang/IllegalStateException
+       886: dup_x1
+       887: swap
+       888: invokespecial #313                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       891: goto          894
+       894: athrow
+      Exception table:
+         from    to  target type
+             0   105   105   Class java/util/concurrent/RejectedExecutionException
+           114   216   216   Class java/util/concurrent/RejectedExecutionException
+           224   336   336   Class java/util/concurrent/RejectedExecutionException
+           460   568   568   Class java/util/concurrent/RejectedExecutionException
+           588   696   696   Class java/util/concurrent/RejectedExecutionException
+           767   879   879   Class java/util/concurrent/RejectedExecutionException
+
+  private static java.util.concurrent.RejectedExecutionException a(java.util.concurrent.RejectedExecutionException);
+    descriptor: (Ljava/util/concurrent/RejectedExecutionException;)Ljava/util/concurrent/RejectedExecutionException;
+    Code:
+         0: aload_0
+         1: areturn
+}

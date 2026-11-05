@@ -1,0 +1,2 @@
+# transactions.md
+PostgreSQL `SELECT FOR UPDATE SKIP LOCKED` can reduce queue contention but provides an inconsistent view and no fairness guarantee. Job, slot and quota must be reserved in a single authoritative transaction. Unique constraints and lock ordering are important. Retry complete SERIALIZABLE transactions after SQLSTATE 40001. External dispatch after commit, optionally through durable outbox. Prove with concurrent PostgreSQL connections; Python/SQLite is insufficient.

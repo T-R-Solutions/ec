@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      "."
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      ".",
+      "--require-approved",
+      "--require-fresh"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+    "stderr": ""
+  }
+]

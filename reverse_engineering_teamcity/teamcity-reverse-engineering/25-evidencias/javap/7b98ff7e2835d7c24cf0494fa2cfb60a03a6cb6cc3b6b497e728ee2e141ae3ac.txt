@@ -1,0 +1,751 @@
+Compiled from "QueuedBuildTerminatorImpl.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.QueuedBuildTerminatorImpl implements jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor$QueuedBuildTerminator {
+  private static final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  public static final java.lang.String PREEMPTIVE_CANCELATION_ENABLED_PROPERTY;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String PREEMPTIVE_START_FAILURE_ENABLED_PROPERTY;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String PREEMPTIVE_TERMINATION_IGNORES_QUEUED_DEPENDENCIES_PROPERTY;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String TERMINATION_TASKS_QUEUE_SIZE_PROPERTY;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String TERMINATION_TASKS_QUEUE_MAX_TASKS_TO_HANDLE_PROPERTY;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String DEFAULT_TERMINATION_COMMENT;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.serverSide.BuildQueueEx myBuildQueue;
+    descriptor: Ljetbrains/buildServer/serverSide/BuildQueueEx;
+
+  private final jetbrains.buildServer.serverSide.impl.QueuedTasksProcessor<java.lang.String> myScheduledTerminationsProcessor;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+
+  private final java.util.concurrent.ConcurrentHashMap<java.lang.String, jetbrains.buildServer.serverSide.impl.buildDistribution.QueuedBuildTerminatorImpl$TerminationTaskMetadata> myScheduledTerminationTasks;
+    descriptor: Ljava/util/concurrent/ConcurrentHashMap;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.QueuedBuildTerminatorImpl(java.util.concurrent.ExecutorService, jetbrains.buildServer.serverSide.BuildQueueEx);
+    descriptor: (Ljava/util/concurrent/ExecutorService;Ljetbrains/buildServer/serverSide/BuildQueueEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+        16: aload_0
+        17: invokespecial #275                // Method java/lang/Object."<init>":()V
+        20: aload_0
+        21: new           #130                // class java/util/concurrent/ConcurrentHashMap
+        24: dup
+        25: invokespecial #108                // Method java/util/concurrent/ConcurrentHashMap."<init>":()V
+        28: putfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+        31: ldc           #2                  // String teamcity.queuedBuildsTerminationTasksQueue.queueSize
+        33: sipush        1000
+        36: invokestatic  #149                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getInteger:(Ljava/lang/String;I)I
+        39: istore_3
+        40: ldc           #3                  // String teamcity.queuedBuildsTerminationTasksQueue.maxTasksToHandle
+        42: iload_3
+        43: invokestatic  #149                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getInteger:(Ljava/lang/String;I)I
+        46: istore        4
+        48: aload_0
+        49: new           #358                // class jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor
+        52: dup
+        53: aload_0
+        54: invokedynamic #339,  0            // InvokeDynamic #0:process:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl;)Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor$ManyTasksProcessor;
+        59: aload_1
+        60: iload_3
+        61: iload         4
+        63: ldc           #19                 // String Queued builds termination
+        65: invokespecial #189                // Method jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor."<init>":(Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor$ManyTasksProcessor;Ljava/util/concurrent/ExecutorService;IILjava/lang/String;)V
+        68: putfield      #238                // Field myScheduledTerminationsProcessor:Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+        71: aload_0
+        72: aload_2
+        73: putfield      #250                // Field myBuildQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+        76: return
+      LineNumberTable:
+        line 45: 16
+        line 76: 20
+        line 34: 31
+        line 70: 40
+        line 54: 48
+        line 22: 71
+        line 3: 76
+
+  private void terminateQueuedBuilds(java.util.List<java.lang.String>);
+    descriptor: (Ljava/util/List;)V
+    Code:
+         0: aload_1
+         1: invokeinterface #43,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+         6: astore_2
+         7: aload_2
+         8: invokeinterface #158,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        13: ifeq          197
+        16: aload_2
+        17: invokeinterface #320,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        22: checkcast     #176                // class java/lang/String
+        25: astore_3
+        26: aload_0
+        27: getfield      #250                // Field myBuildQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+        30: aload_3
+        31: invokeinterface #37,  2           // InterfaceMethod jetbrains/buildServer/serverSide/BuildQueueEx.findQueued:(Ljava/lang/String;)Ljetbrains/buildServer/serverSide/QueuedBuildEx;
+        36: astore        4
+        38: aload         4
+        40: ifnonnull     67
+        43: getstatic     #112                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        46: aload_3
+        47: invokedynamic #307,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        52: invokevirtual #206                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        55: aload_0
+        56: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+        59: aload_3
+        60: invokevirtual #85                 // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+        63: pop
+        64: goto          7
+        67: aload_0
+        68: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+        71: aload_3
+        72: invokevirtual #179                // Method java/util/concurrent/ConcurrentHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        75: checkcast     #27                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl$TerminationTaskMetadata
+        78: astore        5
+        80: aload         5
+        82: ifnonnull     118
+        85: getstatic     #112                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        88: aload         4
+        90: invokeinterface #131,  1          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildEx.getBuildPromotion:()Ljetbrains/buildServer/serverSide/BuildPromotionEx;
+        95: invokestatic  #251                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljava/lang/String;
+        98: invokedynamic #52,  0             // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       103: invokevirtual #206                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       106: aload_0
+       107: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+       110: aload_3
+       111: invokevirtual #85                 // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+       114: pop
+       115: goto          7
+       118: aload         4
+       120: aload         5
+       122: getfield      #211                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl$TerminationTaskMetadata.myIsCanceled:Z
+       125: aload         5
+       127: getfield      #223                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl$TerminationTaskMetadata.myComment:Ljava/lang/String;
+       130: aload         5
+       132: getfield      #191                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl$TerminationTaskMetadata.myBuildProblemData:Ljetbrains/buildServer/BuildProblemData;
+       135: invokeinterface #328,  4          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildEx.terminate:(ZLjava/lang/String;Ljetbrains/buildServer/BuildProblemData;)V
+       140: aload_0
+       141: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+       144: aload_3
+       145: invokevirtual #85                 // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+       148: pop
+       149: goto          194
+       152: astore        4
+       154: getstatic     #112                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       157: aload_3
+       158: invokedynamic #128,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       163: aload         4
+       165: invokevirtual #90                 // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       168: aload_0
+       169: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+       172: aload_3
+       173: invokevirtual #85                 // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+       176: pop
+       177: goto          194
+       180: astore        6
+       182: aload_0
+       183: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+       186: aload_3
+       187: invokevirtual #85                 // Method java/util/concurrent/ConcurrentHashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+       190: pop
+       191: aload         6
+       193: athrow
+       194: goto          7
+       197: return
+      Exception table:
+         from    to  target type
+            26    55   152   Class java/lang/Exception
+            67   106   152   Class java/lang/Exception
+           118   140   152   Class java/lang/Exception
+            26    55   180   any
+            67   106   180   any
+           118   140   180   any
+           152   168   180   any
+           180   182   180   any
+      LineNumberTable:
+        line 61: 0
+        line 4: 26
+        line 29: 38
+        line 6: 43
+        line 42: 55
+        line 72: 64
+        line 64: 67
+        line 18: 80
+        line 52: 85
+        line 12: 106
+        line 58: 115
+        line 68: 118
+        line 56: 140
+        line 43: 149
+        line 75: 152
+        line 28: 154
+        line 53: 168
+        line 19: 177
+        line 60: 180
+        line 31: 191
+        line 55: 194
+        line 40: 197
+
+  public boolean scheduledForTermination(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_2
+         5: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getItemId:()Ljava/lang/String;
+        21: astore_2
+        22: aload_0
+        23: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+        26: aload_2
+        27: invokevirtual #287                // Method java/util/concurrent/ConcurrentHashMap.containsKey:(Ljava/lang/Object;)Z
+        30: ifeq          39
+        33: iconst_1
+        34: ireturn
+        35: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        38: athrow
+        39: aload_0
+        40: aload_1
+        41: iconst_1
+        42: invokevirtual #272                // Method scheduleForTerminationIfNeeded:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Z)Z
+        45: ifeq          73
+        48: aload_1
+        49: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        54: checkcast     #258                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        57: invokeinterface #142,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.resetDirectDependenciesCache:()V
+        62: aload_0
+        63: aload_1
+        64: iconst_0
+        65: invokevirtual #272                // Method scheduleForTerminationIfNeeded:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Z)Z
+        68: ireturn
+        69: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        72: athrow
+        73: iconst_0
+        74: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            22    35    35   Class java/lang/IllegalArgumentException
+            39    69    69   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 14: 15
+        line 36: 22
+        line 46: 33
+        line 69: 39
+        line 8: 48
+        line 5: 62
+        line 1: 73
+
+  private boolean scheduleForTerminationIfNeeded(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Z)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_3
+         5: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getItemId:()Ljava/lang/String;
+        21: astore_3
+        22: ldc           #6                  // String teamcity.queueDistribution.preemptiveBuildsCancellation.enabled
+        24: invokestatic  #313                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+        27: istore        4
+        29: ldc           #1                  // String teamcity.queueDistribution.preemptiveBuildsStartFailure.enabled
+        31: invokestatic  #313                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+        34: istore        5
+        36: ldc           #11                 // String teamcity.queueDistribution.preemptiveTerminationIgnoresQueuedDependencies.enabled
+        38: invokestatic  #313                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+        41: istore        6
+        43: iload         4
+        45: ifne          66
+        48: iload         5
+        50: ifne          66
+        53: goto          60
+        56: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        59: athrow
+        60: iconst_0
+        61: ireturn
+        62: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        65: athrow
+        66: aload_1
+        67: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        72: checkcast     #258                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        75: astore        7
+        77: aload         7
+        79: invokeinterface #115,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isCompositeBuild:()Z
+        84: ifeq          93
+        87: iconst_0
+        88: ireturn
+        89: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        92: athrow
+        93: aload         7
+        95: invokeinterface #30,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getAssociatedBuildId:()Ljava/lang/Long;
+       100: ifnull        109
+       103: iconst_0
+       104: ireturn
+       105: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       108: athrow
+       109: aload         7
+       111: invokeinterface #284,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getDependencies:()Ljava/util/Collection;
+       116: invokeinterface #146,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       121: astore        8
+       123: aload         8
+       125: invokeinterface #158,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       130: ifeq          370
+       133: aload         8
+       135: invokeinterface #320,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       140: checkcast     #269                // class jetbrains/buildServer/serverSide/dependency/BuildDependency
+       143: astore        9
+       145: aload         9
+       147: invokeinterface #257,  1          // InterfaceMethod jetbrains/buildServer/serverSide/dependency/BuildDependency.getDependOn:()Ljetbrains/buildServer/serverSide/BuildPromotion;
+       152: checkcast     #258                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+       155: astore        10
+       157: iload         6
+       159: ifeq          186
+       162: aload         10
+       164: invokeinterface #30,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getAssociatedBuildId:()Ljava/lang/Long;
+       169: ifnonnull     186
+       172: goto          179
+       175: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       178: athrow
+       179: goto          123
+       182: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       185: athrow
+       186: aload         9
+       188: invokestatic  #125                // Method jetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate.shouldInterruptExecution:(Ljetbrains/buildServer/serverSide/dependency/BuildDependency;)Ljetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo;
+       191: astore        11
+       193: aload         11
+       195: ifnonnull     205
+       198: goto          123
+       201: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       204: athrow
+       205: iload         4
+       207: ifeq          286
+       210: aload         11
+       212: invokevirtual #45                 // Method jetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo.getBuildContinuationMode:()Ljetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode;
+       215: getstatic     #327                // Field jetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode.CANCEL:Ljetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode;
+       218: if_acmpne     286
+       221: goto          228
+       224: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       227: athrow
+       228: aload_0
+       229: aload         10
+       231: invokevirtual #174                // Method isFinished:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+       234: ifeq          286
+       237: goto          244
+       240: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       243: athrow
+       244: iload_2
+       245: ifne          276
+       248: goto          255
+       251: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       254: athrow
+       255: aload_0
+       256: aload_3
+       257: aload         7
+       259: aload         10
+       261: aload         11
+       263: invokevirtual #144                // Method scheduleTermination:(Ljava/lang/String;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo;)Z
+       266: ifeq          284
+       269: goto          276
+       272: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       275: athrow
+       276: iconst_1
+       277: goto          285
+       280: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       283: athrow
+       284: iconst_0
+       285: ireturn
+       286: iload         5
+       288: ifeq          367
+       291: aload         11
+       293: invokevirtual #45                 // Method jetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo.getBuildContinuationMode:()Ljetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode;
+       296: getstatic     #330                // Field jetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode.MAKE_FAILED_TO_START:Ljetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode;
+       299: if_acmpne     367
+       302: goto          309
+       305: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       308: athrow
+       309: aload_0
+       310: aload         10
+       312: invokevirtual #174                // Method isFinished:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+       315: ifeq          367
+       318: goto          325
+       321: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       324: athrow
+       325: iload_2
+       326: ifne          357
+       329: goto          336
+       332: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       335: athrow
+       336: aload_0
+       337: aload_3
+       338: aload         7
+       340: aload         10
+       342: aload         11
+       344: invokevirtual #144                // Method scheduleTermination:(Ljava/lang/String;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo;)Z
+       347: ifeq          365
+       350: goto          357
+       353: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       356: athrow
+       357: iconst_1
+       358: goto          366
+       361: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       364: athrow
+       365: iconst_0
+       366: ireturn
+       367: goto          123
+       370: iconst_0
+       371: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            43    53    56   Class java/lang/IllegalArgumentException
+            48    62    62   Class java/lang/IllegalArgumentException
+            77    89    89   Class java/lang/IllegalArgumentException
+            93   105   105   Class java/lang/IllegalArgumentException
+           157   172   175   Class java/lang/IllegalArgumentException
+           162   182   182   Class java/lang/IllegalArgumentException
+           193   201   201   Class java/lang/IllegalArgumentException
+           205   221   224   Class java/lang/IllegalArgumentException
+           210   237   240   Class java/lang/IllegalArgumentException
+           228   248   251   Class java/lang/IllegalArgumentException
+           244   269   272   Class java/lang/IllegalArgumentException
+           255   280   280   Class java/lang/IllegalArgumentException
+           286   302   305   Class java/lang/IllegalArgumentException
+           291   318   321   Class java/lang/IllegalArgumentException
+           309   329   332   Class java/lang/IllegalArgumentException
+           325   350   353   Class java/lang/IllegalArgumentException
+           336   361   361   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 33: 15
+        line 25: 22
+        line 71: 29
+        line 20: 36
+        line 26: 43
+        line 15: 60
+        line 59: 66
+        line 21: 77
+        line 49: 87
+        line 77: 93
+        line 48: 103
+        line 38: 109
+        line 9: 145
+        line 35: 157
+        line 67: 179
+        line 30: 186
+        line 11: 193
+        line 50: 205
+        line 2: 212
+        line 17: 231
+        line 47: 244
+        line 16: 286
+        line 23: 293
+        line 73: 312
+        line 74: 325
+        line 62: 367
+        line 13: 370
+
+  private boolean isFinished(jetbrains.buildServer.serverSide.BuildPromotion);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_4
+         5: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #141,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotion.getAssociatedBuild:()Ljetbrains/buildServer/serverSide/SBuild;
+        21: astore_2
+        22: aload_2
+        23: ifnull        50
+        26: aload_2
+        27: invokeinterface #96,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuild.isFinished:()Z
+        32: ifeq          50
+        35: goto          42
+        38: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        41: athrow
+        42: iconst_1
+        43: goto          51
+        46: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        49: athrow
+        50: iconst_0
+        51: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            22    35    38   Class java/lang/IllegalArgumentException
+            26    46    46   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 63: 15
+        line 41: 22
+
+  private boolean scheduleTermination(java.lang.String, jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.impl.DependentBuildStartPredicate$BuildContinuationInterruptedInfo);
+    descriptor: (Ljava/lang/String;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_5
+         5: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     31
+        19: bipush        6
+        21: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+        24: goto          31
+        27: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        30: athrow
+        31: aload_3
+        32: ifnonnull     47
+        35: bipush        7
+        37: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+        40: goto          47
+        43: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        46: athrow
+        47: aload         4
+        49: ifnonnull     64
+        52: bipush        8
+        54: invokestatic  #170                // Method $$$reportNull$$$0:(I)V
+        57: goto          64
+        60: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        63: athrow
+        64: aload_0
+        65: getfield      #238                // Field myScheduledTerminationsProcessor:Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+        68: invokevirtual #29                 // Method jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor.isQueueFull:()Z
+        71: ifeq          95
+        74: getstatic     #112                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        77: aload_2
+        78: invokestatic  #251                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljava/lang/String;
+        81: invokedynamic #283,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        86: invokevirtual #193                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        89: iconst_0
+        90: ireturn
+        91: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        94: athrow
+        95: aload         4
+        97: invokevirtual #45                 // Method jetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo.getBuildContinuationMode:()Ljetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode;
+       100: getstatic     #327                // Field jetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode.CANCEL:Ljetbrains/buildServer/serverSide/dependency/DependencyOptions$BuildContinuationMode;
+       103: if_acmpne     114
+       106: iconst_1
+       107: goto          115
+       110: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       113: athrow
+       114: iconst_0
+       115: istore        5
+       117: aload         4
+       119: invokevirtual #212                // Method jetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo.getDependencyFailureComment:()Ljava/lang/String;
+       122: astore        6
+       124: new           #27                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl$TerminationTaskMetadata
+       127: dup
+       128: iload         5
+       130: aload         6
+       132: ifnull        144
+       135: aload         6
+       137: goto          146
+       140: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       143: athrow
+       144: ldc           #12                 // String Build was terminated because one of the builds it depends on failed or was canceled.
+       146: aload         4
+       148: invokevirtual #68                 // Method jetbrains/buildServer/serverSide/impl/DependentBuildStartPredicate$BuildContinuationInterruptedInfo.getBuildProblem:()Ljetbrains/buildServer/BuildProblemData;
+       151: invokespecial #240                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl$TerminationTaskMetadata."<init>":(ZLjava/lang/String;Ljetbrains/buildServer/BuildProblemData;)V
+       154: astore        7
+       156: getstatic     #112                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       159: aload_2
+       160: invokestatic  #251                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljava/lang/String;
+       163: aload_3
+       164: invokestatic  #251                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljava/lang/String;
+       167: invokedynamic #70,  0             // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       172: invokevirtual #193                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       175: aload_0
+       176: getfield      #345                // Field myScheduledTerminationTasks:Ljava/util/concurrent/ConcurrentHashMap;
+       179: aload_1
+       180: aload         7
+       182: invokevirtual #306                // Method java/util/concurrent/ConcurrentHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       185: pop
+       186: aload_0
+       187: getfield      #238                // Field myScheduledTerminationsProcessor:Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+       190: aload_1
+       191: invokevirtual #316                // Method jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor.addToQueue:(Ljava/lang/Object;)V
+       194: iconst_1
+       195: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    24    27   Class java/lang/IllegalArgumentException
+            31    40    43   Class java/lang/IllegalArgumentException
+            47    57    60   Class java/lang/IllegalArgumentException
+            64    91    91   Class java/lang/IllegalArgumentException
+            95   110   110   Class java/lang/IllegalArgumentException
+           124   140   140   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 65: 64
+        line 37: 74
+        line 51: 89
+        line 66: 95
+        line 39: 117
+        line 44: 124
+        line 7: 156
+        line 10: 175
+        line 57: 186
+        line 24: 194
+
+  private void lambda$new$0(java.util.List);
+    descriptor: (Ljava/util/List;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #242                // Method terminateQueuedBuilds:(Ljava/util/List;)V
+         5: return
+      LineNumberTable:
+        line 27: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #22                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl
+         2: invokestatic  #285                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/Class;)Lcom/intellij/openapi/diagnostic/Logger;
+         5: putstatic     #112                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+         8: return
+      LineNumberTable:
+        line 32: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #4                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #105                // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 8
+                       0: 56
+                       1: 68
+                       2: 76
+                       3: 76
+                       4: 84
+                       5: 92
+                       6: 84
+                       7: 100
+                       8: 108
+                 default: 56
+            }
+        56: dup
+        57: iconst_0
+        58: ldc           #7                  // String executorService
+        60: aastore
+        61: goto          116
+        64: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        67: athrow
+        68: dup
+        69: iconst_0
+        70: ldc           #5                  // String buildQueue
+        72: aastore
+        73: goto          116
+        76: dup
+        77: iconst_0
+        78: ldc           #16                 // String queuedBuildInfo
+        80: aastore
+        81: goto          116
+        84: dup
+        85: iconst_0
+        86: ldc           #21                 // String promotion
+        88: aastore
+        89: goto          116
+        92: dup
+        93: iconst_0
+        94: ldc           #9                  // String queuedBuildItemId
+        96: aastore
+        97: goto          116
+       100: dup
+       101: iconst_0
+       102: ldc           #15                 // String terminationImposingDependency
+       104: aastore
+       105: goto          116
+       108: dup
+       109: iconst_0
+       110: ldc           #13                 // String interruptionInfo
+       112: aastore
+       113: goto          116
+       116: dup
+       117: iconst_1
+       118: ldc           #8                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl
+       120: aastore
+       121: iload_0
+       122: tableswitch   { // 0 to 8
+                       0: 172
+                       1: 172
+                       2: 184
+                       3: 192
+                       4: 200
+                       5: 208
+                       6: 208
+                       7: 208
+                       8: 208
+                 default: 172
+            }
+       172: dup
+       173: iconst_2
+       174: ldc           #10                 // String <init>
+       176: aastore
+       177: goto          216
+       180: invokestatic  #198                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       183: athrow
+       184: dup
+       185: iconst_2
+       186: ldc           #20                 // String scheduledForTermination
+       188: aastore
+       189: goto          216
+       192: dup
+       193: iconst_2
+       194: ldc           #14                 // String scheduleForTerminationIfNeeded
+       196: aastore
+       197: goto          216
+       200: dup
+       201: iconst_2
+       202: ldc           #18                 // String isFinished
+       204: aastore
+       205: goto          216
+       208: dup
+       209: iconst_2
+       210: ldc           #17                 // String scheduleTermination
+       212: aastore
+       213: goto          216
+       216: invokestatic  #126                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       219: new           #227                // class java/lang/IllegalArgumentException
+       222: dup_x1
+       223: swap
+       224: invokespecial #55                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       227: athrow
+      Exception table:
+         from    to  target type
+             0    64    64   Class java/lang/IllegalArgumentException
+           116   180   180   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

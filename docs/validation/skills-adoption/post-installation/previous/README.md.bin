@@ -1,0 +1,20 @@
+# Ec
+
+Plataforma independente de CI/CD em fase de pesquisa e preparação. Arquitetura alvo: Ec Server e Ec Agent em Rust; frontend Vue 3/TypeScript. Ainda não há servidor, agente ou interface de produto executáveis neste checkout.
+
+## Começar pelo repositório
+
+Leia [AGENTS.md](AGENTS.md), [estado do projeto](sdd/project.md), [normas](docs/constitution.md) e [análise das skills](docs/development/skills-analysis.md).
+A pesquisa histórica está em [reverse_engineering_teamcity](reverse_engineering_teamcity/ci-platform-research/README.md); seus comandos antigos `rea/` não correspondem ao layout atual.
+
+Com Python 3.11+ disponível, execute da raiz:
+
+```bash
+python3 tools/governance/validate.py
+python3 sdd/tools/validate.py --root .
+python3 -m unittest discover -s tools/governance/tests -v
+```
+
+São verificações de governança, não testes do Ec. As 67 skills estão preparadas em `.local/skill-installation/skills/`; instalação em `.codex/skills/` depende de escrita no ambiente. Consulte o [procedimento](docs/development/skill-installation.md) e o [relatório de validação](docs/validation/skills-adoption/report.md).
+
+YAML é a configuração declarativa canônica planejada, com Visual/Formulário/YAML equivalentes. HTTP versionado/PostgreSQL permanecem vigentes; gRPC/Protobuf e SQLite por Agent são propostas. Capacidade de 1.000 agentes não foi demonstrada. Não há release, instalador de produto ou licença própria definida por esta integração.

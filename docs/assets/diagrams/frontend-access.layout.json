@@ -1,0 +1,36 @@
+{
+  "title": "access · interface e dependências",
+  "question": "Onde termina o domínio e como ele se integra?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "application/server/frontend/src/domains/access/README.md",
+    "docs/architecture/application-layout.md"
+  ],
+  "columns": 2,
+  "nodes": {
+    "SELF": {
+      "icon": "shield-check",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "PUBLIC": {
+      "icon": "plug",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "SHARED": {
+      "icon": "component",
+      "tone": "blue",
+      "column": 0,
+      "row": 1
+    },
+    "CONFIG": {
+      "icon": "file-code-2",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    }
+  }
+}

@@ -1,0 +1,25 @@
+Compiled from "AgentlessBuildStarter.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.AgentlessBuildStarter {
+  public static final jetbrains.buildServer.serverSide.impl.buildDistribution.AgentlessBuildStarter NO_OP;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;
+
+  public abstract jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision startBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+
+  private static jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision lambda$static$0(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+    Code:
+         0: getstatic     #23                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision.BUILD_STARTED_DECISION:Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+         3: areturn
+      LineNumberTable:
+        line 2: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: invokedynamic #34,  0             // InvokeDynamic #0:startBuild:()Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;
+         5: putstatic     #46                 // Field NO_OP:Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;
+         8: return
+      LineNumberTable:
+        line 1: 0
+}

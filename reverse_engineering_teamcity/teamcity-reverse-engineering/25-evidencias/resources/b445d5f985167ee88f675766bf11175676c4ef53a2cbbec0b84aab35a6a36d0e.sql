@@ -1,0 +1,1 @@
+drop table build_runtime_info;

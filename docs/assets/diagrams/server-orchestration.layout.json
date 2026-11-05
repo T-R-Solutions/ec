@@ -1,0 +1,35 @@
+{
+  "title": "orchestration · fronteira do domínio",
+  "question": "Quais imports Ec são permitidos neste módulo?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/application-layout.md"
+  ],
+  "columns": 2,
+  "nodes": {
+    "SELF": {
+      "icon": "network",
+      "tone": "teal",
+      "column": 0,
+      "row": 0
+    },
+    "ACCESS": {
+      "icon": "shield-check",
+      "tone": "blue",
+      "column": 1,
+      "row": 0
+    },
+    "CONFIGURATION": {
+      "icon": "file-code-2",
+      "tone": "blue",
+      "column": 0,
+      "row": 1
+    },
+    "PROJECTS": {
+      "icon": "folder-git-2",
+      "tone": "blue",
+      "column": 1,
+      "row": 1
+    }
+  }
+}

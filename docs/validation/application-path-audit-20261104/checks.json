@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "name": "catalog",
+      "command": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "structure",
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--structure-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "installation",
+      "command": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "link_errors": [],
+  "module_count": 23,
+  "changed_inputs": [
+    "AGENTS.md",
+    "README.md",
+    "docs/architecture/context.md",
+    "sdd/features/governance-adoption/tasks.md",
+    "sdd/project.md",
+    "application/agents/README.md",
+    "application/server/README.md",
+    "application/server/backend/README.md",
+    "application/server/frontend/README.md",
+    "application/integration/tests/README.md",
+    "docs/architecture/application-layout.md",
+    "docs/development/testing.md",
+    "sdd/features/governance-adoption/converge.md"
+  ]
+}

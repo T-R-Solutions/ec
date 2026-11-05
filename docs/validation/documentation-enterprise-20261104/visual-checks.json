@@ -1,0 +1,6786 @@
+{
+  "versions": {
+    "playwright": "1.56.1",
+    "mermaid": "11.12.2",
+    "markdown-it": "14.1.0"
+  },
+  "browser": "141.0.7390.37",
+  "executablePath": "/tmp/ox-doc-chromium-extracted/chrome-linux/chrome",
+  "subject": "Prévia local Markdown-it; não é a interface do Ec nem o renderizador de um serviço remoto.",
+  "generated": [
+    {
+      "name": "ec-system",
+      "width": 1214.1474609375,
+      "height": 920.7999877929688,
+      "nodes": 6,
+      "edges": 6,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "delivery-journey",
+      "width": 1114,
+      "height": 608,
+      "nodes": 6,
+      "edges": 5,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "publication",
+      "width": 837.74560546875,
+      "height": 1359.60009765625,
+      "nodes": 8,
+      "edges": 7,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "configuration",
+      "width": 988.390625,
+      "height": 960.3999633789062,
+      "nodes": 6,
+      "edges": 5,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "authorities",
+      "width": 800,
+      "height": 980.2000122070312,
+      "nodes": 6,
+      "edges": 5,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "documentation-map",
+      "width": 800,
+      "height": 960.3999633789062,
+      "nodes": 6,
+      "edges": 5,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "application-map",
+      "width": 1010.41796875,
+      "height": 760.7999877929688,
+      "nodes": 6,
+      "edges": 5,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "agent-map",
+      "width": 895.35546875,
+      "height": 920.7999877929688,
+      "nodes": 5,
+      "edges": 7,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-map",
+      "width": 1146,
+      "height": 1056,
+      "nodes": 9,
+      "edges": 8,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-map",
+      "width": 1261.4453125,
+      "height": 980.2000122070312,
+      "nodes": 6,
+      "edges": 7,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "test-boundaries",
+      "width": 1114,
+      "height": 608,
+      "nodes": 6,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "contribution",
+      "width": 1114,
+      "height": 608,
+      "nodes": 6,
+      "edges": 5,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "evidence",
+      "width": 970.328125,
+      "height": 960.3999633789062,
+      "nodes": 6,
+      "edges": 6,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "skills-lifecycle",
+      "width": 800,
+      "height": 1179.7999877929688,
+      "nodes": 6,
+      "edges": 6,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "research-boundary",
+      "width": 800,
+      "height": 760.7999877929688,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "project-status",
+      "width": 1114,
+      "height": 608,
+      "nodes": 6,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-access",
+      "width": 800,
+      "height": 381.3999938964844,
+      "nodes": 2,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-configuration",
+      "width": 800,
+      "height": 541.4000244140625,
+      "nodes": 2,
+      "edges": 1,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-projects",
+      "width": 800,
+      "height": 381.3999938964844,
+      "nodes": 2,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-orchestration",
+      "width": 936.359375,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-results",
+      "width": 800,
+      "height": 541.3999938964844,
+      "nodes": 3,
+      "edges": 2,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-delivery",
+      "width": 1238.453125,
+      "height": 541.3999938964844,
+      "nodes": 5,
+      "edges": 4,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-extensions",
+      "width": 1215.4375,
+      "height": 541.3999938964844,
+      "nodes": 5,
+      "edges": 4,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "server-operations",
+      "width": 800,
+      "height": 381.3999938964844,
+      "nodes": 2,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "agent-control",
+      "width": 800,
+      "height": 521.5999755859375,
+      "nodes": 2,
+      "edges": 1,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "agent-execution",
+      "width": 800,
+      "height": 541.3999938964844,
+      "nodes": 3,
+      "edges": 2,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "agent-workspace",
+      "width": 800,
+      "height": 381.3999938964844,
+      "nodes": 2,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "agent-reporting",
+      "width": 800,
+      "height": 381.3999938964844,
+      "nodes": 2,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-configuration",
+      "width": 800,
+      "height": 541.3999938964844,
+      "nodes": 3,
+      "edges": 2,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-projects",
+      "width": 1001.3154296875,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-pipelines",
+      "width": 1001.3154296875,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-runs",
+      "width": 800,
+      "height": 541.3999938964844,
+      "nodes": 3,
+      "edges": 2,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-delivery",
+      "width": 1001.3154296875,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-infrastructure",
+      "width": 1001.3154296875,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-access",
+      "width": 1001.3154296875,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-extensions",
+      "width": 1001.3154296875,
+      "height": 561.1999816894531,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "frontend-administration",
+      "width": 1001.3154296875,
+      "height": 581,
+      "nodes": 4,
+      "edges": 3,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 18
+    },
+    {
+      "name": "publication-sequence",
+      "width": 951,
+      "height": 773,
+      "nodes": 0,
+      "edges": 0,
+      "text_outside": [],
+      "node_overlaps": [],
+      "label_overflow": [],
+      "minimum_label_font_px": 16
+    }
+  ],
+  "cases": [
+    {
+      "file": "README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 522
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1238,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.011026860625023,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1215,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009770144495295,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 936,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.225307457406512,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 581
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-overview.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 838,
+          "height": 1360
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 3,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/contracts.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 988,
+          "height": 960
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 951,
+          "height": 773
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.004584472864662,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/assets/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/constitution.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/contributing.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/testing.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/validation/documentation-enterprise-20261104/report.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "reverse_engineering_teamcity/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 970,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.005571568895832,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/project.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "tools/governance/README.md",
+      "width": 360,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 522
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1238,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.011026860625023,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1215,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009770144495295,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 936,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.225307457406512,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 581
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-overview.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 838,
+          "height": 1360
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 3,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/contracts.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 988,
+          "height": 960
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 951,
+          "height": 773
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.004584472864662,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/assets/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/constitution.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/contributing.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/testing.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/validation/documentation-enterprise-20261104/report.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "reverse_engineering_teamcity/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 970,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.005571568895832,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/project.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "tools/governance/README.md",
+      "width": 768,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 18.918903455021322,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 21.35017952890568,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 21.35017952890568,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 522
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.680628272251308,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.680628272251308,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1238,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.435384363053709,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1215,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.727670077646938,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 936,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 20.41523854022394,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.154045768432788,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.154045768432788,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 581
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.154045768432788,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 18.918903455021322,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-overview.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 838,
+          "height": 1360
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 3,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/contracts.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 988,
+          "height": 960
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 951,
+          "height": 773
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 17.86750788643533,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/assets/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/constitution.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 18.918903455021322,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/contributing.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/testing.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/validation/documentation-enterprise-20261104/report.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "reverse_engineering_teamcity/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 970,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.7005523260495,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/project.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "tools/governance/README.md",
+      "width": 1280,
+      "colorScheme": "light",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 522
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1238,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.011026860625023,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1215,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009770144495295,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 936,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.225307457406512,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 581
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-overview.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 838,
+          "height": 1360
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 3,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/contracts.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 988,
+          "height": 960
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 951,
+          "height": 773
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.004584472864662,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/assets/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/constitution.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/contributing.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/testing.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/validation/documentation-enterprise-20261104/report.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "reverse_engineering_teamcity/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 970,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.005571568895832,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/project.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "tools/governance/README.md",
+      "width": 360,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.876772929745954,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 522
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.010471204188482,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1238,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.011026860625023,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1215,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009770144495295,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 936,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.225307457406512,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 581
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.003579276088972,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.012498064596043,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-overview.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 838,
+          "height": 1360
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 3,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.009830393143337,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/contracts.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 988,
+          "height": 960
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 951,
+          "height": 773
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 14.004584472864662,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/assets/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/constitution.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.002126285919735,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/contributing.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/testing.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/validation/documentation-enterprise-20261104/report.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "reverse_engineering_teamcity/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 970,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.005571568895832,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/project.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 14.008976660682226,
+      "contrast_failures": []
+    },
+    {
+      "file": "tools/governance/README.md",
+      "width": 768,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.65,
+      "contrast_failures": []
+    },
+    {
+      "file": "README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 18.918903455021322,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 21.35017952890568,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 895,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 21.35017952890568,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 522
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.680628272251308,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1146,
+          "height": 1056
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 16.680628272251308,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1238,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.435384363053709,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1215,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.727670077646938,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 936,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 20.41523854022394,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 381
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.154045768432788,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.154045768432788,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 581
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1001,
+          "height": 561
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.090887280111026,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 541
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1261,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.154045768432788,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 18.918903455021322,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/application-overview.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 838,
+          "height": 1360
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 3,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1214,
+          "height": 921
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 15.744380822770607,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/architecture/contracts.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 988,
+          "height": 960
+        },
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 951,
+          "height": 773
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 2,
+      "minimum_node_label_px": 17.86750788643533,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/assets/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/constitution.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 980
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1010,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 18.918903455021322,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/contributing.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/development/testing.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "docs/validation/documentation-enterprise-20261104/report.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 0,
+      "minimum_node_label_px": null,
+      "contrast_failures": []
+    },
+    {
+      "file": "reverse_engineering_teamcity/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 761
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 970,
+          "height": 960
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 19.7005523260495,
+      "contrast_failures": []
+    },
+    {
+      "file": "sdd/project.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 1114,
+          "height": 608
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 17.159784560143628,
+      "contrast_failures": []
+    },
+    {
+      "file": "tools/governance/README.md",
+      "width": 1280,
+      "colorScheme": "dark",
+      "horizontal_overflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "alt": true,
+          "width": 800,
+          "height": 1180
+        }
+      ],
+      "empty_links": 0,
+      "title": true,
+      "language": "pt-BR",
+      "figures": 1,
+      "minimum_node_label_px": 23.895,
+      "contrast_failures": []
+    }
+  ],
+  "errors": [],
+  "keyboard": "Skip link observado nos seis ambientes de viewport/tema.",
+  "navigation": "README → visão; voltar; README → contribuição, nos seis ambientes.",
+  "iconPackage": {
+    "name": "Lucide",
+    "iconify_package": "@iconify-json/lucide",
+    "version": "1.2.74",
+    "origin": "https://github.com/lucide-icons/lucide",
+    "license": "ISC",
+    "icons": [
+      "activity",
+      "archive",
+      "book-open",
+      "boxes",
+      "circle-alert",
+      "component",
+      "database",
+      "file-code-2",
+      "file-pen-line",
+      "files",
+      "flask-conical",
+      "folder-git-2",
+      "folder-tree",
+      "git-branch",
+      "git-commit-horizontal",
+      "git-compare",
+      "git-pull-request",
+      "list-checks",
+      "list-ordered",
+      "network",
+      "package-check",
+      "panels-top-left",
+      "plug",
+      "radio",
+      "refresh-cw",
+      "route",
+      "scan-search",
+      "send",
+      "server",
+      "shield-check",
+      "shield-x",
+      "terminal",
+      "test-tube-diagonal",
+      "unplug",
+      "user-round-check",
+      "workflow",
+      "wrench"
+    ],
+    "note": "Subset local; LICENSE copiada do pacote Lucide 0.548.0 disponível no ambiente."
+  },
+  "limits": [
+    "Sem estudo com leitores ou tecnologia assistiva.",
+    "Compatibilidade com outros clientes Markdown exige observação própria."
+  ]
+}

@@ -1,0 +1,17 @@
+Compiled from "SQLRunnerEx.java"
+public interface jetbrains.buildServer.serverSide.db.SQLRunnerEx extends jetbrains.buildServer.serverSide.SQLRunner,jetbrains.buildServer.serverSide.db.DBFunctionsProvider {
+  public abstract jetbrains.buildServer.serverSide.db.DatabaseType getDatabaseType();
+    descriptor: ()Ljetbrains/buildServer/serverSide/db/DatabaseType;
+
+  public abstract org.springframework.transaction.support.TransactionTemplate getTransactionTemplate();
+    descriptor: ()Lorg/springframework/transaction/support/TransactionTemplate;
+
+  public abstract void runDdl(java.lang.String, java.lang.String) throws org.springframework.jdbc.UncategorizedSQLException;
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+
+  public abstract void runDdls(java.lang.String[]) throws org.springframework.jdbc.UncategorizedSQLException;
+    descriptor: ([Ljava/lang/String;)V
+
+  public abstract void runDmls(java.lang.String[]) throws org.springframework.jdbc.UncategorizedSQLException;
+    descriptor: ([Ljava/lang/String;)V
+}

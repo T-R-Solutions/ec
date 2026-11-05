@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+        default-autowire="constructor"
+        >
+
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.BuildMetadataSettingsImpl">
+    <constructor-arg index="0" ref="serverPaths"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.metadata.MetadataStorageFactory"/>
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.metadata.MetadataStorageBean"/>
+
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.indexer.MetadataIndexerService"/>
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.indexer.MetadataIndexerServiceLifecycleManager"/>
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.indexer.BuildMetadataCacheResetHandler"/>
+
+  <bean class="jetbrains.buildServer.serverSide.metadata.impl.indexer.EventBasedBuildsIndexer"/>
+
+</beans>

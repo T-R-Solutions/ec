@@ -1,0 +1,24 @@
+Compiled from "SetWaitReasonCallback.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.SetWaitReasonCallback {
+  public static final jetbrains.buildServer.serverSide.impl.buildDistribution.SetWaitReasonCallback NO_OP;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/SetWaitReasonCallback;
+
+  public abstract void waitReasonSet(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+
+  private static void lambda$static$0(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: return
+      LineNumberTable:
+        line 1: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: invokedynamic #7,  0              // InvokeDynamic #0:waitReasonSet:()Ljetbrains/buildServer/serverSide/impl/buildDistribution/SetWaitReasonCallback;
+         5: putstatic     #40                 // Field NO_OP:Ljetbrains/buildServer/serverSide/impl/buildDistribution/SetWaitReasonCallback;
+         8: return
+      LineNumberTable:
+        line 2: 0
+}

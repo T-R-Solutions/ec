@@ -1,0 +1,48 @@
+{
+  "title": "Aplicação · responsabilidade e localização",
+  "question": "Onde encontrar cada componente?",
+  "status": "Estrutura existente · sem código de produto",
+  "sources": [
+    "docs/architecture/application-layout.md",
+    "docs/decisions/ADR-002-application-layout.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "ROOT": {
+      "icon": "folder-tree",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "AGENTS": {
+      "icon": "terminal",
+      "tone": "purple",
+      "column": 1,
+      "row": 0
+    },
+    "SERVER": {
+      "icon": "server",
+      "tone": "teal",
+      "column": 2,
+      "row": 0
+    },
+    "BACK": {
+      "icon": "boxes",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "FRONT": {
+      "icon": "panels-top-left",
+      "tone": "blue",
+      "column": 1,
+      "row": 1
+    },
+    "TEST": {
+      "icon": "flask-conical",
+      "tone": "amber",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

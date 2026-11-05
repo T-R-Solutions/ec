@@ -1,0 +1,2 @@
+# Test report ingestion
+JUnit-style XML varies across producers; negotiate dialect and normalize explicitly. Reject DTD, external entities, excessive nesting, oversize reports and unbounded counts. Parse `testsuite`, nested suites, `testcase`, `failure`, `error`, `skipped`, time and identifiers. Missing reports are not zero tests by default. Distinguish actual testcase nodes from reported counts; mismatch is diagnostic. Retry results must retain attempt provenance. Test logs and attachments require independent authorization.

@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "catalog",
+      "command": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/application-layout-20261103/catalog.log",
+      "sha256": "41779f857809cebb05e64746c8824776b241d0bd36a4b09140dd328a8d25b2ad"
+    },
+    {
+      "name": "installation",
+      "command": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/application-layout-20261103/installation.log",
+      "sha256": "7d6a8869495a3d48058784078ac863f9c398ab7ec479e586031ceae5c34c4fde"
+    },
+    {
+      "name": "structure",
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--structure-only"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/application-layout-20261103/structure.log",
+      "sha256": "42401ba580838b401837b5145914eed5dcb17bf8d6291c25cad980e7a131fe16"
+    },
+    {
+      "name": "governance-tests",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/application-layout-20261103/governance-tests.log",
+      "sha256": "7abb4ca9385f9f58cefdd447d35e8d6438a153f30f611a3d2d2818a98811a294"
+    },
+    {
+      "name": "installation-check",
+      "command": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/application-layout-20261103/installation-check.log",
+      "sha256": "4f523ee47a4cc65a08dfa72d9c5cfa149d24dddffbe10d4c0d9ca007ad902bc1"
+    },
+    {
+      "name": "tree-links-content",
+      "errors": [],
+      "rust_crates": 14,
+      "frontend_domains": 9,
+      "actual_module_count": 23
+    }
+  ],
+  "observed_changed_inputs": [
+    "README.md",
+    "docs/architecture/context.md",
+    "sdd/README.md",
+    "sdd/features/governance-adoption/tasks.md",
+    "sdd/project.md",
+    "tools/governance/tests/test_governance.py"
+  ],
+  "unexpected_changed_inputs": [],
+  "skills": [
+    {
+      "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
+      "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+      "contribution": "Entradas, navegação e distinção de estado"
+    },
+    {
+      "path": ".codex/skills/software-architecture/SKILL.md",
+      "sha256": "739571c2d2d28a4bd8ad389cc30ed59e599f4c8d65068f6d7e86ee0094dcefba",
+      "contribution": "Domínios, alternativas e dependências"
+    }
+  ],
+  "python": "3.13.16 (main, Oct 16 2026, 19:23:15) [GCC]",
+  "limits": [
+    "Sem runtime de produto, testes de produto ou renderização visual.",
+    "Revisão semântica manual; verificação de caminhos não prova domínio correto.",
+    "AC-06 preserva a observação histórica da limpeza; nenhuma remoção foi reexecutada."
+  ]
+}

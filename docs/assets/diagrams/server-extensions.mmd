@@ -1,0 +1,12 @@
+flowchart TB
+    accTitle: extensions · fronteira do domínio
+    accDescr: Quais imports Ec são permitidos neste módulo? SELF → ACCESS: pode consumir. SELF → CONFIGURATION: pode consumir. SELF → PROJECTS: pode consumir. SELF → ORCHESTRATION: pode consumir
+    SELF["extensions<br/>Integrações e plugins"]
+    ACCESS["access<br/>Identidade e acesso"]
+    CONFIGURATION["configuration<br/>Configuração e publicação"]
+    PROJECTS["projects<br/>Projetos e pipelines"]
+    ORCHESTRATION["orchestration<br/>Fila, tentativas e agentes"]
+    SELF -->|"pode consumir"| ACCESS
+    SELF -->|"pode consumir"| CONFIGURATION
+    SELF -->|"pode consumir"| PROJECTS
+    SELF -->|"pode consumir"| ORCHESTRATION

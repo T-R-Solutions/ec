@@ -1,0 +1,215 @@
+Compiled from "FinishBuildOnAgentFStage.java"
+public class jetbrains.buildServer.agent.impl.buildStages.finishStages.FinishBuildOnAgentFStage implements jetbrains.buildServer.agent.impl.buildStages.BuildFinishStage,jetbrains.buildServer.util.Interruptable {
+  private final jetbrains.buildServer.agent.BuildAgent myAgent;
+    descriptor: Ljetbrains/buildServer/agent/BuildAgent;
+
+  private final jetbrains.buildServer.agent.AgentRunningBuild myBuild;
+    descriptor: Ljetbrains/buildServer/agent/AgentRunningBuild;
+
+  private final jetbrains.buildServer.agent.impl.artifacts.ArtifactsWatcherEx myArtifactsWatcher;
+    descriptor: Ljetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx;
+
+  public jetbrains.buildServer.agent.impl.buildStages.finishStages.FinishBuildOnAgentFStage(jetbrains.buildServer.agent.BuildAgent, jetbrains.buildServer.agent.AgentRunningBuild, jetbrains.buildServer.agent.impl.artifacts.ArtifactsWatcherEx);
+    descriptor: (Ljetbrains/buildServer/agent/BuildAgent;Ljetbrains/buildServer/agent/AgentRunningBuild;Ljetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #118                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #118                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #118                // Method $$$reportNull$$$0:(I)V
+        24: aload_0
+        25: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        28: aload_0
+        29: aload_1
+        30: putfield      #7                  // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+        33: aload_0
+        34: aload_2
+        35: putfield      #13                 // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuild;
+        38: aload_0
+        39: aload_3
+        40: putfield      #17                 // Field myArtifactsWatcher:Ljetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx;
+        43: return
+      LineNumberTable:
+        line 27: 24
+        line 28: 28
+        line 29: 33
+        line 30: 38
+        line 31: 43
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      44     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage;
+            0      44     1 agent   Ljetbrains/buildServer/agent/BuildAgent;
+            0      44     2 build   Ljetbrains/buildServer/agent/AgentRunningBuild;
+            0      44     3 artifactsWatcher   Ljetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx;
+
+  public boolean isAvailable(jetbrains.buildServer.agent.impl.BuildFinishContext);
+    descriptor: (Ljetbrains/buildServer/agent/impl/BuildFinishContext;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_3
+         5: invokestatic  #118                // Method $$$reportNull$$$0:(I)V
+         8: iconst_1
+         9: ireturn
+      LineNumberTable:
+        line 35: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage;
+            0      10     1 status   Ljetbrains/buildServer/agent/impl/BuildFinishContext;
+
+  public void doFinishStage(jetbrains.buildServer.agent.impl.BuildFinishContext);
+    descriptor: (Ljetbrains/buildServer/agent/impl/BuildFinishContext;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_4
+         5: invokestatic  #118                // Method $$$reportNull$$$0:(I)V
+         8: aload_1
+         9: invokevirtual #21                 // Method jetbrains/buildServer/agent/impl/BuildFinishContext.getFinishedStatus:()Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        12: invokevirtual #27                 // Method jetbrains/buildServer/agent/BuildFinishedStatus.isFinished:()Z
+        15: ifeq          27
+        18: aload_0
+        19: getfield      #17                 // Field myArtifactsWatcher:Ljetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx;
+        22: invokeinterface #33,  1           // InterfaceMethod jetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx.waitForPublishingFinish:()V
+        27: aload_0
+        28: getfield      #13                 // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuild;
+        31: invokeinterface #38,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuild.getBuildId:()J
+        36: invokestatic  #44                 // Method java/lang/String.valueOf:(J)Ljava/lang/String;
+        39: astore_2
+        40: aload_0
+        41: getfield      #13                 // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuild;
+        44: invokeinterface #50,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuild.getInterruptReason:()Ljetbrains/buildServer/agent/BuildInterruptReason;
+        49: ifnonnull     98
+        52: aload_0
+        53: getfield      #13                 // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuild;
+        56: checkcast     #54                 // class jetbrains/buildServer/agent/AgentRunningBuildEx
+        59: invokeinterface #56,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.isDetachedFromAgent:()Z
+        64: ifeq          98
+        67: aload_0
+        68: getfield      #7                  // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+        71: aload_2
+        72: aload_0
+        73: getfield      #13                 // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuild;
+        76: checkcast     #54                 // class jetbrains/buildServer/agent/AgentRunningBuildEx
+        79: invokeinterface #59,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.getCurrentRunnerContext:()Ljetbrains/buildServer/agent/BuildRunnerContextEx;
+        84: invokeinterface #63,  1           // InterfaceMethod jetbrains/buildServer/agent/BuildRunnerContextEx.getId:()Ljava/lang/String;
+        89: invokeinterface #69,  3           // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.buildDetachedFromAgent:(Ljava/lang/String;Ljava/lang/String;)Z
+        94: pop
+        95: goto          120
+        98: aload_0
+        99: getfield      #7                  // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+       102: aload_2
+       103: new           #75                 // class java/util/Date
+       106: dup
+       107: invokespecial #77                 // Method java/util/Date."<init>":()V
+       110: aload_1
+       111: invokevirtual #78                 // Method jetbrains/buildServer/agent/impl/BuildFinishContext.isCanceledOrFailedForServer:()Z
+       114: invokeinterface #81,  4           // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.buildFinished:(Ljava/lang/String;Ljava/util/Date;Z)Z
+       119: pop
+       120: return
+      LineNumberTable:
+        line 40: 8
+        line 41: 18
+        line 44: 27
+        line 45: 40
+        line 46: 67
+        line 48: 98
+        line 50: 120
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     121     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage;
+            0     121     1 status   Ljetbrains/buildServer/agent/impl/BuildFinishContext;
+           40      81     2 buildId   Ljava/lang/String;
+
+  public void interrupt();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #17                 // Field myArtifactsWatcher:Ljetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx;
+         4: invokeinterface #85,  1           // InterfaceMethod jetbrains/buildServer/agent/impl/artifacts/ArtifactsWatcherEx.interruptPublishing:()V
+         9: return
+      LineNumberTable:
+        line 54: 0
+        line 55: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #120                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #2                  // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 4
+                       0: 40
+                       1: 48
+                       2: 56
+                       3: 64
+                       4: 64
+                 default: 40
+            }
+        40: dup
+        41: iconst_0
+        42: ldc           #121                // String agent
+        44: aastore
+        45: goto          72
+        48: dup
+        49: iconst_0
+        50: ldc           #122                // String build
+        52: aastore
+        53: goto          72
+        56: dup
+        57: iconst_0
+        58: ldc           #123                // String artifactsWatcher
+        60: aastore
+        61: goto          72
+        64: dup
+        65: iconst_0
+        66: ldc           #124                // String status
+        68: aastore
+        69: goto          72
+        72: dup
+        73: iconst_1
+        74: ldc           #125                // String jetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage
+        76: aastore
+        77: iload_0
+        78: tableswitch   { // 0 to 4
+                       0: 112
+                       1: 112
+                       2: 112
+                       3: 120
+                       4: 128
+                 default: 112
+            }
+       112: dup
+       113: iconst_2
+       114: ldc           #126                // String <init>
+       116: aastore
+       117: goto          136
+       120: dup
+       121: iconst_2
+       122: ldc           #127                // String isAvailable
+       124: aastore
+       125: goto          136
+       128: dup
+       129: iconst_2
+       130: ldc           #128                // String doFinishStage
+       132: aastore
+       133: goto          136
+       136: invokestatic  #132                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       139: new           #134                // class java/lang/IllegalArgumentException
+       142: dup_x1
+       143: swap
+       144: invokespecial #137                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       147: athrow
+}

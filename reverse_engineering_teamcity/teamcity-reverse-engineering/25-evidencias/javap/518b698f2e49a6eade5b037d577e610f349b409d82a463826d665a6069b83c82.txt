@@ -1,0 +1,706 @@
+Compiled from "CheckingForChangesPrecondition.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.CheckingForChangesPrecondition extends jetbrains.buildServer.serverSide.impl.buildDistribution.BuildQueueOptimizerAwarePrecondition implements jetbrains.buildServer.util.positioning.PositionAware {
+  private static final jetbrains.buildServer.log.ThrottleLogger LOG;
+    descriptor: Ljetbrains/buildServer/log/ThrottleLogger;
+
+  public static final java.lang.String ORDER_ID;
+    descriptor: Ljava/lang/String;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.SimpleWaitReason CHANGES_NOT_COLLECTED_IN_OPTIMIZATION_CANDIDATE_BUILDS;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+
+  public static final java.util.Set<jetbrains.buildServer.serverSide.buildDistribution.WaitReason> ALL_WAIT_REASONS;
+    descriptor: Ljava/util/Set;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.CheckingForChangesPrecondition(jetbrains.buildServer.serverSide.BuildQueueEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildQueueEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: aload_1
+        10: invokespecial #236                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueOptimizerAwarePrecondition."<init>":(Ljetbrains/buildServer/serverSide/BuildQueueEx;)V
+        13: return
+      LineNumberTable:
+        line 51: 8
+        line 46: 13
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason canStart(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.BuildAgent>, jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Map;Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;Z)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_1
+         5: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_2
+        20: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        29: athrow
+        30: aload_3
+        31: ifnonnull     45
+        34: iconst_3
+        35: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+        38: goto          45
+        41: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        44: athrow
+        45: aload_1
+        46: invokeinterface #313,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        51: checkcast     #99                 // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        54: astore        5
+        56: aload         5
+        58: invokeinterface #265,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isChangeCollectingNeeded:()Z
+        63: ifne          124
+        66: aload_0
+        67: aload         5
+        69: invokevirtual #27                 // Method checkChangesCollectionStatusInDependentBuilds:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        72: astore        6
+        74: aload         6
+        76: ifnull        86
+        79: aload         6
+        81: areturn
+        82: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        85: athrow
+        86: ldc           #3                  // String teamcity.checkingForChangesPrecondition.waitForQueuedBuildsBefore
+        88: invokestatic  #150                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBoolean:(Ljava/lang/String;)Z
+        91: ifne          100
+        94: aconst_null
+        95: areturn
+        96: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        99: athrow
+       100: aload_0
+       101: aload         5
+       103: invokedynamic #116,  0            // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+       108: invokevirtual #248                // Method processPotentialOptimizationCandidates:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/util/function/Predicate;)Z
+       111: ifeq          122
+       114: getstatic     #35                 // Field CHANGES_NOT_COLLECTED_IN_OPTIMIZATION_CANDIDATE_BUILDS:Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+       117: areturn
+       118: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       121: athrow
+       122: aconst_null
+       123: areturn
+       124: aload         5
+       126: invokeinterface #132,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isChangesCollectingInProgress:()Z
+       131: ifeq          142
+       134: getstatic     #124                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.CHECKING_FOR_CHANGES_IN_PROGRESS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       137: areturn
+       138: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       141: athrow
+       142: aload_0
+       143: getfield      #284                // Field myBuildQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+       146: aload         5
+       148: invokeinterface #164,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildQueueEx.shouldCollectChangesInQueue:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+       153: ifeq          180
+       156: aload_0
+       157: aload         5
+       159: invokevirtual #27                 // Method checkChangesCollectionStatusInDependentBuilds:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       162: astore        6
+       164: aload         6
+       166: ifnull        176
+       169: aload         6
+       171: areturn
+       172: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       175: athrow
+       176: getstatic     #275                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.WAITING_CHECKING_FOR_CHANGES:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       179: areturn
+       180: aconst_null
+       181: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    23    26   Class java/lang/IllegalArgumentException
+            30    38    41   Class java/lang/IllegalArgumentException
+            74    82    82   Class java/lang/IllegalArgumentException
+            86    96    96   Class java/lang/IllegalArgumentException
+           100   118   118   Class java/lang/IllegalArgumentException
+           124   138   138   Class java/lang/IllegalArgumentException
+           164   172   172   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 12: 45
+        line 57: 56
+        line 7: 66
+        line 31: 74
+        line 36: 86
+        line 50: 100
+        line 47: 114
+        line 41: 122
+        line 8: 124
+        line 55: 134
+        line 17: 142
+        line 29: 156
+        line 3: 164
+        line 1: 176
+        line 39: 180
+
+  private jetbrains.buildServer.serverSide.buildDistribution.WaitReason checkChangesCollectionStatusInDependentBuilds(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_4
+         5: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: iconst_1
+        16: anewarray     #99                 // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        19: dup
+        20: iconst_0
+        21: aconst_null
+        22: aastore
+        23: astore_2
+        24: iconst_1
+        25: anewarray     #99                 // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        28: dup
+        29: iconst_0
+        30: aconst_null
+        31: aastore
+        32: astore_3
+        33: aload_1
+        34: aload_3
+        35: aload_2
+        36: invokedynamic #48,  0             // InvokeDynamic #1:consume:([Ljetbrains/buildServer/serverSide/BuildPromotionEx;[Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/DependencyConsumer;
+        41: invokeinterface #280,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.traverseDependedOnMe:(Ljetbrains/buildServer/serverSide/DependencyConsumer;)V
+        46: aload_2
+        47: iconst_0
+        48: aaload
+        49: ifnull        67
+        52: aload_1
+        53: ldc           #22                 // String  awaits checking for changes in
+        55: aload_2
+        56: invokestatic  #76                 // Method logDelay:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/lang/String;[Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+        59: getstatic     #185                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.CHECKING_FOR_CHANGES_IN_PROGRESS_IN_DEPS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        62: areturn
+        63: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        66: athrow
+        67: aload_3
+        68: iconst_0
+        69: aaload
+        70: ifnull        88
+        73: aload_1
+        74: ldc           #18                 // String  awaits starting checking for changes in
+        76: aload_3
+        77: invokestatic  #76                 // Method logDelay:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/lang/String;[Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+        80: getstatic     #65                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.WAITING_CHECKING_FOR_CHANGES_IN_DEPS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        83: areturn
+        84: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        87: athrow
+        88: aconst_null
+        89: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            33    63    63   Class java/lang/IllegalArgumentException
+            67    84    84   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 43: 15
+        line 25: 24
+        line 35: 33
+        line 19: 46
+        line 20: 52
+        line 48: 59
+        line 56: 67
+        line 4: 73
+        line 30: 80
+        line 27: 88
+
+  public static boolean isBrokenBuild(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+    Code:
+         0: aload_0
+         1: ifnonnull     15
+         4: iconst_5
+         5: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_0
+        16: invokeinterface #66,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedDate:()Ljava/util/Date;
+        21: astore_1
+        22: aload_1
+        23: ifnull        76
+        26: aload_0
+        27: invokeinterface #129,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedBuild:()Ljetbrains/buildServer/serverSide/QueuedBuildEx;
+        32: ifnonnull     76
+        35: goto          42
+        38: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        41: athrow
+        42: invokestatic  #285                // Method jetbrains/buildServer/util/Dates.now:()Ljava/util/Date;
+        45: invokevirtual #206                // Method java/util/Date.getTime:()J
+        48: aload_1
+        49: invokevirtual #206                // Method java/util/Date.getTime:()J
+        52: lsub
+        53: invokestatic  #243                // Method java/lang/Math.abs:(J)J
+        56: invokestatic  #208                // Method getQueuedTimeDelay:()J
+        59: lcmp
+        60: ifle          76
+        63: goto          70
+        66: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        69: athrow
+        70: iconst_1
+        71: ireturn
+        72: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        75: athrow
+        76: aload_1
+        77: ifnonnull     86
+        80: iconst_1
+        81: ireturn
+        82: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        85: athrow
+        86: iconst_0
+        87: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            22    35    38   Class java/lang/IllegalArgumentException
+            26    63    66   Class java/lang/IllegalArgumentException
+            42    72    72   Class java/lang/IllegalArgumentException
+            76    82    82   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 45: 15
+        line 14: 22
+        line 9: 70
+        line 23: 76
+        line 60: 80
+        line 33: 86
+
+  private static void logDelay(jetbrains.buildServer.serverSide.BuildPromotionEx, java.lang.String, jetbrains.buildServer.serverSide.BuildPromotionEx[]);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/lang/String;[Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     16
+         4: bipush        6
+         6: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        15: athrow
+        16: aload_0
+        17: invokeinterface #66,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedDate:()Ljava/util/Date;
+        22: ifnull        48
+        25: invokestatic  #285                // Method jetbrains/buildServer/util/Dates.now:()Ljava/util/Date;
+        28: invokevirtual #206                // Method java/util/Date.getTime:()J
+        31: aload_0
+        32: invokeinterface #66,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedDate:()Ljava/util/Date;
+        37: invokevirtual #206                // Method java/util/Date.getTime:()J
+        40: lsub
+        41: goto          49
+        44: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        47: athrow
+        48: lconst_0
+        49: lstore_3
+        50: ldc           #21                 // String teamcity.checkingForChangesPrecondition.queuedTime.warn.millis
+        52: ldc2_w        #325                // long 600000l
+        55: invokestatic  #159                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getLong:(Ljava/lang/String;J)J
+        58: lstore        5
+        60: lload_3
+        61: lload         5
+        63: lcmp
+        64: ifle          107
+        67: aload_1
+        68: invokedynamic #260,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        73: astore        7
+        75: getstatic     #316                // Field LOG:Ljetbrains/buildServer/log/ThrottleLogger;
+        78: aload         7
+        80: invokevirtual #108                // Method java/lang/String.intern:()Ljava/lang/String;
+        83: iconst_3
+        84: anewarray     #213                // class java/lang/Object
+        87: dup
+        88: iconst_0
+        89: aload_0
+        90: aastore
+        91: dup
+        92: iconst_1
+        93: aload_2
+        94: iconst_0
+        95: aaload
+        96: aastore
+        97: dup
+        98: iconst_2
+        99: lload_3
+       100: invokestatic  #109                // Method jetbrains/buildServer/util/TimePrinter.formatMillis:(J)Ljava/lang/String;
+       103: aastore
+       104: invokevirtual #239                // Method jetbrains/buildServer/log/ThrottleLogger.info:(Ljava/lang/String;[Ljava/lang/Object;)V
+       107: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/IllegalArgumentException
+            16    44    44   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 42: 16
+        line 37: 50
+        line 38: 60
+        line 54: 67
+        line 11: 75
+        line 6: 107
+
+  private static long getQueuedTimeDelay();
+    descriptor: ()J
+    Code:
+         0: ldc           #8                  // String teamcity.checkingForChangesPrecondition.queuedTime.maxDelay.millis
+         2: ldc2_w        #323                // long 30000l
+         5: invokestatic  #159                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getLong:(Ljava/lang/String;J)J
+         8: lreturn
+      LineNumberTable:
+        line 15: 0
+
+  public java.lang.String getOrderId();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: getstatic     #277                // Field ORDER_ID:Ljava/lang/String;
+         3: dup
+         4: ifnonnull     19
+         7: bipush        7
+         9: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 58: 0
+
+  public jetbrains.buildServer.util.positioning.PositionConstraint getConstraint();
+    descriptor: ()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+    Code:
+         0: iconst_1
+         1: anewarray     #61                 // class java/lang/String
+         4: dup
+         5: iconst_0
+         6: getstatic     #153                // Field jetbrains/buildServer/serverSide/impl/QueuedBuildsChangesCollector.ORDER_ID:Ljava/lang/String;
+         9: aastore
+        10: invokestatic  #37                 // Method jetbrains/buildServer/util/positioning/PositionConstraint.after:([Ljava/lang/String;)Ljetbrains/buildServer/util/positioning/PositionConstraint;
+        13: dup
+        14: ifnonnull     29
+        17: bipush        8
+        19: invokestatic  #30                 // Method $$$reportNull$$$0:(I)V
+        22: goto          29
+        25: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        28: athrow
+        29: areturn
+      Exception table:
+         from    to  target type
+             0    22    25   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 59: 0
+
+  private static jetbrains.buildServer.serverSide.DependencyConsumer$Result lambda$checkChangesCollectionStatusInDependentBuilds$1(jetbrains.buildServer.serverSide.BuildPromotionEx[], jetbrains.buildServer.serverSide.BuildPromotionEx[], jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: ([Ljetbrains/buildServer/serverSide/BuildPromotionEx;[Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+    Code:
+         0: aload_2
+         1: invokestatic  #204                // Method isBrokenBuild:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+         4: ifeq          15
+         7: getstatic     #89                 // Field jetbrains/buildServer/serverSide/DependencyConsumer$Result.CONTINUE:Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+        10: areturn
+        11: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_2
+        16: invokeinterface #265,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isChangeCollectingNeeded:()Z
+        21: ifeq          35
+        24: aload_0
+        25: iconst_0
+        26: aload_2
+        27: aastore
+        28: goto          35
+        31: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        34: athrow
+        35: aload_2
+        36: invokeinterface #132,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isChangesCollectingInProgress:()Z
+        41: ifeq          56
+        44: aload_1
+        45: iconst_0
+        46: aload_2
+        47: aastore
+        48: getstatic     #156                // Field jetbrains/buildServer/serverSide/DependencyConsumer$Result.STOP:Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+        51: areturn
+        52: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        55: athrow
+        56: getstatic     #89                 // Field jetbrains/buildServer/serverSide/DependencyConsumer$Result.CONTINUE:Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+        59: areturn
+      Exception table:
+         from    to  target type
+             0    11    11   Class java/lang/IllegalArgumentException
+            15    28    31   Class java/lang/IllegalArgumentException
+            35    52    52   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 18: 0
+        line 22: 15
+        line 13: 24
+        line 28: 35
+        line 26: 44
+        line 40: 48
+        line 5: 56
+
+  private static boolean lambda$canStart$0(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+    Code:
+         0: aload_0
+         1: invokeinterface #265,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isChangeCollectingNeeded:()Z
+         6: ireturn
+      LineNumberTable:
+        line 49: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #6                  // class jetbrains/buildServer/serverSide/impl/buildDistribution/CheckingForChangesPrecondition
+         2: invokestatic  #242                // Method jetbrains/buildServer/log/ThrottleLogger.getLogger:(Ljava/lang/Class;)Ljetbrains/buildServer/log/ThrottleLogger;
+         5: putstatic     #316                // Field LOG:Ljetbrains/buildServer/log/ThrottleLogger;
+         8: ldc           #6                  // class jetbrains/buildServer/serverSide/impl/buildDistribution/CheckingForChangesPrecondition
+        10: invokevirtual #170                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+        13: putstatic     #277                // Field ORDER_ID:Ljava/lang/String;
+        16: new           #169                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        19: dup
+        20: ldc           #1                  // String Waiting for the changes collection in other queued builds
+        22: invokespecial #320                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        25: putstatic     #35                 // Field CHANGES_NOT_COLLECTED_IN_OPTIMIZATION_CANDIDATE_BUILDS:Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+        28: new           #209                // class java/util/HashSet
+        31: dup
+        32: invokespecial #314                // Method java/util/HashSet."<init>":()V
+        35: putstatic     #139                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        38: getstatic     #139                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        41: getstatic     #124                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.CHECKING_FOR_CHANGES_IN_PROGRESS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        44: invokeinterface #51,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        49: pop
+        50: getstatic     #139                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        53: getstatic     #275                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.WAITING_CHECKING_FOR_CHANGES:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        56: invokeinterface #51,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        61: pop
+        62: getstatic     #139                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        65: getstatic     #185                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.CHECKING_FOR_CHANGES_IN_PROGRESS_IN_DEPS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        68: invokeinterface #51,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        73: pop
+        74: getstatic     #139                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        77: getstatic     #65                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.WAITING_CHECKING_FOR_CHANGES_IN_DEPS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        80: invokeinterface #51,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        85: pop
+        86: getstatic     #139                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        89: getstatic     #35                 // Field CHANGES_NOT_COLLECTED_IN_OPTIMIZATION_CANDIDATE_BUILDS:Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+        92: invokeinterface #51,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        97: pop
+        98: return
+      LineNumberTable:
+        line 10: 0
+        line 44: 8
+        line 34: 16
+        line 32: 28
+        line 53: 38
+        line 52: 50
+        line 21: 62
+        line 16: 74
+        line 24: 86
+        line 2: 98
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 8
+                       0: 52
+                       1: 52
+                       2: 52
+                       3: 52
+                       4: 52
+                       5: 52
+                       6: 52
+                       7: 61
+                       8: 61
+                 default: 52
+            }
+        52: ldc           #10                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        54: goto          66
+        57: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        60: athrow
+        61: ldc           #4                  // String @NotNull method %s.%s must not return null
+        63: goto          66
+        66: iload_0
+        67: tableswitch   { // 0 to 8
+                       0: 116
+                       1: 116
+                       2: 116
+                       3: 116
+                       4: 116
+                       5: 116
+                       6: 116
+                       7: 124
+                       8: 124
+                 default: 116
+            }
+       116: iconst_3
+       117: goto          128
+       120: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       123: athrow
+       124: iconst_2
+       125: goto          128
+       128: anewarray     #213                // class java/lang/Object
+       131: iload_0
+       132: tableswitch   { // 0 to 8
+                       0: 184
+                       1: 196
+                       2: 204
+                       3: 212
+                       4: 220
+                       5: 228
+                       6: 220
+                       7: 236
+                       8: 236
+                 default: 184
+            }
+       184: dup
+       185: iconst_0
+       186: ldc           #9                  // String buildQueue
+       188: aastore
+       189: goto          244
+       192: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       195: athrow
+       196: dup
+       197: iconst_0
+       198: ldc           #12                 // String queuedBuild
+       200: aastore
+       201: goto          244
+       204: dup
+       205: iconst_0
+       206: ldc           #13                 // String canBeStarted
+       208: aastore
+       209: goto          244
+       212: dup
+       213: iconst_0
+       214: ldc           #11                 // String buildDistributorInput
+       216: aastore
+       217: goto          244
+       220: dup
+       221: iconst_0
+       222: ldc           #19                 // String promo
+       224: aastore
+       225: goto          244
+       228: dup
+       229: iconst_0
+       230: ldc           #16                 // String bp
+       232: aastore
+       233: goto          244
+       236: dup
+       237: iconst_0
+       238: ldc           #2                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/CheckingForChangesPrecondition
+       240: aastore
+       241: goto          244
+       244: iload_0
+       245: tableswitch   { // 0 to 8
+                       0: 296
+                       1: 296
+                       2: 296
+                       3: 296
+                       4: 296
+                       5: 296
+                       6: 296
+                       7: 308
+                       8: 316
+                 default: 296
+            }
+       296: dup
+       297: iconst_1
+       298: ldc           #2                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/CheckingForChangesPrecondition
+       300: aastore
+       301: goto          324
+       304: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       307: athrow
+       308: dup
+       309: iconst_1
+       310: ldc           #15                 // String getOrderId
+       312: aastore
+       313: goto          324
+       316: dup
+       317: iconst_1
+       318: ldc           #23                 // String getConstraint
+       320: aastore
+       321: goto          324
+       324: iload_0
+       325: tableswitch   { // 0 to 8
+                       0: 376
+                       1: 388
+                       2: 388
+                       3: 388
+                       4: 396
+                       5: 404
+                       6: 412
+                       7: 420
+                       8: 420
+                 default: 376
+            }
+       376: dup
+       377: iconst_2
+       378: ldc           #20                 // String <init>
+       380: aastore
+       381: goto          423
+       384: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       387: athrow
+       388: dup
+       389: iconst_2
+       390: ldc           #7                  // String canStart
+       392: aastore
+       393: goto          423
+       396: dup
+       397: iconst_2
+       398: ldc           #5                  // String checkChangesCollectionStatusInDependentBuilds
+       400: aastore
+       401: goto          423
+       404: dup
+       405: iconst_2
+       406: ldc           #17                 // String isBrokenBuild
+       408: aastore
+       409: goto          423
+       412: dup
+       413: iconst_2
+       414: ldc           #14                 // String logDelay
+       416: aastore
+       417: goto          423
+       420: goto          423
+       423: invokestatic  #215                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       426: iload_0
+       427: tableswitch   { // 0 to 8
+                       0: 476
+                       1: 476
+                       2: 476
+                       3: 476
+                       4: 476
+                       5: 476
+                       6: 476
+                       7: 491
+                       8: 491
+                 default: 476
+            }
+       476: new           #255                // class java/lang/IllegalArgumentException
+       479: dup_x1
+       480: swap
+       481: invokespecial #120                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       484: goto          502
+       487: invokestatic  #106                // Method b:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       490: athrow
+       491: new           #311                // class java/lang/IllegalStateException
+       494: dup_x1
+       495: swap
+       496: invokespecial #286                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       499: goto          502
+       502: athrow
+      Exception table:
+         from    to  target type
+             0    57    57   Class java/lang/IllegalArgumentException
+            66   120   120   Class java/lang/IllegalArgumentException
+           128   192   192   Class java/lang/IllegalArgumentException
+           244   304   304   Class java/lang/IllegalArgumentException
+           324   384   384   Class java/lang/IllegalArgumentException
+           423   487   487   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException b(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

@@ -1,0 +1,22 @@
+Compiled from "BuildDistributorInputEx.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributorInputEx extends jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput {
+  public abstract void setCustomData(java.lang.String, java.lang.Object);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+
+  public abstract <T> T getCustomData(java.lang.String, java.lang.Class<T>);
+    descriptor: (Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+  public abstract <T> T getCustomData(java.lang.String, java.util.function.Supplier<T>);
+    descriptor: (Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;
+
+  public abstract java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.SBuildAgent> getDistributedBuilds();
+    descriptor: ()Ljava/util/Map;
+
+  public default int getAverageDistributionTime();
+    descriptor: ()I
+    Code:
+         0: iconst_0
+         1: ireturn
+      LineNumberTable:
+        line 1: 0
+}

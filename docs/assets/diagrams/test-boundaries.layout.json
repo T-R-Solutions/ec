@@ -1,0 +1,47 @@
+{
+  "title": "Testar na menor fronteira suficiente",
+  "question": "Onde cada tipo de teste deve ficar?",
+  "status": "Localização prevista · governança já executável",
+  "sources": [
+    "docs/development/testing.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "UNIT": {
+      "icon": "test-tube-diagonal",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "LOCAL": {
+      "icon": "component",
+      "tone": "blue",
+      "column": 1,
+      "row": 0
+    },
+    "MONO": {
+      "icon": "boxes",
+      "tone": "teal",
+      "column": 2,
+      "row": 0
+    },
+    "CROSS": {
+      "icon": "network",
+      "tone": "purple",
+      "column": 0,
+      "row": 1
+    },
+    "E2E": {
+      "icon": "route",
+      "tone": "purple",
+      "column": 1,
+      "row": 1
+    },
+    "GOV": {
+      "icon": "list-checks",
+      "tone": "amber",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

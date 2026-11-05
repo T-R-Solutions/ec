@@ -1,0 +1,9 @@
+[package]
+name = "ec-server-app"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+ec-server-configuration = { path = "../ec-server-configuration" }
+ec-server-projects = { path = "../ec-server-projects" }

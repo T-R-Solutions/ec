@@ -1,0 +1,20 @@
+Compiled from "Distributor.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.Distributor<T> {
+  public abstract jetbrains.buildServer.serverSide.impl.buildDistribution.CompatibleAgentsResult<T> getCompatibleCandidates(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Set<T>);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Set;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompatibleAgentsResult;
+
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.WaitReason filterAvailableAgents(jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput, jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.List<T>, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.SBuildAgent>, java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/List;Ljava/util/Map;Ljava/util/Map;)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public abstract void sortAvailableAgents(java.util.List<T>, jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljava/util/List;Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)V
+
+  public abstract boolean canProcessQueuedBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason>);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Map;)Z
+
+  public abstract com.intellij.openapi.util.Pair<T, jetbrains.buildServer.serverSide.buildDistribution.WaitReason> chooseAgentForBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.impl.buildDistribution.CompatibleAgentsResult<T>);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompatibleAgentsResult;)Lcom/intellij/openapi/util/Pair;
+
+  public abstract java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+}

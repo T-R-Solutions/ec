@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+    default-autowire="constructor"
+    >
+
+  <bean class="jetbrains.buildServer.diagnostic.AutoThreadDumpConfig" id="autoThreadDumpConfig">
+    <constructor-arg index="0" value="#{ serverPaths.logsPath }" />
+  </bean>
+
+  <bean class="jetbrains.buildServer.diagnostic.ThreadTracesCleaner"/>
+
+  <bean class="jetbrains.buildServer.diagnostic.HealthReportReporter"/>
+  <bean class="jetbrains.buildServer.diagnostic.LoggingThreadDumpReporter"/>
+  <bean class="jetbrains.buildServer.diagnostic.ClassHistogramSaver"/>
+  <bean class="jetbrains.buildServer.diagnostic.ClassHistogramReporter"/>
+  <bean class="jetbrains.buildServer.diagnostic.MemoryUsageMonitor" init-method="startWatcher" destroy-method="stopWatcher"/>
+  <bean class="jetbrains.buildServer.diagnostic.MemoryProblemsHealthReport"/>
+
+  <bean class="jetbrains.buildServer.diagnostic.ServerThreadsMonitor"/>
+
+  <bean class="jetbrains.buildServer.diagnostic.ServerInfoProviderImpl"/>
+  <bean class="jetbrains.buildServer.diagnostic.ThreadDumpDataProviderServerImpl"/>
+
+  <bean id="diagnosticEventDispatcher" class="jetbrains.buildServer.diagnostic.DiagnosticEventDispatcher"/>
+
+  <bean class="jetbrains.buildServer.diagnostic.ThreadDumpSaverFactory"/>
+  <bean class="jetbrains.buildServer.diagnostic.ThreadDumpSaverFactory$ThreadDumpSaverConfigurator"/>
+</beans>

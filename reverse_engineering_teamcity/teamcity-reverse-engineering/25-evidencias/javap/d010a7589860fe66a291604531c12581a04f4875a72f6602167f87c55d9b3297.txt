@@ -1,0 +1,23 @@
+Compiled from "RunningBuildsManager.java"
+public interface jetbrains.buildServer.serverSide.RunningBuildsManager {
+  public abstract jetbrains.buildServer.serverSide.SRunningBuild findRunningBuildById(long);
+    descriptor: (J)Ljetbrains/buildServer/serverSide/SRunningBuild;
+
+  public abstract jetbrains.buildServer.serverSide.SRunningBuild getRunningBuildOnAgent(jetbrains.buildServer.serverSide.SBuildAgent);
+    descriptor: (Ljetbrains/buildServer/serverSide/SBuildAgent;)Ljetbrains/buildServer/serverSide/SRunningBuild;
+
+  public abstract java.util.List<jetbrains.buildServer.serverSide.SRunningBuild> getRunningBuilds(jetbrains.buildServer.users.User, jetbrains.buildServer.serverSide.BuildDataFilter);
+    descriptor: (Ljetbrains/buildServer/users/User;Ljetbrains/buildServer/serverSide/BuildDataFilter;)Ljava/util/List;
+
+  public abstract java.util.List<jetbrains.buildServer.serverSide.SRunningBuild> getRunningBuilds(jetbrains.buildServer.users.User, jetbrains.buildServer.serverSide.SBuildType);
+    descriptor: (Ljetbrains/buildServer/users/User;Ljetbrains/buildServer/serverSide/SBuildType;)Ljava/util/List;
+
+  public abstract java.util.List<jetbrains.buildServer.serverSide.SRunningBuild> getRunningBuilds();
+    descriptor: ()Ljava/util/List;
+
+  public abstract int getNumberOfRunningBuilds();
+    descriptor: ()I
+
+  public abstract java.util.Map<jetbrains.buildServer.serverSide.SBuildType, java.util.List<jetbrains.buildServer.serverSide.SRunningBuild>> getRunningStatus(jetbrains.buildServer.users.User, jetbrains.buildServer.serverSide.BuildDataFilter);
+    descriptor: (Ljetbrains/buildServer/users/User;Ljetbrains/buildServer/serverSide/BuildDataFilter;)Ljava/util/Map;
+}

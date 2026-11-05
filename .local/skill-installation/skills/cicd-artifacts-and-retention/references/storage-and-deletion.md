@@ -1,0 +1,3 @@
+# Storage and deletion semantics
+AWS S3 checksums: multipart object checksum and ETag semantics depend on algorithm and upload mode. Versioned-bucket expiration may create delete markers while previous versions persist. GCS temporary/event-based holds block deletion and interact differently with retention clocks. Backups and replicas require separate purge policies.
+Ordinary delete is not secure media sanitization. NIST SP 800-88r2 addresses a sanitization program; choose technique based on confidentiality, media/provider guarantees and verification. Do not claim erasure from a successful API DELETE.

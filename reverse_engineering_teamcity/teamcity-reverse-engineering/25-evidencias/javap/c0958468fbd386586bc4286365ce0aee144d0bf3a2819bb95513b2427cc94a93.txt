@@ -1,0 +1,23 @@
+Compiled from "BuildPromotionInfo.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.BuildPromotionInfo {
+  public abstract long getId();
+    descriptor: ()J
+
+  public abstract java.util.Collection<jetbrains.buildServer.serverSide.buildDistribution.BuildPromotionInfo> getDirectDependencies();
+    descriptor: ()Ljava/util/Collection;
+
+  public abstract java.util.Map<java.lang.String, java.lang.String> getParameters();
+    descriptor: ()Ljava/util/Map;
+
+  public abstract java.util.Map<java.lang.String, java.lang.String> getBuildParameters();
+    descriptor: ()Ljava/util/Map;
+
+  public abstract java.util.Collection<jetbrains.buildServer.serverSide.SBuildAgent> getCanRunOnAgents(java.util.Collection<jetbrains.buildServer.serverSide.SBuildAgent>);
+    descriptor: (Ljava/util/Collection;)Ljava/util/Collection;
+
+  public abstract boolean isAgentLessBuild();
+    descriptor: ()Z
+
+  public abstract boolean isCompositeBuild();
+    descriptor: ()Z
+}

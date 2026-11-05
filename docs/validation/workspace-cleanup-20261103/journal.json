@@ -1,0 +1,183 @@
+{
+  "status": "COMPLETE",
+  "source_resources": 578,
+  "bundle_members": 671,
+  "bundle_bytes": 1295948,
+  "modified": [
+    {
+      "path": "config/governance/profile.json",
+      "before": "833e5a035d0f62910b3eb5237aa297803bff9eaf554fdff063bf3593e6193269",
+      "after": "72eac3edafaaef640619e90fc79a6bbf459e1d8b255aea18659724ae85e3917c"
+    },
+    {
+      "path": "tools/governance/validate.py",
+      "before": "46e9393740d830d3f96e6d57f86a16f653e8bcbed50b1550b4fbb65b79325a68",
+      "after": "48bf1e3e5014a405c180df5da3b9430320cfaf03b76c39a73e094e76ce71beb4"
+    },
+    {
+      "path": "tools/governance/tests/test_governance.py",
+      "before": "0aa8262a08ac882705eba129d0a742dfab2c7af3847dd5ce4847be1b67078b94",
+      "after": "cfa9bd3d9f6ed2ca323657fa059324eb638e981478498f574d8f91a0661af3b3"
+    },
+    {
+      "path": "sdd/project.md",
+      "before": "6ab4ac3cdaa66f9d85e9ded59673e563b27a4e18c6574e82811e781526272f6a",
+      "after": "f900426be41dcea316495c08d4f56536685eb17b79efc00c3e07923eaf10e659"
+    },
+    {
+      "path": "docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "before": "410b8c8c8b9e7a467183ce14b646cd8f148c3accb18f3452d857f05208f31cec",
+      "after": "964423adcd8933ad36f696c7b140d10321b190da0ac224b4ac360f8644923023"
+    },
+    {
+      "path": "docs/development/skill-installation.md",
+      "before": "8d71211d863984cfa78e12589f7b860daff59f7c5e60f97b23ec755e21313d73",
+      "after": "fafcec250f9866f0d71d818923a5c3289ed696346a8291280a8c79660f35953c"
+    },
+    {
+      "path": "docs/development/skills-analysis.md",
+      "before": "008aaeef4fcfb77efcb46dc1a6111082f16d5c8851d81ace89c6eafe577423d1",
+      "after": "1ad47794f1041abaacda7f2559965db2331bfd547118c5823d8bd63c2662d9d7"
+    },
+    {
+      "path": "docs/validation/skills-adoption/report.md",
+      "before": "a8c74ce448e70975c20be2b9b181dd6b3324a08f98d20e294fa6c43d43a8e3b1",
+      "after": "7ecc9dfea22e19a924de98a12a29ccb9dc1c245c95c492ef6f46f43bbfbad72e"
+    },
+    {
+      "path": "README.md",
+      "before": "5e8c7886ef30c9c2b81c70ae83ac892347bfc2e1692538cb86663b5c938a6276",
+      "after": "ffe7cc578aca8fb5b4d77988a7fe6854316de6d932f2bfc59f54416128e06800"
+    },
+    {
+      "path": "sdd/features/governance-adoption/spec.md",
+      "before": "52fbb813fb72fd8cebdae80439bc9afc85e4964be030801eb1d296e0adb2ba9e",
+      "after": "88e765b4fe076aeb2d7a2e8e74150822717b2f05ad602259254ece3dcbc6f153"
+    },
+    {
+      "path": "sdd/features/governance-adoption/plan.md",
+      "before": "155c597d5e9633dfc8490e21936048b455f67692e5667a9c1f2831855547cd99",
+      "after": "153e3a8a3f1be4aec40dc446fe5c4382fe1e05d8478a5a00d9aec35825eb52bd"
+    },
+    {
+      "path": "sdd/features/governance-adoption/tasks.md",
+      "before": "76731de4c11dc01e60c1a8162fc138bb963b95a5a7ad2cacc68bbb1347b86caf",
+      "after": "cebd7f16169f70c953fec614dde9767df1fd4d14c5139ed6955e43a7a11a5984"
+    },
+    {
+      "path": "sdd/features/governance-adoption/traceability.json",
+      "before": "5b0df3ace0b6edaa823a215a8062afbec5eeecf43660a864d4c4601ff1ba6aba",
+      "after": "a5063690ce55d3a33a8a8a82472ab1af751d9586129c6525a667c0921a400289"
+    },
+    {
+      "path": "sdd/features/governance-adoption/converge.md",
+      "before": "4f41cd38b258b31599f38849e6d54b0e1ae3ad5a524a510ef705c80c4c5494ad",
+      "after": "f7558726b9984892494a0074d279b6fcced405617bf61c6f5bb43b6e3d77ad6d"
+    },
+    {
+      "path": "sdd/features/governance-adoption/evidence.json",
+      "before": "de831ee4efbeb50dcc159cd946281ec4ea26e0de80e01df6bb510007129874d9",
+      "after": "657a5058cd6d930d2f8bbaf427235eb538b6a01903f218b7a826e007b126cb51"
+    }
+  ],
+  "deleted": [
+    {
+      "path": "reverse_engineering_teamcity/__pycache__/build_research_v2.cpython-313.pyc",
+      "sha256": "677ef4bd7c8ad705c58d689522b2cefc3d7e985eec2f644eb596cb00d1dff36d",
+      "size": 80493
+    },
+    {
+      "path": "skills_to_use/ec_skills.zip",
+      "sha256": "d37bc5d3066d5786b0efdbbbde5f8b1a5031ab535fef8469b6609710f83d7e67",
+      "size": 926294
+    },
+    {
+      "path": "skills_to_use/ox_resume.zip",
+      "sha256": "f8a26ebbc863922bd2e6521e2ceebdd0560dcb9418317f49fdeaecfd8884d92d",
+      "size": 114715006
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/README.md",
+      "sha256": "d61c568969bbfe88601e35224b2859b83622d7127acaeaa6b271e562c3422f7b",
+      "size": 2411
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/sdd/chain/readme-lifecycle-engineering.md",
+      "sha256": "77a9a020ecee9f0c2d38e5df2b3c3d5cc363e79f413eb2c83193f1559a3e4d5c",
+      "size": 2680
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/SKILL.md",
+      "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+      "size": 4622
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/agents/openai.yaml",
+      "sha256": "a284c53da7d7f26fea4670c2d5725eeb9f1f9b790fe949093705812fa6951e38",
+      "size": 354
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/documentation-topology-and-diataxis.md",
+      "sha256": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
+      "size": 4246
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/ec-consumer-boundaries.md",
+      "sha256": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",
+      "size": 3548
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/implementation-details.md",
+      "sha256": "c1a56adf3d4dc27ef98ce9f5910780e4eb5d84b7a26d4dc66f5df1cfa6047081",
+      "size": 4088
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/maintenance-and-change-triggers.md",
+      "sha256": "12a5a8b9e523a54abc35011c3b0c09fe278b972e9580c96e7b87be5e7a2b6ba9",
+      "size": 4144
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/readme-scope-and-content.md",
+      "sha256": "808c804407c11765788b79b973eb026fa7998be3f68a3634bf4d2b6e86fa43c2",
+      "size": 4177
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/routing-and-oracles.md",
+      "sha256": "3ceb6ef81c44a87041132a92eced77dcea805452d22511b659c886ca7200f38e",
+      "size": 2198
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/scientific-evidence-and-limits.md",
+      "sha256": "6e1e14f826fa0da31a3689fdbf907483e78be15f9345df82040789365a58527e",
+      "size": 6166
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/sources-and-decisions.md",
+      "sha256": "9be659af822a906bde93f84fe7282c9d8e84b137d7bd92ffd5a206e204698005",
+      "size": 6514
+    },
+    {
+      "path": "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/verification-and-acceptance.md",
+      "sha256": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336",
+      "size": 4410
+    }
+  ],
+  "intended_deletions": [
+    "reverse_engineering_teamcity/__pycache__/build_research_v2.cpython-313.pyc",
+    "skills_to_use/ec_skills.zip",
+    "skills_to_use/ox_resume.zip",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/README.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/sdd/chain/readme-lifecycle-engineering.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/SKILL.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/agents/openai.yaml",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/documentation-topology-and-diataxis.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/ec-consumer-boundaries.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/implementation-details.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/maintenance-and-change-triggers.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/readme-scope-and-content.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/routing-and-oracles.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/scientific-evidence-and-limits.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/sources-and-decisions.md",
+    "skills_to_use/readme-lifecycle-engineering-skill/new_skills/skills/readme-lifecycle-engineering/references/verification-and-acceptance.md"
+  ]
+}

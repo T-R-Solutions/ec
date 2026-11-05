@@ -1,0 +1,47 @@
+{
+  "title": "Autoridades · significado de cada fonte",
+  "question": "Qual fonte deve orientar uma decisão?",
+  "status": "Governança vigente",
+  "sources": [
+    "docs/constitution.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "USER": {
+      "icon": "user-round-check",
+      "tone": "amber",
+      "column": 0,
+      "row": 0
+    },
+    "NORMS": {
+      "icon": "book-open",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "ADR": {
+      "icon": "git-branch",
+      "tone": "blue",
+      "column": 2,
+      "row": 0
+    },
+    "SKILL": {
+      "icon": "wrench",
+      "tone": "blue",
+      "column": 0,
+      "row": 1
+    },
+    "EVIDENCE": {
+      "icon": "scan-search",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "HISTORY": {
+      "icon": "archive",
+      "tone": "purple",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

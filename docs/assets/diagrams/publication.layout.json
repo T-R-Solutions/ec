@@ -1,0 +1,60 @@
+{
+  "title": "Publicação · confirmar antes de efetivar",
+  "question": "O que permite ou impede uma publicação?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/contracts.md",
+    "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "DRAFT": {
+      "icon": "file-pen-line",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "VALID": {
+      "icon": "list-checks",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "DIFF": {
+      "icon": "git-compare",
+      "tone": "blue",
+      "column": 2,
+      "row": 0
+    },
+    "AUTH": {
+      "icon": "shield-check",
+      "tone": "amber",
+      "column": 0,
+      "row": 1
+    },
+    "REV": {
+      "icon": "git-commit-horizontal",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "SYNC": {
+      "icon": "refresh-cw",
+      "tone": "teal",
+      "column": 2,
+      "row": 1
+    },
+    "INVALID": {
+      "icon": "circle-alert",
+      "tone": "rose",
+      "column": 0,
+      "row": 2
+    },
+    "DENIED": {
+      "icon": "shield-x",
+      "tone": "rose",
+      "column": 1,
+      "row": 2
+    }
+  }
+}

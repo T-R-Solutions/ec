@@ -1,0 +1,63 @@
+[
+  {
+    "command": [
+      "python3",
+      "/home/rodrigo/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+      "/tmp/ec-doc-skill-refactor/repository/.codex/skills/technical-documentation"
+    ],
+    "cwd": "/tmp/ec-doc-skill-refactor/repository",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "tools/governance/validate.py",
+      "--require-installed"
+    ],
+    "cwd": "/tmp/ec-doc-skill-refactor/repository",
+    "exit_code": 0,
+    "stdout": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 596,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "tools/governance/install_skills.py",
+      "--check"
+    ],
+    "cwd": "/tmp/ec-doc-skill-refactor/repository",
+    "exit_code": 0,
+    "stdout": "{\n  \"status\": \"ALREADY_INSTALLED\",\n  \"count\": 67\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      ".",
+      "--structure-only"
+    ],
+    "cwd": "/tmp/ec-doc-skill-refactor/repository",
+    "exit_code": 0,
+    "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/governance/tests",
+      "-v"
+    ],
+    "cwd": "/tmp/ec-doc-skill-refactor/repository",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_acceptance_parser_does_not_promote_mentions (test_governance.GovernanceTests.test_acceptance_parser_does_not_promote_mentions) ... ok\ntest_changed_original_resource_is_rejected (test_governance.GovernanceTests.test_changed_original_resource_is_rejected) ... ok\ntest_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile) ... ok\ntest_curated_sources_work_without_retired_packages (test_governance.GovernanceTests.test_curated_sources_work_without_retired_packages) ... ok\ntest_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected) ... ok\ntest_duplicate_json_key_is_rejected (test_governance.GovernanceTests.test_duplicate_json_key_is_rejected) ... ok\ntest_escaping_and_symlink_paths_are_rejected (test_governance.GovernanceTests.test_escaping_and_symlink_paths_are_rejected) ... ok\ntest_evidence_hash_change_is_not_silently_accepted (test_governance.GovernanceTests.test_evidence_hash_change_is_not_silently_accepted) ... ok\ntest_excluded_skill_bridge_is_rejected (test_governance.GovernanceTests.test_excluded_skill_bridge_is_rejected) ... ok\ntest_install_success_and_idempotent_repeat (test_governance.GovernanceTests.test_install_success_and_idempotent_repeat) ... ok\ntest_interrupted_package_copy_can_resume (test_governance.GovernanceTests.test_interrupted_package_copy_can_resume) ... ok\ntest_local_link_drift_is_detected_even_with_rehashed_skill (test_governance.GovernanceTests.test_local_link_drift_is_detected_even_with_rehashed_skill) ... ok\ntest_missing_bridge_is_rejected (test_governance.GovernanceTests.test_missing_bridge_is_rejected) ... ok\ntest_missing_original_resource_is_rejected (test_governance.GovernanceTests.test_missing_original_resource_is_rejected) ... ok\ntest_missing_resource_is_rejected (test_governance.GovernanceTests.test_missing_resource_is_rejected) ... ok\ntest_missing_source_archive_is_rejected (test_governance.GovernanceTests.test_missing_source_archive_is_rejected) ... ok\ntest_missing_source_bundle_declaration_is_rejected (test_governance.GovernanceTests.test_missing_source_bundle_declaration_is_rejected) ... ok\ntest_modified_skill_is_rejected (test_governance.GovernanceTests.test_modified_skill_is_rejected) ... ok\ntest_preparation_passes_but_is_not_installation (test_governance.GovernanceTests.test_preparation_passes_but_is_not_installation) ... ok\ntest_readonly_error_preserves_metadata (test_governance.GovernanceTests.test_readonly_error_preserves_metadata) ... ok\ntest_schema_one_cannot_claim_freshness (test_governance.GovernanceTests.test_schema_one_cannot_claim_freshness) ... ok\ntest_sdd_links_may_reach_authority_but_not_escape_root (test_governance.GovernanceTests.test_sdd_links_may_reach_authority_but_not_escape_root) ... ok\ntest_source_bundle_path_escape_is_rejected (test_governance.GovernanceTests.test_source_bundle_path_escape_is_rejected) ... ok\ntest_unrelated_destination_is_preserved (test_governance.GovernanceTests.test_unrelated_destination_is_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 7.164s\n\nOK\n"
+  }
+]

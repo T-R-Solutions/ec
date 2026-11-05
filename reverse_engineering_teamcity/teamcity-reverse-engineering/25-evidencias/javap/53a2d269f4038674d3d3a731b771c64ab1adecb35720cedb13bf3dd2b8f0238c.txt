@@ -1,0 +1,11 @@
+Compiled from "BuildRunAction.java"
+public interface jetbrains.buildServer.agent.impl.BuildRunAction {
+  public abstract jetbrains.buildServer.agent.AgentRunningBuildEx getRunningBuild();
+    descriptor: ()Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+
+  public abstract void runBuild();
+    descriptor: ()V
+
+  public abstract void stopBuild(jetbrains.buildServer.agent.BuildInterruptReason);
+    descriptor: (Ljetbrains/buildServer/agent/BuildInterruptReason;)V
+}

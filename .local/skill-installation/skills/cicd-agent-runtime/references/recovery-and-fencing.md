@@ -1,0 +1,2 @@
+# Recovery and fencing
+Server authority owns the assignment lease and fencing epoch; agent stores sufficient attempt identity to reconcile after restart. Old attempts must not report terminal success to a newer owner. A lease expiry does not undo side effects. Reconnect must query/reconcile rather than replay every assignment. Distinguish work lost, work still running, work terminated and unknown. No exactly-once promise for external effects.

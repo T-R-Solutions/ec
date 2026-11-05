@@ -1,0 +1,14 @@
+flowchart TB
+    accTitle: Da intenção à evidência
+    accDescr: Como conduzir uma mudança neste checkout? READ → ROUTE: escopo conhecido. ROUTE → EDIT: rota definida. EDIT → CHECK: mudança concreta. CHECK → RECORD: observação. RECORD → DELIVER: evidência atual
+    READ["01 · Inspecionar<br/>Estado · autoridades · consumidores"]
+    ROUTE["02 · Escolher a rota<br/>Risco e decisão material"]
+    EDIT["03 · Implementar<br/>Fonte canônica e referências"]
+    CHECK["04 · Verificar<br/>Comandos reais e rejeições"]
+    RECORD["05 · Registrar<br/>Inputs · resultados · limitações"]
+    DELIVER["06 · Entregar<br/>Resultado e manutenção"]
+    READ -->|"escopo conhecido"| ROUTE
+    ROUTE -->|"rota definida"| EDIT
+    EDIT -->|"mudança concreta"| CHECK
+    CHECK -->|"observação"| RECORD
+    RECORD -->|"evidência atual"| DELIVER

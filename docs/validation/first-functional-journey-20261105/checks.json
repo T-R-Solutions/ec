@@ -1,0 +1,77 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "platform": "Linux-7.3.1-1-default-x86_64-with-glibc2.44",
+    "rustc": "1.99.1 (58cf8f9c3 2026-10-13)",
+    "cargo": "1.99.1 (5f94df478 2026-08-27)"
+  },
+  "skills": [
+    {
+      "path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
+      "sha256": "0582d13a8beb309350d1de838b35c2b1b57cfbde465de5c87b76f4191b720867",
+      "bridge_version": 1,
+      "contribution": "Schema limitado, parsing por eventos, duplicatas antes da conversão, limites e oráculos de round-trip."
+    },
+    {
+      "path": ".codex/skills/rust/SKILL.md",
+      "sha256": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+      "bridge_version": 1,
+      "contribution": "Workspace, dependências fixadas, erros públicos, unitários em src e integração/processo em tests."
+    }
+  ],
+  "commands": [
+    {
+      "command": "cargo +1.99.1 test --manifest-path application/server/backend/Cargo.toml --locked --offline",
+      "environment": "CARGO_HOME=.local/build/ec-cargo-home; CARGO_TARGET_DIR=.local/build/ec-server-clean novo",
+      "exit_code": 0,
+      "artifact": "docs/validation/first-functional-journey-20261105/clean-tests.log",
+      "result": "6 unitários e 3 testes de integração/processo passaram; zero falhas ou skips; doc-tests sem exemplos."
+    },
+    {
+      "command": "cargo +1.99.1 run --manifest-path application/server/backend/Cargo.toml --locked --offline -p ec-server-app -- validate-yaml < application/integration/tests/fixtures/project-pipeline.yaml",
+      "exit_code": 0,
+      "artifact": "docs/validation/first-functional-journey-20261105/cli.stdout",
+      "result": "VALIDATED_LOCAL: não publicado, não autorizado para executar"
+    },
+    {
+      "command": "cargo +1.99.1 clippy --manifest-path application/server/backend/Cargo.toml --locked --offline --all-targets -- -D warnings",
+      "exit_code": 0,
+      "artifact": "docs/validation/first-functional-journey-20261105/clippy.log",
+      "result": "Sem warnings."
+    },
+    {
+      "command": "cargo +1.99.1 fmt --manifest-path application/server/backend/Cargo.toml --all -- --check",
+      "exit_code": 0,
+      "artifact": "docs/validation/first-functional-journey-20261105/fmt.log",
+      "result": "Formatação aceita."
+    },
+    {
+      "command": "cargo +1.99.1 fetch --manifest-path application/server/backend/Cargo.toml --locked",
+      "exit_code": 0,
+      "artifact": "docs/validation/first-functional-journey-20261105/fetch.log",
+      "result": "Dependências fixadas presentes no cache isolado."
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --require-fresh",
+      "exit_code": 0,
+      "result": "Integridade e freshness aprovadas; não certifica comportamento de produto."
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --require-approved --require-fresh",
+      "exit_code": 1,
+      "result": "Rejeição esperada: critérios de produto ainda UNVERIFIED."
+    }
+  ],
+  "failures": [
+    "Primeira tentativa de fetch antes dos targets Rust existirem: manifesto sem targets; corrigido com implementação real.",
+    "Fetch dentro do sandbox falhou DNS; repetição com permissão de rede baixou dependências."
+  ],
+  "not_executed": [
+    "API HTTP, migrations e publicação PostgreSQL",
+    "Agent, checkout e execução de processos de job",
+    "Fila durável, leases, fencing, concorrência SQL e recuperação de recibos",
+    "Frontend Vue/TypeScript/Pinia, três modos e navegação por teclado",
+    "Jornada integrada, autorização real, logs e artefatos"
+  ],
+  "acceptance": "AC-01 a AC-07 UNVERIFIED. Nove testes apoiam somente parsing/schema e round-trip local; referências reais/segredos, serviços e integração pendentes. Marco solicitado não alcançado."
+}

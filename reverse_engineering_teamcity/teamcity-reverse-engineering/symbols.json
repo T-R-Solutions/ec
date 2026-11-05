@@ -1,0 +1,34 @@
+{
+  "database": "symbols.sqlite",
+  "complete_records": "25-evidencias/symbols.jsonl.gz",
+  "compression": "gzip JSON Lines; SQLite record is zlib compressed JSON",
+  "query_tool": "../tools/query.py",
+  "schema": {
+    "classes": [
+      "sha",
+      "name",
+      "super",
+      "version",
+      "record"
+    ],
+    "locations": [
+      "location",
+      "sha"
+    ],
+    "methods": [
+      "class_sha",
+      "name",
+      "descriptor",
+      "access",
+      "instructions",
+      "body_indexed"
+    ]
+  },
+  "limits": [
+    "Counts deduplicated by class SHA-256, not classloader identity.",
+    "Body indexing is syntactic, not human review or behavior confirmation.",
+    "Calls denote symbolic bytecode targets; virtual dispatch, inheritance resolution and reflection remain unresolved.",
+    "Non-first-party method bodies skipped.",
+    "Instruction ordinals are ASM visitor ordinals, not JVM byte offsets."
+  ]
+}

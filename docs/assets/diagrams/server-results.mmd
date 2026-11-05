@@ -1,0 +1,8 @@
+flowchart TB
+    accTitle: results · fronteira do domínio
+    accDescr: Quais imports Ec são permitidos neste módulo? SELF → ACCESS: pode consumir. SELF → ORCHESTRATION: pode consumir
+    SELF["results<br/>Resultados e retenção"]
+    ACCESS["access<br/>Identidade e acesso"]
+    ORCHESTRATION["orchestration<br/>Fila, tentativas e agentes"]
+    SELF -->|"pode consumir"| ACCESS
+    SELF -->|"pode consumir"| ORCHESTRATION

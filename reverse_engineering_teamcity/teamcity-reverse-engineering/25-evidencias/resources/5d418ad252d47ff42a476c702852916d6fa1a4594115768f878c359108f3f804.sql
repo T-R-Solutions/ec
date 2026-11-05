@@ -1,0 +1,1 @@
+#RENAME_COLUMN{cleanup_history; reason; interrupt_reason; varchar(20)}

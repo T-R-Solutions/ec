@@ -1,0 +1,3717 @@
+{
+  "schema_version": 2,
+  "environment": "Linux x86_64, Python 3.13, local workspace; .codex read-only. See docs/validation/skills-adoption/environment.json.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "REQ-01 as declared in spec.md",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-01"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "REQ-02 as declared in spec.md",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-01",
+        "E-02"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "REQ-03 as declared in spec.md",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-01",
+        "E-03"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "REQ-04 as declared in spec.md",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-01",
+        "E-04"
+      ]
+    },
+    {
+      "id": "AC-05",
+      "criterion": "REQ-05 as declared in spec.md",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-05"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-01",
+      "kind": "test",
+      "command_or_method": "PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/skills-adoption/audit-session.py (same script executed from /tmp/ec-final-checks.py; retained verbatim)",
+      "observed_result": "726 checks PASS; includes 67 skill validations, source integrity, catalog checks and expected installation gate refusal.",
+      "artifact": "docs/validation/skills-adoption/checks.json",
+      "inputs": [
+        {
+          "path": ".local/skill-installation/skills/agent-runtime-engineering/SKILL.md",
+          "sha256": "9f9f7d19a7577882e14bbe04c655684bb41a9f49c032cf03cbbb2576b379ff49",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/agent-runtime-engineering/agents/openai.yaml",
+          "sha256": "e4c60afd1920354fd289abdb5f1f617ed90395bea44ef0b0042eec3078a0a12a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/agent-runtime-engineering/references/acp-and-cli-adapters.md",
+          "sha256": "d7f5ad8f2650cd0215299102b2c9a98983bc672cf0da2eec5f9a1c1125b3d9af",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/agent-runtime-engineering/references/evaluation-cases.md",
+          "sha256": "4e216a83e617e653e986ae7b685350138ccac64b8b666c9198c7ee5968deadfb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/agent-runtime-engineering/references/process-supervision.md",
+          "sha256": "3a78f316900838d0b9bd41eec76cae7b8938d339f1f4d1de9b3099d7bdc2f333",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/agent-runtime-engineering/references/session-state-machine.md",
+          "sha256": "3ccea3d90a99bf6048a4200eece20a1abb6d9294c4bab8f416167155e78fc490",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/SKILL.md",
+          "sha256": "ad2c15cce5a38cd52fae001ffa3350ad131675a98ac70f921e957c1170461dba",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/agents/openai.yaml",
+          "sha256": "9df477edca976ad8330169ac97da67053fed5f6b82de8f537ea5e2e9d068e903",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/references/adaptation-and-operation.md",
+          "sha256": "5ab9d2b9159cf50ad2ec66c5667efae4c5bf04a5382babbb2f05edf9023fd711",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/references/agent-boundaries.md",
+          "sha256": "426dbdb2cc6ea7af7973b50fe016ec31b5153c1344cd149d3951f4721e4d03f5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/references/evaluation-and-data.md",
+          "sha256": "e99f783f28d5d1b6509ea54c98dd71496ff962886d065b5deb8c4287449d8005",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/references/model-resource-diagnosis.md",
+          "sha256": "a8b0405d0fdabd4f3775252924697708999f32365c5c990a06a91f86ae05d063",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ai-engineering/references/retrieval.md",
+          "sha256": "70454eb39597b76d18f1c436e726002b6e4fb58c9b3f21bec30ebe36602ffb47",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/api-testing/SKILL.md",
+          "sha256": "1ef6434deb21c5499073796503f92b6c8a43f008ff51f1c4b083ffe11b4ef7c7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/api-testing/agents/openai.yaml",
+          "sha256": "f47440dfb0f47575a4b09d6c0d440195f43ae3b6f343c24e67bcb711c16e1b10",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/api-testing/references/access-control-matrix.md",
+          "sha256": "f976a0a37386816b3067c8655779152ab55f5b8307df4d5052bb0b405e001ae1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/api-testing/references/boundary-scenarios.md",
+          "sha256": "57dc592fc932386de450ee57a4f2aef96291df0779952d7e71d0a45bd8dddec3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/api-testing/references/contracts.md",
+          "sha256": "ef92a1c361215fa186d4060bc20504bb77a6e386701dc1ce1aed16f4986af98a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/api-testing/references/portable-sources.md",
+          "sha256": "af3956a95bc9da214bc627dc08d7ef547bfa8f3f795729b8b51decf97ce9f2b2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/SKILL.md",
+          "sha256": "0d992c0538df30bd5e0c6be689990184ec51671225809eac0f01759cc08257c4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/agents/openai.yaml",
+          "sha256": "18ad79ae563118e3800a61adedda1e646e3dbaa930732b721e4440de2331223d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/bound-credentials-and-replay.md",
+          "sha256": "1b395ca1306242f97719df0717deba77b8e309198f739265af5ce59e4a300323",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/controls.md",
+          "sha256": "80ef899acf741a7a018b4aaacf7aabb0eb6b1c0b298ab5bd53d86df1dff1600b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/delegation-and-artifacts.md",
+          "sha256": "5cdf9dae49ea3ceeb5fef4bf0021d32e02ebff30347b51bb462742f9fc8040ec",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/imported/api-testing/access-control-matrix.md",
+          "sha256": "5423aef399dc91b815dba2646161b2ec69fd92010533ed8fce04898e18e9a585",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/imported/api-testing/portable-sources.md",
+          "sha256": "47782cca58ddeb1595c4bd2707d6e6b2b63a0412696144758bc016e738afe1d4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/imported/prompt/evaluation-and-trust.md",
+          "sha256": "70b0fc55131e55e958aa81bea69dba2f5891285e50080642dace052cfc48068d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/imported/prompt/portable-sources.md",
+          "sha256": "7428aee9fd2f2eb324a5b419038200c0e81cee0fcdafa74e2dced9b213f38b5b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/imported/reliability-engineering/resource-lifecycle.md",
+          "sha256": "e03d0d45be3a62e5f37179fe827560acd3cb51f431e7659e9aace042569e1db1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/application-security/references/portable-sources.md",
+          "sha256": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/autonomous-verification-engineering/SKILL.md",
+          "sha256": "3b8e2a6fbd6b09ba79f2316fdb444de0d2dda2ac0907b34c352ad09d1e360c94",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/autonomous-verification-engineering/agents/openai.yaml",
+          "sha256": "36e71ebbc575868be39fbd325d1f9f0efff32cc725b9d993624793f94e7afec9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/autonomous-verification-engineering/references/acceptance-verdicts.md",
+          "sha256": "82bfb6801c64939710ef17b83a7816e0f399ef82de99a7264c30d16756ad73c9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/autonomous-verification-engineering/references/evaluation-cases.md",
+          "sha256": "aca5982f048888099b13d27da224742dfc27598e0a5ce297d447b4eaa668263e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/autonomous-verification-engineering/references/evidence-provenance.md",
+          "sha256": "f5d308b8c0a1bf60bcf2a595df465571b2636918f70698a86bbb3986a9cb9356",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/autonomous-verification-engineering/references/independent-oracles.md",
+          "sha256": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/SKILL.md",
+          "sha256": "38318abea006ead9ea43dc4ec060b170f4d28833b724f2b08ca305433636976f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/agents/openai.yaml",
+          "sha256": "95567abd2222f01c0382267cd0caf1ed937bd712baf5d27f24ac29757c8eb7e9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/capabilities-and-slots.md",
+          "sha256": "41dff968395699e29507203018ba67a8aeac8be9b2018c552c639cfb39aae18b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/implementation-details.md",
+          "sha256": "a7b91c4d64f7d53cd37de1f5da8155a3a6d3f7a1c6427080f3e8ebe7d0805643",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/lifecycle-and-liveness.md",
+          "sha256": "046721855919b001d70d92ed1e1098bbc465f94cef352a93d8af3d210fdcec7b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/recovery-and-fencing.md",
+          "sha256": "fbd86ff39c5db98bc826299955ff8573f4116779feba070e2abed5be4791ea8f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/routing-and-oracles.md",
+          "sha256": "ec60f8f11254f5dfedfdf1278a48e4be5645bd1bef3ecabf7af74d1d57e0c8ce",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/security-and-observability.md",
+          "sha256": "f446b19a2f326b5b12457aa772d35cc11b26d024f548f449ef17680483b0cb7a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-agent-runtime/references/sources-and-decisions.md",
+          "sha256": "170f5739b85c33a5a3c30dc21eba9ef773d5f7e5cd314b929e64e6ea0fae9c62",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/SKILL.md",
+          "sha256": "5a856e3153b92859a416e87862e64e7c547ca5d1fa4caeec19b4910d9691ddcf",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/agents/openai.yaml",
+          "sha256": "b71d8c463cd2de2a088ca950a58cc5518cf7ab798daa14112689fae7ea0a3b7a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/implementation-details.md",
+          "sha256": "d561bf7836154071490ebf0f30d3444f013302e52e827f65f183cfe6e067cdbd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/integrity-and-upload.md",
+          "sha256": "caf53d4973025cb11df979b4e12b7582f84264f1d98c520e1283d1a4beab2cb5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/provenance-and-access.md",
+          "sha256": "7a67f54bb89a749a5839aa12f5a1d123409c86f4919c2e972af2fd97fc9c62d5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/retention-and-gc.md",
+          "sha256": "ffe7a476fb3eb512b25fcdf3c3dd605f77100e2c8c6d2696b58c00fbf7c4cab9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/routing-and-oracles.md",
+          "sha256": "dc478af065ee06c7477581c58b414f5594b154f6dc850abf95daaa8ab57d2fe4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/sources-and-evidence.md",
+          "sha256": "18c040e1cf2d360e2d350447275059af415c012581743a40c2da87c0e4211786",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-artifacts-and-retention/references/storage-and-deletion.md",
+          "sha256": "459b5b533217512ba93d49fa88b4a60e92e5aa73fecf6e2169a9dc910e5cf41c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/SKILL.md",
+          "sha256": "ff99931b7bd2b28b8feb21e3ed129b1aa89d862ac2e671874cdd01c933730dca",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/agents/openai.yaml",
+          "sha256": "fa5ad6a500866f07e5dd888cc6e94f8727877ce23ada0c9c3aed80381a3dd492",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/cas-and-integrity.md",
+          "sha256": "38d6aaff93f0ef2a6a2a2e370247b875cc839ede18e55dfef929e69a256a80d4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/implementation-details.md",
+          "sha256": "b768d0c587bd9ff8793c39197bcf815a2d82e6953e0b698b84599bf7b5d46476",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/invalidation-and-eviction.md",
+          "sha256": "ea7297ae2fc746d3d6eb3f52bbee805a632c7ca2d9919b432c53ad34275ed8f5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/keys-and-hermeticity.md",
+          "sha256": "5eb841407e0c5a0377a97db8ec63760286a611856e002b5b217de10dcf141e6b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/sources-and-evidence.md",
+          "sha256": "880d925e5ee8ff7c4d5d233e6efcb17c0f0abc8b1c82c3363296ee9865ce9dd0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/testing-and-routing.md",
+          "sha256": "e4e08ee212ed9858839546354365e648fb651b742db9a74587c94b4e32edd1dc",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-build-cache/references/trust-and-poisoning.md",
+          "sha256": "8f5cbd87555a6fb91c8ec88e663c68a325caba0cf18122ec56ef3a2878fa44e9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/SKILL.md",
+          "sha256": "4bafb0730fa09237a9e75082cb2328c003c8b0e69a4dfab9141a7616672b0f7b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/agents/openai.yaml",
+          "sha256": "4c6677ab242bc3c391b64a26922351e047bc3242c09e8d21fa9f145e2a970d47",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/cancellation.md",
+          "sha256": "f9883586141df8b76974c4db71afda5780c4df9279bc463b026bfab7d70c8163",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/implementation-details.md",
+          "sha256": "90051a7284f486e2e6e4137237c2f94f14f66208ebac8876279af4201d583ff7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/isolation.md",
+          "sha256": "b867cc5842ffe249d7c081c036dc0d3e27673296152c4601dcde019f92baf987",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/oracles-and-routing.md",
+          "sha256": "a717c4ae8b13e5784c8ca354ed16d10fb314b5064b6a6f955f30595c4036ad92",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/process-execution.md",
+          "sha256": "cbb5b8d470e915e56f329537d8a452bae3b37b3ea40f89b739e09e8bfbb72d6d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/sources.md",
+          "sha256": "5ac309981a079691e5da48ad10545c336b2d636700d3917ebba52da9c5cafc07",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-execution-runtime/references/streaming.md",
+          "sha256": "0dd78a0761112202bc4482b46685acd457e5d182b148f0a4eb81033246362f19",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/SKILL.md",
+          "sha256": "bd1f984084707137b5aeeabe6978c2a629c9f25810c2ec30e868862af24b935d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/agents/openai.yaml",
+          "sha256": "ffea3dfe0b15fcbecee0b8f97f88e5dfd829944bfbfbbd97b9867db86f6d0f3f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/chunks-and-replay.md",
+          "sha256": "754f3650886f472957cb82c740d85139d7613a35ac46d4b4e981cd5a0c06200e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/failure-taxonomy.md",
+          "sha256": "4772ea4356656d51520150cd9e1fb7608a5f210adbbba740640e3c11f0c3f6d1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/implementation-details.md",
+          "sha256": "c1c0b8536c6ec939e9d2aaa1dcdf0a47ba2703cdffb0fe4a32de5e7adf03ce5b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/routing-and-oracles.md",
+          "sha256": "d5277d2c64314e174ab28aeead660f36cf73dc53f7cd10a19ed61298fad7f86f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/security-and-redaction.md",
+          "sha256": "04dbe8ad752e9b16722ff5a0b0eeb52eb2c5dc3c260c1b6ee62122128b824cce",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/sources-and-evidence.md",
+          "sha256": "52c759fc6c2b4bbb4bfdd352464764a8a5ee8ff50f8939ead99c758dc7388ca0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-logs-and-test-results/references/test-report-ingestion.md",
+          "sha256": "551f377500a9ad198025469bdbbbc138af5c1064f374f7dba033c6d39dcdaa10",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/SKILL.md",
+          "sha256": "c35918f31a290c847dc6b17e7e892adafff5dfdc1f8ec3237f931f9bba0f0f46",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/agents/openai.yaml",
+          "sha256": "4ac2adccf8aae511308bc6c53979924610a8977abcee91313638c5eb14bd8a37",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/cycle-diagnostics.md",
+          "sha256": "f1af36e3fad0985da3773f81f8f07a4d39c8ba6f46b6d07a450550f97cc0aa8c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/evidence-and-reporting.md",
+          "sha256": "b18f74b7c2fa06807364ce51dd54ac7c3beba7afa32f00669326e5b2c57bc548",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/fan-in-fan-out.md",
+          "sha256": "8a2064454165da4f962265ec0b8870020d36cfa11cb5d61cc07d9b872027b609",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/graph-contract-and-trust-boundaries.md",
+          "sha256": "46c65be9ad28480cdb4a27f24b4bfbb84a8c832e0c00fb9b6ee08b0d78501c44",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/graph-edits-and-revisions.md",
+          "sha256": "e96e5bafbcb833827ab83259501f61fc0b9f900eacb48839a06f3cd5ab5ce328",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/implementation-details.md",
+          "sha256": "4dd11a4362456b5145823c9a0c06bb72baebc6e74afe6f34893b3aedae75362e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/performance-and-limits.md",
+          "sha256": "86774ca37879e4dfb3bc47b047d09bf98a36a506bdde084418923ff013b7f2f1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/readiness-and-status.md",
+          "sha256": "028db20ae07e2581a947ccba4f4c92008f0052be1a3d3d4c0ecb3242a4f17485",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/routing-and-test-oracles.md",
+          "sha256": "f3fae40cf2c30d6420188f3d2f79a7ea048a8e05122f1cd445b6e722135bd3f3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/scientific-evidence-and-limits.md",
+          "sha256": "6cd54c855603513d4a1e76a8ebba3f10d4607cd8e6c306ee0444096aa3dc98ab",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/sources-and-decisions.md",
+          "sha256": "83e9103fba0abbde96b7171ed7247a85d1dd7a79c1057399725957209daa58e1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/testing-and-oracles.md",
+          "sha256": "da0524acec7a7bce617fad3c1f2c3db672a1277d2869a0b2e9fa9c2eab9a9b46",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/topological-ordering.md",
+          "sha256": "3a8ace5c92dd4695531dcf15ba93516d56e4e939ff48dc88c01eea517d4ce51b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-pipeline-graph/references/validation-and-diagnostics.md",
+          "sha256": "dbe229ba65fc87786d2525d3369fb3f0058321f232cc95911b1cb8889b033318",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/SKILL.md",
+          "sha256": "a2bdbc5f70b8dbd97cbd7f74a6589b5a2a630c14071faf345d876986880231e0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/agents/openai.yaml",
+          "sha256": "2c1c0c9c027ba8f79cffbc27e0d3f7d1663cefb9e059011c13e7ecd60bbca2a5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/abort-rollback-and-recovery.md",
+          "sha256": "4cb270ffd6cf81daf7d6af896550007300d636717564fdc20e35eef8cc367a0d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/approvals-and-change-windows.md",
+          "sha256": "226339d081ecf20194029d2b6737e459f379b901bfeb98e4f62b7eeb2038cfbe",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/concurrency-and-reconciliation.md",
+          "sha256": "827e1205b04aa9ce42c758f6d8cd6b9267bebb1380e23b498d83ef947da40654",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/deployment-state-contract.md",
+          "sha256": "b370ca107fb30ebf9d23b854c14b28367fe8164b55120923ea052644adc125ea",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/evidence-and-reporting.md",
+          "sha256": "42cdc0cbca6e404d57f54a7fe049531fda16dfdfa256e6ed169a545f30f22414",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/health-gates-and-statistics.md",
+          "sha256": "6541608a2e6fff035c1fe7e12fc601748bc59ea007c03ad0de65f1ffb4991ca1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/implementation-details.md",
+          "sha256": "aea66f4f540f9a9b962742da405733208648d5d8958ea84d1f26b52749277af9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/promotion-and-environments.md",
+          "sha256": "9ea437f6dee062de8547d1435e3e2eda3b36b2cd48cdd6c1132ec11f62feda8a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/release-identity-and-provenance.md",
+          "sha256": "5549edfc04dd3aeade59b133c4d91ed1dec874399f4af35e583615a48ad89115",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/schema-migration-safety.md",
+          "sha256": "8d5e4712511a6aa5c0a57139acf1e743f197d3d4b7e0347e50561939952492d9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/scientific-evidence-and-limits.md",
+          "sha256": "d8becb36baff45441965139d47d44545da6cd7402c82e48c59cf4e200f2cd99d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/security-and-supply-chain.md",
+          "sha256": "f2e0b59bd69db53a884b6119520f93bdcee4dc8796cf5c308088fc0f69d9eb98",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/selection-and-boundaries.md",
+          "sha256": "0a1024395cf6b3caa3990047f94013bc964deddb833cb751a59b1743d0815820",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/sources-and-decisions.md",
+          "sha256": "d60f36f472ad613bdf3e003acc50a044df5c31b47d563e0e9cc70e131db2196f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/strategies-and-traffic.md",
+          "sha256": "d6042aa2530ea9267b3a0ec941e2753bc897a5d6618c8ccfd574b0243c757a98",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-release-and-deployment/references/testing-and-test-oracles.md",
+          "sha256": "ceec107bd010d157b365c0e07bbc83409dd1deec6e136f906725e411e101fa66",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/SKILL.md",
+          "sha256": "1f4b793380998c8a8a64a58e1587e2ee3a6363880e63c0b54dab1a4228e14fb4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/agents/openai.yaml",
+          "sha256": "15ed3ec1d52641b24220d1ea1e2a6a6336e815a5560011fec7fb61030daee4f8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/fairness.md",
+          "sha256": "6ebdd9a7929a6f2c8a67af3a7d33070f161e1c32b94b8446e0953dd4665af34c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/implementation-details.md",
+          "sha256": "11e94bb54227bca06a77b97dc94d1d4f629a896d4627c89c61547c601859c0fd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/leases.md",
+          "sha256": "318190edc75721f804379e6a01164caa07ead8337e2aa00163df0ff04f0aeff2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/oracles.md",
+          "sha256": "fcc52db62e8773e95913b8ab27fa72ec173aca64eb781a46901ada33825f5b3c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/routing.md",
+          "sha256": "bd02e190ee0c2cf13b4faf66f3e109ec745b7bb9b160db6bb092102403c86c34",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/sources.md",
+          "sha256": "ef90a04b0236422d96d84a39dca89ff4fcd29db3f11264e16229ea7763a8b927",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-scheduler/references/transactions.md",
+          "sha256": "f14d77f5d257bd557c84743f0530126727ed6e32333c8699cb134282019e0576",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/SKILL.md",
+          "sha256": "028518fb68870bf856cf37d7ba292d01a2e5ade9f08cd726eb9f6cca6a3afb84",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/agents/openai.yaml",
+          "sha256": "a3474823a93fd3695cbf7f655274c174ff1c48ff60a76064aa1e4ef7e81d3d39",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/authentication.md",
+          "sha256": "0f05d439055433a90f7e1b7e9f6bf3bf0dd253b08a53b7c92ddd8e8db4881185",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/durability-and-idempotency.md",
+          "sha256": "8b1d8e46408f9892df2b74b70ddbe2b8eebf31df854222796c90b096b1b82015",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/failure-oracles.md",
+          "sha256": "09db9e48ed7e49afccd9231700af5135a99214138784413806d93b7c27eb90d0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/implementation-details.md",
+          "sha256": "90a60fd88db9167f1346502362dec0270ec8510464d43433e779a01920f0ffcd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/normalization-and-filters.md",
+          "sha256": "2bb5963c91dd9bda24b1ebce32e8abb988dc85bcdabdc62b26090072ec085033",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/revisions-and-trust.md",
+          "sha256": "f665a8df6c2d0d9effc08f53ab49109fd072f8742f3e725a68f055e6a9d3171c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cicd-vcs-event-processing/references/sources-and-evidence.md",
+          "sha256": "97eaa96bfd76bf425177598209ba02a53c60a99e4204cbf105d3b0e144d69e77",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/SKILL.md",
+          "sha256": "530da9febf3cc02dad798db1c484a4dcffcdd40a5df3d660c755b197563ee466",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/agents/openai.yaml",
+          "sha256": "a360336a68ff28f5bf02611cbffb1113fa819f29e87d8011f33fd5b8b65af932",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/argument-parsing-and-exit-status.md",
+          "sha256": "a21be713a5b97ae78ae9a63966f9e7fd81329de0fb21313976ee0e6b0d2d9453",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/authentication-and-secrets.md",
+          "sha256": "f5fa6175c868fec38192a404d3c073259a34d59edef64a6110702a7eebb0e862",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/command-taxonomy-and-help.md",
+          "sha256": "91f37b6f5ae2aa8818c77f88d0d9cf1180ebc7dd85372b67ca054d9e062ec6ed",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/config-environment-and-portability.md",
+          "sha256": "2733075753df6c8ff91c762a88eb9927bda586e82eb29ca766664a500256ab7c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/confirmation-and-risk.md",
+          "sha256": "bfd8587ad29f270f58de9e05ffdb3b72f644749db7c2fbf057ead7892f28de0f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/idempotency-and-concurrency.md",
+          "sha256": "0ab17308a5320c3151e5169602947992afdb0ac1dfa17d55767abff5c185bba3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/implementation-details.md",
+          "sha256": "da2e34e42ee71f06d0a25e1e9e06ddfbe10da342e5909e675671010035607195",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/integration-and-evidence.md",
+          "sha256": "4a6fd90c3f269c3fca01b3058e780abf288223e3ae97a8d1e5649788dd60a914",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/output-and-automation.md",
+          "sha256": "e58e09e23be2ca8bfe43213e82f6f2ced82282f6cadba76f8d17395d6176153a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/routing-and-test-oracles.md",
+          "sha256": "7d2408ae97339cac6d746387d42eea414f3b5026aa1dacf486cda912abf662ba",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/scientific-evidence-and-limits.md",
+          "sha256": "82e6fbe9349523dc4f7393738eea5f955dc9739a5710b64e7d831261de060b99",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/sources-and-decisions.md",
+          "sha256": "059171d9684e0699d47c70a9d77732c9d8b59577037e63f3f5ebf26678d0799a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/cli-engineering/references/subprocess-and-terminal-safety.md",
+          "sha256": "e08f924ab71128a0e833b748cfcaa36688bffda222322d36c596f6058215d174",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/commit-governance/SKILL.md",
+          "sha256": "87cf79be8cfa3341f3ca8034a3e536f51dcb320954ebc412f70e8132ec77cef8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/commit-governance/agents/openai.yaml",
+          "sha256": "0e4ef65891b33c49828a221e981957840db4b2c33831ccbd9a99f8c4b2217ee7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/SKILL.md",
+          "sha256": "416124f7ceaa90340f63219ff9082d25f3b3c865d5a7a9db344241f7850849c4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/agents/openai.yaml",
+          "sha256": "eedf67fc6a5edfbe2c13ec29dc3825bbfebdecbcc6f3d094865146d7c7c7d191",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/browser-verification-and-oracles.md",
+          "sha256": "a85d91914d015f9d6df621d6c8230dea994ed5e3277d0bf6bc205b4b32f5189b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/cascade-performance-and-resilience.md",
+          "sha256": "fadb2946388f970f6b957a7743cfc6f4403ce8f5962032edb5c28d6b1ed231e5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/container-media-and-feature-queries.md",
+          "sha256": "aa807dd66ac04f59ee6b58b1db65399f112e0a359c80e93a30124e290cfd902b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/flexbox-and-content-flow.md",
+          "sha256": "0121a89842f3c91662200d57bbf2fd43032f71d7bf19132761359b08911be705",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/grid-and-intrinsic-sizing.md",
+          "sha256": "6f5b7ad7e7664783ac678b2decb29dd3df00975ebae4483a760e5cd93700e94a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/implementation-details.md",
+          "sha256": "1fc83849bac8dc4579f3a2447be97c2130da3e578ee012e2bcb0262c88efdfa2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/layout-accessibility-and-zoom.md",
+          "sha256": "0b06918b5fecc35a3ebc0f8099fff57c209532df8aa9fdfce6b2d3d6178127c3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/logical-properties-and-localization.md",
+          "sha256": "deb40bf21d0af5270aaffeb39f2100d65ab2c67631b83fc2d58a6ef1b9718046",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/responsive-shells-and-overflow.md",
+          "sha256": "057453dcb5b283494be53f3108447bd6485b66f1f325417605daed7453756453",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "885521771467b456a4d2c55b7b3fd6d1dd8accb30e7cbeccfeec3cbb7f45fb39",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/css-layout-engineering/references/sources-and-decisions.md",
+          "sha256": "de30a12d81d09e080ee16205f519457b6b8b65f2bc3196eb2c16a6dd8719b9e6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/database-engineering/SKILL.md",
+          "sha256": "7e1a29e4043ad60785660e677d8c9dd6ef50c69017d1b8aacdcae63e9ac9a9d3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/database-engineering/agents/openai.yaml",
+          "sha256": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/database-engineering/references/access-and-change.md",
+          "sha256": "e243a93a0839564f2acf3bdf287ad86060fd5cfe667592c1d2f184862b2bb6ba",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/database-engineering/references/model-and-transactions.md",
+          "sha256": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-review/SKILL.md",
+          "sha256": "b5b4716458d9f14a43292434f46f5c46ce523bffbf90f30b9cfad0d929252c29",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-review/agents/openai.yaml",
+          "sha256": "910d8b636b7cfefdfde51abe38c17ca13df3d44df2569a24bf30eb30d1ee2085",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-review/references/decision-communication.md",
+          "sha256": "85f7a961c743a78a20bd032fdba58babc75c0bf05011c5f98ed3c9a219314edf",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-review/references/review-method.md",
+          "sha256": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-system/SKILL.md",
+          "sha256": "bd5c8bac71c275efc4cfc2ae31b2ac7d2e009014a32ffecb91918e5b39279e96",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-system/agents/openai.yaml",
+          "sha256": "244440a0047dcc4a00e1784de92aa7fbeeef6d6ce514fb30590f4b4b290f9ae7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-system/references/accessibility.md",
+          "sha256": "54c2064005c5bf560a7010cb21cc7189c9862759b55e789b2ffc331a6278885b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/design-system/references/pattern-decisions.md",
+          "sha256": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/distributed-systems/SKILL.md",
+          "sha256": "bd6ccf6a978167d3d047b12409e2e4a5a1923701ae969034bbc9e9ce427d657b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/distributed-systems/agents/openai.yaml",
+          "sha256": "49f8aeac3efa97fc428c48e07fe438082bf4b04cbbd30847992b1057cc721876",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/distributed-systems/references/guarantees-and-failures.md",
+          "sha256": "0e9d33e8c9ec56c3b14a7d03aa10836c5dc5cd49bff6e4add73b323022eaa79f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/domain-modeling/SKILL.md",
+          "sha256": "abf26d78093f28ec3491415c9eb5cfd8ed1ae878a00513caf0c9a7a461faa87f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/domain-modeling/agents/openai.yaml",
+          "sha256": "26e6d1f0521f2136b8e3802b45481cdbcd849bc32d93ad92d0a0683ff11513b8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/domain-modeling/references/integration-and-evolution.md",
+          "sha256": "628997b195dbdf83950b38356afe99ef0828b4364071c8c890dd8d8f84d8a9ac",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/domain-modeling/references/modeling-decisions.md",
+          "sha256": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/SKILL.md",
+          "sha256": "34ad20d94bec1006d92718ecde9976e1326ef4dc65854b0b9fc0d716d2a4136f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/agents/openai.yaml",
+          "sha256": "92a57fedf4cf7741b0d88f4ddd95a3e623222f47c2b15f8a0c2239937c5d47d6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/references/implementation-details.md",
+          "sha256": "1810571553097298ffbbf119b7c95723e6409f1cfc7e572624583306276812ee",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/references/protocol-decision-guide.md",
+          "sha256": "e364fa4669a587281cb3197f5b0739bf84bb2e6b0616581caf284150db26ec4e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/references/routing-and-test-oracles.md",
+          "sha256": "bdd422c396e9fbef4e5d9c17ddbd47dca43d876dbc557bfe7ea025709f9af6dd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/references/sources-and-decisions.md",
+          "sha256": "fdc89bc0422880f3fae7a5203912eb16865c4bd3c07503178024d9ed5477af7f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-control-protocol/references/threat-and-compatibility-matrix.md",
+          "sha256": "c41148d3e7484ae8f66aa114c239627eda83bbb34a97fc02e5b29f20543dab3d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/SKILL.md",
+          "sha256": "9109b1500a75644e244daa0d5c75383fe38a63339c72b5cd03a4d77b2882a100",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/agents/openai.yaml",
+          "sha256": "5cf14233acefd45f4701b8629fad4989931b2b866928caa2adc4b7e353f01012",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/references/administration-and-ui.md",
+          "sha256": "1951e12fa090dadaaa2d8c1eb423fa11885d62b12334f0c6081056f5a8b6886a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/references/eligibility-and-evidence.md",
+          "sha256": "187e267b66298147804879f27fef3b31fd45975666d0c06f6236c5aa8d3f3147",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/references/implementation-details.md",
+          "sha256": "4c16a4466cd4d6a92023cbde7d7fa0ffa95ba1788f3ab9356aa64070cf8921e2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/references/routing-and-test-oracles.md",
+          "sha256": "0c11644a8f5e55cad63949fcebdb7194c171081a5c2dc778ed0551c6b054c19b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-agent-pool-console/references/sources-and-decisions.md",
+          "sha256": "21ae4841c179c51187d766763aaf501d4e7eeca73d1d7717973b1774f870588e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-configuration-publication/SKILL.md",
+          "sha256": "d849d9a2183bfc9ad4d1e0a4fc0a740b309954383dd8269c4256d4fe59a103ee",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-configuration-publication/agents/openai.yaml",
+          "sha256": "5f3d4dd100ad91d282133625ba19db3ba99e56b53f23b5fbd21446da46e2291b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-configuration-publication/references/implementation-details.md",
+          "sha256": "1e3352ba6e2faf0e12d3ad008ea35b7d9f7fe2fbe73d3aca7a3079775d83b0a6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-configuration-publication/references/sources-and-decisions.md",
+          "sha256": "a25afdc0ad5d4c408e1d94b4d4a27d9f6cc0d4627b26af5e6fce502deae11ecb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-configuration-publication/references/state-machine-and-boundaries.md",
+          "sha256": "2d2972f2109fbefb92bb7cc6f7319940b5f0d501d652b1008f3fac73c1b1f0e1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-configuration-publication/references/test-oracles-and-routing.md",
+          "sha256": "de3ce232d9bb5075abcbc509fc1d70f170dba3af6d4864d87511291b18c8eb23",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-declarative-resource-schemas/SKILL.md",
+          "sha256": "0582d13a8beb309350d1de838b35c2b1b57cfbde465de5c87b76f4191b720867",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-declarative-resource-schemas/agents/openai.yaml",
+          "sha256": "a234db6784a1ca198e1c322d1dd2da72b9a251aa983e85616c1bdce90360ef08",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-declarative-resource-schemas/references/checks-and-examples.md",
+          "sha256": "ec1b0bb65636c4f52eaa100254ae051945c6ee6b0e2acb6206b9857636f40750",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-declarative-resource-schemas/references/implementation-details.md",
+          "sha256": "c08b2c96de82b3bd1f41e0028a6d9ff30289d7e498f4df5cd156a060a752808f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-declarative-resource-schemas/references/sources-and-decisions.md",
+          "sha256": "620231e4a260f788290690fda3d13af008a5378d1a34dd14c5f484ec27909a82",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-effective-permissions/SKILL.md",
+          "sha256": "4a0083d154d2f8cfb72663901ad879077615a153802888ea5d916277ac176e28",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-effective-permissions/agents/openai.yaml",
+          "sha256": "29ed645c245955ff1974a3a117657b34200f5823ade22948eec4d1247179ae24",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-effective-permissions/references/evaluation-contract-and-freshness.md",
+          "sha256": "4834ee6aea6f282723ccee0261edd9b7279ef2dc792c79bee367aad6af7956a2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-effective-permissions/references/implementation-details.md",
+          "sha256": "596d9cb95471cdab45b9093bcf34c3bf913547b7f2e3c262b4eb28bbea10982a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-effective-permissions/references/routing-and-test-oracles.md",
+          "sha256": "3eeadc07c070491b409cf861e042015dc2e6da3e8a33361d1648ed7d835c6677",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-effective-permissions/references/sources-and-decisions.md",
+          "sha256": "42465f05ab384334c8baa3df1f0ed737ba4d387110180c93a4dc2bacbf7627f7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/SKILL.md",
+          "sha256": "4f54ac8e0370d2393011e4f7534c2075daaac2ee6d3e65d166cb80104883c7ef",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/agents/openai.yaml",
+          "sha256": "b99648a0556a77a75015d91f4aaf40732f11b5aecd1c04d71d2e641a2e61697b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/references/gates-and-promotion-lifecycle.md",
+          "sha256": "ff06dba2bd07390ae461a0ebe975e22bb232b9166172c3ed1a135e5bd259cc00",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/references/implementation-details.md",
+          "sha256": "d0c43885c0af2fb09f0d5ab3373cd7c9f6bf9dec6c76b451371fff32acf202c7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/references/routing-and-test-oracles.md",
+          "sha256": "33acf7e8ae1185e20d1674bb43472924c8ebc6319cba64172be873bc387b0cf6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/references/security-and-ui.md",
+          "sha256": "37718085e57aaf264bcabe590acb41548854d9b9501615580a61a73539e413dd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-environments-and-approvals/references/sources-and-decisions.md",
+          "sha256": "7f9cbdbbcfd356e19e585c2ff98ac4754683cffe078dc43abed80a599bcdd43d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/SKILL.md",
+          "sha256": "cc5568f5b3ca4fd46d9ad72fbc1a199ca720c43000eb717ac9cf15bd9fcd6eab",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/agents/openai.yaml",
+          "sha256": "ba2741560dc19c1a1d49440dcc647916876ecacf4b8d297449a3c54414259c67",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/references/connector-configuration-and-credentials.md",
+          "sha256": "f264d2bcbfcae07d4df58915ae19a2847ddc49d40bab10403dcc65d5edfbe0b6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/references/implementation-details.md",
+          "sha256": "9ddf0123c2f496e96276d76fe4c6b8a6e6c12a923a722c1f6e9515f2374af0a3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/references/inbound-webhook-security-and-admission.md",
+          "sha256": "b2f906c540fc9089015ea7816adf66a1b555e41e8f9de20443ccfa6aaec4bfcb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/references/outbound-delivery-and-observability.md",
+          "sha256": "910f8aec2501ea42e80da75ee14481347bf5b827dcb929bb977e1a14596f264e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/references/routing-and-test-oracles.md",
+          "sha256": "5707ab2f7975ba0cac31386382d4da1aae32c8c54127ab35b43e71d5448a6796",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-integrations-and-webhooks/references/sources-and-decisions.md",
+          "sha256": "34619d36c40793cd8e22f2c814ac60a070019b10454ffa96b687c68ece528d9e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/SKILL.md",
+          "sha256": "19d1de008c56c381ce600f561fd7084b266f306fad8cb0d83be32e04fb699b60",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/agents/openai.yaml",
+          "sha256": "6d8052dd811a8106d1302123a10e6091878152fc30ab548d4750ba88c8c37fd7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/references/admin-command-and-audit-safety.md",
+          "sha256": "33fde06a738f6f6299bc17047b656d75c8e82ed6b960c0e09348cf8ae8996f12",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/references/health-evidence-and-information-architecture.md",
+          "sha256": "07b12e908867cdcce5840e45017e4094190a80a91b0abe2dc1f4a8cdf8feec95",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/references/implementation-details.md",
+          "sha256": "ac435f60946235a972223a0f425aa6787cfbc69b00c68faa630b9ef18300e12b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/references/recovery-and-ux-oracles.md",
+          "sha256": "16b55c13135679beb3c4c9b09fcc9a46713efb8b049ebe8c8a142afafc85a3de",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/references/routing-and-test-oracles.md",
+          "sha256": "d2b3b567fa1768d275280a29a0cf3647f13a8a3d54e6e8c9f0095ab88da1dbc3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-operations-and-administration-console/references/sources-and-decisions.md",
+          "sha256": "0e9d5a7c981a318576a7c3b0c492a604813dbef3bc6eed9ecc57da561f182d30",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-people-and-access-administration/SKILL.md",
+          "sha256": "95bb7906f62f62ad4e9d8eb9b4022b8d2ac33f54cb1e995873a1047873bac3d9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-people-and-access-administration/agents/openai.yaml",
+          "sha256": "6acd78b29fe8a2b8343a39698a3829aa647b785070e69ce63bb8335436580b7e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-people-and-access-administration/references/identity-lifecycle-and-bindings.md",
+          "sha256": "3ab7585d8120e4b8ab066777c3fcd45e91729454b8113a41301d06d17bdb508d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-people-and-access-administration/references/implementation-details.md",
+          "sha256": "40a47dc348f0b817d121d9b483d2d631742b4157ebf37a9e064b570abec4411e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-people-and-access-administration/references/routing-and-test-oracles.md",
+          "sha256": "2fb773f38feee0e333000e21c73142674fb0f7c9ea46b7b9b81f6152f376a527",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-people-and-access-administration/references/sources-and-decisions.md",
+          "sha256": "6fd332e150e8cb771e45c2492d7ecf53eba95f3e72306c96a2ee8ea9108ad734",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/SKILL.md",
+          "sha256": "faba43c0ebe850d82aebbcbf802f188b1c47bec4acdef35ec7a884a4578b170b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/agents/openai.yaml",
+          "sha256": "70afd3101d1df8ae2d5a4ee94edf93b71cf70df49f3771810288f195947d305d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/references/implementation-details.md",
+          "sha256": "0b8d391efc6390c7391d4f7be3f0c873b7c24c05c66d302e98d3113474d6ab02",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/references/interaction-and-state-contract.md",
+          "sha256": "05f66f430c4914c09a0a00b9dc64c9613da9656305970cd82f183e10cf41e8ac",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/references/routing-and-test-oracles.md",
+          "sha256": "c3a8ffbdb787a6ce487e01d3bc56dac36b5a5b67db247239ef1c0268f47f03b0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-pipeline-authoring-workspace/references/sources-and-decisions.md",
+          "sha256": "fe067b6ff340d443c7a9654a447f4b60ca4a179af35f84fcf1a2025cd1a9aa67",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
+          "sha256": "f5a38d6a000b249f1bdfe87b26bcd678159a65c9ef404f229a20590a73ab98e4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/agents/openai.yaml",
+          "sha256": "c88fa8c117165c0e042c9e6d20ccddc73038f3d9e9dadb61ea326a6617d47d39",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/references/artifact-verification-and-trust.md",
+          "sha256": "31f3b36c878fbe89cf53a864c8b75d5c04f50c7406ab0c430e2251e8b10bd48c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/references/implementation-details.md",
+          "sha256": "297703b36c6ca22463d79eb33265f291752561cbaa53a0e732c5156adc48023e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/references/isolation-and-capability-enforcement.md",
+          "sha256": "75ba08d0cd8ecdcd4c1ec13845e231e549605b0efcf09399d5d882a25a59cd44",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/references/lifecycle-and-reconciliation.md",
+          "sha256": "39a0de2dd67f2e3829fb432fe2c5d0005630684050af78f443207f2eeb45fd3c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/references/routing-and-test-oracles.md",
+          "sha256": "2c93cbccf580a88c9002e08af127f1a73d75a313897d5f39c5bab077368a7101",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/references/sources-and-decisions.md",
+          "sha256": "00201d8fd9bf699f0fa2abaee90f54bde813147f2cc672a71b2357fb24daefb8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
+          "sha256": "1df686cccab0aa2c4491505d302a2520713221b71ab003471e00b8757a83aa4d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/agents/openai.yaml",
+          "sha256": "bdf72e62b2f43916f2c5d9f2bf93cef0171eed36344402b64d67c9ee1ab174b0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/references/constraint-resolution-and-contract-tests.md",
+          "sha256": "6bb32ed88e1163356353cd02b73a0c7af8bb41cb137e949a881060b2374b81f6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/references/implementation-details.md",
+          "sha256": "16d58249f7bdb753f1c53b658c568ff3f88c2e08cebb4a2e2e272326989e986e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/references/manifest-and-version-matrix.md",
+          "sha256": "8c2b74ce621b6982da4dc6e278da4107cdf3bd4c05e2c7688286cb3c05e57229",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/references/routing-and-test-oracles.md",
+          "sha256": "d38b3b3a055b8869e123e5b93ded5c478be0f84b5b094573d185effb4b7a4a93",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/references/security-catalog-and-ui.md",
+          "sha256": "d0ba1f20b1d6f8e3a467fd3ad536b84da020ae7192114f2fd8c36d46739bc8d0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-plugin-manifests-and-compatibility/references/sources-and-decisions.md",
+          "sha256": "0c48eb014acc0f2bc26e36f4e8d5aaae08d341d079e9e4210b29f44420452a01",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/SKILL.md",
+          "sha256": "8a9fc535edbb905a580f73b721f6707ec62a4462328e2a5560f8721c44c679a4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/agents/openai.yaml",
+          "sha256": "ffbd47a2f2b8c00050b48a206dedd015dbb7233b1ba1bc148894dba10e25b6f8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/authorization-version-and-reconciliation-oracles.md",
+          "sha256": "3f98278c52ebda0c0a860ba55b3d9f0dbf3631c01ba41578450ab6e9d94aa927",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/execution-evidence-and-fault-injection.md",
+          "sha256": "eb905d27421a732ec5d914d9d31ef50cdd51f283676b3c4bdfe51893c8867a62",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/harness-architecture-and-adapters.md",
+          "sha256": "a9ec822dcb2271c020dfde665271c1efbb0bf9ea52e4861e99851c8149a3cb30",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/implementation-details.md",
+          "sha256": "a3396b7fa28cb939bca2625454729ae4a1c8a88b8e5c003060753d9e9456bcfa",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/routing-and-test-oracles.md",
+          "sha256": "65cd938bfd23d83701ff0ed60b24c45e592405f8c6908695ea3b5c544a8f34a9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/semantic-config-contract-vectors.md",
+          "sha256": "b7b47f94dd68040cab7cdffe95b4d341ea3da8370a65714e98148830d51a546d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-product-contract-test-harness/references/sources-and-decisions.md",
+          "sha256": "8029a35e8e375bb6adaef927d590c0ad3d0c20c514af519d0e7dd889799b5645",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-project-hierarchy-management/SKILL.md",
+          "sha256": "41598585c8b42d77cdee08156ddf1db9a961a0785aa06102a8fba24c771b2b20",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-project-hierarchy-management/agents/openai.yaml",
+          "sha256": "66a307d5c5da2a7c6e300590699e0726802c7730870ccbda5cf862781cabbe28",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-project-hierarchy-management/references/hierarchy-model-and-inheritance.md",
+          "sha256": "eb1359828edad83c522d5be930211dc0d5897e08e152bb5aa5565041a7b31744",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-project-hierarchy-management/references/implementation-details.md",
+          "sha256": "294f69a81bb7374cb0d91d545301359c6590ceb9a00aed5607363899df56c2b7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-project-hierarchy-management/references/routing-and-test-oracles.md",
+          "sha256": "10f0135ace7a12d6bb68b6f4aedbbb4e49b59b460ea24d9071fd30969d2bb9af",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-project-hierarchy-management/references/sources-and-decisions.md",
+          "sha256": "c54572729d1e46baf532ca5bd3f330d30d39cb844e44fa37041b05db1c895cc8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-run-execution-operations/SKILL.md",
+          "sha256": "5fe19e1dababa67b9b2cf146cd593fe287c7c4d1a60391fa9f2cb5bfcde27dea",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-run-execution-operations/agents/openai.yaml",
+          "sha256": "432227a56f950ef280cce3f658dcffcfdd4a7d2948606de895c8c13b1834998f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-run-execution-operations/references/implementation-details.md",
+          "sha256": "f25b9c7f6acd1c7f50f6558b957104ef0a012335d4a6f451b04720091462d2d5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-run-execution-operations/references/lifecycle-and-operation-contract.md",
+          "sha256": "e8c18234c3172f7f3a2b7b8ea3aae5c1cee74a6c690feb1043b73a9ba1fb23b3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-run-execution-operations/references/routing-and-test-oracles.md",
+          "sha256": "a65e84e48d43919805f027db082f85804a03a1dc6974e3dee0cece5b3073d4a8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-run-execution-operations/references/sources-and-decisions.md",
+          "sha256": "8e80a8d0817aa1d182909772ae20f6455f091fc3944c536f58307c958a0e22bd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/SKILL.md",
+          "sha256": "d8e833a14c393737a0f9472873e3c989408b99958d431feec4ba747e85208477",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/agents/openai.yaml",
+          "sha256": "880cc8a29a7be0186c7d3b8d418d05aadd9163ff175f1356d6f15327f79890d1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/references/implementation-details.md",
+          "sha256": "abcb1fe38bff33f27df0b93e9c16ccf8ecc202a9cf813b0c6c9998c0edf206b9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/references/lens-laws-and-data-model.md",
+          "sha256": "eed446f520041b0d6bdef969d82facdd16be02f5224b249eae2a3d4e0e2d373b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/references/sources-and-decisions.md",
+          "sha256": "05bce94632b98a5d2497e53b08ffb73017d83d6ecbc9b2b5b9f444d0576774a9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/ec-semantic-configuration-projections/references/test-oracles-and-routing.md",
+          "sha256": "4435b452c0bd69c8086e29835394d947963f164c960e672e3b23256a33719d11",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/engineering-productivity/SKILL.md",
+          "sha256": "167d5216a4069405e48d8f56886a2ab796b7c0f4a1e73617ef6bc6b9173e4c38",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/engineering-productivity/agents/openai.yaml",
+          "sha256": "0b3b325bd05637d16d229edca798b2800e304c6ab1949d87ef8074fc98caf17c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/SKILL.md",
+          "sha256": "167196a12da8db4979728adc201ba551d73eba192bdfe71757a53574900580c4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/agents/openai.yaml",
+          "sha256": "e0344eedc526d16e52aa657246c5b475464aa6c83127c47770f181026a95c17a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/async-submission-and-concurrency.md",
+          "sha256": "f35774d80ad8e089260685db0a528f638534a3180e6476df606f3d0cd112b828",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/conditional-and-dynamic-fields.md",
+          "sha256": "665b135ec997e2899d838c34006d30e92e1a5634a08289a3b4a6afeda0f04d32",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/field-types-and-formatting.md",
+          "sha256": "8a3d4ac959a174a9a388287fb0b8f3832bb5ad94c7498d6f5462ca696426fcab",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/form-contract-and-state.md",
+          "sha256": "e5f5ea4efb726349da3507850bc3aafe5fb2ed75e5adf615e717be356d58ff73",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/implementation-details.md",
+          "sha256": "f7305952f30ec04d30317537cf3e7382e1ae5fa5a07a2535790969590d4561e4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/native-accessible-controls.md",
+          "sha256": "0f7892c2616e8e5a4bb39eabd75311658785375b3b960d692ab22ccc3c047b04",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "c8a2da56b7d2812c62a4c40bdffd22a5c3310e0cd48d9abe5cb3e6057bc89544",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/scientific-evidence-and-limits.md",
+          "sha256": "2364e42430dfb3f3dc24c9f294a294e65db1eb326a3d913ececfee4001ce0f01",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/server-reconciliation-and-security.md",
+          "sha256": "025e1d92f24bcc4095c4f6c52370c6c041bfdca5537299928ffd02247ee25c2a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/sources-and-decisions.md",
+          "sha256": "e4ac35f82cce78928ac1527f258f71d30e6f66eecde80361e07f53f34fbbc0f1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/tests-and-evidence-oracles.md",
+          "sha256": "ae4c9777ab219eaa65662f1ec6e904581c8040237f69f668a72a5fd927cefcf9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/validation-and-errors.md",
+          "sha256": "8b0242eb77c178e9b013cb30b09297ebcfd39e7b6f891a5d148822c3fc49902d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-form-engineering/references/vue-adapter-boundaries.md",
+          "sha256": "3e49226dde206a9e2028ecdfc4df7ff59df87cb7cc2b8151395f94f2d3d934f5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/SKILL.md",
+          "sha256": "fb43d2562a11553f6b1505f50f6aaabd8cc488c513d101902b2cf2c26cd8b960",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/agents/openai.yaml",
+          "sha256": "3f6436cc68e9b25ec139f6d7dc753b906ba659b4a79b7a31dcd0b9b0e8a1f88a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/accessibility-focus-and-scroll.md",
+          "sha256": "f9fac0e5596c4fe4fb927ef33fc668b3e45e9d15fbd943b05036186920b49ba9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/data-loading-and-race-avoidance.md",
+          "sha256": "772b4abc4acbfe49177bed90d2f1b221e3a7f5abc97c68c7ff20fe518591ccb2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/guards-and-navigation-failures.md",
+          "sha256": "de4909764f36f4798775c792ccd415f86dacd53083413a663f4913c4882f215c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/history-and-deep-links.md",
+          "sha256": "add9197a16319520ec7aa0897fca1771c5ccddc7cbc10e65777cdc806c2a97c6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/implementation-details.md",
+          "sha256": "d047bd7129083f1fb0623747d882188b5159301d106968ac3a64541e499d869a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/performance-and-migrations.md",
+          "sha256": "6c830af6908b86de5d374d6b741f0d59c7d9f478d2f0790071e3b268f7f8f653",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/route-identity-and-boundaries.md",
+          "sha256": "e62a4fe1f12270b486eef5c9ea8c7af06362426a02b2bd32151c40876aaa60f0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/route-testing-and-evidence.md",
+          "sha256": "4cb4141fcd9a34b3bb52651044475e6e27cfb56dedeaed93cddfaa173ee11853",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/routing-and-selection-oracles.md",
+          "sha256": "d7a58d1700732c84667c189ebe33e525f9794473594610c3c50831fc5669ebf0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/safe-redirects-and-url-security.md",
+          "sha256": "07bf554f4abdb86fcac94605c001e491f8ad2f9714375bfa9b5bb2d28fe45025",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/scientific-evidence-and-limits.md",
+          "sha256": "09a2c7587bfafae423f2bd7acd9c8f504f9bda88e72cab0b28efd039057cedae",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/scope-transitions-and-permissions.md",
+          "sha256": "2bf1896072845acbe681d002328e30952df6e0c60b5de98bc1858143f0efb670",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/server-fallback-and-ssr.md",
+          "sha256": "391c349b68791c949ad255bbd797335f6418d35b5f258e423d69af8625325f07",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/sources-and-decisions.md",
+          "sha256": "c981a19fb87c2a8688152ff22cffb3068f560857923f743ee0ce8137aff57633",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/url-contracts-and-query-parameters.md",
+          "sha256": "df5f7ccd14c51eb36a3d0a73bd5d758b52a998844229862a01b4bb1eacbcefc8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-routing/references/vue-router-implementation.md",
+          "sha256": "ce6d1aadf3bef9316e4d318ee4c277751c6f2ad1c4b5ba08de70f2c52b9baa5e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/SKILL.md",
+          "sha256": "87ef78391852027062bc56e611f01325ea0873488b6639189b1b5de8f102c1d0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/agents/openai.yaml",
+          "sha256": "0e68545c003d38dc78b5536d82015f6c68b955ad9a68f27c1329269b7a8746ff",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/cache-freshness-and-invalidation.md",
+          "sha256": "57a11553cdbfd08f54679a123555b28a719283030c4b83d6d8bde60fb9f5aafa",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/concurrency-cancellation-and-fencing.md",
+          "sha256": "0bfb68e5a92904ea8461008906ab0c0136fa7dbd5bf5a8652620f94a2eeb1da0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/implementation-details.md",
+          "sha256": "e6dca22f26d5fa3c1eef62d0dde76f1b9dafe07762b49af060ce91d68fc3d637",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/lifecycle-memory-and-ssr.md",
+          "sha256": "960147a1604cfe83935bb440b9bf6242ffb6a3350e6543f317ec0311f24ab14f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/mutation-and-optimistic-safety.md",
+          "sha256": "ad63046de46c917dd66717331f4cab891c2a405eca7a0eeca626f1804acd0664",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/query-identity-and-isolation.md",
+          "sha256": "40599ddb043814432b036ed34f9790af10388525184cf22f0cce624911064a49",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/realtime-offline-and-resumption.md",
+          "sha256": "41b712178ff2e02cf46dd261fa00c521334fa1cc23682107822430f93af2944f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/routing-and-selection-oracles.md",
+          "sha256": "cf6206989375324cf22f94e8c9efd0afe1feff601d0211142c9d26823e448c0b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/scientific-evidence-and-limits.md",
+          "sha256": "9d17523fc148b0878494276ac45ed63a78e2dcaa893f013d571407859c0a61eb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/security-privacy-and-http-cache.md",
+          "sha256": "f4b43e8e436a7dabf4461ff5bfc41e22e384c4f06b2b9118c38010b2249d2642",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/server-ack-conflict-and-revisions.md",
+          "sha256": "ee4f801c507b527c6c7aacc8ae4c66b24e4fe2e01308a326f52145d1a29e384d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/sources-and-decisions.md",
+          "sha256": "d19f8c09200b29bef71d2c5616cecd52a675d36def22c18328591baf9feb30d3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/state-ownership-and-projections.md",
+          "sha256": "eebdce3436c5dbbfd7d0a9ae45b61861f1782372215f6101e837513bc6b1eb1b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/testing-and-evidence-oracles.md",
+          "sha256": "8ac97fde9885b39be8620f3c113b83378bc20bb43fca27ffc073a1f4457c1049",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-state-and-cache/references/vue-pinia-query-adapters.md",
+          "sha256": "748cf387b01c84880bd6fcec8de2dc0d50a7094a12bde7116c860235f73f6d41",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/SKILL.md",
+          "sha256": "343c078d7785b63096deea640584fc9e7ccfece6ef3eda86ce7d66513d0d610f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/agents/openai.yaml",
+          "sha256": "16a9553783909196411a7d89a5a9ee1ab960687cdd3761b95b7981104427360e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/acceptance-oracles-and-traceability.md",
+          "sha256": "1d57605a3b704a1d49eae45f71cbe4b633af4f5c8c51df54ab013bf0cba0ab14",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/asynchronous-behavior-and-timers.md",
+          "sha256": "08b5927991446fba753f636b73eafe4fde5e6f1b36659b59c77617e91ab1d19b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/browser-matrix-and-accessibility.md",
+          "sha256": "b811e2b9f07e4b2412172215a3c95f99862ce0a3908d607b03c3de80aab74bb1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/fixtures-and-isolation.md",
+          "sha256": "57d162e24ec10433302ff1780afae90dfb5d4156f70876f75274e2653e1bc2d8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/flakiness-and-ci-diagnostics.md",
+          "sha256": "e04c4dd76f7e1a24d05c05baf41e9f455857adf91038cf8e81a4f61ecca10a8a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/implementation-details.md",
+          "sha256": "0ce03f46bb22a11cb902acc55289a15c6970e2fb4376559eb5db6f0d87c06c6f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/mutation-and-coverage.md",
+          "sha256": "aeb7ab9f206e695e5778c8489e5f3cb619ce7887abb1acfde8772dcba0ebd7ec",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/network-and-contract-testing.md",
+          "sha256": "cffe7315a977db8b335be5462fba7be410ba99a5124f697af796c0cbaeafcbed",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/playwright-e2e-and-locators.md",
+          "sha256": "16a143869f309bb6f2bc22f0ad71c5e32119a49ca43fe78a7bb2c1c0280ad231",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/routing-and-test-oracles.md",
+          "sha256": "179486b2d00dd006a2b03a939d7e021ade1f6f50dcdb3965340136347f541536",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/scientific-evidence-and-limits.md",
+          "sha256": "a2b5cb63de98fd44e8e90fad9afed202562a9d6f3c4b375fbf304ec5c26da036",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/sources-and-decisions.md",
+          "sha256": "7c395fb1a084a38ba5c10b9167a85a37e621cd647851489b9755f55a1dd5e5c2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/test-evidence-and-reporting.md",
+          "sha256": "cc90a6b4742b7e758f17dc531481cb0225fc60bbf9ef68a18e5c77bad14e3667",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/test-layers-and-scope.md",
+          "sha256": "d376cd6ad04c231dad116307f5ae868911f33f4db05219cd8f4afbe96c2af894",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/vitest-and-test-environments.md",
+          "sha256": "215c58f5da5570763a1ed4f83112a2fd84b8c97a4fc3eb59f9d648c55a8da614",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/frontend-testing/references/vue-component-testing.md",
+          "sha256": "55365a2bd9b3d3ed2af6bf6c86b9cb297f437a6e0aebc5c12de09a4154fc6545",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/SKILL.md",
+          "sha256": "616964b9319cd105fb72e18c05c25ac34abd62bcee186b517642854ecb8dac31",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/agents/openai.yaml",
+          "sha256": "e4270e3cb633b9ffbed455e560760af4816cae876fd128ded9eb2e0299757080",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/asynchronous-operations-and-idempotency.md",
+          "sha256": "6a0bd9e03e9dffc6ff3925cad5d6c2daea486ba2348fcb0ca5f602d0373c56df",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/caching-privacy-and-validators.md",
+          "sha256": "948315bb16dc34bfa77f79f450f08ae52ff2f2ea7459ebd455f7fda55c780b9d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/conditional-requests-and-lost-update.md",
+          "sha256": "e138fcdb53af5e896a78918180c8fcac9835ebafdc1881f134defc0c65f62cc9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/errors-and-problem-details.md",
+          "sha256": "8e262e2424e39e9b52b8c8aa04ec6556f5bd7f24741f0ca43a64bd95de0d4850",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/implementation-details.md",
+          "sha256": "fe9db5a0493a4e79c1b8c051fa977c2db79cdfaacfe38c6cf208683ca3d322f4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/integration-and-evidence.md",
+          "sha256": "2b6c0286669ba4e2179802eee3025507653b1980d90007ea10584ffdefb683b9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/openapi-and-schema-evolution.md",
+          "sha256": "c9ad02795b6d813fafd571720e2a195a5af5f319ff8a56aaa5c058cbce2779f2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/pagination-filtering-and-linking.md",
+          "sha256": "2e684b1e29b86edd98f47d1f9eb7d8dbaa4fde16ebfbc318572e5f9e5dc56a55",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/rate-limits-and-client-resilience.md",
+          "sha256": "1c54e0c4823f1fdaee70e489f757c689a4307a77832ae9f299dbc87206859fed",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/request-response-media-and-validation.md",
+          "sha256": "4be606ae710a1ddc2a70f23baa27ee03910eaf65eb65182b50c53241240abe78",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/resource-and-method-semantics.md",
+          "sha256": "6803960fdd795a123bb6f260bc81d398763e1bb742e4067c553b01cc64382a64",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/routing-and-test-oracles.md",
+          "sha256": "767ea3698fbba686d29c220b9bb1ff8e723a74f7b507ec39f03314b0ecbdb6f2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/scientific-evidence-and-limits.md",
+          "sha256": "101de64bcf007795cee20daee59ce030ae9341811a4b52990575071b59c07da1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/security-boundaries.md",
+          "sha256": "b49a4cb80fd08424de36faa1404a9035fa49a59a53260faba6beb92f79f12f26",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/sources-and-decisions.md",
+          "sha256": "66ea0112702ac50c233be88fd2fc48500fde063d1c2c70d182ab7ebb8177421c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/testing-and-evidence-matrix.md",
+          "sha256": "9fa5665187211059a506f38289741b5a2d32a86b9c510f5b5f83a790e1e12da2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/http-api-contracts/references/versioning-deprecation-and-compatibility.md",
+          "sha256": "bc61f10ba9ba5c6ebf52c9816f0241086cab2551367c732562f394d6fbae4b4f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/SKILL.md",
+          "sha256": "595df8b3c43c062527f4f0ec63c6745a1fa71127f00bccb319cf53cc17631496",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/agents/openai.yaml",
+          "sha256": "356e430ea42ed4bdba1f0c59f7cfdc09aa105773f8beeff6bb9ee84487e97218",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/authorization-code-pkce-and-callback.md",
+          "sha256": "7ca1b88aa1d446947d582b67c861c0b62cd71acf4e649acb581398e75da5c7e1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/browser-clients-and-bff.md",
+          "sha256": "e4f7dda656e4d517778da7f216c10542406c37e804cebf78f14ffdf68a5aec4e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/browser-sessions-and-csrf.md",
+          "sha256": "4277cbd08dddf7aa037e2bc40b7572fa6a554a8b5d22fb3c44d889c8aa10f566",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/id-token-validation-and-jose.md",
+          "sha256": "6af2a6ed0eda2c3c79311e2298dc5bb724e95853bac8aca9b5eaec5407f0d862",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/implementation-details.md",
+          "sha256": "85adafe3c53c390a4802472b331f84700c1b8ae2abd8c71191b8a01335148fcb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/integration-and-evidence.md",
+          "sha256": "8f48a56c33993179c9d51d00a898dc7d50d9970bae5c5b3e35eb31742c246a9d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/interoperability-and-test-oracles.md",
+          "sha256": "0f20cbdb1a8da503eb4f24ea9720f751321939d1b11b630bebd1c65c11b63650",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/logout-and-recovery.md",
+          "sha256": "2e2cc027768e5fe6db6ad4f7ca8089ff49f40153378a4e0a27b9130e64fd1f2e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/multi-issuer-and-account-linkage.md",
+          "sha256": "287d0467eb837c0acfaa6ca3f5f3876b5ef4fda87f51c9786a77dba58be66ede",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/provider-discovery-and-key-management.md",
+          "sha256": "336ffdfaf37151f58937efa0db04b21d52cb11221418fb4e567aa3a6fc759af1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/refresh-rotation-and-revocation.md",
+          "sha256": "a3b70fbefcfccf029241079558fef94cbc058aa2c635f84c39b8e6802c68338d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/routing-and-test-oracles.md",
+          "sha256": "7844fe76b8f6ab58c7449a3fbd68edd98876c50e738276d22ce835a6277778fc",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/scientific-evidence-and-limits.md",
+          "sha256": "e5f8f77144400f11c31d231f23f62fafa7c2cdee08f7fe52165817a7816946ee",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/sources-and-decisions.md",
+          "sha256": "03096fbabcaa30ab5f7335a0d0da2e80313f74d1329d96330c139e6e487e8b2b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/tokens-and-api-audiences.md",
+          "sha256": "2d3ef4ee9d02d7f643053472c8f61a581e1965be8c824f3f3c3dd665cacd4b6b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/identity-federation/references/trust-boundaries-and-threat-model.md",
+          "sha256": "9ea847402cc0ac31cfe5f8bca3648c803d7e7e964119c9a31c0f2ccf85016b9c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/SKILL.md",
+          "sha256": "73f4d95df780a2630ac401f02913f9c47b6edb1a5f3b16143a05e205f6abbe7d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/agents/openai.yaml",
+          "sha256": "49f95c930c2663802ae6917e334268757ac4dc39aa12b426abf50748361691d3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/acceptance-contracts-and-reporting.md",
+          "sha256": "6b60c287b14ff9734b10bd0c24901c3c7c95cd25081514f58d7b49c4d4d91dd2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/content-model-and-taxonomy.md",
+          "sha256": "c26f11c2cd216a709cc3897f3a4a5931d4eb9e1b7e950eafb04ece1b6a4a43ef",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/discovery-and-evidence.md",
+          "sha256": "344c823cd67262085cb31fbaaea75ae2e00a5cc669c8b0b6764e51beeae11eb8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/experiments-and-metrics.md",
+          "sha256": "003d3b23275671bea0c0033861904844320830d93e5ceb20d2f7a66fab4bb5a5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/implementation-details.md",
+          "sha256": "e2be98cf857ab3ffc2d5ed67df39a61811ec826bcb2ffbd9530d8e5f273bb972",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/labeling-and-information-scent.md",
+          "sha256": "e154fad803b367889dbedc3b1b87666a740ca561a18294c8a2aa6f9d43c44238",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/migration-and-url-governance.md",
+          "sha256": "ec102f33ccf1701ab079e9e4dc418338a484ce1cd93e677e55a40c8a6e698b84",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/navigation-and-context.md",
+          "sha256": "294a927c25da2bd0985edf8a06aef8dba742e093c6fce6cc6db0335acc6234d8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/routing-and-selection-oracles.md",
+          "sha256": "331316925fd9831f64680262d11d3b6c7fa834fa9a6ff5d3000ba65926a4cf11",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/scientific-evidence-and-limits.md",
+          "sha256": "34c19b45b414721ebdc3e9b688ae1ba45894ee938e15921f09bdc6b0753fb0f1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/search-and-findability.md",
+          "sha256": "eedab3d09725f63e2634aacb8ffcad2b762aaaffd5d31d3ad2be301ea81e0d3f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/sources-and-decisions.md",
+          "sha256": "6fc0cce210c83415af5de0c0b766748c23b6d14d081b1f447e6d960444849073",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/information-architecture/references/wayfinding-and-accessibility.md",
+          "sha256": "b552ce6246c75d9255ed6d672ce2336f24cf506dfe3c99f6a2366768db130f60",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/SKILL.md",
+          "sha256": "decc3a8e0eaf250e48124abd8683566d59c24ca73312fa1d2465f7988a05d40a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/agents/openai.yaml",
+          "sha256": "ce97f2180b037001e7cf854637ae5e6a2a5acf60c3a395e5de15036c81b1c7b8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/bidi-rtl-and-input.md",
+          "sha256": "b2b7265f6681b3c7bf832733357716836c2a5cc67c1ba42f4bff8779c0287da2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/date-time-and-time-zones.md",
+          "sha256": "ecb15336e4f71fabebb8ba0ded1ff89a2b16043f310dfce318476985e44f68b5",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/implementation-details.md",
+          "sha256": "0840ec552e6a2aeb0f85c6ea84d210b6deadd9e1a20a4ed0ce35ed509b779979",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/integration-and-evidence.md",
+          "sha256": "f1d9715a54c6400ee7e794a29bae18a907d70e9bf92fcbd2a9ea1128b7900c93",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/locale-negotiation-bcp47.md",
+          "sha256": "b8cac8d46a337f19dbd0ec352cd72c8e8a33f35019e87db073ed283f40ae1a40",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/numeric-currency-unit-duration.md",
+          "sha256": "0f4e8af6e3b36aac585124899a0985e705c8857e028372ed6be45f172625e6ed",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/plural-messageformat-and-context.md",
+          "sha256": "23f1439c901b5429a6db8dde379faa5091ab47d91afcd2252f782116f308cb97",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/resource-contracts-and-extraction.md",
+          "sha256": "4de052ef6ff3ad9a9148868eaa240b4118b617dadf623f1945d3fb9810184cc1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/routing-and-test-oracles.md",
+          "sha256": "bfdb376d009dfc193bd6b6f9f0bed544ed5fd5ee82ad3fe09ea14e99095bfa5e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/scientific-evidence-and-limits.md",
+          "sha256": "1fac3bb41ff111f3116fab3e1db6d7cbe3f69f0a0990ce5b13ddaf7ae12767af",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/sort-search-segmentation.md",
+          "sha256": "f41cd50bc99a7367fae2d31c35d52721ba934cec522fdb563c30192604f3f470",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/sources-and-decisions.md",
+          "sha256": "04c611b09c78afe9c74df29e52980c6f6477e94b2f2fb22e60c74b64a57ab84d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/testing-matrix-and-oracles.md",
+          "sha256": "f2acc2a5ae6719d1890190580d3f36bc33fdc5dc4409f9a509623abe35f28d23",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/text-length-pseudolocalization-and-layout.md",
+          "sha256": "1d050e76697700bffafeb9230fe532040a8145a6be8dd83514224b26ac213d8b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/translation-workflow-and-security.md",
+          "sha256": "01da2fb29cc2526972029f5677724735d85e6cc612039164b315fbed0e9b57ac",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/internationalization/references/vue-integration.md",
+          "sha256": "56892da05fba9455d4c33cc771d3bf6e1793da90620210216e3e23e4e88c6661",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/observability-and-diagnostics/SKILL.md",
+          "sha256": "31a797d9cf58bf9e9f60ca325121df07322ad472e1004393f4be16fdeeb54cfb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/observability-and-diagnostics/agents/openai.yaml",
+          "sha256": "fdb89e79567f000e74d8d4d714a93af87d18e3db264a3a08c37df41d0ea79f28",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/observability-and-diagnostics/references/hypothesis-and-evidence.md",
+          "sha256": "78baa562d0631c66db394658c0e772b168495df0a9656702723e5c5641d276f6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/observability-and-diagnostics/references/signal-design.md",
+          "sha256": "a8b5327558d996b8fbf9232ab2476be2da26b9170cf18a2a633c67c9174d3d2b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/SKILL.md",
+          "sha256": "b058f2af783c68552be3a2c4634a633cf9e765920dd85c0c277d22941b24b6f0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/agents/openai.yaml",
+          "sha256": "efcf46fd9163d5b55f574fcb2a8adb505717ecf88ea5165ed6f4ccfa09799055",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/benchmark-inference.md",
+          "sha256": "29ab4059971a6765755711806a6147bd1a05e379219a707724bc24d366613911",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/changes-and-comparisons.md",
+          "sha256": "007394ab92f32df7c82fa25bbf8bb304c261ca7ad7b5b3eb04600fb56b21c211",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/gc-diagnosis.md",
+          "sha256": "195b5e05d42cc17ff581d9807908e3e5353402a0148363d7d20577c5fdce21c2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/measurement-and-diagnosis.md",
+          "sha256": "c5a62cb8f3bbcfcd7dbb29cff9978f9d382ab78838bc8fe857332ee739a1b090",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/memory-and-work.md",
+          "sha256": "5f1dd350fe4af41630f0b1597c792c3b2af1639424aaa10c9578c28bf4507195",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/observation-boundaries.md",
+          "sha256": "068cb076029bacf5c04baa1011fc421b8cb02bdffedc200aceeb66328c3e6b66",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/performance-engineering/references/portable-sources.md",
+          "sha256": "7168585bc1b4a485d99b5cce658503c5ed4aeebc5d8c753e1bb48ee38b05911c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/plugin-protocol-engineering/SKILL.md",
+          "sha256": "c6b9857e9bd80734b4c4c98a3227406b46d8e7fa2149c0881bd93f452efada95",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/plugin-protocol-engineering/agents/openai.yaml",
+          "sha256": "9db53b60491567395cfb75f150829356af1e2ca2ba56366479785894c60916b8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/plugin-protocol-engineering/references/evaluation-cases.md",
+          "sha256": "2c93959130236da7623aa72b9eff187655d9cd0428c7ab70fab21baa27447222",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/plugin-protocol-engineering/references/permissions-and-isolation.md",
+          "sha256": "fe7138487cbe61edf732b763f451e2e5ebeeeccaf8932e770ee49afca245e66e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/plugin-protocol-engineering/references/protocol-negotiation.md",
+          "sha256": "3a9c0fdcd141a6cb71166db6ef054861a6299663de0e5d37dfe3e508fcec6879",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/plugin-protocol-engineering/references/versioning-and-faults.md",
+          "sha256": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/prompt/SKILL.md",
+          "sha256": "4b4b32232ce2ba74d90fbc922c66f3918b98ff3a01156a42c486c259b49af325",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/prompt/agents/openai.yaml",
+          "sha256": "e95795a175718df6b56bf5fde549dc74cfa318cfef40fd47ffe4e406425a48d7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/prompt/references/evaluation-and-trust.md",
+          "sha256": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/prompt/references/portable-sources.md",
+          "sha256": "319f0741ec3bc974479b8716f40da15cdc842ae9a1d21947f6b7d3fd0fff9244",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/SKILL.md",
+          "sha256": "05c18da5af596d6bf5bdf413137b2e1a2f8bdfd18e91f6c9aea72e869043ffdc",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/agents/openai.yaml",
+          "sha256": "25f00e1d15c003d451553cd9bd97f7585067aff0e15ff5ce1e709c8737b981bc",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/evidence-and-reporting.md",
+          "sha256": "7a59762c568d93d7eeab266a3011d802ebf0dd96c785ecf49492aca3c94d649c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/framework-matrix.md",
+          "sha256": "1f522cca8874b36adefd3921c5492c8eab4215e5b273030c0a4b86b893f19ebb",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/fuzzing-parser-and-security.md",
+          "sha256": "804ed6f3c7a71b6719f3f846e308808c1c0467f39dc9ef83a45b024af14b532b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/generators-and-domain-partitions.md",
+          "sha256": "db78884f82f435d52468d4c1476ee2d8a135c7691e0340d057f606d2a893df93",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/implementation-details.md",
+          "sha256": "41679f365bfe0c91f1aad5a8c1b93d761ee84363380250c98b779c665a117480",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/mutation-oracle-quality.md",
+          "sha256": "13779ea89be6f95f2ec43c2d97213a47ac55f5f05ed0d90be4d81565cbfafa8e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/property-oracles-and-metaprops.md",
+          "sha256": "6f3e0a4e0fa00a18d898102e6ce605ed5414db97a2107be9c8d3914eeb1587b8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/reproducibility-and-corpus.md",
+          "sha256": "9964e7d7c3f0ef6ffe2a537f7e08b47c09c08b348e6e7ef1823af9f4a2a3ae22",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/routing-and-test-oracles.md",
+          "sha256": "6aaa6c36460f18fb42789df5c9d0fa780f464746b5dafae2c7141374a67d80d8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/scientific-evidence-and-limits.md",
+          "sha256": "86a232227aeb8ddc3423fa23a4bc0dbaa659d39090692fe7e0f04a0db2b9ebc9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/shrinking-and-minimization.md",
+          "sha256": "d5cd7308d8641f2c27a23fd316f377c120bec304295707c40c6eff69cf49a8ca",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/sources-and-decisions.md",
+          "sha256": "dcc337b078edb12c9f465b3452963e99f93f1a9dbf50528ee9bb6d0c5d4fe584",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/property-based-testing/references/state-machine-testing.md",
+          "sha256": "cb3517faf84cadd8e5ef305f23f0240dd19cf77d2a9cf80ab587bb69aec75463",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/SKILL.md",
+          "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/agents/openai.yaml",
+          "sha256": "a284c53da7d7f26fea4670c2d5725eeb9f1f9b790fe949093705812fa6951e38",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/documentation-topology-and-diataxis.md",
+          "sha256": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/ec-consumer-boundaries.md",
+          "sha256": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/implementation-details.md",
+          "sha256": "c1a56adf3d4dc27ef98ce9f5910780e4eb5d84b7a26d4dc66f5df1cfa6047081",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/maintenance-and-change-triggers.md",
+          "sha256": "12a5a8b9e523a54abc35011c3b0c09fe278b972e9580c96e7b87be5e7a2b6ba9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/readme-scope-and-content.md",
+          "sha256": "808c804407c11765788b79b973eb026fa7998be3f68a3634bf4d2b6e86fa43c2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/routing-and-oracles.md",
+          "sha256": "3ceb6ef81c44a87041132a92eced77dcea805452d22511b659c886ca7200f38e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/scientific-evidence-and-limits.md",
+          "sha256": "6e1e14f826fa0da31a3689fdbf907483e78be15f9345df82040789365a58527e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/sources-and-decisions.md",
+          "sha256": "9be659af822a906bde93f84fe7282c9d8e84b137d7bd92ffd5a206e204698005",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/readme-lifecycle-engineering/references/verification-and-acceptance.md",
+          "sha256": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/SKILL.md",
+          "sha256": "f26b2f983cfa79b8487e696167edddbaef706aac658e0e447e44ec1fb3110a6d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/agents/openai.yaml",
+          "sha256": "7c05b297f31439fd24dd606d7096141ca39a3840c58edcb752d8280a62139782",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/references/deployment-and-recovery.md",
+          "sha256": "2b152ba8f22c553cf0ba8a4887f900787cc6c22b26d63d5b25d5266cf2bd95e1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/references/failure-controls.md",
+          "sha256": "5ba76483d998449412263773cf5a88325507110ebe319d395e68d6ad903b1cf7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/references/operational-signals.md",
+          "sha256": "5bdcac50859d3e93a98c9e942e11ea91e9878ced6f52e25344b5585ef79f99fa",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/references/portable-sources.md",
+          "sha256": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/references/resource-lifecycle.md",
+          "sha256": "aec134afdf83f5cbc813820e834cda721720d9e1e0e8064403d558f6b78f903e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/reliability-engineering/references/trust-preserving-recovery.md",
+          "sha256": "4bf45f7777b29633160a49d50573fd9c8e24e5ce24be70eb560471b2d40242ce",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/SKILL.md",
+          "sha256": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/agents/openai.yaml",
+          "sha256": "61c496ae4d9bb073390dfb9375129eaf4e0a36fc43cfbfa2ba104806e42eb399",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/advanced-boundaries.md",
+          "sha256": "3c4e88ae866a1c304f1cf74752f9436bd0864d053787defeeb9fdc3916e41535",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/atomic-publication.md",
+          "sha256": "b6f38d5d5c4f02efa32fa43bf4f00de98d8f230040484796d3186a37a6e3ee15",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/concurrency-and-safety.md",
+          "sha256": "9c2ab9cec0d1794bd7a67221d223a1d6e2fb64da157985512495d68f36abd60c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/concurrent-primitives.md",
+          "sha256": "486f5604fbe29e7bbcdb12a0ab8985cac9e8f0cc5dcf6b27e0b5af07505a6fbd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/design.md",
+          "sha256": "050b1a84770236986c40d81169155decbfd0a05f3077db964321763727e063c1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/examples.md",
+          "sha256": "79b684bd733de8f982193c620484dac444355d8df303a24400228874c9ebd5c7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/portable-sources.md",
+          "sha256": "38c5f6bd80984e10a98519a87c1eb9dfead8e26eee3300300be559b1580916c8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/service-engineering.md",
+          "sha256": "0d2c1300f079aa27cacbf06c33927a3870e9a602e4f2bcd8045e7a3647e42586",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/source-conflicts.md",
+          "sha256": "11cf8fc3d569ead02cc59d5f0c094964a1d04563ddecbe9e50ae567cb392a166",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/sources.md",
+          "sha256": "29a20f4bb00af9053c73f5bd4d7944d0161d6ed8acedaf9e89bdf0e3feca72d8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/rust/references/validation-and-maintenance.md",
+          "sha256": "092ec4d268ad8516a95f5676fe49972cd9b7ed965e558dfe6aab59082d9d515c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-architecture/SKILL.md",
+          "sha256": "739571c2d2d28a4bd8ad389cc30ed59e599f4c8d65068f6d7e86ee0094dcefba",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-architecture/agents/openai.yaml",
+          "sha256": "2df6efff9a60518d3e99c5f9e2206afed6fabd189649315e4545a563172cf5d7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-architecture/references/architecture-decisions.md",
+          "sha256": "55c3b5b5c36bd7ae34550816883b818de789debd032d90404a18dd3e77d745aa",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-architecture/references/fitness-functions.md",
+          "sha256": "e0665214ea44bb94a565d8f85294e1dc383af87b4806e83e8f0c041ad9e43422",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-architecture/references/portable-sources.md",
+          "sha256": "b8dfa0354beb49d7a544535af1edf11c77199d0df1c299b6b6d31906d70b0650",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-delivery/SKILL.md",
+          "sha256": "cfa0249938fb4dd95fe8dc9b93ffd5dfd71ca137014327090aaeb8e196dc7480",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-delivery/agents/openai.yaml",
+          "sha256": "64816ff241416f2f0880a87ebf6b9e5e93ba391e1a7ed1425fc0982d728fd078",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-delivery/references/build-inputs-and-trust.md",
+          "sha256": "e1a6e47a7f79101f2f940e70b7c0c81745531f2fb93d00fb0ca9d76593eff7ad",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-delivery/references/release-and-state.md",
+          "sha256": "39eedb1662cf3c6b53cd19f8ac713a89c58c1911808717420d87a192fc83e99d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-design/SKILL.md",
+          "sha256": "4e214fd5dbf141ee437814a5c817b6924a05e8ad75cf6bc208281155204f6143",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-design/agents/openai.yaml",
+          "sha256": "01fbc2fca737f8ca307453866bd8ad07ef3b1a18cfdfe9d1d0102e159c460eb9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-design/references/algorithm-decisions.md",
+          "sha256": "f98d4fe6d7754315c33ded2a678bd66295f797320eb17ffff798332c7ec3eade",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-design/references/design-decisions.md",
+          "sha256": "e52de77b16c2da4706adb72c07ac2ecbdfca6be396159c9b99c591c86a209046",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-design/references/refactoring-evidence.md",
+          "sha256": "88a789f669b9f7a34b2fc74d9b20556cdbb53604147fa78c6ab2883b44e44b7d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-evolution/SKILL.md",
+          "sha256": "00ae1e5fd99ae1a727278d234ddf0427e410cdaf7914bd1e3c1b97b8d635bbf1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-evolution/agents/openai.yaml",
+          "sha256": "f8b80a5637ea6e49cd798d3b62798a14afb44762858a4036b038958ae681d541",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-evolution/references/state-migration.md",
+          "sha256": "77fd0706b58a32bf45c8a6c87783388d1f2ed74883afaf3e534fc6416c984dff",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-evolution/references/transition-decisions.md",
+          "sha256": "9f9abae4f80618b0f98637b42cf175981d4179da9d614fe512dc2b5a6be3d8f0",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/SKILL.md",
+          "sha256": "2d2fbc0b44e19a2d4428eb98b8602fc7dc58884294a9f6902606423959f34aba",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/agents/openai.yaml",
+          "sha256": "ad921163723ad852df45b7c88b38e7a0d7fa2604f7937f82ebe314a42e6adf61",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/references/boundary-evidence.md",
+          "sha256": "32a79b7001cfb8b0a7b76d7c89afe55fb8468ebcdee24f8426e199f56f30e15c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/references/case-design.md",
+          "sha256": "d13fe4d628689203be043b568eab997b16ecf1a387e3c779775bd8737ae3eb4b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/references/coverage-guided-fuzzing.md",
+          "sha256": "eed081e17416f75166282e1ddff828a86cc2c71e7343823e047e7b916b460a8a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/references/suite-quality.md",
+          "sha256": "1f56d2ca697d36c1039ac2b03e404e319bf77ccb98005d038b313f16607e5c39",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/software-testing/references/visual-regression.md",
+          "sha256": "c874d4c78c3be1bcaa2791acdf4a2ff57c9537e2dca1d3ee333cd91daf362976",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/technical-documentation/SKILL.md",
+          "sha256": "66818d9b61bd373fc64eee7bbcfec7a61f0825b37bf8a2f135fdf2c4f1ead059",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/technical-documentation/agents/openai.yaml",
+          "sha256": "1ea12cbfb19d87253cb821cb701d5486db63626490361d22334bc8936af78300",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/tool-output-engineering/SKILL.md",
+          "sha256": "fd130ef1657f87d540dc3e2577869926d5b41f4b2990dc6d1b6c92330f829529",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/tool-output-engineering/agents/openai.yaml",
+          "sha256": "34332f59e9be0409aa25d26ce68561c4763d1de99ffa804a92cd2f0d61a1da06",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/tool-output-engineering/references/evaluation-cases.md",
+          "sha256": "d3bee6289434dd9d3c8fabc3429fa8ad7b5f2fe792a6f99585363724ce3acf9f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/tool-output-engineering/references/loss-aware-transformations.md",
+          "sha256": "fb4b14a18194d6d6f9a7a592f095bc22e8f3c03cbb080c5605fa73b01d282647",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/tool-output-engineering/references/token-measurement.md",
+          "sha256": "05f7fb7d405b84e2680518031486b8a843b0891f47fd11464105b8f410ee3303",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/tool-output-engineering/references/tool-parsers-and-fallbacks.md",
+          "sha256": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/SKILL.md",
+          "sha256": "b7938345056884d65f1c55feb758ac22ffd439cd144bfb33df919864dc3b6005",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/agents/openai.yaml",
+          "sha256": "2d67746413ca0f2e85a42aaa47d9b2bd4bfff51ed3f22a0e765bd50397d5b7ee",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/generics-and-public-api-design.md",
+          "sha256": "e8a0f792a2c58eaaa54f8b83b5483935ee224aac3f2b6fb8a714c2a1881add78",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/implementation-details.md",
+          "sha256": "10d57a2ab746076d82e81f848c50a2b529c7b2de3b2bd8d80c038a16aa7f940b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/migration-and-version-gates.md",
+          "sha256": "82a50bbf084e01299f8a73e0c55d6d0c29c0a13aaecb8399409925ff3614ba3e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/module-resolution-and-runtime.md",
+          "sha256": "25fbcc5fe436766480f339c6f4bc78c1bc86b2b8c39812ddb83a36070ee1f001",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "4e1298cdbcca0a8ab0f44d96a55138c3d53c8eb728609417550559bbe580a717",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/runtime-interop-and-safety.md",
+          "sha256": "afc35e92f8ebb560d42782ef8c2d5eacc8773839e844cfe50ea4e1f04467b631",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/sources-and-decisions.md",
+          "sha256": "06f4a80a957232632efa8c282d447cd2c476cf88f70affaa5abd2cf0de81ca62",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/strictness-control-flow-and-boundaries.md",
+          "sha256": "8cdb15a795e4b1245dd4065c30586f31817a60f576e7c8d244d790ec774a3aee",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/tsconfig-build-and-declarations.md",
+          "sha256": "0ee56eaf98a01e51e5ee9d211cc7224459799834b6bfb01bfce426931e38a018",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/typescript-engineering/references/verification-and-diagnostic-oracles.md",
+          "sha256": "d6a72f0b0271fcbc9b4d3c43e5a64181bcd3ba418d7751408308fe01b3754b86",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/SKILL.md",
+          "sha256": "ab9a21bcebafb5fc98cfb01d29da77a32c2dbc612d03276340f54a1691cf5180",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/agents/openai.yaml",
+          "sha256": "8d535159dadc2001294b756550b51cc1dc8035189df4ab83edaa0bb8886bd332",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/composables-lifecycle-and-ssr.md",
+          "sha256": "c0a6e786ed4f599a73d4b784577b9ec28407e7f3defae5c8164b9503c681d262",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/implementation-details.md",
+          "sha256": "a4390a2ee3cf89939f263e337e50164156922aab7ac1c11357785bf7f87ace71",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/reactivity-and-watchers.md",
+          "sha256": "740115dbec0dc2adca8bb5dd8039dc5f3c2a30684c72b3b38782617b8dfde49e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/rendering-performance-and-testing.md",
+          "sha256": "ade39e3d45ac9dae82ab1ed6bd8e7fcd6bad2a5dee5a623501c82afc851a270b",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "b91e92853b3e46fc6cd2d82f7947d480e4d1d911d96757aff2b44198b2a2ddcd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/security-accessibility-and-product-boundaries.md",
+          "sha256": "3541113689cd8dc37f5bd7954e5a2912ab4259dd1a2f35a4a2888d4e0b1e3f21",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/sfc-and-typed-component-contracts.md",
+          "sha256": "0cd9fb9f21c5fa916a6a29a89784f69757dc71ee7962a230296426ee3ece94be",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/vue3-engineering/references/sources-and-decisions.md",
+          "sha256": "ff98f1136e96c683f7b249c941c5d550dde128e47a68e9b9c58e9649121024bd",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/SKILL.md",
+          "sha256": "a10ddd66b0db21879e5c482f4e2f428541c8ae8518f08c1e5a766a892bc512c9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/agents/openai.yaml",
+          "sha256": "c1d6b22e8be8a8e294da4e92cdb3da7ca43b55b7137c1621d0a78da99fc7564e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/composite-widgets-and-structured-alternatives.md",
+          "sha256": "17c09130c6e0f05ec72713438de5ccb5e2d25fc85de95d9d157d03089d484e4d",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/contrast-reflow-motion-pointer.md",
+          "sha256": "203fa799eff2ce946b3ea7d8dce13b19b255695360d36791145195059fb8a61f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/evaluation-matrix.md",
+          "sha256": "646beb450e792257fc92c8aaad3f7314cdd47a12b062c6aff332ec1863f3fa87",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/forms-errors-and-feedback.md",
+          "sha256": "0b6ca754f766653612024ab7fd53fc3118f78eb486794faf940a780825900420",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/implementation-details.md",
+          "sha256": "8e0fa44ad09e6b1f35e66f03ecbe6359a9a892d433f82e92a9930b70bef67bd2",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/keyboard-focus-and-dialogs.md",
+          "sha256": "d637de969e228bbd73587386a4367a18ce1e4dd1a5e665ca0bc9dbdd679a75d4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/routing-and-selection-oracles.md",
+          "sha256": "60b9729df605ceb826151edc1c03dee57ea8036d50f735a233849e01ac1eddb1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/scientific-evidence-and-limits.md",
+          "sha256": "ced4bb11488735eb876298472d45b19088bac8a013a6875ddde78ef007da8d7f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/semantics-and-names.md",
+          "sha256": "7759a0d13876c130eeb4fb6aa9a05e135ceadaad1cc69a27ba10185ccba9e352",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/sources-and-decisions.md",
+          "sha256": "a48d7b8beb935cc63389532e4560e9e88684d8564a438b96cb0caca04b40bcf7",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/standards-and-scope.md",
+          "sha256": "5b8c5a6ec67dd537f46f364a70dc6814385fff239a1ab0323fbd073c0c6977a4",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-accessibility/references/testing-oracles-and-assistive-technology.md",
+          "sha256": "a36a0c65a95bed490b3a8e90f7baf4178b08fdc7cd81d16fcd4df4534020488a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/SKILL.md",
+          "sha256": "48380c1e7312e071f9b57dd8f855c8bea865460a162d2ced8eecd7d99e853401",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/agents/openai.yaml",
+          "sha256": "4d80e723f37d08d61cb4ee0700d3b8c81c2d1e1bb0dbbbccbf4a5f0b369615d9",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/backpressure-bounded-queues-and-flow-control.md",
+          "sha256": "9f8393914fe8c852af693da310eb1d77ec1e17641e70bee0731bc28345473ab1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/failure-and-recovery-matrix.md",
+          "sha256": "027b6ed66c4294ef2994ee92d33de7823980e23e4f8cbcc3ba7df3db50fb7e5c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/implementation-details.md",
+          "sha256": "c8ad37d11eb91ccd772709db8deb1f3e1b72acd6ac59bd5fd7ee72906756c3ea",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/integration-contract-and-evidence.md",
+          "sha256": "6405d6ee75ca7688420630dc1f297b24f663f56518f4c8a2477cdf53d96c0b4e",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/observability-and-reliability.md",
+          "sha256": "7595a140e53f1889602ea64ec6915fa61977817c2dceb5282e54bb08f3665c7f",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/reconnect-retry-and-offline.md",
+          "sha256": "8d115746e4ffa5f357000ef43851d9a65a12a7d180857575644e94e925ab3dd6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/routing-and-test-oracles.md",
+          "sha256": "9f5dcca75acc27c26e1ae029a366ab69d9917661c8202fd8ed83e1ed15bf94ba",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/scientific-evidence-and-limits.md",
+          "sha256": "e754f94bdfe8c820660469b890e5e4a5a3a85a1b380886ad390c093cad0bf603",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/security-origin-auth-and-data-isolation.md",
+          "sha256": "544877a7a0ced7115cf08afe59a9ec22f6beae86e6562e71fe0b82e014f4a994",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/sequencing-deduplication-and-snapshots.md",
+          "sha256": "aee29d6a68a3fb19926bc7c8d48219f5b07a7497ff3f7a8770e0ce16e706344a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/sources-and-decisions.md",
+          "sha256": "32a37761437c4a1a5e51c05865333471e53c8522f5bb84160a87a58b9a19f00a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/sse-event-stream-format-and-resume.md",
+          "sha256": "0d3cd410646ba7193d3c5cbec96438c78fe9f70fb5d343849ddf4a61749a5099",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/testing-transport-and-browser-matrix.md",
+          "sha256": "ec241037b830af4fb36a90e9deda4c9fa6e0ec25efdac2a16be4b0fe09648534",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/transport-choice-and-protocols.md",
+          "sha256": "b3b398bb025178d411c9d0aa3df70bb61eba4adbebe713514e8ae87b11c6bb66",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/vue-lifecycle-and-client-architecture.md",
+          "sha256": "0e5671aa280eace19ad45588cfc26b0b8e814fb2d7a28aec3adaa9c78bd6dfc1",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/web-realtime-streaming/references/websocket-lifecycle-and-message-contracts.md",
+          "sha256": "c771e5b949e900e1ccd0180c437e041b18e6fbb96343810b8b18cab1df5d0a92",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/workspace-integrity-engineering/SKILL.md",
+          "sha256": "6811f2e83a4bdc376eb37df172fe3112f8ac02d2eb25f65821dabdf41dfa6bc8",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/workspace-integrity-engineering/agents/openai.yaml",
+          "sha256": "7f2e47dce012aeae680eafaa5018d4e674df0dab4a6e9c36e6677f4f5d08e38a",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/workspace-integrity-engineering/references/evaluation-cases.md",
+          "sha256": "14a0da21921ed8fc1a22a80c4b67f879e59d3f6353aa8e4807d5e7384d5e56f6",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/workspace-integrity-engineering/references/file-operations.md",
+          "sha256": "8a74d3e3725a3c1bd64a1f44cff0ec769738fe28e9f67fa0dcaea1948ed6d32c",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/workspace-integrity-engineering/references/git-worktrees-and-conflicts.md",
+          "sha256": "775bc0fc1519f1e7365d20835538b9cabaf65f8373c75b01959df40a68b46358",
+          "role": "implementation"
+        },
+        {
+          "path": ".local/skill-installation/skills/workspace-integrity-engineering/references/watcher-and-recovery.md",
+          "sha256": "046382bbb97faa08006f341eedcce2720c499a83b05bce71566d948710693867",
+          "role": "implementation"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "c470d0ccffffc525cac0907e335b31f6d3a2ced8d9d99ef9f8e71fa7370e38e8",
+          "role": "implementation"
+        },
+        {
+          "path": "README.md",
+          "sha256": "4ede9b25bacbc13c0dfa4657920f552fcc1333c3f29c9358c730a5a4d0ae7ee5",
+          "role": "implementation"
+        },
+        {
+          "path": "config/governance/normative-coverage.json",
+          "sha256": "bd4e31ecbb00795d7ec5145d061abee5c1f8a74b45c4bfdff07704c3f7cdac82",
+          "role": "configuration"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "53083fff6d174ac9fc10e7077e93b8ced6555c3dd292a7e220c5cc1adf43a778",
+          "role": "configuration"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "contract"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "contract"
+        },
+        {
+          "path": "docs/architecture/context.md",
+          "sha256": "27c9a6d2aabfe38cb9bbf6b1ad3e82093658c2d268ba4a2a61ef7fa420268b45",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/constitution.md",
+          "sha256": "e75e225c611af98acd5d865324f49f56222bcbe3a684662dcf8a43ae5ed96e97",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/decisions/ADR-001-skills-sdd-adoption.md",
+          "sha256": "3a8489d85de6024efe31d47b9c972eb0b33de35be909b55bae381f8fc5c4a2f8",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/development/skill-installation.md",
+          "sha256": "7bffea1907b7d419f5b3a6ffc041c17cb70f16d17938434cad12d3d2466ab83c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/development/skills-analysis.md",
+          "sha256": "620b13c667709dda135969b51d150c0543d3becedcc2f4f5422e0c3a7191d97b",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/ec-arquitetura-comunicacao-e-validacao.md",
+          "sha256": "f9689af6e68baae223d1c213518163e3506339c84519bff40d3ecb33f57296a6",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/readme-lifecycle-engineering-SKILL.md",
+          "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/reavaliacao-skills-ec-dois-monolitos-atualizada.md",
+          "sha256": "e83e5df769211bef1f08fe029c6020f2f9c45fe0de4bb0ac337414491d235bf3",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/README.md",
+          "sha256": "e50abc6ba970d4908e14fec85c552ab4017647ac34ea945a8bfb81af37bd28ce",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/README.md",
+          "sha256": "b4a381630f3891a2aa481bace5750704ea8e1a0543ab82dac67821e93ed9b0b9",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/agent-runtime-engineering.md",
+          "sha256": "b08ee564627cadba82e4030099a68f86a86179a8dc8ebaac8c4cfde4b2433b25",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ai-engineering.md",
+          "sha256": "7052569f24e138663e000d206ab3f2100df8ecb46dc040dabd82023b68af12d6",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/api-testing.md",
+          "sha256": "ce5f1c5f4e0d2a8ba3154d350b24e63ad7daf3c29a2ebab0c3350f9ff70342e3",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/application-security.md",
+          "sha256": "e364ad7098230f554a31bc1b14af18d503adc2ed288e0e4e04c27b2a23aeef1f",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/autonomous-verification-engineering.md",
+          "sha256": "1adffda4bb4a9cdf78f24d324b83c7fd249a23670a92533c91e236114923317e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-agent-runtime.md",
+          "sha256": "de630ad48d6e7a302a18efd740da40426ef74b1c9f64cd8bf006524ecc3e5431",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-artifacts-and-retention.md",
+          "sha256": "425586772286d531ed9c87390fade38b16c44eb76afb64ac4214833679f105d6",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-build-cache.md",
+          "sha256": "01feb783c2e4ec9dc1d73dd110594a97ad7550ebc48590f378d22498cf209f85",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-execution-runtime.md",
+          "sha256": "f41f791b308ad7b8b35f220796160eb5772b72dc4b53316fae709448a32a0817",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-logs-and-test-results.md",
+          "sha256": "4dc13d54f8a6ff42b138e0bca6be02ce87aef8443ac899138998ad111e5ef472",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-pipeline-graph.md",
+          "sha256": "a3d3b585dacebaa923cd9bb09de52643446a21955c15ff3ec0236b8f1b0b93d2",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-release-and-deployment.md",
+          "sha256": "99740c14a878d850c6f5e4b2cbbc65901e5ea8fd1a833f95b86b324abddb82b8",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-scheduler.md",
+          "sha256": "312fd21c4a777cc823f56b1b856d97ceae053d9400c17130a0ed4a30211e9197",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cicd-vcs-event-processing.md",
+          "sha256": "0c5f091fd6748aaa35af429ceb976cab3d0ff6388d676841622b83561b146233",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/cli-engineering.md",
+          "sha256": "1da2d07ad6511bf83af3f9650b92f7716c60bd089397c7c59dfab0bcee6dd273",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/commit-governance.md",
+          "sha256": "d1bc0b6b7863a7fa8f55d204eaf241e44665825e922b8aca1fcc1afee1e29b76",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/css-layout-engineering.md",
+          "sha256": "75f167b67f376045c2026298d0f07e51b0adb0e980874c10fea14dcb9b197b07",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/database-engineering.md",
+          "sha256": "5c07cd3a4f59296a691042ce3cb9558a6f4c8b2211618a288996e9355d9c446e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/design-review.md",
+          "sha256": "288778d99b55a0cb6d13e614942e25cd98f40b3b80219b9bac4f8d1c4bfa96ff",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/design-system.md",
+          "sha256": "7c44c838bd32beb4b4b7d2b1412d3787cab724e39312b5f7826959352c1b55ac",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/distributed-systems.md",
+          "sha256": "2bf14663ec8145278e052a98a29312017dd8ab2d2fc3b0d13731137d361509d8",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/domain-modeling.md",
+          "sha256": "c9b5e87df6bb4b951b129b73809e62e3fb94cc1671ea59bf638648cb291b6de8",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-agent-control-protocol.md",
+          "sha256": "194234cb75dc15896e20f057ae78a0f9682dcb4946dfd6748683031750ee8721",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-agent-pool-console.md",
+          "sha256": "d5dedc0b9f2ba6c4b7f67b2c07c429babb1fb373deaf78d33e3f43f7c1c5de28",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-configuration-publication.md",
+          "sha256": "6eb58101e2dba6b244ab9438e01d51558d4615178317a79bd3da1683d96617f6",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-declarative-resource-schemas.md",
+          "sha256": "fe2bf39792479fb7b2057bb8cdec8547c06cc851003d46320c19030f1adab1e1",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-effective-permissions.md",
+          "sha256": "790b545902e95c6d7efff609580e2328f621ce52b8ea7f806996a23a466ae6e1",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-environments-and-approvals.md",
+          "sha256": "9d776bb82d998fb0074dc110ac7b1a29716103a581ada16c1725c4049297f1e1",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-integrations-and-webhooks.md",
+          "sha256": "b00b222358e2047e837a424bf0c1e221cb22df2afd0eb9ddd42ea6c22ba0bb85",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-operations-and-administration-console.md",
+          "sha256": "d67e1ef71e815e3f38fe119e7bfd182092c47e9ae0ab8217e8826efebbcc3076",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-people-and-access-administration.md",
+          "sha256": "7585c2aaaaf6931349ade0003ab52f8e27ae42f18ee8c8f35f8651eb27e584ac",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-pipeline-authoring-workspace.md",
+          "sha256": "c2ed83dcaf2e72ac662dee2c90ed0362ce8304c2cfc78cee18c8c333e4a49013",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-plugin-isolation-and-lifecycle.md",
+          "sha256": "533a664ef695bb5eb2628bef41a709ba9796ca6527e8b8ba2f03a9a7f09d1d99",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-plugin-manifests-and-compatibility.md",
+          "sha256": "0705f3e713a02738d8b9dc2a3364dfa26660e910e80ae16d679405d0f52412f1",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-product-contract-test-harness.md",
+          "sha256": "cd99b64c21dbeee7f946423f4662623e95ca21bac0723712ec3ac7ded94d0950",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-project-hierarchy-management.md",
+          "sha256": "b78f290320f2b319025fe9e53baeb7aef3d4bbdee745e1d1222981351b6fb38b",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-run-execution-operations.md",
+          "sha256": "9df7e997db1b5be5de946c142a6586f26ec4a105b1cd89888b4794e47c103340",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/ec-semantic-configuration-projections.md",
+          "sha256": "b45bfc90e31eb1e1b7b538dc1992c33671fe67ede74f84a44528da8e6dd5f14b",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/engineering-productivity.md",
+          "sha256": "e58086a2d0398cc9e96151f7c6e534f473adefffaacf38b6f6c780e73f0b0709",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/frontend-form-engineering.md",
+          "sha256": "d37ff105cbbedffc37556c8cef8e6797908c440db2cf5b8f383469c5dcfda54f",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/frontend-routing.md",
+          "sha256": "b609540d589e9e82b6620cff7e8e52090b8a074d81097a99935aa9ac1144ea91",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/frontend-state-and-cache.md",
+          "sha256": "71a68f60a8e1d65cd402be40761a5adffb1b5348ecfd1fb551079bf72942b9eb",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/frontend-testing.md",
+          "sha256": "f5c576d89dd0da68a045e4ae8a63afeaf32efb1011fa2bc52a8255ca8fd32cee",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/http-api-contracts.md",
+          "sha256": "203349da770d174e4461e45d0778dd668cda1ce74247636d85088cdd0d763339",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/identity-federation.md",
+          "sha256": "3bf4758353d363651695b47d0983ed7b3160dba8a53edb72b6503990a3a32789",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/information-architecture.md",
+          "sha256": "8ae53580aec753fcd12cfcd9cd70f2349a703279345f1660cda248def3a827bb",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/internationalization.md",
+          "sha256": "735fcf7634356e891f220bb46eb1f9427b13459229bbc35058b338c5da54d727",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/observability-and-diagnostics.md",
+          "sha256": "e258bd7f029ba55ce111088ef40cb1300e52f7c65727a6ee9397a064e9de357e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/performance-engineering.md",
+          "sha256": "291ff8366f542a1a027d27797831520fe15130eb8666d2f32ad17d7c8f5de305",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/plugin-protocol-engineering.md",
+          "sha256": "78adc2a0a68ba3ac170f923d0c7a32f61898417cf6575be31179a84dcde942e8",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/prompt.md",
+          "sha256": "98ac120f8819be337d2e28e692383cd3ba7816d1527e8b956b9129dd695e357a",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/property-based-testing.md",
+          "sha256": "b24704bf3259d3fc2b690acfa3e25276edc9ef9523c2843896d888582ffc6552",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/readme-lifecycle-engineering.md",
+          "sha256": "5326d78644c22245545131c92e7d1b24dab5aedb502eb62b02e3b6020d28a759",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/reliability-engineering.md",
+          "sha256": "584cdb0e090e1f4df7eac96a9de8023d06a985075dc0a00ba49120aa9ec8871f",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/rust.md",
+          "sha256": "3b9ff2ca38c78c113a9cc2fac7cbfee88159bdfc05408d2fd32852f4af7e1588",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/software-architecture.md",
+          "sha256": "3ad71979fca2cb59ccb85f3f7f9088e40f68c7e9da501091b4334056da5404fe",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/software-delivery.md",
+          "sha256": "0267376d81996236f3a5889be6b1307bb72d0dea68df4655dcfdf8de2056c762",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/software-design.md",
+          "sha256": "4d593a77e1d92fc7f0a98c573fce4c78c70c3883f0c1e43f13adec4000528460",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/software-evolution.md",
+          "sha256": "47d89a6c877c8ca61b8b402d36361201e19dd4211648b1aee5be2d6296d86662",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/software-testing.md",
+          "sha256": "e1c6cac776963729b398e068f51e0f99547baff40d9b33ab5f6d8deb0ab39397",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/technical-documentation.md",
+          "sha256": "2d93babff588c13246634b46660c12f2cb47a9998e3be0819855e6de6ffddf00",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/tool-output-engineering.md",
+          "sha256": "3fe12f6d5086c0982c63c03936dbcec66a89f652b8a6cf0de48307b8397709ad",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/typescript-engineering.md",
+          "sha256": "9a2c2c22faa335d6882a805943675a6d419b1028cdfb691d0ae63e01ed5fdcc4",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/vue3-engineering.md",
+          "sha256": "9cb6937465b4b630f8cbccb6c18dc33d3e6dc9f8ebf3c9c897e66063462a0670",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/web-accessibility.md",
+          "sha256": "c213b5d57724fb91cd58fd00e2f4e5d1d486611409f0bd16e42574a7a403ea8e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/web-realtime-streaming.md",
+          "sha256": "8a6e42b12db42fae7da0ef4a67b9b67840d88de68b508c083bd5eedd6509ab88",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/chain/workspace-integrity-engineering.md",
+          "sha256": "d885d7a272e80925544ee33d8cbbe43c4b3432b792579d68ae1afc9e1b787051",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/constitution.md",
+          "sha256": "223076a92eae47680c5e41369c0757e6fd6ec3e132045170d03f6506482878ff",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "5aff51a144d4fe800ca1c668c7180a25de1e4109a30d9d07161b85342b920483",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "8cce23e2dfbbaccaf025d3a1844fd12f605de1af094ba3caf9f6891a4e0f5c08",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "52fbb813fb72fd8cebdae80439bc9afc85e4964be030801eb1d296e0adb2ba9e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "84349f6880a30055e659f2fd53b52d290b42ab6943e38199b87415c948b5cc29",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/traceability.json",
+          "sha256": "5b0df3ace0b6edaa823a215a8062afbec5eeecf43660a864d4c4601ff1ba6aba",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/project.md",
+          "sha256": "f974d9b3d7f61ccf2fed7c40b9cd09bf2d4dbf9c9b7bbbb130deecdddef1e18c",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/templates/README.md",
+          "sha256": "9a51c26ad0e86551b88fe534bbc17fbdee2c833297fad026b73ac153ab82fd60",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/templates/checklist.md",
+          "sha256": "a660321fc8669b4b96d8bd0ccdfe077c88cdbbcac2b2417309a170d2c87bc58e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/templates/converge.md",
+          "sha256": "d58e6d0e6a4d44add2bdfb0a8516caf6b49704f5427e07023cdb8613215dc0f1",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/templates/plan.md",
+          "sha256": "b871b0674c054a7b4b6cb9aa3030d8fd74c764dc0f3b869eb001f608088dcb71",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/templates/spec.md",
+          "sha256": "2ef528f28c10746850c576d97b63dc46a1150012b34a43d4e41f67b274026701",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/templates/tasks.md",
+          "sha256": "6b6cf1635f155d697fcad1b441d5dfbdadc0292406f6482b17d5eb78a24c0a3c",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "bc4581e9868eb52f4203be5fa05e971d2ba7f2600a70060cce508b07853a04c4",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "acbf9400f2ea4cc83b4e67ba8957e58ce51178574d1988a54172117c92d597f9",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/install_skills.py",
+          "sha256": "3d6b431380e2c3104b5769ea9414ac3444249666dcf0a20b95d88e82123622b2",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "eeef2e224323962e0023042413567e045fc03fa1dbd87ba29936ac975719be15",
+          "role": "oracle"
+        },
+        {
+          "path": "tools/governance/validate.py",
+          "sha256": "46e9393740d830d3f96e6d57f86a16f653e8bcbed50b1550b4fbb65b79325a68",
+          "role": "implementation"
+        }
+      ],
+      "sha256": "ca3104a4b24a2c1326fa89f3600a46f2cc4c4173880ef413427f8d86b9377e54"
+    },
+    {
+      "id": "E-02",
+      "kind": "inspection",
+      "command_or_method": "Review supplied documents, skill scope/procedures, Ox constitution/AGENTS/SDD and local adaptation; inspect 18 routing cases.",
+      "observed_result": "Ec authority preserved; 71 decisions enumerated; architectural proposals not promoted; limitations explicit.",
+      "artifact": "docs/development/skills-analysis.md",
+      "inputs": [
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "52fbb813fb72fd8cebdae80439bc9afc85e4964be030801eb1d296e0adb2ba9e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "8cce23e2dfbbaccaf025d3a1844fd12f605de1af094ba3caf9f6891a4e0f5c08",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "84349f6880a30055e659f2fd53b52d290b42ab6943e38199b87415c948b5cc29",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/traceability.json",
+          "sha256": "5b0df3ace0b6edaa823a215a8062afbec5eeecf43660a864d4c4601ff1ba6aba",
+          "role": "contract"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "c470d0ccffffc525cac0907e335b31f6d3a2ced8d9d99ef9f8e71fa7370e38e8",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/skills-adoption/routing-review.json",
+          "sha256": "51a40849cbe912b0a562c215430363cffff64c49e7c622e3dbd674a996de69bf",
+          "role": "implementation"
+        }
+      ],
+      "sha256": "620b13c667709dda135969b51d150c0543d3becedcc2f4f5422e0c3a7191d97b"
+    },
+    {
+      "id": "E-03",
+      "kind": "test",
+      "command_or_method": "python3 sdd/tools/validate.py --root .",
+      "observed_result": "PASS structural SDD before final evidence binding; final schema/freshness is checked separately.",
+      "artifact": "docs/validation/skills-adoption/sdd-structure.log",
+      "inputs": [
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "52fbb813fb72fd8cebdae80439bc9afc85e4964be030801eb1d296e0adb2ba9e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "8cce23e2dfbbaccaf025d3a1844fd12f605de1af094ba3caf9f6891a4e0f5c08",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "84349f6880a30055e659f2fd53b52d290b42ab6943e38199b87415c948b5cc29",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/traceability.json",
+          "sha256": "5b0df3ace0b6edaa823a215a8062afbec5eeecf43660a864d4c4601ff1ba6aba",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "acbf9400f2ea4cc83b4e67ba8957e58ce51178574d1988a54172117c92d597f9",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "bc4581e9868eb52f4203be5fa05e971d2ba7f2600a70060cce508b07853a04c4",
+          "role": "implementation"
+        }
+      ],
+      "sha256": "3ff59b3d344f43da0527bba1c1c05ab244fbc14b9f1384893f1e86dcfb6cc93a"
+    },
+    {
+      "id": "E-04",
+      "kind": "test",
+      "command_or_method": "python3 -m unittest discover -s tools/governance/tests -v",
+      "observed_result": "18 tests passed in isolated fixtures, including negative controls, recovery and freshness rejection.",
+      "artifact": "docs/validation/skills-adoption/negative-controls.log",
+      "inputs": [
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "52fbb813fb72fd8cebdae80439bc9afc85e4964be030801eb1d296e0adb2ba9e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "8cce23e2dfbbaccaf025d3a1844fd12f605de1af094ba3caf9f6891a4e0f5c08",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "84349f6880a30055e659f2fd53b52d290b42ab6943e38199b87415c948b5cc29",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/traceability.json",
+          "sha256": "5b0df3ace0b6edaa823a215a8062afbec5eeecf43660a864d4c4601ff1ba6aba",
+          "role": "contract"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "eeef2e224323962e0023042413567e045fc03fa1dbd87ba29936ac975719be15",
+          "role": "oracle"
+        },
+        {
+          "path": "tools/governance/validate.py",
+          "sha256": "46e9393740d830d3f96e6d57f86a16f653e8bcbed50b1550b4fbb65b79325a68",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/install_skills.py",
+          "sha256": "3d6b431380e2c3104b5769ea9414ac3444249666dcf0a20b95d88e82123622b2",
+          "role": "implementation"
+        }
+      ],
+      "sha256": "1a92aa0999d3cd2520cb6d24504cb8f9db82b135a7bf46d005c504b002b0d628"
+    },
+    {
+      "id": "E-05",
+      "kind": "trace",
+      "command_or_method": "python3 tools/governance/install_skills.py --apply",
+      "observed_result": "Exit 1, EROFS at .codex/skills. Real installation remains UNVERIFIED.",
+      "artifact": "docs/validation/skills-adoption/installation-attempt.log",
+      "inputs": [
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "52fbb813fb72fd8cebdae80439bc9afc85e4964be030801eb1d296e0adb2ba9e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "8cce23e2dfbbaccaf025d3a1844fd12f605de1af094ba3caf9f6891a4e0f5c08",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "84349f6880a30055e659f2fd53b52d290b42ab6943e38199b87415c948b5cc29",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/traceability.json",
+          "sha256": "5b0df3ace0b6edaa823a215a8062afbec5eeecf43660a864d4c4601ff1ba6aba",
+          "role": "contract"
+        },
+        {
+          "path": "tools/governance/install_skills.py",
+          "sha256": "3d6b431380e2c3104b5769ea9414ac3444249666dcf0a20b95d88e82123622b2",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/validate.py",
+          "sha256": "46e9393740d830d3f96e6d57f86a16f653e8bcbed50b1550b4fbb65b79325a68",
+          "role": "implementation"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "53083fff6d174ac9fc10e7077e93b8ced6555c3dd292a7e220c5cc1adf43a778",
+          "role": "configuration"
+        }
+      ],
+      "sha256": "85f4aeafe1b2b446e8aecbfaa121d5566e41744d14b8a26fe1ae574945e9fc13"
+    }
+  ],
+  "limitations": [
+    "Acceptance is limited to governance preparation and bounded validation.",
+    "Real .codex/skills installation is blocked by EROFS.",
+    "Skill effectiveness, UI discovery, external URLs and product runtime are unverified.",
+    "Checks detect content drift, not authenticity or universal oracle adequacy."
+  ]
+}

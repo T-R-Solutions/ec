@@ -1,0 +1,1 @@
+create index watch_type_rule_id on user_watch_type (rule_id)

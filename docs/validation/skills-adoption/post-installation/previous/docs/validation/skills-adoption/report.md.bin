@@ -1,0 +1,47 @@
+# Validação — skills e SDD do Ec
+
+Data: 2026-11-03. Resultado: **preparação validada; instalação real pendente**. O pedido completo não está concluído porque `.codex/skills/` não é gravável nesta sessão.
+
+## Resultados observados
+
+| Verificação | Resultado | Escopo |
+|---|---|---|
+| Inventário e seleção | 71 candidatas; 67 selecionadas; seis condicionais; quatro excluídas | Catálogo, não eficácia |
+| Pacotes preparados | 594 arquivos, 67 SKILL.md, 67 metadados UI e 67 pontes | Identidade, hashes, recursos e links internos |
+| Auditoria consolidada | 726 verificações aprovadas | Inclui hashes das fontes, CRC/nomes ZIP, YAML/metadados, sintaxe e saídas esperadas dos comandos |
+| Validador oficial skill-creator | 67/67 entradas aprovadas | Frontmatter e scaffold; não certifica comportamento |
+| Testes negativos e instalação isolada | 18 testes aprovados | Arquivos/links ausentes, alteração, duplicação JSON, path escape, symlinks, destino conflitante/alheio, EROFS simulado, interrupção/retomada, repetição idempotente, parser AC e freshness |
+| Revisão de seleção | 18 cenários documentais | Comparação de escopos reais; não são trials de modelos |
+| SDD portátil | PASS estrutural | Pontes, templates, links, traceabilidade e estados |
+| Instalação real | UNVERIFIED; tentativa bloqueada com EROFS | Não há `.codex/skills/` instalado |
+| Gate `--require-installed` | Exit 1 esperado | Recusa falsa instalação |
+
+## Evidências e reprodução
+
+- [Checks detalhados](checks.json), [catálogo](catalog.log), [SDD](sdd-structure.log), [testes](negative-controls.log).
+- [Revisão de routing](routing-review.json), [ambiente/ferramentas](environment.json), [tentativa real](installation-attempt.log), [gate de instalação](installation-gate.log).
+- [Script da auditoria desta sessão](audit-session.py): executar da raiz com `PYTHONDONTWRITEBYTECODE=1 python3 docs/validation/skills-adoption/audit-session.py`. Requer PyYAML e o quick_validate no caminho registrado nesta máquina; o auditor cotidiano em `tools/governance/validate.py` usa somente stdlib. O script grava novos resultados: preserve as observações anteriores antes de repetir após mudança.
+- [Evidências SDD](../../../sdd/features/governance-adoption/evidence.json), [convergência](../../../sdd/features/governance-adoption/converge.md), [análise completa](../../development/skills-analysis.md).
+
+As verificações iniciais detectaram metadados UI ausentes nas 40 skills Ec e o limite incorreto do validador herdado para links SDD→docs; ambos foram corrigidos. A primeira versão da fixture tentou hardlink entre filesystems e omitiu uma referência de pesquisa; a fixture foi corrigida para cópia isolada completa do escopo necessário. Resultados finais acima são posteriores às correções.
+
+## Revisão semântica
+
+Confirmados nos arquivos: precedência das normas Ec; três modos e YAML canônico; HTTP/PostgreSQL vigentes; gRPC/Protobuf/SQLite propostos; frontend Vue/TS; supervisão CI/CD sem ACP obrigatório; separação de ACK/processo/conclusão; scope condicional para IA/commits/migração; números de escala sem promessa; nenhuma feature, toolchain, histórico F0 ou autorização Ox importados.
+O AGENTS anterior foi preservado em [AGENTS.before.md](AGENTS.before.md); os cinco documentos originais e ZIPs mantêm seus hashes. O corpus de pesquisa não foi alterado.
+
+## Verificação final de aceite e links
+
+O gate `--require-approved --require-fresh` falhou **somente por AC-05 UNVERIFIED**, como esperado; `--require-fresh` e auditor do catálogo passaram. Logs: [freshness final](final-freshness.log), [aceite final](final-acceptance.log), [catálogo final](final-catalog.log).
+
+A varredura de todos os Markdown em `docs/` encontrou **cinco links locais já quebrados no documento de entrada `readme-lifecycle-engineering-SKILL.md`**, que referencia `references/` sem possuir os recursos ao lado. O documento original foi preservado; a cópia funcional da skill está completa e os cinco destinos resolvem dentro do pacote preparado. Os demais documentos não têm links de arquivo ausentes. [Diagnóstico integral](final-links.json). Não se alega que todos os links das fontes originais estejam corrigidos; URLs externas e âncoras de seção não foram verificadas.
+
+## Limitações e ação restante
+
+Liberar escrita em `.codex` pelo ambiente e executar o [procedimento de instalação](../../development/skill-installation.md). Depois atualizar os documentos de estado e reexaminar evidências; não renovar hashes antigos sem nova observação. O instalador foi exercitado em fixture, mas isso não substitui o destino real.
+
+Não verificados: descoberta das skills pela UI; eficácia das 67 especialidades em tarefas reais; conteúdo/atualidade das URLs externas; serviços Ec; protocolo; persistência operacional; isolamento; acessibilidade real; desempenho; capacidade de agentes. O SDD registra quatro critérios de governança aprovados e AC-05 não verificado, sem apresentar governança como aceite de produto.
+
+## Retomada após autorização de escrita
+
+Em 2026-11-03, o usuário autorizou escrita e continuação. O instalador foi executado novamente, mas a montagem ainda retornou EROFS em `.codex/skills`. Perfil e 67 pontes permaneceram inalterados. A autorização está registrada; falta alterar a permissão efetiva do ambiente, não obter nova confirmação do usuário. [Registro da tentativa](installation-resumption-20261103T190302450020Z.json).

@@ -1,0 +1,1064 @@
+Compiled from "StartupStage.java"
+public final class jetbrains.buildServer.maintenance.StartupStage extends java.lang.Enum<jetbrains.buildServer.maintenance.StartupStage> {
+  public static final jetbrains.buildServer.maintenance.StartupStage INITIAL_STAGE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage FATAL_ERROR;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage LOOKING_FOR_DATA_DIR;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage ENCRYPTION_CONFIGURATION_ERROR;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage XMX_WARNING;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage WAITING_FOR_DATA_DIRECTORY_INITIALIZATION;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage FIRST_START_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage PROCESS_DATA_DIR_SELECTED_BY_USER;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage ASK_NODE_TYPE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage CREATE_NEW_DATA_DIR;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage LOOKING_FOR_DB_SETTINGS;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage RECREATE_DB_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage DB_SETTINGS_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage CREATE_NEW_DB;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage DB_CONNECT;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage DB_CONNECT_CONTINUE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage DB_CHECKING;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage SECOND_INSTANCE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage CORRUPTED_INSTALLATION;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage OUTDATED_SECONDARY_NODE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage WAITING_FOR_UPGRADE_LOCK;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage WAITING_FOR_OTHER_NODE_SHUTDOWN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage MAIN_SERVER_OF_A_DIFFERENT_VERSION_ERROR;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage OTHER_NODE_WITH_SAME_ID_IS_ACTIVE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage OTHER_NODE_WITH_DIFFERENT_DATA_DIRECTORY;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage MAIN_SERVER_WITH_DIFFERENT_DATA_DIRECTORY;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage WAITING_FOR_UPGRADE_END;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage TEAMCITY_NODE_ID_NOT_SPECIFIED;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage LICENSE_AGREEMENT_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage LICENSE_AGREEMENT_SAVE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage UPGRADE_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage BACKUP;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage UPGRADE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage RESTORE_SETTINGS_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage BACKUP_FILE_CHECKING;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage RESTORE_DATABASE_SETTINGS_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage RESTORE_DB_CHECKING;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage RESTORE;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage COPIED_OR_MOVED_INSTALLATION_SCREEN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage APPLICATION_STARTING;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage READY;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage EXCEPTION;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage SHUTTING_DOWN;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage END;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static final jetbrains.buildServer.maintenance.StartupStage DOWNLOADING_JDBC_DRIVERS;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public final boolean active;
+    descriptor: Z
+
+  public final boolean adminRequires;
+    descriptor: Z
+
+  public final boolean shuttingDown;
+    descriptor: Z
+
+  public final java.lang.String page;
+    descriptor: Ljava/lang/String;
+
+  public final java.lang.String description;
+    descriptor: Ljava/lang/String;
+
+  public final java.lang.String iconCode;
+    descriptor: Ljava/lang/String;
+
+  private static final jetbrains.buildServer.maintenance.StartupStage[] $VALUES;
+    descriptor: [Ljetbrains/buildServer/maintenance/StartupStage;
+
+  public static jetbrains.buildServer.maintenance.StartupStage[] values();
+    descriptor: ()[Ljetbrains/buildServer/maintenance/StartupStage;
+    Code:
+         0: getstatic     #355                // Field $VALUES:[Ljetbrains/buildServer/maintenance/StartupStage;
+         3: invokevirtual #420                // Method "[Ljetbrains/buildServer/maintenance/StartupStage;".clone:()Ljava/lang/Object;
+         6: checkcast     #371                // class "[Ljetbrains/buildServer/maintenance/StartupStage;"
+         9: areturn
+      LineNumberTable:
+        line 44: 0
+
+  public static jetbrains.buildServer.maintenance.StartupStage valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljetbrains/buildServer/maintenance/StartupStage;
+    Code:
+         0: ldc           #116                // class jetbrains/buildServer/maintenance/StartupStage
+         2: aload_0
+         3: invokestatic  #150                // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+         6: checkcast     #116                // class jetbrains/buildServer/maintenance/StartupStage
+         9: areturn
+      LineNumberTable:
+        line 55: 0
+
+  private jetbrains.buildServer.maintenance.StartupStage(boolean, boolean, boolean, java.lang.String, java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload         6
+         2: ifnonnull     9
+         5: iconst_0
+         6: invokestatic  #376                // Method $$$reportNull$$$0:(I)V
+         9: aload         7
+        11: ifnonnull     18
+        14: iconst_1
+        15: invokestatic  #376                // Method $$$reportNull$$$0:(I)V
+        18: aload         8
+        20: ifnonnull     27
+        23: iconst_2
+        24: invokestatic  #376                // Method $$$reportNull$$$0:(I)V
+        27: aload_0
+        28: aload_1
+        29: iload_2
+        30: invokespecial #293                // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+        33: aload_0
+        34: iload_3
+        35: putfield      #303                // Field active:Z
+        38: aload_0
+        39: iload         4
+        41: putfield      #372                // Field adminRequires:Z
+        44: aload_0
+        45: iload         5
+        47: putfield      #311                // Field shuttingDown:Z
+        50: aload_0
+        51: aload         6
+        53: putfield      #247                // Field page:Ljava/lang/String;
+        56: aload_0
+        57: aload         7
+        59: putfield      #224                // Field description:Ljava/lang/String;
+        62: aload_0
+        63: aload         8
+        65: putfield      #250                // Field iconCode:Ljava/lang/String;
+        68: return
+      LineNumberTable:
+        line 34: 27
+        line 10: 33
+        line 8: 38
+        line 19: 44
+        line 46: 50
+        line 36: 56
+        line 30: 62
+        line 4: 68
+
+  private static jetbrains.buildServer.maintenance.StartupStage[] $values();
+    descriptor: ()[Ljetbrains/buildServer/maintenance/StartupStage;
+    Code:
+         0: bipush        45
+         2: anewarray     #116                // class jetbrains/buildServer/maintenance/StartupStage
+         5: dup
+         6: iconst_0
+         7: getstatic     #144                // Field INITIAL_STAGE:Ljetbrains/buildServer/maintenance/StartupStage;
+        10: aastore
+        11: dup
+        12: iconst_1
+        13: getstatic     #220                // Field FATAL_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+        16: aastore
+        17: dup
+        18: iconst_2
+        19: getstatic     #271                // Field LOOKING_FOR_DATA_DIR:Ljetbrains/buildServer/maintenance/StartupStage;
+        22: aastore
+        23: dup
+        24: iconst_3
+        25: getstatic     #368                // Field ENCRYPTION_CONFIGURATION_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+        28: aastore
+        29: dup
+        30: iconst_4
+        31: getstatic     #413                // Field XMX_WARNING:Ljetbrains/buildServer/maintenance/StartupStage;
+        34: aastore
+        35: dup
+        36: iconst_5
+        37: getstatic     #203                // Field WAITING_FOR_DATA_DIRECTORY_INITIALIZATION:Ljetbrains/buildServer/maintenance/StartupStage;
+        40: aastore
+        41: dup
+        42: bipush        6
+        44: getstatic     #191                // Field FIRST_START_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+        47: aastore
+        48: dup
+        49: bipush        7
+        51: getstatic     #395                // Field PROCESS_DATA_DIR_SELECTED_BY_USER:Ljetbrains/buildServer/maintenance/StartupStage;
+        54: aastore
+        55: dup
+        56: bipush        8
+        58: getstatic     #269                // Field ASK_NODE_TYPE:Ljetbrains/buildServer/maintenance/StartupStage;
+        61: aastore
+        62: dup
+        63: bipush        9
+        65: getstatic     #227                // Field CREATE_NEW_DATA_DIR:Ljetbrains/buildServer/maintenance/StartupStage;
+        68: aastore
+        69: dup
+        70: bipush        10
+        72: getstatic     #357                // Field LOOKING_FOR_DB_SETTINGS:Ljetbrains/buildServer/maintenance/StartupStage;
+        75: aastore
+        76: dup
+        77: bipush        11
+        79: getstatic     #396                // Field RECREATE_DB_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+        82: aastore
+        83: dup
+        84: bipush        12
+        86: getstatic     #365                // Field DB_SETTINGS_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+        89: aastore
+        90: dup
+        91: bipush        13
+        93: getstatic     #182                // Field CREATE_NEW_DB:Ljetbrains/buildServer/maintenance/StartupStage;
+        96: aastore
+        97: dup
+        98: bipush        14
+       100: getstatic     #248                // Field DB_CONNECT:Ljetbrains/buildServer/maintenance/StartupStage;
+       103: aastore
+       104: dup
+       105: bipush        15
+       107: getstatic     #284                // Field DB_CONNECT_CONTINUE:Ljetbrains/buildServer/maintenance/StartupStage;
+       110: aastore
+       111: dup
+       112: bipush        16
+       114: getstatic     #157                // Field DB_CHECKING:Ljetbrains/buildServer/maintenance/StartupStage;
+       117: aastore
+       118: dup
+       119: bipush        17
+       121: getstatic     #323                // Field SECOND_INSTANCE:Ljetbrains/buildServer/maintenance/StartupStage;
+       124: aastore
+       125: dup
+       126: bipush        18
+       128: getstatic     #427                // Field CORRUPTED_INSTALLATION:Ljetbrains/buildServer/maintenance/StartupStage;
+       131: aastore
+       132: dup
+       133: bipush        19
+       135: getstatic     #286                // Field OUTDATED_SECONDARY_NODE:Ljetbrains/buildServer/maintenance/StartupStage;
+       138: aastore
+       139: dup
+       140: bipush        20
+       142: getstatic     #258                // Field WAITING_FOR_UPGRADE_LOCK:Ljetbrains/buildServer/maintenance/StartupStage;
+       145: aastore
+       146: dup
+       147: bipush        21
+       149: getstatic     #291                // Field WAITING_FOR_OTHER_NODE_SHUTDOWN:Ljetbrains/buildServer/maintenance/StartupStage;
+       152: aastore
+       153: dup
+       154: bipush        22
+       156: getstatic     #215                // Field MAIN_SERVER_OF_A_DIFFERENT_VERSION_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+       159: aastore
+       160: dup
+       161: bipush        23
+       163: getstatic     #290                // Field OTHER_NODE_WITH_SAME_ID_IS_ACTIVE:Ljetbrains/buildServer/maintenance/StartupStage;
+       166: aastore
+       167: dup
+       168: bipush        24
+       170: getstatic     #134                // Field OTHER_NODE_WITH_DIFFERENT_DATA_DIRECTORY:Ljetbrains/buildServer/maintenance/StartupStage;
+       173: aastore
+       174: dup
+       175: bipush        25
+       177: getstatic     #397                // Field MAIN_SERVER_WITH_DIFFERENT_DATA_DIRECTORY:Ljetbrains/buildServer/maintenance/StartupStage;
+       180: aastore
+       181: dup
+       182: bipush        26
+       184: getstatic     #180                // Field WAITING_FOR_UPGRADE_END:Ljetbrains/buildServer/maintenance/StartupStage;
+       187: aastore
+       188: dup
+       189: bipush        27
+       191: getstatic     #296                // Field TEAMCITY_NODE_ID_NOT_SPECIFIED:Ljetbrains/buildServer/maintenance/StartupStage;
+       194: aastore
+       195: dup
+       196: bipush        28
+       198: getstatic     #434                // Field LICENSE_AGREEMENT_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       201: aastore
+       202: dup
+       203: bipush        29
+       205: getstatic     #168                // Field LICENSE_AGREEMENT_SAVE:Ljetbrains/buildServer/maintenance/StartupStage;
+       208: aastore
+       209: dup
+       210: bipush        30
+       212: getstatic     #156                // Field UPGRADE_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       215: aastore
+       216: dup
+       217: bipush        31
+       219: getstatic     #315                // Field BACKUP:Ljetbrains/buildServer/maintenance/StartupStage;
+       222: aastore
+       223: dup
+       224: bipush        32
+       226: getstatic     #381                // Field UPGRADE:Ljetbrains/buildServer/maintenance/StartupStage;
+       229: aastore
+       230: dup
+       231: bipush        33
+       233: getstatic     #198                // Field RESTORE_SETTINGS_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       236: aastore
+       237: dup
+       238: bipush        34
+       240: getstatic     #200                // Field BACKUP_FILE_CHECKING:Ljetbrains/buildServer/maintenance/StartupStage;
+       243: aastore
+       244: dup
+       245: bipush        35
+       247: getstatic     #221                // Field RESTORE_DATABASE_SETTINGS_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       250: aastore
+       251: dup
+       252: bipush        36
+       254: getstatic     #217                // Field RESTORE_DB_CHECKING:Ljetbrains/buildServer/maintenance/StartupStage;
+       257: aastore
+       258: dup
+       259: bipush        37
+       261: getstatic     #148                // Field RESTORE:Ljetbrains/buildServer/maintenance/StartupStage;
+       264: aastore
+       265: dup
+       266: bipush        38
+       268: getstatic     #275                // Field COPIED_OR_MOVED_INSTALLATION_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       271: aastore
+       272: dup
+       273: bipush        39
+       275: getstatic     #163                // Field APPLICATION_STARTING:Ljetbrains/buildServer/maintenance/StartupStage;
+       278: aastore
+       279: dup
+       280: bipush        40
+       282: getstatic     #318                // Field READY:Ljetbrains/buildServer/maintenance/StartupStage;
+       285: aastore
+       286: dup
+       287: bipush        41
+       289: getstatic     #412                // Field EXCEPTION:Ljetbrains/buildServer/maintenance/StartupStage;
+       292: aastore
+       293: dup
+       294: bipush        42
+       296: getstatic     #153                // Field SHUTTING_DOWN:Ljetbrains/buildServer/maintenance/StartupStage;
+       299: aastore
+       300: dup
+       301: bipush        43
+       303: getstatic     #304                // Field END:Ljetbrains/buildServer/maintenance/StartupStage;
+       306: aastore
+       307: dup
+       308: bipush        44
+       310: getstatic     #140                // Field DOWNLOADING_JDBC_DRIVERS:Ljetbrains/buildServer/maintenance/StartupStage;
+       313: aastore
+       314: areturn
+      LineNumberTable:
+        line 15: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+         3: dup
+         4: ldc           #67                 // String INITIAL_STAGE
+         6: iconst_0
+         7: iconst_1
+         8: iconst_0
+         9: iconst_0
+        10: ldc           #73                 // String startup-init
+        12: ldc           #41                 // String Initializing Startup subsystem
+        14: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+        16: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        19: putstatic     #144                // Field INITIAL_STAGE:Ljetbrains/buildServer/maintenance/StartupStage;
+        22: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+        25: dup
+        26: ldc           #82                 // String FATAL_ERROR
+        28: iconst_1
+        29: iconst_0
+        30: iconst_0
+        31: iconst_0
+        32: ldc           #51                 // String fatal-error
+        34: ldc           #120                // String Fatal error
+        36: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+        38: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        41: putstatic     #220                // Field FATAL_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+        44: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+        47: dup
+        48: ldc           #131                // String LOOKING_FOR_DATA_DIR
+        50: iconst_2
+        51: iconst_1
+        52: iconst_0
+        53: iconst_0
+        54: ldc           #4                  // String startup-in-progress
+        56: ldc           #23                 // String Looking for the TeamCity Data Directory
+        58: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+        60: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        63: putstatic     #271                // Field LOOKING_FOR_DATA_DIR:Ljetbrains/buildServer/maintenance/StartupStage;
+        66: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+        69: dup
+        70: ldc           #70                 // String ENCRYPTION_CONFIGURATION_ERROR
+        72: iconst_3
+        73: iconst_0
+        74: iconst_1
+        75: iconst_0
+        76: ldc           #19                 // String encryption-configuration-warning
+        78: ldc           #79                 // String One or more encryption keys are missing
+        80: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+        82: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        85: putstatic     #368                // Field ENCRYPTION_CONFIGURATION_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+        88: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+        91: dup
+        92: ldc           #63                 // String XMX_WARNING
+        94: iconst_4
+        95: iconst_0
+        96: iconst_1
+        97: iconst_0
+        98: ldc           #33                 // String xmx-warning
+       100: ldc           #59                 // String Review TeamCity server memory settings
+       102: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       104: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       107: putstatic     #413                // Field XMX_WARNING:Ljetbrains/buildServer/maintenance/StartupStage;
+       110: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       113: dup
+       114: ldc           #56                 // String WAITING_FOR_DATA_DIRECTORY_INITIALIZATION
+       116: iconst_5
+       117: iconst_1
+       118: iconst_1
+       119: iconst_0
+       120: ldc           #8                  // String waiting-for-data-directory-initialization
+       122: ldc           #44                 // String Waiting for TeamCity Data Directory to initialize
+       124: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       126: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       129: putstatic     #203                // Field WAITING_FOR_DATA_DIRECTORY_INITIALIZATION:Ljetbrains/buildServer/maintenance/StartupStage;
+       132: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       135: dup
+       136: ldc           #69                 // String FIRST_START_SCREEN
+       138: bipush        6
+       140: iconst_0
+       141: iconst_1
+       142: iconst_0
+       143: ldc           #87                 // String first-start
+       145: ldc           #98                 // String Confirming TeamCity first start
+       147: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       149: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       152: putstatic     #191                // Field FIRST_START_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       155: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       158: dup
+       159: ldc           #97                 // String PROCESS_DATA_DIR_SELECTED_BY_USER
+       161: bipush        7
+       163: iconst_1
+       164: iconst_0
+       165: iconst_0
+       166: ldc           #4                  // String startup-in-progress
+       168: ldc           #22                 // String Initializing the TeamCity Data Directory
+       170: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       172: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       175: putstatic     #395                // Field PROCESS_DATA_DIR_SELECTED_BY_USER:Ljetbrains/buildServer/maintenance/StartupStage;
+       178: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       181: dup
+       182: ldc           #57                 // String ASK_NODE_TYPE
+       184: bipush        8
+       186: iconst_0
+       187: iconst_1
+       188: iconst_0
+       189: ldc           #121                // String ask-node-type
+       191: ldc           #6                  // String Confirming the TeamCity node type
+       193: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       195: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       198: putstatic     #269                // Field ASK_NODE_TYPE:Ljetbrains/buildServer/maintenance/StartupStage;
+       201: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       204: dup
+       205: ldc           #9                  // String CREATE_NEW_DATA_DIR
+       207: bipush        9
+       209: iconst_1
+       210: iconst_0
+       211: iconst_0
+       212: ldc           #4                  // String startup-in-progress
+       214: ldc           #22                 // String Initializing the TeamCity Data Directory
+       216: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       218: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       221: putstatic     #227                // Field CREATE_NEW_DATA_DIR:Ljetbrains/buildServer/maintenance/StartupStage;
+       224: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       227: dup
+       228: ldc           #46                 // String LOOKING_FOR_DB_SETTINGS
+       230: bipush        10
+       232: iconst_1
+       233: iconst_0
+       234: iconst_0
+       235: ldc           #4                  // String startup-in-progress
+       237: ldc           #95                 // String Looking for the database configuration
+       239: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       241: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       244: putstatic     #357                // Field LOOKING_FOR_DB_SETTINGS:Ljetbrains/buildServer/maintenance/StartupStage;
+       247: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       250: dup
+       251: ldc           #7                  // String RECREATE_DB_SCREEN
+       253: bipush        11
+       255: iconst_0
+       256: iconst_1
+       257: iconst_0
+       258: ldc           #81                 // String recreate-db
+       260: ldc           #16                 // String Database is empty or doesn\'t exist
+       262: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       264: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       267: putstatic     #396                // Field RECREATE_DB_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       270: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       273: dup
+       274: ldc           #48                 // String DB_SETTINGS_SCREEN
+       276: bipush        12
+       278: iconst_0
+       279: iconst_1
+       280: iconst_0
+       281: ldc           #62                 // String db-settings
+       283: ldc           #117                // String Setting up database connection
+       285: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       287: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       290: putstatic     #365                // Field DB_SETTINGS_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       293: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       296: dup
+       297: ldc           #124                // String CREATE_NEW_DB
+       299: bipush        13
+       301: iconst_1
+       302: iconst_0
+       303: iconst_0
+       304: ldc           #4                  // String startup-in-progress
+       306: ldc           #114                // String Creating a new database
+       308: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       310: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       313: putstatic     #182                // Field CREATE_NEW_DB:Ljetbrains/buildServer/maintenance/StartupStage;
+       316: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       319: dup
+       320: ldc           #111                // String DB_CONNECT
+       322: bipush        14
+       324: iconst_1
+       325: iconst_0
+       326: iconst_0
+       327: ldc           #4                  // String startup-in-progress
+       329: ldc           #83                 // String Connecting to the database
+       331: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       333: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       336: putstatic     #248                // Field DB_CONNECT:Ljetbrains/buildServer/maintenance/StartupStage;
+       339: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       342: dup
+       343: ldc           #119                // String DB_CONNECT_CONTINUE
+       345: bipush        15
+       347: iconst_1
+       348: iconst_1
+       349: iconst_0
+       350: ldc           #68                 // String connect-continue
+       352: ldc           #84                 // String Continuing attempts to connect to the database
+       354: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       356: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       359: putstatic     #284                // Field DB_CONNECT_CONTINUE:Ljetbrains/buildServer/maintenance/StartupStage;
+       362: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       365: dup
+       366: ldc           #13                 // String DB_CHECKING
+       368: bipush        16
+       370: iconst_1
+       371: iconst_0
+       372: iconst_0
+       373: ldc           #4                  // String startup-in-progress
+       375: ldc           #49                 // String Checking the database
+       377: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       379: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       382: putstatic     #157                // Field DB_CHECKING:Ljetbrains/buildServer/maintenance/StartupStage;
+       385: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       388: dup
+       389: ldc           #75                 // String SECOND_INSTANCE
+       391: bipush        17
+       393: iconst_0
+       394: iconst_1
+       395: iconst_0
+       396: ldc           #126                // String second-instance
+       398: ldc           #94                 // String Second TeamCity instance detected
+       400: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       402: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       405: putstatic     #323                // Field SECOND_INSTANCE:Ljetbrains/buildServer/maintenance/StartupStage;
+       408: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       411: dup
+       412: ldc           #14                 // String CORRUPTED_INSTALLATION
+       414: bipush        18
+       416: iconst_0
+       417: iconst_1
+       418: iconst_0
+       419: ldc           #43                 // String corrupted-installation
+       421: ldc           #25                 // String Corrupted TeamCity installation
+       423: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       425: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       428: putstatic     #427                // Field CORRUPTED_INSTALLATION:Ljetbrains/buildServer/maintenance/StartupStage;
+       431: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       434: dup
+       435: ldc           #71                 // String OUTDATED_SECONDARY_NODE
+       437: bipush        19
+       439: iconst_0
+       440: iconst_1
+       441: iconst_0
+       442: ldc           #103                // String outdated-secondary-node
+       444: ldc           #106                // String TeamCity Node upgrade is required
+       446: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       448: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       451: putstatic     #286                // Field OUTDATED_SECONDARY_NODE:Ljetbrains/buildServer/maintenance/StartupStage;
+       454: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       457: dup
+       458: ldc           #125                // String WAITING_FOR_UPGRADE_LOCK
+       460: bipush        20
+       462: iconst_1
+       463: iconst_1
+       464: iconst_0
+       465: ldc           #122                // String waiting-for-upgrade-lock
+       467: ldc           #2                  // String Data upgrade is required
+       469: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       471: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       474: putstatic     #258                // Field WAITING_FOR_UPGRADE_LOCK:Ljetbrains/buildServer/maintenance/StartupStage;
+       477: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       480: dup
+       481: ldc           #31                 // String WAITING_FOR_OTHER_NODE_SHUTDOWN
+       483: bipush        21
+       485: iconst_1
+       486: iconst_1
+       487: iconst_0
+       488: ldc           #65                 // String waiting-for-other-version-bmp-shutdown
+       490: ldc           #100                // String Secondary node of a different version detected
+       492: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       494: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       497: putstatic     #291                // Field WAITING_FOR_OTHER_NODE_SHUTDOWN:Ljetbrains/buildServer/maintenance/StartupStage;
+       500: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       503: dup
+       504: ldc           #92                 // String MAIN_SERVER_OF_A_DIFFERENT_VERSION_ERROR
+       506: bipush        22
+       508: iconst_0
+       509: iconst_1
+       510: iconst_0
+       511: ldc           #80                 // String main-server-of-different-version-detected
+       513: ldc           #29                 // String Active main server of a different version detected
+       515: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       517: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       520: putstatic     #215                // Field MAIN_SERVER_OF_A_DIFFERENT_VERSION_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+       523: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       526: dup
+       527: ldc           #3                  // String OTHER_NODE_WITH_SAME_ID_IS_ACTIVE
+       529: bipush        23
+       531: iconst_0
+       532: iconst_1
+       533: iconst_0
+       534: ldc           #86                 // String other-node-with-same-id
+       536: ldc           #130                // String The node id is already in use
+       538: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       540: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       543: putstatic     #290                // Field OTHER_NODE_WITH_SAME_ID_IS_ACTIVE:Ljetbrains/buildServer/maintenance/StartupStage;
+       546: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       549: dup
+       550: ldc           #108                // String OTHER_NODE_WITH_DIFFERENT_DATA_DIRECTORY
+       552: bipush        24
+       554: iconst_0
+       555: iconst_1
+       556: iconst_0
+       557: ldc           #118                // String other-node-with-different-data-directory
+       559: ldc           #10                 // String The active secondary node is using a different Data Directory
+       561: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       563: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       566: putstatic     #134                // Field OTHER_NODE_WITH_DIFFERENT_DATA_DIRECTORY:Ljetbrains/buildServer/maintenance/StartupStage;
+       569: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       572: dup
+       573: ldc           #102                // String MAIN_SERVER_WITH_DIFFERENT_DATA_DIRECTORY
+       575: bipush        25
+       577: iconst_0
+       578: iconst_1
+       579: iconst_0
+       580: ldc           #5                  // String main-server-with-different-data-directory
+       582: ldc           #39                 // String The active main server is using a different Data Directory
+       584: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       586: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       589: putstatic     #397                // Field MAIN_SERVER_WITH_DIFFERENT_DATA_DIRECTORY:Ljetbrains/buildServer/maintenance/StartupStage;
+       592: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       595: dup
+       596: ldc           #113                // String WAITING_FOR_UPGRADE_END
+       598: bipush        26
+       600: iconst_1
+       601: iconst_1
+       602: iconst_0
+       603: ldc           #34                 // String waiting-for-upgrade-end
+       605: ldc           #2                  // String Data upgrade is required
+       607: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       609: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       612: putstatic     #180                // Field WAITING_FOR_UPGRADE_END:Ljetbrains/buildServer/maintenance/StartupStage;
+       615: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       618: dup
+       619: ldc           #129                // String TEAMCITY_NODE_ID_NOT_SPECIFIED
+       621: bipush        27
+       623: iconst_0
+       624: iconst_1
+       625: iconst_0
+       626: ldc           #42                 // String node-id-isnt-specified
+       628: ldc           #105                // String TeamCity node id is not specified
+       630: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       632: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       635: putstatic     #296                // Field TEAMCITY_NODE_ID_NOT_SPECIFIED:Ljetbrains/buildServer/maintenance/StartupStage;
+       638: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       641: dup
+       642: ldc           #66                 // String LICENSE_AGREEMENT_SCREEN
+       644: bipush        28
+       646: iconst_0
+       647: iconst_1
+       648: iconst_0
+       649: ldc           #110                // String license-agreement
+       651: ldc           #40                 // String Review and accept TeamCity license agreement to continue using the product
+       653: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       655: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       658: putstatic     #434                // Field LICENSE_AGREEMENT_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       661: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       664: dup
+       665: ldc           #85                 // String LICENSE_AGREEMENT_SAVE
+       667: bipush        29
+       669: iconst_1
+       670: iconst_0
+       671: iconst_0
+       672: ldc           #4                  // String startup-in-progress
+       674: ldc           #78                 // String Saving License Agreement consent
+       676: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       678: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       681: putstatic     #168                // Field LICENSE_AGREEMENT_SAVE:Ljetbrains/buildServer/maintenance/StartupStage;
+       684: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       687: dup
+       688: ldc           #109                // String UPGRADE_SCREEN
+       690: bipush        30
+       692: iconst_0
+       693: iconst_1
+       694: iconst_0
+       695: ldc           #93                 // String upgrade
+       697: ldc           #2                  // String Data upgrade is required
+       699: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       701: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       704: putstatic     #156                // Field UPGRADE_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       707: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       710: dup
+       711: ldc           #37                 // String BACKUP
+       713: bipush        31
+       715: iconst_1
+       716: iconst_0
+       717: iconst_0
+       718: ldc           #74                 // String backup-progress
+       720: ldc           #50                 // String Backup
+       722: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       724: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       727: putstatic     #315                // Field BACKUP:Ljetbrains/buildServer/maintenance/StartupStage;
+       730: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       733: dup
+       734: ldc           #58                 // String UPGRADE
+       736: bipush        32
+       738: iconst_1
+       739: iconst_0
+       740: iconst_0
+       741: ldc           #4                  // String startup-in-progress
+       743: ldc           #99                 // String Upgrade
+       745: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       747: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       750: putstatic     #381                // Field UPGRADE:Ljetbrains/buildServer/maintenance/StartupStage;
+       753: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       756: dup
+       757: ldc           #47                 // String RESTORE_SETTINGS_SCREEN
+       759: bipush        33
+       761: iconst_0
+       762: iconst_1
+       763: iconst_0
+       764: ldc           #89                 // String restore-settings
+       766: ldc           #91                 // String Restore settings
+       768: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       770: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       773: putstatic     #198                // Field RESTORE_SETTINGS_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       776: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       779: dup
+       780: ldc           #76                 // String BACKUP_FILE_CHECKING
+       782: bipush        34
+       784: iconst_1
+       785: iconst_0
+       786: iconst_0
+       787: ldc           #4                  // String startup-in-progress
+       789: ldc           #123                // String Checking backup file
+       791: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       793: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       796: putstatic     #200                // Field BACKUP_FILE_CHECKING:Ljetbrains/buildServer/maintenance/StartupStage;
+       799: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       802: dup
+       803: ldc           #15                 // String RESTORE_DATABASE_SETTINGS_SCREEN
+       805: bipush        35
+       807: iconst_0
+       808: iconst_1
+       809: iconst_0
+       810: ldc           #28                 // String restore-db-settings
+       812: ldc           #45                 // String Target database settings
+       814: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       816: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       819: putstatic     #221                // Field RESTORE_DATABASE_SETTINGS_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       822: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       825: dup
+       826: ldc           #72                 // String RESTORE_DB_CHECKING
+       828: bipush        36
+       830: iconst_1
+       831: iconst_0
+       832: iconst_0
+       833: ldc           #4                  // String startup-in-progress
+       835: ldc           #24                 // String Checking the target database
+       837: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       839: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       842: putstatic     #217                // Field RESTORE_DB_CHECKING:Ljetbrains/buildServer/maintenance/StartupStage;
+       845: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       848: dup
+       849: ldc           #115                // String RESTORE
+       851: bipush        37
+       853: iconst_1
+       854: iconst_1
+       855: iconst_0
+       856: ldc           #127                // String restore-progress
+       858: ldc           #35                 // String Restore
+       860: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       862: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       865: putstatic     #148                // Field RESTORE:Ljetbrains/buildServer/maintenance/StartupStage;
+       868: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       871: dup
+       872: ldc           #128                // String COPIED_OR_MOVED_INSTALLATION_SCREEN
+       874: bipush        38
+       876: iconst_0
+       877: iconst_1
+       878: iconst_0
+       879: ldc           #90                 // String copied-or-moved-installation
+       881: ldc           #52                 // String Current server seems to be copied or moved
+       883: ldc           #1                  // String stage-admin-required-to-proceed tc-icon icon16 tc-icon_attention tc-icon_attention_yellow
+       885: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       888: putstatic     #275                // Field COPIED_OR_MOVED_INSTALLATION_SCREEN:Ljetbrains/buildServer/maintenance/StartupStage;
+       891: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       894: dup
+       895: ldc           #112                // String APPLICATION_STARTING
+       897: bipush        39
+       899: iconst_1
+       900: iconst_0
+       901: iconst_0
+       902: ldc           #4                  // String startup-in-progress
+       904: ldc           #36                 // String Initializing TeamCity server components
+       906: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       908: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       911: putstatic     #163                // Field APPLICATION_STARTING:Ljetbrains/buildServer/maintenance/StartupStage;
+       914: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       917: dup
+       918: ldc           #64                 // String READY
+       920: bipush        40
+       922: iconst_0
+       923: iconst_0
+       924: iconst_0
+       925: ldc           #38                 // String ready
+       927: ldc           #101                // String System is ready
+       929: ldc           #107                // String stage-system-is-ready tc-icon icon16 tc-icon_success
+       931: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       934: putstatic     #318                // Field READY:Ljetbrains/buildServer/maintenance/StartupStage;
+       937: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       940: dup
+       941: ldc           #61                 // String EXCEPTION
+       943: bipush        41
+       945: iconst_0
+       946: iconst_1
+       947: iconst_0
+       948: ldc           #55                 // String exception
+       950: ldc           #30                 // String TeamCity server startup error
+       952: ldc           #18                 // String stage-unrecoverable-error  tc-icon icon16 tc-icon_attention tc-icon_attention_red
+       954: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       957: putstatic     #412                // Field EXCEPTION:Ljetbrains/buildServer/maintenance/StartupStage;
+       960: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       963: dup
+       964: ldc           #26                 // String SHUTTING_DOWN
+       966: bipush        42
+       968: iconst_1
+       969: iconst_0
+       970: iconst_1
+       971: ldc           #4                  // String startup-in-progress
+       973: ldc           #32                 // String TeamCity server is shutting down
+       975: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+       977: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       980: putstatic     #153                // Field SHUTTING_DOWN:Ljetbrains/buildServer/maintenance/StartupStage;
+       983: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+       986: dup
+       987: ldc           #60                 // String END
+       989: bipush        43
+       991: iconst_0
+       992: iconst_0
+       993: iconst_1
+       994: ldc           #4                  // String startup-in-progress
+       996: ldc           #53                 // String Stopped
+       998: ldc           #27                 // String stage-server-stopped tc-icon icon16 tc-icon_cancelled
+      1000: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+      1003: putstatic     #304                // Field END:Ljetbrains/buildServer/maintenance/StartupStage;
+      1006: new           #116                // class jetbrains/buildServer/maintenance/StartupStage
+      1009: dup
+      1010: ldc           #104                // String DOWNLOADING_JDBC_DRIVERS
+      1012: bipush        44
+      1014: iconst_1
+      1015: iconst_0
+      1016: iconst_0
+      1017: ldc           #21                 // String downloading-jdbc-drivers
+      1019: ldc           #54                 // String Downloading JDBC drivers
+      1021: ldc           #12                 // String icon-refresh icon-spin ring-loader-inline
+      1023: invokespecial #421                // Method "<init>":(Ljava/lang/String;IZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+      1026: putstatic     #140                // Field DOWNLOADING_JDBC_DRIVERS:Ljetbrains/buildServer/maintenance/StartupStage;
+      1029: invokestatic  #428                // Method $values:()[Ljetbrains/buildServer/maintenance/StartupStage;
+      1032: putstatic     #355                // Field $VALUES:[Ljetbrains/buildServer/maintenance/StartupStage;
+      1035: return
+      LineNumberTable:
+        line 42: 0
+        line 5: 22
+        line 12: 44
+        line 20: 66
+        line 40: 88
+        line 21: 110
+        line 49: 132
+        line 37: 155
+        line 45: 178
+        line 38: 201
+        line 9: 224
+        line 43: 247
+        line 25: 270
+        line 51: 293
+        line 18: 316
+        line 27: 339
+        line 17: 362
+        line 23: 385
+        line 31: 408
+        line 13: 431
+        line 1: 454
+        line 39: 477
+        line 33: 500
+        line 22: 523
+        line 28: 546
+        line 52: 569
+        line 3: 592
+        line 6: 615
+        line 47: 638
+        line 26: 661
+        line 7: 684
+        line 32: 707
+        line 35: 730
+        line 57: 753
+        line 54: 776
+        line 16: 799
+        line 29: 822
+        line 48: 845
+        line 53: 868
+        line 56: 891
+        line 50: 914
+        line 2: 937
+        line 11: 960
+        line 24: 983
+        line 14: 1006
+        line 41: 1029
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #17                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #196                // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 2
+                       0: 32
+                       1: 44
+                       2: 52
+                 default: 32
+            }
+        32: dup
+        33: iconst_0
+        34: ldc           #11                 // String page
+        36: aastore
+        37: goto          60
+        40: invokestatic  #438                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        43: athrow
+        44: dup
+        45: iconst_0
+        46: ldc           #20                 // String description
+        48: aastore
+        49: goto          60
+        52: dup
+        53: iconst_0
+        54: ldc           #77                 // String iconCode
+        56: aastore
+        57: goto          60
+        60: dup
+        61: iconst_1
+        62: ldc           #88                 // String jetbrains/buildServer/maintenance/StartupStage
+        64: aastore
+        65: dup
+        66: iconst_2
+        67: ldc           #96                 // String <init>
+        69: aastore
+        70: invokestatic  #236                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        73: new           #170                // class java/lang/IllegalArgumentException
+        76: dup_x1
+        77: swap
+        78: invokespecial #298                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        81: athrow
+      Exception table:
+         from    to  target type
+             0    40    40   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

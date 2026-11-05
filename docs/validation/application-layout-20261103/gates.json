@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "standard",
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "exit_code": 0,
+      "output": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n"
+    },
+    {
+      "name": "acceptance",
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--require-approved",
+        "--require-fresh"
+      ],
+      "exit_code": 0,
+      "output": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n"
+    },
+    {
+      "name": "final-catalog",
+      "command": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 594,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n"
+    }
+  ]
+}

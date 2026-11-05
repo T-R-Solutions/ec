@@ -1,0 +1,149 @@
+{
+  "method": "manual semantic inspection of entrypoints and bridges, not independent model trials",
+  "cases": [
+    {
+      "request": "Reservar quota/slot com dois schedulers",
+      "primary": "cicd-scheduler",
+      "support": "distributed-systems / database-engineering",
+      "boundary": "Agent runtime não decide reserva global.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Drenar Agent e reconciliar slots após restart",
+      "primary": "cicd-agent-runtime",
+      "support": "reliability-engineering",
+      "boundary": "Heartbeat não comprova ownership.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Encerrar descendentes sob stdout saturado",
+      "primary": "cicd-execution-runtime",
+      "support": "agent-runtime-engineering / tool-output-engineering",
+      "boundary": "Sem ACP ou LLM por analogia.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Perder ACK e reconectar em sessão nova",
+      "primary": "ec-agent-control-protocol",
+      "support": "distributed-systems / api-testing",
+      "boundary": "Não adotar gRPC/SQLite automaticamente.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Capturar bytes inválidos e exit status",
+      "primary": "tool-output-engineering",
+      "support": "cicd-logs-and-test-results",
+      "boundary": "Captura e ingestão são responsabilidades distintas.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Preservar campos avançados ao trocar editor",
+      "primary": "ec-semantic-configuration-projections",
+      "support": "frontend-form-engineering",
+      "boundary": "Round-trip semântico, não igualdade visual.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Publicar YAML com duas edições concorrentes",
+      "primary": "ec-configuration-publication",
+      "support": "database-engineering",
+      "boundary": "Sem alegar commit atômico Git+PostgreSQL.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Rejeitar YAML com chaves duplicadas",
+      "primary": "ec-declarative-resource-schemas",
+      "support": "property-based-testing",
+      "boundary": "Nenhum schema ilustrativo vira suporte real.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Revogar acesso herdado",
+      "primary": "ec-effective-permissions",
+      "support": "application-security",
+      "boundary": "Authn não equivale a RBAC.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Verificar origem e isolamento de plugin",
+      "primary": "ec-plugin-isolation-and-lifecycle",
+      "support": "plugin-protocol-engineering",
+      "boundary": "Assinatura/manifesto não prova sandbox.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Corrigir layout web reativo",
+      "primary": "vue3-engineering",
+      "support": "css-layout-engineering",
+      "boundary": "Iced excluído.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Revisar README com comandos obsoletos",
+      "primary": "readme-lifecycle-engineering",
+      "support": "technical-documentation",
+      "boundary": "Sem inventar cargo run.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Criar commit solicitado",
+      "primary": "commit-governance",
+      "support": "nenhuma obrigatória",
+      "boundary": "Sem pedido, implementação não autoriza commit.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Métricas de slots e CPU",
+      "primary": "observability-and-diagnostics",
+      "support": "performance-engineering",
+      "boundary": "agent-usage-accounting excluído.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Validar ciclo em DAG de pipeline",
+      "primary": "cicd-pipeline-graph",
+      "support": "property-based-testing",
+      "boundary": "Grafo semântico de código excluído.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Adicionar funcionalidade de IA explicitamente solicitada",
+      "primary": "ai-engineering",
+      "support": "prompt se pergunta distinta",
+      "boundary": "Não selecionar IA para runtime CI/CD determinístico.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Medir 1.000 Agents",
+      "primary": "performance-engineering",
+      "support": "observability-and-diagnostics",
+      "boundary": "Meta de teste, não capacidade demonstrada.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    },
+    {
+      "request": "Alterar contrato entre versões de agentes",
+      "primary": "software-evolution",
+      "support": "api-testing",
+      "boundary": "Condicional a transição real.",
+      "status": "APPROVED",
+      "scope": "documentary routing only"
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 2,
+  "environment": "{'python': '3.13.16', 'platform': 'Linux-7.3.1-1-default-x86_64-with-glibc2.44', 'rustc': '1.99.1 (58cf8f9c3 2026-10-13)', 'cargo': '1.99.1 (5f94df478 2026-08-27)'}",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Critério conforme spec.md: AC-01",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Critério conforme spec.md: AC-02",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Critério conforme spec.md: AC-03",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "Critério conforme spec.md: AC-04",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Critério conforme spec.md: AC-05",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    },
+    {
+      "id": "AC-06",
+      "criterion": "Critério conforme spec.md: AC-06",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    },
+    {
+      "id": "AC-07",
+      "criterion": "Critério conforme spec.md: AC-07",
+      "status": "UNVERIFIED",
+      "evidence_ids": [
+        "E-LOCAL-SCHEMA"
+      ]
+    }
+  ],
+  "limitations": [
+    "API HTTP, migrations e publicação PostgreSQL",
+    "Agent, checkout e execução de processos de job",
+    "Fila durável, leases, fencing, concorrência SQL e recuperação de recibos",
+    "Frontend Vue/TypeScript/Pinia, três modos e navegação por teclado",
+    "Jornada integrada, autorização real, logs e artefatos"
+  ],
+  "evidence": [
+    {
+      "id": "E-LOCAL-SCHEMA",
+      "kind": "test",
+      "command_or_method": "Comandos e ambiente em checks.json; nove testes Rust, CLI, build em target novo e clippy.",
+      "observed_result": "Nove testes passam no subconjunto local implementado. Critérios completos e jornada não aprovados.",
+      "artifact": "docs/validation/first-functional-journey-20261105/checks.json",
+      "sha256": "3ae99e20bb0866f6a32b5bc933dd5c46d99ea67661309f7b136e348d2f65c1a7",
+      "inputs": [
+        {
+          "path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
+          "sha256": "0582d13a8beb309350d1de838b35c2b1b57cfbde465de5c87b76f4191b720867",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/SKILL.md",
+          "sha256": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/fixtures/project-pipeline.yaml",
+          "sha256": "8574490ed45d4be147200c7c5990e83a8bef85dd360b12e6eb69a62ef76609ce",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/Cargo.lock",
+          "sha256": "dd538936d0388f92b9917de6bb79fabd04369fa2cc35cf73565eed8cb34f0590",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/Cargo.toml",
+          "sha256": "d9b589d9d9b8d911a95e762ffde86ffb0f6ea93dcdf9c517532fa55cd929f569",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/Cargo.toml",
+          "sha256": "2783462600a6337a1222085cad2a0a385d3a313c383b7f9db3f6abe8af2db57c",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/src/main.rs",
+          "sha256": "2d63223695aa2dee96ae43764802e61f3f3764f7a7c7cab300d71c528974f421",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/tests/validation.rs",
+          "sha256": "25b50adfcdcbde3aa8ce23f55e6936ad428a8ff956d39c4427ada9cb3cf34052",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/Cargo.toml",
+          "sha256": "4e7480862e07b7c231ab25dc74a9207060b0444e473bba1d141a53c395f5025c",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/src/lib.rs",
+          "sha256": "15abd9ba67ee707677b0372658ff438f76c47bfdb93df322448fb181ae7435fb",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/Cargo.toml",
+          "sha256": "caeb8b52345b8cc83be88d398cbcd526dc0945ce55b6b1ae7dc04bcb388cea4c",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/src/lib.rs",
+          "sha256": "0506fbbbff2f7ad62ccba8da7d33da39b7f9cd6c81fa30a75c3301979283c39b",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/rust-toolchain.toml",
+          "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/first-functional-journey.md",
+          "sha256": "7b06a7e1bd417a42de3d07e5c63206c11f6f5475531cd8850c39f3518e55bca2",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/checks.json",
+          "sha256": "3ae99e20bb0866f6a32b5bc933dd5c46d99ea67661309f7b136e348d2f65c1a7",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/clean-tests.log",
+          "sha256": "d06b63c9b43953d0c99815fe6a15f291d70cdd5e9b730d8da10c907b66919f23",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/cli.stderr",
+          "sha256": "36673c9e5e8825c5434333351979e683eee7c808cc372bc0fba87a2949ac99d2",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/cli.stdout",
+          "sha256": "64ff98034d1dd3bf2e24f355576685d1f2424c73b889f30a17a5a65e202df2d5",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/clippy.log",
+          "sha256": "7b71a4e1e3d60914c228f7cccf282435a1ac3e73cea71b976d6acfb84202792a",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/fetch.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/fmt.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/previous.zip",
+          "sha256": "ca65fa77538584366931c30070681ad30923ef3da9952cf0ff6d47a5b8e40e8d",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/first-functional-journey-20261105/rust-tests.log",
+          "sha256": "4ceba9f3d590081b9848ffa909399ca56db33401419c2a14bc95633246e7a9bf",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/converge.md",
+          "sha256": "20d40b9fc045e2a63a64ede17002c12e18af1c1bfb32fd6e4db6833b033d5742",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/plan.md",
+          "sha256": "18d25d9d78d90e2de8f64fbf27cc06b40be90d84fd36172df042a8aa0a84d7ad",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "1a6499875deade63d392eec7aa43ae065fb0c2625c145a9ab50bf687486b9098",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/tasks.md",
+          "sha256": "09cd80f00196f47039a249b19a02ffeac519b35e4c429ed44f32dac93faad023",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/traceability.json",
+          "sha256": "b723f8179c0e7a12a3ef78fd8b82e7a2a1a1f4e5522a60128b70d0f4a3417dfc",
+          "role": "other"
+        }
+      ]
+    }
+  ]
+}

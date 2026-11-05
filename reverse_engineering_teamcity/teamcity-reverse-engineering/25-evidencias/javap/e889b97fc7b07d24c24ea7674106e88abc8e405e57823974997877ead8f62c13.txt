@@ -1,0 +1,247 @@
+Compiled from "BuildDistributionCallbackDispatcher.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributionCallbackDispatcher implements jetbrains.buildServer.serverSide.buildDistribution.BuildDistributionCallback {
+  private final jetbrains.buildServer.ExtensionsCollection<jetbrains.buildServer.serverSide.buildDistribution.BuildDistributionCallback> myExtensionsCollection;
+    descriptor: Ljetbrains/buildServer/ExtensionsCollection;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributionCallbackDispatcher(jetbrains.buildServer.ExtensionsProvider);
+    descriptor: (Ljetbrains/buildServer/ExtensionsProvider;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #146                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #31                 // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: ldc           #3                  // class jetbrains/buildServer/serverSide/buildDistribution/BuildDistributionCallback
+        16: invokeinterface #83,  2           // InterfaceMethod jetbrains/buildServer/ExtensionsProvider.getExtensionsCollection:(Ljava/lang/Class;)Ljetbrains/buildServer/ExtensionsCollection;
+        21: putfield      #69                 // Field myExtensionsCollection:Ljetbrains/buildServer/ExtensionsCollection;
+        24: return
+      LineNumberTable:
+        line 3: 8
+        line 5: 12
+        line 8: 24
+
+  public void distributionStarted();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokedynamic #26,  0             // InvokeDynamic #0:accept:()Ljava/util/function/Consumer;
+         6: ldc           #13                 // String BuildDistributionListener.distributionStarted
+         8: invokevirtual #27                 // Method processAllListeners:(Ljava/util/function/Consumer;Ljava/lang/String;)V
+        11: return
+      LineNumberTable:
+        line 17: 0
+        line 12: 11
+
+  public void distributionFinished();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokedynamic #101,  0            // InvokeDynamic #1:accept:()Ljava/util/function/Consumer;
+         6: ldc           #9                  // String BuildDistributionListener.distributionFinished
+         8: invokevirtual #27                 // Method processAllListeners:(Ljava/util/function/Consumer;Ljava/lang/String;)V
+        11: return
+      LineNumberTable:
+        line 16: 0
+        line 1: 11
+
+  public void waitReasonSet(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_1
+         5: invokestatic  #146                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_2
+        20: invokestatic  #146                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        29: athrow
+        30: aload_0
+        31: aload_1
+        32: aload_2
+        33: invokedynamic #19,  0             // InvokeDynamic #2:accept:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)Ljava/util/function/Consumer;
+        38: ldc           #10                 // String BuildDistributionListener.waitReasonSet
+        40: invokevirtual #27                 // Method processAllListeners:(Ljava/util/function/Consumer;Ljava/lang/String;)V
+        43: return
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    23    26   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 14: 30
+        line 2: 43
+
+  private void processAllListeners(java.util.function.Consumer<jetbrains.buildServer.serverSide.buildDistribution.BuildDistributionCallback>, java.lang.String);
+    descriptor: (Ljava/util/function/Consumer;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_3
+         5: invokestatic  #146                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_4
+        20: invokestatic  #146                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        29: athrow
+        30: aload_0
+        31: getfield      #69                 // Field myExtensionsCollection:Ljetbrains/buildServer/ExtensionsCollection;
+        34: invokeinterface #114,  1          // InterfaceMethod jetbrains/buildServer/ExtensionsCollection.getExtensions:()Ljava/util/Collection;
+        39: invokeinterface #166,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        44: astore_3
+        45: aload_3
+        46: invokeinterface #129,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        51: ifeq          118
+        54: aload_3
+        55: invokeinterface #144,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        60: checkcast     #3                  // class jetbrains/buildServer/serverSide/buildDistribution/BuildDistributionCallback
+        63: astore        4
+        65: aload         4
+        67: aload_0
+        68: if_acmpne     78
+        71: goto          45
+        74: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        77: athrow
+        78: aload_1
+        79: aload         4
+        81: invokeinterface #63,  2           // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+        86: goto          115
+        89: astore        5
+        91: getstatic     #130                // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+        94: aload_2
+        95: aload         4
+        97: invokeinterface #23,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/BuildDistributionCallback.getClass:()Ljava/lang/Class;
+       102: invokevirtual #167                // Method java/lang/Class.getName:()Ljava/lang/String;
+       105: invokedynamic #122,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       110: aload         5
+       112: invokevirtual #91                 // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       115: goto          45
+       118: return
+      Exception table:
+         from    to  target type
+            65    74    74   Class java/lang/Throwable
+            15    23    26   Class java/lang/Throwable
+             0     8    11   Class java/lang/Throwable
+            78    86    89   Class java/lang/Throwable
+      LineNumberTable:
+        line 15: 30
+        line 7: 65
+        line 13: 78
+        line 11: 86
+        line 4: 89
+        line 10: 91
+        line 18: 115
+        line 9: 118
+
+  private static void lambda$waitReasonSet$0(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason, jetbrains.buildServer.serverSide.buildDistribution.BuildDistributionCallback);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributionCallback;)V
+    Code:
+         0: aload_2
+         1: aload_0
+         2: aload_1
+         3: invokeinterface #89,  3           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/BuildDistributionCallback.waitReasonSet:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+         8: return
+      LineNumberTable:
+        line 6: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #4                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #74                 // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 4
+                       0: 40
+                       1: 52
+                       2: 60
+                       3: 68
+                       4: 76
+                 default: 40
+            }
+        40: dup
+        41: iconst_0
+        42: ldc           #14                 // String extensionsProvider
+        44: aastore
+        45: goto          84
+        48: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        51: athrow
+        52: dup
+        53: iconst_0
+        54: ldc           #2                  // String build
+        56: aastore
+        57: goto          84
+        60: dup
+        61: iconst_0
+        62: ldc           #5                  // String reason
+        64: aastore
+        65: goto          84
+        68: dup
+        69: iconst_0
+        70: ldc           #7                  // String f
+        72: aastore
+        73: goto          84
+        76: dup
+        77: iconst_0
+        78: ldc           #6                  // String functionName
+        80: aastore
+        81: goto          84
+        84: dup
+        85: iconst_1
+        86: ldc           #8                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher
+        88: aastore
+        89: iload_0
+        90: tableswitch   { // 0 to 4
+                       0: 124
+                       1: 136
+                       2: 136
+                       3: 144
+                       4: 144
+                 default: 124
+            }
+       124: dup
+       125: iconst_2
+       126: ldc           #1                  // String <init>
+       128: aastore
+       129: goto          152
+       132: invokestatic  #16                 // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       135: athrow
+       136: dup
+       137: iconst_2
+       138: ldc           #12                 // String waitReasonSet
+       140: aastore
+       141: goto          152
+       144: dup
+       145: iconst_2
+       146: ldc           #11                 // String processAllListeners
+       148: aastore
+       149: goto          152
+       152: invokestatic  #86                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       155: new           #148                // class java/lang/IllegalArgumentException
+       158: dup_x1
+       159: swap
+       160: invokespecial #21                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       163: athrow
+      Exception table:
+         from    to  target type
+             0    48    48   Class java/lang/IllegalArgumentException
+            84   132   132   Class java/lang/IllegalArgumentException
+
+  private static java.lang.Throwable a(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    Code:
+         0: aload_0
+         1: areturn
+}

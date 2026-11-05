@@ -1,0 +1,15 @@
+sequenceDiagram
+    accTitle: Publicação e confirmação — interação conceitual
+    accDescr: Usuário edita na interface, que submete proposta ao Server. Propostas inválidas ou não autorizadas recebem diagnóstico. Condições satisfeitas permitem confirmar publicação; a interface consulta a reconciliação e apresenta estado confirmado ou falha. Não define endpoints nem ordem transacional.
+    participant U as Usuário
+    participant F as Interface
+    participant S as Ec Server
+    U->>F: Editar em Visual, Formulário ou YAML
+    F->>S: Submeter proposta de configuração
+    alt Proposta inválida ou não autorizada
+        S-->>F: Diagnóstico e publicação impedida
+    else Condições de publicação satisfeitas
+        S-->>F: Confirmar revisão publicada
+        F->>S: Consultar resultado da reconciliação
+        S-->>F: Estado confirmado ou falha
+    end

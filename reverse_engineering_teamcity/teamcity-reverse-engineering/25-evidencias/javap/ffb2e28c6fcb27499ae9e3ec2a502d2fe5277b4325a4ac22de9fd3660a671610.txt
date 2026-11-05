@@ -1,0 +1,8 @@
+Compiled from "BuildsInfo.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.BuildsInfo {
+  public abstract java.util.List<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo> getQueue();
+    descriptor: ()Ljava/util/List;
+
+  public abstract java.util.Collection<jetbrains.buildServer.serverSide.buildDistribution.RunningBuildInfo> getRunningBuilds();
+    descriptor: ()Ljava/util/Collection;
+}

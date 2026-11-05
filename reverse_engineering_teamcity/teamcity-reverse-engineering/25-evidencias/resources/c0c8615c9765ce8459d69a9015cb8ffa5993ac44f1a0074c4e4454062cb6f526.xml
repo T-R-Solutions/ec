@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress AutowiredDependenciesInspection -->
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+    default-autowire="constructor"
+    >
+
+  <bean id="buildTestsStorage" class="jetbrains.buildServer.serverSide.messages.BuildTestsStorage"/>
+  <bean id="testMetadataStorage" class="jetbrains.buildServer.serverSide.stat.TestMetadataStorage"/>
+  <bean id="testMetadataCleaner" class="jetbrains.buildServer.serverSide.stat.TestMetadataCleaner"/>
+  <bean id="testMetadataValueType" class="jetbrains.buildServer.serverSide.stat.TestMetadataValueType"/>
+
+  <bean id="defaultMessageProcessorFactory" class="jetbrains.buildServer.serverSide.messages.core.DefaultMessageProcessorFactory"/>
+
+  <bean class="jetbrains.buildServer.messages.BuildServiceMessagesTranslator"/>
+
+  <bean id="progressMessagesTranslator" class="jetbrains.buildServer.messages.serviceMessages.ProgressMessagesTranslator"/>
+  <bean id="priorityMessageTranslator" class="jetbrains.buildServer.messages.serviceMessages.MessageTranslator"/>
+  <bean id="blockMessagesTranslator" class="jetbrains.buildServer.messages.serviceMessages.BlockMessagesTranslator"/>
+  <bean id="compilationBlocksTranslator" class="jetbrains.buildServer.messages.serviceMessages.CompilationMessagesTranslator"/>
+
+  <bean id="buildProblemTranslator" class="jetbrains.buildServer.messages.serviceMessages.BuildProblemTranslator"/>
+  <bean id="buildStopTranslator" class="jetbrains.buildServer.messages.serviceMessages.BuildStopTranslator"/>
+  <bean id="skipQueuedBuildsTranslator" class="jetbrains.buildServer.messages.serviceMessages.SkipQueuedBuildsTranslator"/>
+  <bean id="buildStatusTranslator" class="jetbrains.buildServer.messages.serviceMessages.BuildStatusTranslator"/>
+  <bean id="buildStatisticsTranslator" class="jetbrains.buildServer.messages.serviceMessages.BuildStatisticValueTranslator"/>
+  <bean id="buildNumberTranslator" class="jetbrains.buildServer.messages.serviceMessages.BuildNumberTranslator"/>
+  <bean id="flowStartedMessageTranslator" class="jetbrains.buildServer.messages.serviceMessages.FlowStartedMessageTranslator"/>
+  <bean id="flowFinishedMessageTranslator" class="jetbrains.buildServer.messages.serviceMessages.FlowFinishedMessageTranslator"/>
+  <bean id="testOutputTranslator" class="jetbrains.buildServer.messages.serviceMessages.TestOutputTranslator"/>
+  <bean id="testMetadataTranslator" class="jetbrains.buildServer.messages.serviceMessages.TestMetadataTranslator"/>
+  <bean id="testRetryTranslator" class="jetbrains.buildServer.messages.serviceMessages.TestRetryTranslator"/>
+  <bean id="detachedFromAgentMessageTranslator" class="jetbrains.buildServer.messages.serviceMessages.DetachedFromAgentMessageTranslator"/>
+  <bean id="remoteArtifactsTranslator" class="jetbrains.buildServer.messages.serviceMessages.RemoteArtifactTranslator"/>
+  <bean id="setParameterTranslator" class="jetbrains.buildServer.messages.serviceMessages.SetParameterTranslator"/>
+
+  <bean id="insertDuplicatesQuery" class="jetbrains.buildServer.serverSide.messages.codeDuplicates.InsertDuplicatesQuery"/>
+
+  <bean id="inspectionsMessageProcessorFactory" class="jetbrains.buildServer.serverSide.messages.codeInspection.InspectionsMessageProcessorFactory"/>
+  <bean id="duplicatesMessageProcessorFactory" class="jetbrains.buildServer.serverSide.messages.codeDuplicates.DuplicatesMessageProcessorFactory"/>
+  <bean id="buildCacheMessageTranslator" class="jetbrains.buildServer.serverSide.messages.BuildCachePublishedTranslator"/>
+  <bean id="activeBuildCachesManager" class="jetbrains.buildServer.serverSide.messages.ActiveBuildCachesManager"/>
+  <bean id="notificationTranslator" class="jetbrains.buildServer.messages.serviceMessages.NotificationTranslator" />
+  <bean id="buildTagTranslator" class="jetbrains.buildServer.messages.serviceMessages.BuildTagTranslator"/>
+
+</beans>

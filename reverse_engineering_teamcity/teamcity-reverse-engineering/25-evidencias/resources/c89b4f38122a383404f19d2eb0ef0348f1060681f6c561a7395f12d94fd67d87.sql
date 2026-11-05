@@ -1,0 +1,1 @@
+alter table build_revisions add column vcs_revision_display_name varchar(80)

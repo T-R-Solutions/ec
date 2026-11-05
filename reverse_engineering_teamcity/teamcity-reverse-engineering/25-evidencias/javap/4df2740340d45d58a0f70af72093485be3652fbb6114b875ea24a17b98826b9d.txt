@@ -1,0 +1,438 @@
+Compiled from "PriorityAgentsFilter.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.PriorityAgentsFilter implements jetbrains.buildServer.serverSide.buildDistribution.StartingBuildAgentsFilter,jetbrains.buildServer.util.positioning.PositionAware {
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.PriorityAgentsFilter();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #65                 // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 32: 0
+
+  public java.lang.String getOrderId();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: ldc           #2                  // class jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter
+         2: invokevirtual #94                 // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: dup
+         6: ifnonnull     20
+         9: iconst_0
+        10: invokestatic  #48                 // Method $$$reportNull$$$0:(I)V
+        13: goto          20
+        16: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        19: athrow
+        20: areturn
+      Exception table:
+         from    to  target type
+             0    13    16   Class java/lang/IllegalStateException
+      LineNumberTable:
+        line 6: 0
+
+  public jetbrains.buildServer.util.positioning.PositionConstraint getConstraint();
+    descriptor: ()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+    Code:
+         0: invokestatic  #199                // Method jetbrains/buildServer/util/positioning/PositionConstraint.last:()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+         3: dup
+         4: ifnonnull     18
+         7: iconst_1
+         8: invokestatic  #48                 // Method $$$reportNull$$$0:(I)V
+        11: goto          18
+        14: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        17: athrow
+        18: areturn
+      Exception table:
+         from    to  target type
+             0    11    14   Class java/lang/IllegalStateException
+      LineNumberTable:
+        line 9: 0
+
+  public jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterResult filterAgents(jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterContext);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext;)Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_2
+         5: invokestatic  #48                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        14: athrow
+        15: new           #156                // class jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult
+        18: dup
+        19: invokespecial #79                 // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult."<init>":()V
+        22: astore_2
+        23: new           #145                // class java/util/ArrayList
+        26: dup
+        27: invokespecial #254                // Method java/util/ArrayList."<init>":()V
+        30: astore_3
+        31: iconst_1
+        32: istore        4
+        34: aload_1
+        35: invokeinterface #128,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.getRequestor:()Ljetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor;
+        40: getstatic     #154                // Field jetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor.OTHER:Ljetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor;
+        43: if_acmpeq     133
+        46: aload_1
+        47: invokeinterface #177,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.getAgentsForStartingBuild:()Ljava/util/Collection;
+        52: invokeinterface #29,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        57: astore        5
+        59: aload         5
+        61: invokeinterface #100,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        66: ifeq          133
+        69: aload         5
+        71: invokeinterface #129,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        76: checkcast     #130                // class jetbrains/buildServer/serverSide/SBuildAgent
+        79: astore        6
+        81: aload_0
+        82: aload         6
+        84: invokevirtual #181                // Method getAgentPriority:(Ljetbrains/buildServer/serverSide/SBuildAgent;)I
+        87: istore        7
+        89: iload         4
+        91: ifeq          109
+        94: iload         7
+        96: ifeq          109
+        99: goto          106
+       102: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       105: athrow
+       106: iconst_0
+       107: istore        4
+       109: aload_3
+       110: new           #176                // class com/intellij/openapi/util/Pair
+       113: dup
+       114: aload         6
+       116: iload         7
+       118: invokestatic  #86                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       121: invokespecial #138                // Method com/intellij/openapi/util/Pair."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+       124: invokeinterface #157,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       129: pop
+       130: goto          59
+       133: iload         4
+       135: ifeq          179
+       138: aload_2
+       139: new           #145                // class java/util/ArrayList
+       142: dup
+       143: aload_1
+       144: invokeinterface #177,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.getAgentsForStartingBuild:()Ljava/util/Collection;
+       149: invokespecial #134                // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+       152: invokevirtual #76                 // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setFilteredConnectedAgents:(Ljava/util/List;)V
+       155: aload_2
+       156: dup
+       157: ifnonnull     178
+       160: goto          167
+       163: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       166: athrow
+       167: iconst_3
+       168: invokestatic  #48                 // Method $$$reportNull$$$0:(I)V
+       171: goto          178
+       174: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       177: athrow
+       178: areturn
+       179: invokedynamic #32,  0             // InvokeDynamic #0:applyAsInt:()Ljava/util/function/ToIntFunction;
+       184: invokestatic  #101                // InterfaceMethod java/util/Comparator.comparingInt:(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
+       187: astore        5
+       189: aload_3
+       190: invokeinterface #224,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       195: aload         5
+       197: invokeinterface #162,  1          // InterfaceMethod java/util/Comparator.reversed:()Ljava/util/Comparator;
+       202: invokeinterface #174,  2          // InterfaceMethod java/util/stream/Stream.sorted:(Ljava/util/Comparator;)Ljava/util/stream/Stream;
+       207: invokedynamic #35,  0             // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+       212: invokeinterface #106,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+       217: invokestatic  #158                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+       220: invokeinterface #184,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+       225: checkcast     #112                // class java/util/List
+       228: astore        6
+       230: aload_2
+       231: aload         6
+       233: invokevirtual #76                 // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setFilteredConnectedAgents:(Ljava/util/List;)V
+       236: aload_2
+       237: dup
+       238: ifnonnull     252
+       241: iconst_4
+       242: invokestatic  #48                 // Method $$$reportNull$$$0:(I)V
+       245: goto          252
+       248: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       251: athrow
+       252: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalStateException
+            89    99   102   Class java/lang/IllegalStateException
+           133   160   163   Class java/lang/IllegalStateException
+           138   171   174   Class java/lang/IllegalStateException
+           230   245   248   Class java/lang/IllegalStateException
+      LineNumberTable:
+        line 10: 15
+        line 24: 23
+        line 11: 31
+        line 14: 34
+        line 1: 46
+        line 29: 81
+        line 23: 89
+        line 33: 106
+        line 19: 109
+        line 25: 130
+        line 18: 133
+        line 34: 138
+        line 5: 155
+        line 4: 179
+        line 3: 189
+        line 35: 197
+        line 7: 212
+        line 12: 217
+        line 31: 230
+        line 30: 236
+
+  private int getAgentPriority(jetbrains.buildServer.serverSide.SBuildAgent);
+    descriptor: (Ljetbrains/buildServer/serverSide/SBuildAgent;)I
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_5
+         5: invokestatic  #48                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        14: athrow
+        15: aload_1
+        16: ldc           #12                 // String teamcity.agent.priority
+        18: invokeinterface #102,  2          // InterfaceMethod jetbrains/buildServer/serverSide/SBuildAgent.getAvailableParameterValue:(Ljava/lang/String;)Ljava/lang/String;
+        23: astore_2
+        24: aload_2
+        25: invokestatic  #15                 // Method jetbrains/buildServer/util/StringUtil.isEmpty:(Ljava/lang/String;)Z
+        28: ifeq          37
+        31: iconst_0
+        32: ireturn
+        33: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        36: athrow
+        37: aload_2
+        38: iconst_0
+        39: invokestatic  #19                 // Method jetbrains/buildServer/util/StringUtil.parseInt:(Ljava/lang/String;I)I
+        42: istore_3
+        43: iload_3
+        44: sipush        -10000
+        47: invokestatic  #59                 // Method java/lang/Integer.max:(II)I
+        50: sipush        10000
+        53: invokestatic  #40                 // Method java/lang/Integer.min:(II)I
+        56: istore        4
+        58: iload_3
+        59: iload         4
+        61: if_icmpeq     141
+        64: getstatic     #238                // Field jetbrains/buildServer/log/Loggers.AGENT:Lcom/intellij/openapi/diagnostic/Logger;
+        67: ldc           #9                  // String Agent priority value is out of bounds [%d..%d]. Value: %d. Resulting value: %d. Agent: %s (id: %s).
+        69: bipush        6
+        71: anewarray     #197                // class java/lang/Object
+        74: dup
+        75: iconst_0
+        76: sipush        -10000
+        79: invokestatic  #86                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        82: aastore
+        83: dup
+        84: iconst_1
+        85: sipush        10000
+        88: invokestatic  #86                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        91: aastore
+        92: dup
+        93: iconst_2
+        94: iload_3
+        95: invokestatic  #86                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        98: aastore
+        99: dup
+       100: iconst_3
+       101: iload         4
+       103: invokestatic  #86                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       106: aastore
+       107: dup
+       108: iconst_4
+       109: aload_1
+       110: invokeinterface #253,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SBuildAgent.getName:()Ljava/lang/String;
+       115: aastore
+       116: dup
+       117: iconst_5
+       118: aload_1
+       119: invokeinterface #239,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SBuildAgent.getId:()I
+       124: invokestatic  #86                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       127: aastore
+       128: invokestatic  #62                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       131: invokevirtual #49                 // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       134: goto          141
+       137: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       140: athrow
+       141: iload         4
+       143: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalStateException
+            24    33    33   Class java/lang/IllegalStateException
+            58   134   137   Class java/lang/IllegalStateException
+      LineNumberTable:
+        line 16: 15
+        line 13: 24
+        line 20: 37
+        line 38: 43
+        line 22: 47
+        line 26: 53
+        line 8: 58
+        line 2: 64
+        line 36: 79
+        line 39: 88
+        line 37: 95
+        line 15: 103
+        line 27: 110
+        line 28: 119
+        line 17: 128
+        line 21: 141
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 5
+                       0: 40
+                       1: 40
+                       2: 49
+                       3: 40
+                       4: 40
+                       5: 49
+                 default: 40
+            }
+        40: ldc           #11                 // String @NotNull method %s.%s must not return null
+        42: goto          54
+        45: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        48: athrow
+        49: ldc           #3                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        51: goto          54
+        54: iload_0
+        55: tableswitch   { // 0 to 5
+                       0: 92
+                       1: 92
+                       2: 100
+                       3: 92
+                       4: 92
+                       5: 100
+                 default: 92
+            }
+        92: iconst_2
+        93: goto          104
+        96: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+        99: athrow
+       100: iconst_3
+       101: goto          104
+       104: anewarray     #197                // class java/lang/Object
+       107: iload_0
+       108: tableswitch   { // 0 to 5
+                       0: 148
+                       1: 148
+                       2: 160
+                       3: 148
+                       4: 148
+                       5: 168
+                 default: 148
+            }
+       148: dup
+       149: iconst_0
+       150: ldc           #8                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter
+       152: aastore
+       153: goto          176
+       156: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       159: athrow
+       160: dup
+       161: iconst_0
+       162: ldc           #5                  // String context
+       164: aastore
+       165: goto          176
+       168: dup
+       169: iconst_0
+       170: ldc           #10                 // String agent
+       172: aastore
+       173: goto          176
+       176: iload_0
+       177: tableswitch   { // 0 to 5
+                       0: 216
+                       1: 228
+                       2: 236
+                       3: 244
+                       4: 244
+                       5: 236
+                 default: 216
+            }
+       216: dup
+       217: iconst_1
+       218: ldc           #6                  // String getOrderId
+       220: aastore
+       221: goto          252
+       224: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       227: athrow
+       228: dup
+       229: iconst_1
+       230: ldc           #4                  // String getConstraint
+       232: aastore
+       233: goto          252
+       236: dup
+       237: iconst_1
+       238: ldc           #8                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter
+       240: aastore
+       241: goto          252
+       244: dup
+       245: iconst_1
+       246: ldc           #1                  // String filterAgents
+       248: aastore
+       249: goto          252
+       252: iload_0
+       253: tableswitch   { // 0 to 5
+                       0: 292
+                       1: 292
+                       2: 299
+                       3: 292
+                       4: 292
+                       5: 307
+                 default: 292
+            }
+       292: goto          315
+       295: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       298: athrow
+       299: dup
+       300: iconst_2
+       301: ldc           #1                  // String filterAgents
+       303: aastore
+       304: goto          315
+       307: dup
+       308: iconst_2
+       309: ldc           #7                  // String getAgentPriority
+       311: aastore
+       312: goto          315
+       315: invokestatic  #62                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       318: iload_0
+       319: tableswitch   { // 0 to 5
+                       0: 356
+                       1: 356
+                       2: 371
+                       3: 356
+                       4: 356
+                       5: 371
+                 default: 356
+            }
+       356: new           #21                 // class java/lang/IllegalStateException
+       359: dup_x1
+       360: swap
+       361: invokespecial #74                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       364: goto          382
+       367: invokestatic  #255                // Method a:(Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+       370: athrow
+       371: new           #93                 // class java/lang/IllegalArgumentException
+       374: dup_x1
+       375: swap
+       376: invokespecial #141                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       379: goto          382
+       382: athrow
+      Exception table:
+         from    to  target type
+             0    45    45   Class java/lang/IllegalStateException
+            54    96    96   Class java/lang/IllegalStateException
+           104   156   156   Class java/lang/IllegalStateException
+           176   224   224   Class java/lang/IllegalStateException
+           252   295   295   Class java/lang/IllegalStateException
+           315   367   367   Class java/lang/IllegalStateException
+
+  private static java.lang.IllegalStateException a(java.lang.IllegalStateException);
+    descriptor: (Ljava/lang/IllegalStateException;)Ljava/lang/IllegalStateException;
+    Code:
+         0: aload_0
+         1: areturn
+}

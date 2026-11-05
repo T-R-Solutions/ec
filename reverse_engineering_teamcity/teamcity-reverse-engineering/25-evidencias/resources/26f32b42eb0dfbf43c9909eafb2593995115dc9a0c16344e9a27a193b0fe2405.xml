@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans     xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+           default-autowire="constructor">
+  <bean id="finishedBuildsStatisticsProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.FinishedBuildsStatisticProvider"/>
+  <bean id="runningBuildsStatisticsProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.RunningBuildsStatisticProvider"/>
+  <bean id="aggregatedStatisticsProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.AggregatedStatisticsProvider"/>
+  <bean id="hiddenBuildTimeStatisticsProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.BuildTimeStatisticProvider" autowire-candidate="false">
+    <constructor-arg index="0" ref="aggregatedStatisticsProvider"/>
+    <constructor-arg index="1" ref="historicalPathProvider"/>
+  </bean>
+
+  <bean id="buildTimeStatisticsProvider" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildTimeProvider">
+    <property name="delegate" ref="hiddenBuildTimeStatisticsProvider"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="projectManager" ref="projectManager"/>
+  </bean>
+
+  <bean id="buildTimeLimitsProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.ParameterBasedLimitProvider"/>
+  <bean id="historicalPathProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.DbHistoricalPathProvider"/>
+  <bean id="cachedFairBuildDistributorDataProvider" class="jetbrains.buildServer.serverSide.statistics.buildtime.CachedFairBuildDistributorDataProvider"/>
+</beans>

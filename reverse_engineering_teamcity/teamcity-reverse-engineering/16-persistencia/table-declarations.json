@@ -1,0 +1,2825 @@
+{
+  "scope": "CREATE TABLE declarations in bundled SQL; no production DB accessed",
+  "declarations": [
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 11
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 25
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 46
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 57
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 67
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 88
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 97
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 104
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 111
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 128
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+        "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+      },
+      "line": 137
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 22
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 37
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 60
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 73
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 85
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 106
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 117
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 125
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 132
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 150
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+        "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+      },
+      "line": 159
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 18
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 32
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 53
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 64
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 74
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 95
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 104
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 111
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 129
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 135
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+        "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+      },
+      "line": 143
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 33
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 47
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 68
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 79
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 89
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 110
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 119
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 126
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 144
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 150
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+        "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+      },
+      "line": 158
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 23
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 37
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 58
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 69
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 79
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 100
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 109
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 116
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 133
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 139
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+        "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+      },
+      "line": 147
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 13
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 27
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 48
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 59
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 69
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 90
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 99
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 106
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 123
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 129
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+        "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+      },
+      "line": 137
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 42
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 56
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 77
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 88
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 98
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 119
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 128
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 135
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 142
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 159
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+        "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+      },
+      "line": 168
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 11
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 25
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 46
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 57
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 67
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 88
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 97
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 104
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 110
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 127
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+        "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+      },
+      "line": 135
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 20
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 34
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 56
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 68
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 89
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 100
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 110
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 117
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 123
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 140
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+        "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+      },
+      "line": 148
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 11
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 17
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 25
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 41
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 46
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 53
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 58
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 71
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 80
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 97
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+        "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+      },
+      "line": 104
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 18
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 33
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 56
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 69
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 81
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 102
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 113
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 121
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 128
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 146
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+        "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+      },
+      "line": 155
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 12
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 27
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 50
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 63
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 75
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 96
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 107
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 115
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 122
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 140
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+        "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+      },
+      "line": 149
+    },
+    {
+      "table": "qblob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 8
+    },
+    {
+      "table": "qcalendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 19
+    },
+    {
+      "table": "qcron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 29
+    },
+    {
+      "table": "qfired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 41
+    },
+    {
+      "table": "qpaused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 61
+    },
+    {
+      "table": "qscheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 70
+    },
+    {
+      "table": "qlocks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 81
+    },
+    {
+      "table": "qjob_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 90
+    },
+    {
+      "table": "qsimple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 107
+    },
+    {
+      "table": "qsimprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 120
+    },
+    {
+      "table": "qtriggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+        "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+      },
+      "line": 142
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 23
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 38
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 61
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 74
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 86
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 107
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 118
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 126
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 133
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 151
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+        "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+      },
+      "line": 160
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 21
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 35
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 57
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 69
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 80
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 101
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 112
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 119
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 125
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 142
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+        "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+      },
+      "line": 150
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 36
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 50
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 72
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 84
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 95
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 115
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 125
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 132
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 138
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 155
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+        "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+      },
+      "line": 163
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 35
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 50
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 73
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 87
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 108
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 120
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 131
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 139
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 146
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 164
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+        "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+      },
+      "line": 173
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 18
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 33
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 56
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 69
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 81
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 102
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 113
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 122
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 129
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 147
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+        "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+      },
+      "line": 156
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 8
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 23
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 45
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 57
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 78
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 89
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 99
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 109
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 116
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 134
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+        "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+      },
+      "line": 143
+    },
+    {
+      "table": "qrtz_job_details",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 14
+    },
+    {
+      "table": "qrtz_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 28
+    },
+    {
+      "table": "qrtz_simple_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 49
+    },
+    {
+      "table": "qrtz_simprop_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 60
+    },
+    {
+      "table": "qrtz_cron_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 81
+    },
+    {
+      "table": "qrtz_blob_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 91
+    },
+    {
+      "table": "qrtz_calendars",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 100
+    },
+    {
+      "table": "qrtz_paused_trigger_grps",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 107
+    },
+    {
+      "table": "qrtz_fired_triggers",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 114
+    },
+    {
+      "table": "qrtz_scheduler_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 131
+    },
+    {
+      "table": "qrtz_locks",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+        "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+      },
+      "line": 140
+    },
+    {
+      "table": "QRTZ_CALENDARS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 108
+    },
+    {
+      "table": "QRTZ_CRON_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 115
+    },
+    {
+      "table": "QRTZ_PAUSED_TRIGGER_GRPS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 124
+    },
+    {
+      "table": "QRTZ_FIRED_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 130
+    },
+    {
+      "table": "QRTZ_SCHEDULER_STATE",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 147
+    },
+    {
+      "table": "QRTZ_LOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 155
+    },
+    {
+      "table": "QRTZ_JOB_DETAILS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 162
+    },
+    {
+      "table": "QRTZ_SIMPLE_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 176
+    },
+    {
+      "table": "QRTZ_SIMPROP_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 186
+    },
+    {
+      "table": "QRTZ_BLOB_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 205
+    },
+    {
+      "table": "QRTZ_TRIGGERS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+        "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+        "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+      },
+      "line": 213
+    },
+    {
+      "table": "statement",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/information-schema.sql",
+        "sha256": "89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53.sql"
+      },
+      "line": 184
+    },
+    {
+      "table": "for",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/information-schema.sql",
+        "sha256": "89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53.sql"
+      },
+      "line": 258
+    },
+    {
+      "table": "of",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/information-schema.sql",
+        "sha256": "89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53.sql"
+      },
+      "line": 373
+    },
+    {
+      "table": "BLOCKS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/lob-schema.sql",
+        "sha256": "28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c.sql"
+      },
+      "line": 5
+    },
+    {
+      "table": "LOBS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/lob-schema.sql",
+        "sha256": "28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c.sql"
+      },
+      "line": 8
+    },
+    {
+      "table": "PARTS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/lob-schema.sql",
+        "sha256": "28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c.sql"
+      },
+      "line": 11
+    },
+    {
+      "table": "LOB_IDS",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+        "member": "org/hsqldb/resources/lob-schema.sql",
+        "sha256": "28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c.sql"
+      },
+      "line": 13
+    },
+    {
+      "table": "agent_type_runner_old",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/redefine_agent_type_details.sql",
+        "sha256": "f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_type_vcs_old",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/redefine_agent_type_details.sql",
+        "sha256": "f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22.sql"
+      },
+      "line": 7
+    },
+    {
+      "table": "agent_type_runner",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/redefine_agent_type_details.sql",
+        "sha256": "f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22.sql"
+      },
+      "line": 30
+    },
+    {
+      "table": "agent_type_vcs",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/redefine_agent_type_details.sql",
+        "sha256": "f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22.sql"
+      },
+      "line": 38
+    },
+    {
+      "table": "projects",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_config_table.sql",
+        "sha256": "1fc2d11bbca7206f49985db1864e6dade8a99582e43cce8e4bc965653ab3b339",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1fc2d11bbca7206f49985db1864e6dade8a99582e43cce8e4bc965653ab3b339.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "light_history",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_table_for_cleaned_history_entries.sql",
+        "sha256": "9c9c1af41327e63966b86a82d5fa3fcdcf49fc7e388ff7e77626afa8575f2a47",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9c9c1af41327e63966b86a82d5fa3fcdcf49fc7e388ff7e77626afa8575f2a47.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "data_storage_dict",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/add_data_storage_dict_table.sql",
+        "sha256": "d2260d6d44c2d89f0d1305e3bebe1e524066399c06fb2ecabc11559df60195e8",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2260d6d44c2d89f0d1305e3bebe1e524066399c06fb2ecabc11559df60195e8.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "build_project",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_project_table.sql",
+        "sha256": "b5a64884b5091b533b5c8ca11f0331e64b9cce56c780c917617c45d64cf3c35d",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b5a64884b5091b533b5c8ca11f0331e64b9cce56c780c917617c45d64cf3c35d.sql"
+      },
+      "line": 2
+    },
+    {
+      "table": "agent_type",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_type_tables.sql",
+        "sha256": "712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_type_runner",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_type_tables.sql",
+        "sha256": "712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234.sql"
+      },
+      "line": 13
+    },
+    {
+      "table": "agent_type_vcs",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_type_tables.sql",
+        "sha256": "712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234.sql"
+      },
+      "line": 22
+    },
+    {
+      "table": "agent_type_param",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_type_tables.sql",
+        "sha256": "712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234.sql"
+      },
+      "line": 31
+    },
+    {
+      "table": "agent_pool",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_pools.sql",
+        "sha256": "e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_type_old",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_pools.sql",
+        "sha256": "e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c.sql"
+      },
+      "line": 17
+    },
+    {
+      "table": "agent_type",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_pools.sql",
+        "sha256": "e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c.sql"
+      },
+      "line": 36
+    },
+    {
+      "table": "agent_type_bt_access",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_pools.sql",
+        "sha256": "e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c.sql"
+      },
+      "line": 65
+    },
+    {
+      "table": "build_tags",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/table_build_tags.sql",
+        "sha256": "1e1a1e7ef6c84cfb51e9948d30829114b25adbe3597571a707f6bc4f80d0561f",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1e1a1e7ef6c84cfb51e9948d30829114b25adbe3597571a707f6bc4f80d0561f.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_pool_project",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/agent_pool_project.sql",
+        "sha256": "0b0850f220407b5eb436fdc04a2e5252c0e371e5524b99049d039439ca39d28c",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/0b0850f220407b5eb436fdc04a2e5252c0e371e5524b99049d039439ca39d28c.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "clean_checkout_enforcement",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_clean_checkout_enforcement_table.sql",
+        "sha256": "3b26684437624d91fadf52ecb06258a516ca08005dd218a41ee6ac56334fc306",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/3b26684437624d91fadf52ecb06258a516ca08005dd218a41ee6ac56334fc306.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "clean_checkout_enforcement",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/update_clean_checkout_enforcement_remove_id.sql",
+        "sha256": "9e44446fb5f05f061620a1e5d34230b0ced33baf71d70e408407c9a59a89ab49",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9e44446fb5f05f061620a1e5d34230b0ced33baf71d70e408407c9a59a89ab49.sql"
+      },
+      "line": 3
+    },
+    {
+      "table": "server_health_items",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/add_server_health_items_table.sql",
+        "sha256": "f743d81653b75d4b48170f2c1337d7431a6b6305e7ed06b284fbc1f2919f1b36",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f743d81653b75d4b48170f2c1337d7431a6b6305e7ed06b284fbc1f2919f1b36.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "action_history",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_action_history_table.sql",
+        "sha256": "040165fdb7067c870c72e40cc3ff9890297a4562386240b9580934d24f8f70a2",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/040165fdb7067c870c72e40cc3ff9890297a4562386240b9580934d24f8f70a2.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "test_metadata_dict",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/change_test_metadata_tables.sql",
+        "sha256": "347e0aab54ee433ce2c9f8ff5d1e41a42273baf72059086787e4f676c699b585",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/347e0aab54ee433ce2c9f8ff5d1e41a42273baf72059086787e4f676c699b585.sql"
+      },
+      "line": 5
+    },
+    {
+      "table": "build_labels",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_labels_table.sql",
+        "sha256": "9ed564b9cfc4bcf16f23656eab1563ec0a472fced656db8f907459c67ba32928",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9ed564b9cfc4bcf16f23656eab1563ec0a472fced656db8f907459c67ba32928.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "cloud_started_instance",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/started_instances_for_clouds.sql",
+        "sha256": "45c64025caf84edcd3845ff261d89c7c41bd6398d54ded778fdd311db582ec45",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/45c64025caf84edcd3845ff261d89c7c41bd6398d54ded778fdd311db582ec45.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "build_parameters",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_parameters_table.sql",
+        "sha256": "e9bbb454b5dd903e8be87a4195c3a19e2051bbf42e746be6885841ae60275a62",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e9bbb454b5dd903e8be87a4195c3a19e2051bbf42e746be6885841ae60275a62.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "single_row",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/single_row.sql",
+        "sha256": "6c748587edae1c1aa9768477aa4a5a4d565b3ae7dbf2d796f9a78c57fbcfcdee",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/6c748587edae1c1aa9768477aa4a5a4d565b3ae7dbf2d796f9a78c57fbcfcdee.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "build_problem_muted",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/add_mute_info_build_problem_table.sql",
+        "sha256": "1d6b0e1946b541e4aedfc2fccff3d8bed6a4f95c063a70dee10cc153704183f9",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1d6b0e1946b541e4aedfc2fccff3d8bed6a4f95c063a70dee10cc153704183f9.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "build_revisions",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_revisions_table.sql",
+        "sha256": "15b969f144c182ad54756854e05950198d8280f239dfee83f74c5fd840865e88",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/15b969f144c182ad54756854e05950198d8280f239dfee83f74c5fd840865e88.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "cloud_started_instance",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/update_cloud_tables_316.sql",
+        "sha256": "1dd8af261a4115e6ffecd37cb2e96976d2ff287345d3fc3dcbcad1ca6ac1186a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1dd8af261a4115e6ffecd37cb2e96976d2ff287345d3fc3dcbcad1ca6ac1186a.sql"
+      },
+      "line": 3
+    },
+    {
+      "table": "cloud_image",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/update_cloud_tables_316.sql",
+        "sha256": "1dd8af261a4115e6ffecd37cb2e96976d2ff287345d3fc3dcbcad1ca6ac1186a",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1dd8af261a4115e6ffecd37cb2e96976d2ff287345d3fc3dcbcad1ca6ac1186a.sql"
+      },
+      "line": 14
+    },
+    {
+      "table": "cleanup_history",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/add_cleanup_history_table.sql",
+        "sha256": "e15c13b4cdea706cd313a0520b1fdab6045ff36ba9c2c69f2fff32d6b4097024",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e15c13b4cdea706cd313a0520b1fdab6045ff36ba9c2c69f2fff32d6b4097024.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_type_param_2",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/support_defined_unresolved_parameters_for_agent_type.sql",
+        "sha256": "038c6b7c08a3075edddc3608fc3c0c77cc032aec6d43203c3f713f8bb61cd550",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/038c6b7c08a3075edddc3608fc3c0c77cc032aec6d43203c3f713f8bb61cd550.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_type_param",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/support_defined_unresolved_parameters_for_agent_type.sql",
+        "sha256": "038c6b7c08a3075edddc3608fc3c0c77cc032aec6d43203c3f713f8bb61cd550",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/038c6b7c08a3075edddc3608fc3c0c77cc032aec6d43203c3f713f8bb61cd550.sql"
+      },
+      "line": 17
+    },
+    {
+      "table": "cloud_instance_state",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/update_cloud_state_tables.sql",
+        "sha256": "657c5255360e69eb8e269e8d7cf67a0fa3a851c874406d424f889d820bd9ef14",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/657c5255360e69eb8e269e8d7cf67a0fa3a851c874406d424f889d820bd9ef14.sql"
+      },
+      "line": 3
+    },
+    {
+      "table": "test_failure_rate",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/table_test_failure_rate.sql",
+        "sha256": "58c01c83988cb7bffe1b2ad32028e57b75ad489e3ea0f14cec82342e34af1d96",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/58c01c83988cb7bffe1b2ad32028e57b75ad489e3ea0f14cec82342e34af1d96.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "personal_build_relative_path",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/add_relative_personal_path_table.sql",
+        "sha256": "650dcb22969f3e0e269a0e21f76889b45e5c43ef4afee1176d3cbbc18ac5e9ef",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/650dcb22969f3e0e269a0e21f76889b45e5c43ef4afee1176d3cbbc18ac5e9ef.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "inspection_fixes",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/make_inspection_fixes_hash_mandatory.sql",
+        "sha256": "bf4aa68daf2b7fdc13a824e2c688a4c3e651e526d1d9d1d28b30ccfd0edfe08d",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bf4aa68daf2b7fdc13a824e2c688a4c3e651e526d1d9d1d28b30ccfd0edfe08d.sql"
+      },
+      "line": 3
+    },
+    {
+      "table": "hidden_notifications",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/add_hidden_notifications_table.sql",
+        "sha256": "204af8213afd4f392cbb2cc3b5aa73f8f4f1252327c7b80de518206d835fd5a5",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/204af8213afd4f392cbb2cc3b5aa73f8f4f1252327c7b80de518206d835fd5a5.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "build_dependency",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_dependency_table.sql",
+        "sha256": "3eb1e9b4045fdd11b2ed53769740b2aa8ee5b921b1f93a4e0c841775d98f2ddc",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/3eb1e9b4045fdd11b2ed53769740b2aa8ee5b921b1f93a4e0c841775d98f2ddc.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "agent_sources_version",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/recreate_agent_sources_version_table.sql",
+        "sha256": "4bcbd46cb208c03fe2cc68d26161f96defc3f9c317bf5c4898ae6b560883b559",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4bcbd46cb208c03fe2cc68d26161f96defc3f9c317bf5c4898ae6b560883b559.sql"
+      },
+      "line": 3
+    },
+    {
+      "table": "build_state_tag",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_state_tag_tables.sql",
+        "sha256": "c40832da5fada7e7ed7222787d818cbbbac8d6737cc142432e78849f73389bb9",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c40832da5fada7e7ed7222787d818cbbbac8d6737cc142432e78849f73389bb9.sql"
+      },
+      "line": 1
+    },
+    {
+      "table": "build_state_private_tag",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_state_tag_tables.sql",
+        "sha256": "c40832da5fada7e7ed7222787d818cbbbac8d6737cc142432e78849f73389bb9",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c40832da5fada7e7ed7222787d818cbbbac8d6737cc142432e78849f73389bb9.sql"
+      },
+      "line": 11
+    },
+    {
+      "table": "build_problems_attribute",
+      "resource": {
+        "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+        "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_problems_attribute_table.sql",
+        "sha256": "b51fc274f8ab1f8416f09439d51088aa029e32c720d75fe23fe9df4257a7a50d",
+        "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b51fc274f8ab1f8416f09439d51088aa029e32c720d75fe23fe9df4257a7a50d.sql"
+      },
+      "line": 1
+    }
+  ]
+}

@@ -1,0 +1,1791 @@
+{
+  "python": "3.13.16 (main, Oct 16 2026, 19:23:15) [GCC]",
+  "cwd": "/home/rodrigo/Projetos/ec",
+  "changed_inputs": [
+    "README.md",
+    "docs/architecture/context.md",
+    "sdd/features/governance-adoption/tasks.md",
+    "sdd/project.md",
+    "sdd/features/governance-adoption/converge.md"
+  ],
+  "unexpected_changed_inputs": [],
+  "application_file_count": 80,
+  "module_count": 23,
+  "links": [
+    {
+      "source": "README.md",
+      "target": "docs/architecture/application-overview.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/contracts.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/application-overview.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "sdd/project.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/contracts.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "AGENTS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "application/agents/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "application/server/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "application/server/backend/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "application/server/frontend/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "sdd/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/skills-analysis.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "reverse_engineering_teamcity/ci-platform-research/README.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/skill-installation.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/validation/skills-adoption/report.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/decisions/ADR-002-application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/validation/workspace-cleanup-20261103/report.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/validation/application-layout-20261103/report.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/validation/application-path-audit-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/validation/application-analysis-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-control/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-workspace/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-execution/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-reporting/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-app/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "integration/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "e2e/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "backend/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "frontend/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../integration/tests/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-access/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-configuration/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-projects/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-orchestration/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-results/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-delivery/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-extensions/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-operations/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-app/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/app/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/shared/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/configuration/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/projects/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/pipelines/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/runs/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/delivery/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/infrastructure/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/access/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/extensions/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/administration/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "tests/integration/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "tests/e2e/README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/application-overview.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/contracts.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/project.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "constitution.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "decisions/ADR-001-skills-sdd-adoption.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "decisions/ADR-002-application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "ec-arquitetura-comunicacao-e-validacao.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../AGENTS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/workflow.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/evidence.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/skills-analysis.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/skill-installation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/chain/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "validation/application-analysis-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "validation/application-path-audit-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../reverse_engineering_teamcity/ci-platform-research/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "reavaliacao-skills-ec-dois-monolitos-atualizada.md",
+      "exists": true
+    },
+    {
+      "source": "docs/README.md",
+      "target": "readme-lifecycle-engineering-SKILL.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../sdd/project.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../constitution.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "contracts.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-access/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-configuration/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-projects/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-orchestration/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-results/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-delivery/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-extensions/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-operations/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-app/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-control/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-workspace/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-execution/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-reporting/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-app/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/frontend/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../tools/governance/validate.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../tools/governance/install_skills.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../sdd/tools/validate.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../tools/governance/tests/test_governance.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../config/governance/profile.json",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../reverse_engineering_teamcity/ci-platform-research/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "contracts.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../validation/application-analysis-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "application-overview.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "contracts.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../constitution.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "context.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../constitution.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-projects/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-extensions/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-orchestration/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/agents/crates/ec-agent-execution/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-results/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/agents/crates/ec-agent-reporting/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/agents/crates/ec-agent-workspace/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-delivery/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/frontend/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../config/governance/profile.json",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../tools/governance/validate.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../decisions/ADR-001-skills-sdd-adoption.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../tools/governance/install_skills.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../development/skill-installation.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../sdd/evidence.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../sdd/tools/validate.py",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../sdd/workflow.md",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../validation/application-analysis-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../../sdd/workflow.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../architecture/application-overview.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../architecture/contracts.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "../../../sdd/project.md",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "inventory.json",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "previous.zip",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "scope.json",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "checks.json",
+      "exists": true
+    },
+    {
+      "source": "docs/validation/application-analysis-20261104/report.md",
+      "target": "gates.json",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/workspace-cleanup-20261103/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/workspace-cleanup-20261103/checks.json",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "evidence.json",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/workspace-cleanup-20261103/previous.zip",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-layout-20261103/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-layout-20261103/previous.zip",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-layout-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-integration-tests-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-path-audit-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-analysis-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/converge.md",
+      "target": "../../../docs/validation/application-analysis-20261104/previous.zip",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/tasks.md",
+      "target": "../../../docs/validation/application-layout-20261103/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/tasks.md",
+      "target": "../../../docs/validation/application-layout-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/tasks.md",
+      "target": "../../../docs/validation/application-integration-tests-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/tasks.md",
+      "target": "../../../docs/validation/application-path-audit-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/features/governance-adoption/tasks.md",
+      "target": "../../../docs/validation/application-analysis-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "features/governance-adoption/spec.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/decisions/ADR-002-application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/validation/application-path-audit-20261104/report.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/constitution.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/context.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/application-layout.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/development/testing.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/README.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/application-overview.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/contracts.md",
+      "exists": true
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/validation/application-analysis-20261104/report.md",
+      "exists": true
+    }
+  ],
+  "link_errors": [],
+  "stale_evidence_rejection": {
+    "command": [
+      "/usr/bin/python3",
+      "sdd/tools/validate.py",
+      "--root",
+      ".",
+      "--require-approved",
+      "--require-fresh"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FAIL: sdd/features/governance-adoption: Stale input: E-PATH-AUDIT: README.md\nFAIL: sdd/features/governance-adoption: Stale input: E-PATH-AUDIT: docs/architecture/context.md\nFAIL: sdd/features/governance-adoption: Stale input: E-PATH-AUDIT: sdd/features/governance-adoption/tasks.md\nFAIL: sdd/features/governance-adoption: Stale input: E-PATH-AUDIT: sdd/project.md\nFAIL: sdd/features/governance-adoption: Stale input: E-PATH-AUDIT: sdd/features/governance-adoption/converge.md\n"
+  },
+  "checks": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 594,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 594,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"ALREADY_INSTALLED\",\n  \"count\": 67\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--structure-only"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_acceptance_parser_does_not_promote_mentions (test_governance.GovernanceTests.test_acceptance_parser_does_not_promote_mentions) ... ok\ntest_changed_original_resource_is_rejected (test_governance.GovernanceTests.test_changed_original_resource_is_rejected) ... ok\ntest_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile) ... ok\ntest_curated_sources_work_without_retired_packages (test_governance.GovernanceTests.test_curated_sources_work_without_retired_packages) ... ok\ntest_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected) ... ok\ntest_duplicate_json_key_is_rejected (test_governance.GovernanceTests.test_duplicate_json_key_is_rejected) ... ok\ntest_escaping_and_symlink_paths_are_rejected (test_governance.GovernanceTests.test_escaping_and_symlink_paths_are_rejected) ... ok\ntest_evidence_hash_change_is_not_silently_accepted (test_governance.GovernanceTests.test_evidence_hash_change_is_not_silently_accepted) ... ok\ntest_excluded_skill_bridge_is_rejected (test_governance.GovernanceTests.test_excluded_skill_bridge_is_rejected) ... ok\ntest_install_success_and_idempotent_repeat (test_governance.GovernanceTests.test_install_success_and_idempotent_repeat) ... ok\ntest_interrupted_package_copy_can_resume (test_governance.GovernanceTests.test_interrupted_package_copy_can_resume) ... ok\ntest_local_link_drift_is_detected_even_with_rehashed_skill (test_governance.GovernanceTests.test_local_link_drift_is_detected_even_with_rehashed_skill) ... ok\ntest_missing_bridge_is_rejected (test_governance.GovernanceTests.test_missing_bridge_is_rejected) ... ok\ntest_missing_original_resource_is_rejected (test_governance.GovernanceTests.test_missing_original_resource_is_rejected) ... ok\ntest_missing_resource_is_rejected (test_governance.GovernanceTests.test_missing_resource_is_rejected) ... ok\ntest_missing_source_archive_is_rejected (test_governance.GovernanceTests.test_missing_source_archive_is_rejected) ... ok\ntest_missing_source_bundle_declaration_is_rejected (test_governance.GovernanceTests.test_missing_source_bundle_declaration_is_rejected) ... ok\ntest_modified_skill_is_rejected (test_governance.GovernanceTests.test_modified_skill_is_rejected) ... ok\ntest_preparation_passes_but_is_not_installation (test_governance.GovernanceTests.test_preparation_passes_but_is_not_installation) ... ok\ntest_readonly_error_preserves_metadata (test_governance.GovernanceTests.test_readonly_error_preserves_metadata) ... ok\ntest_schema_one_cannot_claim_freshness (test_governance.GovernanceTests.test_schema_one_cannot_claim_freshness) ... ok\ntest_sdd_links_may_reach_authority_but_not_escape_root (test_governance.GovernanceTests.test_sdd_links_may_reach_authority_but_not_escape_root) ... ok\ntest_source_bundle_path_escape_is_rejected (test_governance.GovernanceTests.test_source_bundle_path_escape_is_rejected) ... ok\ntest_unrelated_destination_is_preserved (test_governance.GovernanceTests.test_unrelated_destination_is_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 7.284s\n\nOK\n"
+    }
+  ],
+  "limits": [
+    "Links locais apenas; âncoras e URLs externas não verificadas.",
+    "Inspeção documental e governança; sem runtime ou renderização de produto."
+  ]
+}

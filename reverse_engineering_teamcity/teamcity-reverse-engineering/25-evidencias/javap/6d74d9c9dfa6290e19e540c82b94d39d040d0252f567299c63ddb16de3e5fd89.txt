@@ -1,0 +1,3363 @@
+Compiled from "StartupServlet.java"
+public class jetbrains.buildServer.maintenance.StartupServlet extends javax.servlet.http.HttpServlet {
+  public static final java.lang.String MAINTENANCE_TOKEN_COOKIE;
+    descriptor: Ljava/lang/String;
+
+  static final java.lang.String USER_SESSION_ATTRIBUTE_NAME;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String USER_SESSION_ORIGINAL_INACTIVITY_INTERVAL_ATTR_NAME;
+    descriptor: Ljava/lang/String;
+
+  static final org.apache.commons.beanutils.PropertyUtilsBean ourPropertyUtilsBean;
+    descriptor: Lorg/apache/commons/beanutils/PropertyUtilsBean;
+
+  private static final java.lang.String DB_SETTINGS_PAGE_USER_INPUT_VAR;
+    descriptor: Ljava/lang/String;
+
+  private final freemarker.template.Configuration myFmConfig;
+    descriptor: Lfreemarker/template/Configuration;
+
+  private final com.intellij.openapi.diagnostic.Logger myLogger;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final jetbrains.buildServer.maintenance.StartupContext myContext;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupContext;
+
+  static final boolean $assertionsDisabled;
+    descriptor: Z
+
+  public jetbrains.buildServer.maintenance.StartupServlet();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getstatic     #1080               // Field jetbrains/buildServer/maintenance/StartupContextHolder.ourLogger:Lcom/intellij/openapi/diagnostic/Logger;
+         4: getstatic     #998                // Field jetbrains/buildServer/maintenance/StartupContextHolder.ourContext:Ljetbrains/buildServer/maintenance/StartupContext;
+         7: invokespecial #615                // Method "<init>":(Lcom/intellij/openapi/diagnostic/Logger;Ljetbrains/buildServer/maintenance/StartupContext;)V
+        10: return
+      LineNumberTable:
+        line 37: 0
+        line 237: 10
+
+  jetbrains.buildServer.maintenance.StartupServlet(com.intellij.openapi.diagnostic.Logger, jetbrains.buildServer.maintenance.StartupContext);
+    descriptor: (Lcom/intellij/openapi/diagnostic/Logger;Ljetbrains/buildServer/maintenance/StartupContext;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        16: aload_0
+        17: invokespecial #758                // Method javax/servlet/http/HttpServlet."<init>":()V
+        20: aload_0
+        21: new           #533                // class freemarker/template/Configuration
+        24: dup
+        25: invokespecial #305                // Method freemarker/template/Configuration."<init>":()V
+        28: putfield      #553                // Field myFmConfig:Lfreemarker/template/Configuration;
+        31: aload_0
+        32: aload_1
+        33: putfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        36: aload_0
+        37: aload_2
+        38: putfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        41: return
+      LineNumberTable:
+        line 211: 16
+        line 280: 20
+        line 268: 31
+        line 41: 36
+        line 116: 41
+
+  public void init(javax.servlet.ServletConfig) throws javax.servlet.ServletException;
+    descriptor: (Ljavax/servlet/ServletConfig;)V
+    Code:
+         0: aload_0
+         1: getfield      #553                // Field myFmConfig:Lfreemarker/template/Configuration;
+         4: invokestatic  #185                // Method setupFreeMarkerConfig:(Lfreemarker/template/Configuration;)V
+         7: return
+      LineNumberTable:
+        line 172: 0
+        line 162: 7
+
+  public void destroy();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #225                // Method javax/servlet/http/HttpServlet.destroy:()V
+         4: return
+      LineNumberTable:
+        line 108: 0
+        line 233: 4
+
+  static void setupFreeMarkerConfig(freemarker.template.Configuration);
+    descriptor: (Lfreemarker/template/Configuration;)V
+    Code:
+         0: aload_0
+         1: new           #894                // class freemarker/cache/ClassTemplateLoader
+         4: dup
+         5: ldc           #2                  // class jetbrains/buildServer/maintenance/StartupServlet
+         7: ldc           #3                  // String /maintenance
+         9: invokespecial #400                // Method freemarker/cache/ClassTemplateLoader."<init>":(Ljava/lang/Class;Ljava/lang/String;)V
+        12: invokevirtual #900                // Method freemarker/template/Configuration.setTemplateLoader:(Lfreemarker/cache/TemplateLoader;)V
+        15: aload_0
+        16: iconst_0
+        17: invokevirtual #401                // Method freemarker/template/Configuration.setLocalizedLookup:(Z)V
+        20: aload_0
+        21: invokestatic  #1108               // Method prepareObjectWrapper:()Lfreemarker/template/ObjectWrapper;
+        24: invokevirtual #740                // Method freemarker/template/Configuration.setObjectWrapper:(Lfreemarker/template/ObjectWrapper;)V
+        27: aload_0
+        28: ldc           #67                 // String yes,no
+        30: invokevirtual #432                // Method freemarker/template/Configuration.setBooleanFormat:(Ljava/lang/String;)V
+        33: aload_0
+        34: ldc           #52                 // String 0.######
+        36: invokevirtual #597                // Method freemarker/template/Configuration.setNumberFormat:(Ljava/lang/String;)V
+        39: return
+      LineNumberTable:
+        line 250: 0
+        line 14: 15
+        line 168: 20
+        line 283: 27
+        line 226: 33
+        line 55: 39
+
+  private static freemarker.template.ObjectWrapper prepareObjectWrapper();
+    descriptor: ()Lfreemarker/template/ObjectWrapper;
+    Code:
+         0: new           #985                // class freemarker/template/DefaultObjectWrapper
+         3: dup
+         4: invokespecial #629                // Method freemarker/template/DefaultObjectWrapper."<init>":()V
+         7: astore_0
+         8: aload_0
+         9: iconst_1
+        10: invokevirtual #705                // Method freemarker/template/DefaultObjectWrapper.setExposeFields:(Z)V
+        13: aload_0
+        14: areturn
+      LineNumberTable:
+        line 261: 0
+        line 61: 8
+        line 64: 13
+
+  protected void doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: aload_2
+         3: invokevirtual #1049               // Method doGetOrPost:(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+         6: return
+      LineNumberTable:
+        line 91: 0
+        line 177: 6
+
+  protected void doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+    Code:
+         0: aload_2
+         1: invokestatic  #576                // Method jetbrains/buildServer/web/util/WebUtil.preventCaching:(Ljavax/servlet/http/HttpServletResponse;)V
+         4: aload_0
+         5: aload_1
+         6: aload_2
+         7: invokevirtual #1049               // Method doGetOrPost:(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+        10: return
+      LineNumberTable:
+        line 188: 0
+        line 149: 4
+        line 170: 10
+
+  protected void doGetOrPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_2
+         5: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_3
+        20: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        29: athrow
+        30: aload_1
+        31: invokestatic  #662                // Method jetbrains/buildServer/web/util/WebUtil.getUserAgent:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+        34: astore_3
+        35: aload_3
+        36: ifnull        67
+        39: aload_3
+        40: ldc           #40                 // String TeamCity Agent
+        42: invokevirtual #799                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        45: ifeq          67
+        48: goto          55
+        51: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        54: athrow
+        55: aload_2
+        56: invokeinterface #1113,  1         // InterfaceMethod javax/servlet/http/HttpServletResponse.getWriter:()Ljava/io/PrintWriter;
+        61: ldc           #5                  // String TeamCity Server is starting
+        63: invokevirtual #156                // Method java/io/PrintWriter.write:(Ljava/lang/String;)V
+        66: return
+        67: aload_1
+        68: invokeinterface #860,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getPathInfo:()Ljava/lang/String;
+        73: invokestatic  #455                // Method jetbrains/buildServer/util/StringUtil.emptyIfNull:(Ljava/lang/String;)Ljava/lang/String;
+        76: astore        4
+        78: aload_0
+        79: aload_1
+        80: invokevirtual #1118               // Method obtainUserSession:(Ljavax/servlet/http/HttpServletRequest;)Ljetbrains/buildServer/maintenance/StartupUserSession;
+        83: astore        5
+        85: aload         4
+        87: ldc           #22                 // String /
+        89: invokevirtual #799                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        92: ifeq          103
+        95: aload         4
+        97: iconst_1
+        98: invokevirtual #606                // Method java/lang/String.substring:(I)Ljava/lang/String;
+       101: astore        4
+       103: aload         4
+       105: ldc           #22                 // String /
+       107: invokevirtual #716                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+       110: ifeq          128
+       113: aload         4
+       115: iconst_0
+       116: aload         4
+       118: invokevirtual #876                // Method java/lang/String.length:()I
+       121: iconst_1
+       122: isub
+       123: invokevirtual #700                // Method java/lang/String.substring:(II)Ljava/lang/String;
+       126: astore        4
+       128: ldc           #74                 // String teamcity.csrf.check.startupPages.enabled
+       130: invokestatic  #759                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+       133: ifeq          162
+       136: new           #234                // class jetbrains/buildServer/web/CsrfTokenCheck
+       139: dup
+       140: invokespecial #245                // Method jetbrains/buildServer/web/CsrfTokenCheck."<init>":()V
+       143: invokestatic  #731                // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+       146: aload_1
+       147: aload_2
+       148: invokestatic  #291                // Method jetbrains/buildServer/web/CSRFFilter.validateRequest:(Ljava/util/List;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)Z
+       151: ifne          162
+       154: goto          161
+       157: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       160: athrow
+       161: return
+       162: aload         4
+       164: ldc           #22                 // String /
+       166: invokevirtual #729                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+       169: astore        6
+       171: aload         6
+       173: arraylength
+       174: ifle          188
+       177: aload         6
+       179: iconst_0
+       180: aaload
+       181: goto          190
+       184: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       187: athrow
+       188: ldc           #10                 // String
+       190: astore        7
+       192: aload         6
+       194: arraylength
+       195: iconst_1
+       196: if_icmple     210
+       199: aload         6
+       201: iconst_1
+       202: aaload
+       203: goto          212
+       206: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       209: athrow
+       210: ldc           #10                 // String
+       212: astore        8
+       214: aload         6
+       216: arraylength
+       217: iconst_2
+       218: if_icmple     232
+       221: aload         6
+       223: iconst_2
+       224: aaload
+       225: goto          234
+       228: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       231: athrow
+       232: ldc           #10                 // String
+       234: astore        9
+       236: aload_2
+       237: ldc           #27                 // String UTF-8
+       239: invokeinterface #136,  2          // InterfaceMethod javax/servlet/http/HttpServletResponse.setCharacterEncoding:(Ljava/lang/String;)V
+       244: aload_0
+       245: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       248: invokevirtual #545                // Method jetbrains/buildServer/maintenance/StartupContext.getCurrStage:()Ljetbrains/buildServer/maintenance/StartupStage;
+       251: astore        10
+       253: aload_0
+       254: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       257: invokevirtual #784                // Method jetbrains/buildServer/maintenance/StartupContext.getStateRevision:()I
+       260: istore        11
+       262: aload_2
+       263: invokeinterface #1113,  1         // InterfaceMethod javax/servlet/http/HttpServletResponse.getWriter:()Ljava/io/PrintWriter;
+       268: astore        12
+       270: aload         7
+       272: ldc           #84                 // String get
+       274: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       277: ifeq          314
+       280: aload         8
+       282: invokevirtual #876                // Method java/lang/String.length:()I
+       285: ifle          314
+       288: goto          295
+       291: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       294: athrow
+       295: aload_0
+       296: aload         5
+       298: aload         8
+       300: aload         12
+       302: aload_1
+       303: aload_2
+       304: invokevirtual #557                // Method doProcessAjaxQuery:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/io/PrintWriter;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+       307: goto          550
+       310: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       313: athrow
+       314: aload         7
+       316: ldc           #91                 // String do
+       318: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       321: ifeq          358
+       324: aload         8
+       326: invokevirtual #876                // Method java/lang/String.length:()I
+       329: ifle          358
+       332: goto          339
+       335: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       338: athrow
+       339: aload_0
+       340: aload         5
+       342: aload         8
+       344: aload         12
+       346: aload_1
+       347: aload_2
+       348: invokevirtual #514                // Method doProcessAjaxCommand:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/io/PrintWriter;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+       351: goto          550
+       354: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       357: athrow
+       358: aload         7
+       360: ldc           #56                 // String debug
+       362: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       365: ifeq          418
+       368: aload_0
+       369: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       372: invokevirtual #580                // Method jetbrains/buildServer/maintenance/StartupContext.isDevelopmentMode:()Z
+       375: ifeq          418
+       378: goto          385
+       381: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       384: athrow
+       385: aload_0
+       386: aload_1
+       387: aload_2
+       388: aload         5
+       390: invokevirtual #138                // Method tryToAuthenticateAutomatically:(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljetbrains/buildServer/maintenance/StartupUserSession;)V
+       393: aload_0
+       394: aload         5
+       396: aload         8
+       398: aload         9
+       400: aload_1
+       401: aload_2
+       402: aload         12
+       404: aload         10
+       406: iload         11
+       408: invokevirtual #385                // Method doProcessDebugPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/lang/String;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+       411: goto          550
+       414: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       417: athrow
+       418: aload         10
+       420: getstatic     #438                // Field jetbrains/buildServer/maintenance/StartupStage.FATAL_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+       423: if_acmpne     443
+       426: aload_0
+       427: aload         5
+       429: aload_1
+       430: aload_2
+       431: aload         12
+       433: invokevirtual #960                // Method doProcessFatalPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;)V
+       436: goto          550
+       439: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       442: athrow
+       443: aload         7
+       445: ldc           #69                 // String welcome
+       447: invokevirtual #716                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+       450: ifeq          474
+       453: aload_0
+       454: aload         5
+       456: aload_1
+       457: aload_2
+       458: aload         12
+       460: aload         10
+       462: iload         11
+       464: invokevirtual #1050               // Method doProcessWelcomePage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+       467: goto          550
+       470: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       473: athrow
+       474: aload_0
+       475: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       478: invokevirtual #580                // Method jetbrains/buildServer/maintenance/StartupContext.isDevelopmentMode:()Z
+       481: ifne          528
+       484: aload         10
+       486: getstatic     #457                // Field jetbrains/buildServer/maintenance/StartupStage.READY:Ljetbrains/buildServer/maintenance/StartupStage;
+       489: if_acmpne     528
+       492: goto          499
+       495: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       498: athrow
+       499: aload_1
+       500: invokestatic  #962                // Method jetbrains/buildServer/web/util/WebUtil.isInclude:(Ljavax/servlet/http/HttpServletRequest;)Z
+       503: ifne          528
+       506: goto          513
+       509: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       512: athrow
+       513: aload_0
+       514: aload         5
+       516: aload_1
+       517: aload_2
+       518: invokevirtual #494                // Method doRedirectToNonMaintenancepage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+       521: goto          550
+       524: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       527: athrow
+       528: aload_0
+       529: aload_1
+       530: aload_2
+       531: aload         5
+       533: invokevirtual #138                // Method tryToAuthenticateAutomatically:(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljetbrains/buildServer/maintenance/StartupUserSession;)V
+       536: aload_0
+       537: aload         5
+       539: aload_1
+       540: aload_2
+       541: aload         12
+       543: aload         10
+       545: iload         11
+       547: invokevirtual #722                // Method doProcessStagePage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+       550: aload         12
+       552: ifnull        594
+       555: aload         12
+       557: invokevirtual #469                // Method java/io/PrintWriter.close:()V
+       560: goto          594
+       563: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       566: athrow
+       567: astore        13
+       569: aload         12
+       571: ifnull        591
+       574: aload         12
+       576: invokevirtual #469                // Method java/io/PrintWriter.close:()V
+       579: goto          591
+       582: astore        14
+       584: aload         13
+       586: aload         14
+       588: invokevirtual #184                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       591: aload         13
+       593: athrow
+       594: goto          621
+       597: astore_3
+       598: aload_0
+       599: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       602: aload_3
+       603: invokevirtual #789                // Method java/lang/Throwable.toString:()Ljava/lang/String;
+       606: aload_1
+       607: invokestatic  #345                // Method jetbrains/buildServer/web/util/WebUtil.getRequestDump:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+       610: invokedynamic #744,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       615: aload_3
+       616: invokevirtual #309                // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       619: aload_3
+       620: athrow
+       621: return
+      Exception table:
+         from    to  target type
+           499   524   524   Class java/lang/Throwable
+           484   506   509   Class java/lang/Throwable
+           474   492   495   Class java/lang/Throwable
+           443   470   470   Class java/lang/Throwable
+           418   439   439   Class java/lang/Throwable
+           368   414   414   Class java/lang/Throwable
+           358   378   381   Class java/lang/Throwable
+           324   354   354   Class java/lang/Throwable
+           314   332   335   Class java/lang/Throwable
+           280   310   310   Class java/lang/Throwable
+           270   288   291   Class java/lang/Throwable
+            35    48    51   Class java/lang/Throwable
+            15    23    26   Class java/lang/Throwable
+             0     8    11   Class java/lang/Throwable
+           270   550   567   Class java/lang/Throwable
+           574   579   582   Class java/lang/Throwable
+            30    66   597   Class java/lang/Throwable
+           128   154   157   Class java/lang/Throwable
+            67   161   597   Class java/lang/Throwable
+           550   563   563   Class java/lang/Throwable
+           214   228   228   Class java/lang/Throwable
+           192   206   206   Class java/lang/Throwable
+           171   184   184   Class java/lang/Throwable
+           162   594   597   Class java/lang/Throwable
+      LineNumberTable:
+        line 88: 30
+        line 4: 35
+        line 245: 55
+        line 171: 66
+        line 160: 67
+        line 234: 78
+        line 157: 85
+        line 207: 95
+        line 243: 103
+        line 200: 113
+        line 251: 128
+        line 202: 143
+        line 206: 161
+        line 227: 162
+        line 311: 171
+        line 230: 192
+        line 19: 214
+        line 181: 236
+        line 176: 244
+        line 23: 253
+        line 180: 262
+        line 31: 270
+        line 92: 295
+        line 178: 314
+        line 274: 339
+        line 53: 358
+        line 22: 385
+        line 161: 393
+        line 152: 418
+        line 118: 426
+        line 24: 443
+        line 296: 453
+        line 113: 474
+        line 231: 513
+        line 49: 528
+        line 147: 536
+        line 169: 550
+        line 59: 567
+        line 142: 594
+        line 182: 597
+        line 97: 598
+        line 45: 619
+        line 194: 621
+
+  private jetbrains.buildServer.maintenance.StartupUserSession obtainUserSession(javax.servlet.http.HttpServletRequest);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;)Ljetbrains/buildServer/maintenance/StartupUserSession;
+    Code:
+         0: aload_1
+         1: iconst_1
+         2: invokeinterface #969,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getSession:(Z)Ljavax/servlet/http/HttpSession;
+         7: astore_2
+         8: aload_2
+         9: invokestatic  #751                // Method jetbrains/buildServer/web/CSRFFilter.setSessionAttribute:(Ljavax/servlet/http/HttpSession;)Ljava/lang/String;
+        12: pop
+        13: getstatic     #652                // Field $assertionsDisabled:Z
+        16: ifne          42
+        19: aload_2
+        20: ifnonnull     42
+        23: goto          30
+        26: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        29: athrow
+        30: new           #1121               // class java/lang/AssertionError
+        33: dup
+        34: invokespecial #172                // Method java/lang/AssertionError."<init>":()V
+        37: athrow
+        38: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        41: athrow
+        42: aload_2
+        43: ldc           #24                 // String userSession
+        45: invokeinterface #1068,  2         // InterfaceMethod javax/servlet/http/HttpSession.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;
+        50: checkcast     #893                // class jetbrains/buildServer/maintenance/StartupUserSession
+        53: astore_3
+        54: aload_3
+        55: ifnonnull     105
+        58: new           #893                // class jetbrains/buildServer/maintenance/StartupUserSession
+        61: dup
+        62: invokespecial #402                // Method jetbrains/buildServer/maintenance/StartupUserSession."<init>":()V
+        65: astore_3
+        66: aload_2
+        67: ldc           #24                 // String userSession
+        69: aload_3
+        70: invokeinterface #117,  3          // InterfaceMethod javax/servlet/http/HttpSession.setAttribute:(Ljava/lang/String;Ljava/lang/Object;)V
+        75: aload_2
+        76: ldc           #21                 // String teamcity.session.originalInactivityInterval
+        78: aload_2
+        79: invokeinterface #581,  1          // InterfaceMethod javax/servlet/http/HttpSession.getMaxInactiveInterval:()I
+        84: invokestatic  #275                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        87: invokeinterface #117,  3          // InterfaceMethod javax/servlet/http/HttpSession.setAttribute:(Ljava/lang/String;Ljava/lang/Object;)V
+        92: aload_2
+        93: ldc           #79                 // String teamcity.session.startup.timeout
+        95: bipush        60
+        97: invokestatic  #1091               // Method jetbrains/buildServer/serverSide/TeamCityProperties.getInteger:(Ljava/lang/String;I)I
+       100: invokeinterface #397,  2          // InterfaceMethod javax/servlet/http/HttpSession.setMaxInactiveInterval:(I)V
+       105: aload_3
+       106: areturn
+      Exception table:
+         from    to  target type
+             8    23    26   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            19    38    38   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 110: 0
+        line 217: 8
+        line 163: 13
+        line 98: 42
+        line 276: 54
+        line 30: 58
+        line 141: 66
+        line 222: 75
+        line 262: 92
+        line 68: 105
+
+  private void tryToAuthenticateAutomatically(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, jetbrains.buildServer.maintenance.StartupUserSession);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljetbrains/buildServer/maintenance/StartupUserSession;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #832                // Method getInetAddressAsString:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+         5: astore        4
+         7: aload_0
+         8: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        11: invokevirtual #787                // Method jetbrains/buildServer/maintenance/StartupContext.isFirstStart:()Z
+        14: ifeq          69
+        17: aload_3
+        18: invokevirtual #594                // Method jetbrains/buildServer/maintenance/StartupUserSession.isAuthenticated:()Z
+        21: ifne          69
+        24: goto          31
+        27: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        30: athrow
+        31: aload_3
+        32: iconst_1
+        33: invokevirtual #845                // Method jetbrains/buildServer/maintenance/StartupUserSession.setAuthenticated:(Z)V
+        36: aload_0
+        37: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        40: aload_3
+        41: invokevirtual #595                // Method jetbrains/buildServer/maintenance/StartupContext.addAdminLoggedIn:(Ljava/lang/Object;)V
+        44: aload_0
+        45: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        48: aload         4
+        50: aload_1
+        51: invokestatic  #345                // Method jetbrains/buildServer/web/util/WebUtil.getRequestDump:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+        54: invokedynamic #807,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        59: invokevirtual #424                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        62: goto          69
+        65: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        68: athrow
+        69: aload_0
+        70: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        73: invokevirtual #580                // Method jetbrains/buildServer/maintenance/StartupContext.isDevelopmentMode:()Z
+        76: ifeq          143
+        79: aload_1
+        80: invokestatic  #950                // Method isLocalHost:(Ljavax/servlet/http/HttpServletRequest;)Z
+        83: ifeq          143
+        86: goto          93
+        89: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        92: athrow
+        93: aload_3
+        94: invokevirtual #594                // Method jetbrains/buildServer/maintenance/StartupUserSession.isAuthenticated:()Z
+        97: ifne          143
+       100: goto          107
+       103: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       106: athrow
+       107: aload_3
+       108: iconst_1
+       109: invokevirtual #845                // Method jetbrains/buildServer/maintenance/StartupUserSession.setAuthenticated:(Z)V
+       112: aload_0
+       113: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       116: aload_3
+       117: invokevirtual #595                // Method jetbrains/buildServer/maintenance/StartupContext.addAdminLoggedIn:(Ljava/lang/Object;)V
+       120: aload_0
+       121: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       124: aload_1
+       125: invokestatic  #345                // Method jetbrains/buildServer/web/util/WebUtil.getRequestDump:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+       128: invokedynamic #310,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       133: invokevirtual #1034               // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       136: goto          143
+       139: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       142: athrow
+       143: aload_3
+       144: invokevirtual #594                // Method jetbrains/buildServer/maintenance/StartupUserSession.isAuthenticated:()Z
+       147: ifne          298
+       150: aload_1
+       151: invokeinterface #520,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getCookies:()[Ljavax/servlet/http/Cookie;
+       156: astore        5
+       158: aload         5
+       160: ifnull        298
+       163: aload         5
+       165: astore        6
+       167: aload         6
+       169: arraylength
+       170: istore        7
+       172: iconst_0
+       173: istore        8
+       175: iload         8
+       177: iload         7
+       179: if_icmpge     298
+       182: aload         6
+       184: iload         8
+       186: aaload
+       187: astore        9
+       189: aload         9
+       191: invokevirtual #160                // Method javax/servlet/http/Cookie.getName:()Ljava/lang/String;
+       194: ldc           #39                 // String maintenanceToken
+       196: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       199: ifeq          292
+       202: aload         9
+       204: invokevirtual #868                // Method javax/servlet/http/Cookie.getValue:()Ljava/lang/String;
+       207: ifnull        277
+       210: goto          217
+       213: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       216: athrow
+       217: aload_0
+       218: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       221: aload         9
+       223: invokevirtual #868                // Method javax/servlet/http/Cookie.getValue:()Ljava/lang/String;
+       226: invokevirtual #775                // Method jetbrains/buildServer/maintenance/StartupContext.isValidMaintenanceAuthenticationToken:(Ljava/lang/String;)Z
+       229: ifeq          277
+       232: goto          239
+       235: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       238: athrow
+       239: aload_3
+       240: iconst_1
+       241: invokevirtual #845                // Method jetbrains/buildServer/maintenance/StartupUserSession.setAuthenticated:(Z)V
+       244: aload_0
+       245: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       248: aload_3
+       249: invokevirtual #595                // Method jetbrains/buildServer/maintenance/StartupContext.addAdminLoggedIn:(Ljava/lang/Object;)V
+       252: aload_0
+       253: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       256: aload         4
+       258: aload_1
+       259: invokestatic  #345                // Method jetbrains/buildServer/web/util/WebUtil.getRequestDump:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+       262: invokedynamic #905,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       267: invokevirtual #424                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       270: goto          277
+       273: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       276: athrow
+       277: aload_2
+       278: aload_1
+       279: ldc           #39                 // String maintenanceToken
+       281: ldc           #10                 // String
+       283: iconst_0
+       284: invokestatic  #433                // Method jetbrains/buildServer/web/util/WebUtil.createCookie:(Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;Ljava/lang/String;I)Ljavax/servlet/http/Cookie;
+       287: invokeinterface #175,  2          // InterfaceMethod javax/servlet/http/HttpServletResponse.addCookie:(Ljavax/servlet/http/Cookie;)V
+       292: iinc          8, 1
+       295: goto          175
+       298: return
+      Exception table:
+         from    to  target type
+             7    24    27   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            17    62    65   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            69    86    89   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            79   100   103   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            93   136   139   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           189   210   213   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           202   232   235   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           217   270   273   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 135: 0
+        line 218: 7
+        line 123: 31
+        line 306: 36
+        line 270: 44
+        line 184: 69
+        line 58: 107
+        line 137: 112
+        line 307: 120
+        line 291: 143
+        line 75: 150
+        line 82: 158
+        line 219: 163
+        line 90: 189
+        line 278: 202
+        line 117: 239
+        line 101: 244
+        line 186: 252
+        line 47: 277
+        line 26: 292
+        line 105: 298
+
+  private boolean isInitialStage(jetbrains.buildServer.maintenance.StartupStage);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupStage;)Z
+    Code:
+         0: aload_1
+         1: getstatic     #792                // Field jetbrains/buildServer/maintenance/StartupStage.INITIAL_STAGE:Ljetbrains/buildServer/maintenance/StartupStage;
+         4: if_acmpeq     21
+         7: aload_1
+         8: getstatic     #1066               // Field jetbrains/buildServer/maintenance/StartupStage.LOOKING_FOR_DATA_DIR:Ljetbrains/buildServer/maintenance/StartupStage;
+        11: if_acmpne     29
+        14: goto          21
+        17: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        20: athrow
+        21: iconst_1
+        22: goto          30
+        25: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        28: athrow
+        29: iconst_0
+        30: ireturn
+      Exception table:
+         from    to  target type
+             0    14    17   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+             7    25    25   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 165: 0
+
+  private static boolean isLocalHost(javax.servlet.http.HttpServletRequest);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;)Z
+    Code:
+         0: aload_0
+         1: invokestatic  #118                // Method getInetAddress:(Ljavax/servlet/http/HttpServletRequest;)Ljava/net/InetAddress;
+         4: astore_1
+         5: aload_1
+         6: invokevirtual #215                // Method java/net/InetAddress.isLoopbackAddress:()Z
+         9: ireturn
+        10: astore_1
+        11: aload_1
+        12: getstatic     #197                // Field java/lang/System.err:Ljava/io/PrintStream;
+        15: invokevirtual #1046               // Method java/net/UnknownHostException.printStackTrace:(Ljava/io/PrintStream;)V
+        18: iconst_0
+        19: ireturn
+      Exception table:
+         from    to  target type
+             0     9    10   Class java/net/UnknownHostException
+      LineNumberTable:
+        line 212: 0
+        line 185: 5
+        line 79: 10
+        line 21: 11
+        line 80: 18
+
+  private static java.net.InetAddress getInetAddress(javax.servlet.http.HttpServletRequest) throws java.net.UnknownHostException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;)Ljava/net/InetAddress;
+    Code:
+         0: aload_0
+         1: invokeinterface #1032,  1         // InterfaceMethod javax/servlet/http/HttpServletRequest.getRemoteAddr:()Ljava/lang/String;
+         6: astore_1
+         7: aload_1
+         8: invokestatic  #271                // Method java/net/InetAddress.getByName:(Ljava/lang/String;)Ljava/net/InetAddress;
+        11: areturn
+      LineNumberTable:
+        line 43: 0
+        line 69: 7
+
+  private java.lang.String getInetAddressAsString(javax.servlet.http.HttpServletRequest);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: invokestatic  #118                // Method getInetAddress:(Ljavax/servlet/http/HttpServletRequest;)Ljava/net/InetAddress;
+         4: invokevirtual #274                // Method java/net/InetAddress.toString:()Ljava/lang/String;
+         7: areturn
+         8: astore_2
+         9: aload_0
+        10: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        13: aload_2
+        14: invokevirtual #382                // Method java/net/UnknownHostException.getMessage:()Ljava/lang/String;
+        17: invokedynamic #352,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        22: invokevirtual #862                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;)V
+        25: ldc           #76                 // String <unknown address>
+        27: areturn
+      Exception table:
+         from    to  target type
+             0     7     8   Class java/net/UnknownHostException
+      LineNumberTable:
+        line 3: 0
+        line 167: 8
+        line 29: 9
+        line 281: 25
+
+  private void doProcessAjaxQuery(jetbrains.buildServer.maintenance.StartupUserSession, java.lang.String, java.io.PrintWriter, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/io/PrintWriter;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_4
+         5: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_5
+        20: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        29: athrow
+        30: aload_3
+        31: ifnonnull     46
+        34: bipush        6
+        36: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        39: goto          46
+        42: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        45: athrow
+        46: aload         4
+        48: ifnonnull     63
+        51: bipush        7
+        53: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        56: goto          63
+        59: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        62: athrow
+        63: aload         5
+        65: ifnonnull     80
+        68: bipush        8
+        70: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        73: goto          80
+        76: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        79: athrow
+        80: aload         5
+        82: ldc           #71                 // String text/plain
+        84: invokeinterface #926,  2          // InterfaceMethod javax/servlet/http/HttpServletResponse.setContentType:(Ljava/lang/String;)V
+        89: new           #17                 // class jetbrains/buildServer/maintenance/StartupServlet$AjaxBean
+        92: dup
+        93: aload_0
+        94: aload_1
+        95: aload         4
+        97: invokespecial #497                // Method jetbrains/buildServer/maintenance/StartupServlet$AjaxBean."<init>":(Ljetbrains/buildServer/maintenance/StartupServlet;Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;)V
+       100: astore        7
+       102: getstatic     #336                // Field ourPropertyUtilsBean:Lorg/apache/commons/beanutils/PropertyUtilsBean;
+       105: aload         7
+       107: aload_2
+       108: invokevirtual #941                // Method org/apache/commons/beanutils/PropertyUtilsBean.getProperty:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+       111: astore        6
+       113: goto          164
+       116: astore        7
+       118: aload_0
+       119: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       122: invokevirtual #251                // Method com/intellij/openapi/diagnostic/Logger.isDebugEnabled:()Z
+       125: ifeq          145
+       128: ldc           #15                 // String error
+       130: aload         7
+       132: invokevirtual #116                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+       135: invokestatic  #231                // Method java/util/Collections.singletonMap:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+       138: goto          162
+       141: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       144: athrow
+       145: ldc           #15                 // String error
+       147: aload         7
+       149: invokevirtual #116                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+       152: ldc           #31                 // String exception
+       154: aload         7
+       156: invokevirtual #925                // Method java/lang/Exception.getStackTrace:()[Ljava/lang/StackTraceElement;
+       159: invokestatic  #1008               // Method com/google/common/collect/ImmutableMap.of:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
+       162: astore        6
+       164: aload_0
+       165: aload         6
+       167: invokevirtual #1005               // Method packToJson:(Ljava/lang/Object;)Ljava/lang/String;
+       170: astore        7
+       172: aload_3
+       173: aload         7
+       175: invokevirtual #367                // Method java/io/PrintWriter.print:(Ljava/lang/String;)V
+       178: return
+      Exception table:
+         from    to  target type
+            63    73    76   Class java/lang/Exception
+            46    56    59   Class java/lang/Exception
+            30    39    42   Class java/lang/Exception
+            15    23    26   Class java/lang/Exception
+             0     8    11   Class java/lang/Exception
+            80   113   116   Class java/lang/Exception
+           118   141   141   Class java/lang/Exception
+      LineNumberTable:
+        line 89: 80
+        line 107: 89
+        line 192: 102
+        line 99: 113
+        line 16: 116
+        line 302: 118
+        line 290: 145
+        line 48: 156
+        line 304: 159
+        line 238: 164
+        line 279: 172
+        line 136: 178
+
+  private java.lang.String packToJson(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/String;
+    Code:
+         0: new           #585                // class com/google/gson/Gson
+         3: dup
+         4: invokespecial #534                // Method com/google/gson/Gson."<init>":()V
+         7: astore_2
+         8: aload_2
+         9: aload_1
+        10: invokevirtual #285                // Method com/google/gson/Gson.toJson:(Ljava/lang/Object;)Ljava/lang/String;
+        13: areturn
+      LineNumberTable:
+        line 138: 0
+        line 187: 8
+
+  private void doProcessAjaxCommand(jetbrains.buildServer.maintenance.StartupUserSession, java.lang.String, java.io.PrintWriter, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/io/PrintWriter;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        9
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        10
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        11
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        12
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload         5
+        67: ifnonnull     82
+        70: bipush        13
+        72: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        75: goto          82
+        78: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        81: athrow
+        82: aload         5
+        84: ldc           #71                 // String text/plain
+        86: invokeinterface #926,  2          // InterfaceMethod javax/servlet/http/HttpServletResponse.setContentType:(Ljava/lang/String;)V
+        91: ldc           #17                 // class jetbrains/buildServer/maintenance/StartupServlet$AjaxBean
+        93: aload_2
+        94: iconst_0
+        95: anewarray     #636                // class java/lang/Class
+        98: invokevirtual #446                // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+       101: astore        6
+       103: new           #17                 // class jetbrains/buildServer/maintenance/StartupServlet$AjaxBean
+       106: dup
+       107: aload_0
+       108: aload_1
+       109: aload         4
+       111: invokespecial #497                // Method jetbrains/buildServer/maintenance/StartupServlet$AjaxBean."<init>":(Ljetbrains/buildServer/maintenance/StartupServlet;Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;)V
+       114: astore        7
+       116: aload         6
+       118: aload         7
+       120: iconst_0
+       121: anewarray     #288                // class java/lang/Object
+       124: invokevirtual #168                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+       127: pop
+       128: aload_3
+       129: ldc           #63                 // String OK
+       131: invokevirtual #367                // Method java/io/PrintWriter.print:(Ljava/lang/String;)V
+       134: goto          203
+       137: astore        6
+       139: aload_3
+       140: ldc           #78                 // String Not Found
+       142: invokevirtual #156                // Method java/io/PrintWriter.write:(Ljava/lang/String;)V
+       145: aload_0
+       146: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       149: aload         4
+       151: invokestatic  #345                // Method jetbrains/buildServer/web/util/WebUtil.getRequestDump:(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String;
+       154: invokedynamic #785,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       159: invokevirtual #481                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       162: aload         5
+       164: sipush        404
+       167: invokeinterface #1141,  2         // InterfaceMethod javax/servlet/http/HttpServletResponse.setStatus:(I)V
+       172: goto          203
+       175: astore        6
+       177: aload         6
+       179: invokevirtual #303                // Method java/lang/reflect/InvocationTargetException.getTargetException:()Ljava/lang/Throwable;
+       182: astore        7
+       184: aload_0
+       185: aload         7
+       187: aload_3
+       188: invokevirtual #996                // Method handleExceptionInsideAjaxCall:(Ljava/lang/Throwable;Ljava/io/PrintWriter;)V
+       191: goto          203
+       194: astore        6
+       196: aload_0
+       197: aload         6
+       199: aload_3
+       200: invokevirtual #996                // Method handleExceptionInsideAjaxCall:(Ljava/lang/Throwable;Ljava/io/PrintWriter;)V
+       203: return
+      Exception table:
+         from    to  target type
+            65    75    78   Class java/lang/NoSuchMethodException
+            48    58    61   Class java/lang/NoSuchMethodException
+            32    41    44   Class java/lang/NoSuchMethodException
+            16    25    28   Class java/lang/NoSuchMethodException
+             0     9    12   Class java/lang/NoSuchMethodException
+            82   134   137   Class java/lang/NoSuchMethodException
+            82   134   175   Class java/lang/reflect/InvocationTargetException
+            82   134   194   Class java/lang/Exception
+      LineNumberTable:
+        line 195: 82
+        line 15: 91
+        line 295: 103
+        line 81: 116
+        line 159: 128
+        line 289: 134
+        line 313: 137
+        line 54: 139
+        line 204: 145
+        line 100: 162
+        line 265: 172
+        line 254: 175
+        line 20: 177
+        line 150: 184
+        line 257: 191
+        line 255: 194
+        line 198: 196
+        line 242: 203
+
+  private void handleExceptionInsideAjaxCall(java.lang.Throwable, java.io.PrintWriter);
+    descriptor: (Ljava/lang/Throwable;Ljava/io/PrintWriter;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        14
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        15
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_1
+        33: instanceof    #313                // class jetbrains/buildServer/maintenance/exceptions/KnownStartupError
+        36: ifeq          70
+        39: aload_0
+        40: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        43: aload_1
+        44: invokevirtual #789                // Method java/lang/Throwable.toString:()Ljava/lang/String;
+        47: invokedynamic #889,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        52: invokevirtual #1034               // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        55: aload_2
+        56: aload_1
+        57: invokevirtual #888                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        60: invokevirtual #367                // Method java/io/PrintWriter.print:(Ljava/lang/String;)V
+        63: goto          92
+        66: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        69: athrow
+        70: aload_0
+        71: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        74: aload_1
+        75: invokevirtual #789                // Method java/lang/Throwable.toString:()Ljava/lang/String;
+        78: invokedynamic #624,  0            // InvokeDynamic #7:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        83: aload_1
+        84: invokevirtual #297                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        87: aload_1
+        88: aload_2
+        89: invokevirtual #359                // Method java/lang/Throwable.printStackTrace:(Ljava/io/PrintWriter;)V
+        92: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            32    66    66   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 154: 32
+        line 189: 39
+        line 155: 55
+        line 273: 70
+        line 6: 87
+        line 247: 92
+
+  private void doProcessWelcomePage(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.io.PrintWriter, jetbrains.buildServer.maintenance.StartupStage, int);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        16
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        17
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        18
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        19
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload         5
+        67: ifnonnull     82
+        70: bipush        20
+        72: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        75: goto          82
+        78: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        81: athrow
+        82: aload_0
+        83: aload_1
+        84: aload_2
+        85: aload_3
+        86: ldc           #36                 // String maintenance-welcome
+        88: aload         4
+        90: aload         5
+        92: iload         6
+        94: invokevirtual #1092               // Method doProcessPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+        97: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            32    41    44   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            48    58    61   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            65    75    78   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 33: 82
+        line 282: 97
+
+  private void doProcessStagePage(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.io.PrintWriter, jetbrains.buildServer.maintenance.StartupStage, int);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        21
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        22
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        23
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        24
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload         5
+        67: ifnonnull     82
+        70: bipush        25
+        72: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        75: goto          82
+        78: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        81: athrow
+        82: aload_1
+        83: invokevirtual #594                // Method jetbrains/buildServer/maintenance/StartupUserSession.isAuthenticated:()Z
+        86: ifne          105
+        89: aload_0
+        90: aload         5
+        92: invokevirtual #802                // Method isInitialStage:(Ljetbrains/buildServer/maintenance/StartupStage;)Z
+        95: ifeq          117
+        98: goto          105
+       101: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       104: athrow
+       105: aload         5
+       107: getfield      #98                 // Field jetbrains/buildServer/maintenance/StartupStage.page:Ljava/lang/String;
+       110: goto          119
+       113: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       116: athrow
+       117: ldc           #23                 // String maintenance-authenticate
+       119: astore        7
+       121: aload_0
+       122: aload_1
+       123: aload_2
+       124: aload_3
+       125: aload         7
+       127: aload         4
+       129: aload         5
+       131: iload         6
+       133: invokevirtual #1092               // Method doProcessPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+       136: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            32    41    44   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            48    58    61   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            65    75    78   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            82    98   101   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            89   113   113   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 95: 82
+        line 205: 105
+        line 2: 117
+        line 126: 121
+        line 190: 136
+
+  private void doProcessDebugPage(jetbrains.buildServer.maintenance.StartupUserSession, java.lang.String, java.lang.String, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.io.PrintWriter, jetbrains.buildServer.maintenance.StartupStage, int);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/lang/String;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        26
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        27
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        28
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        29
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload         5
+        67: ifnonnull     82
+        70: bipush        30
+        72: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        75: goto          82
+        78: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        81: athrow
+        82: aload         6
+        84: ifnonnull     99
+        87: bipush        31
+        89: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        92: goto          99
+        95: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        98: athrow
+        99: aload         7
+       101: ifnonnull     116
+       104: bipush        32
+       106: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+       109: goto          116
+       112: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       115: athrow
+       116: aload_2
+       117: invokevirtual #876                // Method java/lang/String.length:()I
+       120: ifne          147
+       123: aload_0
+       124: aload_1
+       125: aload         4
+       127: aload         5
+       129: ldc           #56                 // String debug
+       131: aload         6
+       133: aload         7
+       135: iload         8
+       137: invokevirtual #1092               // Method doProcessPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+       140: goto          191
+       143: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       146: athrow
+       147: aload_2
+       148: ldc           #47                 // String page
+       150: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       153: ifeq          180
+       156: aload_0
+       157: aload_1
+       158: aload         4
+       160: aload         5
+       162: aload_3
+       163: aload         6
+       165: aload         7
+       167: iload         8
+       169: iconst_1
+       170: invokevirtual #247                // Method doProcessPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;IZ)V
+       173: goto          191
+       176: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       179: athrow
+       180: aload         6
+       182: aload_2
+       183: invokedynamic #539,  0            // InvokeDynamic #8:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       188: invokevirtual #822                // Method java/io/PrintWriter.println:(Ljava/lang/String;)V
+       191: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            32    41    44   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            48    58    61   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            65    75    78   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            82    92    95   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            99   109   112   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           116   143   143   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           147   176   176   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 12: 116
+        line 309: 123
+        line 213: 147
+        line 73: 156
+        line 119: 180
+        line 288: 191
+
+  private void doProcessFatalPage(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.io.PrintWriter);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/io/PrintWriter;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        33
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        34
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        35
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        36
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload_0
+        66: aload_1
+        67: aload_2
+        68: aload_3
+        69: ldc           #66                 // String fatal-error
+        71: aload         4
+        73: getstatic     #438                // Field jetbrains/buildServer/maintenance/StartupStage.FATAL_ERROR:Ljetbrains/buildServer/maintenance/StartupStage;
+        76: aload_0
+        77: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        80: invokevirtual #784                // Method jetbrains/buildServer/maintenance/StartupContext.getStateRevision:()I
+        83: invokevirtual #1092               // Method doProcessPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+        86: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            32    41    44   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            48    58    61   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 260: 65
+        line 229: 86
+
+  private void doProcessPage(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.io.PrintWriter, jetbrains.buildServer.maintenance.StartupStage, int);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;I)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        37
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        38
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        39
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        40
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload         5
+        67: ifnonnull     82
+        70: bipush        41
+        72: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        75: goto          82
+        78: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        81: athrow
+        82: aload         6
+        84: ifnonnull     99
+        87: bipush        42
+        89: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        92: goto          99
+        95: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        98: athrow
+        99: aload_0
+       100: aload_1
+       101: aload_2
+       102: aload_3
+       103: aload         4
+       105: aload         5
+       107: aload         6
+       109: iload         7
+       111: iconst_0
+       112: invokevirtual #247                // Method doProcessPage:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;IZ)V
+       115: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            32    41    44   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            48    58    61   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            65    75    78   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            82    92    95   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 164: 99
+        line 299: 115
+
+  private void doProcessPage(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.io.PrintWriter, jetbrains.buildServer.maintenance.StartupStage, int, boolean);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;Ljava/lang/String;Ljava/io/PrintWriter;Ljetbrains/buildServer/maintenance/StartupStage;IZ)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        43
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        44
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        45
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        46
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload         5
+        67: ifnonnull     82
+        70: bipush        47
+        72: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        75: goto          82
+        78: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        81: athrow
+        82: aload         6
+        84: ifnonnull     99
+        87: bipush        48
+        89: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        92: goto          99
+        95: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        98: athrow
+        99: aload         4
+       101: invokedynamic #551,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       106: astore        9
+       108: aload_0
+       109: getfield      #553                // Field myFmConfig:Lfreemarker/template/Configuration;
+       112: aload         9
+       114: invokevirtual #1064               // Method freemarker/template/Configuration.getTemplate:(Ljava/lang/String;)Lfreemarker/template/Template;
+       117: astore        10
+       119: aload_0
+       120: aload_1
+       121: aload_2
+       122: aload         4
+       124: aload         6
+       126: iload         7
+       128: iload         8
+       130: invokevirtual #450                // Method preparePageModel:(Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;Ljetbrains/buildServer/maintenance/StartupStage;IZ)Ljetbrains/buildServer/maintenance/StartupPageModel;
+       133: astore        11
+       135: aload_3
+       136: ldc           #50                 // String text/html;charset=UTF-8
+       138: invokeinterface #926,  2          // InterfaceMethod javax/servlet/http/HttpServletResponse.setContentType:(Ljava/lang/String;)V
+       143: aload         10
+       145: aload         11
+       147: aload         5
+       149: invokevirtual #920                // Method freemarker/template/Template.process:(Ljava/lang/Object;Ljava/io/Writer;)V
+       152: goto          165
+       155: astore        9
+       157: aload_0
+       158: aload         5
+       160: aload         9
+       162: invokevirtual #377                // Method showLowLevelError:(Ljava/io/PrintWriter;Ljava/lang/Exception;)V
+       165: return
+      Exception table:
+         from    to  target type
+            82    92    95   Class java/lang/Exception
+            65    75    78   Class java/lang/Exception
+            48    58    61   Class java/lang/Exception
+            32    41    44   Class java/lang/Exception
+            16    25    28   Class java/lang/Exception
+             0     9    12   Class java/lang/Exception
+            99   152   155   Class java/lang/Exception
+      LineNumberTable:
+        line 85: 99
+        line 124: 108
+        line 294: 119
+        line 298: 135
+        line 144: 143
+        line 57: 152
+        line 216: 155
+        line 133: 157
+        line 151: 165
+
+  private jetbrains.buildServer.maintenance.StartupPageModel preparePageModel(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, java.lang.String, jetbrains.buildServer.maintenance.StartupStage, int, boolean);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;Ljetbrains/buildServer/maintenance/StartupStage;IZ)Ljetbrains/buildServer/maintenance/StartupPageModel;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        49
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        50
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        51
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload         4
+        50: ifnonnull     65
+        53: bipush        52
+        55: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        58: goto          65
+        61: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        64: athrow
+        65: aload_2
+        66: invokeinterface #720,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getContextPath:()Ljava/lang/String;
+        71: astore        7
+        73: aload_1
+        74: invokevirtual #594                // Method jetbrains/buildServer/maintenance/StartupUserSession.isAuthenticated:()Z
+        77: ifeq          111
+        80: aload_0
+        81: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        84: invokevirtual #580                // Method jetbrains/buildServer/maintenance/StartupContext.isDevelopmentMode:()Z
+        87: ifeq          111
+        90: goto          97
+        93: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        96: athrow
+        97: new           #371                // class jetbrains/buildServer/maintenance/DebugBean
+       100: dup
+       101: invokespecial #130                // Method jetbrains/buildServer/maintenance/DebugBean."<init>":()V
+       104: goto          112
+       107: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       110: athrow
+       111: aconst_null
+       112: astore        8
+       114: new           #704                // class jetbrains/buildServer/maintenance/StartupPageSpecificInfo
+       117: dup
+       118: invokespecial #324                // Method jetbrains/buildServer/maintenance/StartupPageSpecificInfo."<init>":()V
+       121: astore        9
+       123: aload         9
+       125: aload         4
+       127: putfield      #199                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.currentStage:Ljetbrains/buildServer/maintenance/StartupStage;
+       130: aload         9
+       132: iload         5
+       134: putfield      #509                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.stateRevision:I
+       137: aload_0
+       138: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       141: invokevirtual #517                // Method jetbrains/buildServer/maintenance/StartupContext.isDataDirSpecified:()Z
+       144: ifeq          188
+       147: aload_0
+       148: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       151: invokevirtual #975                // Method jetbrains/buildServer/maintenance/StartupContext.getDataDirManager:()Ljetbrains/buildServer/maintenance/TeamCityDataDirectoryManager;
+       154: invokevirtual #1065               // Method jetbrains/buildServer/maintenance/TeamCityDataDirectoryManager.getRootDir:()Ljava/io/File;
+       157: astore        10
+       159: aload         9
+       161: aload         10
+       163: invokestatic  #891                // Method getAbsolutePath:(Ljava/io/File;)Ljava/lang/String;
+       166: putfield      #944                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myDataDirectory:Ljava/lang/String;
+       169: aload         9
+       171: new           #262                // class java/io/File
+       174: dup
+       175: aload         10
+       177: ldc           #75                 // String lib/jdbc
+       179: invokespecial #525                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+       182: invokestatic  #891                // Method getAbsolutePath:(Ljava/io/File;)Ljava/lang/String;
+       185: putfield      #643                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDirectory:Ljava/lang/String;
+       188: aload_3
+       189: ldc           #34                 // String db-settings
+       191: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       194: ifne          229
+       197: aload_3
+       198: ldc           #30                 // String restore-db-settings
+       200: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       203: ifne          229
+       206: goto          213
+       209: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       212: athrow
+       213: aload_3
+       214: ldc           #56                 // String debug
+       216: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       219: ifeq          394
+       222: goto          229
+       225: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       228: athrow
+       229: aload_0
+       230: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       233: invokestatic  #391                // Method jetbrains/buildServer/maintenance/StartupHelper.reloadJdbcDriversIfNeeded:(Ljetbrains/buildServer/maintenance/StartupContext;)V
+       236: aload_0
+       237: aload         9
+       239: invokevirtual #841                // Method checkJdbcDriverVersions:(Ljetbrains/buildServer/maintenance/StartupPageSpecificInfo;)V
+       242: aload_2
+       243: ldc           #8                  // class jetbrains/buildServer/serverSide/db/JdbcConnectionString
+       245: ldc           #88                 // String userDBsettingsInput
+       247: invokestatic  #423                // Method getFromSession:(Ljavax/servlet/http/HttpServletRequest;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+       250: checkcast     #8                  // class jetbrains/buildServer/serverSide/db/JdbcConnectionString
+       253: astore        10
+       255: aload         10
+       257: ifnull        274
+       260: aload         9
+       262: aload         10
+       264: putfield      #752                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myConnectionString:Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;
+       267: goto          394
+       270: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       273: athrow
+       274: aload_0
+       275: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       278: invokevirtual #754                // Method jetbrains/buildServer/maintenance/StartupContext.getDatabaseManager:()Ljetbrains/buildServer/serverSide/db/TeamCityDatabaseManager;
+       281: astore        11
+       283: aload         11
+       285: ifnull        339
+       288: aload         11
+       290: invokevirtual #1000               // Method jetbrains/buildServer/serverSide/db/TeamCityDatabaseManager.getConnectionString:()Ljava/lang/String;
+       293: astore        12
+       295: aload         12
+       297: ifnull        336
+       300: aload         9
+       302: getfield      #752                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myConnectionString:Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;
+       305: aload         12
+       307: invokevirtual #1084               // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.parse:(Ljava/lang/String;)V
+       310: goto          336
+       313: astore        13
+       315: aload_0
+       316: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       319: aload         12
+       321: aload         13
+       323: invokevirtual #116                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+       326: invokedynamic #897,  0            // InvokeDynamic #10:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       331: aload         13
+       333: invokevirtual #808                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       336: goto          394
+       339: aload_3
+       340: ldc           #30                 // String restore-db-settings
+       342: invokevirtual #654                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       345: ifeq          394
+       348: aload_0
+       349: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       352: invokevirtual #939                // Method jetbrains/buildServer/maintenance/StartupContext.getConnectionStringFromBackup:()Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;
+       355: astore        12
+       357: aload         12
+       359: ifnull        394
+       362: aload         12
+       364: invokevirtual #224                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.getDBType:()Ljetbrains/buildServer/serverSide/db/DatabaseType;
+       367: getstatic     #526                // Field jetbrains/buildServer/serverSide/db/DatabaseType.HSQLDB2:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+       370: if_acmpeq     394
+       373: goto          380
+       376: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       379: athrow
+       380: aload         9
+       382: aload         12
+       384: putfield      #752                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myConnectionString:Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;
+       387: goto          394
+       390: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       393: athrow
+       394: aload_0
+       395: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       398: invokevirtual #448                // Method jetbrains/buildServer/maintenance/StartupContext.getBackupProcess:()Ljetbrains/buildServer/serverSide/maintenance/BackupProcess;
+       401: astore        10
+       403: aload         9
+       405: aload         10
+       407: ifnonnull     418
+       410: aconst_null
+       411: goto          425
+       414: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       417: athrow
+       418: aload         10
+       420: invokeinterface #468,  1          // InterfaceMethod jetbrains/buildServer/serverSide/maintenance/BackupProcess.getProgressInfo:()Ljetbrains/buildServer/serverSide/maintenance/ProgressInfo;
+       425: putfield      #142                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myBackupProgressInfo:Ljetbrains/buildServer/serverSide/maintenance/ProgressInfo;
+       428: aload         9
+       430: invokestatic  #776                // Method jetbrains/buildServer/log/LogInitializer.getLogDir:()Ljava/io/File;
+       433: invokevirtual #96                 // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+       436: putfield      #1104               // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myLogPath:Ljava/lang/String;
+       439: goto          459
+       442: astore        11
+       444: aload         9
+       446: aload         11
+       448: invokevirtual #510                // Method jetbrains/buildServer/log/LogInitializationException.getCheckedDirs:()Ljava/util/List;
+       451: putfield      #590                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myLogFailedDirs:Ljava/util/List;
+       454: goto          459
+       457: astore        11
+       459: aload         9
+       461: aload_0
+       462: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       465: invokevirtual #1040               // Method jetbrains/buildServer/maintenance/StartupContext.isDatabaseCreatedOnStartup:()Z
+       468: putfield      #124                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.isDatabaseCreatedAtStartup:Z
+       471: aload_0
+       472: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       475: invokevirtual #707                // Method jetbrains/buildServer/maintenance/StartupContext.getJdbcDriverDownloadProgressListener:()Ljetbrains/buildServer/serverSide/db/JdbcDriverDownloader$ProgressListener;
+       478: astore        11
+       480: aload         9
+       482: aload         11
+       484: ifnonnull     495
+       487: aconst_null
+       488: goto          502
+       491: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       494: athrow
+       495: aload         11
+       497: invokeinterface #418,  1          // InterfaceMethod jetbrains/buildServer/serverSide/db/JdbcDriverDownloader$ProgressListener.getProgress:()Ljetbrains/buildServer/serverSide/maintenance/ProgressInfo;
+       502: putfield      #1143               // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myDriverDownloadProgress:Ljetbrains/buildServer/serverSide/maintenance/ProgressInfo;
+       505: aload_2
+       506: invokestatic  #252                // Method jetbrains/buildServer/web/util/WebUtil.isProbablyBrowser:(Ljavax/servlet/http/HttpServletRequest;)Z
+       509: invokestatic  #1057               // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       512: astore        12
+       514: aload_0
+       515: aload_2
+       516: invokeinterface #1063,  1         // InterfaceMethod javax/servlet/http/HttpServletRequest.getSession:()Ljavax/servlet/http/HttpSession;
+       521: invokevirtual #638                // Method getCsrfToken:(Ljavax/servlet/http/HttpSession;)Ljava/lang/String;
+       524: astore        13
+       526: new           #1067               // class jetbrains/buildServer/maintenance/StartupPageModel
+       529: dup
+       530: aload_0
+       531: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       534: aload_1
+       535: aload         7
+       537: aload_3
+       538: aload         9
+       540: aload         12
+       542: invokevirtual #289                // Method java/lang/Boolean.booleanValue:()Z
+       545: aload         8
+       547: iload         6
+       549: aload         13
+       551: invokespecial #1096               // Method jetbrains/buildServer/maintenance/StartupPageModel."<init>":(Ljetbrains/buildServer/maintenance/StartupContext;Ljetbrains/buildServer/maintenance/StartupUserSession;Ljava/lang/String;Ljava/lang/String;Ljetbrains/buildServer/maintenance/StartupPageSpecificInfo;ZLjetbrains/buildServer/maintenance/DebugBean;ZLjava/lang/String;)V
+       554: astore        14
+       556: aload         14
+       558: areturn
+      Exception table:
+         from    to  target type
+           255   270   270   Class java/lang/Exception
+           197   222   225   Class java/lang/Exception
+           188   206   209   Class java/lang/Exception
+            80   107   107   Class java/lang/Exception
+            73    90    93   Class java/lang/Exception
+            48    58    61   Class java/lang/Exception
+            32    41    44   Class java/lang/Exception
+            16    25    28   Class java/lang/Exception
+             0     9    12   Class java/lang/Exception
+           300   310   313   Class java/lang/Exception
+           403   414   414   Class java/lang/Exception
+           362   387   390   Class java/lang/Exception
+           357   373   376   Class java/lang/Exception
+           428   439   442   Class jetbrains/buildServer/log/LogInitializationException
+           428   439   457   Class java/lang/Throwable
+           480   491   491   Class java/lang/Exception
+      LineNumberTable:
+        line 122: 65
+        line 271: 73
+        line 228: 114
+        line 10: 123
+        line 173: 130
+        line 7: 137
+        line 248: 147
+        line 145: 159
+        line 215: 169
+        line 158: 188
+        line 62: 229
+        line 84: 236
+        line 35: 242
+        line 272: 247
+        line 9: 255
+        line 249: 260
+        line 34: 274
+        line 310: 283
+        line 241: 288
+        line 106: 295
+        line 134: 300
+        line 32: 310
+        line 78: 313
+        line 36: 315
+        line 132: 336
+        line 103: 339
+        line 87: 348
+        line 210: 357
+        line 308: 380
+        line 56: 394
+        line 11: 403
+        line 303: 428
+        line 93: 439
+        line 86: 442
+        line 232: 444
+        line 246: 454
+        line 51: 457
+        line 258: 459
+        line 183: 471
+        line 28: 480
+        line 71: 505
+        line 128: 514
+        line 224: 526
+        line 129: 556
+
+  private java.lang.String getCsrfToken(javax.servlet.http.HttpSession);
+    descriptor: (Ljavax/servlet/http/HttpSession;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        53
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_1
+        17: ldc           #45                 // String tc-csrf-token
+        19: invokeinterface #1068,  2         // InterfaceMethod javax/servlet/http/HttpSession.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;
+        24: astore_2
+        25: aload_2
+        26: ifnonnull     36
+        29: ldc           #10                 // String
+        31: areturn
+        32: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        35: athrow
+        36: aload_2
+        37: invokevirtual #719                // Method java/lang/Object.toString:()Ljava/lang/String;
+        40: dup
+        41: ifnonnull     56
+        44: bipush        54
+        46: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        49: goto          56
+        52: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        55: athrow
+        56: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            25    32    32   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            36    49    52   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 127: 16
+        line 83: 25
+        line 266: 29
+        line 275: 36
+
+  private static java.lang.String getAbsolutePath(java.io.File);
+    descriptor: (Ljava/io/File;)Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: invokevirtual #96                 // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 63: 0
+
+  private static <T> T getFromSession(javax.servlet.http.HttpServletRequest, java.lang.Class<T>, java.lang.String);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+    Code:
+         0: aload_0
+         1: ifnonnull     16
+         4: bipush        55
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_0
+        17: iconst_0
+        18: invokeinterface #969,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getSession:(Z)Ljavax/servlet/http/HttpSession;
+        23: astore_3
+        24: aload_3
+        25: ifnonnull     34
+        28: aconst_null
+        29: areturn
+        30: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        33: athrow
+        34: aload_3
+        35: aload_1
+        36: aload_2
+        37: invokestatic  #994                // Method jetbrains/buildServer/controllers/FormUtil.getFromSession:(Ljavax/servlet/http/HttpSession;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+        40: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            24    30    30   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 27: 16
+        line 312: 24
+        line 115: 34
+
+  void checkJdbcDriverVersions(jetbrains.buildServer.maintenance.StartupPageSpecificInfo);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupPageSpecificInfo;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        56
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_1
+        17: aload_0
+        18: getstatic     #182                // Field jetbrains/buildServer/serverSide/db/DatabaseType.POSTGRESQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        21: invokevirtual #988                // Method checkJdbcDriverVersionFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        24: putfield      #849                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverVersionForPostgre:Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        27: aload_1
+        28: aload_0
+        29: getstatic     #351                // Field jetbrains/buildServer/serverSide/db/DatabaseType.MYSQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        32: invokevirtual #988                // Method checkJdbcDriverVersionFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        35: putfield      #290                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverVersionForMySQL:Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        38: aload_1
+        39: aload_0
+        40: getstatic     #543                // Field jetbrains/buildServer/serverSide/db/DatabaseType.ORACLE:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        43: invokevirtual #988                // Method checkJdbcDriverVersionFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        46: putfield      #999                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverVersionForOracle:Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        49: aload_1
+        50: aload_0
+        51: getstatic     #1116               // Field jetbrains/buildServer/serverSide/db/DatabaseType.MSSQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        54: invokevirtual #988                // Method checkJdbcDriverVersionFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        57: putfield      #663                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverVersionForMSSQL:Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+        60: aload_1
+        61: aload_0
+        62: getstatic     #182                // Field jetbrains/buildServer/serverSide/db/DatabaseType.POSTGRESQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        65: invokevirtual #1107               // Method checkJdbcDriverMetadataFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/xstream/JdbcDriver;
+        68: putfield      #521                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverMetadataForPostgreSql:Ljetbrains/buildServer/xstream/JdbcDriver;
+        71: aload_1
+        72: aload_0
+        73: getstatic     #351                // Field jetbrains/buildServer/serverSide/db/DatabaseType.MYSQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        76: invokevirtual #1107               // Method checkJdbcDriverMetadataFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/xstream/JdbcDriver;
+        79: putfield      #803                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverMetadataForMySql:Ljetbrains/buildServer/xstream/JdbcDriver;
+        82: aload_1
+        83: aload_0
+        84: getstatic     #543                // Field jetbrains/buildServer/serverSide/db/DatabaseType.ORACLE:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        87: invokevirtual #1107               // Method checkJdbcDriverMetadataFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/xstream/JdbcDriver;
+        90: putfield      #965                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverMetadataForOracle:Ljetbrains/buildServer/xstream/JdbcDriver;
+        93: aload_1
+        94: aload_0
+        95: getstatic     #1116               // Field jetbrains/buildServer/serverSide/db/DatabaseType.MSSQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        98: invokevirtual #1107               // Method checkJdbcDriverMetadataFor:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/xstream/JdbcDriver;
+       101: putfield      #692                // Field jetbrains/buildServer/maintenance/StartupPageSpecificInfo.myJdbcDriverMetadataForMsSql:Ljetbrains/buildServer/xstream/JdbcDriver;
+       104: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 175: 16
+        line 253: 27
+        line 104: 38
+        line 197: 49
+        line 264: 60
+        line 125: 71
+        line 8: 82
+        line 25: 93
+        line 208: 104
+
+  private jetbrains.buildServer.serverSide.db.MajorMinorVersion checkJdbcDriverVersionFor(jetbrains.buildServer.serverSide.db.DatabaseType);
+    descriptor: (Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/serverSide/db/MajorMinorVersion;
+    Code:
+         0: aload_0
+         1: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+         4: invokevirtual #709                // Method jetbrains/buildServer/maintenance/StartupContext.getJdbcDrivers:()Ljetbrains/buildServer/serverSide/db/jdbcLoader/JdbcDrivers;
+         7: astore_2
+         8: aload_2
+         9: ifnonnull     14
+        12: aconst_null
+        13: areturn
+        14: aload_2
+        15: aload_1
+        16: invokeinterface #337,  2          // InterfaceMethod jetbrains/buildServer/serverSide/db/jdbcLoader/JdbcDrivers.findDefaultDriver:(Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljava/sql/Driver;
+        21: astore_3
+        22: aload_3
+        23: ifnonnull     28
+        26: aconst_null
+        27: areturn
+        28: new           #930                // class jetbrains/buildServer/serverSide/db/MajorMinorVersion
+        31: dup
+        32: aload_3
+        33: invokeinterface #779,  1          // InterfaceMethod java/sql/Driver.getMajorVersion:()I
+        38: aload_3
+        39: invokeinterface #691,  1          // InterfaceMethod java/sql/Driver.getMinorVersion:()I
+        44: invokespecial #470                // Method jetbrains/buildServer/serverSide/db/MajorMinorVersion."<init>":(II)V
+        47: areturn
+        48: astore_2
+        49: aconst_null
+        50: areturn
+        51: astore_2
+        52: aload_0
+        53: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        56: aload_2
+        57: invokevirtual #888                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        60: aload_2
+        61: invokevirtual #297                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        64: aconst_null
+        65: areturn
+      Exception table:
+         from    to  target type
+             0    13    48   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            14    27    48   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            28    47    48   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+             0    13    51   Class java/lang/Throwable
+            14    27    51   Class java/lang/Throwable
+            28    47    51   Class java/lang/Throwable
+      LineNumberTable:
+        line 44: 0
+        line 223: 8
+        line 72: 14
+        line 277: 22
+        line 39: 28
+        line 102: 48
+        line 240: 49
+        line 305: 51
+        line 292: 52
+        line 297: 64
+
+  private jetbrains.buildServer.xstream.JdbcDriver checkJdbcDriverMetadataFor(jetbrains.buildServer.serverSide.db.DatabaseType);
+    descriptor: (Ljetbrains/buildServer/serverSide/db/DatabaseType;)Ljetbrains/buildServer/xstream/JdbcDriver;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        57
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_0
+        17: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        20: invokevirtual #846                // Method jetbrains/buildServer/maintenance/StartupContext.getJdbcDriverMetadata:()Ljava/util/Map;
+        23: aload_1
+        24: invokeinterface #644,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        29: checkcast     #914                // class jetbrains/buildServer/xstream/JdbcDriver
+        32: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 74: 16
+
+  private void doRedirectToNonMaintenancepage(jetbrains.buildServer.maintenance.StartupUserSession, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse);
+    descriptor: (Ljetbrains/buildServer/maintenance/StartupUserSession;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        58
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        59
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        60
+        38: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        47: athrow
+        48: aload_1
+        49: invokevirtual #927                // Method jetbrains/buildServer/maintenance/StartupUserSession.getRedirectedFrom:()Ljava/lang/String;
+        52: astore        4
+        54: aload         4
+        56: ifnonnull     82
+        59: aload_2
+        60: invokeinterface #720,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getContextPath:()Ljava/lang/String;
+        65: new           #165                // class jetbrains/buildServer/serverSide/RelativeWebLinks
+        68: dup
+        69: invokespecial #743                // Method jetbrains/buildServer/serverSide/RelativeWebLinks."<init>":()V
+        72: invokevirtual #612                // Method jetbrains/buildServer/serverSide/RelativeWebLinks.getOverviewUrl:()Ljava/lang/String;
+        75: invokedynamic #537,  0            // InvokeDynamic #11:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        80: astore        4
+        82: aload_3
+        83: aload         4
+        85: invokeinterface #1094,  2         // InterfaceMethod javax/servlet/http/HttpServletResponse.sendRedirect:(Ljava/lang/String;)V
+        90: goto          114
+        93: astore        5
+        95: aload_0
+        96: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        99: aload         5
+       101: invokevirtual #1035               // Method java/io/IOException.getMessage:()Ljava/lang/String;
+       104: invokedynamic #884,  0            // InvokeDynamic #12:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       109: aload         5
+       111: invokevirtual #451                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       114: aload_1
+       115: aconst_null
+       116: invokevirtual #482                // Method jetbrains/buildServer/maintenance/StartupUserSession.setRedirectedFrom:(Ljava/lang/String;)V
+       119: return
+      Exception table:
+         from    to  target type
+            32    41    44   Class java/io/IOException
+            16    25    28   Class java/io/IOException
+             0     9    12   Class java/io/IOException
+            82    90    93   Class java/io/IOException
+      LineNumberTable:
+        line 153: 48
+        line 166: 54
+        line 156: 59
+        line 209: 82
+        line 201: 90
+        line 286: 93
+        line 13: 95
+        line 221: 114
+        line 114: 119
+
+  private void showLowLevelError(java.io.PrintWriter, java.lang.Exception);
+    descriptor: (Ljava/io/PrintWriter;Ljava/lang/Exception;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        61
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        62
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_0
+        33: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        36: aload_2
+        37: invokevirtual #699                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        40: invokevirtual #141                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+        43: aload_2
+        44: invokevirtual #116                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+        47: invokedynamic #461,  0            // InvokeDynamic #13:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        52: aload_2
+        53: invokevirtual #451                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        56: aload_2
+        57: invokevirtual #699                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        60: invokevirtual #141                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+        63: aload_2
+        64: invokevirtual #116                // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+        67: invokedynamic #1138,  0           // InvokeDynamic #14:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        72: astore_3
+        73: new           #1105               // class java/lang/StringBuilder
+        76: dup
+        77: sipush        1024
+        80: invokespecial #407                // Method java/lang/StringBuilder."<init>":(I)V
+        83: astore        4
+        85: aload         4
+        87: ldc           #81                 // String <html>\n<head><title>TeamCity maintenance page error</title></head>\n
+        89: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        92: pop
+        93: aload         4
+        95: ldc           #58                 // String <body>\n<h3>FreeMarker page processing error</h3>\n
+        97: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       100: pop
+       101: aload         4
+       103: ldc           #49                 // String <pre>
+       105: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       108: aload_3
+       109: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       112: ldc           #11                 // String \n</pre>\n
+       114: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       117: pop
+       118: aload         4
+       120: ldc           #41                 // String </body>\n
+       122: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       125: pop
+       126: aload         4
+       128: ldc           #70                 // String </html>\n
+       130: invokevirtual #146                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       133: pop
+       134: aload_1
+       135: aload         4
+       137: invokevirtual #235                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       140: invokevirtual #822                // Method java/io/PrintWriter.println:(Ljava/lang/String;)V
+       143: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 148: 32
+        line 259: 56
+        line 301: 73
+        line 60: 85
+        line 5: 93
+        line 112: 101
+        line 235: 118
+        line 94: 126
+        line 121: 134
+        line 140: 143
+
+  void setupDatabasePropertiesFromRequest(javax.servlet.http.HttpServletRequest);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;)V
+    Code:
+         0: aload_1
+         1: aload_0
+         2: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+         5: invokestatic  #684                // Method peekConnectionStringFromRequest:(Ljavax/servlet/http/HttpServletRequest;Lcom/intellij/openapi/diagnostic/Logger;)Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;
+         8: astore_2
+         9: aload_2
+        10: ifnull        25
+        13: aload_0
+        14: aload_2
+        15: invokevirtual #690                // Method setupDatabaseProperties:(Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;)V
+        18: goto          25
+        21: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        24: athrow
+        25: return
+      Exception table:
+         from    to  target type
+             9    18    21   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 252: 0
+        line 225: 5
+        line 109: 9
+        line 256: 13
+        line 300: 25
+
+  void setupDatabaseProperties(jetbrains.buildServer.serverSide.db.JdbcConnectionString);
+    descriptor: (Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        63
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_0
+        17: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        20: aload_1
+        21: invokevirtual #717                // Method jetbrains/buildServer/maintenance/StartupContext.setConnectionString:(Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;)V
+        24: aload_0
+        25: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        28: iconst_1
+        29: invokevirtual #109                // Method jetbrains/buildServer/maintenance/StartupContext.setDatabaseSettingsFromUISpecified:(Z)V
+        32: aload_0
+        33: getfield      #1117               // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        36: aload_1
+        37: invokevirtual #224                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.getDBType:()Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        40: getstatic     #526                // Field jetbrains/buildServer/serverSide/db/DatabaseType.HSQLDB2:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        43: if_acmpeq     54
+        46: iconst_1
+        47: goto          55
+        50: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        53: athrow
+        54: iconst_0
+        55: invokevirtual #599                // Method jetbrains/buildServer/maintenance/StartupContext.setDatabaseExternal:(Z)V
+        58: aload_1
+        59: invokevirtual #120                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.getPassword:()Ljava/lang/String;
+        62: ifnull        78
+        65: aload_1
+        66: ldc           #33                 // String ********
+        68: invokevirtual #558                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.setPassword:(Ljava/lang/String;)V
+        71: goto          78
+        74: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        77: athrow
+        78: aload_1
+        79: iconst_1
+        80: invokevirtual #115                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.build:(Z)Ljava/lang/String;
+        83: astore_2
+        84: aload_0
+        85: getfield      #721                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        88: aload_2
+        89: invokedynamic #108,  0            // InvokeDynamic #15:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        94: invokevirtual #1034               // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        97: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    50    50   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            55    71    74   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 130: 16
+        line 203: 24
+        line 76: 32
+        line 146: 58
+        line 263: 78
+        line 17: 84
+        line 220: 97
+
+  static jetbrains.buildServer.serverSide.db.DatabaseType peekDatabaseTypeFromRequest(javax.servlet.http.HttpServletRequest, com.intellij.openapi.diagnostic.Logger);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Lcom/intellij/openapi/diagnostic/Logger;)Ljetbrains/buildServer/serverSide/db/DatabaseType;
+    Code:
+         0: aload_0
+         1: ifnonnull     16
+         4: bipush        64
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_1
+        17: ifnonnull     32
+        20: bipush        65
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_0
+        33: ldc           #16                 // String dbType
+        35: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+        40: astore_2
+        41: aload_2
+        42: ifnonnull     57
+        45: aload_1
+        46: ldc           #32                 // String GoNewDatabase: the dbType is not specified
+        48: invokevirtual #481                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        51: aconst_null
+        52: areturn
+        53: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        56: athrow
+        57: aload_2
+        58: invokevirtual #1059               // Method java/lang/String.toUpperCase:()Ljava/lang/String;
+        61: invokestatic  #706                // Method jetbrains/buildServer/serverSide/db/DatabaseType.valueOf:(Ljava/lang/String;)Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        64: areturn
+        65: astore_3
+        66: aload_1
+        67: aload_2
+        68: invokedynamic #566,  0            // InvokeDynamic #16:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        73: invokevirtual #481                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        76: aconst_null
+        77: areturn
+      Exception table:
+         from    to  target type
+            41    53    53   Class java/lang/IllegalArgumentException
+            16    25    28   Class java/lang/IllegalArgumentException
+             0     9    12   Class java/lang/IllegalArgumentException
+            57    64    65   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 193: 32
+        line 236: 41
+        line 179: 45
+        line 139: 51
+        line 66: 57
+        line 293: 65
+        line 267: 66
+        line 244: 76
+
+  private static jetbrains.buildServer.serverSide.db.JdbcConnectionString peekConnectionStringFromRequest(javax.servlet.http.HttpServletRequest, com.intellij.openapi.diagnostic.Logger);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Lcom/intellij/openapi/diagnostic/Logger;)Ljetbrains/buildServer/serverSide/db/JdbcConnectionString;
+    Code:
+         0: aload_0
+         1: ifnonnull     16
+         4: bipush        66
+         6: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_1
+        17: ifnonnull     32
+        20: bipush        67
+        22: invokestatic  #574                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_0
+        33: ldc           #16                 // String dbType
+        35: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+        40: astore_2
+        41: aload_2
+        42: ifnonnull     57
+        45: aload_1
+        46: ldc           #32                 // String GoNewDatabase: the dbType is not specified
+        48: invokevirtual #481                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        51: aconst_null
+        52: areturn
+        53: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        56: athrow
+        57: aload_0
+        58: aload_1
+        59: invokestatic  #480                // Method peekDatabaseTypeFromRequest:(Ljavax/servlet/http/HttpServletRequest;Lcom/intellij/openapi/diagnostic/Logger;)Ljetbrains/buildServer/serverSide/db/DatabaseType;
+        62: astore_3
+        63: aload_3
+        64: ifnonnull     73
+        67: aconst_null
+        68: areturn
+        69: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        72: athrow
+        73: aload_0
+        74: ldc           #82                 // String connHost
+        76: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+        81: astore        4
+        83: aload_0
+        84: ldc           #48                 // String connInst
+        86: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+        91: astore        5
+        93: aload_0
+        94: ldc           #64                 // String connDB
+        96: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       101: astore        6
+       103: aload_0
+       104: ldc           #9                  // String connIntegratedSecurity
+       106: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       111: astore        7
+       113: aload_0
+       114: ldc           #12                 // String connUser
+       116: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       121: astore        8
+       123: aload_0
+       124: ldc           #65                 // String connPwd
+       126: invokeinterface #695,  2          // InterfaceMethod javax/servlet/http/HttpServletRequest.getParameter:(Ljava/lang/String;)Ljava/lang/String;
+       131: astore        9
+       133: aload_3
+       134: getstatic     #1116               // Field jetbrains/buildServer/serverSide/db/DatabaseType.MSSQL:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+       137: if_acmpne     148
+       140: iconst_1
+       141: goto          149
+       144: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       147: athrow
+       148: iconst_0
+       149: istore        10
+       151: aload_3
+       152: getstatic     #526                // Field jetbrains/buildServer/serverSide/db/DatabaseType.HSQLDB2:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+       155: if_acmpne     167
+       158: ldc           #20                 // String file
+       160: goto          168
+       163: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       166: athrow
+       167: aconst_null
+       168: astore        11
+       170: aload         4
+       172: bipush        58
+       174: iconst_1
+       175: iconst_1
+       176: invokestatic  #748                // Method jetbrains/buildServer/util/StringUtil.peekNthDelimitedField:(Ljava/lang/String;CIZ)Ljava/lang/String;
+       179: invokestatic  #698                // Method jetbrains/buildServer/util/StringUtil.nullIfEmpty:(Ljava/lang/String;)Ljava/lang/String;
+       182: astore        12
+       184: aload         4
+       186: bipush        58
+       188: iconst_2
+       189: iconst_1
+       190: invokestatic  #748                // Method jetbrains/buildServer/util/StringUtil.peekNthDelimitedField:(Ljava/lang/String;CIZ)Ljava/lang/String;
+       193: invokestatic  #698                // Method jetbrains/buildServer/util/StringUtil.nullIfEmpty:(Ljava/lang/String;)Ljava/lang/String;
+       196: astore        13
+       198: aload_3
+       199: getstatic     #526                // Field jetbrains/buildServer/serverSide/db/DatabaseType.HSQLDB2:Ljetbrains/buildServer/serverSide/db/DatabaseType;
+       202: if_acmpne     214
+       205: ldc           #60                 // String $TEAMCITY_SYSTEM_PATH/buildserver
+       207: goto          216
+       210: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       213: athrow
+       214: aload         6
+       216: astore        14
+       218: aload         5
+       220: invokestatic  #698                // Method jetbrains/buildServer/util/StringUtil.nullIfEmpty:(Ljava/lang/String;)Ljava/lang/String;
+       223: astore        5
+       225: aload         13
+       227: invokestatic  #698                // Method jetbrains/buildServer/util/StringUtil.nullIfEmpty:(Ljava/lang/String;)Ljava/lang/String;
+       230: astore        13
+       232: aload         8
+       234: invokestatic  #698                // Method jetbrains/buildServer/util/StringUtil.nullIfEmpty:(Ljava/lang/String;)Ljava/lang/String;
+       237: astore        8
+       239: aload         9
+       241: invokestatic  #698                // Method jetbrains/buildServer/util/StringUtil.nullIfEmpty:(Ljava/lang/String;)Ljava/lang/String;
+       244: astore        9
+       246: new           #8                  // class jetbrains/buildServer/serverSide/db/JdbcConnectionString
+       249: dup
+       250: aload_3
+       251: iload         10
+       253: aload         11
+       255: aload         12
+       257: aload         13
+       259: aload         5
+       261: aload         14
+       263: aload         8
+       265: aload         9
+       267: invokespecial #258                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString."<init>":(Ljetbrains/buildServer/serverSide/db/DatabaseType;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       270: astore        15
+       272: aload         15
+       274: aload         7
+       276: ifnull        320
+       279: aload         7
+       281: invokevirtual #578                // Method java/lang/String.isEmpty:()Z
+       284: ifne          320
+       287: goto          294
+       290: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       293: athrow
+       294: aload         7
+       296: iconst_0
+       297: invokevirtual #1085               // Method java/lang/String.charAt:(I)C
+       300: bipush        49
+       302: if_icmpne     320
+       305: goto          312
+       308: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       311: athrow
+       312: iconst_1
+       313: goto          321
+       316: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       319: athrow
+       320: iconst_0
+       321: invokevirtual #226                // Method jetbrains/buildServer/serverSide/db/JdbcConnectionString.setIntegratedSecurity:(Z)V
+       324: aload         15
+       326: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            16    25    28   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            41    53    53   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+            63    69    69   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           133   144   144   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           151   163   163   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           198   210   210   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           272   287   290   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           279   305   308   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           294   316   316   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 50: 32
+        line 38: 41
+        line 191: 45
+        line 143: 51
+        line 77: 57
+        line 40: 63
+        line 269: 67
+        line 287: 73
+        line 65: 83
+        line 42: 93
+        line 196: 103
+        line 131: 113
+        line 18: 123
+        line 120: 133
+        line 67: 151
+        line 52: 170
+        line 174: 184
+        line 96: 198
+        line 284: 218
+        line 239: 225
+        line 111: 232
+        line 70: 239
+        line 199: 246
+        line 46: 272
+        line 214: 324
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #2                  // class jetbrains/buildServer/maintenance/StartupServlet
+         2: invokevirtual #1129               // Method java/lang/Class.desiredAssertionStatus:()Z
+         5: ifne          16
+         8: iconst_1
+         9: goto          17
+        12: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: iconst_0
+        17: putstatic     #652                // Field $assertionsDisabled:Z
+        20: new           #931                // class org/apache/commons/beanutils/PropertyUtilsBean
+        23: dup
+        24: invokespecial #304                // Method org/apache/commons/beanutils/PropertyUtilsBean."<init>":()V
+        27: putstatic     #336                // Field ourPropertyUtilsBean:Lorg/apache/commons/beanutils/PropertyUtilsBean;
+        30: return
+      Exception table:
+         from    to  target type
+             0    12    12   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+      LineNumberTable:
+        line 285: 0
+        line 1: 20
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 67
+                       0: 288
+                       1: 288
+                       2: 288
+                       3: 288
+                       4: 288
+                       5: 288
+                       6: 288
+                       7: 288
+                       8: 288
+                       9: 288
+                      10: 288
+                      11: 288
+                      12: 288
+                      13: 288
+                      14: 288
+                      15: 288
+                      16: 288
+                      17: 288
+                      18: 288
+                      19: 288
+                      20: 288
+                      21: 288
+                      22: 288
+                      23: 288
+                      24: 288
+                      25: 288
+                      26: 288
+                      27: 288
+                      28: 288
+                      29: 288
+                      30: 288
+                      31: 288
+                      32: 288
+                      33: 288
+                      34: 288
+                      35: 288
+                      36: 288
+                      37: 288
+                      38: 288
+                      39: 288
+                      40: 288
+                      41: 288
+                      42: 288
+                      43: 288
+                      44: 288
+                      45: 288
+                      46: 288
+                      47: 288
+                      48: 288
+                      49: 288
+                      50: 288
+                      51: 288
+                      52: 288
+                      53: 288
+                      54: 297
+                      55: 288
+                      56: 288
+                      57: 288
+                      58: 288
+                      59: 288
+                      60: 288
+                      61: 288
+                      62: 288
+                      63: 288
+                      64: 288
+                      65: 288
+                      66: 288
+                      67: 288
+                 default: 288
+            }
+       288: ldc           #89                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+       290: goto          302
+       293: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       296: athrow
+       297: ldc           #37                 // String @NotNull method %s.%s must not return null
+       299: goto          302
+       302: iload_0
+       303: tableswitch   { // 0 to 67
+                       0: 588
+                       1: 588
+                       2: 588
+                       3: 588
+                       4: 588
+                       5: 588
+                       6: 588
+                       7: 588
+                       8: 588
+                       9: 588
+                      10: 588
+                      11: 588
+                      12: 588
+                      13: 588
+                      14: 588
+                      15: 588
+                      16: 588
+                      17: 588
+                      18: 588
+                      19: 588
+                      20: 588
+                      21: 588
+                      22: 588
+                      23: 588
+                      24: 588
+                      25: 588
+                      26: 588
+                      27: 588
+                      28: 588
+                      29: 588
+                      30: 588
+                      31: 588
+                      32: 588
+                      33: 588
+                      34: 588
+                      35: 588
+                      36: 588
+                      37: 588
+                      38: 588
+                      39: 588
+                      40: 588
+                      41: 588
+                      42: 588
+                      43: 588
+                      44: 588
+                      45: 588
+                      46: 588
+                      47: 588
+                      48: 588
+                      49: 588
+                      50: 588
+                      51: 588
+                      52: 588
+                      53: 588
+                      54: 596
+                      55: 588
+                      56: 588
+                      57: 588
+                      58: 588
+                      59: 588
+                      60: 588
+                      61: 588
+                      62: 588
+                      63: 588
+                      64: 588
+                      65: 588
+                      66: 588
+                      67: 588
+                 default: 588
+            }
+       588: iconst_3
+       589: goto          600
+       592: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       595: athrow
+       596: iconst_2
+       597: goto          600
+       600: anewarray     #288                // class java/lang/Object
+       603: iload_0
+       604: tableswitch   { // 0 to 67
+                       0: 892
+                       1: 904
+                       2: 912
+                       3: 920
+                       4: 928
+                       5: 936
+                       6: 944
+                       7: 912
+                       8: 920
+                       9: 928
+                      10: 952
+                      11: 944
+                      12: 912
+                      13: 920
+                      14: 960
+                      15: 944
+                      16: 968
+                      17: 912
+                      18: 920
+                      19: 944
+                      20: 976
+                      21: 968
+                      22: 912
+                      23: 920
+                      24: 944
+                      25: 976
+                      26: 968
+                      27: 984
+                      28: 992
+                      29: 912
+                      30: 920
+                      31: 944
+                      32: 976
+                      33: 968
+                      34: 912
+                      35: 920
+                      36: 944
+                      37: 968
+                      38: 912
+                      39: 920
+                      40: 1000
+                      41: 944
+                      42: 976
+                      43: 968
+                      44: 912
+                      45: 920
+                      46: 1000
+                      47: 944
+                      48: 976
+                      49: 968
+                      50: 912
+                      51: 1000
+                      52: 976
+                      53: 968
+                      54: 1008
+                      55: 912
+                      56: 1016
+                      57: 1024
+                      58: 928
+                      59: 912
+                      60: 920
+                      61: 944
+                      62: 960
+                      63: 1032
+                      64: 912
+                      65: 892
+                      66: 912
+                      67: 892
+                 default: 892
+            }
+       892: dup
+       893: iconst_0
+       894: ldc           #13                 // String logger
+       896: aastore
+       897: goto          1040
+       900: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       903: athrow
+       904: dup
+       905: iconst_0
+       906: ldc           #87                 // String context
+       908: aastore
+       909: goto          1040
+       912: dup
+       913: iconst_0
+       914: ldc           #1                  // String request
+       916: aastore
+       917: goto          1040
+       920: dup
+       921: iconst_0
+       922: ldc           #26                 // String response
+       924: aastore
+       925: goto          1040
+       928: dup
+       929: iconst_0
+       930: ldc           #24                 // String userSession
+       932: aastore
+       933: goto          1040
+       936: dup
+       937: iconst_0
+       938: ldc           #18                 // String query
+       940: aastore
+       941: goto          1040
+       944: dup
+       945: iconst_0
+       946: ldc           #44                 // String writer
+       948: aastore
+       949: goto          1040
+       952: dup
+       953: iconst_0
+       954: ldc           #62                 // String command
+       956: aastore
+       957: goto          1040
+       960: dup
+       961: iconst_0
+       962: ldc           #14                 // String e
+       964: aastore
+       965: goto          1040
+       968: dup
+       969: iconst_0
+       970: ldc           #68                 // String session
+       972: aastore
+       973: goto          1040
+       976: dup
+       977: iconst_0
+       978: ldc           #73                 // String currentStage
+       980: aastore
+       981: goto          1040
+       984: dup
+       985: iconst_0
+       986: ldc           #46                 // String param1
+       988: aastore
+       989: goto          1040
+       992: dup
+       993: iconst_0
+       994: ldc           #29                 // String param2
+       996: aastore
+       997: goto          1040
+      1000: dup
+      1001: iconst_0
+      1002: ldc           #6                  // String pageName
+      1004: aastore
+      1005: goto          1040
+      1008: dup
+      1009: iconst_0
+      1010: ldc           #72                 // String jetbrains/buildServer/maintenance/StartupServlet
+      1012: aastore
+      1013: goto          1040
+      1016: dup
+      1017: iconst_0
+      1018: ldc           #77                 // String si
+      1020: aastore
+      1021: goto          1040
+      1024: dup
+      1025: iconst_0
+      1026: ldc           #16                 // String dbType
+      1028: aastore
+      1029: goto          1040
+      1032: dup
+      1033: iconst_0
+      1034: ldc           #28                 // String cs
+      1036: aastore
+      1037: goto          1040
+      1040: iload_0
+      1041: tableswitch   { // 0 to 67
+                       0: 1328
+                       1: 1328
+                       2: 1328
+                       3: 1328
+                       4: 1328
+                       5: 1328
+                       6: 1328
+                       7: 1328
+                       8: 1328
+                       9: 1328
+                      10: 1328
+                      11: 1328
+                      12: 1328
+                      13: 1328
+                      14: 1328
+                      15: 1328
+                      16: 1328
+                      17: 1328
+                      18: 1328
+                      19: 1328
+                      20: 1328
+                      21: 1328
+                      22: 1328
+                      23: 1328
+                      24: 1328
+                      25: 1328
+                      26: 1328
+                      27: 1328
+                      28: 1328
+                      29: 1328
+                      30: 1328
+                      31: 1328
+                      32: 1328
+                      33: 1328
+                      34: 1328
+                      35: 1328
+                      36: 1328
+                      37: 1328
+                      38: 1328
+                      39: 1328
+                      40: 1328
+                      41: 1328
+                      42: 1328
+                      43: 1328
+                      44: 1328
+                      45: 1328
+                      46: 1328
+                      47: 1328
+                      48: 1328
+                      49: 1328
+                      50: 1328
+                      51: 1328
+                      52: 1328
+                      53: 1328
+                      54: 1340
+                      55: 1328
+                      56: 1328
+                      57: 1328
+                      58: 1328
+                      59: 1328
+                      60: 1328
+                      61: 1328
+                      62: 1328
+                      63: 1328
+                      64: 1328
+                      65: 1328
+                      66: 1328
+                      67: 1328
+                 default: 1328
+            }
+      1328: dup
+      1329: iconst_1
+      1330: ldc           #72                 // String jetbrains/buildServer/maintenance/StartupServlet
+      1332: aastore
+      1333: goto          1348
+      1336: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+      1339: athrow
+      1340: dup
+      1341: iconst_1
+      1342: ldc           #86                 // String getCsrfToken
+      1344: aastore
+      1345: goto          1348
+      1348: iload_0
+      1349: tableswitch   { // 0 to 67
+                       0: 1636
+                       1: 1636
+                       2: 1648
+                       3: 1648
+                       4: 1656
+                       5: 1656
+                       6: 1656
+                       7: 1656
+                       8: 1656
+                       9: 1664
+                      10: 1664
+                      11: 1664
+                      12: 1664
+                      13: 1664
+                      14: 1672
+                      15: 1672
+                      16: 1680
+                      17: 1680
+                      18: 1680
+                      19: 1680
+                      20: 1680
+                      21: 1688
+                      22: 1688
+                      23: 1688
+                      24: 1688
+                      25: 1688
+                      26: 1696
+                      27: 1696
+                      28: 1696
+                      29: 1696
+                      30: 1696
+                      31: 1696
+                      32: 1696
+                      33: 1704
+                      34: 1704
+                      35: 1704
+                      36: 1704
+                      37: 1712
+                      38: 1712
+                      39: 1712
+                      40: 1712
+                      41: 1712
+                      42: 1712
+                      43: 1712
+                      44: 1712
+                      45: 1712
+                      46: 1712
+                      47: 1712
+                      48: 1712
+                      49: 1720
+                      50: 1720
+                      51: 1720
+                      52: 1720
+                      53: 1728
+                      54: 1736
+                      55: 1739
+                      56: 1747
+                      57: 1755
+                      58: 1763
+                      59: 1763
+                      60: 1763
+                      61: 1771
+                      62: 1771
+                      63: 1779
+                      64: 1787
+                      65: 1787
+                      66: 1795
+                      67: 1795
+                 default: 1636
+            }
+      1636: dup
+      1637: iconst_2
+      1638: ldc           #90                 // String <init>
+      1640: aastore
+      1641: goto          1803
+      1644: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+      1647: athrow
+      1648: dup
+      1649: iconst_2
+      1650: ldc           #51                 // String doGetOrPost
+      1652: aastore
+      1653: goto          1803
+      1656: dup
+      1657: iconst_2
+      1658: ldc           #83                 // String doProcessAjaxQuery
+      1660: aastore
+      1661: goto          1803
+      1664: dup
+      1665: iconst_2
+      1666: ldc           #4                  // String doProcessAjaxCommand
+      1668: aastore
+      1669: goto          1803
+      1672: dup
+      1673: iconst_2
+      1674: ldc           #55                 // String handleExceptionInsideAjaxCall
+      1676: aastore
+      1677: goto          1803
+      1680: dup
+      1681: iconst_2
+      1682: ldc           #80                 // String doProcessWelcomePage
+      1684: aastore
+      1685: goto          1803
+      1688: dup
+      1689: iconst_2
+      1690: ldc           #7                  // String doProcessStagePage
+      1692: aastore
+      1693: goto          1803
+      1696: dup
+      1697: iconst_2
+      1698: ldc           #53                 // String doProcessDebugPage
+      1700: aastore
+      1701: goto          1803
+      1704: dup
+      1705: iconst_2
+      1706: ldc           #43                 // String doProcessFatalPage
+      1708: aastore
+      1709: goto          1803
+      1712: dup
+      1713: iconst_2
+      1714: ldc           #54                 // String doProcessPage
+      1716: aastore
+      1717: goto          1803
+      1720: dup
+      1721: iconst_2
+      1722: ldc           #19                 // String preparePageModel
+      1724: aastore
+      1725: goto          1803
+      1728: dup
+      1729: iconst_2
+      1730: ldc           #86                 // String getCsrfToken
+      1732: aastore
+      1733: goto          1803
+      1736: goto          1803
+      1739: dup
+      1740: iconst_2
+      1741: ldc           #42                 // String getFromSession
+      1743: aastore
+      1744: goto          1803
+      1747: dup
+      1748: iconst_2
+      1749: ldc           #35                 // String checkJdbcDriverVersions
+      1751: aastore
+      1752: goto          1803
+      1755: dup
+      1756: iconst_2
+      1757: ldc           #59                 // String checkJdbcDriverMetadataFor
+      1759: aastore
+      1760: goto          1803
+      1763: dup
+      1764: iconst_2
+      1765: ldc           #38                 // String doRedirectToNonMaintenancepage
+      1767: aastore
+      1768: goto          1803
+      1771: dup
+      1772: iconst_2
+      1773: ldc           #25                 // String showLowLevelError
+      1775: aastore
+      1776: goto          1803
+      1779: dup
+      1780: iconst_2
+      1781: ldc           #61                 // String setupDatabaseProperties
+      1783: aastore
+      1784: goto          1803
+      1787: dup
+      1788: iconst_2
+      1789: ldc           #57                 // String peekDatabaseTypeFromRequest
+      1791: aastore
+      1792: goto          1803
+      1795: dup
+      1796: iconst_2
+      1797: ldc           #85                 // String peekConnectionStringFromRequest
+      1799: aastore
+      1800: goto          1803
+      1803: invokestatic  #202                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      1806: iload_0
+      1807: tableswitch   { // 0 to 67
+                       0: 2092
+                       1: 2092
+                       2: 2092
+                       3: 2092
+                       4: 2092
+                       5: 2092
+                       6: 2092
+                       7: 2092
+                       8: 2092
+                       9: 2092
+                      10: 2092
+                      11: 2092
+                      12: 2092
+                      13: 2092
+                      14: 2092
+                      15: 2092
+                      16: 2092
+                      17: 2092
+                      18: 2092
+                      19: 2092
+                      20: 2092
+                      21: 2092
+                      22: 2092
+                      23: 2092
+                      24: 2092
+                      25: 2092
+                      26: 2092
+                      27: 2092
+                      28: 2092
+                      29: 2092
+                      30: 2092
+                      31: 2092
+                      32: 2092
+                      33: 2092
+                      34: 2092
+                      35: 2092
+                      36: 2092
+                      37: 2092
+                      38: 2092
+                      39: 2092
+                      40: 2092
+                      41: 2092
+                      42: 2092
+                      43: 2092
+                      44: 2092
+                      45: 2092
+                      46: 2092
+                      47: 2092
+                      48: 2092
+                      49: 2092
+                      50: 2092
+                      51: 2092
+                      52: 2092
+                      53: 2092
+                      54: 2107
+                      55: 2092
+                      56: 2092
+                      57: 2092
+                      58: 2092
+                      59: 2092
+                      60: 2092
+                      61: 2092
+                      62: 2092
+                      63: 2092
+                      64: 2092
+                      65: 2092
+                      66: 2092
+                      67: 2092
+                 default: 2092
+            }
+      2092: new           #460                // class java/lang/IllegalArgumentException
+      2095: dup_x1
+      2096: swap
+      2097: invokespecial #322                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      2100: goto          2118
+      2103: invokestatic  #140                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+      2106: athrow
+      2107: new           #642                // class java/lang/IllegalStateException
+      2110: dup_x1
+      2111: swap
+      2112: invokespecial #604                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      2115: goto          2118
+      2118: athrow
+      Exception table:
+         from    to  target type
+             0   293   293   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           302   592   592   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+           600   900   900   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+          1040  1336  1336   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+          1348  1644  1644   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+          1803  2103  2103   Class jetbrains/buildServer/serverSide/db/jdbcLoader/NoSuitableJdbcDrivers
+
+  private static java.lang.Throwable a(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    Code:
+         0: aload_0
+         1: areturn
+}

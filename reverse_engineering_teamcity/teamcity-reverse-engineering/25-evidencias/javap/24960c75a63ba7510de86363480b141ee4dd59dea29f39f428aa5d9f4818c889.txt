@@ -1,0 +1,181 @@
+Compiled from "WaitReasonImpl.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.WaitReasonImpl implements jetbrains.buildServer.serverSide.buildDistribution.WaitReasonEx {
+  private final java.lang.String myDescription;
+    descriptor: Ljava/lang/String;
+
+  private final boolean myNeedsMoreAgents;
+    descriptor: Z
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.WaitReasonImpl(java.lang.String, boolean);
+    descriptor: (Ljava/lang/String;Z)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #53                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #55                 // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: putfield      #30                 // Field myDescription:Ljava/lang/String;
+        17: aload_0
+        18: iload_2
+        19: putfield      #43                 // Field myNeedsMoreAgents:Z
+        22: return
+      LineNumberTable:
+        line 4: 8
+        line 3: 12
+        line 7: 17
+        line 1: 22
+
+  public java.lang.String getDescription();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #30                 // Field myDescription:Ljava/lang/String;
+         4: dup
+         5: ifnonnull     19
+         8: iconst_1
+         9: invokestatic  #53                 // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 6: 0
+
+  public boolean notEnoughAgents();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #43                 // Field myNeedsMoreAgents:Z
+         4: ireturn
+      LineNumberTable:
+        line 2: 0
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #30                 // Field myDescription:Ljava/lang/String;
+         4: invokedynamic #40,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+         9: areturn
+      LineNumberTable:
+        line 5: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 1
+                       0: 24
+                       1: 33
+                 default: 24
+            }
+        24: ldc           #4                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        26: goto          38
+        29: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        32: athrow
+        33: ldc           #1                  // String @NotNull method %s.%s must not return null
+        35: goto          38
+        38: iload_0
+        39: tableswitch   { // 0 to 1
+                       0: 60
+                       1: 68
+                 default: 60
+            }
+        60: iconst_3
+        61: goto          72
+        64: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        67: athrow
+        68: iconst_2
+        69: goto          72
+        72: anewarray     #17                 // class java/lang/Object
+        75: iload_0
+        76: tableswitch   { // 0 to 1
+                       0: 100
+                       1: 112
+                 default: 100
+            }
+       100: dup
+       101: iconst_0
+       102: ldc           #6                  // String description
+       104: aastore
+       105: goto          120
+       108: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       111: athrow
+       112: dup
+       113: iconst_0
+       114: ldc           #3                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+       116: aastore
+       117: goto          120
+       120: iload_0
+       121: tableswitch   { // 0 to 1
+                       0: 144
+                       1: 156
+                 default: 144
+            }
+       144: dup
+       145: iconst_1
+       146: ldc           #3                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+       148: aastore
+       149: goto          164
+       152: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       155: athrow
+       156: dup
+       157: iconst_1
+       158: ldc           #5                  // String getDescription
+       160: aastore
+       161: goto          164
+       164: iload_0
+       165: tableswitch   { // 0 to 1
+                       0: 188
+                       1: 200
+                 default: 188
+            }
+       188: dup
+       189: iconst_2
+       190: ldc           #2                  // String <init>
+       192: aastore
+       193: goto          203
+       196: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       199: athrow
+       200: goto          203
+       203: invokestatic  #24                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       206: iload_0
+       207: tableswitch   { // 0 to 1
+                       0: 228
+                       1: 243
+                 default: 228
+            }
+       228: new           #31                 // class java/lang/IllegalArgumentException
+       231: dup_x1
+       232: swap
+       233: invokespecial #62                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       236: goto          254
+       239: invokestatic  #74                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       242: athrow
+       243: new           #79                 // class java/lang/IllegalStateException
+       246: dup_x1
+       247: swap
+       248: invokespecial #25                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       251: goto          254
+       254: athrow
+      Exception table:
+         from    to  target type
+             0    29    29   Class java/lang/IllegalArgumentException
+            38    64    64   Class java/lang/IllegalArgumentException
+            72   108   108   Class java/lang/IllegalArgumentException
+           120   152   152   Class java/lang/IllegalArgumentException
+           164   196   196   Class java/lang/IllegalArgumentException
+           203   239   239   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

@@ -1,0 +1,333 @@
+Compiled from "DistributorState.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.DistributorState<T> {
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.Distributor<T> myDistributor;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/Distributor;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter<T> myBuildStarter;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;
+
+  private final java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, T> myDistributedBuilds;
+    descriptor: Ljava/util/Map;
+
+  private final java.util.Set<T> myDistributedAgents;
+    descriptor: Ljava/util/Set;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.DistributorState(jetbrains.buildServer.serverSide.impl.buildDistribution.Distributor<T>, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter<T>);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/buildDistribution/Distributor;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+        16: aload_0
+        17: invokespecial #46                 // Method java/lang/Object."<init>":()V
+        20: aload_0
+        21: aload_1
+        22: putfield      #112                // Field myDistributor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/Distributor;
+        25: aload_0
+        26: aload_2
+        27: putfield      #87                 // Field myBuildStarter:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;
+        30: aload_0
+        31: new           #23                 // class java/util/HashMap
+        34: dup
+        35: invokespecial #86                 // Method java/util/HashMap."<init>":()V
+        38: putfield      #125                // Field myDistributedBuilds:Ljava/util/Map;
+        41: aload_0
+        42: new           #77                 // class java/util/HashSet
+        45: dup
+        46: invokespecial #59                 // Method java/util/HashSet."<init>":()V
+        49: putfield      #50                 // Field myDistributedAgents:Ljava/util/Set;
+        52: return
+      LineNumberTable:
+        line 10: 16
+        line 12: 20
+        line 1: 25
+        line 11: 30
+        line 3: 41
+        line 13: 52
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.Distributor<T> getDistributor();
+    descriptor: ()Ljetbrains/buildServer/serverSide/impl/buildDistribution/Distributor;
+    Code:
+         0: aload_0
+         1: getfield      #112                // Field myDistributor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/Distributor;
+         4: dup
+         5: ifnonnull     19
+         8: iconst_2
+         9: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 7: 0
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter<T> getBuildStarter();
+    descriptor: ()Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;
+    Code:
+         0: aload_0
+         1: getfield      #87                 // Field myBuildStarter:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;
+         4: dup
+         5: ifnonnull     19
+         8: iconst_3
+         9: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 2: 0
+
+  public java.util.Set<T> getDistributedAgents();
+    descriptor: ()Ljava/util/Set;
+    Code:
+         0: aload_0
+         1: getfield      #50                 // Field myDistributedAgents:Ljava/util/Set;
+         4: invokestatic  #37                 // Method java/util/Collections.unmodifiableSet:(Ljava/util/Set;)Ljava/util/Set;
+         7: dup
+         8: ifnonnull     22
+        11: iconst_4
+        12: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+        15: goto          22
+        18: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        21: athrow
+        22: areturn
+      Exception table:
+         from    to  target type
+             0    15    18   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 6: 0
+
+  public java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, T> getDistributedBuilds();
+    descriptor: ()Ljava/util/Map;
+    Code:
+         0: aload_0
+         1: getfield      #125                // Field myDistributedBuilds:Ljava/util/Map;
+         4: invokestatic  #16                 // Method java/util/Collections.unmodifiableMap:(Ljava/util/Map;)Ljava/util/Map;
+         7: dup
+         8: ifnonnull     22
+        11: iconst_5
+        12: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+        15: goto          22
+        18: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        21: athrow
+        22: areturn
+      Exception table:
+         from    to  target type
+             0    15    18   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 4: 0
+
+  public void addDistributedBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, T);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/Object;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        6
+         6: invokestatic  #94                 // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        15: athrow
+        16: aload_0
+        17: getfield      #125                // Field myDistributedBuilds:Ljava/util/Map;
+        20: aload_1
+        21: aload_2
+        22: invokeinterface #17,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        27: pop
+        28: aload_0
+        29: getfield      #50                 // Field myDistributedAgents:Ljava/util/Set;
+        32: aload_2
+        33: invokeinterface #119,  2          // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        38: pop
+        39: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 8: 16
+        line 9: 28
+        line 5: 39
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 6
+                       0: 44
+                       1: 44
+                       2: 53
+                       3: 53
+                       4: 53
+                       5: 53
+                       6: 44
+                 default: 44
+            }
+        44: ldc           #12                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        46: goto          58
+        49: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        52: athrow
+        53: ldc           #11                 // String @NotNull method %s.%s must not return null
+        55: goto          58
+        58: iload_0
+        59: tableswitch   { // 0 to 6
+                       0: 100
+                       1: 100
+                       2: 108
+                       3: 108
+                       4: 108
+                       5: 108
+                       6: 100
+                 default: 100
+            }
+       100: iconst_3
+       101: goto          112
+       104: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       107: athrow
+       108: iconst_2
+       109: goto          112
+       112: anewarray     #120                // class java/lang/Object
+       115: iload_0
+       116: tableswitch   { // 0 to 6
+                       0: 160
+                       1: 172
+                       2: 180
+                       3: 180
+                       4: 180
+                       5: 180
+                       6: 188
+                 default: 160
+            }
+       160: dup
+       161: iconst_0
+       162: ldc           #10                 // String distributor
+       164: aastore
+       165: goto          196
+       168: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       171: athrow
+       172: dup
+       173: iconst_0
+       174: ldc           #8                  // String buildStarter
+       176: aastore
+       177: goto          196
+       180: dup
+       181: iconst_0
+       182: ldc           #2                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/DistributorState
+       184: aastore
+       185: goto          196
+       188: dup
+       189: iconst_0
+       190: ldc           #9                  // String build
+       192: aastore
+       193: goto          196
+       196: iload_0
+       197: tableswitch   { // 0 to 6
+                       0: 240
+                       1: 240
+                       2: 252
+                       3: 260
+                       4: 268
+                       5: 276
+                       6: 240
+                 default: 240
+            }
+       240: dup
+       241: iconst_1
+       242: ldc           #2                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/DistributorState
+       244: aastore
+       245: goto          284
+       248: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       251: athrow
+       252: dup
+       253: iconst_1
+       254: ldc           #7                  // String getDistributor
+       256: aastore
+       257: goto          284
+       260: dup
+       261: iconst_1
+       262: ldc           #5                  // String getBuildStarter
+       264: aastore
+       265: goto          284
+       268: dup
+       269: iconst_1
+       270: ldc           #4                  // String getDistributedAgents
+       272: aastore
+       273: goto          284
+       276: dup
+       277: iconst_1
+       278: ldc           #3                  // String getDistributedBuilds
+       280: aastore
+       281: goto          284
+       284: iload_0
+       285: tableswitch   { // 0 to 6
+                       0: 328
+                       1: 328
+                       2: 340
+                       3: 340
+                       4: 340
+                       5: 340
+                       6: 343
+                 default: 328
+            }
+       328: dup
+       329: iconst_2
+       330: ldc           #1                  // String <init>
+       332: aastore
+       333: goto          351
+       336: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       339: athrow
+       340: goto          351
+       343: dup
+       344: iconst_2
+       345: ldc           #6                  // String addDistributedBuild
+       347: aastore
+       348: goto          351
+       351: invokestatic  #107                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       354: iload_0
+       355: tableswitch   { // 0 to 6
+                       0: 396
+                       1: 396
+                       2: 411
+                       3: 411
+                       4: 411
+                       5: 411
+                       6: 396
+                 default: 396
+            }
+       396: new           #97                 // class java/lang/IllegalArgumentException
+       399: dup_x1
+       400: swap
+       401: invokespecial #78                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       404: goto          422
+       407: invokestatic  #41                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       410: athrow
+       411: new           #22                 // class java/lang/IllegalStateException
+       414: dup_x1
+       415: swap
+       416: invokespecial #114                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       419: goto          422
+       422: athrow
+      Exception table:
+         from    to  target type
+             0    49    49   Class java/lang/IllegalArgumentException
+            58   104   104   Class java/lang/IllegalArgumentException
+           112   168   168   Class java/lang/IllegalArgumentException
+           196   248   248   Class java/lang/IllegalArgumentException
+           284   336   336   Class java/lang/IllegalArgumentException
+           351   407   407   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

@@ -1,0 +1,2 @@
+# Security and observability
+Agent registration must authenticate identity and scope; credentials are not capability tags. Limit secret exposure, restrict host access and isolate untrusted workloads according to the verified execution and containment contract. Monitor heartbeat acceptance, rejected stale messages, slot utilization, capability drift, reconnection, drain and cleanup. Do not use telemetry success as authorization evidence. Avoid logging credentials, tokens, full secret-bearing environment variables or host-sensitive paths.

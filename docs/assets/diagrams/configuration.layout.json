@@ -1,0 +1,48 @@
+{
+  "title": "Três modos · uma semântica",
+  "question": "Como os modos de edição compartilham autoridade?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/contracts.md",
+    "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "VIS": {
+      "icon": "workflow",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "FORM": {
+      "icon": "list-checks",
+      "tone": "blue",
+      "column": 1,
+      "row": 0
+    },
+    "CODE": {
+      "icon": "file-code-2",
+      "tone": "blue",
+      "column": 2,
+      "row": 0
+    },
+    "MODEL": {
+      "icon": "files",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "CHECK": {
+      "icon": "shield-check",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "REV": {
+      "icon": "git-commit-horizontal",
+      "tone": "teal",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

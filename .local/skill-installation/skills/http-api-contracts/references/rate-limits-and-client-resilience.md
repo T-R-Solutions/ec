@@ -1,0 +1,5 @@
+# Rate-Limit, Retry and Resilience Contracts
+
+The `429 Too Many Requests` status is defined in RFC 6585; `Retry-After` is defined in RFC 9110 and may be delta-seconds **or HTTP-date**. Do not assume that every rate-limited service responds 429, or that every 429 provides Retry-After. Document which actor/tenant/IP/resource budget applies, when it resets, how the client should back off, whether retrying this operation is safe, and the difference between a temporary 503 and request-budget exhaustion. Protect monitoring/logging against high-cardinality secrets and abusive query strings.
+
+For `POST` and `PATCH`, do not automatically retry after an ambiguous response without a published replay contract. Respect timeouts and cancellation; transport retries, application idempotency and external side-effect safety are distinct. Record server capacity/load assumptions as hypotheses until tested; no synthetic rate-limit demo is a performance benchmark. [RFC 6585](https://www.rfc-editor.org/rfc/rfc6585.html); [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html).

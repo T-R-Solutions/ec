@@ -1,0 +1,40 @@
+{
+  "counts": {
+    "class_occurrences": 822094,
+    "unique_class_bytes": 412168,
+    "unique_class_methods": 3816259,
+    "fields": 1202665,
+    "kotlin_metadata_classes": 102736,
+    "body_indexed_declarations": 364187,
+    "methods_with_code": 340669,
+    "invoke_sites": 1531761,
+    "field_sites": 489665,
+    "locals": 601088,
+    "invokedynamic_sites": 51459,
+    "branch_records": 3083463
+  },
+  "errors": [],
+  "limitations": [
+    "Counts deduplicated by class SHA-256, not classloader identity.",
+    "Body indexing is syntactic, not human review or behavior confirmation.",
+    "Calls denote symbolic bytecode targets; virtual dispatch, inheritance resolution and reflection remain unresolved.",
+    "Non-first-party method bodies skipped.",
+    "Instruction ordinals are ASM visitor ordinals, not JVM byte offsets."
+  ],
+  "focus": {
+    "class_contents_disassembled": 124,
+    "class_occurrences_selected": 141,
+    "method_declarations_disassembled": 3639,
+    "curated_claims": 19,
+    "features": 19,
+    "call_sites": 28907,
+    "exact_target_declarations_in_focus": 11194,
+    "unresolved_targets_in_focus": 17713,
+    "rest_declared_routes": 546,
+    "rest_subresource_locators": 16,
+    "methods_fully_semantically_recovered": null,
+    "methods_partially_semantically_recovered": null,
+    "dynamic_scenarios_executed": 0,
+    "dynamic_scenarios_planned": 14
+  }
+}

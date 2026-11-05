@@ -1,0 +1,570 @@
+Compiled from "TeamCityDispatcherServlet.java"
+public class jetbrains.buildServer.maintenance.TeamCityDispatcherServlet extends javax.servlet.GenericServlet {
+  public static volatile org.springframework.web.context.WebApplicationContext SPRING_CONTEXT;
+    descriptor: Lorg/springframework/web/context/WebApplicationContext;
+
+  public static volatile jetbrains.buildServer.maintenance.WebDispatcherServlet webDispatcherServlet;
+    descriptor: Ljetbrains/buildServer/maintenance/WebDispatcherServlet;
+
+  private static final java.lang.String MAIN_SERVER_SPRING_CONFIG;
+    descriptor: Ljava/lang/String;
+
+  private final com.intellij.openapi.diagnostic.Logger myLogger;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final jetbrains.buildServer.maintenance.StartupContext myContext;
+    descriptor: Ljetbrains/buildServer/maintenance/StartupContext;
+
+  private javax.servlet.ServletConfig myServletConfig;
+    descriptor: Ljavax/servlet/ServletConfig;
+
+  private volatile javax.servlet.Servlet myMainServlet;
+    descriptor: Ljavax/servlet/Servlet;
+
+  private volatile boolean myServletIsReady;
+    descriptor: Z
+
+  static final boolean $assertionsDisabled;
+    descriptor: Z
+
+  public jetbrains.buildServer.maintenance.TeamCityDispatcherServlet();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #286                // Method javax/servlet/GenericServlet."<init>":()V
+         4: aload_0
+         5: getstatic     #33                 // Field jetbrains/buildServer/maintenance/StartupContextHolder.ourLogger:Lcom/intellij/openapi/diagnostic/Logger;
+         8: putfield      #150                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        11: aload_0
+        12: getstatic     #190                // Field jetbrains/buildServer/maintenance/StartupContextHolder.ourContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        15: putfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        18: return
+      LineNumberTable:
+        line 41: 0
+        line 55: 4
+        line 28: 11
+
+  public void init(javax.servlet.ServletConfig) throws javax.servlet.ServletException;
+    descriptor: (Ljavax/servlet/ServletConfig;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #161                // Field myServletConfig:Ljavax/servlet/ServletConfig;
+         5: aload_0
+         6: aload_1
+         7: invokespecial #78                 // Method javax/servlet/GenericServlet.init:(Ljavax/servlet/ServletConfig;)V
+        10: aload_1
+        11: invokeinterface #110,  1          // InterfaceMethod javax/servlet/ServletConfig.getServletContext:()Ljavax/servlet/ServletContext;
+        16: astore_2
+        17: getstatic     #251                // Field $assertionsDisabled:Z
+        20: ifne          48
+        23: aload_2
+        24: ifnonnull     48
+        27: goto          34
+        30: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        33: athrow
+        34: new           #115                // class java/lang/AssertionError
+        37: dup
+        38: ldc           #12                 // String Servlet context must exist
+        40: invokespecial #90                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+        43: athrow
+        44: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        47: athrow
+        48: aload_0
+        49: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        52: aload_2
+        53: invokeinterface #141,  1          // InterfaceMethod javax/servlet/ServletContext.getServerInfo:()Ljava/lang/String;
+        58: invokevirtual #128                // Method jetbrains/buildServer/maintenance/StartupContext.setServletContainerInfo:(Ljava/lang/String;)V
+        61: aload_0
+        62: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        65: aload_2
+        66: invokeinterface #295,  1          // InterfaceMethod javax/servlet/ServletContext.getContextPath:()Ljava/lang/String;
+        71: invokevirtual #131                // Method jetbrains/buildServer/maintenance/StartupContext.setServletContextPath:(Ljava/lang/String;)V
+        74: aload_2
+        75: ldc           #18                 // String /
+        77: invokeinterface #148,  2          // InterfaceMethod javax/servlet/ServletContext.getRealPath:(Ljava/lang/String;)Ljava/lang/String;
+        82: astore_3
+        83: aload_3
+        84: ifnull        102
+        87: aload_0
+        88: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        91: aload_3
+        92: invokevirtual #26                 // Method jetbrains/buildServer/maintenance/StartupContext.setServletRealPath:(Ljava/lang/String;)V
+        95: goto          111
+        98: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       101: athrow
+       102: aload_0
+       103: getfield      #150                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+       106: ldc           #10                 // String Failed to obtain the servlet real path!
+       108: invokevirtual #125                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       111: aload_0
+       112: aload_2
+       113: invokevirtual #287                // Method initCurrentNodeInfo:(Ljavax/servlet/ServletContext;)V
+       116: new           #169                // class jetbrains/buildServer/maintenance/StartupProcessor
+       119: dup
+       120: aload_0
+       121: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+       124: aload_2
+       125: new           #137                // class jetbrains/buildServer/maintenance/TeamCityDispatcherServlet$WebApplicationCreatorAndDestroyer
+       128: dup
+       129: aload_0
+       130: ldc           #9                  // String classpath*:/META-INF/shared-agent-server-spring.xml\n        classpath*:/META-INF/buildServerPluginsSupport.xml\n        classpath*:/META-INF/buildServerPermissions.xml\n        classpath*:/META-INF/buildServerSpring.xml\n        classpath*:/META-INF/buildServerSpring?*.xml\n        classpath*:/META-INF/buildServerCompatMode.xml\n        classpath*:/META-INF/server-issue-tracker-impl.xml\n        classpath*:/META-INF/build-server-declarative-extensibility.xml\n        /WEB-INF/buildServerPluginsSupportWeb.xml\n        /WEB-INF/buildServerSpringWeb.xml\n        /WEB-INF/buildServerSpringWebDiag.xml\n        /WEB-INF/build-server-plugin*.xml\n        classpath*:/META-INF/build-server-plugin*.xml\n        /WEB-INF/buildServerConfigurator.xml\n        /WEB-INF/buildServerSpringStatistics.xml\n        classpath*:/META-INF/*SpringContextLoader.xml
+       132: invokespecial #213                // Method jetbrains/buildServer/maintenance/TeamCityDispatcherServlet$WebApplicationCreatorAndDestroyer."<init>":(Ljetbrains/buildServer/maintenance/TeamCityDispatcherServlet;Ljava/lang/String;)V
+       135: invokespecial #142                // Method jetbrains/buildServer/maintenance/StartupProcessor."<init>":(Ljetbrains/buildServer/maintenance/StartupContext;Ljavax/servlet/ServletContext;Ljetbrains/buildServer/maintenance/ApplicationCreatorAndDestroyer;)V
+       138: pop
+       139: return
+      Exception table:
+         from    to  target type
+            17    27    30   Class javax/servlet/ServletException
+            23    44    44   Class javax/servlet/ServletException
+            83    98    98   Class javax/servlet/ServletException
+      LineNumberTable:
+        line 65: 0
+        line 35: 5
+        line 25: 10
+        line 57: 17
+        line 18: 48
+        line 56: 61
+        line 67: 74
+        line 9: 83
+        line 53: 87
+        line 34: 102
+        line 43: 111
+        line 60: 116
+        line 32: 139
+
+  private void initCurrentNodeInfo(javax.servlet.ServletContext);
+    descriptor: (Ljavax/servlet/ServletContext;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_0
+         5: invokestatic  #171                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        14: athrow
+        15: aload_1
+        16: ldc           #5                  // String teamcity.server.nodeId
+        18: invokeinterface #40,  2           // InterfaceMethod javax/servlet/ServletContext.getInitParameter:(Ljava/lang/String;)Ljava/lang/String;
+        23: ifnull        70
+        26: aload_1
+        27: ldc           #1                  // String teamcity.server.rootURL
+        29: invokeinterface #40,  2           // InterfaceMethod javax/servlet/ServletContext.getInitParameter:(Ljava/lang/String;)Ljava/lang/String;
+        34: ifnull        70
+        37: goto          44
+        40: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        43: athrow
+        44: aload_1
+        45: ldc           #5                  // String teamcity.server.nodeId
+        47: invokeinterface #40,  2           // InterfaceMethod javax/servlet/ServletContext.getInitParameter:(Ljava/lang/String;)Ljava/lang/String;
+        52: aload_1
+        53: ldc           #1                  // String teamcity.server.rootURL
+        55: invokeinterface #40,  2           // InterfaceMethod javax/servlet/ServletContext.getInitParameter:(Ljava/lang/String;)Ljava/lang/String;
+        60: invokestatic  #227                // Method jetbrains/buildServer/serverSide/CurrentNodeInfo.init:(Ljava/lang/String;Ljava/lang/String;)V
+        63: goto          73
+        66: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        69: athrow
+        70: invokestatic  #210                // Method jetbrains/buildServer/serverSide/CurrentNodeInfo.init:()V
+        73: return
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    37    40   Class java/lang/IllegalArgumentException
+            26    66    66   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 29: 15
+        line 61: 29
+        line 48: 44
+        line 31: 55
+        line 15: 60
+        line 8: 70
+        line 37: 73
+
+  public void service(javax.servlet.ServletRequest, javax.servlet.ServletResponse) throws javax.servlet.ServletException, java.io.IOException;
+    descriptor: (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
+    Code:
+         0: aload_1
+         1: checkcast     #311                // class javax/servlet/http/HttpServletRequest
+         4: astore_3
+         5: aload_2
+         6: checkcast     #308                // class javax/servlet/http/HttpServletResponse
+         9: astore        4
+        11: aload_0
+        12: aload_3
+        13: aload         4
+        15: invokevirtual #57                 // Method handleHealthCheckEndpoints:(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)Z
+        18: ifeq          26
+        21: return
+        22: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        25: athrow
+        26: aload_0
+        27: getfield      #83                 // Field myServletIsReady:Z
+        30: ifeq          54
+        33: aload_0
+        34: aload_1
+        35: aload_2
+        36: invokevirtual #221                // Method processedByMainServlet:(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)Z
+        39: ifeq          54
+        42: goto          49
+        45: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        48: athrow
+        49: return
+        50: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        53: athrow
+        54: aload_0
+        55: aload_1
+        56: aload_2
+        57: invokevirtual #298                // Method processMaintenancePagesService:(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
+        60: return
+      Exception table:
+         from    to  target type
+            11    22    22   Class javax/servlet/ServletException
+            26    42    45   Class javax/servlet/ServletException
+            33    50    50   Class javax/servlet/ServletException
+      LineNumberTable:
+        line 66: 0
+        line 62: 5
+        line 5: 11
+        line 21: 21
+        line 10: 26
+        line 23: 33
+        line 39: 54
+        line 30: 60
+
+  private boolean handleHealthCheckEndpoints(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.io.IOException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)Z
+    Code:
+         0: aload_1
+         1: invokeinterface #121,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getServletPath:()Ljava/lang/String;
+         6: aload_1
+         7: invokeinterface #202,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getPathInfo:()Ljava/lang/String;
+        12: invokedynamic #50,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        17: astore_3
+        18: aload_3
+        19: ldc           #4                  // String /healthCheck/healthy
+        21: invokevirtual #95                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        24: ifeq          42
+        27: aload_2
+        28: sipush        200
+        31: invokeinterface #48,  2           // InterfaceMethod javax/servlet/http/HttpServletResponse.setStatus:(I)V
+        36: iconst_1
+        37: ireturn
+        38: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        41: athrow
+        42: aload_3
+        43: ldc           #22                 // String /healthCheck/ready
+        45: invokevirtual #95                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        48: ifeq          86
+        51: aload_2
+        52: aload_0
+        53: getfield      #83                 // Field myServletIsReady:Z
+        56: ifeq          76
+        59: goto          66
+        62: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        65: athrow
+        66: sipush        200
+        69: goto          79
+        72: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        75: athrow
+        76: sipush        503
+        79: invokeinterface #48,  2           // InterfaceMethod javax/servlet/http/HttpServletResponse.setStatus:(I)V
+        84: iconst_1
+        85: ireturn
+        86: iconst_0
+        87: ireturn
+      Exception table:
+         from    to  target type
+            18    38    38   Class java/io/IOException
+            42    59    62   Class java/io/IOException
+            51    72    72   Class java/io/IOException
+      LineNumberTable:
+        line 33: 0
+        line 36: 18
+        line 19: 27
+        line 3: 36
+        line 49: 42
+        line 47: 51
+        line 20: 84
+        line 11: 86
+
+  private boolean processedByMainServlet(javax.servlet.ServletRequest, javax.servlet.ServletResponse) throws javax.servlet.ServletException, java.io.IOException;
+    descriptor: (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)Z
+    Code:
+         0: aload_0
+         1: getfield      #58                 // Field myMainServlet:Ljavax/servlet/Servlet;
+         4: astore_3
+         5: aload_3
+         6: ifnull        23
+         9: aload_3
+        10: aload_1
+        11: aload_2
+        12: invokeinterface #56,  3           // InterfaceMethod javax/servlet/Servlet.service:(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
+        17: iconst_1
+        18: ireturn
+        19: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        22: athrow
+        23: iconst_0
+        24: ireturn
+      Exception table:
+         from    to  target type
+             5    19    19   Class javax/servlet/ServletException
+      LineNumberTable:
+        line 12: 0
+        line 26: 5
+        line 52: 9
+        line 68: 17
+        line 2: 23
+
+  private void processMaintenancePagesService(javax.servlet.ServletRequest, javax.servlet.ServletResponse);
+    descriptor: (Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
+    Code:
+         0: aload_2
+         1: checkcast     #308                // class javax/servlet/http/HttpServletResponse
+         4: astore_3
+         5: aload_3
+         6: invokestatic  #55                 // Method jetbrains/buildServer/web/util/WebUtil.preventCaching:(Ljavax/servlet/http/HttpServletResponse;)V
+         9: aload_0
+        10: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        13: invokevirtual #236                // Method jetbrains/buildServer/maintenance/StartupContext.isShutdownRequested:()Z
+        16: ifeq          29
+        19: sipush        410
+        22: goto          32
+        25: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        28: athrow
+        29: sipush        503
+        32: istore        4
+        34: aload_3
+        35: iload         4
+        37: invokeinterface #292,  2          // InterfaceMethod javax/servlet/http/HttpServletResponse.sendError:(I)V
+        42: goto          68
+        45: astore        5
+        47: aload_0
+        48: getfield      #150                // Field myLogger:Lcom/intellij/openapi/diagnostic/Logger;
+        51: iload         4
+        53: aload         5
+        55: invokevirtual #151                // Method java/io/IOException.getMessage:()Ljava/lang/String;
+        58: invokedynamic #217,  0            // InvokeDynamic #1:makeConcatWithConstants:(ILjava/lang/String;)Ljava/lang/String;
+        63: aload         5
+        65: invokevirtual #99                 // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        68: return
+      Exception table:
+         from    to  target type
+             5    25    25   Class java/io/IOException
+            34    42    45   Class java/io/IOException
+      LineNumberTable:
+        line 45: 0
+        line 6: 5
+        line 7: 9
+        line 59: 29
+        line 46: 34
+        line 17: 42
+        line 42: 45
+        line 1: 47
+        line 38: 68
+
+  public void destroy();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+         4: invokevirtual #193                // Method jetbrains/buildServer/maintenance/StartupContext.requestShutdown:()V
+         7: aload_0
+         8: getfield      #275                // Field myContext:Ljetbrains/buildServer/maintenance/StartupContext;
+        11: invokevirtual #223                // Method jetbrains/buildServer/maintenance/StartupContext.waitWhileProcessingInfinitely:()V
+        14: aload_0
+        15: invokespecial #200                // Method javax/servlet/GenericServlet.destroy:()V
+        18: return
+      LineNumberTable:
+        line 63: 0
+        line 13: 7
+        line 58: 14
+        line 27: 18
+
+  public boolean isServletReady();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #83                 // Field myServletIsReady:Z
+         4: ireturn
+      LineNumberTable:
+        line 51: 0
+
+  private static void disableJasperAnnotations(javax.servlet.ServletConfig);
+    descriptor: (Ljavax/servlet/ServletConfig;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     15
+         4: iconst_1
+         5: invokestatic  #171                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        14: athrow
+        15: aload_0
+        16: invokeinterface #110,  1          // InterfaceMethod javax/servlet/ServletConfig.getServletContext:()Ljavax/servlet/ServletContext;
+        21: ldc           #7                  // String org.apache.AnnotationProcessor
+        23: aconst_null
+        24: invokeinterface #181,  3          // InterfaceMethod javax/servlet/ServletContext.setAttribute:(Ljava/lang/String;Ljava/lang/Object;)V
+        29: ldc           #15                 // String org.apache.jasper.runtime.JspFactoryImpl.USE_POOL
+        31: ldc           #21                 // String false
+        33: invokestatic  #32                 // Method setPropertyIfNotDefined:(Ljava/lang/String;Ljava/lang/String;)V
+        36: ldc           #20                 // String org.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER
+        38: ldc           #14                 // String true
+        40: invokestatic  #32                 // Method setPropertyIfNotDefined:(Ljava/lang/String;Ljava/lang/String;)V
+        43: return
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 24: 15
+        line 14: 29
+        line 50: 36
+        line 44: 43
+
+  private static void setPropertyIfNotDefined(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     15
+         4: iconst_2
+         5: invokestatic  #171                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        14: athrow
+        15: aload_1
+        16: ifnonnull     30
+        19: iconst_3
+        20: invokestatic  #171                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        29: athrow
+        30: aload_0
+        31: invokestatic  #281                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+        34: astore_2
+        35: aload_2
+        36: ifnonnull     52
+        39: aload_0
+        40: aload_1
+        41: invokestatic  #256                // Method java/lang/System.setProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        44: pop
+        45: goto          52
+        48: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        51: athrow
+        52: return
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    23    26   Class java/lang/IllegalArgumentException
+            35    45    48   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 22: 30
+        line 4: 35
+        line 40: 39
+        line 54: 52
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #19                 // class jetbrains/buildServer/maintenance/TeamCityDispatcherServlet
+         2: invokevirtual #246                // Method java/lang/Class.desiredAssertionStatus:()Z
+         5: ifne          16
+         8: iconst_1
+         9: goto          17
+        12: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: iconst_0
+        17: putstatic     #251                // Field $assertionsDisabled:Z
+        20: aconst_null
+        21: putstatic     #38                 // Field SPRING_CONTEXT:Lorg/springframework/web/context/WebApplicationContext;
+        24: aconst_null
+        25: putstatic     #122                // Field webDispatcherServlet:Ljetbrains/buildServer/maintenance/WebDispatcherServlet;
+        28: return
+      Exception table:
+         from    to  target type
+             0    12    12   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 16: 0
+        line 64: 20
+        line 69: 24
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #23                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #51                 // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 3
+                       0: 36
+                       1: 48
+                       2: 56
+                       3: 64
+                 default: 36
+            }
+        36: dup
+        37: iconst_0
+        38: ldc           #2                  // String servletContext
+        40: aastore
+        41: goto          72
+        44: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        47: athrow
+        48: dup
+        49: iconst_0
+        50: ldc           #17                 // String servletConfig
+        52: aastore
+        53: goto          72
+        56: dup
+        57: iconst_0
+        58: ldc           #6                  // String propName
+        60: aastore
+        61: goto          72
+        64: dup
+        65: iconst_0
+        66: ldc           #13                 // String value
+        68: aastore
+        69: goto          72
+        72: dup
+        73: iconst_1
+        74: ldc           #8                  // String jetbrains/buildServer/maintenance/TeamCityDispatcherServlet
+        76: aastore
+        77: iload_0
+        78: tableswitch   { // 0 to 3
+                       0: 108
+                       1: 120
+                       2: 128
+                       3: 128
+                 default: 108
+            }
+       108: dup
+       109: iconst_2
+       110: ldc           #16                 // String initCurrentNodeInfo
+       112: aastore
+       113: goto          136
+       116: invokestatic  #54                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       119: athrow
+       120: dup
+       121: iconst_2
+       122: ldc           #3                  // String disableJasperAnnotations
+       124: aastore
+       125: goto          136
+       128: dup
+       129: iconst_2
+       130: ldc           #11                 // String setPropertyIfNotDefined
+       132: aastore
+       133: goto          136
+       136: invokestatic  #206                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       139: new           #66                 // class java/lang/IllegalArgumentException
+       142: dup_x1
+       143: swap
+       144: invokespecial #276                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       147: athrow
+      Exception table:
+         from    to  target type
+             0    44    44   Class java/lang/IllegalArgumentException
+            72   116   116   Class java/lang/IllegalArgumentException
+
+  private static java.lang.Exception a(java.lang.Exception);
+    descriptor: (Ljava/lang/Exception;)Ljava/lang/Exception;
+    Code:
+         0: aload_0
+         1: areturn
+}

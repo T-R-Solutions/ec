@@ -1,0 +1,64 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 tools/governance/validate.py",
+      "chunk_id": "68c872",
+      "wall_time_seconds": 0.169851349,
+      "exit_code": 0,
+      "original_token_count": 87,
+      "output": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 596,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 tools/governance/validate.py --require-installed",
+      "chunk_id": "0d3d47",
+      "wall_time_seconds": 0.17042586,
+      "exit_code": 0,
+      "original_token_count": 87,
+      "output": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 596,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 tools/governance/install_skills.py --check",
+      "chunk_id": "e9bc50",
+      "wall_time_seconds": 0.185685492,
+      "exit_code": 0,
+      "original_token_count": 13,
+      "output": "{\n  \"status\": \"ALREADY_INSTALLED\",\n  \"count\": 67\n}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 sdd/tools/validate.py --root . --structure-only",
+      "chunk_id": "f2e43c",
+      "wall_time_seconds": 0.0000078,
+      "exit_code": 0,
+      "original_token_count": 38,
+      "output": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 -m unittest discover -s tools/governance/tests -v",
+      "chunk_id": "473b71",
+      "wall_time_seconds": 1.001711199,
+      "session_id": 40174,
+      "original_token_count": 166,
+      "output": "test_acceptance_parser_does_not_promote_mentions (test_governance.GovernanceTests.test_acceptance_parser_does_not_promote_mentions) ... ok\ntest_changed_original_resource_is_rejected (test_governance.GovernanceTests.test_changed_original_resource_is_rejected) ... ok\ntest_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile) ... FAIL\ntest_curated_sources_work_without_retired_packages (test_governance.GovernanceTests.test_curated_sources_work_without_retired_packages) ... FAIL\ntest_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected) ... ",
+      "completed_result": {
+        "exit_code": 1,
+        "tests": 24,
+        "failures": 6,
+        "errors": 3,
+        "cause": "Fixture não copiava o novo reverse_engineering_teamcity/README.md; auditor e verificador SDD rejeitaram o destino ausente."
+      }
+    }
+  }
+]

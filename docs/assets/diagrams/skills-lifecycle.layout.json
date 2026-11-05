@@ -1,0 +1,48 @@
+{
+  "title": "Skills · origem, instalação e integridade",
+  "question": "O que cada cópia do pacote representa?",
+  "status": "Instalação observada · eficácia não demonstrada",
+  "sources": [
+    "docs/development/skill-installation.md",
+    "config/governance/profile.json"
+  ],
+  "columns": 3,
+  "nodes": {
+    "SOURCE": {
+      "icon": "archive",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "BASE": {
+      "icon": "folder-tree",
+      "tone": "blue",
+      "column": 1,
+      "row": 0
+    },
+    "PROFILE": {
+      "icon": "list-checks",
+      "tone": "teal",
+      "column": 2,
+      "row": 0
+    },
+    "CHECK": {
+      "icon": "scan-search",
+      "tone": "amber",
+      "column": 0,
+      "row": 1
+    },
+    "LIVE": {
+      "icon": "boxes",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "AUDIT": {
+      "icon": "shield-check",
+      "tone": "teal",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

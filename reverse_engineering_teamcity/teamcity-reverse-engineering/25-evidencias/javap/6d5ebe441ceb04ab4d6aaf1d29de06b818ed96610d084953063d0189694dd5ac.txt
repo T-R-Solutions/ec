@@ -1,0 +1,14 @@
+Compiled from "BuildDistributorInput.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput extends jetbrains.buildServer.serverSide.buildDistribution.BuildsInfo {
+  public abstract java.util.Collection<jetbrains.buildServer.serverSide.SBuildAgent> getAgents();
+    descriptor: ()Ljava/util/Collection;
+
+  public abstract java.util.Set<jetbrains.buildServer.serverSide.SBuildAgent> getBusyAgents();
+    descriptor: ()Ljava/util/Set;
+
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.RunningBuildInfo findRunningBuildById(long);
+    descriptor: (J)Ljetbrains/buildServer/serverSide/buildDistribution/RunningBuildInfo;
+
+  public abstract java.util.List<jetbrains.buildServer.serverSide.buildDistribution.RunningBuildInfo> getBuildTypeRunningBuilds(jetbrains.buildServer.serverSide.SBuildType);
+    descriptor: (Ljetbrains/buildServer/serverSide/SBuildType;)Ljava/util/List;
+}

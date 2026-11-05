@@ -1,0 +1,8 @@
+[workspace]
+members = ["crates/ec-server-configuration", "crates/ec-server-projects", "crates/ec-server-app"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false

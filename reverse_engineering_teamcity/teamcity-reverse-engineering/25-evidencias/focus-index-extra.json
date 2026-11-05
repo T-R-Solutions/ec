@@ -1,0 +1,249 @@
+[
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db.jar",
+    "artifact_sha256": "38df53c795cf41e60e1c2912177b7c8f87690331100faa7098b2bc62e0e50aa2",
+    "class": "jetbrains/buildServer/serverSide/db/SQLRunnerEx",
+    "class_sha256": "6ac48e456806b2b63dc81a1849c2d9f0d1609b1ce1ba975bc4cb107326197299",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/6ac48e456806b2b63dc81a1849c2d9f0d1609b1ce1ba975bc4cb107326197299.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/6ac48e456806b2b63dc81a1849c2d9f0d1609b1ce1ba975bc4cb107326197299.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/6ac48e456806b2b63dc81a1849c2d9f0d1609b1ce1ba975bc4cb107326197299/jetbrains/buildServer/serverSide/db/SQLRunnerEx.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/pipelines-server.jar",
+    "artifact_sha256": "008c3cbddf88a990ac694220c40d741f7acacbf3665d7270dafe98a920449739",
+    "class": "jetbrains/buildServer/pipeline/impl/manager/PipelineVersionedSettingsManager",
+    "class_sha256": "a033d48c55bd091e352080784cb268de8fb405ca1d3554a95b50ed487dc96992",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/a033d48c55bd091e352080784cb268de8fb405ca1d3554a95b50ed487dc96992.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/a033d48c55bd091e352080784cb268de8fb405ca1d3554a95b50ed487dc96992.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/a033d48c55bd091e352080784cb268de8fb405ca1d3554a95b50ed487dc96992/jetbrains/buildServer/pipeline/impl/manager/PipelineVersionedSettingsManager.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/buildTriggers/vcs/AllBranchesVcsTrigger",
+    "class_sha256": "20744b3e60dfc990a1ad0e75ef13bad5c72f36d7e872614ebee441429d45c7c5",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/20744b3e60dfc990a1ad0e75ef13bad5c72f36d7e872614ebee441429d45c7c5.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/20744b3e60dfc990a1ad0e75ef13bad5c72f36d7e872614ebee441429d45c7c5.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/20744b3e60dfc990a1ad0e75ef13bad5c72f36d7e872614ebee441429d45c7c5/jetbrains/buildServer/buildTriggers/vcs/AllBranchesVcsTrigger.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/buildTriggers/vcs/SingleBranchVcsTrigger",
+    "class_sha256": "898bed951f4f4f8a982600257c3b200e6a5ee0011445b8f0ba8388d9b3c3526a",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/898bed951f4f4f8a982600257c3b200e6a5ee0011445b8f0ba8388d9b3c3526a.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/898bed951f4f4f8a982600257c3b200e6a5ee0011445b8f0ba8388d9b3c3526a.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/898bed951f4f4f8a982600257c3b200e6a5ee0011445b8f0ba8388d9b3c3526a/jetbrains/buildServer/buildTriggers/vcs/SingleBranchVcsTrigger.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/RunningBuildImpl",
+    "class_sha256": "4563124a003af9dff86b9f8cbf527850e493226b0a5df1642c8565ce4fb30ff3",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/4563124a003af9dff86b9f8cbf527850e493226b0a5df1642c8565ce4fb30ff3.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/4563124a003af9dff86b9f8cbf527850e493226b0a5df1642c8565ce4fb30ff3.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/4563124a003af9dff86b9f8cbf527850e493226b0a5df1642c8565ce4fb30ff3/jetbrains/buildServer/serverSide/impl/RunningBuildImpl.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueDistributionProcessor",
+    "class_sha256": "195671926e39bce2c4d576de48804aed41f80f99389225b7beda6211fa48a603",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/195671926e39bce2c4d576de48804aed41f80f99389225b7beda6211fa48a603.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/195671926e39bce2c4d576de48804aed41f80f99389225b7beda6211fa48a603.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/195671926e39bce2c4d576de48804aed41f80f99389225b7beda6211fa48a603/jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueDistributionProcessor.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultPreconditions",
+    "class_sha256": "d60e7ee6ec36ad617de162b4575a7db50f0a4cb9b1eb3d9253ce095ea94cb8f5",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/d60e7ee6ec36ad617de162b4575a7db50f0a4cb9b1eb3d9253ce095ea94cb8f5.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/d60e7ee6ec36ad617de162b4575a7db50f0a4cb9b1eb3d9253ce095ea94cb8f5.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/d60e7ee6ec36ad617de162b4575a7db50f0a4cb9b1eb3d9253ce095ea94cb8f5/jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultPreconditions.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/buildDistribution/agentsComparators/BuildAgentsComparatorProvider",
+    "class_sha256": "c91143a095118af965ea2f8bce16263d72a2c008ca7e8b97742ef61e972e63ae",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/c91143a095118af965ea2f8bce16263d72a2c008ca7e8b97742ef61e972e63ae.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/c91143a095118af965ea2f8bce16263d72a2c008ca7e8b97742ef61e972e63ae.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/c91143a095118af965ea2f8bce16263d72a2c008ca7e8b97742ef61e972e63ae/jetbrains/buildServer/serverSide/impl/buildDistribution/agentsComparators/BuildAgentsComparatorProvider.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/versionedSettings/DslConverterManager",
+    "class_sha256": "bbd7251a73f89d5feeb566913b21adecf1bd7b6710a6b98b4e47de42e25da092",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/bbd7251a73f89d5feeb566913b21adecf1bd7b6710a6b98b4e47de42e25da092.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/bbd7251a73f89d5feeb566913b21adecf1bd7b6710a6b98b4e47de42e25da092.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/bbd7251a73f89d5feeb566913b21adecf1bd7b6710a6b98b4e47de42e25da092/jetbrains/buildServer/serverSide/impl/versionedSettings/DslConverterManager.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsManagerImpl",
+    "class_sha256": "676a20dec01ba36a619d88a5a7b5197b17f9196c9e17893ee5c140cf7d8aec9e",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/676a20dec01ba36a619d88a5a7b5197b17f9196c9e17893ee5c140cf7d8aec9e.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/676a20dec01ba36a619d88a5a7b5197b17f9196c9e17893ee5c140cf7d8aec9e.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/676a20dec01ba36a619d88a5a7b5197b17f9196c9e17893ee5c140cf7d8aec9e/jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsManagerImpl.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdaterImpl",
+    "class_sha256": "2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5/jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdaterImpl.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-startup.jar",
+    "artifact_sha256": "76f4540b10b7e30ebf0abdad3d9265d38aee860055a6d1e6f568dc9db73664c2",
+    "class": "jetbrains/buildServer/maintenance/StartupContext",
+    "class_sha256": "a4d63e039b7540e3ebd12d4320f426148add7c0cb1c1a56f6409b5f06eacfac1",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/a4d63e039b7540e3ebd12d4320f426148add7c0cb1c1a56f6409b5f06eacfac1.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/a4d63e039b7540e3ebd12d4320f426148add7c0cb1c1a56f6409b5f06eacfac1.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/a4d63e039b7540e3ebd12d4320f426148add7c0cb1c1a56f6409b5f06eacfac1/jetbrains/buildServer/maintenance/StartupContext.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-startup.jar",
+    "artifact_sha256": "76f4540b10b7e30ebf0abdad3d9265d38aee860055a6d1e6f568dc9db73664c2",
+    "class": "jetbrains/buildServer/maintenance/StartupStage",
+    "class_sha256": "034328e8c45722791a2ed07ab74e18d04093f250e982101ff4ed61b7a9ba6a5f",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/034328e8c45722791a2ed07ab74e18d04093f250e982101ff4ed61b7a9ba6a5f.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/034328e8c45722791a2ed07ab74e18d04093f250e982101ff4ed61b7a9ba6a5f.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/034328e8c45722791a2ed07ab74e18d04093f250e982101ff4ed61b7a9ba6a5f/jetbrains/buildServer/maintenance/StartupStage.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/web-core.jar",
+    "artifact_sha256": "69dde5ff9b9bfbedbf9fb22ad0d6fe2688b1c7dadd123f6db5204458a5bb7220",
+    "class": "jetbrains/buildServer/web/impl/BuildServerConfigurator",
+    "class_sha256": "8f317c536b7d78a25a6123a74bf404e4726f9c818cdcddc3cc6ac3e26a067fc9",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/8f317c536b7d78a25a6123a74bf404e4726f9c818cdcddc3cc6ac3e26a067fc9.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/8f317c536b7d78a25a6123a74bf404e4726f9c818cdcddc3cc6ac3e26a067fc9.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/8f317c536b7d78a25a6123a74bf404e4726f9c818cdcddc3cc6ac3e26a067fc9/jetbrains/buildServer/web/impl/BuildServerConfigurator.java"
+    ]
+  },
+  {
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/buildStages/StagesExecutor",
+    "class_sha256": "0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c/jetbrains/buildServer/agent/impl/buildStages/StagesExecutor.java"
+    ]
+  },
+  {
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/BuildRunAction",
+    "class_sha256": "53a2d269f4038674d3d3a731b771c64ab1adecb35720cedb13bf3dd2b8f0238c",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/53a2d269f4038674d3d3a731b771c64ab1adecb35720cedb13bf3dd2b8f0238c.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/53a2d269f4038674d3d3a731b771c64ab1adecb35720cedb13bf3dd2b8f0238c.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/53a2d269f4038674d3d3a731b771c64ab1adecb35720cedb13bf3dd2b8f0238c/jetbrains/buildServer/agent/impl/BuildRunAction.java"
+    ]
+  },
+  {
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/BuildRunActionImpl",
+    "class_sha256": "2ec6ab601c73fae2220ad557d6b957fe26eaf139abe2443beefbe170b936e5d5",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/2ec6ab601c73fae2220ad557d6b957fe26eaf139abe2443beefbe170b936e5d5.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/2ec6ab601c73fae2220ad557d6b957fe26eaf139abe2443beefbe170b936e5d5.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/2ec6ab601c73fae2220ad557d6b957fe26eaf139abe2443beefbe170b936e5d5/jetbrains/buildServer/agent/impl/BuildRunActionImpl.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/plugins/rest-api/server/rest-api-2026.2-239120.jar",
+    "artifact_sha256": "d021024c808d8691aabec689d006e04df608467318fbde6166b43b074c36aaa9",
+    "class": "jetbrains/buildServer/server/rest/request/BuildRequest",
+    "class_sha256": "946cb429c88050cdabd64b6e3c838b463913e4afcb47bfdb55c71f494c266940",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/946cb429c88050cdabd64b6e3c838b463913e4afcb47bfdb55c71f494c266940.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/946cb429c88050cdabd64b6e3c838b463913e4afcb47bfdb55c71f494c266940.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/946cb429c88050cdabd64b6e3c838b463913e4afcb47bfdb55c71f494c266940/jetbrains/buildServer/server/rest/request/BuildRequest.java"
+    ]
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/plugins/rest-api/server/rest-api-2026.2-239120.jar",
+    "artifact_sha256": "d021024c808d8691aabec689d006e04df608467318fbde6166b43b074c36aaa9",
+    "class": "jetbrains/buildServer/server/rest/request/BuildQueueRequest",
+    "class_sha256": "f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0",
+    "extracted": "rea/teamcity-reverse-engineering/25-evidencias/classes/f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0.class",
+    "javap_exit": 0,
+    "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0.txt",
+    "cfr_exit": 0,
+    "decompiled": [
+      "rea/teamcity-reverse-engineering/25-evidencias/decompiled/f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0/jetbrains/buildServer/server/rest/request/BuildQueueRequest.java"
+    ]
+  }
+]

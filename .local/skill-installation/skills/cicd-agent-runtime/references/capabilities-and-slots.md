@@ -1,0 +1,2 @@
+# Capabilities and slots
+Report OS, architecture, executors, runtime features and allocatable capacity with provenance. A self-reported capability is not a security attestation. A process can advertise a sandbox only if enforcement is tested. Reservations and running attempts jointly consume capacity; release is idempotent and keyed to attempt identity. Capacity reduction below current usage blocks new work and requires an explicit drain/reconciliation policy, not negative slots. Test race of duplicate assignment and simultaneous releases.

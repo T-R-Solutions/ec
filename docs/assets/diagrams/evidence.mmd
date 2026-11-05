@@ -1,0 +1,15 @@
+flowchart TB
+    accTitle: Evidência vinculada ao conteúdo observado
+    accDescr: Por que uma alteração pode invalidar um aceite? AC → RUN: define a pergunta. INPUT → RUN: delimita o observado. RUN → ART: produz. ART → GATE: sustenta. INPUT → GATE: hashes atuais. STALE → GATE: invalida a observação anterior
+    AC["Critério<br/>Resultado observável da spec"]
+    INPUT["Inputs<br/>Implementação · oracle · contratos"]
+    RUN["Observação<br/>Método · ambiente · resultado"]
+    ART["Artefato<br/>Registro preservado com hash"]
+    GATE["Gate<br/>Critério e vínculos atuais"]
+    STALE["Input alterado<br/>Reexaminar e observar novamente"]
+    AC -->|"define a pergunta"| RUN
+    INPUT -->|"delimita o observado"| RUN
+    RUN -->|"produz"| ART
+    ART -->|"sustenta"| GATE
+    INPUT -->|"hashes atuais"| GATE
+    STALE -->|"invalida a observação anterior"| GATE

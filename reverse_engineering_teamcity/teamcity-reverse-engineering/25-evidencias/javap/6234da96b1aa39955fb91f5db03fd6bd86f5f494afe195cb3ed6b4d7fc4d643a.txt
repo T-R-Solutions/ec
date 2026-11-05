@@ -1,0 +1,110 @@
+Compiled from "DistributionDecision.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision {
+  private final boolean myBuildStarted;
+    descriptor: Z
+
+  private final boolean myBuildDistributed;
+    descriptor: Z
+
+  private final jetbrains.buildServer.serverSide.buildDistribution.WaitReason myWaitReason;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision BUILD_STARTED_DECISION;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+
+  public static final jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision BUILD_DISTRIBUTED_NOT_STARTED_DECISION;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+
+  public static final jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision BUILD_SKIPPED_DECISION;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision(boolean, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (ZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: aload_0
+         1: iload_1
+         2: iload_1
+         3: aload_2
+         4: invokespecial #45                 // Method "<init>":(ZZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+         7: return
+      LineNumberTable:
+        line 7: 0
+        line 6: 7
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision(boolean, boolean, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (ZZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: aload_0
+         1: invokespecial #2                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iload_1
+         6: putfield      #24                 // Field myBuildStarted:Z
+         9: aload_0
+        10: iload_2
+        11: putfield      #16                 // Field myBuildDistributed:Z
+        14: aload_0
+        15: aload_3
+        16: putfield      #38                 // Field myWaitReason:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        19: return
+      LineNumberTable:
+        line 9: 0
+        line 5: 4
+        line 13: 9
+        line 12: 14
+        line 2: 19
+
+  public boolean isBuildStarted();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #24                 // Field myBuildStarted:Z
+         4: ireturn
+      LineNumberTable:
+        line 4: 0
+
+  public boolean isBuildDistributed();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #16                 // Field myBuildDistributed:Z
+         4: ireturn
+      LineNumberTable:
+        line 8: 0
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason getWaitReason();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_0
+         1: getfield      #38                 // Field myWaitReason:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+         4: areturn
+      LineNumberTable:
+        line 3: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: new           #43                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision
+         3: dup
+         4: iconst_1
+         5: aconst_null
+         6: invokespecial #41                 // Method "<init>":(ZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+         9: putstatic     #11                 // Field BUILD_STARTED_DECISION:Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+        12: new           #43                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision
+        15: dup
+        16: iconst_0
+        17: iconst_1
+        18: aconst_null
+        19: invokespecial #45                 // Method "<init>":(ZZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+        22: putstatic     #37                 // Field BUILD_DISTRIBUTED_NOT_STARTED_DECISION:Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+        25: new           #43                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision
+        28: dup
+        29: iconst_0
+        30: aconst_null
+        31: invokespecial #41                 // Method "<init>":(ZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+        34: putstatic     #8                  // Field BUILD_SKIPPED_DECISION:Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+        37: return
+      LineNumberTable:
+        line 10: 0
+        line 1: 12
+        line 11: 25
+}

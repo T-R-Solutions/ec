@@ -1,0 +1,15 @@
+flowchart TB
+    accTitle: Skills · origem, instalação e integridade
+    accDescr: O que cada cópia do pacote representa? SOURCE → BASE: origem da adaptação. BASE → CHECK: comparar conteúdo. PROFILE → CHECK: conferir catálogo. CHECK → LIVE: --apply quando autorizado. LIVE → AUDIT: verificar. PROFILE → AUDIT: conferir hashes
+    SOURCE["Fontes originais<br/>skills-inputs.zip · bytes preservados"]
+    BASE["Baseline<br/>.local/skill-installation/skills/"]
+    PROFILE["Perfil<br/>Catálogo e hashes observados"]
+    CHECK["Preflight<br/>--check · leitura sem instalação"]
+    LIVE["Instalação<br/>.codex/skills/ · 67 pacotes"]
+    AUDIT["Auditoria<br/>--require-installed · integridade"]
+    SOURCE -->|"origem da adaptação"| BASE
+    BASE -->|"comparar conteúdo"| CHECK
+    PROFILE -->|"conferir catálogo"| CHECK
+    CHECK -->|"--apply quando autorizado"| LIVE
+    LIVE -->|"verificar"| AUDIT
+    PROFILE -->|"conferir hashes"| AUDIT

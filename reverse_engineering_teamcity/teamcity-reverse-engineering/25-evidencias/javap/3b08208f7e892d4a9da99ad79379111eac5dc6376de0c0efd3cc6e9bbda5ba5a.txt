@@ -1,0 +1,2170 @@
+Compiled from "PluginManagerImpl.java"
+public class jetbrains.buildServer.plugins.PluginManagerImpl implements jetbrains.buildServer.plugins.PluginManager {
+  private static final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.plugins.PluginInfoLoadedListener> myPluginInfoLoadedListeners;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcher;
+
+  private final jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.plugins.PluginClassesLoadedListener> myPluginClassesLoadedListeners;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcher;
+
+  private jetbrains.buildServer.plugins.files.PluginFileSystemLookup myLookup;
+    descriptor: Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+
+  private final jetbrains.buildServer.plugins.classLoaders.StandaloneClassloaderFactory myStandaloneClassloaderFactory;
+    descriptor: Ljetbrains/buildServer/plugins/classLoaders/StandaloneClassloaderFactory;
+
+  private final jetbrains.buildServer.plugins.classLoaders.SharedClassloaderFactory mySharedClassloaderFactory;
+    descriptor: Ljetbrains/buildServer/plugins/classLoaders/SharedClassloaderFactory;
+
+  private final jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.plugins.PluginManagerListener> myPluginLifecycleListeners;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcher;
+
+  private final jetbrains.buildServer.plugins.impl.PluginsStateProviderImpl myPluginsStateProvider;
+    descriptor: Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+
+  private final jetbrains.buildServer.plugins.ReloadablePlugins myReloadablePlugins;
+    descriptor: Ljetbrains/buildServer/plugins/ReloadablePlugins;
+
+  private final jetbrains.buildServer.plugins.PluginsLookupCollector myCollector;
+    descriptor: Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+
+  public jetbrains.buildServer.plugins.PluginManagerImpl(jetbrains.buildServer.plugins.classLoaders.StandaloneClassloaderFactory, jetbrains.buildServer.plugins.classLoaders.SharedClassloaderFactory, jetbrains.buildServer.plugins.PluginVersionComparator, jetbrains.buildServer.plugins.files.PluginFileSystemLookup, jetbrains.buildServer.plugins.PluginDisabledInfoProvider, jetbrains.buildServer.plugins.impl.PluginsStateProviderImpl, jetbrains.buildServer.plugins.ReloadablePlugins);
+    descriptor: (Ljetbrains/buildServer/plugins/classLoaders/StandaloneClassloaderFactory;Ljetbrains/buildServer/plugins/classLoaders/SharedClassloaderFactory;Ljetbrains/buildServer/plugins/PluginVersionComparator;Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;Ljetbrains/buildServer/plugins/PluginDisabledInfoProvider;Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;Ljetbrains/buildServer/plugins/ReloadablePlugins;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        33: aload         5
+        35: ifnonnull     42
+        38: iconst_4
+        39: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        42: aload         6
+        44: ifnonnull     51
+        47: iconst_5
+        48: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        51: aload         7
+        53: ifnonnull     61
+        56: bipush        6
+        58: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        61: aload_0
+        62: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        65: aload_0
+        66: ldc           #7                  // class jetbrains/buildServer/plugins/PluginInfoLoadedListener
+        68: invokestatic  #9                  // Method jetbrains/buildServer/util/EventDispatcher.create:(Ljava/lang/Class;)Ljetbrains/buildServer/util/EventDispatcher;
+        71: putfield      #15                 // Field myPluginInfoLoadedListeners:Ljetbrains/buildServer/util/EventDispatcher;
+        74: aload_0
+        75: ldc           #21                 // class jetbrains/buildServer/plugins/PluginClassesLoadedListener
+        77: invokestatic  #9                  // Method jetbrains/buildServer/util/EventDispatcher.create:(Ljava/lang/Class;)Ljetbrains/buildServer/util/EventDispatcher;
+        80: putfield      #23                 // Field myPluginClassesLoadedListeners:Ljetbrains/buildServer/util/EventDispatcher;
+        83: aload_0
+        84: new           #26                 // class jetbrains/buildServer/plugins/impl/PluginManagerEventDispatcher
+        87: dup
+        88: invokespecial #28                 // Method jetbrains/buildServer/plugins/impl/PluginManagerEventDispatcher."<init>":()V
+        91: putfield      #29                 // Field myPluginLifecycleListeners:Ljetbrains/buildServer/util/EventDispatcher;
+        94: aload_0
+        95: aload_1
+        96: putfield      #32                 // Field myStandaloneClassloaderFactory:Ljetbrains/buildServer/plugins/classLoaders/StandaloneClassloaderFactory;
+        99: aload_0
+       100: aload_2
+       101: putfield      #36                 // Field mySharedClassloaderFactory:Ljetbrains/buildServer/plugins/classLoaders/SharedClassloaderFactory;
+       104: aload_0
+       105: aload         4
+       107: putfield      #40                 // Field myLookup:Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+       110: aload_0
+       111: aload         6
+       113: putfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       116: aload_0
+       117: aload         7
+       119: putfield      #48                 // Field myReloadablePlugins:Ljetbrains/buildServer/plugins/ReloadablePlugins;
+       122: aload_0
+       123: new           #52                 // class jetbrains/buildServer/plugins/PluginsLookupCollector
+       126: dup
+       127: aload_3
+       128: aload         5
+       130: aload         7
+       132: invokespecial #54                 // Method jetbrains/buildServer/plugins/PluginsLookupCollector."<init>":(Ljetbrains/buildServer/plugins/PluginVersionComparator;Ljetbrains/buildServer/plugins/PluginDisabledInfoProvider;Ljetbrains/buildServer/plugins/ReloadablePlugins;)V
+       135: putfield      #57                 // Field myCollector:Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+       138: return
+      LineNumberTable:
+        line 67: 61
+        line 48: 65
+        line 49: 68
+        line 50: 74
+        line 51: 77
+        line 56: 83
+        line 68: 94
+        line 69: 99
+        line 70: 104
+        line 71: 110
+        line 72: 116
+        line 73: 122
+        line 74: 138
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     139     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0     139     1 standaloneClassloaderFactory   Ljetbrains/buildServer/plugins/classLoaders/StandaloneClassloaderFactory;
+            0     139     2 sharedClassloaderFactory   Ljetbrains/buildServer/plugins/classLoaders/SharedClassloaderFactory;
+            0     139     3 versionComparator   Ljetbrains/buildServer/plugins/PluginVersionComparator;
+            0     139     4 lookup   Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+            0     139     5 pluginDisabledInfoProvider   Ljetbrains/buildServer/plugins/PluginDisabledInfoProvider;
+            0     139     6 pluginsStateProvider   Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+            0     139     7 reloadablePlugins   Ljetbrains/buildServer/plugins/ReloadablePlugins;
+
+  public jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.plugins.PluginManagerListener> getPluginLifecycleEventDispatcher();
+    descriptor: ()Ljetbrains/buildServer/util/EventDispatcher;
+    Code:
+         0: aload_0
+         1: getfield      #29                 // Field myPluginLifecycleListeners:Ljetbrains/buildServer/util/EventDispatcher;
+         4: areturn
+      LineNumberTable:
+        line 78: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  public void loadPlugin(jetbrains.buildServer.plugins.bean.PluginInfo) throws jetbrains.buildServer.plugins.exceptions.LoadPluginException;
+    descriptor: (Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        7
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #48                 // Field myReloadablePlugins:Ljetbrains/buildServer/plugins/ReloadablePlugins;
+        13: aload_1
+        14: invokeinterface #61,  2           // InterfaceMethod jetbrains/buildServer/plugins/ReloadablePlugins.canLoadPluginInRuntime:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)Ljava/lang/String;
+        19: astore_2
+        20: aload_2
+        21: ifnull        44
+        24: new           #67                 // class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+        27: dup
+        28: aload_1
+        29: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+        34: aload_2
+        35: invokedynamic #75,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        40: invokespecial #79                 // Method jetbrains/buildServer/plugins/exceptions/LoadPluginException."<init>":(Ljava/lang/String;)V
+        43: athrow
+        44: new           #82                 // class java/util/ArrayList
+        47: dup
+        48: invokespecial #84                 // Method java/util/ArrayList."<init>":()V
+        51: astore_3
+        52: aload_1
+        53: invokeinterface #85,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getDependencies:()Ljava/util/Collection;
+        58: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        63: astore        4
+        65: aload         4
+        67: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        72: ifeq          187
+        75: aload         4
+        77: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        82: checkcast     #105                // class jetbrains/buildServer/plugins/bean/PluginDependencyInfo
+        85: astore        5
+        87: aload_0
+        88: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+        91: aload         5
+        93: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginDependencyInfo.getName:()Ljava/lang/String;
+        98: invokevirtual #110                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.findPluginData:(Ljava/lang/String;)Ljetbrains/buildServer/plugins/PluginData;
+       101: astore        6
+       103: aload         6
+       105: ifnonnull     128
+       108: new           #67                 // class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+       111: dup
+       112: aload         5
+       114: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginDependencyInfo.getName:()Ljava/lang/String;
+       119: invokedynamic #116,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       124: invokespecial #79                 // Method jetbrains/buildServer/plugins/exceptions/LoadPluginException."<init>":(Ljava/lang/String;)V
+       127: athrow
+       128: aload         6
+       130: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+       133: invokeinterface #125,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getClassloadingInfo:()Ljetbrains/buildServer/plugins/classLoaders/PluginClassLoadingInfo;
+       138: astore        7
+       140: aload         7
+       142: ifnull        155
+       145: aload         7
+       147: invokeinterface #129,  1          // InterfaceMethod jetbrains/buildServer/plugins/classLoaders/PluginClassLoadingInfo.useStandaloneClassloader:()Z
+       152: ifne          175
+       155: new           #67                 // class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+       158: dup
+       159: aload         5
+       161: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginDependencyInfo.getName:()Ljava/lang/String;
+       166: invokedynamic #134,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       171: invokespecial #79                 // Method jetbrains/buildServer/plugins/exceptions/LoadPluginException."<init>":(Ljava/lang/String;)V
+       174: athrow
+       175: aload_3
+       176: aload         6
+       178: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       183: pop
+       184: goto          65
+       187: aload_0
+       188: getfield      #57                 // Field myCollector:Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+       191: aload_1
+       192: invokestatic  #141                // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+       195: aload_3
+       196: iconst_1
+       197: invokevirtual #147                // Method jetbrains/buildServer/plugins/PluginsLookupCollector.toPluginsCollection:(Ljava/util/Collection;Ljava/util/Collection;Z)Ljetbrains/buildServer/plugins/PluginsCollection;
+       200: astore        4
+       202: aload         4
+       204: invokevirtual #151                // Method jetbrains/buildServer/plugins/PluginsCollection.getNotLoadedPlugins:()Ljava/util/List;
+       207: invokeinterface #157,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       212: ifne          271
+       215: aload_0
+       216: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+       219: aload_1
+       220: invokeinterface #164,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.beforePluginLoaded:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       225: aload_0
+       226: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+       229: aload_1
+       230: invokeinterface #170,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.pluginLoadFailed:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       235: new           #67                 // class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+       238: dup
+       239: aload_1
+       240: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+       245: aload         4
+       247: invokevirtual #151                // Method jetbrains/buildServer/plugins/PluginsCollection.getNotLoadedPlugins:()Ljava/util/List;
+       250: iconst_0
+       251: invokeinterface #173,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       256: checkcast     #177                // class jetbrains/buildServer/plugins/NotLoadedPlugin
+       259: invokevirtual #179                // Method jetbrains/buildServer/plugins/NotLoadedPlugin.getReason:()Ljava/lang/String;
+       262: invokedynamic #182,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       267: invokespecial #79                 // Method jetbrains/buildServer/plugins/exceptions/LoadPluginException."<init>":(Ljava/lang/String;)V
+       270: athrow
+       271: aload_0
+       272: aload         4
+       274: aload_1
+       275: invokevirtual #183                // Method findPluginData:(Ljetbrains/buildServer/plugins/PluginsCollection;Ljetbrains/buildServer/plugins/bean/PluginInfo;)Ljetbrains/buildServer/plugins/PluginData;
+       278: astore        5
+       280: aload         5
+       282: ifnonnull     304
+       285: new           #186                // class java/lang/RuntimeException
+       288: dup
+       289: aload_1
+       290: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+       295: invokedynamic #188,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       300: invokespecial #189                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+       303: athrow
+       304: aload         5
+       306: iconst_1
+       307: invokevirtual #190                // Method jetbrains/buildServer/plugins/PluginData.setShouldAddPersonalDispatcher:(Z)V
+       310: aload_0
+       311: aload         4
+       313: invokevirtual #194                // Method doLoadPluginsCollection:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+       316: aload         4
+       318: invokevirtual #198                // Method jetbrains/buildServer/plugins/PluginsCollection.getPluginDatas:()Ljava/util/Collection;
+       321: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       326: astore        6
+       328: aload         6
+       330: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       335: ifeq          364
+       338: aload         6
+       340: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       345: checkcast     #120                // class jetbrains/buildServer/plugins/PluginData
+       348: astore        7
+       350: aload_0
+       351: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+       354: aload         7
+       356: invokeinterface #201,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.pluginLoadedInRuntime:(Ljetbrains/buildServer/plugins/PluginData;)V
+       361: goto          328
+       364: aload_0
+       365: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       368: aload         5
+       370: invokevirtual #205                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.addLoadedPlugin:(Ljetbrains/buildServer/plugins/PluginData;)V
+       373: aload_0
+       374: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       377: aload_1
+       378: invokevirtual #208                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.removeNotLoadedPlugin:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       381: aload_0
+       382: aload_1
+       383: invokevirtual #211                // Method updateOtherVersionNotLoadedPlugins:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       386: aload         5
+       388: invokevirtual #214                // Method jetbrains/buildServer/plugins/PluginData.getLoadErrors:()Ljava/util/Collection;
+       391: invokeinterface #217,  1          // InterfaceMethod java/util/Collection.isEmpty:()Z
+       396: ifne          425
+       399: new           #67                 // class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+       402: dup
+       403: aload         5
+       405: invokevirtual #214                // Method jetbrains/buildServer/plugins/PluginData.getLoadErrors:()Ljava/util/Collection;
+       408: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       413: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       418: checkcast     #218                // class java/lang/Throwable
+       421: invokespecial #220                // Method jetbrains/buildServer/plugins/exceptions/LoadPluginException."<init>":(Ljava/lang/Throwable;)V
+       424: athrow
+       425: aload         5
+       427: invokevirtual #223                // Method jetbrains/buildServer/plugins/PluginData.getSpringContext:()Lorg/springframework/context/ConfigurableApplicationContext;
+       430: ifnull        476
+       433: aconst_null
+       434: astore        6
+       436: aload         5
+       438: invokevirtual #223                // Method jetbrains/buildServer/plugins/PluginData.getSpringContext:()Lorg/springframework/context/ConfigurableApplicationContext;
+       441: ldc           #227                // class jetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher
+       443: invokeinterface #229,  2          // InterfaceMethod org/springframework/context/ConfigurableApplicationContext.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+       448: checkcast     #227                // class jetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher
+       451: astore        6
+       453: goto          458
+       456: astore        7
+       458: aload         6
+       460: ifnull        476
+       463: aload         6
+       465: invokevirtual #237                // Method jetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher.getMulticaster:()Ljava/util/EventListener;
+       468: checkcast     #241                // class jetbrains/buildServer/plugins/PluginLifecycleListener
+       471: invokeinterface #243,  1          // InterfaceMethod jetbrains/buildServer/plugins/PluginLifecycleListener.pluginLoaded:()V
+       476: goto          506
+       479: astore        4
+       481: aload         4
+       483: athrow
+       484: astore        4
+       486: aload_0
+       487: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+       490: aload_1
+       491: invokeinterface #170,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.pluginLoadFailed:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       496: new           #67                 // class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+       499: dup
+       500: aload         4
+       502: invokespecial #220                // Method jetbrains/buildServer/plugins/exceptions/LoadPluginException."<init>":(Ljava/lang/Throwable;)V
+       505: athrow
+       506: return
+      Exception table:
+         from    to  target type
+           436   453   456   Class java/lang/Exception
+           187   476   479   Class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+           187   476   484   Class java/lang/Throwable
+      LineNumberTable:
+        line 83: 9
+        line 84: 20
+        line 85: 24
+        line 88: 44
+        line 89: 52
+        line 90: 87
+        line 91: 103
+        line 92: 108
+        line 95: 128
+        line 96: 140
+        line 97: 155
+        line 99: 175
+        line 100: 184
+        line 103: 187
+        line 105: 202
+        line 106: 215
+        line 107: 225
+        line 109: 235
+        line 112: 271
+        line 113: 280
+        line 114: 285
+        line 117: 304
+        line 119: 310
+        line 121: 316
+        line 122: 350
+        line 123: 361
+        line 125: 364
+        line 126: 373
+        line 129: 381
+        line 131: 386
+        line 132: 399
+        line 135: 425
+        line 136: 433
+        line 138: 436
+        line 140: 453
+        line 139: 456
+        line 141: 458
+        line 142: 463
+        line 151: 476
+        line 145: 479
+        line 147: 481
+        line 148: 484
+        line 149: 486
+        line 150: 496
+        line 152: 506
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          103      81     6 pluginData   Ljetbrains/buildServer/plugins/PluginData;
+          140      44     7 classloadingInfo   Ljetbrains/buildServer/plugins/classLoaders/PluginClassLoadingInfo;
+           87      97     5 dependency   Ljetbrains/buildServer/plugins/bean/PluginDependencyInfo;
+          350      11     7 pluginData   Ljetbrains/buildServer/plugins/PluginData;
+          436      40     6  bean   Ljetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher;
+          202     274     4 collectionFromInfo   Ljetbrains/buildServer/plugins/PluginsCollection;
+          280     196     5 plugin   Ljetbrains/buildServer/plugins/PluginData;
+          481       3     4    ex   Ljetbrains/buildServer/plugins/exceptions/LoadPluginException;
+          486      20     4    ex   Ljava/lang/Throwable;
+            0     507     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0     507     1 pluginInfo   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+           20     487     2 errorMessage   Ljava/lang/String;
+           52     455     3 parents   Ljava/util/List;
+
+  private jetbrains.buildServer.plugins.PluginData findPluginData(jetbrains.buildServer.plugins.PluginsCollection, jetbrains.buildServer.plugins.bean.PluginInfo);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;Ljetbrains/buildServer/plugins/bean/PluginInfo;)Ljetbrains/buildServer/plugins/PluginData;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        8
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_2
+        10: ifnonnull     18
+        13: bipush        9
+        15: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        18: new           #246                // class java/util/concurrent/atomic/AtomicReference
+        21: dup
+        22: invokespecial #248                // Method java/util/concurrent/atomic/AtomicReference."<init>":()V
+        25: astore_3
+        26: aload_1
+        27: new           #249                // class jetbrains/buildServer/plugins/PluginManagerImpl$1
+        30: dup
+        31: aload_0
+        32: aload_2
+        33: aload_3
+        34: invokespecial #251                // Method jetbrains/buildServer/plugins/PluginManagerImpl$1."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;Ljetbrains/buildServer/plugins/bean/PluginInfo;Ljava/util/concurrent/atomic/AtomicReference;)V
+        37: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        40: aload_3
+        41: invokevirtual #258                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+        44: checkcast     #120                // class jetbrains/buildServer/plugins/PluginData
+        47: areturn
+      LineNumberTable:
+        line 156: 18
+        line 157: 26
+        line 163: 40
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      48     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      48     1 pluginsCollection   Ljetbrains/buildServer/plugins/PluginsCollection;
+            0      48     2 pluginInfo   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+           26      22     3 loadingPluginData   Ljava/util/concurrent/atomic/AtomicReference;
+
+  private void updateOtherVersionNotLoadedPlugins(jetbrains.buildServer.plugins.bean.PluginInfo);
+    descriptor: (Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        10
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: new           #82                 // class java/util/ArrayList
+        12: dup
+        13: invokespecial #84                 // Method java/util/ArrayList."<init>":()V
+        16: astore_2
+        17: aload_0
+        18: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+        21: invokevirtual #260                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.getPluginsState:()Ljetbrains/buildServer/plugins/PluginsState;
+        24: aload_1
+        25: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+        30: invokeinterface #264,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginsState.findNotLoadedPlugins:(Ljava/lang/String;)Ljava/util/Collection;
+        35: astore_3
+        36: aload_3
+        37: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        42: astore        4
+        44: aload         4
+        46: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        51: ifeq          81
+        54: aload         4
+        56: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        61: checkcast     #177                // class jetbrains/buildServer/plugins/NotLoadedPlugin
+        64: astore        5
+        66: aload_2
+        67: aload         5
+        69: invokevirtual #270                // Method jetbrains/buildServer/plugins/NotLoadedPlugin.getPlugin:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        72: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        77: pop
+        78: goto          44
+        81: aload_2
+        82: invokeinterface #157,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        87: ifne          207
+        90: aload_2
+        91: aload_1
+        92: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        97: pop
+        98: aload_0
+        99: getfield      #57                 // Field myCollector:Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+       102: aload_2
+       103: invokestatic  #273                // Method java/util/Collections.emptyList:()Ljava/util/List;
+       106: iconst_0
+       107: invokevirtual #147                // Method jetbrains/buildServer/plugins/PluginsLookupCollector.toPluginsCollection:(Ljava/util/Collection;Ljava/util/Collection;Z)Ljetbrains/buildServer/plugins/PluginsCollection;
+       110: astore        4
+       112: aload         4
+       114: invokevirtual #151                // Method jetbrains/buildServer/plugins/PluginsCollection.getNotLoadedPlugins:()Ljava/util/List;
+       117: astore        5
+       119: aload_3
+       120: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       125: astore        6
+       127: aload         6
+       129: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       134: ifeq          164
+       137: aload         6
+       139: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       144: checkcast     #177                // class jetbrains/buildServer/plugins/NotLoadedPlugin
+       147: astore        7
+       149: aload_0
+       150: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       153: aload         7
+       155: invokevirtual #270                // Method jetbrains/buildServer/plugins/NotLoadedPlugin.getPlugin:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+       158: invokevirtual #208                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.removeNotLoadedPlugin:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       161: goto          127
+       164: aload         5
+       166: invokeinterface #276,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       171: astore        6
+       173: aload         6
+       175: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       180: ifeq          207
+       183: aload         6
+       185: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       190: checkcast     #177                // class jetbrains/buildServer/plugins/NotLoadedPlugin
+       193: astore        7
+       195: aload_0
+       196: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       199: aload         7
+       201: invokevirtual #277                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.addNotLoadedPlugin:(Ljetbrains/buildServer/plugins/NotLoadedPlugin;)V
+       204: goto          173
+       207: return
+      LineNumberTable:
+        line 167: 9
+        line 168: 17
+        line 169: 36
+        line 170: 66
+        line 171: 78
+        line 172: 81
+        line 173: 90
+        line 174: 98
+        line 175: 112
+        line 177: 119
+        line 178: 149
+        line 179: 161
+        line 180: 164
+        line 181: 195
+        line 182: 204
+        line 184: 207
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           66      12     5 notLoadedPlugin   Ljetbrains/buildServer/plugins/NotLoadedPlugin;
+          149      12     7   nlp   Ljetbrains/buildServer/plugins/NotLoadedPlugin;
+          195       9     7   nlp   Ljetbrains/buildServer/plugins/NotLoadedPlugin;
+          112      95     4 pluginsCollection   Ljetbrains/buildServer/plugins/PluginsCollection;
+          119      88     5 updatedNotLoadedPlugins   Ljava/util/List;
+            0     208     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0     208     1 pluginInfo   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+           17     191     2 notLoadedPlugins   Ljava/util/List;
+           36     172     3 oldNotLoadedPlugins   Ljava/util/Collection;
+
+  public java.util.List<jetbrains.buildServer.plugins.bean.PluginInfo> unloadPlugin(jetbrains.buildServer.plugins.bean.PluginInfo) throws jetbrains.buildServer.plugins.exceptions.UnloadPluginException;
+    descriptor: (Ljetbrains/buildServer/plugins/bean/PluginInfo;)Ljava/util/List;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        11
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+        13: aload_1
+        14: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+        19: invokevirtual #110                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.findPluginData:(Ljava/lang/String;)Ljetbrains/buildServer/plugins/PluginData;
+        22: astore_2
+        23: aload_2
+        24: ifnonnull     35
+        27: new           #281                // class jetbrains/buildServer/plugins/exceptions/PluginNotLoadedException
+        30: dup
+        31: invokespecial #283                // Method jetbrains/buildServer/plugins/exceptions/PluginNotLoadedException."<init>":()V
+        34: athrow
+        35: new           #284                // class java/util/LinkedList
+        38: dup
+        39: invokespecial #286                // Method java/util/LinkedList."<init>":()V
+        42: astore_3
+        43: new           #82                 // class java/util/ArrayList
+        46: dup
+        47: invokespecial #84                 // Method java/util/ArrayList."<init>":()V
+        50: astore        4
+        52: aload_3
+        53: aload_1
+        54: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        59: pop
+        60: aload         4
+        62: aload_1
+        63: aconst_null
+        64: invokestatic  #287                // Method com/intellij/openapi/util/Pair.create:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/intellij/openapi/util/Pair;
+        67: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        72: pop
+        73: aload_3
+        74: invokeinterface #157,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        79: ifne          346
+        82: aload_3
+        83: iconst_0
+        84: invokeinterface #292,  2          // InterfaceMethod java/util/List.remove:(I)Ljava/lang/Object;
+        89: checkcast     #70                 // class jetbrains/buildServer/plugins/bean/PluginInfo
+        92: astore        5
+        94: aload         5
+        96: invokeinterface #125,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getClassloadingInfo:()Ljetbrains/buildServer/plugins/classLoaders/PluginClassLoadingInfo;
+       101: ifnull        119
+       104: aload         5
+       106: invokeinterface #125,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getClassloadingInfo:()Ljetbrains/buildServer/plugins/classLoaders/PluginClassLoadingInfo;
+       111: invokeinterface #129,  1          // InterfaceMethod jetbrains/buildServer/plugins/classLoaders/PluginClassLoadingInfo.useStandaloneClassloader:()Z
+       116: ifne          130
+       119: new           #295                // class jetbrains/buildServer/plugins/exceptions/UnloadPluginException
+       122: dup
+       123: ldc_w         #297                // String Loading plugins with shared classloader is not supported yet
+       126: invokespecial #299                // Method jetbrains/buildServer/plugins/exceptions/UnloadPluginException."<init>":(Ljava/lang/String;)V
+       129: athrow
+       130: aload_0
+       131: getfield      #48                 // Field myReloadablePlugins:Ljetbrains/buildServer/plugins/ReloadablePlugins;
+       134: aload         5
+       136: invokeinterface #300,  2          // InterfaceMethod jetbrains/buildServer/plugins/ReloadablePlugins.canUnloadPluginInRuntime:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)Ljava/lang/String;
+       141: astore        6
+       143: aload         6
+       145: ifnull        170
+       148: new           #295                // class jetbrains/buildServer/plugins/exceptions/UnloadPluginException
+       151: dup
+       152: aload         5
+       154: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+       159: aload         6
+       161: invokedynamic #303,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       166: invokespecial #299                // Method jetbrains/buildServer/plugins/exceptions/UnloadPluginException."<init>":(Ljava/lang/String;)V
+       169: athrow
+       170: aload_0
+       171: invokevirtual #304                // Method getDetectedPlugins:()Ljava/util/Collection;
+       174: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       179: astore        7
+       181: aload         7
+       183: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       188: ifeq          343
+       191: aload         7
+       193: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       198: checkcast     #70                 // class jetbrains/buildServer/plugins/bean/PluginInfo
+       201: astore        8
+       203: aload_0
+       204: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       207: aload         8
+       209: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+       214: invokevirtual #110                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.findPluginData:(Ljava/lang/String;)Ljetbrains/buildServer/plugins/PluginData;
+       217: astore        9
+       219: aload         9
+       221: ifnonnull     227
+       224: goto          181
+       227: aload         9
+       229: invokevirtual #307                // Method jetbrains/buildServer/plugins/PluginData.getPluginName:()Ljava/lang/String;
+       232: aload         5
+       234: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+       239: invokevirtual #308                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       242: ifeq          248
+       245: goto          181
+       248: aload         9
+       250: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+       253: invokeinterface #85,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getDependencies:()Ljava/util/Collection;
+       258: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       263: astore        10
+       265: aload         10
+       267: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       272: ifeq          340
+       275: aload         10
+       277: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       282: checkcast     #105                // class jetbrains/buildServer/plugins/bean/PluginDependencyInfo
+       285: astore        11
+       287: aload         11
+       289: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginDependencyInfo.getName:()Ljava/lang/String;
+       294: aload         5
+       296: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+       301: invokevirtual #308                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       304: ifeq          337
+       307: aload         4
+       309: aload         5
+       311: aload         9
+       313: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+       316: invokestatic  #287                // Method com/intellij/openapi/util/Pair.create:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/intellij/openapi/util/Pair;
+       319: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       324: pop
+       325: aload_3
+       326: aload         9
+       328: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+       331: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       336: pop
+       337: goto          265
+       340: goto          181
+       343: goto          73
+       346: aload_0
+       347: aload         4
+       349: invokestatic  #313                // Method jetbrains/buildServer/util/graph/DAGs.createFromEdges:(Ljava/util/Collection;)Ljetbrains/buildServer/util/graph/DAG;
+       352: invokevirtual #319                // Method unloadPlugins:(Ljetbrains/buildServer/util/graph/DAG;)Ljava/util/List;
+       355: areturn
+      LineNumberTable:
+        line 188: 9
+        line 189: 23
+        line 190: 27
+        line 192: 35
+        line 193: 43
+        line 194: 52
+        line 195: 60
+        line 196: 73
+        line 197: 82
+        line 199: 94
+        line 200: 119
+        line 202: 130
+        line 203: 143
+        line 204: 148
+        line 207: 170
+        line 208: 203
+        line 209: 219
+        line 210: 227
+        line 212: 248
+        line 213: 287
+        line 214: 307
+        line 215: 325
+        line 217: 337
+        line 218: 340
+        line 219: 343
+        line 220: 346
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          287      50    11 dependency   Ljetbrains/buildServer/plugins/bean/PluginDependencyInfo;
+          219     121     9 loadedPlugin   Ljetbrains/buildServer/plugins/PluginData;
+          203     137     8    pi   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+           94     249     5 process   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+          143     200     6 errorMessage   Ljava/lang/String;
+            0     356     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0     356     1 pluginInfo   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+           23     333     2 pluginData   Ljetbrains/buildServer/plugins/PluginData;
+           43     313     3  list   Ljava/util/List;
+           52     304     4 edges   Ljava/util/List;
+
+  private java.util.List<jetbrains.buildServer.plugins.bean.PluginInfo> unloadPlugins(jetbrains.buildServer.util.graph.DAG<jetbrains.buildServer.plugins.bean.PluginInfo>) throws jetbrains.buildServer.plugins.exceptions.UnloadPluginException;
+    descriptor: (Ljetbrains/buildServer/util/graph/DAG;)Ljava/util/List;
+    Code:
+         0: aload_1
+         1: invokevirtual #323                // Method jetbrains/buildServer/util/graph/DAG.toposort:()Ljava/util/List;
+         4: astore_2
+         5: aload_2
+         6: invokeinterface #276,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        11: astore_3
+        12: aload_3
+        13: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        18: ifeq          182
+        21: aload_3
+        22: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        27: checkcast     #70                 // class jetbrains/buildServer/plugins/bean/PluginInfo
+        30: astore        4
+        32: aload_0
+        33: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+        36: aload         4
+        38: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+        43: invokevirtual #110                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.findPluginData:(Ljava/lang/String;)Ljetbrains/buildServer/plugins/PluginData;
+        46: astore        5
+        48: aload         5
+        50: ifnonnull     61
+        53: new           #281                // class jetbrains/buildServer/plugins/exceptions/PluginNotLoadedException
+        56: dup
+        57: invokespecial #283                // Method jetbrains/buildServer/plugins/exceptions/PluginNotLoadedException."<init>":()V
+        60: athrow
+        61: aload_0
+        62: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+        65: aload         4
+        67: invokeinterface #328,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.beforePluginUnloaded:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+        72: aload         5
+        74: invokevirtual #223                // Method jetbrains/buildServer/plugins/PluginData.getSpringContext:()Lorg/springframework/context/ConfigurableApplicationContext;
+        77: ifnull        89
+        80: aload_0
+        81: aload         5
+        83: invokevirtual #223                // Method jetbrains/buildServer/plugins/PluginData.getSpringContext:()Lorg/springframework/context/ConfigurableApplicationContext;
+        86: invokevirtual #331                // Method fireBeforePluginUnloaded:(Lorg/springframework/context/ConfigurableApplicationContext;)V
+        89: aload_0
+        90: aload         5
+        92: invokevirtual #335                // Method doUnloadPlugin:(Ljetbrains/buildServer/plugins/PluginData;)Z
+        95: pop
+        96: aload_0
+        97: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       100: aload         5
+       102: invokevirtual #339                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.removeLoadedPlugin:(Ljetbrains/buildServer/plugins/PluginData;)V
+       105: aload_0
+       106: getfield      #40                 // Field myLookup:Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+       109: aload         4
+       111: invokeinterface #342,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginRoot:()Ljava/io/File;
+       116: invokeinterface #346,  2          // InterfaceMethod jetbrains/buildServer/plugins/files/PluginFileSystemLookup.loadPluginInfo:(Ljava/io/File;)Ljetbrains/buildServer/plugins/bean/PluginInfo;
+       121: astore        6
+       123: aload_0
+       124: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+       127: new           #177                // class jetbrains/buildServer/plugins/NotLoadedPlugin
+       130: dup
+       131: aload         6
+       133: ldc_w         #352                // String unloaded in runtime
+       136: invokespecial #354                // Method jetbrains/buildServer/plugins/NotLoadedPlugin."<init>":(Ljetbrains/buildServer/plugins/bean/PluginInfo;Ljava/lang/String;)V
+       139: invokevirtual #277                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.addNotLoadedPlugin:(Ljetbrains/buildServer/plugins/NotLoadedPlugin;)V
+       142: aload_0
+       143: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+       146: aload         4
+       148: invokeinterface #357,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.pluginUnloaded:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       153: goto          179
+       156: astore        6
+       158: aload_0
+       159: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+       162: aload         4
+       164: invokeinterface #360,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.pluginUnloadFailed:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+       169: new           #295                // class jetbrains/buildServer/plugins/exceptions/UnloadPluginException
+       172: dup
+       173: aload         6
+       175: invokespecial #363                // Method jetbrains/buildServer/plugins/exceptions/UnloadPluginException."<init>":(Ljava/lang/Throwable;)V
+       178: athrow
+       179: goto          12
+       182: aload_2
+       183: areturn
+      Exception table:
+         from    to  target type
+            61   153   156   Class java/lang/Throwable
+      LineNumberTable:
+        line 224: 0
+        line 225: 5
+        line 226: 32
+        line 227: 48
+        line 229: 61
+        line 230: 72
+        line 231: 80
+        line 234: 89
+        line 235: 96
+        line 237: 105
+        line 238: 123
+        line 240: 142
+        line 244: 153
+        line 241: 156
+        line 242: 158
+        line 243: 169
+        line 245: 179
+        line 246: 182
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          123      30     6 recreated   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+          158      21     6    ex   Ljava/lang/Throwable;
+           48     131     5 pluginData   Ljetbrains/buildServer/plugins/PluginData;
+           32     147     4 pluginInfo   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+            0     184     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0     184     1 toUnload   Ljetbrains/buildServer/util/graph/DAG;
+            5     179     2 sorted   Ljava/util/List;
+
+  private void fireBeforePluginUnloaded(org.springframework.context.ConfigurableApplicationContext);
+    descriptor: (Lorg/springframework/context/ConfigurableApplicationContext;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        12
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: ldc           #227                // class jetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher
+        12: invokeinterface #364,  2          // InterfaceMethod org/springframework/context/ConfigurableApplicationContext.getBeansOfType:(Ljava/lang/Class;)Ljava/util/Map;
+        17: invokeinterface #368,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+        22: astore_2
+        23: aload_2
+        24: invokeinterface #89,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        29: astore_3
+        30: aload_3
+        31: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        36: ifeq          66
+        39: aload_3
+        40: invokeinterface #101,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        45: checkcast     #227                // class jetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher
+        48: astore        4
+        50: aload         4
+        52: invokevirtual #237                // Method jetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher.getMulticaster:()Ljava/util/EventListener;
+        55: checkcast     #241                // class jetbrains/buildServer/plugins/PluginLifecycleListener
+        58: invokeinterface #373,  1          // InterfaceMethod jetbrains/buildServer/plugins/PluginLifecycleListener.beforePluginUnloaded:()V
+        63: goto          30
+        66: return
+      LineNumberTable:
+        line 250: 9
+        line 252: 23
+        line 253: 50
+        line 254: 63
+        line 255: 66
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           50      13     4  bean   Ljetbrains/buildServer/plugins/impl/PluginLifecycleEventDispatcher;
+            0      67     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      67     1 springContext   Lorg/springframework/context/ConfigurableApplicationContext;
+           23      44     2 beans   Ljava/util/Collection;
+
+  private boolean waitForUnload();
+    descriptor: ()Z
+    Code:
+         0: ldc_w         #375                // String teamcity.plugins.alwaysWaitForFullUnload
+         3: invokestatic  #377                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBoolean:(Ljava/lang/String;)Z
+         6: ireturn
+      LineNumberTable:
+        line 258: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       7     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  private boolean doUnloadPlugin(jetbrains.buildServer.plugins.PluginData);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginData;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        13
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: invokevirtual #383                // Method jetbrains/buildServer/plugins/PluginData.hasClassloader:()Z
+        13: istore_2
+        14: new           #386                // class java/lang/ref/ReferenceQueue
+        17: dup
+        18: invokespecial #388                // Method java/lang/ref/ReferenceQueue."<init>":()V
+        21: astore_3
+        22: new           #389                // class java/lang/ref/PhantomReference
+        25: dup
+        26: aload_1
+        27: invokevirtual #391                // Method jetbrains/buildServer/plugins/PluginData.getClassloader:()Ljetbrains/buildServer/plugins/classLoaders/TeamCityClassLoader;
+        30: aload_3
+        31: invokespecial #395                // Method java/lang/ref/PhantomReference."<init>":(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+        34: astore        4
+        36: aload_0
+        37: aload_1
+        38: invokevirtual #398                // Method disposeSpringContext:(Ljetbrains/buildServer/plugins/PluginData;)V
+        41: iload_2
+        42: ifeq          50
+        45: aload_1
+        46: aconst_null
+        47: invokevirtual #401                // Method jetbrains/buildServer/plugins/PluginData.setClassloader:(Ljetbrains/buildServer/plugins/classLoaders/TeamCityClassLoader;)V
+        50: aload_0
+        51: invokevirtual #160                // Method lifecycleMulticaster:()Ljetbrains/buildServer/plugins/PluginManagerListener;
+        54: aload_1
+        55: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        58: invokeinterface #405,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginManagerListener.pluginResourcesCleaned:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+        63: iload_2
+        64: ifeq          216
+        67: getstatic     #408                // Field jetbrains/buildServer/DevelopmentMode.isEnabled:Z
+        70: ifne          80
+        73: aload_0
+        74: invokevirtual #414                // Method waitForUnload:()Z
+        77: ifeq          216
+        80: new           #284                // class java/util/LinkedList
+        83: dup
+        84: invokespecial #286                // Method java/util/LinkedList."<init>":()V
+        87: astore        5
+        89: invokestatic  #417                // Method java/lang/Runtime.getRuntime:()Ljava/lang/Runtime;
+        92: invokevirtual #423                // Method java/lang/Runtime.freeMemory:()J
+        95: ldc2_w        #427                // long 2l
+        98: lmul
+        99: ldc2_w        #429                // long 3l
+       102: ldiv
+       103: lstore        7
+       105: aload_3
+       106: invokevirtual #431                // Method java/lang/ref/ReferenceQueue.poll:()Ljava/lang/ref/Reference;
+       109: dup
+       110: astore        6
+       112: ifnonnull     169
+       115: aload         5
+       117: new           #435                // class java/lang/ref/SoftReference
+       120: dup
+       121: ldc_w         #437                // int 100000000
+       124: ldc_w         #438                // int 1000000
+       127: lload         7
+       129: l2i
+       130: invokestatic  #439                // Method java/lang/Math.max:(II)I
+       133: invokestatic  #445                // Method java/lang/Math.min:(II)I
+       136: newarray       byte
+       138: invokespecial #448                // Method java/lang/ref/SoftReference."<init>":(Ljava/lang/Object;)V
+       141: invokevirtual #451                // Method java/util/LinkedList.add:(Ljava/lang/Object;)Z
+       144: pop
+       145: aload         5
+       147: iconst_0
+       148: invokevirtual #452                // Method java/util/LinkedList.get:(I)Ljava/lang/Object;
+       151: checkcast     #435                // class java/lang/ref/SoftReference
+       154: invokevirtual #453                // Method java/lang/ref/SoftReference.get:()Ljava/lang/Object;
+       157: ifnonnull     105
+       160: aload_3
+       161: invokevirtual #431                // Method java/lang/ref/ReferenceQueue.poll:()Ljava/lang/ref/Reference;
+       164: astore        6
+       166: goto          169
+       169: aload         6
+       171: ifnonnull     191
+       174: getstatic     #454                // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+       177: aload_1
+       178: invokevirtual #307                // Method jetbrains/buildServer/plugins/PluginData.getPluginName:()Ljava/lang/String;
+       181: invokedynamic #460,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       186: invokevirtual #461                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       189: iconst_0
+       190: ireturn
+       191: getstatic     #454                // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+       194: aload_1
+       195: invokevirtual #307                // Method jetbrains/buildServer/plugins/PluginData.getPluginName:()Ljava/lang/String;
+       198: invokedynamic #466,  0            // InvokeDynamic #7:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       203: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       206: goto          216
+       209: astore        5
+       211: aload         5
+       213: invokevirtual #470                // Method java/lang/Exception.printStackTrace:()V
+       216: iconst_1
+       217: ireturn
+      Exception table:
+         from    to  target type
+            80   190   209   Class java/lang/Exception
+           191   206   209   Class java/lang/Exception
+      LineNumberTable:
+        line 262: 9
+        line 263: 14
+        line 264: 22
+        line 267: 36
+        line 269: 41
+        line 270: 45
+        line 273: 50
+        line 286: 63
+        line 288: 80
+        line 290: 89
+        line 291: 105
+        line 292: 115
+        line 293: 145
+        line 294: 160
+        line 295: 166
+        line 298: 169
+        line 299: 174
+        line 300: 189
+        line 302: 191
+        line 306: 206
+        line 304: 209
+        line 305: 211
+        line 308: 216
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           89     117     5  list   Ljava/util/LinkedList;
+          112      94     6  poll   Ljava/lang/ref/Reference;
+          105     101     7 freeMemory   J
+          211       5     5    ex   Ljava/lang/Exception;
+            0     218     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0     218     1 pluginData   Ljetbrains/buildServer/plugins/PluginData;
+           14     204     2 classLoaderExists   Z
+           22     196     3 singing   Ljava/lang/ref/ReferenceQueue;
+           36     182     4 canaryCage   Ljava/lang/ref/PhantomReference;
+
+  private void disposeSpringContext(jetbrains.buildServer.plugins.PluginData);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginData;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        14
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: invokevirtual #223                // Method jetbrains/buildServer/plugins/PluginData.getSpringContext:()Lorg/springframework/context/ConfigurableApplicationContext;
+        13: astore_2
+        14: aload_2
+        15: ifnull        37
+        18: aload_2
+        19: invokeinterface #473,  1          // InterfaceMethod org/springframework/context/ConfigurableApplicationContext.close:()V
+        24: aload_1
+        25: invokevirtual #214                // Method jetbrains/buildServer/plugins/PluginData.getLoadErrors:()Ljava/util/Collection;
+        28: invokeinterface #476,  1          // InterfaceMethod java/util/Collection.clear:()V
+        33: aload_1
+        34: invokevirtual #479                // Method jetbrains/buildServer/plugins/PluginData.removeSpringContext:()V
+        37: return
+      LineNumberTable:
+        line 312: 9
+        line 313: 14
+        line 318: 18
+        line 319: 24
+        line 320: 33
+        line 322: 37
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      38     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      38     1 pluginData   Ljetbrains/buildServer/plugins/PluginData;
+           14      24     2 springContext   Lorg/springframework/context/ConfigurableApplicationContext;
+
+  public void setLookup(jetbrains.buildServer.plugins.files.PluginFileSystemLookup);
+    descriptor: (Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        15
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: aload_1
+        11: putfield      #40                 // Field myLookup:Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+        14: return
+      LineNumberTable:
+        line 325: 9
+        line 326: 14
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      15     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      15     1 lookup   Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+
+  public jetbrains.buildServer.plugins.files.PluginFileSystemLookup getLookup();
+    descriptor: ()Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+    Code:
+         0: aload_0
+         1: getfield      #40                 // Field myLookup:Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+         4: dup
+         5: ifnonnull     13
+         8: bipush        16
+        10: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        13: areturn
+      LineNumberTable:
+        line 330: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  public void addPluginInfoLoadedListener(jetbrains.buildServer.plugins.PluginInfoLoadedListener);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginInfoLoadedListener;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        17
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #15                 // Field myPluginInfoLoadedListeners:Ljetbrains/buildServer/util/EventDispatcher;
+        13: aload_1
+        14: invokevirtual #482                // Method jetbrains/buildServer/util/EventDispatcher.addListener:(Ljava/util/EventListener;)V
+        17: return
+      LineNumberTable:
+        line 335: 9
+        line 336: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      18     1 listener   Ljetbrains/buildServer/plugins/PluginInfoLoadedListener;
+
+  public void addPluginClassesLoadedListener(jetbrains.buildServer.plugins.PluginClassesLoadedListener);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginClassesLoadedListener;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        18
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #23                 // Field myPluginClassesLoadedListeners:Ljetbrains/buildServer/util/EventDispatcher;
+        13: aload_1
+        14: invokevirtual #482                // Method jetbrains/buildServer/util/EventDispatcher.addListener:(Ljava/util/EventListener;)V
+        17: return
+      LineNumberTable:
+        line 340: 9
+        line 341: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      18     1 listener   Ljetbrains/buildServer/plugins/PluginClassesLoadedListener;
+
+  private jetbrains.buildServer.plugins.PluginManagerListener lifecycleMulticaster();
+    descriptor: ()Ljetbrains/buildServer/plugins/PluginManagerListener;
+    Code:
+         0: aload_0
+         1: getfield      #29                 // Field myPluginLifecycleListeners:Ljetbrains/buildServer/util/EventDispatcher;
+         4: invokevirtual #486                // Method jetbrains/buildServer/util/EventDispatcher.getMulticaster:()Ljava/util/EventListener;
+         7: checkcast     #165                // class jetbrains/buildServer/plugins/PluginManagerListener
+        10: areturn
+      LineNumberTable:
+        line 344: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  public void loadPlugins(java.util.Collection<jetbrains.buildServer.plugins.bean.PluginInfo>);
+    descriptor: (Ljava/util/Collection;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokedynamic #487,  0            // InvokeDynamic #8:apply:()Ljava/util/function/Function;
+         7: invokevirtual #491                // Method loadPlugins:(Ljava/util/Collection;Ljava/util/function/Function;)V
+        10: return
+      LineNumberTable:
+        line 349: 0
+        line 350: 10
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      11     1 pluginsToLoad   Ljava/util/Collection;
+
+  public void loadPlugins(java.util.Collection<jetbrains.buildServer.plugins.bean.PluginInfo>, java.util.function.Function<jetbrains.buildServer.plugins.exceptions.LoadPluginException, java.lang.Boolean>);
+    descriptor: (Ljava/util/Collection;Ljava/util/function/Function;)V
+    Code:
+         0: aload_0
+         1: getfield      #57                 // Field myCollector:Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+         4: aload_1
+         5: aload_0
+         6: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+         9: invokevirtual #260                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.getPluginsState:()Ljetbrains/buildServer/plugins/PluginsState;
+        12: invokeinterface #495,  1          // InterfaceMethod jetbrains/buildServer/plugins/PluginsState.getLoadedPluginsData:()Ljava/util/Collection;
+        17: iconst_1
+        18: invokevirtual #147                // Method jetbrains/buildServer/plugins/PluginsLookupCollector.toPluginsCollection:(Ljava/util/Collection;Ljava/util/Collection;Z)Ljetbrains/buildServer/plugins/PluginsCollection;
+        21: astore_3
+        22: new           #498                // class java/util/concurrent/atomic/AtomicBoolean
+        25: dup
+        26: invokespecial #500                // Method java/util/concurrent/atomic/AtomicBoolean."<init>":()V
+        29: astore        4
+        31: aload_3
+        32: aload_0
+        33: aload         4
+        35: aload_2
+        36: invokedynamic #501,  0            // InvokeDynamic #9:visitPlugin:(Ljetbrains/buildServer/plugins/PluginManagerImpl;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/function/Function;)Ljetbrains/buildServer/plugins/ProcessPlugins;
+        41: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        44: return
+      LineNumberTable:
+        line 354: 0
+        line 355: 9
+        line 356: 22
+        line 357: 31
+        line 367: 44
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      45     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      45     1 pluginsToLoad   Ljava/util/Collection;
+            0      45     2 shouldStop   Ljava/util/function/Function;
+           22      23     3 pluginsCollection   Ljetbrains/buildServer/plugins/PluginsCollection;
+           31      14     4  stop   Ljava/util/concurrent/atomic/AtomicBoolean;
+
+  public void loadPlugins();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokevirtual #505                // Method logSeparator:()V
+         4: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+         7: ldc_w         #511                // String Plugins initialization started...
+        10: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        13: aload_0
+        14: invokevirtual #513                // Method lookupPlugins:()Ljetbrains/buildServer/plugins/PluginsCollection;
+        17: astore_1
+        18: aload_0
+        19: aload_1
+        20: invokevirtual #517                // Method logFoundPlugins:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        23: aload_0
+        24: aload_1
+        25: invokevirtual #194                // Method doLoadPluginsCollection:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        28: aload_0
+        29: aload_1
+        30: invokevirtual #520                // Method setDetectedPluginInfos:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        33: aload_0
+        34: aload_1
+        35: invokevirtual #523                // Method setNotLoadedPlugins:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        38: aload_0
+        39: invokevirtual #505                // Method logSeparator:()V
+        42: return
+      LineNumberTable:
+        line 371: 0
+        line 372: 4
+        line 374: 13
+        line 376: 18
+        line 378: 23
+        line 380: 28
+        line 382: 33
+        line 384: 38
+        line 385: 42
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      43     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+           18      25     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  private jetbrains.buildServer.plugins.PluginsCollection lookupPlugins();
+    descriptor: ()Ljetbrains/buildServer/plugins/PluginsCollection;
+    Code:
+         0: aload_0
+         1: aload_0
+         2: getfield      #57                 // Field myCollector:Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+         5: invokevirtual #526                // Method lookupPlugins:(Ljetbrains/buildServer/plugins/loaders/PluginInfosBuilder;)V
+         8: aload_0
+         9: getfield      #57                 // Field myCollector:Ljetbrains/buildServer/plugins/PluginsLookupCollector;
+        12: invokevirtual #529                // Method jetbrains/buildServer/plugins/PluginsLookupCollector.toPluginsCollection:()Ljetbrains/buildServer/plugins/PluginsCollection;
+        15: dup
+        16: ifnonnull     24
+        19: bipush        19
+        21: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        24: areturn
+      LineNumberTable:
+        line 389: 0
+        line 390: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      25     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  protected void doLoadPluginsCollection(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: new           #531                // class jetbrains/buildServer/plugins/PluginManagerImpl$2
+         4: dup
+         5: aload_0
+         6: invokespecial #533                // Method jetbrains/buildServer/plugins/PluginManagerImpl$2."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;)V
+         9: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        12: aload_0
+        13: aload_1
+        14: invokevirtual #536                // Method firePluginInfoLoaded:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        17: aload_0
+        18: aload_1
+        19: invokevirtual #539                // Method fireNotLoadedPluginInfo:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        22: aload_0
+        23: aload_1
+        24: invokevirtual #542                // Method loadPluginsClasses:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        27: aload_0
+        28: aload_1
+        29: invokevirtual #545                // Method logPluginsWithoutClassloaders:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        32: aload_0
+        33: aload_1
+        34: invokevirtual #548                // Method firePluginClassesLoaded:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        37: aload_1
+        38: new           #551                // class jetbrains/buildServer/plugins/PluginManagerImpl$3
+        41: dup
+        42: aload_0
+        43: invokespecial #553                // Method jetbrains/buildServer/plugins/PluginManagerImpl$3."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;)V
+        46: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        49: aload_0
+        50: aload_1
+        51: invokevirtual #554                // Method logLoadedPlugins:(Ljetbrains/buildServer/plugins/PluginsCollection;)V
+        54: return
+      LineNumberTable:
+        line 394: 0
+        line 402: 12
+        line 403: 17
+        line 405: 22
+        line 407: 27
+        line 410: 32
+        line 412: 37
+        line 423: 49
+        line 424: 54
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      55     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      55     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  private void fireNotLoadedPluginInfo(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: invokevirtual #151                // Method jetbrains/buildServer/plugins/PluginsCollection.getNotLoadedPlugins:()Ljava/util/List;
+         4: aload_0
+         5: invokedynamic #557,  0            // InvokeDynamic #10:accept:(Ljetbrains/buildServer/plugins/PluginManagerImpl;)Ljava/util/function/Consumer;
+        10: invokeinterface #561,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+        15: return
+      LineNumberTable:
+        line 427: 0
+        line 428: 15
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      16     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  public java.util.Collection<jetbrains.buildServer.plugins.bean.PluginInfo> getDetectedPlugins();
+    descriptor: ()Ljava/util/Collection;
+    Code:
+         0: aload_0
+         1: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+         4: invokevirtual #260                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.getPluginsState:()Ljetbrains/buildServer/plugins/PluginsState;
+         7: invokeinterface #565,  1          // InterfaceMethod jetbrains/buildServer/plugins/PluginsState.getLoadedPlugins:()Ljava/util/Collection;
+        12: dup
+        13: ifnonnull     21
+        16: bipush        20
+        18: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        21: areturn
+      LineNumberTable:
+        line 433: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      22     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  public java.util.Collection<jetbrains.buildServer.plugins.NotLoadedPlugin> getNotLoadedPlugins();
+    descriptor: ()Ljava/util/Collection;
+    Code:
+         0: aload_0
+         1: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+         4: invokevirtual #260                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.getPluginsState:()Ljetbrains/buildServer/plugins/PluginsState;
+         7: invokeinterface #568,  1          // InterfaceMethod jetbrains/buildServer/plugins/PluginsState.getNotLoadedPlugins:()Ljava/util/Collection;
+        12: dup
+        13: ifnonnull     21
+        16: bipush        21
+        18: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+        21: areturn
+      LineNumberTable:
+        line 439: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      22     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  private void logSeparator();
+    descriptor: ()V
+    Code:
+         0: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+         3: ldc_w         #570                // String ===========================================================
+         6: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+         9: return
+      LineNumberTable:
+        line 443: 0
+        line 444: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+
+  private void loadPluginsClasses(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: aload_0
+         2: getfield      #32                 // Field myStandaloneClassloaderFactory:Ljetbrains/buildServer/plugins/classLoaders/StandaloneClassloaderFactory;
+         5: aload_0
+         6: getfield      #36                 // Field mySharedClassloaderFactory:Ljetbrains/buildServer/plugins/classLoaders/SharedClassloaderFactory;
+         9: invokevirtual #572                // Method jetbrains/buildServer/plugins/PluginsCollection.createClassloaders:(Ljetbrains/buildServer/plugins/classLoaders/StandaloneClassloaderFactory;Ljetbrains/buildServer/plugins/classLoaders/SharedClassloaderFactory;)V
+        12: return
+      LineNumberTable:
+        line 447: 0
+        line 448: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      13     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      13     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  private void lookupPlugins(jetbrains.buildServer.plugins.loaders.PluginInfosBuilder);
+    descriptor: (Ljetbrains/buildServer/plugins/loaders/PluginInfosBuilder;)V
+    Code:
+         0: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+         3: ldc_w         #576                // String Scanning plugins folders
+         6: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+         9: aload_0
+        10: getfield      #40                 // Field myLookup:Ljetbrains/buildServer/plugins/files/PluginFileSystemLookup;
+        13: aload_1
+        14: invokeinterface #578,  2          // InterfaceMethod jetbrains/buildServer/plugins/files/PluginFileSystemLookup.loadPluginsFrom:(Ljetbrains/buildServer/plugins/loaders/PluginInfosBuilder;)V
+        19: return
+      LineNumberTable:
+        line 451: 0
+        line 452: 9
+        line 453: 19
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      20     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      20     1 plugins   Ljetbrains/buildServer/plugins/loaders/PluginInfosBuilder;
+
+  private void logPluginsWithoutClassloaders(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: new           #581                // class jetbrains/buildServer/plugins/PluginManagerImpl$4
+         4: dup
+         5: aload_0
+         6: invokespecial #583                // Method jetbrains/buildServer/plugins/PluginManagerImpl$4."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;)V
+         9: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        12: return
+      LineNumberTable:
+        line 456: 0
+        line 464: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      13     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      13     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  private void firePluginClassesLoaded(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: new           #584                // class jetbrains/buildServer/plugins/PluginManagerImpl$5
+         4: dup
+         5: aload_0
+         6: invokespecial #586                // Method jetbrains/buildServer/plugins/PluginManagerImpl$5."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;)V
+         9: ldc_w         #587                // String teamcity.pluginsManager.initPlugins.threadsNum
+        12: iconst_3
+        13: invokestatic  #589                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getInteger:(Ljava/lang/String;I)I
+        16: invokevirtual #593                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachLoadedPluginsAsync:(Ljetbrains/buildServer/plugins/ProcessPlugins;I)V
+        19: return
+      LineNumberTable:
+        line 467: 0
+        line 472: 13
+        line 467: 16
+        line 473: 19
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      20     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      20     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  private void firePluginInfoLoaded(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: new           #597                // class jetbrains/buildServer/plugins/PluginManagerImpl$6
+         4: dup
+         5: aload_0
+         6: invokespecial #599                // Method jetbrains/buildServer/plugins/PluginManagerImpl$6."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;)V
+         9: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        12: return
+      LineNumberTable:
+        line 476: 0
+        line 482: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      13     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      13     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+
+  private void logFoundPlugins(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: new           #600                // class java/util/TreeSet
+         3: dup
+         4: new           #602                // class jetbrains/buildServer/util/CaseInsensitiveStringComparator
+         7: dup
+         8: invokespecial #604                // Method jetbrains/buildServer/util/CaseInsensitiveStringComparator."<init>":()V
+        11: invokespecial #605                // Method java/util/TreeSet."<init>":(Ljava/util/Comparator;)V
+        14: astore_2
+        15: new           #600                // class java/util/TreeSet
+        18: dup
+        19: new           #602                // class jetbrains/buildServer/util/CaseInsensitiveStringComparator
+        22: dup
+        23: invokespecial #604                // Method jetbrains/buildServer/util/CaseInsensitiveStringComparator."<init>":()V
+        26: invokespecial #605                // Method java/util/TreeSet."<init>":(Ljava/util/Comparator;)V
+        29: astore_3
+        30: aload_1
+        31: new           #608                // class jetbrains/buildServer/plugins/PluginManagerImpl$7
+        34: dup
+        35: aload_0
+        36: aload_2
+        37: aload_3
+        38: invokespecial #610                // Method jetbrains/buildServer/plugins/PluginManagerImpl$7."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;Ljava/util/Set;Ljava/util/Set;)V
+        41: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        44: aload_3
+        45: invokeinterface #613,  1          // InterfaceMethod java/util/Set.isEmpty:()Z
+        50: ifne          74
+        53: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        56: aload_3
+        57: invokeinterface #616,  1          // InterfaceMethod java/util/Set.size:()I
+        62: aload_3
+        63: invokestatic  #620                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        66: invokedynamic #624,  0            // InvokeDynamic #11:makeConcatWithConstants:(ILjava/lang/String;)Ljava/lang/String;
+        71: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        74: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        77: aload_2
+        78: invokeinterface #616,  1          // InterfaceMethod java/util/Set.size:()I
+        83: aload_2
+        84: invokestatic  #620                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        87: invokedynamic #627,  0            // InvokeDynamic #12:makeConcatWithConstants:(ILjava/lang/String;)Ljava/lang/String;
+        92: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        95: return
+      LineNumberTable:
+        line 485: 0
+        line 486: 15
+        line 487: 30
+        line 497: 44
+        line 498: 53
+        line 500: 74
+        line 501: 95
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      96     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      96     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+           15      81     2 bundledPlugins   Ljava/util/Set;
+           30      66     3 otherPlugins   Ljava/util/Set;
+
+  public static boolean isBundled(jetbrains.buildServer.plugins.PluginData);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginData;)Z
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        22
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        13: invokeinterface #628,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginVersion:()Ljava/lang/String;
+        18: astore_1
+        19: getstatic     #408                // Field jetbrains/buildServer/DevelopmentMode.isEnabled:Z
+        22: ifeq          37
+        25: ldc_w         #631                // String @Plugin_Version@
+        28: aload_1
+        29: invokevirtual #308                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        32: ifeq          37
+        35: iconst_1
+        36: ireturn
+        37: invokestatic  #633                // Method jetbrains/buildServer/version/ServerVersionHolder.getVersion:()Ljetbrains/buildServer/version/ServerVersionInfo;
+        40: invokevirtual #639                // Method jetbrains/buildServer/version/ServerVersionInfo.getBuildNumber:()Ljava/lang/String;
+        43: aload_1
+        44: invokevirtual #308                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        47: ireturn
+      LineNumberTable:
+        line 505: 9
+        line 506: 19
+        line 508: 37
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      48     0 plugin   Ljetbrains/buildServer/plugins/PluginData;
+           19      29     1 pluginVersion   Ljava/lang/String;
+
+  private void logLoadedPlugins(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: new           #600                // class java/util/TreeSet
+         3: dup
+         4: new           #602                // class jetbrains/buildServer/util/CaseInsensitiveStringComparator
+         7: dup
+         8: invokespecial #604                // Method jetbrains/buildServer/util/CaseInsensitiveStringComparator."<init>":()V
+        11: invokespecial #605                // Method java/util/TreeSet."<init>":(Ljava/util/Comparator;)V
+        14: astore_2
+        15: aload_1
+        16: new           #644                // class jetbrains/buildServer/plugins/PluginManagerImpl$8
+        19: dup
+        20: aload_0
+        21: aload_2
+        22: invokespecial #646                // Method jetbrains/buildServer/plugins/PluginManagerImpl$8."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;Ljava/util/Set;)V
+        25: invokevirtual #649                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachLoadedPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        28: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        31: aload_2
+        32: invokeinterface #616,  1          // InterfaceMethod java/util/Set.size:()I
+        37: aload_2
+        38: invokestatic  #620                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        41: invokedynamic #652,  0            // InvokeDynamic #13:makeConcatWithConstants:(ILjava/lang/String;)Ljava/lang/String;
+        46: invokevirtual #467                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        49: return
+      LineNumberTable:
+        line 512: 0
+        line 513: 15
+        line 519: 28
+        line 520: 49
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      50     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      50     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+           15      35     2 pluginNames   Ljava/util/Set;
+
+  private java.lang.String getPluginCaption(jetbrains.buildServer.plugins.PluginData);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginData;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        23
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        13: invokeinterface #628,  1          // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginVersion:()Ljava/lang/String;
+        18: astore_2
+        19: aload_1
+        20: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        23: invokeinterface #69,  1           // InterfaceMethod jetbrains/buildServer/plugins/bean/PluginInfo.getPluginName:()Ljava/lang/String;
+        28: aload_2
+        29: ifnull        41
+        32: aload_2
+        33: invokedynamic #653,  0            // InvokeDynamic #14:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        38: goto          44
+        41: ldc_w         #654                // String
+        44: invokedynamic #656,  0            // InvokeDynamic #15:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        49: areturn
+      LineNumberTable:
+        line 523: 9
+        line 524: 19
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      50     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      50     1 plugin   Ljetbrains/buildServer/plugins/PluginData;
+           19      31     2 version   Ljava/lang/String;
+
+  private void setDetectedPluginInfos(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: new           #82                 // class java/util/ArrayList
+         3: dup
+         4: invokespecial #84                 // Method java/util/ArrayList."<init>":()V
+         7: astore_2
+         8: aload_1
+         9: new           #657                // class jetbrains/buildServer/plugins/PluginManagerImpl$9
+        12: dup
+        13: aload_0
+        14: aload_2
+        15: invokespecial #659                // Method jetbrains/buildServer/plugins/PluginManagerImpl$9."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;Ljava/util/List;)V
+        18: invokevirtual #254                // Method jetbrains/buildServer/plugins/PluginsCollection.foreachPlugins:(Ljetbrains/buildServer/plugins/ProcessPlugins;)V
+        21: aload_2
+        22: new           #662                // class jetbrains/buildServer/plugins/PluginManagerImpl$10
+        25: dup
+        26: aload_0
+        27: invokespecial #664                // Method jetbrains/buildServer/plugins/PluginManagerImpl$10."<init>":(Ljetbrains/buildServer/plugins/PluginManagerImpl;)V
+        30: invokestatic  #665                // Method java/util/Collections.sort:(Ljava/util/List;Ljava/util/Comparator;)V
+        33: aload_0
+        34: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+        37: aload_2
+        38: invokevirtual #669                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.setLoadedPlugins:(Ljava/util/List;)V
+        41: return
+      LineNumberTable:
+        line 528: 0
+        line 529: 8
+        line 536: 21
+        line 545: 33
+        line 546: 41
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      42     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      42     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+            8      34     2  list   Ljava/util/List;
+
+  private void setNotLoadedPlugins(jetbrains.buildServer.plugins.PluginsCollection);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginsCollection;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        24
+         6: invokestatic  #923                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: invokevirtual #151                // Method jetbrains/buildServer/plugins/PluginsCollection.getNotLoadedPlugins:()Ljava/util/List;
+        13: astore_2
+        14: aload_0
+        15: getfield      #44                 // Field myPluginsStateProvider:Ljetbrains/buildServer/plugins/impl/PluginsStateProviderImpl;
+        18: aload_2
+        19: invokevirtual #673                // Method jetbrains/buildServer/plugins/impl/PluginsStateProviderImpl.setNotLoadedPlugins:(Ljava/util/List;)V
+        22: return
+      LineNumberTable:
+        line 549: 9
+        line 550: 14
+        line 551: 22
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      23     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      23     1 plugins   Ljetbrains/buildServer/plugins/PluginsCollection;
+           14       9     2 disabled   Ljava/util/List;
+
+  private void lambda$fireNotLoadedPluginInfo$2(jetbrains.buildServer.plugins.NotLoadedPlugin);
+    descriptor: (Ljetbrains/buildServer/plugins/NotLoadedPlugin;)V
+    Code:
+         0: aload_0
+         1: getfield      #15                 // Field myPluginInfoLoadedListeners:Ljetbrains/buildServer/util/EventDispatcher;
+         4: invokevirtual #486                // Method jetbrains/buildServer/util/EventDispatcher.getMulticaster:()Ljava/util/EventListener;
+         7: checkcast     #7                  // class jetbrains/buildServer/plugins/PluginInfoLoadedListener
+        10: aload_1
+        11: invokevirtual #270                // Method jetbrains/buildServer/plugins/NotLoadedPlugin.getPlugin:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        14: invokeinterface #675,  2          // InterfaceMethod jetbrains/buildServer/plugins/PluginInfoLoadedListener.notLoadedPluginFound:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+        19: return
+      LineNumberTable:
+        line 427: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      20     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      20     1    it   Ljetbrains/buildServer/plugins/NotLoadedPlugin;
+
+  private void lambda$loadPlugins$1(java.util.concurrent.atomic.AtomicBoolean, java.util.function.Function, jetbrains.buildServer.plugins.PluginData);
+    descriptor: (Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/function/Function;Ljetbrains/buildServer/plugins/PluginData;)V
+    Code:
+         0: aload_1
+         1: invokevirtual #678                // Method java/util/concurrent/atomic/AtomicBoolean.get:()Z
+         4: ifeq          8
+         7: return
+         8: aload_3
+         9: invokevirtual #119                // Method jetbrains/buildServer/plugins/PluginData.getPluginInfo:()Ljetbrains/buildServer/plugins/bean/PluginInfo;
+        12: astore        4
+        14: aload_0
+        15: aload         4
+        17: invokevirtual #680                // Method loadPlugin:(Ljetbrains/buildServer/plugins/bean/PluginInfo;)V
+        20: goto          61
+        23: astore        5
+        25: getstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        28: aload         4
+        30: invokestatic  #620                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        33: invokedynamic #683,  0            // InvokeDynamic #16:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        38: aload         5
+        40: invokevirtual #684                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        43: aload_1
+        44: aload_2
+        45: aload         5
+        47: invokeinterface #688,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+        52: checkcast     #693                // class java/lang/Boolean
+        55: invokevirtual #695                // Method java/lang/Boolean.booleanValue:()Z
+        58: invokevirtual #698                // Method java/util/concurrent/atomic/AtomicBoolean.set:(Z)V
+        61: return
+      Exception table:
+         from    to  target type
+            14    20    23   Class jetbrains/buildServer/plugins/exceptions/LoadPluginException
+      LineNumberTable:
+        line 358: 0
+        line 359: 8
+        line 361: 14
+        line 365: 20
+        line 362: 23
+        line 363: 25
+        line 364: 43
+        line 366: 61
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           25      36     5     e   Ljetbrains/buildServer/plugins/exceptions/LoadPluginException;
+            0      62     0  this   Ljetbrains/buildServer/plugins/PluginManagerImpl;
+            0      62     1  stop   Ljava/util/concurrent/atomic/AtomicBoolean;
+            0      62     2 shouldStop   Ljava/util/function/Function;
+            0      62     3 plugin   Ljetbrains/buildServer/plugins/PluginData;
+           14      48     4 pluginInfo   Ljetbrains/buildServer/plugins/bean/PluginInfo;
+
+  private static java.lang.Boolean lambda$loadPlugins$0(jetbrains.buildServer.plugins.exceptions.LoadPluginException);
+    descriptor: (Ljetbrains/buildServer/plugins/exceptions/LoadPluginException;)Ljava/lang/Boolean;
+    Code:
+         0: iconst_0
+         1: invokestatic  #701                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+         4: areturn
+      LineNumberTable:
+        line 349: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0    ex   Ljetbrains/buildServer/plugins/exceptions/LoadPluginException;
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #16                 // class jetbrains/buildServer/plugins/PluginManagerImpl
+         2: invokevirtual #704                // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: invokestatic  #707                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+         8: putstatic     #508                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        11: return
+      LineNumberTable:
+        line 46: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 24
+                       0: 116
+                       1: 116
+                       2: 116
+                       3: 116
+                       4: 116
+                       5: 116
+                       6: 116
+                       7: 116
+                       8: 116
+                       9: 116
+                      10: 116
+                      11: 116
+                      12: 116
+                      13: 116
+                      14: 116
+                      15: 116
+                      16: 122
+                      17: 116
+                      18: 116
+                      19: 122
+                      20: 122
+                      21: 122
+                      22: 116
+                      23: 116
+                      24: 116
+                 default: 116
+            }
+       116: ldc_w         #925                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+       119: goto          128
+       122: ldc_w         #927                // String @NotNull method %s.%s must not return null
+       125: goto          128
+       128: iload_0
+       129: tableswitch   { // 0 to 24
+                       0: 244
+                       1: 244
+                       2: 244
+                       3: 244
+                       4: 244
+                       5: 244
+                       6: 244
+                       7: 244
+                       8: 244
+                       9: 244
+                      10: 244
+                      11: 244
+                      12: 244
+                      13: 244
+                      14: 244
+                      15: 244
+                      16: 248
+                      17: 244
+                      18: 244
+                      19: 248
+                      20: 248
+                      21: 248
+                      22: 244
+                      23: 244
+                      24: 244
+                 default: 244
+            }
+       244: iconst_3
+       245: goto          252
+       248: iconst_2
+       249: goto          252
+       252: anewarray     #2                  // class java/lang/Object
+       255: iload_0
+       256: tableswitch   { // 0 to 24
+                       0: 372
+                       1: 381
+                       2: 390
+                       3: 399
+                       4: 408
+                       5: 417
+                       6: 426
+                       7: 435
+                       8: 444
+                       9: 435
+                      10: 435
+                      11: 435
+                      12: 453
+                      13: 462
+                      14: 462
+                      15: 399
+                      16: 471
+                      17: 480
+                      18: 480
+                      19: 471
+                      20: 471
+                      21: 471
+                      22: 489
+                      23: 489
+                      24: 498
+                 default: 372
+            }
+       372: dup
+       373: iconst_0
+       374: ldc_w         #928                // String standaloneClassloaderFactory
+       377: aastore
+       378: goto          507
+       381: dup
+       382: iconst_0
+       383: ldc_w         #929                // String sharedClassloaderFactory
+       386: aastore
+       387: goto          507
+       390: dup
+       391: iconst_0
+       392: ldc_w         #930                // String versionComparator
+       395: aastore
+       396: goto          507
+       399: dup
+       400: iconst_0
+       401: ldc_w         #931                // String lookup
+       404: aastore
+       405: goto          507
+       408: dup
+       409: iconst_0
+       410: ldc_w         #932                // String pluginDisabledInfoProvider
+       413: aastore
+       414: goto          507
+       417: dup
+       418: iconst_0
+       419: ldc_w         #933                // String pluginsStateProvider
+       422: aastore
+       423: goto          507
+       426: dup
+       427: iconst_0
+       428: ldc_w         #934                // String reloadablePlugins
+       431: aastore
+       432: goto          507
+       435: dup
+       436: iconst_0
+       437: ldc_w         #935                // String pluginInfo
+       440: aastore
+       441: goto          507
+       444: dup
+       445: iconst_0
+       446: ldc_w         #936                // String pluginsCollection
+       449: aastore
+       450: goto          507
+       453: dup
+       454: iconst_0
+       455: ldc_w         #937                // String springContext
+       458: aastore
+       459: goto          507
+       462: dup
+       463: iconst_0
+       464: ldc_w         #938                // String pluginData
+       467: aastore
+       468: goto          507
+       471: dup
+       472: iconst_0
+       473: ldc_w         #939                // String jetbrains/buildServer/plugins/PluginManagerImpl
+       476: aastore
+       477: goto          507
+       480: dup
+       481: iconst_0
+       482: ldc_w         #940                // String listener
+       485: aastore
+       486: goto          507
+       489: dup
+       490: iconst_0
+       491: ldc_w         #941                // String plugin
+       494: aastore
+       495: goto          507
+       498: dup
+       499: iconst_0
+       500: ldc_w         #942                // String plugins
+       503: aastore
+       504: goto          507
+       507: iload_0
+       508: tableswitch   { // 0 to 24
+                       0: 624
+                       1: 624
+                       2: 624
+                       3: 624
+                       4: 624
+                       5: 624
+                       6: 624
+                       7: 624
+                       8: 624
+                       9: 624
+                      10: 624
+                      11: 624
+                      12: 624
+                      13: 624
+                      14: 624
+                      15: 624
+                      16: 633
+                      17: 624
+                      18: 624
+                      19: 642
+                      20: 651
+                      21: 660
+                      22: 624
+                      23: 624
+                      24: 624
+                 default: 624
+            }
+       624: dup
+       625: iconst_1
+       626: ldc_w         #939                // String jetbrains/buildServer/plugins/PluginManagerImpl
+       629: aastore
+       630: goto          669
+       633: dup
+       634: iconst_1
+       635: ldc_w         #943                // String getLookup
+       638: aastore
+       639: goto          669
+       642: dup
+       643: iconst_1
+       644: ldc_w         #944                // String lookupPlugins
+       647: aastore
+       648: goto          669
+       651: dup
+       652: iconst_1
+       653: ldc_w         #945                // String getDetectedPlugins
+       656: aastore
+       657: goto          669
+       660: dup
+       661: iconst_1
+       662: ldc_w         #946                // String getNotLoadedPlugins
+       665: aastore
+       666: goto          669
+       669: iload_0
+       670: tableswitch   { // 0 to 24
+                       0: 784
+                       1: 784
+                       2: 784
+                       3: 784
+                       4: 784
+                       5: 784
+                       6: 784
+                       7: 793
+                       8: 802
+                       9: 802
+                      10: 811
+                      11: 820
+                      12: 829
+                      13: 838
+                      14: 847
+                      15: 856
+                      16: 865
+                      17: 868
+                      18: 877
+                      19: 865
+                      20: 865
+                      21: 865
+                      22: 886
+                      23: 895
+                      24: 904
+                 default: 784
+            }
+       784: dup
+       785: iconst_2
+       786: ldc_w         #947                // String <init>
+       789: aastore
+       790: goto          913
+       793: dup
+       794: iconst_2
+       795: ldc_w         #948                // String loadPlugin
+       798: aastore
+       799: goto          913
+       802: dup
+       803: iconst_2
+       804: ldc_w         #949                // String findPluginData
+       807: aastore
+       808: goto          913
+       811: dup
+       812: iconst_2
+       813: ldc_w         #950                // String updateOtherVersionNotLoadedPlugins
+       816: aastore
+       817: goto          913
+       820: dup
+       821: iconst_2
+       822: ldc_w         #951                // String unloadPlugin
+       825: aastore
+       826: goto          913
+       829: dup
+       830: iconst_2
+       831: ldc_w         #952                // String fireBeforePluginUnloaded
+       834: aastore
+       835: goto          913
+       838: dup
+       839: iconst_2
+       840: ldc_w         #953                // String doUnloadPlugin
+       843: aastore
+       844: goto          913
+       847: dup
+       848: iconst_2
+       849: ldc_w         #954                // String disposeSpringContext
+       852: aastore
+       853: goto          913
+       856: dup
+       857: iconst_2
+       858: ldc_w         #955                // String setLookup
+       861: aastore
+       862: goto          913
+       865: goto          913
+       868: dup
+       869: iconst_2
+       870: ldc_w         #956                // String addPluginInfoLoadedListener
+       873: aastore
+       874: goto          913
+       877: dup
+       878: iconst_2
+       879: ldc_w         #957                // String addPluginClassesLoadedListener
+       882: aastore
+       883: goto          913
+       886: dup
+       887: iconst_2
+       888: ldc_w         #958                // String isBundled
+       891: aastore
+       892: goto          913
+       895: dup
+       896: iconst_2
+       897: ldc_w         #959                // String getPluginCaption
+       900: aastore
+       901: goto          913
+       904: dup
+       905: iconst_2
+       906: ldc_w         #960                // String setNotLoadedPlugins
+       909: aastore
+       910: goto          913
+       913: invokestatic  #964                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       916: iload_0
+       917: tableswitch   { // 0 to 24
+                       0: 1032
+                       1: 1032
+                       2: 1032
+                       3: 1032
+                       4: 1032
+                       5: 1032
+                       6: 1032
+                       7: 1032
+                       8: 1032
+                       9: 1032
+                      10: 1032
+                      11: 1032
+                      12: 1032
+                      13: 1032
+                      14: 1032
+                      15: 1032
+                      16: 1043
+                      17: 1032
+                      18: 1032
+                      19: 1043
+                      20: 1043
+                      21: 1043
+                      22: 1032
+                      23: 1032
+                      24: 1032
+                 default: 1032
+            }
+      1032: new           #966                // class java/lang/IllegalArgumentException
+      1035: dup_x1
+      1036: swap
+      1037: invokespecial #967                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      1040: goto          1054
+      1043: new           #969                // class java/lang/IllegalStateException
+      1046: dup_x1
+      1047: swap
+      1048: invokespecial #970                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      1051: goto          1054
+      1054: athrow
+}

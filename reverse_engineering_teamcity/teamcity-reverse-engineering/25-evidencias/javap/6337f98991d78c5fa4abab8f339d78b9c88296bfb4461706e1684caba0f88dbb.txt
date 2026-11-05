@@ -1,0 +1,1565 @@
+Compiled from "WaitApprovalBuildPrecondition.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.WaitApprovalBuildPrecondition implements jetbrains.buildServer.serverSide.buildDistribution.StartBuildPrecondition,jetbrains.buildServer.util.positioning.PositionAware {
+  public static final java.lang.String ORDER_ID;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.notification.NotificationProcessor myNotificationProcessor;
+    descriptor: Ljetbrains/buildServer/notification/NotificationProcessor;
+
+  private final jetbrains.buildServer.serverSide.impl.approval.ApprovableBuildManager myApprovableBuildManager;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+
+  private final jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsManager myUntrustedBuildsManager;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+
+  private final jetbrains.buildServer.serverSide.ProjectManager myProjectManager;
+    descriptor: Ljetbrains/buildServer/serverSide/ProjectManager;
+
+  private final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final java.util.Map<java.lang.Long, java.lang.Boolean> myWaitingForChangesCollectionPromotions;
+    descriptor: Ljava/util/Map;
+
+  private final java.util.Map<java.lang.Long, java.lang.Boolean> myProcessedGroupTops;
+    descriptor: Ljava/util/Map;
+
+  private final java.util.Map<java.lang.Long, java.lang.Boolean> myNotificationNotSentPromotions;
+    descriptor: Ljava/util/Map;
+
+  private final com.google.common.util.concurrent.Striped<java.util.concurrent.locks.Lock> myLocks;
+    descriptor: Lcom/google/common/util/concurrent/Striped;
+
+  private final java.util.concurrent.ExecutorService myExecutorService;
+    descriptor: Ljava/util/concurrent/ExecutorService;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.WaitApprovalBuildPrecondition(jetbrains.buildServer.notification.NotificationProcessor, jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.serverSide.BuildServerListener>, jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsManager, jetbrains.buildServer.serverSide.impl.approval.ApprovableBuildManager, jetbrains.buildServer.serverSide.ProjectManager, jetbrains.buildServer.serverSide.executors.ExecutorServices);
+    descriptor: (Ljetbrains/buildServer/notification/NotificationProcessor;Ljetbrains/buildServer/util/EventDispatcher;Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;Ljetbrains/buildServer/serverSide/ProjectManager;Ljetbrains/buildServer/serverSide/executors/ExecutorServices;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        33: aload         5
+        35: ifnonnull     42
+        38: iconst_4
+        39: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        42: aload         6
+        44: ifnonnull     51
+        47: iconst_5
+        48: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        51: aload_0
+        52: invokespecial #606                // Method java/lang/Object."<init>":()V
+        55: aload_0
+        56: aload_0
+        57: invokevirtual #133                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        60: invokevirtual #654                // Method java/lang/Class.getName:()Ljava/lang/String;
+        63: invokestatic  #139                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+        66: putfield      #299                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        69: aload_0
+        70: sipush        1000
+        73: invokestatic  #570                // Method com/google/common/util/concurrent/Striped.lock:(I)Lcom/google/common/util/concurrent/Striped;
+        76: putfield      #517                // Field myLocks:Lcom/google/common/util/concurrent/Striped;
+        79: aload_0
+        80: aload         5
+        82: putfield      #115                // Field myProjectManager:Ljetbrains/buildServer/serverSide/ProjectManager;
+        85: aload_0
+        86: aload_1
+        87: putfield      #614                // Field myNotificationProcessor:Ljetbrains/buildServer/notification/NotificationProcessor;
+        90: aload_0
+        91: aload         4
+        93: putfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        96: aload_0
+        97: aload_3
+        98: putfield      #387                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+       101: aload_0
+       102: aload         6
+       104: invokeinterface #422,  1          // InterfaceMethod jetbrains/buildServer/serverSide/executors/ExecutorServices.getLowPriorityExecutorService:()Ljava/util/concurrent/ExecutorService;
+       109: putfield      #579                // Field myExecutorService:Ljava/util/concurrent/ExecutorService;
+       112: aload_0
+       113: new           #435                // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$1
+       116: dup
+       117: aload_0
+       118: sipush        1000
+       121: invokespecial #533                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$1."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;I)V
+       124: invokestatic  #171                // Method java/util/Collections.synchronizedMap:(Ljava/util/Map;)Ljava/util/Map;
+       127: putfield      #122                // Field myWaitingForChangesCollectionPromotions:Ljava/util/Map;
+       130: aload_0
+       131: new           #346                // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$2
+       134: dup
+       135: aload_0
+       136: sipush        1000
+       139: invokespecial #596                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$2."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;I)V
+       142: invokestatic  #171                // Method java/util/Collections.synchronizedMap:(Ljava/util/Map;)Ljava/util/Map;
+       145: putfield      #99                 // Field myProcessedGroupTops:Ljava/util/Map;
+       148: aload_0
+       149: new           #282                // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$3
+       152: dup
+       153: aload_0
+       154: sipush        1000
+       157: invokespecial #175                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$3."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;I)V
+       160: invokestatic  #171                // Method java/util/Collections.synchronizedMap:(Ljava/util/Map;)Ljava/util/Map;
+       163: putfield      #85                 // Field myNotificationNotSentPromotions:Ljava/util/Map;
+       166: aload_2
+       167: new           #283                // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$4
+       170: dup
+       171: aload_0
+       172: invokespecial #661                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition$4."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;)V
+       175: invokevirtual #294                // Method jetbrains/buildServer/util/EventDispatcher.addListener:(Ljava/util/EventListener;)V
+       178: return
+      LineNumberTable:
+        line 132: 51
+        line 75: 55
+        line 8: 69
+        line 136: 79
+        line 77: 85
+        line 115: 90
+        line 62: 96
+        line 139: 101
+        line 57: 112
+        line 87: 130
+        line 86: 148
+        line 99: 166
+        line 84: 178
+
+  private void submitSendNotificationTask(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_0
+         1: getfield      #579                // Field myExecutorService:Ljava/util/concurrent/ExecutorService;
+         4: aload_0
+         5: aload_1
+         6: invokedynamic #384,  0            // InvokeDynamic #0:run:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/Runnable;
+        11: invokeinterface #577,  2          // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+        16: pop
+        17: goto          26
+        20: astore_2
+        21: aload_0
+        22: aload_1
+        23: invokevirtual #210                // Method trySendNotificationForBuildChainThatRequiresApproval:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+        26: return
+      Exception table:
+         from    to  target type
+             0    17    20   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 127: 0
+        line 26: 17
+        line 85: 20
+        line 49: 21
+        line 148: 26
+
+  private jetbrains.buildServer.serverSide.impl.approval.ApprovalResult getApprovalStatusForBuildChain(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        6
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: new           #479                // class java/util/concurrent/atomic/AtomicReference
+        19: dup
+        20: aload_0
+        21: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        24: aload_1
+        25: invokevirtual #613                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.getApprovalStatus:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+        28: invokespecial #395                // Method java/util/concurrent/atomic/AtomicReference."<init>":(Ljava/lang/Object;)V
+        31: astore_2
+        32: new           #439                // class java/util/concurrent/atomic/AtomicBoolean
+        35: dup
+        36: iconst_0
+        37: invokespecial #258                // Method java/util/concurrent/atomic/AtomicBoolean."<init>":(Z)V
+        40: astore_3
+        41: aload_1
+        42: aload_0
+        43: aload_3
+        44: aload_2
+        45: invokedynamic #254,  0            // InvokeDynamic #1:consume:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;)Ljetbrains/buildServer/serverSide/DependencyConsumer;
+        50: invokeinterface #240,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.traverseDependencies:(Ljetbrains/buildServer/serverSide/DependencyConsumer;)V
+        55: aload_3
+        56: invokevirtual #521                // Method java/util/concurrent/atomic/AtomicBoolean.get:()Z
+        59: ifeq          68
+        62: aconst_null
+        63: areturn
+        64: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        67: athrow
+        68: aload_2
+        69: invokevirtual #202                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+        72: checkcast     #659                // class jetbrains/buildServer/serverSide/impl/approval/ApprovalResult
+        75: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            41    64    64   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 22: 16
+        line 113: 32
+        line 159: 41
+        line 105: 55
+        line 158: 62
+        line 25: 68
+
+  private synchronized void trySendNotificationForBuildChainThatRequiresApproval(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        7
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_0
+        17: getfield      #99                 // Field myProcessedGroupTops:Ljava/util/Map;
+        20: aload_1
+        21: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        26: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+        29: invokeinterface #314,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+        34: ifeq          42
+        37: return
+        38: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        41: athrow
+        42: aload_0
+        43: aload_1
+        44: invokevirtual #156                // Method getApprovalStatusForBuildChain:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+        47: astore_2
+        48: aload_2
+        49: ifnull        66
+        52: aload_2
+        53: getstatic     #345                // Field jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.WITHOUT_APPROVAL:Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+        56: if_acmpne     71
+        59: goto          66
+        62: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        65: athrow
+        66: return
+        67: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        70: athrow
+        71: aload_2
+        72: invokevirtual #196                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.waiting:()Z
+        75: ifeq          178
+        78: aload_0
+        79: getfield      #517                // Field myLocks:Lcom/google/common/util/concurrent/Striped;
+        82: aload_1
+        83: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        88: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+        91: invokevirtual #338                // Method com/google/common/util/concurrent/Striped.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        94: checkcast     #381                // class java/util/concurrent/locks/Lock
+        97: astore_3
+        98: aload_3
+        99: invokeinterface #616,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+       104: aload_0
+       105: aload_1
+       106: invokevirtual #156                // Method getApprovalStatusForBuildChain:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+       109: astore_2
+       110: aload_2
+       111: ifnull        158
+       114: aload_2
+       115: invokevirtual #196                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.waiting:()Z
+       118: ifeq          158
+       121: goto          128
+       124: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       127: athrow
+       128: aload_0
+       129: getfield      #85                 // Field myNotificationNotSentPromotions:Ljava/util/Map;
+       132: aload_1
+       133: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+       138: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       141: iconst_1
+       142: invokestatic  #495                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       145: invokeinterface #658,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       150: pop
+       151: aload_3
+       152: invokeinterface #626,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+       157: return
+       158: aload_3
+       159: invokeinterface #626,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+       164: goto          178
+       167: astore        4
+       169: aload_3
+       170: invokeinterface #626,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+       175: aload         4
+       177: athrow
+       178: aload_2
+       179: ifnull        208
+       182: aload_2
+       183: invokevirtual #412                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.requiresApproval:()Z
+       186: ifeq          208
+       189: goto          196
+       192: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       195: athrow
+       196: aload_0
+       197: aload_1
+       198: invokevirtual #261                // Method sendNotificationForBuildchain:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+       201: goto          208
+       204: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       207: athrow
+       208: return
+      Exception table:
+         from    to  target type
+           110   121   124   Class java/util/concurrent/RejectedExecutionException
+            52    67    67   Class java/util/concurrent/RejectedExecutionException
+            48    59    62   Class java/util/concurrent/RejectedExecutionException
+            16    38    38   Class java/util/concurrent/RejectedExecutionException
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+           104   151   167   any
+           167   169   167   any
+           178   189   192   Class java/util/concurrent/RejectedExecutionException
+           182   201   204   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 1: 16
+        line 137: 37
+        line 37: 42
+        line 97: 48
+        line 10: 66
+        line 68: 71
+        line 15: 78
+        line 154: 98
+        line 36: 104
+        line 71: 110
+        line 19: 128
+        line 146: 151
+        line 116: 157
+        line 155: 158
+        line 11: 164
+        line 50: 167
+        line 5: 175
+        line 104: 178
+        line 70: 196
+        line 145: 208
+
+  private void sendNotificationForBuildchain(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        8
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_1
+        17: invokeinterface #599,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedBuild:()Ljetbrains/buildServer/serverSide/QueuedBuildEx;
+        22: astore_2
+        23: aload_2
+        24: ifnonnull     32
+        27: return
+        28: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        31: athrow
+        32: new           #336                // class jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain
+        35: dup
+        36: aload_1
+        37: aload_0
+        38: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        41: invokespecial #513                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain."<init>":(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;)V
+        44: astore_3
+        45: aload_3
+        46: invokevirtual #48                 // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain.getGroups:()Ljava/util/List;
+        49: aload_0
+        50: invokedynamic #545,  0            // InvokeDynamic #2:accept:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition;)Ljava/util/function/Consumer;
+        55: invokeinterface #328,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+        60: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            23    28    28   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 18: 16
+        line 60: 23
+        line 43: 27
+        line 110: 32
+        line 61: 45
+        line 134: 60
+
+  private boolean approveManuallyStartedBuildsIfNecessary(jetbrains.buildServer.serverSide.impl.untrustedBuilds.ApprovableBuildChain$ApprovalBuildGroupImpl);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        9
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_1
+        17: invokevirtual #348                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getUser:()Ljetbrains/buildServer/users/SUser;
+        20: astore_2
+        21: aload_2
+        22: ifnull        39
+        25: aload_1
+        26: invokevirtual #307                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.isTreatManualStartOfBuildAsApproval:()Z
+        29: ifne          45
+        32: goto          39
+        35: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        38: athrow
+        39: iconst_1
+        40: ireturn
+        41: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        44: athrow
+        45: aload_1
+        46: invokevirtual #477                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getApprovalRules:()Ljava/util/List;
+        49: invokeinterface #446,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+        54: aload_1
+        55: invokedynamic #256,  0            // InvokeDynamic #3:test:(Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;)Ljava/util/function/Predicate;
+        60: invokeinterface #646,  2          // InterfaceMethod java/util/stream/Stream.anyMatch:(Ljava/util/function/Predicate;)Z
+        65: ifeq          167
+        68: aload_1
+        69: invokevirtual #388                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getPromotions:()Ljava/util/List;
+        72: invokeinterface #231,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        77: astore_3
+        78: aload_3
+        79: invokeinterface #625,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        84: ifeq          134
+        87: aload_3
+        88: invokeinterface #444,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        93: checkcast     #553                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        96: astore        4
+        98: aload_0
+        99: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       102: aload         4
+       104: aload_2
+       105: invokevirtual #227                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.isApprovedByUser:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/users/SUser;)Ljava/lang/Boolean;
+       108: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+       111: ifne          131
+       114: aload_0
+       115: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       118: aload         4
+       120: aload_2
+       121: invokevirtual #543                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.addApprovedByUser:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/users/SUser;)V
+       124: goto          131
+       127: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       130: athrow
+       131: goto          78
+       134: aload_1
+       135: invokevirtual #477                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getApprovalRules:()Ljava/util/List;
+       138: invokeinterface #446,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       143: aload_1
+       144: invokedynamic #135,  0            // InvokeDynamic #4:test:(Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;)Ljava/util/function/Predicate;
+       149: invokeinterface #248,  2          // InterfaceMethod java/util/stream/Stream.allMatch:(Ljava/util/function/Predicate;)Z
+       154: ifne          165
+       157: iconst_1
+       158: goto          166
+       161: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       164: athrow
+       165: iconst_0
+       166: ireturn
+       167: iconst_1
+       168: ireturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            21    32    35   Class java/util/concurrent/RejectedExecutionException
+            25    41    41   Class java/util/concurrent/RejectedExecutionException
+            98   124   127   Class java/util/concurrent/RejectedExecutionException
+           134   161   161   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 131: 16
+        line 142: 21
+        line 72: 39
+        line 147: 45
+        line 69: 68
+        line 4: 98
+        line 98: 114
+        line 31: 131
+        line 53: 134
+        line 81: 167
+
+  private void approveManualStartedBuildIfNecessary(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        10
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_0
+        17: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        20: aload_1
+        21: invokevirtual #349                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.getApprovalConfiguration:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalBuildFeatureConfiguration;
+        24: astore_2
+        25: aload_1
+        26: invokeinterface #599,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedBuild:()Ljetbrains/buildServer/serverSide/QueuedBuildEx;
+        31: astore_3
+        32: aload_2
+        33: invokevirtual #429                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalBuildFeatureConfiguration.treatManualStartOfBuildAsApproval:()Ljava/lang/Boolean;
+        36: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+        39: ifeq          66
+        42: aload_3
+        43: ifnull        66
+        46: goto          53
+        49: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        52: athrow
+        53: aload_0
+        54: aload_3
+        55: aload_1
+        56: invokevirtual #98                 // Method approveManuallyStartedQueuedBuild:(Ljetbrains/buildServer/serverSide/SQueuedBuild;Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+        59: goto          66
+        62: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        65: athrow
+        66: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            32    46    49   Class java/util/concurrent/RejectedExecutionException
+            42    59    62   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 24: 16
+        line 117: 25
+        line 119: 32
+        line 153: 53
+        line 93: 66
+
+  private void approveManuallyStartedQueuedBuild(jetbrains.buildServer.serverSide.SQueuedBuild, jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/SQueuedBuild;Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        11
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        12
+        22: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        31: athrow
+        32: aload_1
+        33: invokeinterface #103,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SQueuedBuild.getTriggeredBy:()Ljetbrains/buildServer/serverSide/TriggeredBy;
+        38: invokeinterface #534,  1          // InterfaceMethod jetbrains/buildServer/serverSide/TriggeredBy.isTriggeredByUser:()Z
+        43: ifne          51
+        46: return
+        47: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        50: athrow
+        51: aload_1
+        52: invokeinterface #103,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SQueuedBuild.getTriggeredBy:()Ljetbrains/buildServer/serverSide/TriggeredBy;
+        57: invokeinterface #129,  1          // InterfaceMethod jetbrains/buildServer/serverSide/TriggeredBy.getUser:()Ljetbrains/buildServer/users/SUser;
+        62: astore_3
+        63: aload_3
+        64: ifnonnull     72
+        67: return
+        68: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        71: athrow
+        72: aload_0
+        73: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        76: aload_2
+        77: aload_3
+        78: invokevirtual #267                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.isApprovableByUser:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/users/SUser;)Ljava/lang/Boolean;
+        81: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+        84: ifeq          103
+        87: aload_0
+        88: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        91: aload_2
+        92: aload_3
+        93: invokevirtual #543                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.addApprovedByUser:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/users/SUser;)V
+        96: goto          103
+        99: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       102: athrow
+       103: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            16    25    28   Class java/util/concurrent/RejectedExecutionException
+            32    47    47   Class java/util/concurrent/RejectedExecutionException
+            63    68    68   Class java/util/concurrent/RejectedExecutionException
+            72    96    99   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 9: 32
+        line 17: 46
+        line 33: 51
+        line 156: 63
+        line 76: 67
+        line 23: 72
+        line 35: 87
+        line 78: 103
+
+  private void failQueuedBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        13
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_1
+        17: instanceof    #251                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+        20: ifeq          47
+        23: aload_1
+        24: checkcast     #251                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+        27: iconst_0
+        28: aload_2
+        29: ldc           #9                  // String PREPARATION_FAILURE_TYPE
+        31: aload_2
+        32: invokestatic  #593                // Method jetbrains/buildServer/problems/BuildProblemUtil.createBuildProblem:(Ljava/lang/String;Ljava/lang/String;)Ljetbrains/buildServer/BuildProblemData;
+        35: invokeinterface #245,  4          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildEx.terminate:(ZLjava/lang/String;Ljetbrains/buildServer/BuildProblemData;)V
+        40: goto          47
+        43: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        46: athrow
+        47: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            16    40    43   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 114: 16
+        line 55: 23
+        line 29: 47
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason canStart(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.BuildAgent>, jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Map;Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;Z)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        14
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_2
+        17: ifnonnull     32
+        20: bipush        15
+        22: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        31: athrow
+        32: aload_3
+        33: ifnonnull     48
+        36: bipush        16
+        38: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        47: athrow
+        48: aload_1
+        49: invokeinterface #464,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        54: checkcast     #553                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        57: astore        5
+        59: invokestatic  #78                 // Method jetbrains/buildServer/buildFeatures/approvals/ApprovalConstants.isApprovalFeatureEnabledGlobally:()Ljava/lang/Boolean;
+        62: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+        65: ifne          70
+        68: aconst_null
+        69: areturn
+        70: aload_0
+        71: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        74: aload         5
+        76: invokevirtual #613                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.getApprovalStatus:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+        79: astore        6
+        81: aload         6
+        83: invokevirtual #196                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.waiting:()Z
+        86: ifeq          99
+        89: new           #569                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        92: dup
+        93: ldc           #18                 // String Failed to determine if build requires approval
+        95: invokespecial #440                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        98: areturn
+        99: aload         6
+       101: invokevirtual #412                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.requiresApproval:()Z
+       104: ifne          109
+       107: aconst_null
+       108: areturn
+       109: aload_0
+       110: getfield      #517                // Field myLocks:Lcom/google/common/util/concurrent/Striped;
+       113: aload         5
+       115: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+       120: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       123: invokevirtual #338                // Method com/google/common/util/concurrent/Striped.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       126: checkcast     #381                // class java/util/concurrent/locks/Lock
+       129: astore        7
+       131: aload         7
+       133: invokeinterface #616,  1          // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+       138: iload         4
+       140: ifne          178
+       143: aload_0
+       144: getfield      #85                 // Field myNotificationNotSentPromotions:Ljava/util/Map;
+       147: aload         5
+       149: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+       154: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       157: invokeinterface #314,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+       162: ifeq          178
+       165: aload_0
+       166: aload         5
+       168: invokevirtual #141                // Method submitSendNotificationTask:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+       171: goto          178
+       174: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       177: athrow
+       178: aload         7
+       180: invokeinterface #626,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+       185: goto          200
+       188: astore        8
+       190: aload         7
+       192: invokeinterface #626,  1          // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+       197: aload         8
+       199: athrow
+       200: aload_0
+       201: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       204: aload         5
+       206: invokevirtual #67                 // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.areApprovalRulesValid:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/Boolean;
+       209: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+       212: ifne          326
+       215: aload_0
+       216: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       219: aload         5
+       221: invokevirtual #635                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.hasApprovalFeature:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+       224: ifeq          248
+       227: goto          234
+       230: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       233: athrow
+       234: aload_0
+       235: aload_1
+       236: ldc           #33                 // String This build is unable to start: the Approval Rules configured in the Build Approval build feature are invalid.
+       238: invokevirtual #223                // Method failQueuedBuild:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)V
+       241: goto          317
+       244: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       247: athrow
+       248: aload_0
+       249: getfield      #387                // Field myUntrustedBuildsManager:Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager;
+       252: aload         5
+       254: invokevirtual #530                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsManager.getUntrustedBuildsSettings:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings;
+       257: astore        8
+       259: ldc           #12                 // String _UNKNOWN_
+       261: astore        9
+       263: aload         8
+       265: ifnull        298
+       268: aload_0
+       269: getfield      #115                // Field myProjectManager:Ljetbrains/buildServer/serverSide/ProjectManager;
+       272: aload         8
+       274: invokevirtual #516                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/UntrustedBuildsSettings.getProjectId:()Ljava/lang/String;
+       277: invokeinterface #502,  2          // InterfaceMethod jetbrains/buildServer/serverSide/ProjectManager.findProjectById:(Ljava/lang/String;)Ljetbrains/buildServer/serverSide/SProject;
+       282: astore        10
+       284: aload         10
+       286: ifnull        298
+       289: aload         10
+       291: invokeinterface #459,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.getFullName:()Ljava/lang/String;
+       296: astore        9
+       298: aload_0
+       299: aload_1
+       300: ldc           #38                 // String This build is unable to start: the Approval Rules configured in the %s project’s Untrusted Builds section are invalid.
+       302: iconst_1
+       303: anewarray     #134                // class java/lang/Object
+       306: dup
+       307: iconst_0
+       308: aload         9
+       310: aastore
+       311: invokestatic  #560                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       314: invokevirtual #223                // Method failQueuedBuild:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)V
+       317: aload_0
+       318: aload         5
+       320: iconst_0
+       321: invokevirtual #100                // Method setRequiresApprovalAttribute:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Z)V
+       324: aconst_null
+       325: areturn
+       326: aload_0
+       327: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       330: aload         5
+       332: invokevirtual #557                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.hasTimedOut:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/Boolean;
+       335: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+       338: ifeq          412
+       341: iconst_0
+       342: istore        8
+       344: aload_0
+       345: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       348: aload         5
+       350: invokevirtual #628                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.allApprovalRulesAreMet:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/Boolean;
+       353: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+       356: ifne          402
+       359: aload_0
+       360: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       363: aload         5
+       365: invokevirtual #635                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.hasApprovalFeature:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+       368: ifeq          392
+       371: goto          378
+       374: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       377: athrow
+       378: aload_0
+       379: aload_1
+       380: ldc           #7                  // String Build was not approved in specified time
+       382: invokevirtual #223                // Method failQueuedBuild:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)V
+       385: goto          399
+       388: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       391: athrow
+       392: aload_0
+       393: aload_1
+       394: ldc           #16                 // String Untrusted build wasn’t approved in time and was canceled
+       396: invokevirtual #223                // Method failQueuedBuild:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)V
+       399: iconst_1
+       400: istore        8
+       402: aload_0
+       403: aload         5
+       405: iload         8
+       407: invokevirtual #100                // Method setRequiresApprovalAttribute:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Z)V
+       410: aconst_null
+       411: areturn
+       412: aload_0
+       413: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       416: aload         5
+       418: invokevirtual #628                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.allApprovalRulesAreMet:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljava/lang/Boolean;
+       421: invokevirtual #71                 // Method java/lang/Boolean.booleanValue:()Z
+       424: ifeq          436
+       427: aload_0
+       428: aload         5
+       430: iconst_0
+       431: invokevirtual #100                // Method setRequiresApprovalAttribute:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Z)V
+       434: aconst_null
+       435: areturn
+       436: aload_0
+       437: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+       440: aload         5
+       442: invokevirtual #635                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.hasApprovalFeature:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+       445: ifeq          458
+       448: new           #569                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       451: dup
+       452: ldc           #34                 // String This build should be approved before it may start
+       454: invokespecial #440                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       457: areturn
+       458: new           #569                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       461: dup
+       462: ldc           #37                 // String Build marked as untrusted based on current project settings: manual approval required to start
+       464: invokespecial #440                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       467: areturn
+       468: astore        6
+       470: aload_0
+       471: getfield      #299                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       474: aload_1
+       475: iconst_0
+       476: invokeinterface #80,  2           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.describe:(Z)Ljava/lang/String;
+       481: invokedynamic #247,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       486: aload         6
+       488: invokevirtual #390                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       491: ldc           #19                 // String Caught an exception while processing the approval precondition logic
+       493: astore        7
+       495: aload_0
+       496: aload_1
+       497: aload         7
+       499: invokevirtual #223                // Method failQueuedBuild:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/lang/String;)V
+       502: new           #569                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       505: dup
+       506: aload         7
+       508: invokespecial #440                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       511: areturn
+      Exception table:
+         from    to  target type
+           143   171   174   Class java/lang/Exception
+            32    41    44   Class java/lang/Exception
+            16    25    28   Class java/lang/Exception
+             0     9    12   Class java/lang/Exception
+           138   178   188   any
+           188   190   188   any
+            59    69   468   Class java/lang/Exception
+            70    98   468   Class java/lang/Exception
+            99   108   468   Class java/lang/Exception
+           215   244   244   Class java/lang/Exception
+           200   227   230   Class java/lang/Exception
+           109   325   468   Class java/lang/Exception
+           359   388   388   Class java/lang/Exception
+           344   371   374   Class java/lang/Exception
+           326   411   468   Class java/lang/Exception
+           412   435   468   Class java/lang/Exception
+           436   457   468   Class java/lang/Exception
+           458   467   468   Class java/lang/Exception
+      LineNumberTable:
+        line 56: 48
+        line 90: 59
+        line 128: 68
+        line 95: 70
+        line 144: 81
+        line 32: 89
+        line 89: 99
+        line 7: 107
+        line 63: 109
+        line 66: 131
+        line 20: 138
+        line 112: 165
+        line 51: 178
+        line 67: 185
+        line 12: 188
+        line 45: 197
+        line 109: 200
+        line 94: 215
+        line 101: 234
+        line 92: 248
+        line 48: 259
+        line 121: 263
+        line 151: 268
+        line 143: 284
+        line 83: 289
+        line 152: 298
+        line 44: 317
+        line 129: 324
+        line 107: 326
+        line 126: 341
+        line 52: 344
+        line 42: 359
+        line 28: 378
+        line 111: 392
+        line 88: 399
+        line 65: 402
+        line 30: 410
+        line 120: 412
+        line 150: 427
+        line 108: 434
+        line 135: 436
+        line 58: 448
+        line 118: 458
+        line 96: 468
+        line 102: 470
+        line 140: 491
+        line 13: 495
+        line 14: 502
+
+  public void setRequiresApprovalAttribute(jetbrains.buildServer.serverSide.BuildPromotionEx, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Z)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        17
+         6: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        15: athrow
+        16: aload_0
+        17: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        20: aload_1
+        21: invokevirtual #635                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.hasApprovalFeature:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+        24: ifne          70
+        27: aload_1
+        28: ldc           #36                 // String teamcity.build.untrusted.requiresApproval
+        30: invokeinterface #520,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;
+        35: ifnonnull     70
+        38: goto          45
+        41: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        44: athrow
+        45: aload_1
+        46: ldc           #36                 // String teamcity.build.untrusted.requiresApproval
+        48: iload_2
+        49: invokestatic  #495                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        52: invokeinterface #125,  3          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.setAttribute:(Ljava/lang/String;Ljava/lang/Object;)V
+        57: aload_1
+        58: invokeinterface #548,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.persist:()V
+        63: goto          70
+        66: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        69: athrow
+        70: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/util/concurrent/RejectedExecutionException
+            16    38    41   Class java/util/concurrent/RejectedExecutionException
+            27    63    66   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 39: 16
+        line 46: 45
+        line 74: 57
+        line 27: 70
+
+  public jetbrains.buildServer.util.positioning.PositionConstraint getConstraint();
+    descriptor: ()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+    Code:
+         0: getstatic     #376                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/CheckingForChangesPrecondition.ORDER_ID:Ljava/lang/String;
+         3: invokestatic  #70                 // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+         6: getstatic     #222                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDependenciesPrecondition.ORDER_ID:Ljava/lang/String;
+         9: invokestatic  #70                 // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+        12: invokestatic  #612                // Method jetbrains/buildServer/util/positioning/PositionConstraint.between:(Ljava/util/Collection;Ljava/util/Collection;)Ljetbrains/buildServer/util/positioning/PositionConstraint;
+        15: dup
+        16: ifnonnull     31
+        19: bipush        18
+        21: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        24: goto          31
+        27: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        30: athrow
+        31: areturn
+      Exception table:
+         from    to  target type
+             0    24    27   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 73: 0
+        line 16: 3
+        line 133: 9
+        line 138: 12
+
+  public java.lang.String getOrderId();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: getstatic     #629                // Field ORDER_ID:Ljava/lang/String;
+         3: dup
+         4: ifnonnull     19
+         7: bipush        19
+         9: invokestatic  #159                // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 141: 0
+
+  private static boolean lambda$approveManuallyStartedBuildsIfNecessary$4(jetbrains.buildServer.serverSide.impl.untrustedBuilds.ApprovableBuildChain$ApprovalBuildGroupImpl, jetbrains.buildServer.serverSide.impl.approval.ApprovalRule);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;Ljetbrains/buildServer/serverSide/impl/approval/ApprovalRule;)Z
+    Code:
+         0: aload_1
+         1: aload_0
+         2: invokevirtual #348                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getUser:()Ljetbrains/buildServer/users/SUser;
+         5: invokeinterface #415,  2          // InterfaceMethod jetbrains/buildServer/serverSide/impl/approval/ApprovalRule.isUserAllowedToApprove:(Ljetbrains/buildServer/users/SUser;)Z
+        10: ifeq          41
+        13: aload_1
+        14: aload_0
+        15: invokevirtual #348                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getUser:()Ljetbrains/buildServer/users/SUser;
+        18: invokeinterface #394,  2          // InterfaceMethod jetbrains/buildServer/serverSide/impl/approval/ApprovalRule.singleUserApprovalSatisfiesRule:(Ljetbrains/buildServer/users/SUser;)Z
+        23: ifeq          41
+        26: goto          33
+        29: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        32: athrow
+        33: iconst_1
+        34: goto          42
+        37: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        40: athrow
+        41: iconst_0
+        42: ireturn
+      Exception table:
+         from    to  target type
+             0    26    29   Class java/util/concurrent/RejectedExecutionException
+            13    37    37   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 21: 0
+
+  private static boolean lambda$approveManuallyStartedBuildsIfNecessary$3(jetbrains.buildServer.serverSide.impl.untrustedBuilds.ApprovableBuildChain$ApprovalBuildGroupImpl, jetbrains.buildServer.serverSide.impl.approval.ApprovalRule);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;Ljetbrains/buildServer/serverSide/impl/approval/ApprovalRule;)Z
+    Code:
+         0: aload_1
+         1: aload_0
+         2: invokevirtual #348                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getUser:()Ljetbrains/buildServer/users/SUser;
+         5: invokeinterface #415,  2          // InterfaceMethod jetbrains/buildServer/serverSide/impl/approval/ApprovalRule.isUserAllowedToApprove:(Ljetbrains/buildServer/users/SUser;)Z
+        10: ireturn
+      LineNumberTable:
+        line 80: 0
+
+  private void lambda$sendNotificationForBuildchain$2(jetbrains.buildServer.serverSide.impl.untrustedBuilds.ApprovableBuildChain$ApprovalBuildGroupImpl);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;)V
+    Code:
+         0: aload_1
+         1: invokevirtual #388                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getPromotions:()Ljava/util/List;
+         4: invokeinterface #244,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+         9: ifeq          17
+        12: return
+        13: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        16: athrow
+        17: aload_1
+        18: invokevirtual #388                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getPromotions:()Ljava/util/List;
+        21: iconst_0
+        22: invokeinterface #419,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        27: checkcast     #553                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        30: astore_2
+        31: aload_2
+        32: invokeinterface #599,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getQueuedBuild:()Ljetbrains/buildServer/serverSide/QueuedBuildEx;
+        37: astore_3
+        38: aload_3
+        39: ifnull        123
+        42: aload_0
+        43: getfield      #99                 // Field myProcessedGroupTops:Ljava/util/Map;
+        46: aload_2
+        47: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        52: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+        55: invokeinterface #314,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+        60: ifne          152
+        63: goto          70
+        66: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        69: athrow
+        70: aload_0
+        71: getfield      #99                 // Field myProcessedGroupTops:Ljava/util/Map;
+        74: aload_2
+        75: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        80: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+        83: iconst_1
+        84: invokestatic  #495                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        87: invokeinterface #658,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        92: pop
+        93: aload_0
+        94: aload_1
+        95: invokevirtual #436                // Method approveManuallyStartedBuildsIfNecessary:(Ljetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl;)Z
+        98: ifeq          152
+       101: goto          108
+       104: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       107: athrow
+       108: aload_0
+       109: getfield      #614                // Field myNotificationProcessor:Ljetbrains/buildServer/notification/NotificationProcessor;
+       112: aload_3
+       113: invokevirtual #636                // Method jetbrains/buildServer/notification/NotificationProcessor.queuedBuildRequiresApproval:(Ljetbrains/buildServer/serverSide/SQueuedBuild;)V
+       116: goto          152
+       119: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       122: athrow
+       123: aload_0
+       124: getfield      #299                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       127: ldc           #31                 // String Failed to find queued build for promotion(id: %s) that requires approval
+       129: iconst_1
+       130: anewarray     #134                // class java/lang/Object
+       133: dup
+       134: iconst_0
+       135: aload_1
+       136: invokevirtual #388                // Method jetbrains/buildServer/serverSide/impl/untrustedBuilds/ApprovableBuildChain$ApprovalBuildGroupImpl.getPromotions:()Ljava/util/List;
+       139: iconst_0
+       140: invokeinterface #419,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       145: aastore
+       146: invokestatic  #560                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       149: invokevirtual #182                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       152: return
+      Exception table:
+         from    to  target type
+             0    13    13   Class java/util/concurrent/RejectedExecutionException
+            38    63    66   Class java/util/concurrent/RejectedExecutionException
+            42   101   104   Class java/util/concurrent/RejectedExecutionException
+            70   119   119   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 40: 0
+        line 125: 12
+        line 106: 17
+        line 79: 31
+        line 157: 38
+        line 41: 42
+        line 47: 70
+        line 149: 93
+        line 3: 108
+        line 123: 123
+        line 122: 152
+
+  private jetbrains.buildServer.serverSide.DependencyConsumer$Result lambda$getApprovalStatusForBuildChain$1(java.util.concurrent.atomic.AtomicBoolean, java.util.concurrent.atomic.AtomicReference, jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicReference;Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+    Code:
+         0: aload_3
+         1: invokeinterface #112,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isChangeCollectingNeeded:()Z
+         6: ifeq          45
+         9: aload_0
+        10: getfield      #122                // Field myWaitingForChangesCollectionPromotions:Ljava/util/Map;
+        13: aload_3
+        14: invokeinterface #219,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        19: invokestatic  #321                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+        22: iconst_1
+        23: invokestatic  #495                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        26: invokeinterface #658,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        31: pop
+        32: aload_1
+        33: iconst_1
+        34: invokevirtual #316                // Method java/util/concurrent/atomic/AtomicBoolean.set:(Z)V
+        37: getstatic     #320                // Field jetbrains/buildServer/serverSide/DependencyConsumer$Result.STOP:Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+        40: areturn
+        41: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        44: athrow
+        45: aload_0
+        46: getfield      #449                // Field myApprovableBuildManager:Ljetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager;
+        49: aload_3
+        50: invokevirtual #613                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovableBuildManager.getApprovalStatus:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+        53: astore        4
+        55: aload         4
+        57: invokevirtual #196                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.waiting:()Z
+        60: ifeq          77
+        63: aload_2
+        64: getstatic     #532                // Field jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.WAITING:Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+        67: invokevirtual #652                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+        70: goto          119
+        73: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        76: athrow
+        77: aload         4
+        79: invokevirtual #412                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.requiresApproval:()Z
+        82: ifeq          119
+        85: aload_2
+        86: invokevirtual #202                // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+        89: checkcast     #659                // class jetbrains/buildServer/serverSide/impl/approval/ApprovalResult
+        92: invokevirtual #196                // Method jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.waiting:()Z
+        95: ifne          119
+        98: goto          105
+       101: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       104: athrow
+       105: aload_2
+       106: getstatic     #503                // Field jetbrains/buildServer/serverSide/impl/approval/ApprovalResult.REQUIRES_APPROVAL:Ljetbrains/buildServer/serverSide/impl/approval/ApprovalResult;
+       109: invokevirtual #652                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+       112: goto          119
+       115: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       118: athrow
+       119: getstatic     #367                // Field jetbrains/buildServer/serverSide/DependencyConsumer$Result.CONTINUE:Ljetbrains/buildServer/serverSide/DependencyConsumer$Result;
+       122: areturn
+      Exception table:
+         from    to  target type
+             0    41    41   Class java/util/concurrent/RejectedExecutionException
+            55    73    73   Class java/util/concurrent/RejectedExecutionException
+            77    98   101   Class java/util/concurrent/RejectedExecutionException
+            85   112   115   Class java/util/concurrent/RejectedExecutionException
+      LineNumberTable:
+        line 124: 0
+        line 6: 9
+        line 54: 32
+        line 38: 37
+        line 130: 45
+        line 2: 55
+        line 59: 63
+        line 100: 77
+        line 34: 105
+        line 64: 119
+
+  private void lambda$submitSendNotificationTask$0(jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #210                // Method trySendNotificationForBuildChainThatRequiresApproval:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)V
+         5: return
+      LineNumberTable:
+        line 82: 0
+        line 91: 5
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #29                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition
+         2: invokevirtual #540                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+         5: putstatic     #629                // Field ORDER_ID:Ljava/lang/String;
+         8: return
+      LineNumberTable:
+        line 103: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 19
+                       0: 96
+                       1: 96
+                       2: 96
+                       3: 96
+                       4: 96
+                       5: 96
+                       6: 96
+                       7: 96
+                       8: 96
+                       9: 96
+                      10: 96
+                      11: 96
+                      12: 96
+                      13: 96
+                      14: 96
+                      15: 96
+                      16: 96
+                      17: 96
+                      18: 105
+                      19: 105
+                 default: 96
+            }
+        96: ldc           #15                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        98: goto          110
+       101: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       104: athrow
+       105: ldc           #11                 // String @NotNull method %s.%s must not return null
+       107: goto          110
+       110: iload_0
+       111: tableswitch   { // 0 to 19
+                       0: 204
+                       1: 204
+                       2: 204
+                       3: 204
+                       4: 204
+                       5: 204
+                       6: 204
+                       7: 204
+                       8: 204
+                       9: 204
+                      10: 204
+                      11: 204
+                      12: 204
+                      13: 204
+                      14: 204
+                      15: 204
+                      16: 204
+                      17: 204
+                      18: 212
+                      19: 212
+                 default: 204
+            }
+       204: iconst_3
+       205: goto          216
+       208: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       211: athrow
+       212: iconst_2
+       213: goto          216
+       216: anewarray     #134                // class java/lang/Object
+       219: iload_0
+       220: tableswitch   { // 0 to 19
+                       0: 316
+                       1: 328
+                       2: 336
+                       3: 344
+                       4: 352
+                       5: 360
+                       6: 368
+                       7: 368
+                       8: 368
+                       9: 376
+                      10: 384
+                      11: 392
+                      12: 384
+                      13: 400
+                      14: 392
+                      15: 408
+                      16: 416
+                      17: 384
+                      18: 424
+                      19: 424
+                 default: 316
+            }
+       316: dup
+       317: iconst_0
+       318: ldc           #35                 // String notificationProcessor
+       320: aastore
+       321: goto          432
+       324: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       327: athrow
+       328: dup
+       329: iconst_0
+       330: ldc           #17                 // String dispatcher
+       332: aastore
+       333: goto          432
+       336: dup
+       337: iconst_0
+       338: ldc           #40                 // String untrustedBuildsManager
+       340: aastore
+       341: goto          432
+       344: dup
+       345: iconst_0
+       346: ldc           #6                  // String approvableBuildManager
+       348: aastore
+       349: goto          432
+       352: dup
+       353: iconst_0
+       354: ldc           #20                 // String projectManager
+       356: aastore
+       357: goto          432
+       360: dup
+       361: iconst_0
+       362: ldc           #2                  // String executorServices
+       364: aastore
+       365: goto          432
+       368: dup
+       369: iconst_0
+       370: ldc           #24                 // String buildPromotion
+       372: aastore
+       373: goto          432
+       376: dup
+       377: iconst_0
+       378: ldc           #10                 // String group
+       380: aastore
+       381: goto          432
+       384: dup
+       385: iconst_0
+       386: ldc           #28                 // String buildPromotionEx
+       388: aastore
+       389: goto          432
+       392: dup
+       393: iconst_0
+       394: ldc           #4                  // String queuedBuild
+       396: aastore
+       397: goto          432
+       400: dup
+       401: iconst_0
+       402: ldc           #1                  // String build
+       404: aastore
+       405: goto          432
+       408: dup
+       409: iconst_0
+       410: ldc           #26                 // String canBeStarted
+       412: aastore
+       413: goto          432
+       416: dup
+       417: iconst_0
+       418: ldc           #21                 // String buildDistributorInput
+       420: aastore
+       421: goto          432
+       424: dup
+       425: iconst_0
+       426: ldc           #13                 // String jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition
+       428: aastore
+       429: goto          432
+       432: iload_0
+       433: tableswitch   { // 0 to 19
+                       0: 528
+                       1: 528
+                       2: 528
+                       3: 528
+                       4: 528
+                       5: 528
+                       6: 528
+                       7: 528
+                       8: 528
+                       9: 528
+                      10: 528
+                      11: 528
+                      12: 528
+                      13: 528
+                      14: 528
+                      15: 528
+                      16: 528
+                      17: 528
+                      18: 540
+                      19: 548
+                 default: 528
+            }
+       528: dup
+       529: iconst_1
+       530: ldc           #13                 // String jetbrains/buildServer/serverSide/impl/buildDistribution/WaitApprovalBuildPrecondition
+       532: aastore
+       533: goto          556
+       536: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       539: athrow
+       540: dup
+       541: iconst_1
+       542: ldc           #3                  // String getConstraint
+       544: aastore
+       545: goto          556
+       548: dup
+       549: iconst_1
+       550: ldc           #23                 // String getOrderId
+       552: aastore
+       553: goto          556
+       556: iload_0
+       557: tableswitch   { // 0 to 19
+                       0: 652
+                       1: 652
+                       2: 652
+                       3: 652
+                       4: 652
+                       5: 652
+                       6: 664
+                       7: 672
+                       8: 680
+                       9: 688
+                      10: 696
+                      11: 704
+                      12: 704
+                      13: 712
+                      14: 720
+                      15: 720
+                      16: 720
+                      17: 728
+                      18: 736
+                      19: 736
+                 default: 652
+            }
+       652: dup
+       653: iconst_2
+       654: ldc           #5                  // String <init>
+       656: aastore
+       657: goto          739
+       660: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       663: athrow
+       664: dup
+       665: iconst_2
+       666: ldc           #39                 // String getApprovalStatusForBuildChain
+       668: aastore
+       669: goto          739
+       672: dup
+       673: iconst_2
+       674: ldc           #22                 // String trySendNotificationForBuildChainThatRequiresApproval
+       676: aastore
+       677: goto          739
+       680: dup
+       681: iconst_2
+       682: ldc           #27                 // String sendNotificationForBuildchain
+       684: aastore
+       685: goto          739
+       688: dup
+       689: iconst_2
+       690: ldc           #8                  // String approveManuallyStartedBuildsIfNecessary
+       692: aastore
+       693: goto          739
+       696: dup
+       697: iconst_2
+       698: ldc           #30                 // String approveManualStartedBuildIfNecessary
+       700: aastore
+       701: goto          739
+       704: dup
+       705: iconst_2
+       706: ldc           #32                 // String approveManuallyStartedQueuedBuild
+       708: aastore
+       709: goto          739
+       712: dup
+       713: iconst_2
+       714: ldc           #41                 // String failQueuedBuild
+       716: aastore
+       717: goto          739
+       720: dup
+       721: iconst_2
+       722: ldc           #14                 // String canStart
+       724: aastore
+       725: goto          739
+       728: dup
+       729: iconst_2
+       730: ldc           #25                 // String setRequiresApprovalAttribute
+       732: aastore
+       733: goto          739
+       736: goto          739
+       739: invokestatic  #560                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       742: iload_0
+       743: tableswitch   { // 0 to 19
+                       0: 836
+                       1: 836
+                       2: 836
+                       3: 836
+                       4: 836
+                       5: 836
+                       6: 836
+                       7: 836
+                       8: 836
+                       9: 836
+                      10: 836
+                      11: 836
+                      12: 836
+                      13: 836
+                      14: 836
+                      15: 836
+                      16: 836
+                      17: 836
+                      18: 851
+                      19: 851
+                 default: 836
+            }
+       836: new           #526                // class java/lang/IllegalArgumentException
+       839: dup_x1
+       840: swap
+       841: invokespecial #111                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       844: goto          862
+       847: invokestatic  #60                 // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       850: athrow
+       851: new           #187                // class java/lang/IllegalStateException
+       854: dup_x1
+       855: swap
+       856: invokespecial #631                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       859: goto          862
+       862: athrow
+      Exception table:
+         from    to  target type
+             0   101   101   Class java/util/concurrent/RejectedExecutionException
+           110   208   208   Class java/util/concurrent/RejectedExecutionException
+           216   324   324   Class java/util/concurrent/RejectedExecutionException
+           432   536   536   Class java/util/concurrent/RejectedExecutionException
+           556   660   660   Class java/util/concurrent/RejectedExecutionException
+           739   847   847   Class java/util/concurrent/RejectedExecutionException
+
+  private static java.lang.Exception a(java.lang.Exception);
+    descriptor: (Ljava/lang/Exception;)Ljava/lang/Exception;
+    Code:
+         0: aload_0
+         1: areturn
+}

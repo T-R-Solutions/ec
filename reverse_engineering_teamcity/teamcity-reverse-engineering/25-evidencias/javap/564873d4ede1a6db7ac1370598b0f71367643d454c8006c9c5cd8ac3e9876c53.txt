@@ -1,0 +1,17 @@
+Compiled from "RunningBuildInfo.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.RunningBuildInfo {
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.BuildConfigurationInfo getBuildConfiguration();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/BuildConfigurationInfo;
+
+  public abstract jetbrains.buildServer.serverSide.SBuildAgent getAgent();
+    descriptor: ()Ljetbrains/buildServer/serverSide/SBuildAgent;
+
+  public abstract long getEstimationForTimeLeft();
+    descriptor: ()J
+
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.BuildPromotionInfo getBuildPromotionInfo();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+
+  public abstract boolean occupiesAgent();
+    descriptor: ()Z
+}

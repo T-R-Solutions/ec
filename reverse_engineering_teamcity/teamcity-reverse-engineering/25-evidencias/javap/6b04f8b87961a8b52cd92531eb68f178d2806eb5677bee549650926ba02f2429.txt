@@ -1,0 +1,11 @@
+Compiled from "BuildDistributionCallback.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.BuildDistributionCallback extends jetbrains.buildServer.TeamCityExtension {
+  public abstract void distributionStarted();
+    descriptor: ()V
+
+  public abstract void distributionFinished();
+    descriptor: ()V
+
+  public abstract void waitReasonSet(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+}

@@ -1,0 +1,7 @@
+# project workflow, Deployment Integration and Evidence Discipline
+
+> Use the destination's existing requirements and evidence format; named workflow documents are examples, not prerequisites. Optional SDD mapping is configured outside this skill.
+
+Read product norms, approved `spec.md` and existing API implementation before design. Use `plan.md` to record protocol alternatives, consumer risk, tooling and selected skill; `tasks.md` links implementation and test work to REQ/AC. Deliver an API method/status/headers/payload table and exact positive/negative contract fixtures. A project workflow chain bridge is a **router**, not a second specification or test acceptance layer.
+
+Evidence layers: (1) documentation source review; (2) static SKILL/project workflow and OpenAPI/JSON Schema checks; (3) Python/TypeScript reference model; (4) local HTTP loopback over a real socket; (5) deployed provider with persistence/auth/gateway; (6) real consumers and fault-injection; (7) production behavior with releases. Record observed results and do not combine their pass totals as one confidence measure. For a missing layer write `NOT EXECUTED`, explain the missing dependency and use project workflow `NÃO VERIFICADO`. Do not mark an application completed because a mock server returns expected values. Keep archive SHA-256 integrity checks separate from cryptographic publisher authenticity and project workflow product acceptance.

@@ -1,0 +1,14 @@
+flowchart TB
+    accTitle: Autoridades · significado de cada fonte
+    accDescr: Qual fonte deve orientar uma decisão? USER → NORMS: precedência. NORMS → ADR: fundamentam. ADR → SKILL: delimita a aplicação. ADR → EVIDENCE: define o que verificar. HISTORY → ADR: informa sem substituir normas
+    USER["Instrução vigente<br/>Pedido do usuário e permissões"]
+    NORMS["Normas do Ec<br/>Requisitos de produto e interface"]
+    ADR["Decisões e escopo<br/>ADRs · estado · limites SDD"]
+    SKILL["Método de trabalho<br/>Skills não criam autoridade"]
+    EVIDENCE["Observação<br/>Registra o que foi verificado"]
+    HISTORY["Pesquisa histórica<br/>Referência com contexto original"]
+    USER -->|"precedência"| NORMS
+    NORMS -->|"fundamentam"| ADR
+    ADR -->|"delimita a aplicação"| SKILL
+    ADR -->|"define o que verificar"| EVIDENCE
+    HISTORY -->|"informa sem substituir normas"| ADR

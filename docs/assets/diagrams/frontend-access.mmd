@@ -1,0 +1,10 @@
+flowchart TB
+    accTitle: access · interface e dependências
+    accDescr: Onde termina o domínio e como ele se integra? SELF → PUBLIC: expõe. SELF → SHARED: pode consumir. SELF → CONFIG: pode consumir interface pública
+    SELF["access<br/>Pessoas e acesso"]
+    PUBLIC["Interface pública futura<br/>src/index.ts · exportações mínimas"]
+    SHARED["shared<br/>Elementos técnicos e visuais"]
+    CONFIG["configuration<br/>Edição comum por descritores"]
+    SELF -->|"expõe"| PUBLIC
+    SELF -->|"pode consumir"| SHARED
+    SELF -->|"pode consumir interface pública"| CONFIG

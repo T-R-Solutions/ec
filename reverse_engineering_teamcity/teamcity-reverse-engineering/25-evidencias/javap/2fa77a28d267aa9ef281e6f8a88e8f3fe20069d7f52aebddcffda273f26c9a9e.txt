@@ -1,0 +1,64 @@
+Compiled from "GenericAgentsFilterContext.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.GenericAgentsFilterContext<T> {
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo getStartingBuild();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;
+
+  public abstract java.util.Collection<T> getAgentsForStartingBuild();
+    descriptor: ()Ljava/util/Collection;
+
+  public abstract java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.SBuildAgent> getDistributedBuilds();
+    descriptor: ()Ljava/util/Map;
+
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput getDistributorInput();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;
+
+  public abstract boolean isEmulationMode();
+    descriptor: ()Z
+
+  public abstract java.lang.Object getCustomData(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+
+  public abstract void setCustomData(java.lang.String, java.lang.Object);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+
+  public default jetbrains.buildServer.serverSide.buildDistribution.GenericAgentsFilterContext$Requestor getRequestor();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor;
+    Code:
+         0: aload_0
+         1: invokeinterface #1,  1            // InterfaceMethod isEmulationMode:()Z
+         6: ifeq          15
+         9: getstatic     #7                  // Field jetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor.QUEUE_ESTIMATOR:Ljetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor;
+        12: goto          18
+        15: getstatic     #13                 // Field jetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor.QUEUE_PROCESSOR:Ljetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext$Requestor;
+        18: dup
+        19: ifnonnull     26
+        22: iconst_0
+        23: invokestatic  #56                 // InterfaceMethod $$$reportNull$$$0:(I)V
+        26: areturn
+      LineNumberTable:
+        line 92: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      27     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #58                 // String @NotNull method %s.%s must not return null
+         2: iconst_2
+         3: anewarray     #16                 // class java/lang/Object
+         6: dup
+         7: iconst_0
+         8: ldc           #59                 // String jetbrains/buildServer/serverSide/buildDistribution/GenericAgentsFilterContext
+        10: aastore
+        11: dup
+        12: iconst_1
+        13: ldc           #60                 // String getRequestor
+        15: aastore
+        16: invokestatic  #66                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        19: new           #68                 // class java/lang/IllegalStateException
+        22: dup_x1
+        23: swap
+        24: invokespecial #72                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+        27: athrow
+}

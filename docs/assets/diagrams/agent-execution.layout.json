@@ -1,0 +1,29 @@
+{
+  "title": "execution · fronteira do domínio",
+  "question": "Quais imports Ec são permitidos neste módulo?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/application-layout.md"
+  ],
+  "columns": 2,
+  "nodes": {
+    "SELF": {
+      "icon": "terminal",
+      "tone": "purple",
+      "column": 0,
+      "row": 0
+    },
+    "WORKSPACE": {
+      "icon": "folder-git-2",
+      "tone": "purple",
+      "column": 1,
+      "row": 0
+    },
+    "REPORTING": {
+      "icon": "send",
+      "tone": "purple",
+      "column": 0,
+      "row": 1
+    }
+  }
+}

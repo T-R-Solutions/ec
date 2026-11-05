@@ -1,0 +1,947 @@
+Compiled from "AgentMain2.java"
+public class jetbrains.buildServer.agent.AgentMain2 {
+  private static com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  public jetbrains.buildServer.agent.AgentMain2();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #3                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 31: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/agent/AgentMain2;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         8: ldc           #9                  // String teamcity_logs
+        10: invokestatic  #11                 // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+        13: astore_1
+        14: aload_0
+        15: aconst_null
+        16: aload_1
+        17: ifnonnull     24
+        20: aconst_null
+        21: goto          28
+        24: aload_1
+        25: invokestatic  #17                 // Method patchPath:(Ljava/lang/String;)Ljava/lang/String;
+        28: getstatic     #22                 // Field jetbrains/buildServer/agent/AgentStartCallback.MOCK:Ljetbrains/buildServer/agent/AgentStartCallback;
+        31: invokestatic  #28                 // Method main2:([Ljava/lang/String;Ljetbrains/buildServer/agent/AgentFiles;Ljava/lang/String;Ljetbrains/buildServer/agent/AgentStartCallback;)V
+        34: return
+      LineNumberTable:
+        line 40: 8
+        line 41: 14
+        line 42: 34
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      35     0  args   [Ljava/lang/String;
+           14      21     1 logsPath   Ljava/lang/String;
+
+  private static java.lang.String patchPath(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: ifnonnull     8
+         4: iconst_1
+         5: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         8: new           #32                 // class java/io/File
+        11: dup
+        12: aload_0
+        13: invokespecial #34                 // Method java/io/File."<init>":(Ljava/lang/String;)V
+        16: invokevirtual #37                 // Method java/io/File.isAbsolute:()Z
+        19: ifeq          32
+        22: aload_0
+        23: dup
+        24: ifnonnull     31
+        27: iconst_2
+        28: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+        31: areturn
+        32: getstatic     #41                 // Field java/io/File.separator:Ljava/lang/String;
+        35: aload_0
+        36: invokedynamic #45,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        41: dup
+        42: ifnonnull     49
+        45: iconst_3
+        46: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+        49: areturn
+      LineNumberTable:
+        line 52: 8
+        line 53: 32
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      50     0 oldPath   Ljava/lang/String;
+
+  public static void main2(java.lang.String[], jetbrains.buildServer.agent.AgentFiles, java.lang.String, jetbrains.buildServer.agent.AgentStartCallback);
+    descriptor: ([Ljava/lang/String;Ljetbrains/buildServer/agent/AgentFiles;Ljava/lang/String;Ljetbrains/buildServer/agent/AgentStartCallback;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     8
+         4: iconst_4
+         5: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         8: aload_3
+         9: ifnonnull     16
+        12: iconst_5
+        13: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+        16: invokestatic  #49                 // Method jetbrains/buildServer/log/LogInitializer.initBootstrapLogging:()V
+        19: aload_1
+        20: ifnonnull     30
+        23: aload_2
+        24: invokestatic  #52                 // Method getAgentFiles:(Ljava/lang/String;)Ljetbrains/buildServer/agent/AgentFiles;
+        27: goto          31
+        30: aload_1
+        31: astore        4
+        33: new           #56                 // class jetbrains/buildServer/agent/AgentCommandlineArguments
+        36: dup
+        37: aload_0
+        38: invokespecial #58                 // Method jetbrains/buildServer/agent/AgentCommandlineArguments."<init>":([Ljava/lang/String;)V
+        41: astore        5
+        43: aload         5
+        45: invokestatic  #61                 // Method setupTeamCityProperties:(Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+        48: aload         4
+        50: invokevirtual #65                 // Method jetbrains/buildServer/agent/AgentFiles.getAppConfFolder:()Ljava/io/File;
+        53: invokevirtual #71                 // Method java/io/File.toPath:()Ljava/nio/file/Path;
+        56: invokestatic  #75                 // Method jetbrains/buildServer/log/LogInitializer.initDistAgentLogConfiguration:(Ljava/nio/file/Path;)V
+        59: invokestatic  #79                 // Method jetbrains/buildServer/log/LogInitializer.initAgentLogging:()V
+        62: ldc           #18                 // class jetbrains/buildServer/agent/AgentMain2
+        64: invokevirtual #82                 // Method java/lang/Class.getName:()Ljava/lang/String;
+        67: invokestatic  #88                 // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+        70: putstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        73: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        76: ldc           #98                 // String \n\n\n\n\n\n
+        78: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        81: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        84: ldc           #103                // String ===========================================================
+        86: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        89: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        92: invokestatic  #105                // Method getAgentVersion:()Ljava/lang/String;
+        95: invokedynamic #108,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       100: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       103: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       106: invokestatic  #110                // Method jetbrains/buildServer/util/DiagnosticUtil.getOsEnvironmentDetails:()Ljava/lang/String;
+       109: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       112: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       115: invokestatic  #115                // Method jetbrains/buildServer/util/DiagnosticUtil.getJavaDetails:()Ljava/lang/String;
+       118: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       121: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       124: invokestatic  #118                // Method jetbrains/buildServer/agent/AgentMain.getAgentHome:()Ljava/io/File;
+       127: invokestatic  #123                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       130: invokedynamic #129,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       135: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       138: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       141: ldc           #130                // String Starting...
+       143: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       146: invokestatic  #132                // Method checkForSensitiveEnvironmentVariables:()V
+       149: ldc           #135                // String teamcity.setDefaultUncaughtExceptionHandler
+       151: invokestatic  #137                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+       154: ifeq          174
+       157: invokestatic  #143                // Method java/lang/Thread.getDefaultUncaughtExceptionHandler:()Ljava/lang/Thread$UncaughtExceptionHandler;
+       160: astore        6
+       162: new           #149                // class jetbrains/buildServer/agent/AgentMain2$1
+       165: dup
+       166: aload         6
+       168: invokespecial #151                // Method jetbrains/buildServer/agent/AgentMain2$1."<init>":(Ljava/lang/Thread$UncaughtExceptionHandler;)V
+       171: invokestatic  #154                // Method java/lang/Thread.setDefaultUncaughtExceptionHandler:(Ljava/lang/Thread$UncaughtExceptionHandler;)V
+       174: aload         4
+       176: invokestatic  #157                // Method processUpgradeErrors:(Ljetbrains/buildServer/agent/AgentFiles;)V
+       179: iconst_1
+       180: anewarray     #4                  // class java/lang/Object
+       183: dup
+       184: iconst_0
+       185: aload         4
+       187: aastore
+       188: invokestatic  #161                // Method createRootApplicationContext:([Ljava/lang/Object;)Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+       191: astore        6
+       193: aload         6
+       195: aload         5
+       197: invokestatic  #165                // Method preInitAgent:(Lorg/springframework/context/support/ClassPathXmlApplicationContext;Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+       200: aload         6
+       202: invokestatic  #169                // Method loadPlugins:(Lorg/springframework/context/support/ClassPathXmlApplicationContext;)V
+       205: aload         6
+       207: invokestatic  #173                // Method firePluginsLoaded:(Lorg/springframework/context/support/ClassPathXmlApplicationContext;)V
+       210: aload         6
+       212: aload         5
+       214: aload_3
+       215: invokestatic  #176                // Method startAgent:(Lorg/springframework/context/support/ClassPathXmlApplicationContext;Ljetbrains/buildServer/agent/AgentCommandlineArguments;Ljetbrains/buildServer/agent/AgentStartCallback;)V
+       218: return
+      LineNumberTable:
+        line 60: 16
+        line 62: 19
+        line 63: 33
+        line 65: 43
+        line 67: 48
+        line 68: 59
+        line 69: 62
+        line 70: 73
+        line 71: 81
+        line 72: 89
+        line 73: 103
+        line 74: 112
+        line 75: 121
+        line 77: 138
+        line 79: 146
+        line 81: 149
+        line 82: 157
+        line 83: 162
+        line 92: 174
+        line 94: 179
+        line 95: 193
+        line 96: 200
+        line 97: 205
+        line 99: 210
+        line 100: 218
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          162      12     6 oldHandler   Ljava/lang/Thread$UncaughtExceptionHandler;
+            0     219     0  args   [Ljava/lang/String;
+            0     219     1 _agentFiles   Ljetbrains/buildServer/agent/AgentFiles;
+            0     219     2 appLogsDirPath   Ljava/lang/String;
+            0     219     3 callback   Ljetbrains/buildServer/agent/AgentStartCallback;
+           33     186     4 agentFiles   Ljetbrains/buildServer/agent/AgentFiles;
+           43     176     5 commandlineArguments   Ljetbrains/buildServer/agent/AgentCommandlineArguments;
+          193      26     6 beanFactory   Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+
+  private static void checkForSensitiveEnvironmentVariables();
+    descriptor: ()V
+    Code:
+         0: invokestatic  #180                // Method jetbrains/buildServer/serverSide/StartupEnvironmentVariable.values:()[Ljetbrains/buildServer/serverSide/StartupEnvironmentVariable;
+         3: astore_0
+         4: aload_0
+         5: arraylength
+         6: istore_1
+         7: iconst_0
+         8: istore_2
+         9: iload_2
+        10: iload_1
+        11: if_icmpge     58
+        14: aload_0
+        15: iload_2
+        16: aaload
+        17: astore_3
+        18: aload_3
+        19: invokevirtual #186                // Method jetbrains/buildServer/serverSide/StartupEnvironmentVariable.name:()Ljava/lang/String;
+        22: invokestatic  #189                // Method java/lang/System.getenv:(Ljava/lang/String;)Ljava/lang/String;
+        25: invokestatic  #192                // Method jetbrains/buildServer/util/StringUtil.isEmpty:(Ljava/lang/String;)Z
+        28: ifne          52
+        31: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        34: aload_3
+        35: invokevirtual #186                // Method jetbrains/buildServer/serverSide/StartupEnvironmentVariable.name:()Ljava/lang/String;
+        38: invokedynamic #197,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        43: invokevirtual #198                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        46: getstatic     #201                // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.START_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+        49: invokevirtual #207                // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+        52: iinc          2, 1
+        55: goto          9
+        58: return
+      LineNumberTable:
+        line 103: 0
+        line 104: 18
+        line 105: 31
+        line 108: 46
+        line 103: 52
+        line 111: 58
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           18      34     3   env   Ljetbrains/buildServer/serverSide/StartupEnvironmentVariable;
+
+  private static void setupTeamCityProperties(jetbrains.buildServer.agent.AgentCommandlineArguments);
+    descriptor: (Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        6
+         6: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         9: new           #210                // class jetbrains/buildServer/agent/AgentMain2$2
+        12: dup
+        13: aload_0
+        14: invokespecial #212                // Method jetbrains/buildServer/agent/AgentMain2$2."<init>":(Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+        17: pop
+        18: return
+      LineNumberTable:
+        line 114: 9
+        line 119: 18
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0 commandlineArguments   Ljetbrains/buildServer/agent/AgentCommandlineArguments;
+
+  private static void processUpgradeErrors(jetbrains.buildServer.agent.AgentFiles);
+    descriptor: (Ljetbrains/buildServer/agent/AgentFiles;)V
+    Code:
+         0: aload_0
+         1: invokevirtual #214                // Method jetbrains/buildServer/agent/AgentFiles.getUpgradeErrorLogFile:()Ljava/io/File;
+         4: astore_1
+         5: aload_1
+         6: invokevirtual #217                // Method java/io/File.isFile:()Z
+         9: ifne          13
+        12: return
+        13: new           #124                // class java/lang/String
+        16: dup
+        17: aload_1
+        18: ldc           #220                // String utf-8
+        20: invokestatic  #222                // Method jetbrains/buildServer/util/FileUtil.loadFileText:(Ljava/io/File;Ljava/lang/String;)[C
+        23: invokespecial #228                // Method java/lang/String."<init>":([C)V
+        26: astore_2
+        27: aload_2
+        28: invokevirtual #231                // Method java/lang/String.length:()I
+        31: ifle          46
+        34: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        37: aload_2
+        38: invokedynamic #235,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        43: invokevirtual #236                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;)V
+        46: goto          65
+        49: astore_2
+        50: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        53: aload_1
+        54: invokestatic  #123                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        57: invokedynamic #241,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        62: invokevirtual #242                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        65: aload_1
+        66: invokestatic  #245                // Method jetbrains/buildServer/util/FileUtil.delete:(Ljava/io/File;)Z
+        69: pop
+        70: return
+      Exception table:
+         from    to  target type
+            13    46    49   Class java/io/IOException
+      LineNumberTable:
+        line 122: 0
+        line 123: 5
+        line 126: 13
+        line 127: 27
+        line 128: 34
+        line 132: 46
+        line 130: 49
+        line 131: 50
+        line 133: 65
+        line 134: 70
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           27      19     2 error   Ljava/lang/String;
+           50      15     2     e   Ljava/io/IOException;
+            0      71     0 agentFiles   Ljetbrains/buildServer/agent/AgentFiles;
+            5      66     1 errorFile   Ljava/io/File;
+
+  private static java.lang.String getAgentVersion();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: invokestatic  #249                // Method jetbrains/buildServer/version/ServerVersionHolder.getVersion:()Ljetbrains/buildServer/version/ServerVersionInfo;
+         3: astore_0
+         4: aload_0
+         5: invokevirtual #255                // Method jetbrains/buildServer/version/ServerVersionInfo.getDisplayVersion:()Ljava/lang/String;
+         8: aload_0
+         9: invokevirtual #260                // Method jetbrains/buildServer/version/ServerVersionInfo.getBuildNumber:()Ljava/lang/String;
+        12: invokedynamic #263,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        17: areturn
+        18: astore_0
+        19: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        22: aload_0
+        23: invokevirtual #266                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        26: invokedynamic #269,  0            // InvokeDynamic #7:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        31: aload_0
+        32: invokevirtual #270                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        35: ldc_w         #273                // String (version is unknown)
+        38: areturn
+      Exception table:
+         from    to  target type
+             0    17    18   Class java/lang/Throwable
+      LineNumberTable:
+        line 138: 0
+        line 139: 4
+        line 140: 18
+        line 141: 19
+        line 142: 35
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            4      14     0 version   Ljetbrains/buildServer/version/ServerVersionInfo;
+           19      20     0     t   Ljava/lang/Throwable;
+
+  private static jetbrains.buildServer.agent.AgentFiles getAgentFiles(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljetbrains/buildServer/agent/AgentFiles;
+    Code:
+         0: invokestatic  #118                // Method jetbrains/buildServer/agent/AgentMain.getAgentHome:()Ljava/io/File;
+         3: astore_1
+         4: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+         7: aload_1
+         8: invokestatic  #123                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        11: invokedynamic #275,  0            // InvokeDynamic #8:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        16: invokevirtual #242                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        19: new           #66                 // class jetbrains/buildServer/agent/AgentFiles
+        22: dup
+        23: new           #276                // class com/jetbrains/launcher/AppFilesImpl
+        26: dup
+        27: new           #278                // class com/jetbrains/launcher/AppConfigFilesImpl
+        30: dup
+        31: new           #280                // class com/jetbrains/launcher/AppFixedFilesImpl
+        34: dup
+        35: aload_1
+        36: invokespecial #282                // Method com/jetbrains/launcher/AppFixedFilesImpl."<init>":(Ljava/io/File;)V
+        39: aconst_null
+        40: invokespecial #285                // Method com/jetbrains/launcher/AppConfigFilesImpl."<init>":(Lcom/jetbrains/launcher/AppFixedFilesEx;Ljava/lang/String;)V
+        43: aconst_null
+        44: aconst_null
+        45: aload_0
+        46: aconst_null
+        47: invokespecial #288                // Method com/jetbrains/launcher/AppFilesImpl."<init>":(Lcom/jetbrains/launcher/AppConfigFilesEx;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        50: invokespecial #291                // Method jetbrains/buildServer/agent/AgentFiles."<init>":(Lcom/jetbrains/launcher/AppFiles;)V
+        53: areturn
+        54: astore_1
+        55: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        58: aload_1
+        59: invokevirtual #266                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        62: invokedynamic #294,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        67: aload_1
+        68: invokevirtual #295                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        71: getstatic     #297                // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.CORRUPTED_AGENT_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+        74: invokevirtual #207                // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+        77: new           #300                // class java/lang/RuntimeException
+        80: dup
+        81: ldc_w         #302                // String Agent installation is corrupted
+        84: invokespecial #304                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+        87: athrow
+      Exception table:
+         from    to  target type
+             0    53    54   Class java/lang/Throwable
+      LineNumberTable:
+        line 157: 0
+        line 158: 4
+        line 159: 19
+        line 160: 54
+        line 161: 55
+        line 162: 71
+        line 163: 77
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            4      50     1  home   Ljava/io/File;
+           55      33     1     e   Ljava/lang/Throwable;
+            0      88     0 appLogsDirPath   Ljava/lang/String;
+
+  private static org.springframework.context.support.ClassPathXmlApplicationContext createRootApplicationContext(java.lang.Object...);
+    descriptor: ([Ljava/lang/Object;)Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        7
+         6: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         9: new           #305                // class jetbrains/buildServer/agent/AgentMain2$3
+        12: dup
+        13: iconst_5
+        14: anewarray     #124                // class java/lang/String
+        17: dup
+        18: iconst_0
+        19: ldc_w         #307                // String classpath*:/META-INF/buildAgentSpring.xml
+        22: aastore
+        23: dup
+        24: iconst_1
+        25: ldc_w         #309                // String classpath*:/META-INF/buildAgentSpring?*.xml
+        28: aastore
+        29: dup
+        30: iconst_2
+        31: ldc_w         #311                // String classpath*:/META-INF/buildAgentPlugins.xml
+        34: aastore
+        35: dup
+        36: iconst_3
+        37: ldc_w         #313                // String classpath*:/META-INF/shared-agent-server-spring.xml
+        40: aastore
+        41: dup
+        42: iconst_4
+        43: ldc_w         #315                // String classpath*:/META-INF/build-agent-plugin*.xml
+        46: aastore
+        47: aload_0
+        48: invokespecial #317                // Method jetbrains/buildServer/agent/AgentMain2$3."<init>":([Ljava/lang/String;[Ljava/lang/Object;)V
+        51: areturn
+        52: astore_1
+        53: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        56: ldc_w         #320                // String Failed to create Spring context.
+        59: aload_1
+        60: invokevirtual #295                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        63: getstatic     #322                // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.SPRING_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+        66: invokevirtual #207                // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+        69: new           #300                // class java/lang/RuntimeException
+        72: dup
+        73: ldc_w         #325                // String Failed to initialize Root Spring context.
+        76: invokespecial #304                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;)V
+        79: athrow
+      Exception table:
+         from    to  target type
+             9    51    52   Class java/lang/Throwable
+      LineNumberTable:
+        line 170: 9
+        line 190: 52
+        line 191: 53
+        line 192: 63
+        line 194: 69
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           53      16     1     e   Ljava/lang/Throwable;
+            0      80     0 wellknownBeans   [Ljava/lang/Object;
+
+  private static void loadPlugins(org.springframework.context.support.ClassPathXmlApplicationContext);
+    descriptor: (Lorg/springframework/context/support/ClassPathXmlApplicationContext;)V
+    Code:
+         0: aload_0
+         1: ldc_w         #327                // String agentPluginsLoader
+         4: ldc_w         #329                // class jetbrains/buildServer/agent/plugins/AgentPluginsLoader
+         7: invokevirtual #331                // Method org/springframework/context/support/ClassPathXmlApplicationContext.getBean:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+        10: checkcast     #329                // class jetbrains/buildServer/agent/plugins/AgentPluginsLoader
+        13: astore_1
+        14: aload_1
+        15: invokevirtual #337                // Method jetbrains/buildServer/agent/plugins/AgentPluginsLoader.initializePlugins:()V
+        18: goto          32
+        21: astore_1
+        22: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        25: ldc_w         #340                // String Failed to initialize agent plugins.
+        28: aload_1
+        29: invokevirtual #295                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        32: return
+      Exception table:
+         from    to  target type
+             0    18    21   Class java/lang/Throwable
+      LineNumberTable:
+        line 199: 0
+        line 200: 14
+        line 203: 18
+        line 201: 21
+        line 202: 22
+        line 204: 32
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           14       4     1 loader   Ljetbrains/buildServer/agent/plugins/AgentPluginsLoader;
+           22      10     1     e   Ljava/lang/Throwable;
+            0      33     0 beanFactory   Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+
+  private static void firePluginsLoaded(org.springframework.context.support.ClassPathXmlApplicationContext);
+    descriptor: (Lorg/springframework/context/support/ClassPathXmlApplicationContext;)V
+    Code:
+         0: aload_0
+         1: ldc_w         #342                // String agentPluginsLoaded
+         4: ldc_w         #344                // class jetbrains/buildServer/agent/AgentPluginsLoadedEventFire
+         7: invokevirtual #331                // Method org/springframework/context/support/ClassPathXmlApplicationContext.getBean:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+        10: checkcast     #344                // class jetbrains/buildServer/agent/AgentPluginsLoadedEventFire
+        13: astore_1
+        14: aload_1
+        15: invokevirtual #346                // Method jetbrains/buildServer/agent/AgentPluginsLoadedEventFire.fireEvent:()V
+        18: goto          32
+        21: astore_1
+        22: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        25: ldc_w         #340                // String Failed to initialize agent plugins.
+        28: aload_1
+        29: invokevirtual #295                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        32: return
+      Exception table:
+         from    to  target type
+             0    18    21   Class java/lang/Throwable
+      LineNumberTable:
+        line 208: 0
+        line 209: 14
+        line 212: 18
+        line 210: 21
+        line 211: 22
+        line 213: 32
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           14       4     1 loader   Ljetbrains/buildServer/agent/AgentPluginsLoadedEventFire;
+           22      10     1     e   Ljava/lang/Throwable;
+            0      33     0 beanFactory   Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+
+  private static void preInitAgent(org.springframework.context.support.ClassPathXmlApplicationContext, jetbrains.buildServer.agent.AgentCommandlineArguments);
+    descriptor: (Lorg/springframework/context/support/ClassPathXmlApplicationContext;Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        8
+         6: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: ifnonnull     18
+        13: bipush        9
+        15: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+        18: aload_0
+        19: invokestatic  #349                // Method getAgent:(Lorg/springframework/context/support/ClassPathXmlApplicationContext;)Ljetbrains/buildServer/agent/impl/BuildAgentEx;
+        22: astore_2
+        23: aload_2
+        24: aload_1
+        25: invokeinterface #353,  2          // InterfaceMethod jetbrains/buildServer/agent/impl/BuildAgentEx.preInit:(Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+        30: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        33: aload_2
+        34: invokeinterface #358,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/BuildAgentEx.getConfiguration:()Ljetbrains/buildServer/agent/BuildAgentConfigurationEx;
+        39: invokeinterface #362,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfigurationEx.getWorkDirectory:()Ljava/io/File;
+        44: invokevirtual #367                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+        47: invokedynamic #370,  0            // InvokeDynamic #10:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        52: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        55: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        58: aload_2
+        59: invokeinterface #358,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/BuildAgentEx.getConfiguration:()Ljetbrains/buildServer/agent/BuildAgentConfigurationEx;
+        64: invokeinterface #371,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfigurationEx.getTempDirectory:()Ljava/io/File;
+        69: invokevirtual #367                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+        72: invokedynamic #374,  0            // InvokeDynamic #11:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        77: invokevirtual #100                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        80: goto          121
+        83: astore_2
+        84: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        87: aload_2
+        88: invokevirtual #266                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        91: invokedynamic #375,  0            // InvokeDynamic #12:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        96: invokevirtual #236                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;)V
+        99: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       102: aload_2
+       103: invokevirtual #266                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+       106: invokedynamic #375,  0            // InvokeDynamic #12:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       111: aload_2
+       112: invokevirtual #376                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       115: getstatic     #201                // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.START_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+       118: invokevirtual #207                // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+       121: return
+      Exception table:
+         from    to  target type
+            18    80    83   Class java/lang/Throwable
+      LineNumberTable:
+        line 218: 18
+        line 219: 23
+        line 220: 30
+        line 221: 55
+        line 226: 80
+        line 222: 83
+        line 223: 84
+        line 224: 99
+        line 225: 115
+        line 227: 121
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           23      57     2 buildAgent   Ljetbrains/buildServer/agent/impl/BuildAgentEx;
+           84      37     2     t   Ljava/lang/Throwable;
+            0     122     0 beanFactory   Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+            0     122     1  args   Ljetbrains/buildServer/agent/AgentCommandlineArguments;
+
+  private static void startAgent(org.springframework.context.support.ClassPathXmlApplicationContext, jetbrains.buildServer.agent.AgentCommandlineArguments, jetbrains.buildServer.agent.AgentStartCallback);
+    descriptor: (Lorg/springframework/context/support/ClassPathXmlApplicationContext;Ljetbrains/buildServer/agent/AgentCommandlineArguments;Ljetbrains/buildServer/agent/AgentStartCallback;)V
+    Code:
+         0: aload_2
+         1: ifnonnull     9
+         4: bipush        10
+         6: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: invokestatic  #349                // Method getAgent:(Lorg/springframework/context/support/ClassPathXmlApplicationContext;)Ljetbrains/buildServer/agent/impl/BuildAgentEx;
+        13: astore_3
+        14: aload_3
+        15: aload_1
+        16: invokeinterface #378,  2          // InterfaceMethod jetbrains/buildServer/agent/impl/BuildAgentEx.init:(Ljetbrains/buildServer/agent/AgentCommandlineArguments;)V
+        21: aload_3
+        22: invokeinterface #381,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/BuildAgentEx.start:()V
+        27: aload_2
+        28: aload_3
+        29: invokeinterface #384,  2          // InterfaceMethod jetbrains/buildServer/agent/AgentStartCallback.agentStarted:(Ljetbrains/buildServer/agent/BuildAgent;)V
+        34: goto          110
+        37: astore_3
+        38: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        41: ldc_w         #390                // String \n\n\n
+        44: invokevirtual #236                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;)V
+        47: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        50: aload_3
+        51: invokevirtual #392                // Method jetbrains/buildServer/agent/impl/BuildAgentStartFailedException.getMessage:()Ljava/lang/String;
+        54: invokedynamic #294,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        59: invokevirtual #236                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;)V
+        62: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        65: aload_3
+        66: invokevirtual #392                // Method jetbrains/buildServer/agent/impl/BuildAgentStartFailedException.getMessage:()Ljava/lang/String;
+        69: invokedynamic #294,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        74: aload_3
+        75: invokevirtual #376                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        78: getstatic     #201                // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.START_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+        81: invokevirtual #207                // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+        84: goto          110
+        87: astore_3
+        88: getstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        91: aload_3
+        92: invokevirtual #266                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        95: invokedynamic #294,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       100: aload_3
+       101: invokevirtual #295                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       104: getstatic     #201                // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.START_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+       107: invokevirtual #207                // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+       110: return
+      Exception table:
+         from    to  target type
+             9    34    37   Class jetbrains/buildServer/agent/impl/BuildAgentStartFailedException
+             9    34    87   Class java/lang/Throwable
+      LineNumberTable:
+        line 233: 9
+        line 234: 14
+        line 235: 21
+        line 236: 27
+        line 247: 34
+        line 238: 37
+        line 239: 38
+        line 240: 47
+        line 241: 62
+        line 242: 78
+        line 247: 84
+        line 244: 87
+        line 245: 88
+        line 246: 104
+        line 248: 110
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           14      20     3 buildAgent   Ljetbrains/buildServer/agent/impl/BuildAgentEx;
+           38      46     3     e   Ljetbrains/buildServer/agent/impl/BuildAgentStartFailedException;
+           88      22     3     e   Ljava/lang/Throwable;
+            0     111     0 beanFactory   Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+            0     111     1  args   Ljetbrains/buildServer/agent/AgentCommandlineArguments;
+            0     111     2 callback   Ljetbrains/buildServer/agent/AgentStartCallback;
+
+  private static jetbrains.buildServer.agent.impl.BuildAgentEx getAgent(org.springframework.context.support.ClassPathXmlApplicationContext);
+    descriptor: (Lorg/springframework/context/support/ClassPathXmlApplicationContext;)Ljetbrains/buildServer/agent/impl/BuildAgentEx;
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        11
+         6: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: ldc_w         #393                // String buildAgent
+        13: ldc_w         #354                // class jetbrains/buildServer/agent/impl/BuildAgentEx
+        16: invokevirtual #331                // Method org/springframework/context/support/ClassPathXmlApplicationContext.getBean:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+        19: checkcast     #354                // class jetbrains/buildServer/agent/impl/BuildAgentEx
+        22: dup
+        23: ifnonnull     31
+        26: bipush        12
+        28: invokestatic  #494                // Method $$$reportNull$$$0:(I)V
+        31: areturn
+      LineNumberTable:
+        line 252: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      32     0 beanFactory   Lorg/springframework/context/support/ClassPathXmlApplicationContext;
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #18                 // class jetbrains/buildServer/agent/AgentMain2
+         2: invokevirtual #82                 // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: invokestatic  #88                 // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+         8: putstatic     #94                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        11: return
+      LineNumberTable:
+        line 32: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 12
+                       0: 68
+                       1: 68
+                       2: 74
+                       3: 74
+                       4: 68
+                       5: 68
+                       6: 68
+                       7: 68
+                       8: 68
+                       9: 68
+                      10: 68
+                      11: 68
+                      12: 74
+                 default: 68
+            }
+        68: ldc_w         #496                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        71: goto          80
+        74: ldc_w         #498                // String @NotNull method %s.%s must not return null
+        77: goto          80
+        80: iload_0
+        81: tableswitch   { // 0 to 12
+                       0: 148
+                       1: 148
+                       2: 152
+                       3: 152
+                       4: 148
+                       5: 148
+                       6: 148
+                       7: 148
+                       8: 148
+                       9: 148
+                      10: 148
+                      11: 148
+                      12: 152
+                 default: 148
+            }
+       148: iconst_3
+       149: goto          156
+       152: iconst_2
+       153: goto          156
+       156: anewarray     #4                  // class java/lang/Object
+       159: iload_0
+       160: tableswitch   { // 0 to 12
+                       0: 228
+                       1: 237
+                       2: 246
+                       3: 246
+                       4: 228
+                       5: 255
+                       6: 264
+                       7: 273
+                       8: 282
+                       9: 228
+                      10: 255
+                      11: 282
+                      12: 246
+                 default: 228
+            }
+       228: dup
+       229: iconst_0
+       230: ldc_w         #499                // String args
+       233: aastore
+       234: goto          291
+       237: dup
+       238: iconst_0
+       239: ldc_w         #500                // String oldPath
+       242: aastore
+       243: goto          291
+       246: dup
+       247: iconst_0
+       248: ldc_w         #501                // String jetbrains/buildServer/agent/AgentMain2
+       251: aastore
+       252: goto          291
+       255: dup
+       256: iconst_0
+       257: ldc_w         #502                // String callback
+       260: aastore
+       261: goto          291
+       264: dup
+       265: iconst_0
+       266: ldc_w         #503                // String commandlineArguments
+       269: aastore
+       270: goto          291
+       273: dup
+       274: iconst_0
+       275: ldc_w         #504                // String wellknownBeans
+       278: aastore
+       279: goto          291
+       282: dup
+       283: iconst_0
+       284: ldc_w         #505                // String beanFactory
+       287: aastore
+       288: goto          291
+       291: iload_0
+       292: tableswitch   { // 0 to 12
+                       0: 360
+                       1: 360
+                       2: 369
+                       3: 369
+                       4: 360
+                       5: 360
+                       6: 360
+                       7: 360
+                       8: 360
+                       9: 360
+                      10: 360
+                      11: 360
+                      12: 378
+                 default: 360
+            }
+       360: dup
+       361: iconst_1
+       362: ldc_w         #501                // String jetbrains/buildServer/agent/AgentMain2
+       365: aastore
+       366: goto          387
+       369: dup
+       370: iconst_1
+       371: ldc_w         #506                // String patchPath
+       374: aastore
+       375: goto          387
+       378: dup
+       379: iconst_1
+       380: ldc_w         #507                // String getAgent
+       383: aastore
+       384: goto          387
+       387: iload_0
+       388: tableswitch   { // 0 to 12
+                       0: 456
+                       1: 465
+                       2: 474
+                       3: 474
+                       4: 477
+                       5: 477
+                       6: 486
+                       7: 495
+                       8: 504
+                       9: 504
+                      10: 513
+                      11: 522
+                      12: 474
+                 default: 456
+            }
+       456: dup
+       457: iconst_2
+       458: ldc_w         #508                // String main
+       461: aastore
+       462: goto          531
+       465: dup
+       466: iconst_2
+       467: ldc_w         #506                // String patchPath
+       470: aastore
+       471: goto          531
+       474: goto          531
+       477: dup
+       478: iconst_2
+       479: ldc_w         #509                // String main2
+       482: aastore
+       483: goto          531
+       486: dup
+       487: iconst_2
+       488: ldc_w         #510                // String setupTeamCityProperties
+       491: aastore
+       492: goto          531
+       495: dup
+       496: iconst_2
+       497: ldc_w         #511                // String createRootApplicationContext
+       500: aastore
+       501: goto          531
+       504: dup
+       505: iconst_2
+       506: ldc_w         #512                // String preInitAgent
+       509: aastore
+       510: goto          531
+       513: dup
+       514: iconst_2
+       515: ldc_w         #513                // String startAgent
+       518: aastore
+       519: goto          531
+       522: dup
+       523: iconst_2
+       524: ldc_w         #507                // String getAgent
+       527: aastore
+       528: goto          531
+       531: invokestatic  #517                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       534: iload_0
+       535: tableswitch   { // 0 to 12
+                       0: 600
+                       1: 600
+                       2: 611
+                       3: 611
+                       4: 600
+                       5: 600
+                       6: 600
+                       7: 600
+                       8: 600
+                       9: 600
+                      10: 600
+                      11: 600
+                      12: 611
+                 default: 600
+            }
+       600: new           #519                // class java/lang/IllegalArgumentException
+       603: dup_x1
+       604: swap
+       605: invokespecial #520                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       608: goto          622
+       611: new           #522                // class java/lang/IllegalStateException
+       614: dup_x1
+       615: swap
+       616: invokespecial #523                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       619: goto          622
+       622: athrow
+}

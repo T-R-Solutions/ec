@@ -1,0 +1,1808 @@
+Compiled from "FlushQueueAction.java"
+public class jetbrains.buildServer.serverSide.impl.FlushQueueAction {
+  public static final java.lang.String SCHEDULE_FREEZE_AND_CHECKING_FOR_CHANGES_IN_PARALLEL_PROP;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.serverSide.BuildServerEx myBuildServerEx;
+    descriptor: Ljetbrains/buildServer/serverSide/BuildServerEx;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor myBuildDistributor;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor;
+
+  private final jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgentsManager myVirualAgents;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;
+
+  private final jetbrains.buildServer.serverSide.impl.BuildEstimatorFeeder myFeeder;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder;
+
+  private final jetbrains.buildServer.serverSide.cleanup.ServerCleanupManager myServerCleanupManager;
+    descriptor: Ljetbrains/buildServer/serverSide/cleanup/ServerCleanupManager;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributionCallbackDispatcher myDistributionListenerDispatcher;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;
+
+  private final jetbrains.buildServer.serverSide.BuildQueueEx myQueue;
+    descriptor: Ljetbrains/buildServer/serverSide/BuildQueueEx;
+
+  private final jetbrains.buildServer.serverSide.QueuedBuildsSettingsFreezer myFreezer;
+    descriptor: Ljetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer;
+
+  private final jetbrains.buildServer.serverSide.BuildAgentFactory myBuildAgentFactory;
+    descriptor: Ljetbrains/buildServer/serverSide/BuildAgentFactory;
+
+  private final jetbrains.buildServer.serverSide.impl.AgentParametersProvidersProcessor myAgentParametersProvidersProcessor;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor;
+
+  private final jetbrains.buildServer.serverSide.impl.QueuedBuildStarter myQueuedBuildStarter;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+
+  private final jetbrains.buildServer.serverSide.impl.FlushQueueAction$DistributionTimeTracker myDistributionTimeTracker;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.QueuedBuildOptimizerImpl myQueuedBuildOptimizer;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildOptimizerImpl;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.QueuedBuildTerminatorImpl myQueuedBuildTerminator;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl;
+
+  private final jetbrains.buildServer.util.TimeIntervalAction myLogQueueStats;
+    descriptor: Ljetbrains/buildServer/util/TimeIntervalAction;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.BuildQueueProcessingMetrics myBuildQueueProcessingMetrics;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+
+  private final jetbrains.buildServer.serverSide.impl.buildDistribution.FlushQueueExecutor myFlushQueueExecutor;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+
+  private volatile jetbrains.buildServer.serverSide.impl.FlushQueueAction$AbstractParallelTask myCompatibleAgentsTask;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+
+  private volatile jetbrains.buildServer.serverSide.impl.FlushQueueAction$AbstractParallelTask myChangesAndSettingsFreezeTask;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+
+  public jetbrains.buildServer.serverSide.impl.FlushQueueAction(jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor, jetbrains.buildServer.serverSide.BuildAgentManagerEx, jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgentsManager, jetbrains.buildServer.serverSide.BuildServerEx, jetbrains.buildServer.serverSide.impl.BuildEstimatorFeeder, jetbrains.buildServer.serverSide.cleanup.ServerCleanupManager, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributionCallbackDispatcher, jetbrains.buildServer.serverSide.BuildQueueEx, jetbrains.buildServer.serverSide.QueuedBuildsSettingsFreezer, jetbrains.buildServer.serverSide.BuildAgentFactory, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildQueueProcessingMetrics, jetbrains.buildServer.serverSide.agentTypes.AgentTypeManager, jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.serverSide.BuildServerListener>, jetbrains.buildServer.serverSide.impl.buildDistribution.FlushQueueExecutor);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor;Ljetbrains/buildServer/serverSide/BuildAgentManagerEx;Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;Ljetbrains/buildServer/serverSide/BuildServerEx;Ljetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder;Ljetbrains/buildServer/serverSide/cleanup/ServerCleanupManager;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;Ljetbrains/buildServer/serverSide/BuildQueueEx;Ljetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer;Ljetbrains/buildServer/serverSide/BuildAgentFactory;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;Ljetbrains/buildServer/serverSide/agentTypes/AgentTypeManager;Ljetbrains/buildServer/util/EventDispatcher;Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        33: aload         5
+        35: ifnonnull     42
+        38: iconst_4
+        39: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        42: aload         6
+        44: ifnonnull     51
+        47: iconst_5
+        48: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        51: aload         7
+        53: ifnonnull     61
+        56: bipush        6
+        58: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        61: aload         8
+        63: ifnonnull     71
+        66: bipush        7
+        68: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        71: aload         9
+        73: ifnonnull     81
+        76: bipush        8
+        78: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        81: aload         10
+        83: ifnonnull     91
+        86: bipush        9
+        88: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        91: aload         11
+        93: ifnonnull     101
+        96: bipush        10
+        98: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+       101: aload         12
+       103: ifnonnull     111
+       106: bipush        11
+       108: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+       111: aload         13
+       113: ifnonnull     121
+       116: bipush        12
+       118: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+       121: aload         14
+       123: ifnonnull     131
+       126: bipush        13
+       128: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+       131: aload_0
+       132: invokespecial #371                // Method java/lang/Object."<init>":()V
+       135: aload_0
+       136: aload_1
+       137: putfield      #878                // Field myBuildDistributor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor;
+       140: aload_0
+       141: aload_3
+       142: putfield      #304                // Field myVirualAgents:Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;
+       145: aload_0
+       146: aload         4
+       148: putfield      #839                // Field myBuildServerEx:Ljetbrains/buildServer/serverSide/BuildServerEx;
+       151: aload_0
+       152: aload         5
+       154: putfield      #347                // Field myFeeder:Ljetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder;
+       157: aload_0
+       158: aload         6
+       160: putfield      #830                // Field myServerCleanupManager:Ljetbrains/buildServer/serverSide/cleanup/ServerCleanupManager;
+       163: aload_0
+       164: aload         7
+       166: putfield      #324                // Field myDistributionListenerDispatcher:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;
+       169: aload_0
+       170: aload         8
+       172: putfield      #432                // Field myQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+       175: aload_0
+       176: aload         9
+       178: putfield      #591                // Field myFreezer:Ljetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer;
+       181: aload_0
+       182: aload         10
+       184: putfield      #498                // Field myBuildAgentFactory:Ljetbrains/buildServer/serverSide/BuildAgentFactory;
+       187: aload_0
+       188: aload         11
+       190: putfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       193: aload_0
+       194: aload         14
+       196: putfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+       199: aload_0
+       200: new           #163                // class jetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor
+       203: dup
+       204: invokestatic  #866                // Method jetbrains/buildServer/util/SystemTimeService.getInstance:()Ljetbrains/buildServer/util/TimeService;
+       207: aload         12
+       209: invokespecial #313                // Method jetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor."<init>":(Ljetbrains/buildServer/util/TimeService;Ljetbrains/buildServer/serverSide/agentTypes/AgentTypeManager;)V
+       212: putfield      #486                // Field myAgentParametersProvidersProcessor:Ljetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor;
+       215: aload_0
+       216: new           #287                // class jetbrains/buildServer/serverSide/impl/QueuedBuildStarter
+       219: dup
+       220: aload_0
+       221: invokedynamic #383,  0            // InvokeDynamic #0:get:(Ljetbrains/buildServer/serverSide/impl/FlushQueueAction;)Ljava/util/function/Supplier;
+       226: aload_2
+       227: aload         8
+       229: aload_0
+       230: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       233: invokevirtual #188                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getStartNewBuildsInsideQueueLoopMetric:()Ljetbrains/buildServer/metrics/Counter;
+       236: aload_0
+       237: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       240: invokevirtual #627                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getStartNewBuildsOutsideQueueLoopMetric:()Ljetbrains/buildServer/metrics/Counter;
+       243: aload_0
+       244: getfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+       247: invokevirtual #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.getParallelTasksExecutor:()Ljava/util/concurrent/ExecutorService;
+       250: invokespecial #77                 // Method jetbrains/buildServer/serverSide/impl/QueuedBuildStarter."<init>":(Ljava/util/function/Supplier;Ljetbrains/buildServer/serverSide/BuildAgentManager;Ljetbrains/buildServer/serverSide/BuildQueueEx;Ljetbrains/buildServer/metrics/Counter;Ljetbrains/buildServer/metrics/Counter;Ljava/util/concurrent/ExecutorService;)V
+       253: putfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+       256: aload_0
+       257: new           #62                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildOptimizerImpl
+       260: dup
+       261: aload_0
+       262: getfield      #432                // Field myQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+       265: aload_0
+       266: getfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+       269: invokevirtual #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.getParallelTasksExecutor:()Ljava/util/concurrent/ExecutorService;
+       272: aload         13
+       274: aload_0
+       275: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       278: invokevirtual #526                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getBuildsOptimizationTimeMetric:()Ljetbrains/buildServer/metrics/Counter;
+       281: invokespecial #623                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildOptimizerImpl."<init>":(Ljetbrains/buildServer/serverSide/BuildQueueEx;Ljava/util/concurrent/ExecutorService;Ljetbrains/buildServer/util/EventDispatcher;Ljetbrains/buildServer/metrics/Counter;)V
+       284: putfield      #759                // Field myQueuedBuildOptimizer:Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildOptimizerImpl;
+       287: aload_0
+       288: new           #233                // class jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl
+       291: dup
+       292: aload_0
+       293: getfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+       296: invokevirtual #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.getParallelTasksExecutor:()Ljava/util/concurrent/ExecutorService;
+       299: aload_0
+       300: getfield      #432                // Field myQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+       303: invokespecial #197                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl."<init>":(Ljava/util/concurrent/ExecutorService;Ljetbrains/buildServer/serverSide/BuildQueueEx;)V
+       306: putfield      #333                // Field myQueuedBuildTerminator:Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl;
+       309: aload_0
+       310: new           #272                // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker
+       313: dup
+       314: invokespecial #193                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker."<init>":()V
+       317: putfield      #274                // Field myDistributionTimeTracker:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker;
+       320: aload_0
+       321: new           #316                // class jetbrains/buildServer/util/TimeIntervalAction
+       324: dup
+       325: invokedynamic #95,  0             // InvokeDynamic #1:getAsLong:()Ljava/util/function/LongSupplier;
+       330: invokespecial #854                // Method jetbrains/buildServer/util/TimeIntervalAction."<init>":(Ljava/util/function/LongSupplier;)V
+       333: putfield      #881                // Field myLogQueueStats:Ljetbrains/buildServer/util/TimeIntervalAction;
+       336: aload_0
+       337: getfield      #839                // Field myBuildServerEx:Ljetbrains/buildServer/serverSide/BuildServerEx;
+       340: new           #327                // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$1
+       343: dup
+       344: aload_0
+       345: invokespecial #569                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$1."<init>":(Ljetbrains/buildServer/serverSide/impl/FlushQueueAction;)V
+       348: invokeinterface #202,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildServerEx.addListener:(Ljetbrains/buildServer/serverSide/BuildServerListener;)V
+       353: return
+      LineNumberTable:
+        line 123: 131
+        line 54: 135
+        line 1: 140
+        line 78: 145
+        line 62: 151
+        line 151: 157
+        line 40: 163
+        line 76: 169
+        line 24: 175
+        line 3: 181
+        line 80: 187
+        line 77: 193
+        line 119: 199
+        line 90: 215
+        line 88: 233
+        line 57: 240
+        line 19: 247
+        line 124: 256
+        line 35: 287
+        line 128: 309
+        line 60: 320
+        line 137: 336
+        line 22: 353
+
+  public boolean flushQueue();
+    descriptor: ()Z
+    Code:
+         0: new           #118                // class java/util/concurrent/atomic/AtomicInteger
+         3: dup
+         4: invokespecial #105                // Method java/util/concurrent/atomic/AtomicInteger."<init>":()V
+         7: astore_1
+         8: aload_0
+         9: getfield      #324                // Field myDistributionListenerDispatcher:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;
+        12: invokevirtual #264                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher.distributionStarted:()V
+        15: aload_0
+        16: getfield      #830                // Field myServerCleanupManager:Ljetbrains/buildServer/serverSide/cleanup/ServerCleanupManager;
+        19: aload_0
+        20: aload_1
+        21: invokevirtual #508                // Method flushQueueTask:(Ljava/util/concurrent/atomic/AtomicInteger;)Ljava/lang/Runnable;
+        24: iconst_0
+        25: invokeinterface #880,  3          // InterfaceMethod jetbrains/buildServer/serverSide/cleanup/ServerCleanupManager.executeWithInactiveCleanup:(Ljava/lang/Runnable;Z)Z
+        30: istore_2
+        31: aload_0
+        32: getfield      #324                // Field myDistributionListenerDispatcher:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;
+        35: invokevirtual #112                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher.distributionFinished:()V
+        38: iload_2
+        39: ifeq          64
+        42: aload_1
+        43: invokevirtual #171                // Method java/util/concurrent/atomic/AtomicInteger.get:()I
+        46: ifeq          64
+        49: goto          56
+        52: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        55: athrow
+        56: iconst_1
+        57: goto          65
+        60: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        63: athrow
+        64: iconst_0
+        65: ireturn
+      Exception table:
+         from    to  target type
+            31    49    52   Class java/lang/IllegalArgumentException
+            42    60    60   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 70: 0
+        line 135: 8
+        line 148: 15
+        line 66: 31
+        line 140: 38
+
+  private java.lang.Runnable flushQueueTask(java.util.concurrent.atomic.AtomicInteger);
+    descriptor: (Ljava/util/concurrent/atomic/AtomicInteger;)Ljava/lang/Runnable;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        14
+         6: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_0
+        17: aload_1
+        18: invokedynamic #571,  0            // InvokeDynamic #2:run:(Ljetbrains/buildServer/serverSide/impl/FlushQueueAction;Ljava/util/concurrent/atomic/AtomicInteger;)Ljava/lang/Runnable;
+        23: dup
+        24: ifnonnull     39
+        27: bipush        15
+        29: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        32: goto          39
+        35: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        38: athrow
+        39: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/IllegalArgumentException
+            16    32    35   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 108: 16
+
+  private jetbrains.buildServer.util.Disposable metricsDiff();
+    descriptor: ()Ljetbrains/buildServer/util/Disposable;
+    Code:
+         0: aload_0
+         1: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+         4: invokevirtual #429                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getTotalQueueProcessingMetric:()Ljetbrains/buildServer/metrics/Counter;
+         7: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+        12: d2l
+        13: lstore_1
+        14: aload_0
+        15: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        18: iconst_0
+        19: invokevirtual #156                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getCompatibleAgentsMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+        22: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+        27: d2l
+        28: lstore_3
+        29: aload_0
+        30: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        33: iconst_0
+        34: invokevirtual #157                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getCompatibleVirtualAgentsMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+        37: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+        42: d2l
+        43: lstore        5
+        45: aload_0
+        46: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        49: invokevirtual #526                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getBuildsOptimizationTimeMetric:()Ljetbrains/buildServer/metrics/Counter;
+        52: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+        57: d2l
+        58: lstore        7
+        60: aload_0
+        61: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        64: iconst_0
+        65: invokevirtual #652                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getPreconditionsTimeMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+        68: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+        73: d2l
+        74: lstore        9
+        76: aload_0
+        77: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        80: invokevirtual #188                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getStartNewBuildsInsideQueueLoopMetric:()Ljetbrains/buildServer/metrics/Counter;
+        83: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+        88: d2l
+        89: lstore        11
+        91: aload_0
+        92: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        95: iconst_0
+        96: invokevirtual #626                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getOtherActivitiesMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+        99: invokeinterface #602,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.doubleValue:()D
+       104: d2l
+       105: lstore        13
+       107: new           #69                 // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$2
+       110: dup
+       111: aload_0
+       112: lload_1
+       113: lload_3
+       114: lload         5
+       116: lload         7
+       118: lload         9
+       120: lload         11
+       122: lload         13
+       124: invokespecial #646                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$2."<init>":(Ljetbrains/buildServer/serverSide/impl/FlushQueueAction;JJJJJJJ)V
+       127: areturn
+      LineNumberTable:
+        line 44: 0
+        line 73: 14
+        line 106: 29
+        line 112: 45
+        line 71: 60
+        line 117: 76
+        line 154: 91
+        line 11: 107
+
+  private void scheduleSettingsFreezeTask();
+    descriptor: ()V
+    Code:
+         0: invokestatic  #153                // Method isSchedulingSettingsFreezeInParallelEnabled:()Z
+         3: ifeq          77
+         6: aload_0
+         7: getfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        10: ifnull        45
+        13: goto          20
+        16: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        19: athrow
+        20: aload_0
+        21: getfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        24: dup
+        25: astore_1
+        26: monitorenter
+        27: aload_0
+        28: getfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        31: invokevirtual #174                // Method java/lang/Object.notify:()V
+        34: aload_1
+        35: monitorexit
+        36: goto          44
+        39: astore_2
+        40: aload_1
+        41: monitorexit
+        42: aload_2
+        43: athrow
+        44: return
+        45: aload_0
+        46: getfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+        49: invokevirtual #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.getParallelTasksExecutor:()Ljava/util/concurrent/ExecutorService;
+        52: astore_1
+        53: aload_0
+        54: new           #672                // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$ChangesAndSettingsFreezeTask
+        57: dup
+        58: aload_0
+        59: aload_1
+        60: invokespecial #482                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$ChangesAndSettingsFreezeTask."<init>":(Ljetbrains/buildServer/serverSide/impl/FlushQueueAction;Ljava/util/concurrent/ExecutorService;)V
+        63: putfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        66: aload_0
+        67: getfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        70: aload_1
+        71: invokevirtual #711                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask.submit:(Ljava/util/concurrent/ExecutorService;)V
+        74: goto          103
+        77: aload_0
+        78: getfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        81: ifnull        103
+        84: aload_0
+        85: getfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        88: invokevirtual #53                 // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask.cancel:()V
+        91: aload_0
+        92: aconst_null
+        93: putfield      #463                // Field myChangesAndSettingsFreezeTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        96: goto          103
+        99: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       102: athrow
+       103: return
+      Exception table:
+         from    to  target type
+             0    13    16   Class java/lang/IllegalArgumentException
+            27    36    39   any
+            39    42    39   any
+            77    96    99   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 36: 0
+        line 155: 6
+        line 32: 20
+        line 5: 27
+        line 138: 34
+        line 103: 44
+        line 27: 45
+        line 136: 53
+        line 94: 66
+        line 23: 74
+        line 42: 84
+        line 101: 91
+        line 116: 103
+
+  private void scheduleCompatibleAgentsCalculationTask();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #549                // Field myCompatibleAgentsTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+         4: ifnull        36
+         7: aload_0
+         8: getfield      #549                // Field myCompatibleAgentsTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        11: invokevirtual #616                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask.isFinished:()Z
+        14: ifne          36
+        17: goto          24
+        20: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        23: athrow
+        24: aload_0
+        25: getfield      #549                // Field myCompatibleAgentsTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        28: invokevirtual #872                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask.wakeUp:()V
+        31: return
+        32: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        35: athrow
+        36: aload_0
+        37: getfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+        40: invokevirtual #66                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.getParallelTasksExecutor:()Ljava/util/concurrent/ExecutorService;
+        43: astore_1
+        44: aload_0
+        45: new           #47                 // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$CompatibleAgentsCalculatorTask
+        48: dup
+        49: aload_0
+        50: getfield      #347                // Field myFeeder:Ljetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder;
+        53: aload_0
+        54: getfield      #304                // Field myVirualAgents:Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;
+        57: aload_1
+        58: invokespecial #467                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$CompatibleAgentsCalculatorTask."<init>":(Ljetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder;Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;Ljava/util/concurrent/ExecutorService;)V
+        61: putfield      #549                // Field myCompatibleAgentsTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        64: aload_0
+        65: getfield      #549                // Field myCompatibleAgentsTask:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask;
+        68: aload_1
+        69: invokevirtual #711                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$AbstractParallelTask.submit:(Ljava/util/concurrent/ExecutorService;)V
+        72: return
+      Exception table:
+         from    to  target type
+             0    17    20   Class java/lang/IllegalArgumentException
+             7    32    32   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 4: 0
+        line 53: 24
+        line 95: 31
+        line 111: 36
+        line 145: 44
+        line 143: 64
+        line 115: 72
+
+  private jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributorInputEx createDistributorInputData();
+    descriptor: ()Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;
+    Code:
+         0: aload_0
+         1: getfield      #347                // Field myFeeder:Ljetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder;
+         4: invokevirtual #738                // Method jetbrains/buildServer/serverSide/impl/BuildEstimatorFeeder.makeInputForDistributor:()Ljetbrains/buildServer/serverSide/impl/buildDistribution/InputData;
+         7: astore_1
+         8: aload_0
+         9: getfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+        12: invokevirtual #605                // Method jetbrains/buildServer/serverSide/impl/QueuedBuildStarter.getStartingBuilds:()Ljava/util/Map;
+        15: astore_2
+        16: aload_2
+        17: invokeinterface #783,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+        22: ifne          118
+        25: new           #300                // class java/util/ArrayList
+        28: dup
+        29: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+        32: astore_3
+        33: aload_1
+        34: invokevirtual #179                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/InputData.getQueue:()Ljava/util/List;
+        37: invokeinterface #733,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        42: astore        4
+        44: aload         4
+        46: invokeinterface #408,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        51: ifeq          96
+        54: aload         4
+        56: invokeinterface #634,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        61: checkcast     #180                // class jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo
+        64: astore        5
+        66: aload_2
+        67: aload         5
+        69: invokeinterface #365,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+        74: ifeq          84
+        77: goto          44
+        80: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        83: athrow
+        84: aload_3
+        85: aload         5
+        87: invokeinterface #806,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        92: pop
+        93: goto          44
+        96: new           #177                // class jetbrains/buildServer/serverSide/impl/buildDistribution/InputData
+        99: dup
+       100: aload_3
+       101: aload_1
+       102: invokevirtual #203                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/InputData.getRunningBuilds:()Ljava/util/Collection;
+       105: aload_1
+       106: invokevirtual #214                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/InputData.getAgents:()Ljava/util/Collection;
+       109: invokespecial #464                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/InputData."<init>":(Ljava/util/List;Ljava/util/Collection;Ljava/util/Collection;)V
+       112: astore_1
+       113: aload_1
+       114: aload_2
+       115: invokevirtual #104                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/InputData.setDistributedBuilds:(Ljava/util/Map;)V
+       118: aload_1
+       119: aload_0
+       120: getfield      #274                // Field myDistributionTimeTracker:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker;
+       123: invokevirtual #636                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker.getAverage:()D
+       126: ldc2_w        #886                // double 1000.0d
+       129: ddiv
+       130: invokestatic  #724                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+       133: invokevirtual #867                // Method java/lang/Double.intValue:()I
+       136: invokevirtual #210                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/InputData.setAverageDistributionTime:(I)V
+       139: aload_1
+       140: dup
+       141: ifnonnull     156
+       144: bipush        16
+       146: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+       149: goto          156
+       152: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       155: athrow
+       156: areturn
+      Exception table:
+         from    to  target type
+            66    80    80   Class java/lang/IllegalArgumentException
+           118   149   152   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 38: 0
+        line 110: 8
+        line 82: 16
+        line 20: 25
+        line 92: 33
+        line 12: 66
+        line 99: 84
+        line 67: 93
+        line 45: 96
+        line 68: 113
+        line 28: 118
+        line 156: 139
+
+  private void performQueuedBuildChainsMergeOptimization();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+         4: invokevirtual #526                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getBuildsOptimizationTimeMetric:()Ljetbrains/buildServer/metrics/Counter;
+         7: invokeinterface #860,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.startMsecsTimer:()Ljetbrains/buildServer/metrics/Stoppable;
+        12: astore_1
+        13: aload_0
+        14: getfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+        17: invokevirtual #605                // Method jetbrains/buildServer/serverSide/impl/QueuedBuildStarter.getStartingBuilds:()Ljava/util/Map;
+        20: invokeinterface #499,  1          // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+        25: astore_2
+        26: aload_0
+        27: getfield      #432                // Field myQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+        30: aload_2
+        31: invokedynamic #474,  0            // InvokeDynamic #3:test:(Ljava/util/Set;)Ljava/util/function/Predicate;
+        36: invokeinterface #217,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildQueueEx.mergeBuilds:(Ljava/util/function/Predicate;)Z
+        41: pop
+        42: aload_1
+        43: ifnull        73
+        46: aload_1
+        47: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+        50: goto          73
+        53: astore_2
+        54: aload_1
+        55: ifnull        71
+        58: aload_1
+        59: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+        62: goto          71
+        65: astore_3
+        66: aload_2
+        67: aload_3
+        68: invokevirtual #851                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        71: aload_2
+        72: athrow
+        73: return
+      Exception table:
+         from    to  target type
+            13    42    53   Class java/lang/Throwable
+            58    62    65   Class java/lang/Throwable
+      LineNumberTable:
+        line 147: 0
+        line 81: 13
+        line 34: 26
+        line 96: 42
+        line 109: 53
+        line 74: 73
+
+  private synchronized void scheduleCheckingForChangesAndSettingsFreeze(java.util.List<jetbrains.buildServer.serverSide.QueuedBuildEx>);
+    descriptor: (Ljava/util/List;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        17
+         6: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_1
+        17: invokeinterface #746,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        22: ifeq          30
+        25: return
+        26: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        29: athrow
+        30: new           #300                // class java/util/ArrayList
+        33: dup
+        34: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+        37: astore_2
+        38: aload_1
+        39: invokeinterface #733,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        44: astore_3
+        45: aload_3
+        46: invokeinterface #408,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        51: ifeq          95
+        54: aload_3
+        55: invokeinterface #634,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        60: checkcast     #180                // class jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo
+        63: astore        4
+        65: aload         4
+        67: instanceof    #673                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+        70: ifeq          92
+        73: aload_2
+        74: aload         4
+        76: checkcast     #673                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+        79: invokeinterface #806,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        84: pop
+        85: goto          92
+        88: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        91: athrow
+        92: goto          45
+        95: aload_0
+        96: getfield      #591                // Field myFreezer:Ljetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer;
+        99: invokeinterface #570,  1          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer.getInProgressPromotions:()Ljava/util/Set;
+       104: astore_3
+       105: aload_0
+       106: getfield      #432                // Field myQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+       109: aload_2
+       110: invokeinterface #718,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       115: aload_3
+       116: invokedynamic #684,  0            // InvokeDynamic #4:test:(Ljava/util/Set;)Ljava/util/function/Predicate;
+       121: invokeinterface #148,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+       126: invokestatic  #338                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+       129: invokeinterface #285,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+       134: checkcast     #384                // class java/util/Collection
+       137: invokeinterface #545,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildQueueEx.scheduleCheckingForChangesForQueuedBuilds:(Ljava/util/Collection;)V
+       142: aload_2
+       143: invokeinterface #733,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       148: astore        4
+       150: aload         4
+       152: invokeinterface #408,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       157: ifeq          187
+       160: aload         4
+       162: invokeinterface #634,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       167: checkcast     #673                // class jetbrains/buildServer/serverSide/QueuedBuildEx
+       170: astore        5
+       172: aload_0
+       173: getfield      #591                // Field myFreezer:Ljetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer;
+       176: aload         5
+       178: invokeinterface #311,  2          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildsSettingsFreezer.scheduleSettingsFreeze:(Ljetbrains/buildServer/serverSide/QueuedBuildEx;)Z
+       183: pop
+       184: goto          150
+       187: return
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/IllegalArgumentException
+            16    26    26   Class java/lang/IllegalArgumentException
+            65    85    88   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 113: 16
+        line 144: 30
+        line 65: 38
+        line 9: 65
+        line 126: 73
+        line 83: 92
+        line 102: 95
+        line 46: 105
+        line 141: 142
+        line 61: 172
+        line 16: 184
+        line 51: 187
+
+  private jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionResult<jetbrains.buildServer.serverSide.SBuildAgent> doDistribute(jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter<jetbrains.buildServer.serverSide.SBuildAgent>, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter<jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgent>, jetbrains.buildServer.serverSide.impl.ExecutorBuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.CompositeBuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.AgentlessBuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor$QueuedBuildOptimizer, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor$QueuedBuildTerminator, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributorInputEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/ExecutorBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompositeBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildOptimizer;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildTerminator;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult;
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        18
+         6: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload         4
+        18: ifnonnull     33
+        21: bipush        19
+        23: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        26: goto          33
+        29: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        32: athrow
+        33: aload         5
+        35: ifnonnull     50
+        38: bipush        20
+        40: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        43: goto          50
+        46: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        49: athrow
+        50: aload         6
+        52: ifnonnull     67
+        55: bipush        21
+        57: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        60: goto          67
+        63: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        66: athrow
+        67: aload         7
+        69: ifnonnull     84
+        72: bipush        22
+        74: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        77: goto          84
+        80: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        83: athrow
+        84: aload         8
+        86: ifnonnull     101
+        89: bipush        23
+        91: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        94: goto          101
+        97: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       100: athrow
+       101: aload         8
+       103: invokeinterface #181,  1          // InterfaceMethod jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx.getQueue:()Ljava/util/List;
+       108: invokeinterface #743,  1          // InterfaceMethod java/util/List.size:()I
+       113: invokedynamic #572,  0            // InvokeDynamic #5:makeConcatWithConstants:(I)Ljava/lang/String;
+       118: aload_0
+       119: aload         8
+       121: aload_1
+       122: aload_2
+       123: aload_3
+       124: aload         4
+       126: aload         5
+       128: aload         6
+       130: aload         7
+       132: invokedynamic #586,  0            // InvokeDynamic #6:call:(Ljetbrains/buildServer/serverSide/impl/FlushQueueAction;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/ExecutorBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompositeBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildOptimizer;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildTerminator;)Ljava/util/concurrent/Callable;
+       137: invokestatic  #796                // Method jetbrains/buildServer/util/NamedThreadFactory.executeWithNewThreadName:(Ljava/lang/String;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
+       140: checkcast     #797                // class jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult
+       143: dup
+       144: ifnonnull     152
+       147: bipush        24
+       149: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+       152: areturn
+       153: astore        9
+       155: getstatic     #59                 // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+       158: ldc           #34                 // String Failed to assign queued builds to agents
+       160: aload         9
+       162: invokevirtual #631                // Method com/intellij/openapi/diagnostic/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       165: new           #797                // class jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult
+       168: dup
+       169: invokespecial #485                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult."<init>":()V
+       172: areturn
+      Exception table:
+         from    to  target type
+            84    94    97   Class java/lang/Exception
+            67    77    80   Class java/lang/Exception
+            50    60    63   Class java/lang/Exception
+            33    43    46   Class java/lang/Exception
+            16    26    29   Class java/lang/Exception
+             0     9    12   Class java/lang/Exception
+           101   143   153   Class java/lang/Exception
+      LineNumberTable:
+        line 41: 101
+        line 149: 153
+        line 104: 155
+        line 98: 165
+
+  private static jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionDecision startAgentlessBuild(jetbrains.buildServer.serverSide.impl.QueuedBuildStarter, jetbrains.buildServer.serverSide.QueuedBuildEx, jetbrains.buildServer.serverSide.SBuildAgent);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;Ljetbrains/buildServer/serverSide/QueuedBuildEx;Ljetbrains/buildServer/serverSide/SBuildAgent;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision;
+    Code:
+         0: aload_0
+         1: ifnonnull     16
+         4: bipush        25
+         6: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        15: athrow
+        16: aload_1
+        17: ifnonnull     32
+        20: bipush        26
+        22: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        25: goto          32
+        28: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        31: athrow
+        32: aload_0
+        33: aload_1
+        34: aload_2
+        35: invokevirtual #50                 // Method jetbrains/buildServer/serverSide/impl/QueuedBuildStarter.startAgentLessBuild:(Ljetbrains/buildServer/serverSide/QueuedBuildEx;Ljetbrains/buildServer/serverSide/SBuildAgent;)Z
+        38: istore_3
+        39: new           #387                // class jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision
+        42: dup
+        43: iload_3
+        44: new           #162                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        47: dup
+        48: aload_1
+        49: invokeinterface #393,  1          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildEx.getBuildPromotion:()Ljetbrains/buildServer/serverSide/BuildPromotionEx;
+        54: invokeinterface #385,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.isCompositeBuild:()Z
+        59: ifeq          71
+        62: ldc           #32                 // String Preparing the composite build for a start
+        64: goto          73
+        67: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        70: athrow
+        71: ldc           #24                 // String Preparing the build for a start by an executor
+        73: invokespecial #182                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        76: invokespecial #269                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionDecision."<init>":(ZLjetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+        79: areturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class java/lang/IllegalArgumentException
+            16    25    28   Class java/lang/IllegalArgumentException
+            39    67    67   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 31: 32
+        line 26: 39
+        line 84: 62
+        line 15: 79
+
+  public static boolean isSchedulingSettingsFreezeInParallelEnabled();
+    descriptor: ()Z
+    Code:
+         0: ldc           #5                  // String teamcity.flushQueue.scheduleFreezeSettingsInParallel
+         2: invokestatic  #590                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+         5: ireturn
+      LineNumberTable:
+        line 134: 0
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.StartingBuildsSupplier getStartingBuildsSupplier();
+    descriptor: ()Ljetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsSupplier;
+    Code:
+         0: aload_0
+         1: getfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+         4: dup
+         5: ifnonnull     20
+         8: bipush        27
+        10: invokestatic  #286                // Method $$$reportNull$$$0:(I)V
+        13: goto          20
+        16: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        19: athrow
+        20: areturn
+      Exception table:
+         from    to  target type
+             0    13    16   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 130: 0
+
+  private jetbrains.buildServer.serverSide.impl.buildDistribution.DistributionResult lambda$doDistribute$7(jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributorInputEx, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildStarter, jetbrains.buildServer.serverSide.impl.ExecutorBuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.CompositeBuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.AgentlessBuildStarter, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor$QueuedBuildOptimizer, jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributor$QueuedBuildTerminator) throws java.lang.Exception;
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/ExecutorBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompositeBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildOptimizer;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildTerminator;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult;
+    Code:
+         0: aload_0
+         1: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+         4: iconst_0
+         5: invokevirtual #626                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getOtherActivitiesMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+         8: invokeinterface #860,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.startMsecsTimer:()Ljetbrains/buildServer/metrics/Stoppable;
+        13: astore        9
+        15: new           #693                // class java/util/HashSet
+        18: dup
+        19: aload_1
+        20: invokeinterface #506,  1          // InterfaceMethod jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx.getDistributedBuilds:()Ljava/util/Map;
+        25: invokeinterface #49,  1           // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+        30: invokespecial #836                // Method java/util/HashSet."<init>":(Ljava/util/Collection;)V
+        33: astore        10
+        35: aload_1
+        36: invokeinterface #315,  1          // InterfaceMethod jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx.getAgents:()Ljava/util/Collection;
+        41: aload         10
+        43: invokedynamic #402,  0            // InvokeDynamic #7:accept:(Ljava/util/Set;)Ljava/util/function/Consumer;
+        48: invokeinterface #369,  2          // InterfaceMethod java/util/Collection.forEach:(Ljava/util/function/Consumer;)V
+        53: aload         9
+        55: ifnull        93
+        58: aload         9
+        60: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+        63: goto          93
+        66: astore        10
+        68: aload         9
+        70: ifnull        90
+        73: aload         9
+        75: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+        78: goto          90
+        81: astore        11
+        83: aload         10
+        85: aload         11
+        87: invokevirtual #851                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        90: aload         10
+        92: athrow
+        93: aload_0
+        94: getfield      #878                // Field myBuildDistributor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor;
+        97: aload_1
+        98: aconst_null
+        99: aload_2
+       100: aload_3
+       101: aload         4
+       103: aload_0
+       104: getfield      #324                // Field myDistributionListenerDispatcher:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;
+       107: dup
+       108: invokestatic  #75                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       111: pop
+       112: invokedynamic #686,  0            // InvokeDynamic #8:waitReasonSet:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributionCallbackDispatcher;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/SetWaitReasonCallback;
+       117: aload         5
+       119: aload         6
+       121: aload         7
+       123: aload         8
+       125: iconst_0
+       126: invokeinterface #86,  12          // InterfaceMethod jetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor.assignBuildsToAgents:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;Ljava/util/Map;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/SetWaitReasonCallback;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompositeBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildOptimizer;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildTerminator;Z)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult;
+       131: areturn
+      Exception table:
+         from    to  target type
+            15    53    66   Class java/lang/Throwable
+            73    78    81   Class java/lang/Throwable
+      LineNumberTable:
+        line 86: 0
+        line 121: 15
+        line 13: 35
+        line 153: 53
+        line 6: 66
+        line 25: 93
+        line 91: 108
+        line 122: 126
+
+  private static void lambda$doDistribute$6(java.util.Set, jetbrains.buildServer.serverSide.SBuildAgent);
+    descriptor: (Ljava/util/Set;Ljetbrains/buildServer/serverSide/SBuildAgent;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #348,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+         7: ifeq          15
+        10: return
+        11: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        14: athrow
+        15: aload_1
+        16: checkcast     #541                // class jetbrains/buildServer/serverSide/BuildAgentEx
+        19: getstatic     #754                // Field jetbrains/buildServer/serverSide/BuildAgentSpecialState.willRunBuild:Ljetbrains/buildServer/serverSide/BuildAgentSpecialState;
+        22: invokeinterface #614,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildAgentEx.clearSpecialState:(Ljetbrains/buildServer/serverSide/BuildAgentSpecialState;)V
+        27: return
+      Exception table:
+         from    to  target type
+             0    11    11   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 127: 0
+        line 133: 15
+        line 100: 27
+
+  private static boolean lambda$scheduleCheckingForChangesAndSettingsFreeze$5(java.util.Set, jetbrains.buildServer.serverSide.QueuedBuildEx);
+    descriptor: (Ljava/util/Set;Ljetbrains/buildServer/serverSide/QueuedBuildEx;)Z
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #393,  1          // InterfaceMethod jetbrains/buildServer/serverSide/QueuedBuildEx.getBuildPromotion:()Ljetbrains/buildServer/serverSide/BuildPromotionEx;
+         7: invokeinterface #348,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+        12: ifne          23
+        15: iconst_1
+        16: goto          24
+        19: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        22: athrow
+        23: iconst_0
+        24: ireturn
+      Exception table:
+         from    to  target type
+             0    19    19   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 48: 0
+
+  private static boolean lambda$performQueuedBuildChainsMergeOptimization$4(java.util.Set, jetbrains.buildServer.serverSide.SQueuedBuild);
+    descriptor: (Ljava/util/Set;Ljetbrains/buildServer/serverSide/SQueuedBuild;)Z
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #348,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+         7: ifne          18
+        10: iconst_1
+        11: goto          19
+        14: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        17: athrow
+        18: iconst_0
+        19: ireturn
+      Exception table:
+         from    to  target type
+             0    14    14   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 120: 0
+
+  private void lambda$flushQueueTask$3(java.util.concurrent.atomic.AtomicInteger);
+    descriptor: (Ljava/util/concurrent/atomic/AtomicInteger;)V
+    Code:
+         0: invokestatic  #375                // Method com/google/common/base/Stopwatch.createStarted:()Lcom/google/common/base/Stopwatch;
+         3: astore_2
+         4: aload_0
+         5: invokevirtual #671                // Method metricsDiff:()Ljetbrains/buildServer/util/Disposable;
+         8: astore        5
+        10: ldc           #20                 // String Running preparation tasks before assigning queued builds to agents
+        12: invokestatic  #745                // Method jetbrains/buildServer/util/NamedThreadFactory.patchThreadName:(Ljava/lang/String;)Ljetbrains/buildServer/util/Disposable;
+        15: astore        6
+        17: aload_0
+        18: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+        21: iconst_0
+        22: invokevirtual #626                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getOtherActivitiesMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+        25: invokeinterface #860,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.startMsecsTimer:()Ljetbrains/buildServer/metrics/Stoppable;
+        30: astore        7
+        32: aload_0
+        33: getfield      #58                 // Field myFlushQueueExecutor:Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;
+        36: invokevirtual #568                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.adjustParallelTasksExecutorThreadPoolSize:()V
+        39: aload_0
+        40: invokevirtual #753                // Method scheduleCompatibleAgentsCalculationTask:()V
+        43: aload_0
+        44: invokevirtual #658                // Method scheduleSettingsFreezeTask:()V
+        47: aload_0
+        48: getfield      #486                // Field myAgentParametersProvidersProcessor:Ljetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor;
+        51: invokevirtual #514                // Method jetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor.process:()V
+        54: aload_0
+        55: getfield      #839                // Field myBuildServerEx:Ljetbrains/buildServer/serverSide/BuildServerEx;
+        58: invokeinterface #453,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildServerEx.getLicensingPolicy:()Ljetbrains/buildServer/serverSide/LicensingPolicyEx;
+        63: invokeinterface #606,  1          // InterfaceMethod jetbrains/buildServer/serverSide/LicensingPolicyEx.getAgentsLicensesLeft:()I
+        68: istore        8
+        70: iload         8
+        72: ifeq          123
+        75: new           #67                 // class jetbrains/buildServer/serverSide/impl/VirtualAgentBuildStarter
+        78: dup
+        79: aload_0
+        80: getfield      #304                // Field myVirualAgents:Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;
+        83: iload         8
+        85: iconst_m1
+        86: if_icmpne     104
+        89: goto          96
+        92: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+        95: athrow
+        96: aconst_null
+        97: goto          109
+       100: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       103: athrow
+       104: iload         8
+       106: invokestatic  #481                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       109: aload_0
+       110: getfield      #839                // Field myBuildServerEx:Ljetbrains/buildServer/serverSide/BuildServerEx;
+       113: aload_0
+       114: getfield      #486                // Field myAgentParametersProvidersProcessor:Ljetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor;
+       117: invokespecial #78                 // Method jetbrains/buildServer/serverSide/impl/VirtualAgentBuildStarter."<init>":(Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;Ljava/lang/Integer;Ljetbrains/buildServer/ExtensionsProvider;Ljetbrains/buildServer/serverSide/impl/AgentParametersProvidersProcessor;)V
+       120: goto          124
+       123: aconst_null
+       124: astore_3
+       125: iload         8
+       127: ifeq          144
+       130: new           #206                // class jetbrains/buildServer/serverSide/impl/ExecutorBuildStarter
+       133: dup
+       134: invokespecial #127                // Method jetbrains/buildServer/serverSide/impl/ExecutorBuildStarter."<init>":()V
+       137: goto          145
+       140: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       143: athrow
+       144: aconst_null
+       145: astore        4
+       147: aload_3
+       148: ifnull        162
+       151: aload_3
+       152: invokevirtual #689                // Method jetbrains/buildServer/serverSide/impl/VirtualAgentBuildStarter.fetchPropertiesIfNotKnown:()V
+       155: goto          162
+       158: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       161: athrow
+       162: aload         7
+       164: ifnull        206
+       167: aload         7
+       169: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+       172: goto          206
+       175: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       178: athrow
+       179: astore        8
+       181: aload         7
+       183: ifnull        203
+       186: aload         7
+       188: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+       191: goto          203
+       194: astore        9
+       196: aload         8
+       198: aload         9
+       200: invokevirtual #851                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       203: aload         8
+       205: athrow
+       206: aload_0
+       207: invokevirtual #106                // Method performQueuedBuildChainsMergeOptimization:()V
+       210: aload         6
+       212: invokeinterface #538,  1          // InterfaceMethod jetbrains/buildServer/util/Disposable.dispose:()V
+       217: goto          232
+       220: astore        10
+       222: aload         6
+       224: invokeinterface #538,  1          // InterfaceMethod jetbrains/buildServer/util/Disposable.dispose:()V
+       229: aload         10
+       231: athrow
+       232: aload_0
+       233: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       236: iconst_0
+       237: invokevirtual #626                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getOtherActivitiesMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+       240: invokeinterface #860,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.startMsecsTimer:()Ljetbrains/buildServer/metrics/Stoppable;
+       245: astore        8
+       247: aload_0
+       248: invokevirtual #129                // Method createDistributorInputData:()Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;
+       251: astore        7
+       253: invokestatic  #153                // Method isSchedulingSettingsFreezeInParallelEnabled:()Z
+       256: ifne          279
+       259: aload_0
+       260: aload_0
+       261: getfield      #432                // Field myQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+       264: invokeinterface #841,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildQueueEx.getPersistedItemsEx:()Ljava/util/List;
+       269: invokevirtual #751                // Method scheduleCheckingForChangesAndSettingsFreeze:(Ljava/util/List;)V
+       272: goto          279
+       275: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       278: athrow
+       279: aload         8
+       281: ifnull        323
+       284: aload         8
+       286: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+       289: goto          323
+       292: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       295: athrow
+       296: astore        9
+       298: aload         8
+       300: ifnull        320
+       303: aload         8
+       305: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+       308: goto          320
+       311: astore        10
+       313: aload         9
+       315: aload         10
+       317: invokevirtual #851                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       320: aload         9
+       322: athrow
+       323: aload_0
+       324: aload_0
+       325: getfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+       328: aload_3
+       329: aload         4
+       331: new           #758                // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$CompositeBuildStarterImpl
+       334: dup
+       335: aload_0
+       336: getfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+       339: invokespecial #462                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$CompositeBuildStarterImpl."<init>":(Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;)V
+       342: new           #150                // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$AgentlessBuildStarterImpl
+       345: dup
+       346: aload_0
+       347: getfield      #351                // Field myQueuedBuildStarter:Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;
+       350: aload_0
+       351: getfield      #498                // Field myBuildAgentFactory:Ljetbrains/buildServer/serverSide/BuildAgentFactory;
+       354: invokespecial #455                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$AgentlessBuildStarterImpl."<init>":(Ljetbrains/buildServer/serverSide/impl/QueuedBuildStarter;Ljetbrains/buildServer/serverSide/BuildAgentFactory;)V
+       357: aload_0
+       358: getfield      #759                // Field myQueuedBuildOptimizer:Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildOptimizerImpl;
+       361: aload_0
+       362: getfield      #333                // Field myQueuedBuildTerminator:Ljetbrains/buildServer/serverSide/impl/buildDistribution/QueuedBuildTerminatorImpl;
+       365: aload         7
+       367: invokevirtual #396                // Method doDistribute:(Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/ExecutorBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompositeBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildOptimizer;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildTerminator;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult;
+       370: astore        8
+       372: aload_0
+       373: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       376: iconst_0
+       377: invokevirtual #626                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getOtherActivitiesMetric:(Z)Ljetbrains/buildServer/metrics/Counter;
+       380: invokeinterface #860,  1          // InterfaceMethod jetbrains/buildServer/metrics/Counter.startMsecsTimer:()Ljetbrains/buildServer/metrics/Stoppable;
+       385: astore        10
+       387: new           #185                // class jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats
+       390: dup
+       391: aload         8
+       393: invokevirtual #388                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult.getDistributedBuilds:()Ljava/util/Map;
+       396: aload         7
+       398: aload_0
+       399: getfield      #304                // Field myVirualAgents:Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;
+       402: invokespecial #552                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats."<init>":(Ljava/util/Map;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;Ljetbrains/buildServer/serverSide/impl/virtualAgent/VirtualAgentsManager;)V
+       405: astore        9
+       407: aload_1
+       408: aload         9
+       410: getfield      #544                // Field jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats.myBuildsAssignedToIdleAgents:I
+       413: invokevirtual #166                // Method java/util/concurrent/atomic/AtomicInteger.set:(I)V
+       416: aload         10
+       418: ifnull        456
+       421: aload         10
+       423: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+       426: goto          456
+       429: astore        11
+       431: aload         10
+       433: ifnull        453
+       436: aload         10
+       438: invokevirtual #682                // Method jetbrains/buildServer/metrics/Stoppable.close:()V
+       441: goto          453
+       444: astore        12
+       446: aload         11
+       448: aload         12
+       450: invokevirtual #851                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       453: aload         11
+       455: athrow
+       456: aload_2
+       457: invokevirtual #515                // Method com/google/common/base/Stopwatch.stop:()Lcom/google/common/base/Stopwatch;
+       460: pop
+       461: aload_2
+       462: getstatic     #624                // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+       465: invokevirtual #840                // Method com/google/common/base/Stopwatch.elapsed:(Ljava/util/concurrent/TimeUnit;)J
+       468: lstore        10
+       470: aload_0
+       471: getfield      #215                // Field myBuildQueueProcessingMetrics:Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics;
+       474: invokevirtual #429                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueProcessingMetrics.getTotalQueueProcessingMetric:()Ljetbrains/buildServer/metrics/Counter;
+       477: lload         10
+       479: l2d
+       480: invokeinterface #415,  3          // InterfaceMethod jetbrains/buildServer/metrics/Counter.increment:(D)V
+       485: aload_0
+       486: getfield      #274                // Field myDistributionTimeTracker:Ljetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker;
+       489: lload         10
+       491: invokevirtual #413                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionTimeTracker.addPoint:(J)V
+       494: aload         9
+       496: getfield      #521                // Field jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats.myTotalDistributedBuilds:I
+       499: ifle          528
+       502: aload_0
+       503: getfield      #881                // Field myLogQueueStats:Ljetbrains/buildServer/util/TimeIntervalAction;
+       506: lload         10
+       508: aload         9
+       510: aload         5
+       512: invokedynamic #407,  0            // InvokeDynamic #9:run:(JLjetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats;Ljetbrains/buildServer/util/Disposable;)Ljava/lang/Runnable;
+       517: invokevirtual #567                // Method jetbrains/buildServer/util/TimeIntervalAction.executeCustomAction:(Ljava/lang/Runnable;)Z
+       520: pop
+       521: goto          528
+       524: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       527: athrow
+       528: return
+      Exception table:
+         from    to  target type
+           147   155   158   Class java/lang/Throwable
+           125   140   140   Class java/lang/Throwable
+            75   100   100   Class java/lang/Throwable
+            70    89    92   Class java/lang/Throwable
+            32   162   179   Class java/lang/Throwable
+           162   175   175   Class java/lang/Throwable
+           186   191   194   Class java/lang/Throwable
+            17   210   220   any
+           220   222   220   any
+           253   272   275   Class java/lang/Throwable
+           247   279   296   Class java/lang/Throwable
+           279   292   292   Class java/lang/Throwable
+           303   308   311   Class java/lang/Throwable
+           387   416   429   Class java/lang/Throwable
+           436   441   444   Class java/lang/Throwable
+           470   521   524   Class java/lang/Throwable
+      LineNumberTable:
+        line 152: 0
+        line 129: 4
+        line 105: 10
+        line 29: 17
+        line 93: 32
+        line 131: 39
+        line 7: 43
+        line 37: 47
+        line 85: 54
+        line 79: 70
+        line 132: 125
+        line 114: 147
+        line 8: 151
+        line 39: 162
+        line 139: 179
+        line 69: 206
+        line 17: 210
+        line 58: 217
+        line 97: 220
+        line 125: 229
+        line 142: 232
+        line 75: 247
+        line 64: 253
+        line 10: 259
+        line 18: 279
+        line 55: 296
+        line 43: 323
+        line 50: 372
+        line 52: 387
+        line 118: 407
+        line 14: 416
+        line 30: 429
+        line 59: 456
+        line 107: 461
+        line 150: 470
+        line 89: 485
+        line 56: 494
+        line 72: 502
+        line 49: 528
+
+  private static void lambda$flushQueueTask$2(long, jetbrains.buildServer.serverSide.impl.FlushQueueAction$DistributionStats, jetbrains.buildServer.util.Disposable);
+    descriptor: (JLjetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats;Ljetbrains/buildServer/util/Disposable;)V
+    Code:
+         0: getstatic     #59                 // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+         3: lload_0
+         4: invokestatic  #374                // Method jetbrains/buildServer/util/TimePrinter.formatMillis:(J)Ljava/lang/String;
+         7: aload_2
+         8: invokevirtual #265                // Method jetbrains/buildServer/serverSide/impl/FlushQueueAction$DistributionStats.asString:()Ljava/lang/String;
+        11: invokedynamic #246,  0            // InvokeDynamic #10:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        16: invokevirtual #427                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        19: aload_3
+        20: invokeinterface #538,  1          // InterfaceMethod jetbrains/buildServer/util/Disposable.dispose:()V
+        25: return
+      LineNumberTable:
+        line 63: 0
+        line 47: 8
+        line 33: 16
+        line 21: 19
+        line 146: 25
+
+  private static long lambda$new$1();
+    descriptor: ()J
+    Code:
+         0: ldc           #16                 // String teamcity.flushQueue.logQueueProcessingStats.interval
+         2: ldc2_w        #888                // long 30000l
+         5: invokestatic  #54                 // Method jetbrains/buildServer/serverSide/TeamCityProperties.getLong:(Ljava/lang/String;J)J
+         8: lreturn
+      LineNumberTable:
+        line 2: 0
+
+  private jetbrains.buildServer.util.TimeService lambda$new$0();
+    descriptor: ()Ljetbrains/buildServer/util/TimeService;
+    Code:
+         0: aload_0
+         1: getfield      #839                // Field myBuildServerEx:Ljetbrains/buildServer/serverSide/BuildServerEx;
+         4: invokeinterface #395,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildServerEx.getTimeService:()Ljetbrains/buildServer/util/TimeService;
+         9: areturn
+      LineNumberTable:
+        line 87: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 27
+                       0: 128
+                       1: 128
+                       2: 128
+                       3: 128
+                       4: 128
+                       5: 128
+                       6: 128
+                       7: 128
+                       8: 128
+                       9: 128
+                      10: 128
+                      11: 128
+                      12: 128
+                      13: 128
+                      14: 128
+                      15: 137
+                      16: 137
+                      17: 128
+                      18: 128
+                      19: 128
+                      20: 128
+                      21: 128
+                      22: 128
+                      23: 128
+                      24: 137
+                      25: 128
+                      26: 128
+                      27: 137
+                 default: 128
+            }
+       128: ldc           #21                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+       130: goto          142
+       133: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       136: athrow
+       137: ldc           #3                  // String @NotNull method %s.%s must not return null
+       139: goto          142
+       142: iload_0
+       143: tableswitch   { // 0 to 27
+                       0: 268
+                       1: 268
+                       2: 268
+                       3: 268
+                       4: 268
+                       5: 268
+                       6: 268
+                       7: 268
+                       8: 268
+                       9: 268
+                      10: 268
+                      11: 268
+                      12: 268
+                      13: 268
+                      14: 268
+                      15: 276
+                      16: 276
+                      17: 268
+                      18: 268
+                      19: 268
+                      20: 268
+                      21: 268
+                      22: 268
+                      23: 268
+                      24: 276
+                      25: 268
+                      26: 268
+                      27: 276
+                 default: 268
+            }
+       268: iconst_3
+       269: goto          280
+       272: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       275: athrow
+       276: iconst_2
+       277: goto          280
+       280: anewarray     #270                // class java/lang/Object
+       283: iload_0
+       284: tableswitch   { // 0 to 27
+                       0: 412
+                       1: 424
+                       2: 432
+                       3: 440
+                       4: 448
+                       5: 456
+                       6: 464
+                       7: 472
+                       8: 480
+                       9: 488
+                      10: 496
+                      11: 504
+                      12: 512
+                      13: 520
+                      14: 528
+                      15: 536
+                      16: 536
+                      17: 544
+                      18: 552
+                      19: 560
+                      20: 568
+                      21: 576
+                      22: 584
+                      23: 592
+                      24: 536
+                      25: 600
+                      26: 608
+                      27: 536
+                 default: 412
+            }
+       412: dup
+       413: iconst_0
+       414: ldc           #28                 // String buildDistributor
+       416: aastore
+       417: goto          616
+       420: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       423: athrow
+       424: dup
+       425: iconst_0
+       426: ldc           #36                 // String agentManager
+       428: aastore
+       429: goto          616
+       432: dup
+       433: iconst_0
+       434: ldc           #30                 // String virualAgents
+       436: aastore
+       437: goto          616
+       440: dup
+       441: iconst_0
+       442: ldc           #31                 // String buildServerEx
+       444: aastore
+       445: goto          616
+       448: dup
+       449: iconst_0
+       450: ldc           #29                 // String feeder
+       452: aastore
+       453: goto          616
+       456: dup
+       457: iconst_0
+       458: ldc           #8                  // String serverCleanupManager
+       460: aastore
+       461: goto          616
+       464: dup
+       465: iconst_0
+       466: ldc           #40                 // String distributionListenerDispatcher
+       468: aastore
+       469: goto          616
+       472: dup
+       473: iconst_0
+       474: ldc           #38                 // String queue
+       476: aastore
+       477: goto          616
+       480: dup
+       481: iconst_0
+       482: ldc           #37                 // String freezer
+       484: aastore
+       485: goto          616
+       488: dup
+       489: iconst_0
+       490: ldc           #33                 // String buildAgentFactory
+       492: aastore
+       493: goto          616
+       496: dup
+       497: iconst_0
+       498: ldc           #27                 // String buildQueueProcessingMetrics
+       500: aastore
+       501: goto          616
+       504: dup
+       505: iconst_0
+       506: ldc           #25                 // String agentTypeManager
+       508: aastore
+       509: goto          616
+       512: dup
+       513: iconst_0
+       514: ldc           #39                 // String eventDispatcher
+       516: aastore
+       517: goto          616
+       520: dup
+       521: iconst_0
+       522: ldc           #7                  // String flushQueueExecutor
+       524: aastore
+       525: goto          616
+       528: dup
+       529: iconst_0
+       530: ldc           #4                  // String numScheduledToStart
+       532: aastore
+       533: goto          616
+       536: dup
+       537: iconst_0
+       538: ldc           #22                 // String jetbrains/buildServer/serverSide/impl/FlushQueueAction
+       540: aastore
+       541: goto          616
+       544: dup
+       545: iconst_0
+       546: ldc           #26                 // String queuedBuilds
+       548: aastore
+       549: goto          616
+       552: dup
+       553: iconst_0
+       554: ldc           #35                 // String connectedAgentsBuildStarter
+       556: aastore
+       557: goto          616
+       560: dup
+       561: iconst_0
+       562: ldc           #13                 // String compositeBuildStarter
+       564: aastore
+       565: goto          616
+       568: dup
+       569: iconst_0
+       570: ldc           #14                 // String agentlessBuildStarter
+       572: aastore
+       573: goto          616
+       576: dup
+       577: iconst_0
+       578: ldc           #18                 // String queuedBuildOptimizer
+       580: aastore
+       581: goto          616
+       584: dup
+       585: iconst_0
+       586: ldc           #19                 // String queuedBuildTerminator
+       588: aastore
+       589: goto          616
+       592: dup
+       593: iconst_0
+       594: ldc           #17                 // String input
+       596: aastore
+       597: goto          616
+       600: dup
+       601: iconst_0
+       602: ldc           #10                 // String queuedBuildStarter
+       604: aastore
+       605: goto          616
+       608: dup
+       609: iconst_0
+       610: ldc           #11                 // String queuedBuildInfo
+       612: aastore
+       613: goto          616
+       616: iload_0
+       617: tableswitch   { // 0 to 27
+                       0: 744
+                       1: 744
+                       2: 744
+                       3: 744
+                       4: 744
+                       5: 744
+                       6: 744
+                       7: 744
+                       8: 744
+                       9: 744
+                      10: 744
+                      11: 744
+                      12: 744
+                      13: 744
+                      14: 744
+                      15: 756
+                      16: 764
+                      17: 744
+                      18: 744
+                      19: 744
+                      20: 744
+                      21: 744
+                      22: 744
+                      23: 744
+                      24: 772
+                      25: 744
+                      26: 744
+                      27: 780
+                 default: 744
+            }
+       744: dup
+       745: iconst_1
+       746: ldc           #22                 // String jetbrains/buildServer/serverSide/impl/FlushQueueAction
+       748: aastore
+       749: goto          788
+       752: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       755: athrow
+       756: dup
+       757: iconst_1
+       758: ldc           #9                  // String flushQueueTask
+       760: aastore
+       761: goto          788
+       764: dup
+       765: iconst_1
+       766: ldc           #15                 // String createDistributorInputData
+       768: aastore
+       769: goto          788
+       772: dup
+       773: iconst_1
+       774: ldc           #23                 // String doDistribute
+       776: aastore
+       777: goto          788
+       780: dup
+       781: iconst_1
+       782: ldc           #12                 // String getStartingBuildsSupplier
+       784: aastore
+       785: goto          788
+       788: iload_0
+       789: tableswitch   { // 0 to 27
+                       0: 916
+                       1: 916
+                       2: 916
+                       3: 916
+                       4: 916
+                       5: 916
+                       6: 916
+                       7: 916
+                       8: 916
+                       9: 916
+                      10: 916
+                      11: 916
+                      12: 916
+                      13: 916
+                      14: 928
+                      15: 936
+                      16: 936
+                      17: 939
+                      18: 947
+                      19: 947
+                      20: 947
+                      21: 947
+                      22: 947
+                      23: 947
+                      24: 936
+                      25: 955
+                      26: 955
+                      27: 936
+                 default: 916
+            }
+       916: dup
+       917: iconst_2
+       918: ldc           #2                  // String <init>
+       920: aastore
+       921: goto          963
+       924: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+       927: athrow
+       928: dup
+       929: iconst_2
+       930: ldc           #9                  // String flushQueueTask
+       932: aastore
+       933: goto          963
+       936: goto          963
+       939: dup
+       940: iconst_2
+       941: ldc           #6                  // String scheduleCheckingForChangesAndSettingsFreeze
+       943: aastore
+       944: goto          963
+       947: dup
+       948: iconst_2
+       949: ldc           #23                 // String doDistribute
+       951: aastore
+       952: goto          963
+       955: dup
+       956: iconst_2
+       957: ldc           #1                  // String startAgentlessBuild
+       959: aastore
+       960: goto          963
+       963: invokestatic  #373                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       966: iload_0
+       967: tableswitch   { // 0 to 27
+                       0: 1092
+                       1: 1092
+                       2: 1092
+                       3: 1092
+                       4: 1092
+                       5: 1092
+                       6: 1092
+                       7: 1092
+                       8: 1092
+                       9: 1092
+                      10: 1092
+                      11: 1092
+                      12: 1092
+                      13: 1092
+                      14: 1092
+                      15: 1107
+                      16: 1107
+                      17: 1092
+                      18: 1092
+                      19: 1092
+                      20: 1092
+                      21: 1092
+                      22: 1092
+                      23: 1092
+                      24: 1107
+                      25: 1092
+                      26: 1092
+                      27: 1107
+                 default: 1092
+            }
+      1092: new           #234                // class java/lang/IllegalArgumentException
+      1095: dup_x1
+      1096: swap
+      1097: invokespecial #377                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      1100: goto          1118
+      1103: invokestatic  #511                // Method a:(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+      1106: athrow
+      1107: new           #688                // class java/lang/IllegalStateException
+      1110: dup_x1
+      1111: swap
+      1112: invokespecial #309                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      1115: goto          1118
+      1118: athrow
+      Exception table:
+         from    to  target type
+             0   133   133   Class java/lang/IllegalArgumentException
+           142   272   272   Class java/lang/IllegalArgumentException
+           280   420   420   Class java/lang/IllegalArgumentException
+           616   752   752   Class java/lang/IllegalArgumentException
+           788   924   924   Class java/lang/IllegalArgumentException
+           963  1103  1103   Class java/lang/IllegalArgumentException
+
+  private static java.lang.Throwable a(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    Code:
+         0: aload_0
+         1: areturn
+}

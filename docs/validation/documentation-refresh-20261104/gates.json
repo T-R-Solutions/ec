@@ -1,0 +1,24 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 sdd/tools/validate.py --root .",
+      "chunk_id": "d0bbd6",
+      "wall_time_seconds": 0.123786344,
+      "exit_code": 0,
+      "original_token_count": 38,
+      "output": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "command": "python3 sdd/tools/validate.py --root . --require-approved --require-fresh",
+      "chunk_id": "eff2ec",
+      "wall_time_seconds": 0.124006155,
+      "exit_code": 0,
+      "original_token_count": 38,
+      "output": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+flowchart TB
+    accTitle: Aplicação · responsabilidade e localização
+    accDescr: Onde encontrar cada componente? ROOT → AGENTS: contém. ROOT → SERVER: contém. SERVER → BACK: contém. SERVER → FRONT: contém. ROOT → TEST: contém
+    ROOT["application/<br/>Raiz documental da aplicação"]
+    AGENTS["agents/<br/>Monólito Agent · Rust"]
+    SERVER["server/<br/>Backend e frontend do Server"]
+    BACK["server/backend/<br/>Oito domínios e composição"]
+    FRONT["server/frontend/<br/>Nove domínios · app · shared"]
+    TEST["integration/tests/<br/>Integração e e2e da plataforma"]
+    ROOT -->|"contém"| AGENTS
+    ROOT -->|"contém"| SERVER
+    SERVER -->|"contém"| BACK
+    SERVER -->|"contém"| FRONT
+    ROOT -->|"contém"| TEST

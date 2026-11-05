@@ -1,0 +1,144 @@
+Compiled from "DefaultAgentsFilterContext.java"
+public abstract class jetbrains.buildServer.serverSide.buildDistribution.DefaultAgentsFilterContext implements jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterContext {
+  private final java.util.Map<java.lang.String, java.lang.Object> customData;
+    descriptor: Ljava/util/Map;
+
+  public jetbrains.buildServer.serverSide.buildDistribution.DefaultAgentsFilterContext();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #7                  // class java/util/HashMap
+         8: dup
+         9: invokespecial #9                  // Method java/util/HashMap."<init>":()V
+        12: putfield      #10                 // Field customData:Ljava/util/Map;
+        15: return
+      LineNumberTable:
+        line 33: 0
+        line 34: 4
+        line 35: 15
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/DefaultAgentsFilterContext;
+
+  public jetbrains.buildServer.serverSide.buildDistribution.DefaultAgentsFilterContext(java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/util/Map;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #55                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: putfield      #10                 // Field customData:Ljava/util/Map;
+        17: return
+      LineNumberTable:
+        line 37: 8
+        line 38: 12
+        line 39: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/DefaultAgentsFilterContext;
+            0      18     1 customData   Ljava/util/Map;
+
+  public final java.lang.Object getCustomData(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_1
+         5: invokestatic  #55                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: getfield      #10                 // Field customData:Ljava/util/Map;
+        12: aload_1
+        13: invokeinterface #16,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        18: areturn
+      LineNumberTable:
+        line 44: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/DefaultAgentsFilterContext;
+            0      19     1   key   Ljava/lang/String;
+
+  public final void setCustomData(java.lang.String, java.lang.Object);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_2
+         5: invokestatic  #55                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: getfield      #10                 // Field customData:Ljava/util/Map;
+        12: aload_1
+        13: aload_2
+        14: invokeinterface #22,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        19: pop
+        20: return
+      LineNumberTable:
+        line 49: 8
+        line 50: 20
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      21     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/DefaultAgentsFilterContext;
+            0      21     1   key   Ljava/lang/String;
+            0      21     2  data   Ljava/lang/Object;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #57                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #2                  // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 2
+                       0: 32
+                       1: 40
+                       2: 40
+                 default: 32
+            }
+        32: dup
+        33: iconst_0
+        34: ldc           #58                 // String customData
+        36: aastore
+        37: goto          48
+        40: dup
+        41: iconst_0
+        42: ldc           #59                 // String key
+        44: aastore
+        45: goto          48
+        48: dup
+        49: iconst_1
+        50: ldc           #60                 // String jetbrains/buildServer/serverSide/buildDistribution/DefaultAgentsFilterContext
+        52: aastore
+        53: iload_0
+        54: tableswitch   { // 0 to 2
+                       0: 80
+                       1: 88
+                       2: 96
+                 default: 80
+            }
+        80: dup
+        81: iconst_2
+        82: ldc           #61                 // String <init>
+        84: aastore
+        85: goto          104
+        88: dup
+        89: iconst_2
+        90: ldc           #62                 // String getCustomData
+        92: aastore
+        93: goto          104
+        96: dup
+        97: iconst_2
+        98: ldc           #63                 // String setCustomData
+       100: aastore
+       101: goto          104
+       104: invokestatic  #69                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       107: new           #71                 // class java/lang/IllegalArgumentException
+       110: dup_x1
+       111: swap
+       112: invokespecial #74                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       115: athrow
+}

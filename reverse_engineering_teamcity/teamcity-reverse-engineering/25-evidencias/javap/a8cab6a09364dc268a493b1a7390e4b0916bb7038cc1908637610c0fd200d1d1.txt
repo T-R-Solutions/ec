@@ -1,0 +1,419 @@
+Compiled from "MaxRunningBuildsPrecondition.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.MaxRunningBuildsPrecondition implements jetbrains.buildServer.serverSide.buildDistribution.StartBuildPrecondition {
+  public static final java.util.Set<jetbrains.buildServer.serverSide.buildDistribution.WaitReason> ALL_WAIT_REASONS;
+    descriptor: Ljava/util/Set;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.MaxRunningBuildsPrecondition();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #145                // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 15: 0
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason canStart(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.BuildAgent>, jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Map;Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;Z)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_0
+         5: invokestatic  #148                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_1
+        20: invokestatic  #148                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        29: athrow
+        30: aload_3
+        31: ifnonnull     45
+        34: iconst_2
+        35: invokestatic  #148                // Method $$$reportNull$$$0:(I)V
+        38: goto          45
+        41: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        44: athrow
+        45: aload_1
+        46: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        51: checkcast     #39                 // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        54: astore        5
+        56: aload         5
+        58: invokeinterface #25,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getParentBuildType:()Ljetbrains/buildServer/serverSide/BuildTypeEx;
+        63: astore        6
+        65: aload         6
+        67: ifnonnull     94
+        70: new           #150                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        73: dup
+        74: aload         5
+        76: invokeinterface #165,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBuildTypeExternalId:()Ljava/lang/String;
+        81: invokedynamic #106,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        86: invokespecial #80                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        89: areturn
+        90: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        93: athrow
+        94: aload         5
+        96: invokeinterface #169,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBranch:()Ljetbrains/buildServer/serverSide/Branch;
+       101: astore        7
+       103: aload         6
+       105: invokeinterface #131,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildTypeEx.getMaximumNumberOfBuilds:()I
+       110: istore        8
+       112: aload         5
+       114: invokeinterface #151,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getMaximumNumberOfBuildsPerBranch:()I
+       119: istore        9
+       121: goto          130
+       124: astore        10
+       126: getstatic     #26                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_PER_BRANCH_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       129: areturn
+       130: iload         8
+       132: ifgt          147
+       135: iload         9
+       137: ifle          365
+       140: goto          147
+       143: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       146: athrow
+       147: aload_2
+       148: invokeinterface #31,  1           // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+       153: invokeinterface #122,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       158: astore        10
+       160: aload         10
+       162: invokeinterface #153,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       167: ifeq          268
+       170: aload         10
+       172: invokeinterface #59,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       177: checkcast     #73                 // class jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo
+       180: astore        11
+       182: aload_0
+       183: aload         5
+       185: aload         11
+       187: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+       192: checkcast     #42                 // class jetbrains/buildServer/serverSide/BuildPromotion
+       195: invokevirtual #155                // Method isOfSameType:(Ljetbrains/buildServer/serverSide/BuildPromotion;Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+       198: ifeq          265
+       201: iinc          8, -1
+       204: iload         8
+       206: ifne          224
+       209: goto          216
+       212: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       215: athrow
+       216: getstatic     #97                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       219: areturn
+       220: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       223: athrow
+       224: aload         7
+       226: aload         11
+       228: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+       233: invokestatic  #118                // Method getBranch:(Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;)Ljetbrains/buildServer/serverSide/Branch;
+       236: invokestatic  #120                // Method isSameBranch:(Ljetbrains/buildServer/serverSide/Branch;Ljetbrains/buildServer/serverSide/Branch;)Z
+       239: ifeq          265
+       242: iinc          9, -1
+       245: iload         9
+       247: ifne          265
+       250: goto          257
+       253: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       256: athrow
+       257: getstatic     #26                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_PER_BRANCH_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       260: areturn
+       261: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       264: athrow
+       265: goto          160
+       268: aload_3
+       269: aload         6
+       271: invokeinterface #65,  2           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput.getBuildTypeRunningBuilds:(Ljetbrains/buildServer/serverSide/SBuildType;)Ljava/util/List;
+       276: invokeinterface #149,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       281: astore        10
+       283: aload         10
+       285: invokeinterface #153,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       290: ifeq          365
+       293: aload         10
+       295: invokeinterface #59,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       300: checkcast     #137                // class jetbrains/buildServer/serverSide/buildDistribution/RunningBuildInfo
+       303: astore        11
+       305: iinc          8, -1
+       308: iload         8
+       310: ifne          321
+       313: getstatic     #97                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       316: areturn
+       317: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       320: athrow
+       321: aload         7
+       323: aload         11
+       325: invokeinterface #126,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/RunningBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+       330: invokestatic  #118                // Method getBranch:(Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;)Ljetbrains/buildServer/serverSide/Branch;
+       333: invokestatic  #120                // Method isSameBranch:(Ljetbrains/buildServer/serverSide/Branch;Ljetbrains/buildServer/serverSide/Branch;)Z
+       336: ifeq          362
+       339: iinc          9, -1
+       342: iload         9
+       344: ifne          362
+       347: goto          354
+       350: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       353: athrow
+       354: getstatic     #26                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_PER_BRANCH_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       357: areturn
+       358: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       361: athrow
+       362: goto          283
+       365: aconst_null
+       366: areturn
+      Exception table:
+         from    to  target type
+            65    90    90   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            30    38    41   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            15    23    26   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+             0     8    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           112   121   124   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           130   140   143   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           182   209   212   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           201   220   220   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           224   250   253   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           242   261   261   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           305   317   317   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           321   347   350   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           339   358   358   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 1: 45
+        line 29: 56
+        line 20: 65
+        line 13: 70
+        line 8: 94
+        line 5: 103
+        line 19: 112
+        line 4: 121
+        line 30: 124
+        line 32: 126
+        line 17: 130
+        line 35: 147
+        line 34: 182
+        line 39: 201
+        line 27: 204
+        line 40: 216
+        line 11: 224
+        line 26: 242
+        line 23: 245
+        line 22: 257
+        line 9: 265
+        line 16: 268
+        line 6: 305
+        line 3: 308
+        line 28: 313
+        line 7: 321
+        line 38: 339
+        line 31: 342
+        line 2: 354
+        line 18: 362
+        line 36: 365
+
+  private static boolean isSameBranch(jetbrains.buildServer.serverSide.Branch, jetbrains.buildServer.serverSide.Branch);
+    descriptor: (Ljetbrains/buildServer/serverSide/Branch;Ljetbrains/buildServer/serverSide/Branch;)Z
+    Code:
+         0: aload_0
+         1: ifnonnull     41
+         4: aload_1
+         5: ifnull        31
+         8: goto          15
+        11: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #104,  1          // InterfaceMethod jetbrains/buildServer/serverSide/Branch.isDefaultBranch:()Z
+        21: ifeq          39
+        24: goto          31
+        27: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        30: athrow
+        31: iconst_1
+        32: goto          40
+        35: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        38: athrow
+        39: iconst_0
+        40: ireturn
+        41: aload_1
+        42: ifnonnull     56
+        45: aload_0
+        46: invokeinterface #104,  1          // InterfaceMethod jetbrains/buildServer/serverSide/Branch.isDefaultBranch:()Z
+        51: ireturn
+        52: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        55: athrow
+        56: aload_0
+        57: aload_1
+        58: invokeinterface #173,  2          // InterfaceMethod jetbrains/buildServer/serverSide/Branch.equals:(Ljava/lang/Object;)Z
+        63: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+             4    24    27   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            15    35    35   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            41    52    52   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 10: 0
+        line 14: 41
+        line 33: 56
+
+  private boolean isOfSameType(jetbrains.buildServer.serverSide.BuildPromotion, jetbrains.buildServer.serverSide.BuildPromotion);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotion;Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_3
+         5: invokestatic  #148                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_4
+        20: invokestatic  #148                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        29: athrow
+        30: aload_1
+        31: invokeinterface #14,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotion.getParentBuildTypeId:()Ljava/lang/String;
+        36: aload_2
+        37: invokeinterface #14,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotion.getParentBuildTypeId:()Ljava/lang/String;
+        42: invokevirtual #141                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        45: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            15    23    26   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 41: 30
+
+  private static jetbrains.buildServer.serverSide.Branch getBranch(jetbrains.buildServer.serverSide.buildDistribution.BuildPromotionInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;)Ljetbrains/buildServer/serverSide/Branch;
+    Code:
+         0: aload_0
+         1: ifnonnull     15
+         4: iconst_5
+         5: invokestatic  #148                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_0
+        16: checkcast     #39                 // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        19: invokeinterface #169,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBranch:()Ljetbrains/buildServer/serverSide/Branch;
+        24: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 24: 15
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: new           #164                // class java/util/HashSet
+         3: dup
+         4: invokespecial #53                 // Method java/util/HashSet."<init>":()V
+         7: putstatic     #130                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        10: getstatic     #130                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        13: getstatic     #97                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        16: invokeinterface #92,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        21: pop
+        22: getstatic     #130                // Field ALL_WAIT_REASONS:Ljava/util/Set;
+        25: getstatic     #26                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StandardWaitReasons.MAX_RUNNING_BUILDS_NUMBER_PER_BRANCH_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        28: invokeinterface #92,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+        33: pop
+        34: return
+      LineNumberTable:
+        line 12: 0
+        line 37: 10
+        line 25: 22
+        line 21: 34
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #1                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #114                // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 5
+                       0: 44
+                       1: 56
+                       2: 64
+                       3: 72
+                       4: 80
+                       5: 88
+                 default: 44
+            }
+        44: dup
+        45: iconst_0
+        46: ldc           #2                  // String queuedBuild
+        48: aastore
+        49: goto          96
+        52: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        55: athrow
+        56: dup
+        57: iconst_0
+        58: ldc           #11                 // String canBeStarted
+        60: aastore
+        61: goto          96
+        64: dup
+        65: iconst_0
+        66: ldc           #8                  // String buildDistributorInput
+        68: aastore
+        69: goto          96
+        72: dup
+        73: iconst_0
+        74: ldc           #6                  // String bp1
+        76: aastore
+        77: goto          96
+        80: dup
+        81: iconst_0
+        82: ldc           #7                  // String bp2
+        84: aastore
+        85: goto          96
+        88: dup
+        89: iconst_0
+        90: ldc           #5                  // String promo
+        92: aastore
+        93: goto          96
+        96: dup
+        97: iconst_1
+        98: ldc           #9                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/MaxRunningBuildsPrecondition
+       100: aastore
+       101: iload_0
+       102: tableswitch   { // 0 to 5
+                       0: 140
+                       1: 140
+                       2: 140
+                       3: 152
+                       4: 152
+                       5: 160
+                 default: 140
+            }
+       140: dup
+       141: iconst_2
+       142: ldc           #4                  // String canStart
+       144: aastore
+       145: goto          168
+       148: invokestatic  #139                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       151: athrow
+       152: dup
+       153: iconst_2
+       154: ldc           #3                  // String isOfSameType
+       156: aastore
+       157: goto          168
+       160: dup
+       161: iconst_2
+       162: ldc           #10                 // String getBranch
+       164: aastore
+       165: goto          168
+       168: invokestatic  #172                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       171: new           #140                // class java/lang/IllegalArgumentException
+       174: dup_x1
+       175: swap
+       176: invokespecial #35                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       179: athrow
+      Exception table:
+         from    to  target type
+             0    52    52   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            96   148   148   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+
+  private static jetbrains.buildServer.serverSide.BuildTypeNotFoundException a(jetbrains.buildServer.serverSide.BuildTypeNotFoundException);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+    Code:
+         0: aload_0
+         1: areturn
+}

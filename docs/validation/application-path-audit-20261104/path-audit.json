@@ -1,0 +1,3234 @@
+{
+  "status": "PASS",
+  "files_scanned": 187,
+  "application_files": 80,
+  "markdown_links_checked": 287,
+  "errors": [],
+  "links": [
+    {
+      "file": "AGENTS.md",
+      "line": 6,
+      "target": "sdd/project.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 6,
+      "target": "docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 6,
+      "target": "docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 16,
+      "target": "sdd/workflow.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 16,
+      "target": "sdd/chain/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 25,
+      "target": "sdd/evidence.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 7,
+      "target": "sdd/project.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 7,
+      "target": "docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 8,
+      "target": "AGENTS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 8,
+      "target": "docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 8,
+      "target": "docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 9,
+      "target": "application/agents/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 9,
+      "target": "application/server/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 9,
+      "target": "application/server/backend/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 9,
+      "target": "application/server/frontend/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 10,
+      "target": "sdd/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 10,
+      "target": "docs/development/skills-analysis.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 25,
+      "target": "reverse_engineering_teamcity/ci-platform-research/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 37,
+      "target": "docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 39,
+      "target": "docs/development/skill-installation.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 39,
+      "target": "docs/validation/skills-adoption/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 45,
+      "target": "docs/decisions/ADR-002-application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 47,
+      "target": "docs/validation/workspace-cleanup-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 47,
+      "target": "docs/validation/application-layout-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "line": 49,
+      "target": "docs/validation/application-path-audit-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 9,
+      "target": "crates/ec-agent-control/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 10,
+      "target": "crates/ec-agent-workspace/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 11,
+      "target": "crates/ec-agent-execution/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 12,
+      "target": "crates/ec-agent-reporting/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 13,
+      "target": "crates/ec-agent-app/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 23,
+      "target": "../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 23,
+      "target": "../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 23,
+      "target": "../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "line": 23,
+      "target": "../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "line": 17,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "line": 17,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "line": 17,
+      "target": "../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "line": 11,
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "line": 11,
+      "target": "../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "line": 29,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "line": 29,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "line": 29,
+      "target": "../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "line": 11,
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "line": 11,
+      "target": "../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "line": 29,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "line": 29,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "line": 29,
+      "target": "../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "line": 11,
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "line": 11,
+      "target": "../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "line": 29,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "line": 29,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "line": 29,
+      "target": "../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "line": 11,
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "line": 11,
+      "target": "../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "line": 29,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "line": 29,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "line": 29,
+      "target": "../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "line": 7,
+      "target": "integration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "line": 8,
+      "target": "e2e/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "line": 14,
+      "target": "../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "line": 14,
+      "target": "../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "line": 14,
+      "target": "../../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "line": 9,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/e2e/README.md",
+      "line": 9,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "line": 9,
+      "target": "../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/integration/README.md",
+      "line": 9,
+      "target": "../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 7,
+      "target": "backend/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 8,
+      "target": "frontend/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 12,
+      "target": "../integration/tests/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 14,
+      "target": "../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 14,
+      "target": "../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 14,
+      "target": "../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "line": 14,
+      "target": "../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 9,
+      "target": "crates/ec-server-access/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 10,
+      "target": "crates/ec-server-configuration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 11,
+      "target": "crates/ec-server-projects/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 12,
+      "target": "crates/ec-server-orchestration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 13,
+      "target": "crates/ec-server-results/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 14,
+      "target": "crates/ec-server-delivery/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 15,
+      "target": "crates/ec-server-extensions/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 16,
+      "target": "crates/ec-server-operations/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 17,
+      "target": "crates/ec-server-app/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 29,
+      "target": "../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 29,
+      "target": "../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 29,
+      "target": "../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "line": 29,
+      "target": "../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "line": 17,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "line": 17,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "line": 17,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "line": 29,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "line": 29,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "line": 29,
+      "target": "../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 9,
+      "target": "src/app/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 10,
+      "target": "src/shared/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 11,
+      "target": "src/domains/configuration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 12,
+      "target": "src/domains/projects/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 13,
+      "target": "src/domains/pipelines/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 14,
+      "target": "src/domains/runs/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 15,
+      "target": "src/domains/delivery/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 16,
+      "target": "src/domains/infrastructure/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 17,
+      "target": "src/domains/access/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 18,
+      "target": "src/domains/extensions/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 19,
+      "target": "src/domains/administration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 33,
+      "target": "tests/integration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 33,
+      "target": "tests/e2e/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 35,
+      "target": "../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 35,
+      "target": "../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 37,
+      "target": "../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 37,
+      "target": "../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "line": 37,
+      "target": "../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "line": 11,
+      "target": "../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "line": 11,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "line": 11,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "line": 11,
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "line": 27,
+      "target": "../../../../../../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "line": 11,
+      "target": "../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "line": 11,
+      "target": "../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "line": 11,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "line": 9,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "line": 9,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "line": 9,
+      "target": "../../../../../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/tests/integration/README.md",
+      "line": 9,
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 3,
+      "target": "../decisions/ADR-002-application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 5,
+      "target": "../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 138,
+      "target": "../validation/application-path-audit-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 146,
+      "target": "../../application/agents/crates/ec-agent-control/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 147,
+      "target": "../../application/agents/crates/ec-agent-workspace/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 148,
+      "target": "../../application/agents/crates/ec-agent-execution/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 149,
+      "target": "../../application/agents/crates/ec-agent-reporting/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 150,
+      "target": "../../application/server/backend/crates/ec-server-access/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 151,
+      "target": "../../application/server/backend/crates/ec-server-configuration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 152,
+      "target": "../../application/server/backend/crates/ec-server-projects/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 153,
+      "target": "../../application/server/backend/crates/ec-server-orchestration/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 154,
+      "target": "../../application/server/backend/crates/ec-server-results/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 155,
+      "target": "../../application/server/backend/crates/ec-server-delivery/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 156,
+      "target": "../../application/server/backend/crates/ec-server-extensions/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 157,
+      "target": "../../application/server/backend/crates/ec-server-operations/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 223,
+      "target": "../development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 225,
+      "target": "../../sdd/workflow.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "line": 227,
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "line": 11,
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "line": 15,
+      "target": "../decisions/ADR-002-application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "line": 15,
+      "target": "application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "line": 15,
+      "target": "../development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "line": 20,
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/constitution.md",
+      "line": 7,
+      "target": "EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/constitution.md",
+      "line": 7,
+      "target": "EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/constitution.md",
+      "line": 20,
+      "target": "ec-arquitetura-comunicacao-e-validacao.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/constitution.md",
+      "line": 21,
+      "target": "../sdd/project.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/constitution.md",
+      "line": 21,
+      "target": "decisions/ADR-001-skills-sdd-adoption.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "line": 5,
+      "target": "../validation/application-layout-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "line": 7,
+      "target": "../validation/application-integration-tests-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "line": 13,
+      "target": "../constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "line": 21,
+      "target": "../architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "line": 39,
+      "target": "../../sdd/workflow.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "line": 41,
+      "target": "../validation/application-layout-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/skill-installation.md",
+      "line": 24,
+      "target": "../validation/workspace-cleanup-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/skills-analysis.md",
+      "line": 138,
+      "target": "skill-installation.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/skills-analysis.md",
+      "line": 138,
+      "target": "../../sdd/features/governance-adoption/spec.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/skills-analysis.md",
+      "line": 138,
+      "target": "../validation/skills-adoption/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "line": 63,
+      "target": "../validation/application-path-audit-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "line": 63,
+      "target": "../validation/application-layout-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "line": 67,
+      "target": "../../sdd/evidence.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "line": 69,
+      "target": "../architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "line": 69,
+      "target": "../../application/integration/tests/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "line": 69,
+      "target": "../../README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/readme-lifecycle-engineering-SKILL.md",
+      "line": 46,
+      "target": "references/readme-scope-and-content.md",
+      "status": "IMPORTED_REFERENCE"
+    },
+    {
+      "file": "docs/readme-lifecycle-engineering-SKILL.md",
+      "line": 48,
+      "target": "references/documentation-topology-and-diataxis.md",
+      "status": "IMPORTED_REFERENCE"
+    },
+    {
+      "file": "docs/readme-lifecycle-engineering-SKILL.md",
+      "line": 50,
+      "target": "references/maintenance-and-change-triggers.md",
+      "status": "IMPORTED_REFERENCE"
+    },
+    {
+      "file": "docs/readme-lifecycle-engineering-SKILL.md",
+      "line": 52,
+      "target": "references/verification-and-acceptance.md",
+      "status": "IMPORTED_REFERENCE"
+    },
+    {
+      "file": "docs/readme-lifecycle-engineering-SKILL.md",
+      "line": 54,
+      "target": "references/implementation-details.md",
+      "status": "IMPORTED_REFERENCE"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 3,
+      "target": "project.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 3,
+      "target": "../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 3,
+      "target": "workflow.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 3,
+      "target": "evidence.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 7,
+      "target": "templates/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 9,
+      "target": "chain/README.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 23,
+      "target": "../docs/decisions/ADR-002-application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/README.md",
+      "line": 23,
+      "target": "../docs/validation/application-layout-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/chain/README.md",
+      "line": 3,
+      "target": "../../config/governance/profile.json",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/chain/README.md",
+      "line": 4,
+      "target": "../../docs/development/skills-analysis.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/constitution.md",
+      "line": 3,
+      "target": "../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 14,
+      "target": "../../../docs/validation/workspace-cleanup-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 14,
+      "target": "../../../docs/validation/workspace-cleanup-20261103/checks.json",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 14,
+      "target": "evidence.json",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 14,
+      "target": "../../../docs/validation/workspace-cleanup-20261103/previous.zip",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 18,
+      "target": "../../../docs/validation/application-layout-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 18,
+      "target": "../../../docs/validation/application-layout-20261103/previous.zip",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 22,
+      "target": "../../../docs/validation/application-layout-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 26,
+      "target": "../../../docs/validation/application-integration-tests-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "line": 30,
+      "target": "../../../docs/validation/application-path-audit-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "line": 13,
+      "target": "../../../docs/validation/application-layout-20261103/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "line": 17,
+      "target": "../../../docs/validation/application-layout-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "line": 21,
+      "target": "../../../docs/validation/application-integration-tests-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "line": 25,
+      "target": "../../../docs/validation/application-path-audit-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 6,
+      "target": "features/governance-adoption/spec.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 6,
+      "target": "../docs/decisions/ADR-002-application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 6,
+      "target": "../docs/validation/application-path-audit-20261104/report.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 10,
+      "target": "../docs/constitution.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 10,
+      "target": "../docs/architecture/context.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 10,
+      "target": "../docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 15,
+      "target": "../docs/architecture/application-layout.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "line": 15,
+      "target": "../docs/development/testing.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/templates/README.md",
+      "line": 4,
+      "target": "../workflow.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/templates/spec.md",
+      "line": 14,
+      "target": "../evidence.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/workflow.md",
+      "line": 33,
+      "target": "evidence.md",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/workflow.md",
+      "line": 39,
+      "target": "evidence.md#checks-by-route",
+      "status": "EXISTS"
+    }
+  ],
+  "literal_paths": [
+    {
+      "file": "AGENTS.md",
+      "value": "application/agents/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "value": "application/server/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "AGENTS.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/agents/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/server/backend/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/server/frontend/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/agents/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/server/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "value": "application/agents/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/README.md",
+      "value": "application/agents/Cargo.toml",
+      "status": "PLANNED"
+    },
+    {
+      "file": "application/agents/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-app/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-control/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-execution/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-reporting/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/agents/crates/ec-agent-workspace/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/integration/tests/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "value": "application/server/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "value": "application/server/backend/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "value": "application/server/backend/Cargo.toml",
+      "status": "PLANNED"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-access/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-app/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-configuration/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-delivery/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-extensions/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-operations/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-projects/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/backend/crates/ec-server-results/README.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "value": "application/server/frontend/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/README.md",
+      "value": "application/integration/tests/e2e/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "value": "application/server/frontend/src/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "value": "application/server/frontend/tests/integration/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/app/README.md",
+      "value": "application/server/frontend/tests/e2e/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/access/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/administration/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/configuration/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/delivery/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/extensions/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/infrastructure/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/pipelines/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/projects/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "application/server/frontend/src/domains/runs/README.md",
+      "value": "application/server/frontend/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/src/shared/README.md",
+      "value": "application/server/frontend/tests/integration/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "application/server/frontend/tests/e2e/README.md",
+      "value": "application/integration/tests/e2e/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/server/frontend/src/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/agents/Cargo.toml",
+      "status": "PLANNED"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/server/backend/Cargo.toml",
+      "status": "PLANNED"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/server/frontend/package.json",
+      "status": "PLANNED"
+    },
+    {
+      "file": "docs/architecture/application-layout.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "value": "application/agents/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "value": "application/server/backend/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "value": "application/server/frontend/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/architecture/context.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "value": "application/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "value": "application/agents/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "value": "application/server/backend/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/decisions/ADR-002-application-layout.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/skills-analysis.md",
+      "value": "agents/openai.yaml",
+      "status": "SKILL_METADATA"
+    },
+    {
+      "file": "docs/development/skills-analysis.md",
+      "value": "agents/",
+      "status": "SKILL_METADATA"
+    },
+    {
+      "file": "docs/development/skills-analysis.md",
+      "value": "application/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/agents/crates/ec-agent-app/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/server/backend/crates/ec-server-app/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/server/frontend/src/domains/<dominio>/src/",
+      "status": "DOMAIN_PATTERN"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/server/frontend/src/app/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/server/frontend/src/domains/<dominio>/tests/",
+      "status": "DOMAIN_PATTERN"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/server/frontend/tests/integration/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/server/frontend/tests/e2e/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/integration/tests/integration/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/integration/tests/e2e/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "tests/",
+      "status": "LOCAL_OR_EXAMPLE"
+    },
+    {
+      "file": "docs/development/testing.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "docs/reavaliacao-skills-ec-dois-monolitos-atualizada.md",
+      "value": "agents/openai.yaml",
+      "status": "SKILL_METADATA"
+    },
+    {
+      "file": "docs/reavaliacao-skills-ec-dois-monolitos-atualizada.md",
+      "value": "agents/",
+      "status": "SKILL_METADATA"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "value": "application/agents/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "value": "application/server/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/converge.md",
+      "value": "application/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "value": "application/agents/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "value": "application/server/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/features/governance-adoption/tasks.md",
+      "value": "application/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "value": "application/agents/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "value": "application/server/backend/crates/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "value": "application/server/frontend/",
+      "status": "EXISTS"
+    },
+    {
+      "file": "sdd/project.md",
+      "value": "application/integration/tests/",
+      "status": "EXISTS"
+    }
+  ],
+  "inventory": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "a6a44c462cfbc67893b83069ae72160984b79acbc2de2650173056e637094543"
+    },
+    {
+      "path": "README.md",
+      "sha256": "8b8f905f97955759fcaf488286637200f63de6f9acd4cc86d156988c5a96359f"
+    },
+    {
+      "path": "application/agents/README.md",
+      "sha256": "6d854d55814d7ddcefe730a71631bbcb81d224b31203d671bf2e03fc0a888225"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/README.md",
+      "sha256": "aebcfd5d5a4a59ce36cf973e81e1b806c97efd50e852cec105196c6068ed8c05"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/README.md",
+      "sha256": "93bc450fd9ffe3ec999a9c7ef0efe483c85e0131f4dd3ab695e2b745082f4c4f"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/README.md",
+      "sha256": "1a6b553aec536d7dc8c5cfb76215ad7796f06db73ee299cb0d34dad3bb1168d6"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/README.md",
+      "sha256": "8fd72bc7fd88f1962d4532e393b886b00928b4ccf8818e82f360b7beb40d8c1d"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/README.md",
+      "sha256": "eccb6970355c530a042b2161f83e1b7d6af9d3687dfd3ea8a68322bf5bcdf9dd"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/integration/tests/README.md",
+      "sha256": "72b5eb890418d754b80f8a2f914b308036327af503202f6c3135b97ee4326c2f"
+    },
+    {
+      "path": "application/integration/tests/e2e/README.md",
+      "sha256": "3bf4c841d6c3d09f749ae0817e85c3e16f52d30d47065fe8afb8e0602faf9626"
+    },
+    {
+      "path": "application/integration/tests/integration/README.md",
+      "sha256": "213220c57e95903e90f101a8baa494fb9f02a073695a186d781b3a91750666a1"
+    },
+    {
+      "path": "application/server/README.md",
+      "sha256": "bf5d27434510f00138e4fd1f45d0cb5778820665fbedf6831a80131b9f52554e"
+    },
+    {
+      "path": "application/server/backend/README.md",
+      "sha256": "5895b8a85e86a602b3b675a6a497d6ef8bab4139b82adcdb03d8cd9b08fdaace"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/README.md",
+      "sha256": "fb3caee7ed2e5495a2b47bd6ff764d26c42b8764fa0cb341a311505d5e463af1"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/README.md",
+      "sha256": "d2c1a7faf173fea306904b877200c721068f8ed78c41b25257a077a8069f0443"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/README.md",
+      "sha256": "92ae23fdd72e5e9717bd36696160451b25dabde46073231fa28513841f061669"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-delivery/README.md",
+      "sha256": "68726c5d7b9bab4b50bd33195816e0320d4534292272e44efa869c533f69194a"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-delivery/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-delivery/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-extensions/README.md",
+      "sha256": "30d611bdf03f37da85050250d79331799c4ac8780a0609f30d192dbd65ba2353"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-extensions/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-extensions/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-operations/README.md",
+      "sha256": "88084a270887175f7d1230220199f8d576dcdc561930c0495ec79f011f594977"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-operations/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-operations/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "sha256": "19300e34bec886cbf53d1493e0673aa95cf66c85119aaaab01fca3ec9a5dd7a0"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/README.md",
+      "sha256": "0ecd1a07c7a83fc004c8b5ed83f5c709afd88831a59dbf3f20055b0b53bee2dc"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/README.md",
+      "sha256": "ff95bfdf423434937bc2377cdc436874e6ce8abfedd0846ad0c951b9d4a037fb"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/README.md",
+      "sha256": "6182c8102325f4c61d456fb9d4e2e97eccd5aa286ee0b947add724533b1762c1"
+    },
+    {
+      "path": "application/server/frontend/src/app/README.md",
+      "sha256": "7dd4e8997ae7bbc148f2fa783de4202123d9013dfe07d2a3a59e9793a1fe378d"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/README.md",
+      "sha256": "80f7359aac280e6f6d4cd293df116332cdb29aabaac44f5e20663764b255972b"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/administration/README.md",
+      "sha256": "7fc3ab1a6c474b31fba80031f3cda5a45f5cac13ad28a6278b2e7410eb38137a"
+    },
+    {
+      "path": "application/server/frontend/src/domains/administration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/administration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/README.md",
+      "sha256": "a419f88dc0e743b4b96509a8f646a22708b0533400abf96de90df1d8b70a4172"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/delivery/README.md",
+      "sha256": "9cfc0907ed4e98de112a103ac96534d14c0b3d50be75ad61cf91d225f04ba5ef"
+    },
+    {
+      "path": "application/server/frontend/src/domains/delivery/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/delivery/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/extensions/README.md",
+      "sha256": "4cc513b5eb8b0c035a6791bb0558a2abad45e01f1be4c95881b029f05c9af192"
+    },
+    {
+      "path": "application/server/frontend/src/domains/extensions/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/extensions/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/README.md",
+      "sha256": "1548b7999d108259e33d8b3f2fde982bc37bf5ca31c57aed86805c41fc53cd3a"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/pipelines/README.md",
+      "sha256": "b5fa13453cc776d7fc32e2537dfeca60afe04eb0c422ca5fb788d8e3739be1f8"
+    },
+    {
+      "path": "application/server/frontend/src/domains/pipelines/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/pipelines/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/README.md",
+      "sha256": "ab0c2ef13dadad8a79fa219ceff885efc5182a3b8dd46fec8893533ce3585852"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/README.md",
+      "sha256": "f0a401c6092ccc11ec420ee9e978cd78d07246607e9a043b7247b4ea5302bf5b"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/src/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/tests/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "application/server/frontend/src/shared/README.md",
+      "sha256": "042799f6c007be0465750bc7f5f6e8a845994430d212656532fea25c8c57a6d5"
+    },
+    {
+      "path": "application/server/frontend/tests/e2e/README.md",
+      "sha256": "b7075dcd03100a84b244b5c813499abc78fa1dcff7fc4032231ea3eedfe1f531"
+    },
+    {
+      "path": "application/server/frontend/tests/integration/README.md",
+      "sha256": "4d8f92c69b09a5b567f4f60793bdc2a94f92dd055903995fd84c6d44edc96226"
+    },
+    {
+      "path": "config/governance/normative-coverage.json",
+      "sha256": "bd4e31ecbb00795d7ec5145d061abee5c1f8a74b45c4bfdff07704c3f7cdac82"
+    },
+    {
+      "path": "config/governance/profile.json",
+      "sha256": "72eac3edafaaef640619e90fc79a6bbf459e1d8b255aea18659724ae85e3917c"
+    },
+    {
+      "path": "config/governance/sources/skills-inputs.zip",
+      "sha256": "18f24bc03a469b2dd731510add367e37f704e237deebde67633d0a300a792aa7"
+    },
+    {
+      "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62"
+    },
+    {
+      "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37"
+    },
+    {
+      "path": "docs/architecture/application-layout.md",
+      "sha256": "1c77d83ee5aad2713cd295b8b06c8e4732a67ee9d988ee54268255e213477c5a"
+    },
+    {
+      "path": "docs/architecture/context.md",
+      "sha256": "afdb1d95ed8d98d013e38d8e4fadbfa527daefcc39a54e9b467cf08847dc42d4"
+    },
+    {
+      "path": "docs/constitution.md",
+      "sha256": "e75e225c611af98acd5d865324f49f56222bcbe3a684662dcf8a43ae5ed96e97"
+    },
+    {
+      "path": "docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "sha256": "964423adcd8933ad36f696c7b140d10321b190da0ac224b4ac360f8644923023"
+    },
+    {
+      "path": "docs/decisions/ADR-002-application-layout.md",
+      "sha256": "10abae52775b554aa64b06c7608c7e195bcfa3c8fe49eccd7d85db81ca18b38f"
+    },
+    {
+      "path": "docs/development/skill-installation.md",
+      "sha256": "fafcec250f9866f0d71d818923a5c3289ed696346a8291280a8c79660f35953c"
+    },
+    {
+      "path": "docs/development/skills-analysis.md",
+      "sha256": "1ad47794f1041abaacda7f2559965db2331bfd547118c5823d8bd63c2662d9d7"
+    },
+    {
+      "path": "docs/development/testing.md",
+      "sha256": "1a33397ce9b1f1430656a168364275377805ab920057d4ec61af42b715ffbb0c"
+    },
+    {
+      "path": "docs/ec-arquitetura-comunicacao-e-validacao.md",
+      "sha256": "f9689af6e68baae223d1c213518163e3506339c84519bff40d3ecb33f57296a6"
+    },
+    {
+      "path": "docs/readme-lifecycle-engineering-SKILL.md",
+      "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9"
+    },
+    {
+      "path": "docs/reavaliacao-skills-ec-dois-monolitos-atualizada.md",
+      "sha256": "e83e5df769211bef1f08fe029c6020f2f9c45fe0de4bb0ac337414491d235bf3"
+    },
+    {
+      "path": "sdd/README.md",
+      "sha256": "9ff2e82b7de9762130e6c74c7be55d371c97de9a7a9dcabc25e8703c38aa419c"
+    },
+    {
+      "path": "sdd/chain/README.md",
+      "sha256": "23a427fe52d96d2f55888f4897820426312c1c47f9b823741ca6d750dcc4d022"
+    },
+    {
+      "path": "sdd/chain/agent-runtime-engineering.md",
+      "sha256": "73a6dee53238443a8638e96d51bffbf576d87e7240cd3ae16486a0d04204011f"
+    },
+    {
+      "path": "sdd/chain/ai-engineering.md",
+      "sha256": "8ac6b74521665788b141cdfb843ca96c60020c3256249cdd7cc25728e2a696fe"
+    },
+    {
+      "path": "sdd/chain/api-testing.md",
+      "sha256": "8f272533d02fcf22b14be876291618218426a71878b0bcb65e4346fb79c8d3b7"
+    },
+    {
+      "path": "sdd/chain/application-security.md",
+      "sha256": "2661be6ea1b14febe95da6186f5c19de1b7aa7d203eee40bc803bd4ea7d940fd"
+    },
+    {
+      "path": "sdd/chain/autonomous-verification-engineering.md",
+      "sha256": "7c0cb483af8f8f824463514e35ef91b8568332e0c162bd2a1f58d983bb8c8c06"
+    },
+    {
+      "path": "sdd/chain/cicd-agent-runtime.md",
+      "sha256": "0d5bd2d46e7401cf4b3dd8fd86e88a6bb653d602a6e30291f86d06304082552f"
+    },
+    {
+      "path": "sdd/chain/cicd-artifacts-and-retention.md",
+      "sha256": "7065c04de6e1ab2834735b147cdef09ca18343be282281f9498cf994f27edce0"
+    },
+    {
+      "path": "sdd/chain/cicd-build-cache.md",
+      "sha256": "f381de715cb778bf9d3e8b353fbabf191e1848c860e499c5478b2c5b3983b88b"
+    },
+    {
+      "path": "sdd/chain/cicd-execution-runtime.md",
+      "sha256": "28cf309c9acc82ce0206c6f417537cbadf2d780bce43ea7fc2dbc36fba40151b"
+    },
+    {
+      "path": "sdd/chain/cicd-logs-and-test-results.md",
+      "sha256": "9e1f06028633c12d7410dbd6466d948e009994b5a0ad7416813a3fed5d274077"
+    },
+    {
+      "path": "sdd/chain/cicd-pipeline-graph.md",
+      "sha256": "c38c00014282fd93a903763325dcf679c7cf0e6c4a3cdf79fdfcc55affa9ebdf"
+    },
+    {
+      "path": "sdd/chain/cicd-release-and-deployment.md",
+      "sha256": "c90a80c3ca85ed724ec26f96a18dedd85856902ec7c86e6b27f7551326d2745e"
+    },
+    {
+      "path": "sdd/chain/cicd-scheduler.md",
+      "sha256": "861d423333627cd50ba12a8ed3f72fa09e038f78ec58698dd095e5e984615f38"
+    },
+    {
+      "path": "sdd/chain/cicd-vcs-event-processing.md",
+      "sha256": "308f0b3426a06b7e4a6921850fea28af744eb77bb1d02c5fc8044d63d25b61e4"
+    },
+    {
+      "path": "sdd/chain/cli-engineering.md",
+      "sha256": "c64f0e525b203b029bbee5d1cf83f07b0c1a3c0ed878c5a87ebd032247dc5de6"
+    },
+    {
+      "path": "sdd/chain/commit-governance.md",
+      "sha256": "84b3695f52abcc25e74564152df6da820a666dda8ba2765458d7829c2991489e"
+    },
+    {
+      "path": "sdd/chain/css-layout-engineering.md",
+      "sha256": "c4e457a789b5b92ddd033e7d9368ad47e1c43310299b21e9cd08a8386c2fc9da"
+    },
+    {
+      "path": "sdd/chain/database-engineering.md",
+      "sha256": "75d44776cf48f4ed58deae72d779720b181ddf2116fb7fb03f76e16fc1e427a6"
+    },
+    {
+      "path": "sdd/chain/design-review.md",
+      "sha256": "d9d02dde44fc032a642422ef89baeaea839daf1a116a98caa2b191e4635a3ddb"
+    },
+    {
+      "path": "sdd/chain/design-system.md",
+      "sha256": "e5e01202bb32f9247bc886aae7b72f5e73712cec76cbaf43deb27ca6c5990d96"
+    },
+    {
+      "path": "sdd/chain/distributed-systems.md",
+      "sha256": "eafe4a555b3425ba6550f391c09ad91cc6a4e867011a664347041b0b4f7410b6"
+    },
+    {
+      "path": "sdd/chain/domain-modeling.md",
+      "sha256": "32a3333d79e24d0aab74e00c5594636854172e538f52f7504f63d1b5ccb85378"
+    },
+    {
+      "path": "sdd/chain/ec-agent-control-protocol.md",
+      "sha256": "6132f92441f45f5bde9cdb1c9c28955a17390d8e6bc35887058f2f4d975530b3"
+    },
+    {
+      "path": "sdd/chain/ec-agent-pool-console.md",
+      "sha256": "2a1043115c73e491ca5a68e879af2731a89122441bab3ff441c1c305e5bcb661"
+    },
+    {
+      "path": "sdd/chain/ec-configuration-publication.md",
+      "sha256": "8f6d879cd233f8b9eb79dd154ee8a09a77f49c6759d29c23bf511d1aec5f8e70"
+    },
+    {
+      "path": "sdd/chain/ec-declarative-resource-schemas.md",
+      "sha256": "5da3711f8631814e48bd6bf987e13c3b098eb1dc46c2d11e55b270425a28dc93"
+    },
+    {
+      "path": "sdd/chain/ec-effective-permissions.md",
+      "sha256": "94384c02372d2ac95bd7c23951904e1f6804ebd68597496a633d1c6d3000d53b"
+    },
+    {
+      "path": "sdd/chain/ec-environments-and-approvals.md",
+      "sha256": "0c6b7041a1af3f30a47e8152f33508cdb0cabfbe0ecce399f7ed72487bbb3ad1"
+    },
+    {
+      "path": "sdd/chain/ec-integrations-and-webhooks.md",
+      "sha256": "1b6e3e57ecc5a8c469f3fd64624fff78bf66b6cf6d6a269531a0d0a90099c91d"
+    },
+    {
+      "path": "sdd/chain/ec-operations-and-administration-console.md",
+      "sha256": "060a995912ea57ffdbfa4cbe9c6ac4e15739966a864bd924b3f5603b4ba5da6e"
+    },
+    {
+      "path": "sdd/chain/ec-people-and-access-administration.md",
+      "sha256": "0a73412dae13f454a9e4d98ac46273b81eaee1b8b77808e2f3ad7984ffc50945"
+    },
+    {
+      "path": "sdd/chain/ec-pipeline-authoring-workspace.md",
+      "sha256": "b7968aa91cd36d7a4ee8909b9c8ed1f89d85123f117894544c85331f4e7587d5"
+    },
+    {
+      "path": "sdd/chain/ec-plugin-isolation-and-lifecycle.md",
+      "sha256": "82609a8f70da778f6d44949d85df689eb948338a79a27a3390a4c2ca23fd98b0"
+    },
+    {
+      "path": "sdd/chain/ec-plugin-manifests-and-compatibility.md",
+      "sha256": "3f4ee2cf6e08ef64ec029cf81f3ee52a62860d5c14ab5192ff77bf9281b755a7"
+    },
+    {
+      "path": "sdd/chain/ec-product-contract-test-harness.md",
+      "sha256": "5806605fd816f545b92872f63d1ad1af37c50c11ed09e41e559c5bd82f6e0653"
+    },
+    {
+      "path": "sdd/chain/ec-project-hierarchy-management.md",
+      "sha256": "c8b37adb009aedc348fb24498505e0833d2f6ac9231109dc76e8cd37a8693660"
+    },
+    {
+      "path": "sdd/chain/ec-run-execution-operations.md",
+      "sha256": "9ecd077f00564a53c427900571f46f43a21056001417eafa9b8d76267ba6aceb"
+    },
+    {
+      "path": "sdd/chain/ec-semantic-configuration-projections.md",
+      "sha256": "fcd189d92bb475d8b238b1a224e80ff27f5530a3d0749b35eea8fb8f4f014d82"
+    },
+    {
+      "path": "sdd/chain/engineering-productivity.md",
+      "sha256": "acee0f885b3bc3ba4d189bb15727219a8a1f11961dbbee2634ec7ac9d813dfb8"
+    },
+    {
+      "path": "sdd/chain/frontend-form-engineering.md",
+      "sha256": "45812b6b1302a6175d281f2d7d9a37ef4c2f753a6b66eca086b53b827536c60a"
+    },
+    {
+      "path": "sdd/chain/frontend-routing.md",
+      "sha256": "19bcf4985a07cecc1b56cae1820ddc56264b3c782e2d36df97583d6644e0e9d7"
+    },
+    {
+      "path": "sdd/chain/frontend-state-and-cache.md",
+      "sha256": "8c14cc3591988af0b995177cc364170e68542d65a5520dd941c9bbcf0c2b9b82"
+    },
+    {
+      "path": "sdd/chain/frontend-testing.md",
+      "sha256": "f593a8ca011fba4d6e7b9f167ebb81acef8ba130647a96fe40ff348f2bb4fca7"
+    },
+    {
+      "path": "sdd/chain/http-api-contracts.md",
+      "sha256": "90bc7a42ba70e6bf11c0a7c8e46cf8051f6eca125c1b8b0bb20c1e127f13c4b9"
+    },
+    {
+      "path": "sdd/chain/identity-federation.md",
+      "sha256": "1d17c3a12d9f1271c7a990acd57e3ad6570c9a11aeeb42e87e7d7c13f3cd1c1b"
+    },
+    {
+      "path": "sdd/chain/information-architecture.md",
+      "sha256": "a2e55010499a2039f72d313a8b873b390fbf25bb39ed5486626ecb5ed9f8e383"
+    },
+    {
+      "path": "sdd/chain/internationalization.md",
+      "sha256": "4c6cca0392a6f8d1a94a050afd9d133662d838c99a3de55130ae83b815e4162a"
+    },
+    {
+      "path": "sdd/chain/observability-and-diagnostics.md",
+      "sha256": "3fcea0ceb5726315b857c835652177d5582e7009c48a2e2e844145cd48c2aa85"
+    },
+    {
+      "path": "sdd/chain/performance-engineering.md",
+      "sha256": "3c21beb1945cd0ac67ceeeffea39b470d4a644a7b4cb9a695474038f37ea86bb"
+    },
+    {
+      "path": "sdd/chain/plugin-protocol-engineering.md",
+      "sha256": "1c8264038f32ea4bfd3a2f20cff2b1eca5ab632972dac3b0453462ec80b885ea"
+    },
+    {
+      "path": "sdd/chain/prompt.md",
+      "sha256": "b95ac5d423153c6d5bf2443bf4477b62986df269d7239371fe88efebaa78b9b0"
+    },
+    {
+      "path": "sdd/chain/property-based-testing.md",
+      "sha256": "73ff8635bf423ed230a7659cb9a09dd9af7476b47e6d0f493c8a4e9ca2c5d793"
+    },
+    {
+      "path": "sdd/chain/readme-lifecycle-engineering.md",
+      "sha256": "4de7623f7f951232954247f404feeeea10e09806c328a7dbbbed28c2458aa9bd"
+    },
+    {
+      "path": "sdd/chain/reliability-engineering.md",
+      "sha256": "77a50e40657d3f652321ae4c4cf2e4d6a958f886168566904ca1af23e3e6206a"
+    },
+    {
+      "path": "sdd/chain/rust.md",
+      "sha256": "be4c0dcf14542912e8112c574a172361f7825508c0acdc903a67419126ea62ed"
+    },
+    {
+      "path": "sdd/chain/software-architecture.md",
+      "sha256": "f733a53334b6937755b9efbcf05fcfda927cecdda28a782252bf4b299b9f5548"
+    },
+    {
+      "path": "sdd/chain/software-delivery.md",
+      "sha256": "0c2043fb9a69e13eb517962c1fc2ba74a2b78e7688ed212973f5ec6efdabe5e5"
+    },
+    {
+      "path": "sdd/chain/software-design.md",
+      "sha256": "9f7a80aa731f882a1d0ba71c4fb85aae1bca7a9b1ef55ab104a1546e1fe16a1f"
+    },
+    {
+      "path": "sdd/chain/software-evolution.md",
+      "sha256": "84dd8f0d83dd7dcfdd1d3b2a75697a44cbb3498c2c584057451e3eba2cc628d5"
+    },
+    {
+      "path": "sdd/chain/software-testing.md",
+      "sha256": "e3a44a2978f2e4666cf992776202a54bd72f835721f448ca36c19266f45df2f6"
+    },
+    {
+      "path": "sdd/chain/technical-documentation.md",
+      "sha256": "94eb8843383561caebb2812904700b6af626a4fdfd827bcf02fec2ebde5c4985"
+    },
+    {
+      "path": "sdd/chain/tool-output-engineering.md",
+      "sha256": "ab5f98c2981e5dc4dc66f21cc3b561d5333346085f8520d29deaf87b41300915"
+    },
+    {
+      "path": "sdd/chain/typescript-engineering.md",
+      "sha256": "a9a9667eaaab036b09f08ad538b8bd40ebfb599e64ae5c331b26a583ee3a29e1"
+    },
+    {
+      "path": "sdd/chain/vue3-engineering.md",
+      "sha256": "b16d4992edde53f2f67daefd5316fb0cd4995770852d7d01054ccfb7d3b69224"
+    },
+    {
+      "path": "sdd/chain/web-accessibility.md",
+      "sha256": "992b3dda85e1b31b83bbf6a70e486297e1cf18ddcfc45dec86dde518151901f0"
+    },
+    {
+      "path": "sdd/chain/web-realtime-streaming.md",
+      "sha256": "ae0273cd4249b1cdd6663d3a448f4316354b7f4e121ee5814b7404a9b64ad5ae"
+    },
+    {
+      "path": "sdd/chain/workspace-integrity-engineering.md",
+      "sha256": "2896c455dbdc7b8320ef251883639a1d311e95f3462488c7100ee41131b1df76"
+    },
+    {
+      "path": "sdd/constitution.md",
+      "sha256": "223076a92eae47680c5e41369c0757e6fd6ec3e132045170d03f6506482878ff"
+    },
+    {
+      "path": "sdd/evidence.md",
+      "sha256": "5aff51a144d4fe800ca1c668c7180a25de1e4109a30d9d07161b85342b920483"
+    },
+    {
+      "path": "sdd/features/governance-adoption/converge.md",
+      "sha256": "8f269ec20f3fc4adc59a9d3ded1a84bd79d348cc50c2392c67bf99d789cd8813"
+    },
+    {
+      "path": "sdd/features/governance-adoption/plan.md",
+      "sha256": "153e3a8a3f1be4aec40dc446fe5c4382fe1e05d8478a5a00d9aec35825eb52bd"
+    },
+    {
+      "path": "sdd/features/governance-adoption/spec.md",
+      "sha256": "88e765b4fe076aeb2d7a2e8e74150822717b2f05ad602259254ece3dcbc6f153"
+    },
+    {
+      "path": "sdd/features/governance-adoption/tasks.md",
+      "sha256": "4e0c24e199e30f8bb4ea3e649c5346a54da856f047aab6bf1efc6779705e8a46"
+    },
+    {
+      "path": "sdd/features/governance-adoption/traceability.json",
+      "sha256": "a5063690ce55d3a33a8a8a82472ab1af751d9586129c6525a667c0921a400289"
+    },
+    {
+      "path": "sdd/project.md",
+      "sha256": "92a7b965eb8c9569827678ec7bec1589321b91bd5f923b71cf7d9796f3fb677c"
+    },
+    {
+      "path": "sdd/templates/README.md",
+      "sha256": "9a51c26ad0e86551b88fe534bbc17fbdee2c833297fad026b73ac153ab82fd60"
+    },
+    {
+      "path": "sdd/templates/checklist.md",
+      "sha256": "a660321fc8669b4b96d8bd0ccdfe077c88cdbbcac2b2417309a170d2c87bc58e"
+    },
+    {
+      "path": "sdd/templates/converge.md",
+      "sha256": "d58e6d0e6a4d44add2bdfb0a8516caf6b49704f5427e07023cdb8613215dc0f1"
+    },
+    {
+      "path": "sdd/templates/plan.md",
+      "sha256": "b871b0674c054a7b4b6cb9aa3030d8fd74c764dc0f3b869eb001f608088dcb71"
+    },
+    {
+      "path": "sdd/templates/spec.md",
+      "sha256": "2ef528f28c10746850c576d97b63dc46a1150012b34a43d4e41f67b274026701"
+    },
+    {
+      "path": "sdd/templates/tasks.md",
+      "sha256": "6b6cf1635f155d697fcad1b441d5dfbdadc0292406f6482b17d5eb78a24c0a3c"
+    },
+    {
+      "path": "sdd/tools/validate.py",
+      "sha256": "bc4581e9868eb52f4203be5fa05e971d2ba7f2600a70060cce508b07853a04c4"
+    },
+    {
+      "path": "sdd/workflow.md",
+      "sha256": "acbf9400f2ea4cc83b4e67ba8957e58ce51178574d1988a54172117c92d597f9"
+    },
+    {
+      "path": "tools/governance/install_skills.py",
+      "sha256": "3d6b431380e2c3104b5769ea9414ac3444249666dcf0a20b95d88e82123622b2"
+    },
+    {
+      "path": "tools/governance/tests/test_governance.py",
+      "sha256": "6e716cafd87a3c67e929ba311784f92fb7c1c11c3f02aa770337802afaf858a6"
+    },
+    {
+      "path": "tools/governance/validate.py",
+      "sha256": "48bf1e3e5014a405c180df5da3b9430320cfaf03b76c39a73e094e76ce71beb4"
+    }
+  ],
+  "preserved": [
+    "docs/validation: observações históricas e caminhos então existentes",
+    "reverse_engineering_teamcity: pesquisa histórica externa ao produto",
+    ".codex/skills e .local/skill-installation: metadados e baseline",
+    "docs/readme-lifecycle-engineering-SKILL.md: cópia importada; cinco links relativos pertencem ao pacote instalado"
+  ],
+  "limits": [
+    "Inspeção estática e revisão manual; sem runtime nem renderização.",
+    "Arquivos futuros e padrões são classificados, não criados para satisfazer links."
+  ]
+}

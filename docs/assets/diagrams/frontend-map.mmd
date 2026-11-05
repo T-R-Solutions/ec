@@ -1,0 +1,16 @@
+flowchart TB
+    accTitle: Frontend · interfaces públicas e composição
+    accDescr: Como evitar acoplamento entre domínios? APP → DOMAIN: compõe interfaces públicas. APP → SHARED: pode consumir. DOMAIN → SHARED: pode consumir. DOMAIN → CONFIG: quando configurável. CONFIG → SHARED: pode consumir. DOMAIN → PUBLIC: expõe. DOMAIN → BACKEND: consulta e submete
+    APP["app<br/>Bootstrap · rotas · contexto"]
+    DOMAIN["Domínios<br/>Tarefas e estado de cada área"]
+    CONFIG["configuration<br/>Edição por descritores"]
+    SHARED["shared<br/>Elementos técnicos e visuais"]
+    PUBLIC["Interfaces públicas<br/>src/index.ts · exportações mínimas"]
+    BACKEND["Backend<br/>Autoridade e confirmação do estado"]
+    APP -->|"compõe interfaces públicas"| DOMAIN
+    APP -->|"pode consumir"| SHARED
+    DOMAIN -->|"pode consumir"| SHARED
+    DOMAIN -->|"quando configurável"| CONFIG
+    CONFIG -->|"pode consumir"| SHARED
+    DOMAIN -->|"expõe"| PUBLIC
+    DOMAIN -->|"consulta e submete"| BACKEND

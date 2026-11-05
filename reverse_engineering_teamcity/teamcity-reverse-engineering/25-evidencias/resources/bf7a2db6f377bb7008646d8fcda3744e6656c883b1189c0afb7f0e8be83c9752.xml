@@ -1,0 +1,2742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress AutowiredDependenciesInspection -->
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd"
+    xmlns:context="http://www.springframework.org/schema/context"
+    default-autowire="constructor"
+>
+  <context:component-scan base-package="jetbrains.buildServer.serverSide.crypt"/>
+  <import resource="classpath*:/META-INF/shared-spring-sub-container.xml"/>
+  <import resource="classpath*:/META-INF/server-common-api-impl-spring.xml"/>
+  <import resource="classpath*:/META-INF/vcs-server-spring-api-impl-context.xml"/>
+
+  <bean id="guidGenerator" class="jetbrains.buildServer.serverSide.db.PseudoRandomGuidGenerator"/>
+  <bean id="uuidV7GuidGenerator" class="jetbrains.buildServer.serverSide.db.UuidV7Generator" autowire-candidate="false"/>
+
+  <bean id="teamCityExperimentalFeatures" class="jetbrains.buildServer.serverSide.features.TeamCityExperimentalFeatures"/>
+
+  <bean id="teamCityNodes" class="jetbrains.buildServer.serverSide.impl.TeamCityNodesImpl" lazy-init="true">
+    <property name="securityContext" ref="securityContext"/>
+    <property name="fileWatcherFactory" ref="fileWatcherFactory"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.util.NotificatorBasedEmailSender"/>
+
+  <bean id="idSequence" class="jetbrains.buildServer.serverSide.db.CachingNumericIdSequences">
+    <constructor-arg index="0"><bean class="jetbrains.buildServer.serverSide.db.DBSchema" factory-method="getSchema"/></constructor-arg>
+  </bean>
+
+  <bean id="artifactsLogger" class="jetbrains.buildServer.serverSide.impl.DownloadedArtifactsLoggerImpl" lazy-init="true">
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="longFileNames" ref="longFileNames"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="timeService" ref="timeService"/>
+    <property name="nodesBuildsEvents" ref="nodesBuildsEvents"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.impl.DownloadedArtifactsMigration"/>
+
+  <bean id="hiddenBuildFactory" class="jetbrains.buildServer.serverSide.impl.BuildFactoryImpl" lazy-init="true" autowire-candidate="false">
+    <property name="buildContext" ref="buildContext" />
+  </bean>
+
+  <bean id="buildFactory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildFactory" lazy-init="true">
+    <property name="delegate" ref="hiddenBuildFactory"/>
+    <property name="buildContext" ref="buildContext" />
+  </bean>
+
+  <bean id="failedTestsManager" class="jetbrains.buildServer.serverSide.stat.FailedTestsStorage" factory-method="createInstence">
+    <constructor-arg index="0" ref="dbFacade"/>
+    <constructor-arg index="1" ref="executorServiceManager"/>
+  </bean>
+
+  <bean id="buildStatisticsFactory" class="jetbrains.buildServer.serverSide.stat.BuildStatisticsFactory" lazy-init="true">
+    <property name="problemMutingService" ref="problemMutingService"/>
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="testRunContext" ref="buildTypeContext"/>
+    <property name="testManager" ref="testManager"/>
+    <property name="testsHistory" ref="testHistory"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="teamCityNodes" ref="teamCityNodes"/>
+  </bean>
+
+  <bean id="buildStatisticsPrinterFactory" class="jetbrains.buildServer.serverSide.impl.BuildStatisticsPrinterFactory" lazy-init="true"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.BuildTimeoutInterrupter" lazy-init="true"/>
+
+  <bean class="jetbrains.buildServer.http.HttpClientBasedHttpApi">
+    <constructor-arg index="0" value="TeamCity Server #{T(jetbrains.buildServer.version.ServerVersionHolder).getVersion().getDisplayVersion()}"/>
+    <constructor-arg index="1" ref="userSSLTrustStoreManager"/>
+  </bean>
+
+  <bean id="buildLogFacadeFactory" class="jetbrains.buildServer.serverSide.buildLog.BuildLogFacadeFactory"/>
+  <bean id="buildLogFactory" class="jetbrains.buildServer.serverSide.buildLog.BuildLogFactory" lazy-init="true"/>
+  <bean id="buildLogTextWriter" class="jetbrains.buildServer.serverSide.buildLog.BuildLogTextWriter"/>
+
+  <bean id="buildChangesCalculatorFactory" class="jetbrains.buildServer.serverSide.impl.BuildChangesCalculatorFactory" lazy-init="true">
+    <constructor-arg index="0" ref="hiddenDbVcsModificationHistory"/>
+  </bean>
+
+  <bean id="findPromotionStrategyFactory" class="jetbrains.buildServer.serverSide.impl.FindPromotionStrategyFactory" lazy-init="true"/>
+  <bean id="subrepoChangesProviderFactory" class="jetbrains.buildServer.serverSide.impl.changeProviders.SubrepoChangesProviderFactory"/>
+
+  <bean id="buildPromotionEventDispatcher" class="jetbrains.buildServer.serverSide.impl.BuildPromotionEventDispatcher" autowire-candidate="false"/>
+
+  <bean id="configActionsDispatcher" class="jetbrains.buildServer.serverSide.ConfigActionsEventDispatcher" autowire-candidate="false"/>
+  <bean id="repositoryStateEventDispatcher" class="jetbrains.buildServer.serverSide.RepositoryStateEventDispatcher" autowire-candidate="false"/>
+
+  <bean id="changesCalculationOptionsFactory" class="jetbrains.buildServer.serverSide.ChangesCalculationOptionsFactoryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.configsRepo.CentralConfigsRepository" lazy-init="true"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.configsRepo.CentralConfigsRepositoryLoader"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.configsRepo.RepositoryInitializer" lazy-init="true" init-method="init"/>
+
+  <bean id="buildStateHelper" class="jetbrains.buildServer.serverSide.impl.BuildPromotionManagerImpl" lazy-init="true" autowire-candidate="false">
+    <constructor-arg index="0" ref="buildPromotionEventDispatcher"/>
+    <property name="context" ref="buildTypeContext"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+  </bean>
+  <bean id="buildPromotionManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildPromotionManager" lazy-init="true">
+    <constructor-arg index="0" ref="buildStateHelper"/>
+    <constructor-arg index="1" ref="securityContext"/>
+  </bean>
+  <bean id="coreAsyncBuildEventDispatcher" class="jetbrains.buildServer.serverSide.impl.events.async.AsyncBuildEventDispatcherImpl"/>
+  <bean id="coreAsyncEventDispatcher" class="jetbrains.buildServer.serverSide.impl.events.async.AsyncEventDispatcher"/>
+  <bean id="coreAsyncEventManager" class="jetbrains.buildServer.serverSide.impl.events.async.AsyncEventManager"/>
+
+  <bean id="buildTypeDependencies" class="jetbrains.buildServer.serverSide.impl.BuildTypeDependencies" lazy-init="true">
+    <property name="projectDataModel" ref="projectDataModel"/>
+    <property name="buildTypeIdentifiersManager" ref="buildTypeIdentifiersManager"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="buildTypesEventListener" class="jetbrains.buildServer.serverSide.impl.BuildTypesEventListener" lazy-init="true" init-method="init">
+    <property name="projectModel" ref="projectDataModel"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+    <property name="configActionsEventDispatcher" ref="configActionsDispatcher"/>
+    <property name="multiNodeEvents" ref="multiNodesEvents"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+  </bean>
+
+  <bean id="projectExtIdChangeListener" class="jetbrains.buildServer.serverSide.impl.ProjectExtIdChangeListener">
+    <constructor-arg index="0" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean id="modificationStateCalculator" class="jetbrains.buildServer.serverSide.impl.ModificationStateCalculatorImpl" lazy-init="true">
+    <constructor-arg index="1" ref="buildStateHelper"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.crypt.EncryptionConfigChangesTracker"/>
+
+  <bean id="triggeredByParser" class="jetbrains.buildServer.serverSide.impl.TriggeredByParser" lazy-init="true">
+    <property name="userModel" ref="userModel"/>
+    <property name="extensionHolder" ref="serverExtensionHolder"/>
+  </bean>
+
+  <bean name="agentDescriptionFactory" class="jetbrains.buildServer.serverSide.impl.AgentDescriptionFactoryImpl" lazy-init="true">
+    <property name="runTypes" ref="runTypeRegistry"/>
+    <property name="storage" ref="hiddenAgentTypeManager"/>
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="vfmFactory" class="jetbrains.buildServer.vcs.impl.VcsFileModificationFactoryImpl" lazy-init="true"/>
+
+  <bean id="customDataStorageManager" class="jetbrains.buildServer.serverSide.impl.CustomDataStorageManagerImpl" lazy-init="true"/>
+
+  <bean id="buildTablesCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.extensions.BuildTablesCleanerImpl"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.cleanup.FileCleanEventDispatcher"/>
+  <bean id="buildArtifactsCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.extensions.BuildArtifactsCleaner"/>
+  <bean id="buildCachesCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.extensions.BuildCachesCleaner"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.DependencyRetryPolicyImpl"/>
+  <bean id="obsoleteFilesCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.extensions.ObsoleteFilesCleaner"/>
+  <bean id="invalidHistoryCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.extensions.InvalidHistoryRecordsCleaner"/>
+  <bean id="lostBuildsCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.extensions.LostBuildsCleaner"/>
+  <bean id="vcsModificationsCLeaner" class="jetbrains.buildServer.vcs.impl.VcsModificationsCleaner"/>
+
+  <bean id="cleanupExternalArtifactsProcessor" class="jetbrains.buildServer.serverSide.impl.cleanup.CleanupExternalArtifactsProcessorImpl"/>
+
+  <bean id="triggerDescriptorFactory" class="jetbrains.buildServer.buildTriggers.BuildTriggerDescriptorFactoryImpl" lazy-init="true"/>
+
+  <bean id="favoriteBuildManager" class="jetbrains.buildServer.favoriteBuilds.FavoriteBuildsManagerImpl" lazy-init="true"/>
+
+  <bean id="buildRunnerDescriptorFactory" class="jetbrains.buildServer.serverSide.impl.BuildRunnerDescriptorFactoryImpl">
+    <property name="runTypeRegistry" ref="runTypePerProjectRegistry"/>
+  </bean>
+
+  <bean id="placeholderRunType" class="jetbrains.buildServer.serverSide.PlaceholderRunType" lazy-init="true"/>
+
+  <bean id="buildFeatureDescriptorFactory" class="jetbrains.buildServer.serverSide.impl.BuildFeatureDescriptorFactoryImpl"/>
+  <bean id="projectFeatureDescriptorFactory" class="jetbrains.buildServer.serverSide.impl.ProjectFeatureDescriptorFactory"/>
+
+  <bean id="tokenContextDescriptionStorage" class="jetbrains.buildServer.serverSide.impl.InMemoryTokenContextDescriptionStorage"/>
+
+  <bean id="defaultParametersForBuildFeatures" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForBuildFeatures"/>
+
+  <bean id="buildTypeTemplateUsagesCollector" class="jetbrains.buildServer.serverSide.impl.BuildTypeTemplateUsagesCollectorImpl"/>
+
+  <bean id="buildTypeFactoryBean" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildTypeFactory" lazy-init="true">
+    <property name="buildTypeContext" ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="buildTypeSettingsFactoryBean" class="jetbrains.buildServer.serverSide.impl.BuildTypeSettingsFactoryImpl" lazy-init="true">
+    <property name="buildTypeSettingsContext" ref="buildTypeContext"/>
+  </bean>
+
+  <alias name="buildTypeContext" alias="vcsChangesLoaderContext"/>
+
+  <bean id="metrics" class="jetbrains.buildServer.metrics.NoOpMetrics"/>
+
+  <bean id="buildFailureCheckerFactory" class="jetbrains.buildServer.buildFailures.BuildFailureCheckerFactoryImpl" lazy-init="true"/>
+
+  <bean id="promotionBuildSettingsFactory" class="jetbrains.buildServer.serverSide.impl.PromotionBuildSettingsFactoryImpl" lazy-init="true">
+    <property name="buildPromotionContext" ref="buildTypeContext"/>
+    <property name="xmlVcsRootExternalizer" ref="xmlVcsRootExternalizer"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.ServerResponsibilityDispatcher" id="serverResponsibilityEventDispatcher"/>
+
+  <bean id="buildTypesArtifactDependenciesCache" class="jetbrains.buildServer.serverSide.impl.BuildTypesArtifactDependenciesCache"/>
+  <bean id="buildTypeBranchesCacheUpdater" class="jetbrains.buildServer.serverSide.impl.BuildTypeBranchesCacheUpdater"/>
+
+  <bean id="buildCounters" class="jetbrains.buildServer.serverSide.impl.DBBackedBuildCounters"/>
+
+  <bean id="projectsCommittersCalculator" class="jetbrains.buildServer.serverSide.impl.ProjectsCommittersCalculator"/>
+  <bean id="pipelineYamlParser" class="jetbrains.buildServer.pipeline.impl.parser.PipelineYamlParser"/>
+  <bean id="pipelinesVcsRootService" class="jetbrains.buildServer.pipeline.impl.service.VcsRootServiceImpl" />
+
+  <bean id="buildTypeContext" class="jetbrains.buildServer.serverSide.impl.beans.BuildTypeContextsImpl" lazy-init="true">
+    <property name="server" ref="buildServer"/>
+    <property name="buildFactory" ref="buildFactory"/>
+    <property name="buildAgentManager" ref="agentManager"/>
+    <property name="agentTypeManager" ref="agentTypeManager"/>
+    <property name="agentRestrictorFactory" ref="agentRestrictorFactory"/>
+    <property name="changesCheckingService" ref="vcsModificationChecker"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="auditLogProvider" ref="auditLogProvider"/>
+    <property name="responsibilityFacade" ref="hiddenResponsibilityFacade"/>
+    <property name="customDataStorageManager" ref="customDataStorageManager"/>
+    <property name="triggerDescriptorFactory" ref="triggerDescriptorFactory"/>
+    <property name="buildRunnerDescriptorFactory" ref="buildRunnerDescriptorFactory"/>
+    <property name="featureDescriptorFactory" ref="buildFeatureDescriptorFactory"/>
+    <property name="personalBuildManager" ref="personalBuildManager"/>
+    <property name="buildTriggersChecker" ref="buildTriggersChecker"/>
+    <property name="vcsRootInstancesManager" ref="vcsRootInstancesManager"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="multiNodeEvents" ref="multiNodesEvents"/>
+    <property name="nodesBuildsEvents" ref="nodesBuildsEvents"/>
+    <property name="extensionHolder" ref="serverExtensionHolder"/>
+    <property name="runTypeRegistry" ref="runTypeRegistry"/>
+    <property name="runTypePerProjectRegistry" ref="runTypePerProjectRegistry"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="vcsChangesGraphQuery" ref="vcsChangesGraphQuery"/>
+    <property name="artifactDependencyFactory" ref="artifactDependencyFactory"/>
+    <property name="requirementFactory" ref="requirementFactory" />
+    <property name="buildChainChangesCalculator" ref="chainChangesCalculator"/>
+    <property name="buildChangesCalculatorFactory" ref="buildChangesCalculatorFactory"/>
+    <property name="buildDependencyGraphFactory" ref="buildDependencyGraphFactory"/>
+    <property name="dependencyFactory" ref="dependencyFactory"/>
+    <property name="buildProblemManager" ref="buildProblemManager"/>
+    <property name="buildPromotionListenerEventDispatcher" ref="buildPromotionEventDispatcher"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+    <property name="buildTypeBranchesEventDispatcher" ref="buildTypeBranchesEventDispatcher"/>
+    <property name="buildDurationCalculator" ref="weightedMeanBuildDurationCalculator"/>
+    <property name="buildHistory" ref="buildHistory"/>
+    <property name="testHistory" ref="testHistory"/>
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="db" ref="dbFacade" />
+    <property name="idSequences" ref="idSequence" />
+    <property name="downloadedArtifactsLogger" ref="artifactsLogger"/>
+    <property name="queue" ref="buildQueue"/>
+    <property name="runningBuildsManager" ref="runningBuildsManager"/>
+    <property name="tagsManager" ref="tagsManager"/>
+    <property name="userModel" ref="userModel"/>
+    <property name="vcsModificationHistory" ref="dbVcsModificationHistory"/>
+    <property name="buildTypeSettingsMapperFactory" ref="buildTypeSettingsMapperFactory"/>
+    <property name="configHistoryManager" ref="configHistoryManager"/>
+    <property name="serverParameterResolverFactory" ref="serverParameterResolverFactory"/>
+    <property name="vcsRootFactory" ref="vcsRootFactory"/>
+    <property name="issuesManager" ref="issuesManager"/>
+    <property name="serverSettings" ref="serverSettings"/>
+    <property name="buildLogFactory" ref="buildLogFactory"/>
+    <property name="buildArtifactsFactory" ref="buildArtifactsFactory"/>
+    <property name="buildDataStorage" ref="BuildDataStorage"/>
+    <property name="valueProviderRegistry" ref="valueProviderRegistry"/>
+    <property name="agentPersister" ref="agentPersistenceFacade"/>
+    <property name="agentTypeFinder" ref="agentTypeFinder"/>
+    <property name="modificationFilesLoader" ref="modificationFilesLoader"/>
+    <property name="modificationStateCalculator" ref="modificationStateCalculator"/>
+    <property name="vcsFileModificationFactory" ref="vfmFactory"/>
+    <property name="testName2Index" ref="testName2Index"/>
+    <property name="testMetadataStorage" ref="testMetadataStorage"/>
+    <property name="problemMutingService"  ref="problemMutingService"/>
+    <property name="testNameResponsibilityFacade" ref="responsibilityFacade"/>
+    <property name="repositoryStateManager" ref="repositoryStateManager"/>
+    <property name="projectPersistingHandler" ref="projectsWatcher"/>
+    <property name="configurationPersister" ref="configurationFilesPersister"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="criticalErrors" ref="criticalErrors"/>
+    <property name="vcsAccessFactory" ref="vcsAccessFactory"/>
+    <property name="branchSpecs" ref="branchSpecs"/>
+    <property name="finalRevisionCalculator" ref="finalRevisionCalculator"/>
+    <property name="cleanCheckoutEnforcer" ref="cleanCheckoutEnforcer"/>
+    <property name="configActionFactory" ref="configActionFactory"/>
+    <property name="configChangesCommitter" ref="configChangesCommitter"/>
+    <property name="configActionsDispatcher" ref="configActionsDispatcher"/>
+    <property name="settingsRootManager" ref="versionedSettingsManager"/>
+    <property name="versionedSettingsOptions" ref="versionedSettingsOptions"/>
+    <property name="versionedSettingsConfigStorage" ref="versionedSettingsConfigStorage"/>
+    <property name="configFileChangesListener" ref="configFileChangesListener"/>
+    <property name="backgroundArtifactsStateUpdater" ref="backgroundArtifactsStateUpdater"/>
+    <property name="projectsLoader" ref="projectsLoader"/>
+    <property name="projectFeatureDescriptorFactory" ref="projectFeatureDescriptorFactory"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="parameterFactory" ref="parameterFactory"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="buildPromotionReplacement" ref="buildPromotionReplacementLog"/>
+    <property name="buildArtifactsLocationChecker" ref="obsoleteFilesCleaner"/>
+    <property name="lowLevelProblemMutingService" ref="lowLevelProblemMutingService"/>
+    <property name="promotionBuildSettingsFactory" ref="promotionBuildSettingsFactory"/>
+    <property name="teamCityNodes" ref="teamCityNodes"/>
+    <property name="passwordType" ref="passwordType"/>
+    <property name="patchKeepAlive" ref="patchKeepAlive"/>
+    <property name="virtualAgentsManager" ref="virtualAgentsManager"/>
+    <property name="changesCalculationOptionsFactory" ref="changesCalculationOptionsFactory"/>
+    <property name="buildTypesArtifactDependenciesCache" ref="buildTypesArtifactDependenciesCache"/>
+    <property name="vcsSettingsTracker" ref="vcsSettingsTracker"/>
+    <property name="versionedSettingsUpdater" ref="versionedSettingsUpdater"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="subrepoCheckoutRulesProvider" ref="subrepoCheckoutRulesProvider"/>
+    <property name="multiNodeTasks" ref="multiNodeTasks"/>
+    <property name="multiNodeLocks" ref="multiNodeLocks"/>
+    <property name="agentCommunicationTimeQueue" ref="agentCommunicationTimeQueue"/>
+    <property name="projectIdentifiersManager" ref="projectIdentifiersManager"/>
+    <property name="buildTypeIdentifiersManager" ref="buildTypeIdentifiersManager"/>
+    <property name="vcsRootIdentifiersManager" ref="vcsRootIdentifiersManager"/>
+    <property name="buildTypeDependencies" ref="buildTypeDependencies"/>
+    <property name="keepRulesManager" ref="keepRulesManager"/>
+    <property name="problemDetailsProviderService" ref="problemDetailsProviderService"/>
+    <property name="vcsEvents" ref="vcsEvents"/>
+    <property name="tokenContextDescriptionStorage" ref="tokenContextDescriptionStorage"/>
+    <property name="buildTypeBranchesCacheUpdater" ref="buildTypeBranchesCacheUpdater"/>
+    <property name="buildCustomizerFactory" ref="buildCustomizerFactory"/>
+    <property name="buildCounters" ref="buildCounters"/>
+    <property name="projectsCommittersCalculator" ref="projectsCommittersCalculator"/>
+    <property name="vcsModificationChecker" ref="vcsModificationChecker"/>
+    <property name="multiNodeAgentCommandsListener" ref="multiNodeTasksAgentCommandsListener"/>
+    <property name="deploymentDashboardManager" ref="deploymentDashboardManager"/>
+    <property name="dependencyChecker" ref="dependencyChecker"/>
+    <property name="buildTypeVcsRoots" ref="buildTypeVcsRoots"/>
+    <property name="vcsChangesLoaderMetrics" ref="vcsChangesLoaderMetrics"/>
+    <property name="pipelineYamlParser" ref="pipelineYamlParser"/>
+  </bean>
+
+  <bean id="buildArtifactLimitProvider" class="jetbrains.buildServer.serverSide.impl.artifacts.limits.BuildArtifactLimitProviderImpl"/>
+  <bean id="detachedBuildTracker" class="jetbrains.buildServer.serverSide.impl.DetachedBuildTrackerImpl"/>
+
+  <bean id="serverMessagesTranslator" class="jetbrains.buildServer.messages.BuildMessagesProcessor"/>
+  <bean id="buildAgentMessagesQueue" class="jetbrains.buildServer.serverSide.impl.BuildAgentMessagesQueue"/>
+
+  <bean id="buildContext" class="jetbrains.buildServer.serverSide.impl.beans.BuildContextImpl" lazy-init="true">
+    <property name="buildTestsListenerNotifier" ref="buildTestsListenerNotifier"/>
+    <property name="auditLogProvider" ref="auditLogProvider"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="buildAgentFactory" ref="buildAgentFactory"/>
+    <property name="buildAgentManager" ref="agentManager"/>
+    <property name="buildDataStorage" ref="BuildDataStorage"/>
+    <property name="buildDurationCalculator" ref="weightedMeanBuildDurationCalculator"/>
+    <property name="buildFailureCheckerFactory" ref="buildFailureCheckerFactory"/>
+    <property name="buildHistory" ref="buildHistory"/>
+    <property name="buildStarterFactory" ref="buildStarterFactory"/>
+    <property name="buildStatisticsFactory" ref="buildStatisticsFactory"/>
+    <property name="buildStatisticsPrinterFactory" ref="buildStatisticsPrinterFactory"/>
+    <property name="cleanCheckoutEnforcer" ref="cleanCheckoutEnforcer"/>
+    <property name="downloadedArtifactsLogger" ref="artifactsLogger"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="extensionHolder" ref="buildServer"/>
+    <property name="issuesManager" ref="issuesManager"/>
+    <property name="lowLevelProblemMutingService" ref="lowLevelProblemMutingService"/>
+    <property name="serverMetrics" ref="serverMetrics"/>
+    <property name="parameterFactory" ref="parameterFactory"/>
+    <property name="patchEventsDispatcher" ref="patchEventDispatcher"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="queue" ref="buildQueue"/>
+    <property name="runningBuildsManager" ref="runningBuildsManager"/>
+    <property name="runTypePerProjectRegistry" ref="runTypePerProjectRegistry"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="serverParameterResolverFactory" ref="serverParameterResolverFactory"/>
+    <property name="serverSettings" ref="serverSettings"/>
+    <property name="SQLRunner" ref="dbFacade"/>
+    <property name="testName2Index" ref="testName2Index"/>
+    <property name="triggeredByParser" ref="triggeredByParser"/>
+    <property name="valueProviderRegistry" ref="valueProviderRegistry"/>
+    <property name="vcsLabelManager" ref="buildLabeler"/>
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="buildFactory" ref="buildFactory"/>
+    <property name="agentRestrictorFactory" ref="agentRestrictorFactory"/>
+    <property name="artifactsStorageSettingsProvider" ref="storageSettingsProvider"/>
+    <property name="artifactLimitProvider" ref="buildArtifactLimitProvider"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="nodesBuildsEvents" ref="nodesBuildsEvents"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+    <property name="vcsChangesCollectorFactory" ref="vcsChangesCollectorFactory"/>
+    <property name="userModel" ref="userModel"/>
+    <property name="personalBuildManager" ref="personalBuildManager"/>
+    <property name="stopBuildTasks" ref="stopBuildTasks"/>
+    <property name="customDataStorageManager" ref="customDataStorageManager"/>
+    <property name="buildTypeIdentifiersManager" ref="buildTypeIdentifiersManager"/>
+    <property name="timeService" ref="timeService"/>
+    <property name="agentMessagesQueue" ref="buildAgentMessagesQueue"/>
+    <property name="passwordsSearcher" ref="passwordsSearcher"/>
+    <property name="waitReasonsCollector" ref="waitReasonStatisticsCollector"/>
+    <property name="serverBuildDelayMetrics" ref="serverBuildDelayMetrics"/>
+    <property name="dependencyChecker" ref="dependencyChecker"/>
+    <property name="projectAwareRootUrlResolver" ref="projectAwareRootUrlResolver"/>
+  </bean>
+
+  <bean id="buildTypeTemplateFactoryBean" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildTypeTemplateFactory" lazy-init="true" autowire-candidate="false">
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="templateContext" ref="buildTypeContext"/>
+    <property name="buildTypeSettingsFactory" ref="buildTypeSettingsFactoryBean"/>
+  </bean>
+
+  <bean id="buildTypeSettingsMapperFactory" class="jetbrains.buildServer.serverSide.impl.BuildTypeSettingsMapperFactoryImpl" lazy-init="true">
+    <property name="buildTypeSettingsFactory" ref="buildTypeSettingsFactoryBean"/>
+    <property name="dependencyFactory" ref="dependencyFactory"/>
+    <property name="notificatorRegistry" ref="notificationRegistry"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="userModel" ref="userModel"/>
+    <property name="groupManager" ref="userGroupManager"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="extensionHolder" ref="serverExtensionHolder"/>
+    <property name="agentTypeManager" ref="agentTypeManager"/>
+    <property name="problemMutingService" ref="problemMutingService"/>
+    <property name="lowLevelProblemMutingService" ref="lowLevelProblemMutingService"/>
+  </bean>
+
+  <bean id="projectFactory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredProjectFactory" lazy-init="true">
+    <property name="context" ref="buildTypeContext"/>
+    <property name="projectIdentifiersManager" ref="projectIdentifiersManager"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="vcsRootService" ref="pipelinesVcsRootService" />
+    <property name="dummyPipelineFactory" ref="dummyPipelineFactoryImpl"/> <!-- Located in pipelines-server -->
+  </bean>
+
+  <bean id="automaticAgentAuthorizationTokens" class="jetbrains.buildServer.serverSide.impl.AutomaticAgentAuthorizationTokens" lazy-init="true" />
+
+  <bean id="hiddenAgentManager" class="jetbrains.buildServer.serverSide.impl.BuildAgentManagerImpl" lazy-init="true" autowire-candidate="false">
+    <property name="unregisteredAgentsManager" ref="agentPersistenceFacade"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="dispatcher" ref="serverDispatcher"/>
+    <property name="runningBuildManager" ref="buildServer"/>
+    <property name="agentPersister" ref="agentPersistenceFacade"/>
+    <property name="buildAgentUpgrader" ref="buildAgentUpgrader"/>
+    <property name="agentTypeManager" ref="agentTypeManager"/>
+    <property name="agentTypeStorage" ref="hiddenAgentTypeManager"/>
+    <property name="buildAgentFactory" ref="buildAgentFactory"/>
+    <property name="automaticAgentAuthorizationTokens" ref="automaticAgentAuthorizationTokens"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+  </bean>
+
+  <bean name="hiddenAgentTypeManager" class="jetbrains.buildServer.serverSide.agentTypes.AgentTypeManagerImpl" lazy-init="true" autowire-candidate="false">
+    <property name="agentTypeProviderRegistry" ref="agentTypeProviderRegistry"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="storage" ref="agentTypeDatabaseStorage"/>
+    <property name="extensionsHolder" ref="serverExtensionHolder"/>
+  </bean>
+
+  <bean name="hiddenAgentTypeFinder" class="jetbrains.buildServer.serverSide.agentTypes.AgentTypeFinderImpl" lazy-init="true"  autowire-candidate="false">
+    <property name="agentTypeProviderRegistry" ref="agentTypeProviderRegistry"/>
+    <property name="storage" ref="hiddenAgentTypeManager"/>
+    <property name="poolManager" ref="hiddenAgentPoolManager"/>
+    <property name="buildAgentManager" ref="hiddenAgentManager"/>
+    <property name="history" ref="buildHistory"/>
+    <property name="cloudManagerBase" ref="cloudManagerBase"/>
+  </bean>
+
+  <bean name="agentTypeProviderRegistry" class="jetbrains.buildServer.serverSide.agentTypes.AgentTypeProviderRegistryImpl" lazy-init="true">
+    <property name="defaultProvider" ref="realAgentTypeProvider"/>
+  </bean>
+
+  <bean name="agentTypeFinder" class="jetbrains.buildServer.serverSide.impl.auth.SecuredAgentTypeFinder" lazy-init="true">
+    <property name="agentTypeFinder" ref="hiddenAgentTypeFinder"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean name="realAgentTypeProvider" class="jetbrains.buildServer.serverSide.agentTypes.RealAgentTypeProvider" lazy-init="true">
+    <property name="buildAgentManager" ref="hiddenAgentManager"/>
+  </bean>
+
+  <bean id="serverInstallationsManager" class="jetbrains.buildServer.serverSide.impl.installation.ServerInstallationsManagerImpl" lazy-init="true"/>
+
+  <bean id="serverSettings" class="jetbrains.buildServer.serverSide.impl.ServerSettingsImpl" lazy-init="true">
+    <property name="server" ref="buildServer"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="rootUrlHolder" ref="serverRootUrlHolder"/>
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="encryptionSettings" ref="encryptionSettings"/>
+    <property name="mainConfigManager" ref="mainConfigManager"/>
+    <property name="serverPaths" ref="serverPaths"/>
+    <property name="heartbeat" ref="heartbeat"/>
+  </bean>
+
+  <bean id="queryRunnerFactory" class="jetbrains.buildServer.serverSide.impl.history.QueryRunnerFactory" lazy-init="true">
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="buildFactory" ref="buildFactory"/>
+    <property name="promotionManager" ref="buildStateHelper"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="hiddenBuildHistory" class="jetbrains.buildServer.serverSide.impl.history.DBBuildHistory" lazy-init="true" autowire-candidate="false">
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="buildFactory" ref="buildFactory"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="buildsHistoryCleaner" ref="buildsHistoryCleaner"/>
+    <property name="queryRunnerFactory" ref="queryRunnerFactory"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+  </bean>
+
+  <bean id="buildTestsArchive" class="jetbrains.buildServer.serverSide.tests.BuildTestsArchive"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.migration.IgnoredTestsMigration"/>
+
+  <bean id="nodesBuildsEvents" class="jetbrains.buildServer.serverSide.impl.NodesBuildsEvents" lazy-init="true">
+    <constructor-arg index="1" ref="buildStateHelper"/>
+    <property name="downloadedArtifactsLogger" ref="artifactsLogger"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.history.BuildStatusRecalculator" lazy-init="true">
+    <property name="history" ref="hiddenBuildHistory"/>
+  </bean>
+
+  <bean id="commentsManager" class="jetbrains.buildServer.serverSide.comments.CommentManagerImpl" lazy-init="true">
+    <property name="userModel" ref="userModel"/>
+  </bean>
+
+  <bean id="configHistoryManager" class="jetbrains.buildServer.serverSide.config.ConfigHistoryManagerImpl" lazy-init="true"/>
+  <bean id="configModificationFactory" class="jetbrains.buildServer.serverSide.config.ConfigModificationFactory" lazy-init="true"/>
+
+  <bean id="objectFinderProvider" class="jetbrains.buildServer.serverSide.impl.audit.ObjectFinderProviderImpl" lazy-init="true"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.AgentFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.AgentPoolFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.AgentTypeAuditFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.AuthenticationTokenAuditFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.BuildFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.BuildProblemFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.BuildProblemFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.BuildPromotionFinder">
+    <constructor-arg index="0" ref="buildStateHelper"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.BuildTemplateFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.BuildTypeFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.ConfigModificationsFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.ProjectFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.ServerFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.StringFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.TestFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.UserFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.UserGroupFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.UserRoleFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.VcsRootFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.VcsModificationFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.HealthStatusItemFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.RunTypeFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.NodeResponsibilityFinder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.audit.finders.NodeFinder"/>
+
+  <bean id="auditAdditionalObjectProvider" class="jetbrains.buildServer.serverSide.impl.audit.AuditAdditionalObjectProviderImpl" lazy-init="true">
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="objectFinderProvider" ref="objectFinderProvider"/>
+  </bean>
+
+  <bean id="auditLogFactory" class="jetbrains.buildServer.serverSide.impl.audit.AuditLogFactoryImpl" lazy-init="true">
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="commentManager" ref="commentsManager"/>
+  </bean>
+
+  <bean id="auditLogProvider" class="jetbrains.buildServer.serverSide.impl.audit.AuditLogProviderImpl" lazy-init="true">
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="commentManager" ref="commentsManager"/>
+    <property name="objectFinderProvider" ref="objectFinderProvider"/>
+    <property name="additionalObjectProvider" ref="auditAdditionalObjectProvider"/>
+    <property name="userModel" ref="userModel"/>
+  </bean>
+
+  <bean id="agentRestrictorFactory" class="jetbrains.buildServer.serverSide.impl.AgentRestrictorFactoryImpl" lazy-init="true"/>
+
+  <bean id="auditLogCleaner" class="jetbrains.buildServer.serverSide.impl.audit.AuditLogCleanerImpl"/>
+
+  <bean id="buildHistory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildHistory" lazy-init="true">
+    <property name="delegate" ref="hiddenBuildHistory"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+  </bean>
+
+  <bean id="agentManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildAgentManager" lazy-init="true" autowire-candidate="true">
+    <property name="projectManager" ref="projectManager"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="agentTypeManager" ref="agentTypeManager"/>
+    <property name="delegate" ref="hiddenAgentManager"/>
+  </bean>
+
+  <bean id="agentTypeManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredAgentTypeManager" lazy-init="true" autowire-candidate="true">
+    <property name="delegate" ref="hiddenAgentTypeManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="agentTypeStorage" ref="agentTypeDatabaseStorage"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+  </bean>
+
+  <bean id="hiddenAgentPoolManager" class="jetbrains.buildServer.serverSide.agentPools.AgentPoolManagerImpl"
+        lazy-init="true" autowire-candidate="false">
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="agentTypeProviderRegistry" ref="agentTypeProviderRegistry"/>
+    <property name="cloudManagerBase" ref="cloudManagerBase"/>
+    <property name="cloudProfilePersistor" ref="internalCloudPersistor"/>
+  </bean>
+
+  <bean id="agentPoolManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredAgentPoolManager"
+        lazy-init="true" autowire-candidate="true">
+    <property name="delegate" ref="hiddenAgentPoolManager"/>
+    <property name="agentTypeStorage" ref="hiddenAgentTypeManager"/>
+    <property name="projectManager" ref="projectManager"/>
+  </bean>
+
+  <bean id="vcsModificationFactory" class="jetbrains.buildServer.vcs.impl.VcsModificationFactoryImpl" lazy-init="true">
+    <property name="vcsModificationServices" ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="hiddenDbVcsModificationHistory" class="jetbrains.buildServer.vcs.impl.DBVcsModificationHistory" lazy-init="true" autowire-candidate="false">
+    <constructor-arg index="0" ref="serverDispatcher"/>
+    <constructor-arg index="1" ref="userModelDispatcher"/>
+    <constructor-arg index="2" ref="projectImportEventDispatcher"/>
+    <property name="vcsManager" ref="hiddenVcsManager"/>
+    <property name="vcsModificationsStorage" ref="vcsModificationsSelector"/>
+    <property name="vcsChangesGraphQuery" ref="vcsChangesGraphQuery"/>
+    <property name="activeRevisionsFilter" ref="activeRevisionsFilter"/>
+    <property name="personalBuildManager" ref="personalBuildManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="buildTypeVcsRoots" ref="buildTypeVcsRoots"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="serverStartupTracker" ref="serverStartupTracker"/>
+  </bean>
+
+  <bean id="modificationFilesLoader" class="jetbrains.buildServer.vcs.impl.ModificationFilesLoaderImpl" autowire-candidate="false">
+    <constructor-arg index="0" ref="vcsModificationsSelector"/>
+  </bean>
+
+  <bean id="cleanCheckoutEnforcer" class="jetbrains.buildServer.serverSide.impl.projectSources.CleanCheckoutEnforcerImpl"/>
+
+  <bean id="autoMergeFinishBuildListener" class="jetbrains.buildServer.vcs.impl.AutoMergeFinishBuildListener"/>
+  <bean id="autoMergeBuildStatuxTextBuilder" class="jetbrains.buildServer.vcs.impl.AutoMergeBuildStatuxTextBuilder"/>
+
+  <bean id="longFileNames" class="jetbrains.buildServer.vcs.impl.LongFileNames"/>
+  <bean id="vcsChangesStorage" class="jetbrains.buildServer.vcs.impl.VcsChangesStorage" init-method="init"/>
+  <bean class="jetbrains.buildServer.vcs.impl.VcsChangesMigrator8to9" init-method="init"/>
+
+  <bean id="dbVcsModificationHistory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredVcsModificationHistory" lazy-init="true">
+    <property name="modificationHistoryDelegate" ref="hiddenDbVcsModificationHistory"/>
+    <property name="modificationFilesLoaderDelegate" ref="modificationFilesLoader"/>
+  </bean>
+
+  <bean id="remoteBuildDataFacade" class="jetbrains.buildServer.serverSide.impl.personal.RemoteBuildDataFacade" lazy-init="true">
+    <property name="promotionManager" ref="buildStateHelper"/>
+    <property name="vcsModificationContext" ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="userBlockStateManager" class="jetbrains.buildServer.serverSide.impl.DatabaseBlockManager" lazy-init="true"/>
+
+  <bean id="passwordComplexityChecker" class="jetbrains.buildServer.serverSide.auth.passwordComplexity.PasswordComplexityChecker"/>
+  <bean id="passwordComplexityPolicy" class="jetbrains.buildServer.serverSide.auth.passwordComplexity.PasswordComplexityPolicy"/>
+
+  <bean id="userFactory" class="jetbrains.buildServer.users.impl.UserFactoryImpl" lazy-init="true" autowire-candidate="true">
+    <property name="changesFacade" ref="userChangesFacade"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="userUpdate" ref="hiddenUserModel"/>
+    <property name="loginConfiguration" ref="loginConfiguration"/>
+    <property name="blockStateManager" ref="userBlockStateManager"/>
+    <property name="userGroupManager" ref="userGroupManager"/>
+    <property name="notificationRulesManager" ref="notificationRulesManager"/>
+    <property name="rolesManager" ref="rolesManager"/>
+    <property name="rolesConverter" ref="rolesConverter"/>
+    <property name="vcsUsernameStorage" ref="vcsUsernameStorage"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="userAttributeStorage" ref="userAttributeStorage"/>
+    <property name="passwordComplexityChecker" ref="passwordComplexityChecker"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.users.impl.UserActivityTrackerImpl"/>
+
+  <bean id="globalPermissionsRoles" class="jetbrains.buildServer.serverSide.impl.auth.GlobalPermissionsRoles" lazy-init="true">
+    <property name="rolesManager" ref="rolesManager"/>
+  </bean>
+  <bean id="rolesConverter" class="jetbrains.buildServer.users.impl.RolesConverter">
+    <constructor-arg index="0" ref="globalPermissionsRoles"/>
+    <constructor-arg index="1" ref="serverSettings"/>
+  </bean>
+
+  <bean id="userDataLoader" class="jetbrains.buildServer.users.impl.UserDataLoaderImpl" lazy-init="true">
+    <property name="projectManager" ref="hiddenProjectManager"/>
+  </bean>
+
+  <bean id="hiddenUserModel" class="jetbrains.buildServer.users.impl.UserModelImpl" lazy-init="true" autowire-candidate="false">
+    <constructor-arg index="1" ref="serverDispatcher"/>
+    <constructor-arg index="2" ref="userModelDispatcher"/>
+    <constructor-arg index="3" ref="projectImportEventDispatcher"/>
+
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="loginConfiguration" ref="loginConfiguration"/>
+    <property name="userFactory" ref="userFactory"/>
+    <property name="serverImpl" ref="buildServer"/>
+    <property name="rolesManager" ref="rolesManager"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="serverSettings" ref="serverSettings"/>
+    <property name="userGroupManager" ref="hiddenUserGroupManager"/>
+  </bean>
+
+  <bean id="userModel" class="jetbrains.buildServer.users.impl.SecuredUserModel" lazy-init="true">
+    <constructor-arg index="0" ref="userModelDispatcher"/>
+    <constructor-arg index="1" ref="securityContext"/>
+
+    <property name="delegate" ref="hiddenUserModel"/>
+  </bean>
+
+  <bean id="hiddenUserAvatarsManager" class="jetbrains.buildServer.users.impl.UserAvatarsManagerImpl" autowire-candidate="false" lazy-init="true">
+    <constructor-arg index="0" ref="serverPaths"/>
+    <constructor-arg index="1" ref="serverDispatcher"/>
+    <constructor-arg index="2" ref="userModelDispatcher"/>
+  </bean>
+  <bean id="userAvatarsManager" class="jetbrains.buildServer.users.impl.SecuredUserAvatarsManager" lazy-init="true">
+    <constructor-arg index="0" ref="hiddenUserAvatarsManager"/>
+    <constructor-arg index="1" ref="serverAccessChecker"/>
+  </bean>
+
+  <bean id="mainConfigManager" class="jetbrains.buildServer.serverSide.impl.MainConfigManager" lazy-init="true"/>
+  <bean id="authConfigManager" class="jetbrains.buildServer.serverSide.impl.auth.AuthConfigManager" lazy-init="true"/>
+
+  <bean id="rolesManager" class="jetbrains.buildServer.serverSide.impl.auth.RolesManagerImpl" lazy-init="true">
+    <property name="serverDispatcher" ref="serverDispatcher"/>
+    <!-- 5 seconds -->
+    <property name="fileWatcherFactory" ref="fileWatcherFactory"/>
+    <property name="globalPermissionsRoles" ref="globalPermissionsRoles"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="server" ref="buildServer"/>
+    <property name="serverSettings" ref="serverSettings"/>
+    <property name="configurationErrors" ref="configErrors"/>
+    <property name="settingsPersister" ref="settingsPersister"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.groups.impl.UserGroupsCrossNodesEvents" id="userGroupsCrossNodesEvents">
+    <constructor-arg index="0" ref="hiddenUserGroupManager"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.groups.impl.UserGroupCleanupExtension"/>
+
+  <bean id="hiddenUserGroupManager" class="jetbrains.buildServer.groups.impl.UserGroupManagerImpl" lazy-init="true" autowire-candidate="false">
+    <constructor-arg index="0" ref="projectImportEventDispatcher"/>
+    <constructor-arg index="1" ref="userGroupDispatcher"/>
+    <property name="nodeEvents" ref="userGroupsCrossNodesEvents"/>
+    <property name="factory" ref="userGroupFactory"/>
+    <property name="updater" ref="userGroupUpdater"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+  </bean>
+
+  <bean id="userGroupManager" class="jetbrains.buildServer.groups.impl.SecuredUserGroupManager" lazy-init="true">
+    <constructor-arg index="0" ref="hiddenUserGroupManager"/>
+    <constructor-arg index="1" ref="securityContext"/>
+  </bean>
+
+  <bean id="hiddenUserGroupFactory" class="jetbrains.buildServer.groups.impl.UserGroupFactoryImpl" lazy-init="true"
+        autowire-candidate="false">
+    <property name="userGroupManager" ref="hiddenUserGroupManager"/>
+    <property name="userModel" ref="userModel"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="rolesConverter" ref="rolesConverter"/>
+    <property name="groupUpdater" ref="userGroupUpdater"/>
+    <property name="rolesUpdate" ref="userGroupRoleUpdater"/>
+    <property name="userUpdater" ref="userGroupUserUpdater"/>
+    <property name="subgroupUpdater" ref="userGroupSubgroupsUpdater"/>
+    <property name="userGroupPropertyLoader" ref="userGroupPropertyLoader"/>
+    <property name="userGroupPropertyUpdater" ref="userGroupPropertyUpdater"/>
+    <property name="rolesManager" ref="rolesManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="userGroupsCrossNodesEvents" ref="userGroupsCrossNodesEvents"/>
+    <property name="eventDispatcher" ref="userGroupDispatcher"/>
+  </bean>
+
+  <bean id="userGroupFactory" class="jetbrains.buildServer.groups.impl.SecuredUserGroupFactory" lazy-init="true">
+    <property name="delegate" ref="hiddenUserGroupFactory"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="projectManager" ref="hiddenProjectManager"/>
+  </bean>
+
+  <bean id="userGroupUpdater" class="jetbrains.buildServer.groups.impl.UserGroupUpdater" lazy-init="true">
+    <constructor-arg index="0" ref="dbFacade"/>
+    <constructor-arg index="1" ref="userGroupDispatcher"/>
+  </bean>
+  <bean id="userGroupUserUpdater" class="jetbrains.buildServer.groups.impl.UserGroupUserUpdater" lazy-init="true">
+    <constructor-arg index="0" ref="dbFacade"/>
+  </bean>
+  <bean id="userGroupSubgroupsUpdater" class="jetbrains.buildServer.groups.impl.UserGroupSubgroupUpdater" lazy-init="true">
+    <constructor-arg index="0" ref="dbFacade"/>
+  </bean>
+  <bean id="userGroupRoleUpdater" class="jetbrains.buildServer.groups.impl.UserGroupRoleUpdater" lazy-init="true">
+    <constructor-arg index="0" ref="dbFacade"/>
+    <constructor-arg index="1" ref="rolesManager"/>
+  </bean>
+
+  <bean id="userGroupPropertyLoader" class="jetbrains.buildServer.groups.impl.UserGroupPropertyLoader" lazy-init="true">
+    <constructor-arg index="0" ref="dbFacade"/>
+  </bean>
+  <bean id="userGroupPropertyUpdater" class="jetbrains.buildServer.groups.impl.UserGroupPropertyUpdater" lazy-init="true">
+    <constructor-arg index="0" ref="dbFacade"/>
+  </bean>
+
+  <bean id="synchronizerManager" class="jetbrains.buildServer.users.sync.SynchronizerManagerImpl" lazy-init="true" init-method="init">
+    <constructor-arg index="0" ref="userModel"/>
+    <constructor-arg index="1" ref="userGroupManager"/>
+  </bean>
+
+  <!--bean id="serverPaths" class="jetbrains.buildServer.serverSide.ServerPaths" /-->
+  <!--bean id="installationsManager" class="jetbrains.buildServer.serverSide.PreferencesInstallationsManagerImpl" /-->
+
+  <bean id="userGroupDispatcher" class="jetbrains.buildServer.serverSide.UserGroupModelListenerEventDispatcher" autowire-candidate="false">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="userModelDispatcher" class="jetbrains.buildServer.serverSide.UserModelListenerEventDispatcher" autowire-candidate="false">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="userAuthDispatcher" class="jetbrains.buildServer.serverSide.impl.auth.UserAuthEventDispatcher">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="nodeEffectiveResponsibilityEventDispatcher" class="jetbrains.buildServer.serverSide.NodeEffectiveResponsibilityEventDispatcher">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="serverDispatcher" class="jetbrains.buildServer.serverSide.BuildServerListenerEventDispatcher" lazy-init="true">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="buildTestsListenerNotifier" class="jetbrains.buildServer.serverSide.BuildTestsListenerNotifier">
+    <constructor-arg index="1" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="buildTestsEventDispatcher" class="jetbrains.buildServer.serverSide.BuildTestsEventDispatcher"/>
+
+  <bean id="branchGroupsService" class="jetbrains.buildServer.serverSide.BranchGroupsService"/>
+
+  <bean id="branchGroupsUserSelectedBranchesProvider" class="jetbrains.buildServer.serverSide.BranchGroupsUserSelectedProvider"/>
+  <bean id="branchGroupsMyBranchesProvider" class="jetbrains.buildServer.serverSide.BranchGroupsMyBranchesProvider"/>
+
+  <bean id="agentPoolEventDispatcher" class="jetbrains.buildServer.serverSide.agentTypes.AgentPoolEventDispatcher">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="projectIdProviderFactory" class="jetbrains.buildServer.serverSide.impl.ProjectIdProviderFactory"/>
+  <bean id="projectIdProvider" class="jetbrains.buildServer.serverSide.impl.ProjectIdProviderImpl"
+        factory-bean="projectIdProviderFactory" factory-method="createProjectIdProvider"/>
+
+  <bean id="commonExecutorService" class="jetbrains.buildServer.serverSide.impl.executors.DeferringExecutorService"
+        factory-bean="executorServiceManager" factory-method="getNormalExecutorService"/>
+
+
+  <bean id="executorServiceManager" class="jetbrains.buildServer.serverSide.impl.executors.TeamCityExecutorServicesImpl"/>
+
+  <bean id="cleanupExtensionsExecutor" class="jetbrains.buildServer.serverSide.impl.cleanup.CleanupExtensionsExecutor"/>
+
+  <bean id="buildsHistoryCleaner" class="jetbrains.buildServer.serverSide.impl.cleanup.BuildsHistoryCleanerImpl" lazy-init="true">
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="extensionHolder" ref="serverExtensionHolder"/>
+    <property name="dispatcher" ref="serverDispatcher"/>
+    <property name="cleanupHistoryManager" ref="cleanupHistory"/>
+    <property name="customDataStorageManager" ref="customDataStorageManager"/>
+    <property name="cleanupExtensionsExecutor" ref="cleanupExtensionsExecutor"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="multiNodesEvents" ref="multiNodesEvents"/>
+    <property name="tagsManager" ref="tagsManager"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="buildTypesArtifactDependenciesCache" ref="buildTypesArtifactDependenciesCache"/>
+  </bean>
+
+  <bean id="cleanupProcessCreator" class="jetbrains.buildServer.serverSide.impl.cleanup.CleanupProcessCreator" lazy-init="true"/>
+  <bean id="serverCleanupManager" class="jetbrains.buildServer.serverSide.impl.cleanup.ServerCleanupManagerImpl" lazy-init="true" init-method="init"/>
+  <bean id="cleanupDeletedEntitiesProcessor" class="jetbrains.buildServer.serverSide.impl.cleanup.DeletedEntitiesProcessor" lazy-init="true"/>
+
+  <bean id="keepRuleFactory" class="jetbrains.buildServer.serverSide.impl.cleanup.v2019.settings.KeepRuleFactory" lazy-init="true"/>
+  <bean id="keepRulesManager" class="jetbrains.buildServer.serverSide.impl.cleanup.v2019.settings.KeepRulesManager" lazy-init="true"/>
+  <bean id="keepRuleBuildFeature" class="jetbrains.buildServer.serverSide.impl.cleanup.v2019.settings.KeepRuleBuildFeature" lazy-init="true"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.GeneratedSettingsCache"/>
+  <bean id="buildChainModifier" class="jetbrains.buildServer.serverSide.impl.versionedSettings.BuildChainModifier" />
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.FreezeReverseDepParametersProcessor" />
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.DependencyRetryPolicyPostProcessor"/>
+  <bean id="versionedSettingsFreezer" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsFreezerImpl"/>
+  <bean id="inapplicableSettingsFinder" class="jetbrains.buildServer.serverSide.impl.versionedSettings.InapplicableSettingsFinderImpl" />
+
+  <bean id="buildDependencyGraphFactory" class="jetbrains.buildServer.serverSide.impl.dependency.BuildDependencyGraphFactoryImpl" lazy-init="true">
+    <property name="vcsChangesCollectorFactory" ref="vcsChangesCollectorFactory"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="vcsRootManager" ref="vcsRootInstancesManager"/>
+  </bean>
+
+  <bean id="buildChainsOptimizer" class="jetbrains.buildServer.serverSide.impl.dependency.BuildChainsOptimizer"/>
+
+  <bean id="nodeStats" class="jetbrains.buildServer.serverSide.impl.NodeStats" lazy-init="true"/>
+
+  <bean id="buildStarterFactory" class="jetbrains.buildServer.serverSide.BuildStarterFactory" lazy-init="true">
+    <property name="server" ref="buildServer"/>
+    <property name="agentManager" ref="agentManager"/>
+    <property name="executorService" ref="commonExecutorService"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="vcsStatusProvider" ref="vcsStatusLogger"/>
+    <property name="teamCityNodes" ref="teamCityNodes"/>
+    <property name="nodesBuildsEvents" ref="nodesBuildsEvents"/>
+    <property name="vcsChangesCollectorFactory" ref="vcsChangesCollectorFactory"/>
+    <property name="nodeStats" ref="nodeStats"/>
+    <property name="serverBuildDelayMetrics" ref="serverBuildDelayMetrics"/>
+    <property name="agentlessBuildExecutionManager" ref="agentlessBuildExecutionManager"/>
+  </bean>
+
+  <bean id="timeService" class="jetbrains.buildServer.util.SystemTimeService"/>
+
+  <bean name="serverExtensionHolder" class="jetbrains.buildServer.serverSide.impl.BuildServerServiceLocator"/>
+  <bean name="cacheDirCleaner" class="jetbrains.buildServer.serverSide.impl.ResetCacheControllerCacheDirCleaner"/>
+
+  <bean name="runningBuildsCollection" class="jetbrains.buildServer.serverSide.impl.RunningBuildsCollectionImpl" lazy-init="true">
+    <constructor-arg index="2" ref="serverDispatcher"/>
+    <constructor-arg index="5" ref="buildStateHelper"/>
+  </bean>
+
+  <bean id="runningBuildsManager" class="jetbrains.buildServer.serverSide.impl.RunningBuildsManagerImpl" lazy-init="true">
+    <property name="history" ref="buildHistory"/>
+    <property name="timeService" ref="timeService"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="multiNodeTasks" ref="buildsRelatedMultiNodeTasks"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.RunningBuildsStatusUpdater" lazy-init="true"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.RunningBuildsStatisticsDelayMetric"/>
+
+  <bean id="buildsManager" class="jetbrains.buildServer.serverSide.impl.BuildsManagerImpl" lazy-init="true">
+    <property name="history" ref="buildHistory"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="runningBuildsManager" ref="runningBuildsManager"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="buildEstimatorFeeder" class="jetbrains.buildServer.serverSide.impl.BuildEstimatorFeeder" lazy-init="true">
+    <property name="runningBuildsManager" ref="runningBuildsManager"/>
+    <property name="agentManager" ref="agentManager"/>
+    <property name="buildStartTimeCalculator" ref="buildEstimatesCalculator"/>
+    <property name="queue" ref="buildQueue"/>
+  </bean>
+
+  <bean id="serverRootUrlHolder" class="jetbrains.buildServer.serverSide.impl.ServerRootUrlHolder" primary="true"/>
+
+  <bean id="projectAwareRootUrlResolver" class="jetbrains.buildServer.serverSide.impl.ProjectAwareRootUrlResolverImpl"/>
+
+  <bean id="xmlVcsRootWriter" class="jetbrains.buildServer.serverSide.impl.xml.XmlVcsRootWriter"/>
+
+  <bean id="buildServerState" class="jetbrains.buildServer.serverSide.impl.BuildServerLifecycleProcessor"/>
+
+  <bean id="serverStartupTracker" class="jetbrains.buildServer.serverSide.impl.startup.ServerStartupTracker"/>
+
+  <bean id="testName2Index" class="jetbrains.buildServer.serverSide.tests.TestName2IndexImpl"/>
+  <bean id="testNamesCleaner" class="jetbrains.buildServer.serverSide.tests.TestNamesCleaner"/>
+
+  <bean id="rdh" class="jetbrains.buildServer.license.FileBasedReleaseDateHolder"/>
+  <bean class="jetbrains.buildServer.a.l"/>
+
+  <bean id="hiddenJBAClient" class="jetbrains.buildServer.a.a.d" autowire-candidate="false"/>
+  <bean class="jetbrains.buildServer.a.a.e">
+    <constructor-arg index="0" ref="hiddenJBAClient"/>
+  </bean>
+  <bean class="jetbrains.buildServer.a.a.g"/>
+  <bean id="encryptionEventDispatcher" class="jetbrains.buildServer.serverSide.reEncryption.EncryptionEventDispatcher"/>
+
+  <bean id="hiddenAiPlatformClient" class="jetbrains.buildServer.serverSide.ai.impl.AiPlatformClientImpl" lazy-init="true" autowire-candidate="false"/>
+  <bean id="hiddenAiPlatformLicenseSelector" class="jetbrains.buildServer.serverSide.ai.impl.AiPlatformLicenseSelectorImpl" lazy-init="true" autowire-candidate="false"/>
+  <bean id="hiddenAiPlatformTokenProvider" class="jetbrains.buildServer.serverSide.ai.impl.AiPlatformTokenProviderImpl" lazy-init="true" autowire-candidate="false">
+    <constructor-arg index="0" ref="hiddenAiPlatformClient"/>
+    <constructor-arg index="1" ref="hiddenAiPlatformLicenseSelector"/>
+  </bean>
+  <bean id="aiPlatformTokenProvider" class="jetbrains.buildServer.serverSide.ai.SecuredAiPlatformTokenProvider">
+    <constructor-arg index="0" ref="hiddenAiPlatformTokenProvider"/>
+  </bean>
+
+  <bean id="buildServer" class="jetbrains.buildServer.serverSide.impl.BuildServerImpl" init-method="initServer" lazy-init="true">
+    <constructor-arg ref="serverDispatcher"/>
+    <property name="db" ref="dbFacade"/>
+    <property name="userModelEx" ref="userModel"/>
+    <property name="runTypeRegistry" ref="runTypeRegistry"/>
+    <property name="loginConfiguration" ref="loginConfiguration"/>
+    <property name="statusProvider" ref="statusProvider"/>
+    <property name="projectManagerImpl" ref="projectManager"/>
+    <property name="vcsManagerEx" ref="vcsManager"/>
+    <property name="vcsModificationHistory" ref="dbVcsModificationHistory"/>
+    <property name="agentManager" ref="agentManager"/>
+    <property name="buildQueue" ref="buildQueue"/>
+    <property name="personalBuildManagerEx" ref="personalBuildManager"/>
+    <property name="historyEx" ref="buildHistory"/>
+    <property name="fileWatcherFactory" ref="fileWatcherFactory"/>
+    <property name="responsibilityFacade" ref="responsibilityFacade"/>
+    <property name="runningBuildsManager" ref="runningBuildsManager"/>
+    <property name="timeService" ref="timeService"/>
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="flushQueueAction" ref="flushQueueAction"/>
+    <property name="executorServiceManager" ref="executorServiceManager"/>
+    <property name="switchableExternalActivityRegistry" ref="testServerMode"/>
+    <property name="projectSettingsGeneratorRegistry" ref="projectSettingsGeneratorRegistry"/>
+    <property name="serverMetrics" ref="serverMetrics"/>
+    <property name="customDataStorageManager" ref="customDataStorageManager"/>
+  </bean>
+
+  <bean id="testStatisticsProvider" class="jetbrains.buildServer.serverSide.stat.FirstFailedInFixedInCalculator">
+    <constructor-arg index="0" ref="testHistory"/>
+  </bean>
+
+  <bean id="buildServerRunner" class="jetbrains.buildServer.serverSide.impl.BuildServerRunner"/>
+
+  <bean id="obsoleteBuildsMonitor" class="jetbrains.buildServer.serverSide.impl.ObsoleteBuildsKiller"
+        init-method="init" destroy-method="dispose"/>
+
+  <bean id="hiddenPersonalBuildManager" class="jetbrains.buildServer.serverSide.impl.personal.PersonalBuildManagerImpl" lazy-init="true" autowire-candidate="false">
+    <property name="userModel" ref="userModel"/>
+    <property name="agentRestrictorFactory" ref="agentRestrictorFactory"/>
+    <property name="remoteBuildDataFacade" ref="remoteBuildDataFacade"/>
+    <property name="history" ref="buildHistory"/>
+    <property name="queue" ref="buildQueue"/>
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="personalBuildCleaner" ref="personalBuildCleaner"/>
+    <property name="versionedSettingsManager" ref="versionedSettingsManager"/>
+    <property name="vcsModificationContext" ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="personalBuildCleaner" class="jetbrains.buildServer.serverSide.impl.personal.PersonalBuildCleaner">
+    <property name="history" ref="dbVcsModificationHistory"/>
+    <property name="personalBuildManager" ref="hiddenPersonalBuildManager"/>
+    <property name="remoteBuildDataFacade" ref="remoteBuildDataFacade"/>
+  </bean>
+
+  <bean id="agentRestrictorFactoryUglyHackInitializer"  class="jetbrains.buildServer.serverSide.impl.AgentRestrictorFactoryImplUglyHackInitializer"/>
+
+  <bean id="personalBuildManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredPersonalBuildManager" lazy-init="true">
+    <property name="delegate" ref="hiddenPersonalBuildManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="agentRestrictorFactory" ref="agentRestrictorFactory"/>
+    <property name="buildAgentManager" ref="agentManager"/>
+  </bean>
+
+  <bean name="buildPromotionReplacementLog" class="jetbrains.buildServer.serverSide.impl.BuildPromotionReplacementImpl" lazy-init="true">
+    <property name="buildDurationCalculator" ref="weightedMeanBuildDurationCalculator"/>
+  </bean>
+
+  <bean id="queuedBuildsChangesCollector" class="jetbrains.buildServer.serverSide.impl.QueuedBuildsChangesCollector"/>
+
+  <bean id="queuedBuildsSettingsFreezer" class="jetbrains.buildServer.serverSide.impl.QueuedBuildsSettingsFreezerImpl">
+    <property name="buildServerRunner" ref="buildServerRunner"/>
+  </bean>
+
+  <bean id="hiddenBuildQueue" class="jetbrains.buildServer.serverSide.impl.BuildQueueImpl" lazy-init="true" autowire-candidate="false">
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="buildStatisticsFactory" ref="buildStatisticsFactory"/>
+    <property name="agentRestrictorFactory" ref="agentRestrictorFactory"/>
+    <property name="queuedBuildFactory" ref="queuedBuildFactory"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="history" ref="buildHistory"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="cleanupManager" ref="serverCleanupManager"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="extensionsProvider" ref="serverExtensionHolder"/>
+    <property name="buildDurationCalculator" ref="weightedMeanBuildDurationCalculator"/>
+    <property name="buildPromotionReplacementLog" ref="buildPromotionReplacementLog"/>
+    <property name="versionedSettingsManager" ref="versionedSettingsManager"/>
+    <property name="queuedBuildsChangesCollector" ref="queuedBuildsChangesCollector"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+    <property name="multiNodesEvents" ref="multiNodesEvents"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+    <property name="buildChainsOptimizer" ref="buildChainsOptimizer"/>
+    <property name="timeService" ref="timeService"/>
+    <property name="multiNodeLocks" ref="multiNodeLocks"/>
+    <property name="waitReasonStatisticsCollector" ref="waitReasonStatisticsCollector"/>
+    <property name="webLinks" ref="webLinks"/>
+  </bean>
+
+  <bean id="buildQueue" class="jetbrains.buildServer.serverSide.impl.auth.SecuredBuildQueue" lazy-init="true">
+    <property name="delegate" ref="hiddenBuildQueue"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="organizationUsersManager" ref="organizationUsersManager"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.impl.IncompatibleQueuedBuildsProcessor" autowire="constructor"/>
+
+  <bean id="intersectingPersonalChainsPreprocessor" class="jetbrains.buildServer.serverSide.impl.IntersectingPersonalChainsPreprocessor"/>
+  <bean id="conditionalBuildChainModifier" class="jetbrains.buildServer.serverSide.dependency.ConditionalBuildChainModifier"/>
+  <bean id="dependencyChangedMarker" class="jetbrains.buildServer.serverSide.dependency.DependencyChangedMarker"/>
+
+  <bean id="queuedBuildFactory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredQueuedBuildFactory" lazy-init="true">
+    <property name="buildQueue" ref="buildQueue"/>
+    <property name="buildStateHelper" ref="buildStateHelper"/>
+    <property name="buildEstimator" ref="buildEstimator"/>
+    <property name="canRunOnCalculator" ref="canRunOnAgentsCalculator"/>
+    <property name="triggeredByParser" ref="triggeredByParser"/>
+    <property name="agentManager" ref="agentManager"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="server" ref="buildServer"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="buildAgentFactory" ref="buildAgentFactory"/>
+    <property name="waitReasonStatisticsCollector" ref="waitReasonStatisticsCollector"/>
+  </bean>
+
+  <bean id="agentPersistenceFacade" class="jetbrains.buildServer.serverSide.impl.AgentPersistenceFacade" lazy-init="true"/>
+  <bean id="agentCommunicationTimeQueue" class="jetbrains.buildServer.serverSide.impl.agent.AgentCommunicationTimeQueue"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.UnregisteredAgentsCleaner"/>
+  <bean class="jetbrains.buildServer.serverSide.OrphanVirtualProjectsCleaner"/>
+
+  <bean id="agentStatusRestorer" class="jetbrains.buildServer.serverSide.impl.AgentStatusRestorer" init-method="start"
+        destroy-method="stop">
+    <constructor-arg index="0" ref="commonExecutorService"/>
+    <constructor-arg index="1" ref="agentPersistenceFacade"/>
+  </bean>
+
+  <bean id="configurationInitializer" class="jetbrains.buildServer.serverSide.impl.xml.ConfigurationInitializer" lazy-init="true">
+    <property name="serverCleanupManager" ref="serverCleanupManager"/>
+    <property name="buildQueueInit" ref="hiddenBuildQueue"/>
+    <property name="mainConfigManager" ref="mainConfigManager"/>
+    <property name="authConfigManager" ref="authConfigManager"/>
+    <property name="projectsWatcher" ref="projectsWatcher"/>
+    <property name="startupContext" ref="startupContext"/>
+  </bean>
+
+  <bean id="xmlVcsRootExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlVcsRootExternalizer" lazy-init="true">
+    <property name="vcsRootFactory" ref="vcsRootFactory"/>
+  </bean>
+
+  <bean id="xmlProjectExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlProjectExternalizer" lazy-init="true">
+    <property name="parametersExternalizer" ref="xmlParametersExternalizer"/>
+    <property name="projectFactory" ref="projectFactory"/>
+    <property name="retentionPolicyExternalizer" ref="xmlRetentionPolicyExternalizer"/>
+    <property name="projectFeatureDescriptorFactory" ref="projectFeatureDescriptorFactory"/>
+  </bean>
+
+  <bean id="xmlBuildArtifactsExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildArtifactDependencyExternalizer" lazy-init="true">
+    <property name="artifactDependencyFactory" ref="artifactDependencyFactory"/>
+  </bean>
+
+  <bean id="xmlBuildDepenciesExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildDepenciesExternalizer">
+    <property name="dependencyFactory" ref="dependencyFactory"/>
+  </bean>
+
+  <bean id="xmlBuildFeatureExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildFeatureExternalizer">
+    <property name="featureDescriptorFactory" ref="buildFeatureDescriptorFactory"/>
+  </bean>
+
+  <bean id="xmlBuildOptionsExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildOptionsExternalizer"/>
+
+  <bean id="xmlBuildVcsRootsExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildVcsRootsExternalizer">
+    <property name="vcsManager" ref="vcsManager"/>
+  </bean>
+
+  <bean id="xmlBuildDisabledSettingsExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildDisabledSettingsExternalizer"/>
+  <bean id="xmlParametersExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlParametersExternalizer"/>
+
+  <bean id="xmlBuildParametersExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildParametersExternalizer"/>
+  <bean id="xmlBuildExportedParametersExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildOutputParametersExternalizer"/>
+
+  <bean id="xmlBuildTriggersExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildTriggersExternalizer">
+    <property name="triggerDescriptorFactory" ref="triggerDescriptorFactory"/>
+  </bean>
+
+  <bean id="xmlBuildRunnersExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildRunnersExternalizer">
+    <property name="buildRunnerDescriptorFactory" ref="buildRunnerDescriptorFactory" />
+  </bean>
+
+  <bean id="xmlBuildRequirementsExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildRequirementsExternalizer" lazy-init="true"/>
+
+  <bean id="xmlBuildTypeSettingsExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlBuildSettingsExternalizer">
+    <property name="settingsFactory" ref="buildTypeSettingsFactoryBean"/>
+    <property name="loaders">
+      <list>
+        <ref bean="xmlBuildVcsRootsExternalizer"/>
+        <ref bean="xmlBuildRunnersExternalizer"/>
+        <ref bean="xmlBuildTriggersExternalizer"/>
+        <ref bean="xmlBuildFeatureExternalizer"/>
+        <ref bean="xmlBuildParametersExternalizer"/>
+        <ref bean="xmlBuildExportedParametersExternalizer"/>
+        <ref bean="xmlBuildRequirementsExternalizer"/>
+        <ref bean="xmlBuildDepenciesExternalizer"/>
+        <ref bean="xmlBuildArtifactsExternalizer"/>
+        <ref bean="xmlBuildRetentionPolicyExternalizer"/>
+        <ref bean="xmlBuildDisabledSettingsExternalizer"/>
+        <ref bean="xmlBuildOptionsExternalizer"/>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="xmlBuildTemplateExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlBuildTemplateExternalizer" lazy-init="true">
+    <property name="buildTypeTemplateFactory" ref="buildTypeTemplateFactoryBean"/>
+    <property name="settingsExternalizer" ref="xmlBuildTypeSettingsExternalizer"/>
+  </bean>
+
+  <bean id="xmlBuildTypeExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlBuildTypeExternalizer" lazy-init="true">
+    <property name="buildTypeFactory" ref="buildTypeFactoryBean"/>
+    <property name="settingsExternalizer" ref="xmlBuildTypeSettingsExternalizer"/>
+  </bean>
+
+  <bean id="xmlBuildTypeSettingsWriter" class="jetbrains.buildServer.serverSide.impl.xml.XmlBuildSettingsWriter" lazy-init="true">
+    <property name="writers">
+      <list>
+        <ref bean="xmlBuildOptionsExternalizer"/>
+        <ref bean="xmlBuildDisabledSettingsExternalizer"/>
+        <ref bean="xmlBuildParametersExternalizer"/>
+        <ref bean="xmlBuildExportedParametersExternalizer"/>
+        <ref bean="xmlBuildRunnersExternalizer"/>
+        <ref bean="xmlBuildVcsRootsExternalizer"/>
+        <ref bean="xmlBuildRequirementsExternalizer"/>
+        <ref bean="xmlBuildTriggersExternalizer"/>
+        <ref bean="xmlBuildFeatureExternalizer"/>
+        <ref bean="xmlBuildArtifactsExternalizer"/>
+        <ref bean="xmlBuildDepenciesExternalizer"/>
+        <ref bean="xmlBuildRetentionPolicyExternalizer"/>
+      </list>
+    </property>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.xml.ProjectBuilderCreator"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.requirements.TeamCityCloudPipelineRequirementService"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.requirements.SelfHostedPipelineRequirementService"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.xml.PipelineBuilderCreator"/>
+
+  <bean id="buildTypeXmlProducer" class="jetbrains.buildServer.serverSide.impl.xml.BuildTypeXmlProducer" lazy-init="true">
+    <property name="settingsWriter" ref="xmlBuildTypeSettingsWriter"/>
+  </bean>
+
+  <bean id="buildSettingsXmlProducer" class="jetbrains.buildServer.serverSide.impl.xml.BuildTypeSettingsXmlProducer" lazy-init="true">
+    <property name="settingsWriter" ref="xmlBuildTypeSettingsWriter"/>
+  </bean>
+
+  <bean id="buildTemplateXmlProducer" class="jetbrains.buildServer.serverSide.impl.xml.BuildTemplateXmlProducer" lazy-init="true">
+    <property name="settingsWriter" ref="xmlBuildTypeSettingsWriter"/>
+  </bean>
+
+  <bean id="xmlRetentionPolicyExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.XmlRetentionPolicyExternalizer" lazy-init="true"/>
+
+  <bean id="xmlBuildRetentionPolicyExternalizer" class="jetbrains.buildServer.serverSide.impl.xml.build.XmlBuildRetentionPolicyExternalizer" lazy-init="true"/>
+
+  <bean class="jetbrains.buildServer.vcs.impl.VcsContentCache">
+    <constructor-arg index="2" ref="repositoryStateEventDispatcher"/>
+  </bean>
+
+  <bean id="hiddenVcsManager" class="jetbrains.buildServer.vcs.impl.VcsManagerImpl" lazy-init="true" autowire-candidate="false">
+    <constructor-arg>
+      <bean class="jetbrains.vcs.api.InterceptableVcsServiceFactory">
+        <constructor-arg ref="vcsServiceFactoryImpl"/>
+      </bean>
+    </constructor-arg>
+    <property name="vcsStatusProvider" ref="vcsStatusLogger"/>
+    <property name="vcsModificationHistoryEx" ref="dbVcsModificationHistory"/>
+    <property name="vcsRootsManager" ref="vcsRootsManagerImpl"/>
+    <property name="vcsRootUsernamesManager" ref="vcsRootUsernamesManagerImpl"/>
+    <property name="personalBuildManager" ref="personalBuildManager"/>
+    <property name="vcsContentManager" ref="vcsContentManagerImpl"/>
+    <property name="settings" ref="vcsRootsManagerSettings"/>
+    <property name="vcsRootInstancesManager" ref="vcsRootInstancesManager"/>
+  </bean>
+
+  <bean id="vcsUsernameStorage" class="jetbrains.buildServer.vcs.impl.VcsUsernameStorageImpl">
+    <constructor-arg index="2" ref="projectImportEventDispatcher"/>
+  </bean>
+
+  <bean id="vcsRootUsernamesManagerImpl" class="jetbrains.buildServer.vcs.impl.VcsRootUsernamesManagerImpl" lazy-init="true">
+    <property name="rootManagerImpl" ref="vcsRootsManagerImpl"/>
+    <property name="registrar" ref="vcsManager"/>
+    <property name="vcsUsernameStorage" ref="vcsUsernameStorage"/>
+    <property name="extensionHolder" ref="serverExtensionHolder"/>
+  </bean>
+
+  <bean id="vcsContentManagerImpl" class="jetbrains.buildServer.vcs.impl.VcsContentManagerImpl" lazy-init="true"
+        autowire-candidate="false"/>
+
+  <bean id="vcsRootsManagerSettings" class="jetbrains.buildServer.vcs.impl.VcsRootsManagerSettingsImpl"/>
+
+  <bean id="vcsRootsManagerImpl" class="jetbrains.buildServer.vcs.impl.VcsRootsManagerImpl" lazy-init="true" autowire-candidate="false">
+    <property name="vcsStatusProvider" ref="vcsStatusLogger"/>
+    <property name="vcsModificationHistoryEx" ref="dbVcsModificationHistory"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="vcsSettingsTracker" ref="vcsSettingsTracker"/>
+  </bean>
+
+  <bean id="buildTypeBranchSpecsHistory" class="jetbrains.buildServer.buildTriggers.vcs.BuildTypeBranchSpecsHistoryImpl" />
+
+
+  <bean id="vcsChangesLoaderFactory" class="jetbrains.buildServer.buildTriggers.vcs.ChangePersisterFactoryImpl" lazy-init="true">
+    <property name="context" ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="vcsRootInstanceFactory" class="jetbrains.buildServer.vcs.impl.VcsRootInstanceFactory" lazy-init="true">
+    <property name="context" ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="vcsRootInstancesManager" class="jetbrains.buildServer.vcs.impl.VcsRootInstancesManagerImpl" lazy-init="true">
+    <property name="rootInstanceFactory" ref="vcsRootInstanceFactory"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="vcsBranchNameCache" class="jetbrains.buildServer.vcs.impl.VcsBranchNameCache"/>
+
+  <bean id="vcsManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredVcsManager" lazy-init="true">
+    <property name="delegate" ref="hiddenVcsManager"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="vcsEvents" class="jetbrains.buildServer.vcs.impl.VcsEvents" lazy-init="true"/>
+
+  <bean id="defaultParametersForVcs" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForVcs" />
+
+  <bean id="vcsRootFactory" class="jetbrains.buildServer.serverSide.impl.auth.SecuredVcsRootFactory" lazy-init="true">
+    <property name="projectManager" ref="projectManager"/>
+    <property name="context" ref="buildTypeContext" />
+  </bean>
+
+  <bean id="buildTypeVcsRoots" class="jetbrains.buildServer.vcs.impl.BuildTypeVcsRootsImpl" lazy-init="true"/>
+
+  <bean id="entitiesIdsGroups" class="jetbrains.buildServer.vcs.impl.EntitiesIdsGroups">
+    <constructor-arg index="2" ref="projectImportEventDispatcher"/>
+  </bean>
+
+  <bean id="buildTypeVcsChangeRelationsMigrationProcess" class="jetbrains.buildServer.vcs.impl.BuildTypeVcsChangeRelationsMigrationProcess"/>
+  <bean class="jetbrains.buildServer.vcs.impl.VcsModificationDuplicatesMigration"/>
+
+  <bean id="vcsModificationsSelector" class="jetbrains.buildServer.vcs.impl.VcsModificationsStorageImpl" lazy-init="true">
+    <constructor-arg index="1" ref="projectImportEventDispatcher"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="idSequences" ref="idSequence"/>
+    <property name="vmFactory" ref="vcsModificationFactory"/>
+    <property name="vcsChangesGraphQuery" ref="vcsChangesGraphQuery"/>
+    <property name="buildTypeVcsRoots" ref="buildTypeVcsRoots"/>
+    <property name="vcsRootInstancesManager" ref="vcsRootInstancesManager"/>
+    <property name="serverEventDispatcher" ref="serverDispatcher"/>
+    <property name="entitiesIdsGroups" ref="entitiesIdsGroups"/>
+    <property name="buildTypeVcsChangeRelationsMigrationProcess" ref="buildTypeVcsChangeRelationsMigrationProcess"/>
+  </bean>
+
+  <bean id="vcsRootDuplicatesFinder" class="jetbrains.buildServer.vcs.util.VcsRootDuplicatesFinder"/>
+
+  <bean id="vcsChangesGraphQuery" class="jetbrains.buildServer.serverSide.impl.query.VcsChangesGraphQuery" lazy-init="true"/>
+
+  <bean id="vcsRootSshKeyManager" class="jetbrains.buildServer.vcs.impl.VcsRootSshKeyManagerImpl"/>
+
+  <bean id="activeRevisionsFilter" class="jetbrains.buildServer.vcs.impl.ActiveRevisionsFilter" lazy-init="true">
+    <constructor-arg index="0" ref="vcsModificationsSelector"/>
+    <property name="timeService" ref="timeService"/>
+  </bean>
+  <bean id="activeRevisionsFilterFactoryConfig" class="jetbrains.buildServer.vcs.impl.ActiveRevisionsFilterConfig" lazy-init="true"/>
+  <bean id="modIdByVersionCacheConfig" class="jetbrains.buildServer.vcs.impl.ModificationIdByVersionCacheConfig" lazy-init="true"/>
+
+  <bean id="checkingForChangesScheduler" class="jetbrains.buildServer.serverSide.impl.CheckingForChangesScheduler"/>
+
+  <bean id="checkingForChangesTaskPrecondition" class="jetbrains.buildServer.vcs.impl.CheckingForChangesTaskPrecondition"/>
+  <bean id="currentNodeEffectiveResponsibilitiesTracker" class="jetbrains.buildServer.serverSide.impl.CurrentNodeEffectiveResponsibilitiesTracker"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.MainNodeResponsibilitySwitcher"/>
+
+  <bean id="vcsModificationChecker" class="jetbrains.buildServer.serverSide.impl.VcsModificationChecker" lazy-init="true">
+    <property name="projectManager" ref="projectManager"/>
+    <property name="vcsChangesLoader" ref="vcsChangesLoader"/>
+    <property name="buildServer" ref="buildServerState"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="vcsModificationsStorage" ref="vcsModificationsSelector"/>
+  </bean>
+
+  <bean id="queueSizeExceededPrecondition" class="jetbrains.buildServer.serverSide.impl.BuildTriggersChecker.QueueSizeExceededPrecondition"/>
+  <bean id="buildTriggersChecker" class="jetbrains.buildServer.serverSide.impl.BuildTriggersChecker"/>
+  <bean id="triggeredBuildsRateMonitor" class="jetbrains.buildServer.serverSide.impl.TriggeredBuildsRateMonitor"/>
+  <bean id="triggeredBuildsRemover" class="jetbrains.buildServer.serverSide.impl.TriggeredBuildsRemover"/>
+
+  <bean id="vcsStatusLogger" class="jetbrains.buildServer.serverSide.impl.VcsStatusLoggerImpl" lazy-init="true">
+    <property name="problemNotification" ref="problemNotification"/>
+    <property name="versionedSettingsManager" ref="versionedSettingsManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="checkingForChangesScheduler" ref="checkingForChangesScheduler"/>
+    <property name="vcsRootInstancesManager" ref="vcsRootInstancesManager"/>
+  </bean>
+
+  <bean id="vcsStatusProvider" class="jetbrains.buildServer.serverSide.impl.VcsStatusProviderImpl" lazy-init="true">
+    <property name="logger" ref="vcsStatusLogger"/>
+  </bean>
+
+  <bean id="weightedMeanBuildDurationCalculator" class="jetbrains.buildServer.serverSide.impl.timeEstimation.BuildDurationCalculatorDelegate"/>
+  <!-- Used in BuildDurationCalculatorDelegate -->
+  <bean id="weightedAverageBuildDurationCalculator"
+        class="jetbrains.buildServer.serverSide.impl.timeEstimation.LegacyWeightedAverageBuildDurationCalculator" lazy-init="true" autowire-candidate="false">
+    <property name="buildHistory" ref="buildHistory"/>
+  </bean>
+  <bean id="weightedAverageMSDMeanBuildDurationCalculator"
+        class="jetbrains.buildServer.serverSide.impl.timeEstimation.LegacyWeightedAverageMSDBuildDurationCalculator" lazy-init="true" autowire-candidate="false">
+    <property name="buildHistory" ref="buildHistory"/>
+  </bean>
+  <bean id="defaultWeightedAverageBuildDurationCalculator"
+        class="jetbrains.buildServer.serverSide.impl.timeEstimation.WeightedAverageBuildDurationCalculator" lazy-init="true" autowire-candidate="false">
+    <property name="buildHistory" ref="buildHistory"/>
+  </bean>
+  <bean id="defaultWeightedAverageMSDMeanBuildDurationCalculator"
+        class="jetbrains.buildServer.serverSide.impl.timeEstimation.WeightedAverageMSDBuildDurationCalculator" lazy-init="true" autowire-candidate="false">
+    <property name="buildHistory" ref="buildHistory"/>
+  </bean>
+
+  <bean id="defaultAgentsComparatorProvider"
+        class="jetbrains.buildServer.serverSide.impl.buildDistribution.agentsComparators.impl.DefaultAgentsComparatorProvider">
+    <property name="buildDurationCalculator" ref="weightedMeanBuildDurationCalculator"/>
+  </bean>
+
+  <bean id="buildDistributor" class="jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributorProxy">
+    <constructor-arg index="0" ref="defaultBuildDistributor"/>
+  </bean>
+
+  <bean id="defaultBuildDistributor" class="jetbrains.buildServer.serverSide.impl.buildDistribution.DefaultBuildDistributor" autowire-candidate="false" lazy-init="true">
+    <constructor-arg index="0" ref="buildServer"/>
+    <constructor-arg index="1" ref="timeService"/>
+    <constructor-arg index="2" ref="virtualAgentsManager"/>
+    <constructor-arg index="3" ref="defaultAgentsComparatorProvider"/>
+    <constructor-arg index="6" ref="buildQueueProcessingMetrics"/>
+  </bean>
+
+  <bean id="buildEstimatesCalculator" class="jetbrains.buildServer.serverSide.impl.timeEstimation.DefaultBuildEstimatesCalculator">
+    <constructor-arg index="2" ref="timeService"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.BuildDistributionCallbackDispatcher"/>
+
+  <bean id="serverBuildDelayMetrics" class="jetbrains.buildServer.metrics.ServerBuildDelayMetrics"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.WaitReasonStatisticsCollector" id="waitReasonStatisticsCollector"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.WaitReasonStatisticsValueProviderResolver"/>
+
+  <bean id="nativeLibraryPathHacker" class="jetbrains.buildServer.NativeLibraryPathHacker"/>
+
+  <bean id="zipFactory" class="jetbrains.buildServer.zip.FileZipFactory" autowire-candidate="true">
+    <constructor-arg index="0" value="true"/>
+    <constructor-arg index="1" value="false"/>
+  </bean>
+
+  <bean id="bigFileZipFactory" class="jetbrains.buildServer.zip.BigFileZipFactory" autowire-candidate="false"
+        factory-method="newSharedInstance">
+    <constructor-arg index="0" value="true"/>
+    <constructor-arg index="1" value="false"/>
+  </bean>
+
+  <bean id="ehCacheUtil" class="jetbrains.buildServer.util.cache.EhCacheUtil">
+    <constructor-arg index="0" ref="serverPaths"/>
+    <constructor-arg index="1" ref="resetCacheRegister"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="serverModelXStreamHolder" class="jetbrains.buildServer.remoteHandlers.ServerModelXStreamHolder"/>
+
+  <bean id="xStreamTypesLogger" class="jetbrains.buildServer.serverSide.impl.XStreamTypesLogger"/>
+
+  <bean id="eventTracker" class="jetbrains.buildServer.serverSide.impl.tracker.EventTrackerImpl">
+    <constructor-arg index="1" ref="buildTypeBranchesEventDispatcher"/>
+  </bean>
+
+  <bean id="runBuildsStatusManager" class="jetbrains.buildServer.serverSide.RunBuildsStatusManager">
+    <constructor-arg index="0" ref="buildServer"/>
+  </bean>
+
+  <bean id="pluginRegistry" class="jetbrains.buildServer.serverSide.impl.PluginPropertiesImpl"/>
+
+  <bean id="SourcesCacheImpl" class="jetbrains.buildServer.serverSide.impl.projectSources.PatchCacheImpl"/>
+
+  <bean id="notificationRegistry" class="jetbrains.buildServer.notification.impl.NotificatorRegistryImpl"/>
+  <bean id="copyProjectHelper" class="jetbrains.buildServer.serverSide.impl.CopyProjectHelper" lazy-init="true">
+    <property name="notifierRegistry" ref="notificationRegistry"/>
+    <property name="notificationRulesManager" ref="notificationRulesManager"/>
+    <property name="userModel" ref="userModel"/>
+    <property name="groupManager" ref="userGroupManager"/>
+    <property name="serverSettings" ref="serverSettings"/>
+    <property name="problemMutingService" ref="problemMutingService"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.ProjectsPaths"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.TrashImpl"/>
+  <bean id="buildTypeIdentifiersManager" class="jetbrains.buildServer.serverSide.identifiers.BuildTypeIdentifiersManagerImpl"/>
+  <bean id="vcsRootIdentifiersManager" class="jetbrains.buildServer.serverSide.identifiers.VcsRootIdentifiersManagerImpl"/>
+  <bean id="projectIdentifiersManager" class="jetbrains.buildServer.serverSide.identifiers.ProjectIdentifiersManagerImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.DefaultBuildTypeIdentifiersValidator">
+    <constructor-arg index="0" ref="hiddenProjectManager"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.DefaultProjectIdIdentifiersValidator">
+    <constructor-arg index="0" ref="hiddenProjectManager"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.DefaultVcsRootIdentifiersValidator">
+    <constructor-arg index="0" ref="hiddenProjectManager"/>
+  </bean>
+
+  <bean id="projectManagerErrors" class="jetbrains.buildServer.serverSide.impl.projects.ProjectManagerErrorsImpl"/>
+
+  <bean id="hiddenProjectManager" class="jetbrains.buildServer.serverSide.impl.projects.ProjectManagerImpl" autowire-candidate="false" lazy-init="true">
+    <constructor-arg index="0" ref="serverDispatcher"/>
+    <property name="server" ref="buildServer"/>
+    <property name="model" ref="projectDataModel"/>
+    <property name="projectFactory" ref="projectFactory"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="buildTypeSettingsMapperFactory" ref="buildTypeSettingsMapperFactory"/>
+    <property name="copyProjectHelper" ref="copyProjectHelper"/>
+    <property name="rolesManager" ref="rolesManager"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="projectPersistingHandler" ref="projectsWatcher"/>
+    <property name="configChangesCommitter" ref="configChangesCommitter"/>
+    <property name="buildArtifactsLocationChecker" ref="obsoleteFilesCleaner"/>
+    <property name="projectPersisters">
+      <list>
+        <ref bean="projectSettingsPersister"/>
+        <ref bean="pipelineFilePersister"/>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="projectDataModel" class="jetbrains.buildServer.serverSide.impl.projects.ProjectDataModelImpl">
+    <property name="projectFactory" ref="projectFactory"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.ParentProjectOrderPersister">
+    <constructor-arg index="0" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean id="projectXmlProducer" class="jetbrains.buildServer.serverSide.impl.xml.ProjectXmlProducer" lazy-init="true">
+    <property name="xmlProjectExternalizer" ref="xmlParametersExternalizer"/>
+  </bean>
+
+  <bean id="dependencyChecker" class="jetbrains.buildServer.serverSide.impl.DependencyCheckerImpl"/>
+  <bean id="projectDependencyCheckManager" class="jetbrains.buildServer.serverSide.impl.ProjectDependencyCheckManagerImpl"/>
+  <bean id="trustedProjectsManager" class="jetbrains.buildServer.serverSide.impl.DbBackedTrustedProjectsManager"/>
+  <bean id="trustedProjectsUsagesFiller" class="jetbrains.buildServer.serverSide.impl.TrustedProjectsUsagesFillerImpl"/>
+  <bean id="trustedDependencyQueuePreprocessor" class="jetbrains.buildServer.serverSide.impl.TrustedDependencyQueuePreprocessor"/>
+
+  <bean id="configFilePersister" class="jetbrains.buildServer.serverSide.impl.projects.ConfigFilePersister"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.ConfigurationEntityPersisters">
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="configurationFilesPersister" class="jetbrains.buildServer.serverSide.impl.projects.ConfigurationPersister" lazy-init="true">
+    <constructor-arg index="2" ref="configChangesCommitter"/>
+  </bean>
+
+  <bean id="projectSettingsPersister" class="jetbrains.buildServer.serverSide.impl.projects.ProjectFileSettingsPersister" lazy-init="true"/>
+  <bean id="pipelineFilePersister" class="jetbrains.buildServer.serverSide.impl.pipeline.PipelineFilePersister" lazy-init="true"/>
+
+  <bean id="persisterOptions" class="jetbrains.buildServer.serverSide.impl.persisting.PersisterOptions"/>
+  <bean id="persistTasksStorage" class="jetbrains.buildServer.serverSide.impl.persisting.PersistTasksStorage"/>
+  <bean id="projectPersistTaskFactory" class="jetbrains.buildServer.serverSide.impl.persisting.projects.ProjectPersistTaskFactory">
+    <constructor-arg index="2" ref="perProjectChangesCommitter"/>
+    <constructor-arg index="3" ref="globalConfigChangesCommitter"/>
+  </bean>
+  <bean id="deadlocksDetector" class="jetbrains.buildServer.serverSide.impl.persisting.projects.DeadlocksDetector"/>
+  <bean id="settingsSerializer" class="jetbrains.buildServer.serverSide.impl.persisting.settings.SettingsSerializer">
+    <constructor-arg index="4" ref="globalConfigChangesCommitter"/>
+  </bean>
+  <bean id="settingsPersister" class="jetbrains.buildServer.serverSide.impl.persisting.settings.SettingsPersisterImpl" lazy-init="true">
+    <constructor-arg index="6" ref="globalConfigChangesCommitter"/>
+  </bean>
+  <bean id="projectConfigTasksReader" class="jetbrains.buildServer.serverSide.impl.persisting.projects.ProjectConfigTasksReader"/>
+  <bean id="projectsPersister" class="jetbrains.buildServer.serverSide.impl.persisting.projects.ProjectsPersisterImpl">
+    <constructor-arg index="12" ref="globalConfigChangesCommitter"/>
+  </bean>
+
+  <bean id="projectsWatcher" class="jetbrains.buildServer.serverSide.impl.projects.ProjectsWatcher" lazy-init="true" init-method="init">
+    <property name="projectsLoader" ref="projectsLoader"/>
+    <property name="projectsPersister" ref="projectsPersister"/>
+    <property name="versionedSettingsManager" ref="versionedSettingsManager"/>
+    <property name="persistErrors" ref="projectPersistErrors"/>
+    <property name="projectConfigFilesCache" ref="projectConfigFilesCache"/>
+    <property name="projectEventsNotifier" ref="projectEventsNotifier"/>
+    <property name="configFilesUpdater" ref="configFilesUpdater"/>
+  </bean>
+
+  <bean id="projectConfigFilesCache" class="jetbrains.buildServer.serverSide.impl.projects.ProjectConfigFilesCache"/>
+
+  <bean id="projectsLoader" class="jetbrains.buildServer.serverSide.impl.projects.ProjectsLoader" lazy-init="true">
+    <property name="projectExternalizer" ref="xmlProjectExternalizer"/>
+    <property name="configErrors" ref="projectManagerErrors"/>
+    <property name="projectsManager" ref="hiddenProjectManager"/>
+    <property name="xmlVcsRootExternalizer" ref="xmlVcsRootExternalizer"/>
+    <property name="templateExternalizer" ref="xmlBuildTemplateExternalizer"/>
+    <property name="buildTypeExternalizer" ref="xmlBuildTypeExternalizer"/>
+    <property name="deletedEntityTracker" ref="deletedEntityTracker"/>
+    <property name="projectConfigFilesCache" ref="projectConfigFilesCache"/>
+  </bean>
+
+  <bean id="projectManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredProjectManager">
+    <property name="delegate" ref="hiddenProjectManager"/>
+  </bean>
+
+  <bean id="projectSettingsManager" class="jetbrains.buildServer.serverSide.settings.ProjectSettingsManagerImpl" lazy-init="true">
+    <constructor-arg index="0" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="changeStatusProvider" class="jetbrains.buildServer.serverSide.impl.ChangeStatusProviderImpl"/>
+
+  <bean id="userChangesFacade" class="jetbrains.buildServer.serverSide.impl.UserChangesFacadeImpl">
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="personalBuildManager" ref="personalBuildManager"/>
+    <property name="queue" ref="buildQueue"/>
+    <property name="userChangesFilter" ref="userChangesFilter"/>
+    <property name="vcsHistory" ref="dbVcsModificationHistory"/>
+    <property name="changeStatusProvider" ref="changeStatusProvider"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="userChangesFilter" class="jetbrains.buildServer.serverSide.impl.UserChangesFilterImpl">
+    <property name="vcsModificationHistory" ref="dbVcsModificationHistory"/>
+  </bean>
+
+  <bean id="webLinks" class="jetbrains.buildServer.serverSide.WebLinks">
+    <constructor-arg name="urlHolder" ref="projectAwareRootUrlResolver"/>
+  </bean>
+
+  <bean id="messageBuilder" class="jetbrains.buildServer.notification.TemplateMessageBuilder"/>
+
+  <bean id="shutdownProcessTreeTrminator" class="jetbrains.buildServer.serverSide.impl.ServerShutdownProcessTerminatorImpl"
+        depends-on="nativeLibraryPathHacker"/>
+
+  <bean id="agentTypeDatabaseStorage" class="jetbrains.buildServer.serverSide.agentTypes.AgentTypeDatabaseStorage"
+        lazy-init="true" autowire-candidate="false">
+    <property name="runTypeRegistry" ref="runTypeRegistry"/>
+    <property name="cloudManagerBase" ref="cloudManagerBase"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="securityContext" ref="securityContext"/>
+  </bean>
+
+  <bean id="serverMaintenanceLock" class="jetbrains.buildServer.serverSide.maintenance.ServerMaintenanceLock"/>
+
+  <bean id="backupProcessManager" class="jetbrains.buildServer.serverSide.maintenance.BackupProcessManagerImpl" lazy-init="true">
+    <constructor-arg index="2" ref="bigFileZipFactory"/> <!-- please, don't remove this argument reference -->
+    <constructor-arg index="5" ref="backupPermissionCheck"/>
+    <constructor-arg index="6" ref="serverMaintenanceLock"/>
+    <constructor-arg index="7" value="false"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.maintenance.BackupPermissionCheck" id="backupPermissionCheck"/>
+
+  <bean id="backupSettingsPersistor" class="jetbrains.buildServer.serverSide.maintenance.BackupSettingsPersistor">
+    <constructor-arg index="0" ref="serverPaths"/>
+  </bean>
+
+  <bean id="backupRegistration" class="jetbrains.buildServer.serverSide.maintenance.BackupRegistration"/>
+  <bean class="jetbrains.buildServer.serverSide.maintenance.InfoAboutBackupWasBeforeUpgradeSaver"/>
+
+  <!--============================ Listeners Start ================================================================-->
+  <bean id="notificationProcessor" class="jetbrains.buildServer.notification.NotificationProcessor"/>
+
+  <bean id="userNotificationRumesManager" class="jetbrains.buildServer.notification.impl.UserNotificationRulesManager" lazy-init="true">
+    <constructor-arg ref="hiddenProjectManager"/>
+    <constructor-arg ref="projectImportEventDispatcher"/>
+  </bean>
+
+  <bean id="groupNotificationRulesManager" class="jetbrains.buildServer.notification.impl.GroupNotificationRulesManager" lazy-init="true">
+    <constructor-arg ref="hiddenProjectManager"/>
+    <constructor-arg ref="hiddenUserGroupManager"/>
+    <constructor-arg ref="projectImportEventDispatcher"/>
+  </bean>
+
+  <bean id="notificationRulesManager" class="jetbrains.buildServer.notification.impl.NotificationRulesManagerImpl" lazy-init="true">
+    <property name="userModel" ref="userModel"/>
+    <property name="userGroupManager" ref="userGroupManager"/>
+    <property name="groupDelegate" ref="groupNotificationRulesManager"/>
+    <property name="userDelegate" ref="userNotificationRumesManager" />
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.impl.NotificationsBuildFeature"/>
+  <bean id="notificationBuildStatusProvider" class="jetbrains.buildServer.notification.impl.NotificationBuildStatusProviderImpl"/>
+  <bean class="jetbrains.buildServer.notification.impl.NotificationsAssociatedUserProvider"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.approval.ApprovableBuildManager"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.approval.ApprovalBuildFeature"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.approval.ApprovalBuildParametersProcessor"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.approval.ApprovalBuildParametersProvider"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.untrustedBuilds.UntrustedBuildsManager"/>
+
+  <bean id="serverSshKnownHostsManager" class="jetbrains.buildServer.serverSide.impl.ssh.ServerSshKnownHostsManagerImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.ssh.SshKnownHostsParameterProcessor"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.BuildCacheFeature"/>
+
+  <bean id="recentlyUsedConfs" class="jetbrains.buildServer.serverSide.impl.RecentlyUsedBuildTypes"/>
+  <bean id="buildTypeDataPrefetcher" class="jetbrains.buildServer.serverSide.impl.BuildTypeDataPrefetcher" init-method="init"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.impl.BuildDataStorageWarmUp"/>
+
+  <bean id="hiddenCommittedBuildsHolder" class="jetbrains.buildServer.status.CommittedBuildsHolderImpl" autowire-candidate="false"
+        depends-on="buildTypeDataPrefetcher">
+    <constructor-arg index="0" ref="projectManager"/>
+    <constructor-arg index="1" ref="buildsManager"/>
+    <constructor-arg index="2" ref="serverDispatcher"/>
+    <constructor-arg index="3" ref="userModel"/>
+    <constructor-arg index="4" ref="securityContext"/>
+    <constructor-arg index="5" ref="userChangesFilter"/>
+  </bean>
+
+  <bean id="committedBuildsHolder" class="jetbrains.buildServer.serverSide.impl.auth.SecuredCommittedBuildsHolder" lazy-init="true">
+    <constructor-arg index="0" ref="securityContext"/>
+    <property name="delegate" ref="hiddenCommittedBuildsHolder"/>
+  </bean>
+
+  <bean id="statusProvider" class="jetbrains.buildServer.status.StatusProviderImpl" lazy-init="true">
+    <property name="committedBuilds" ref="committedBuildsHolder"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="buildsManager" ref="buildsManager"/>
+  </bean>
+
+  <!--============================ Listeners End ================================================================-->
+
+  <!--============================ Graph/stats engine Start ================================================================-->
+  <bean id="valueProviderRegistry" class="jetbrains.buildServer.serverSide.statistics.impl.ValueProviderRegistryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.impl.BuildStageDurationValueProviderResolver" init-method="init"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.impl.ArtifactDownloadMetricsValueProviderResolver" init-method="init"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.impl.CacheDownloadMetricsValueProviderResolver" init-method="init"/>
+  <bean id="BuildDataStorage" class="jetbrains.buildServer.serverSide.statistics.impl.BuildDataStorageImpl" depends-on="StatisticsPublisher" lazy-init="true">
+    <constructor-arg index="1" ref="serverDispatcher"/>
+    <property name="buildTypeIdentifiersManager" ref="buildTypeIdentifiersManager"/>
+    <property name="buildsManager" ref="buildsManager"/>
+  </bean>
+  <bean id="StatisticsPublisher" class="jetbrains.buildServer.serverSide.statistics.impl.StatisticsPublisher"/>
+
+  <bean id="BuildDurationVT" class="jetbrains.buildServer.serverSide.statistics.impl.BuildDurationValueType"/>
+  <bean id="BuildAllTestsDurationVT" class="jetbrains.buildServer.serverSide.statistics.impl.BuildAllTestsDurationValueType"/>
+  <bean id="TestDurationVT" class="jetbrains.buildServer.serverSide.statistics.impl.TestDurationValueType"/>
+
+  <bean id="TestCountValueType" class="jetbrains.buildServer.serverSide.statistics.impl.TestCountValueType"/>
+  <bean id="SuccessRateValueType" class="jetbrains.buildServer.serverSide.statistics.impl.SuccessRateValueType"/>
+
+  <bean id="AverageTimeToFixTest" class="jetbrains.buildServer.serverSide.statistics.impl.TimeToFixValueType"/>
+  <bean id="RunningDetachedTimeValueType" class="jetbrains.buildServer.serverSide.statistics.impl.RunningDetachedTimeValueType"/>
+  <bean id="reusedBuildTimeValueTypeCalculator" class="jetbrains.buildServer.serverSide.statistics.impl.ReusedBuildTimeValueType.Calculator"/>
+  <bean id="reusedBuildTimeValueType" class="jetbrains.buildServer.serverSide.statistics.impl.ReusedBuildTimeValueType"/>
+  <!--============================ Graph/stats engine End ================================================================-->
+
+  <!--============================ Login model start ================================================================-->
+  <bean id="hiddenLoginConfiguration" class="jetbrains.buildServer.serverSide.impl.auth.LoginConfigurationImpl" autowire-candidate="false">
+    <constructor-arg index="0" ref="userModel"/>
+    <constructor-arg index="1" ref="criticalErrors"/>
+    <constructor-arg index="2" ref="configHistoryManager"/>
+    <constructor-arg index="3" ref="auditLogFactory"/>
+    <constructor-arg index="4" ref="serverPaths"/>
+    <constructor-arg index="5" ref="securityContext"/>
+  </bean>
+
+  <bean id="loginConfiguration" class="jetbrains.buildServer.serverSide.impl.auth.SecuredLoginConfiguration">
+    <constructor-arg index="0" ref="hiddenLoginConfiguration"/>
+    <constructor-arg index="1" ref="securityContext"/>
+  </bean>
+
+  <bean id="specialUsersLoginModuleDescriptor" class="jetbrains.buildServer.serverSide.impl.auth.SpecialUsersLoginModuleDescriptor"/>
+
+
+  <bean id="hiddenTokenAuthenticationModel" class="jetbrains.buildServer.serverSide.auth.impl.TokenAuthenticationModelImpl" autowire-candidate="false"/>
+  <bean id="tokenAuthenticationModel" class="jetbrains.buildServer.serverSide.auth.impl.SecureTokenAuthenticationModelImpl">
+    <constructor-arg index="2" ref="hiddenTokenAuthenticationModel"/>
+  </bean>
+  <bean id="authenticationTokenStorage" class="jetbrains.buildServer.serverSide.auth.impl.PersistentAuthenticationTokenStorage"/>
+  <bean id="authenticationTokenCreator" class="jetbrains.buildServer.serverSide.auth.impl.RandomSecureAuthenticationTokenCreator"/>
+
+  <bean id="tokenBasedLoginModuleDescriptor" class="jetbrains.buildServer.serverSide.impl.auth.TokenBasedLoginModuleDescriptor"/>
+
+  <bean id="serverLoginModel" class="jetbrains.buildServer.serverSide.impl.auth.ServerLoginModelImpl">
+    <constructor-arg index="0" ref="loginConfiguration"/>
+    <constructor-arg index="1" ref="userModel"/>
+    <constructor-arg index="2" ref="securityContext"/>
+  </bean>
+
+  <bean id="userAttributeStorage" class="jetbrains.buildServer.users.impl.UserAttributeStorageImpl"/>
+
+  <!-- 2FA Beans -->
+  <bean id="twoFactorPasswordGenerator" class="jetbrains.buildServer.serverSide.auth.impl.TwoFactorPasswordGeneratorImpl"/>
+  <bean id="hiddenTwoFactorPasswordManager" class="jetbrains.buildServer.serverSide.auth.impl.TwoFactorPasswordManagerImpl" autowire-candidate="false"/>
+  <bean id="twoFactorPasswordManager" class="jetbrains.buildServer.serverSide.auth.impl.SecureTwoFactorPasswordManager">
+    <constructor-arg index="0" ref="hiddenTwoFactorPasswordManager"/>
+  </bean>
+
+  <!--============================ Login model end ================================================================-->
+
+  <bean id="userAuthSettingsPluginsRegistry" class="jetbrains.buildServer.serverSide.impl.UserAuthSettingsPluginsRegistryImpl"/>
+
+  <bean class="jetbrains.buildServer.serverSide.restart.ScriptBasedServerStopPerformer"/>
+
+  <bean id="pluginsUpdater" class="jetbrains.buildServer.updates.PluginsUpdater"/>
+  <bean id="versionChecker" class="jetbrains.buildServer.updates.VersionChecker"/>
+  <bean id="teamCityUpdater" class="jetbrains.buildServer.updates.TeamCityUpdater">
+    <constructor-arg index="8" value=".."/>
+  </bean>
+  <bean class="jetbrains.buildServer.updates.HttpClientDownloaderImpl"/>
+
+  <bean id="buildLabeler" class="jetbrains.buildServer.vcs.impl.VcsLabeler" lazy-init="true">
+    <constructor-arg index="0" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="mergeManager" class="jetbrains.buildServer.vcs.impl.MergeManagerImpl" lazy-init="true">
+    <property name="repositoryStateManager" ref="repositoryStateManager"/>
+    <property name="vcsHistory" ref="dbVcsModificationHistory"/>
+  </bean>
+
+  <bean id="tagsManager" class="jetbrains.buildServer.tags.impl.TagsManagerImpl" depends-on="hiddenBuildQueue">
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+  </bean>
+
+  <bean id="organizationEvents" class="jetbrains.buildServer.serverSide.impl.organization.OrganizationListenerEventDispatcher"/>
+
+  <bean id="organizationStore" class="jetbrains.buildServer.serverSide.impl.organization.OrganizationStore">
+    <constructor-arg index="2" ref="uuidV7GuidGenerator"/>
+  </bean>
+
+  <bean id="organizationsManager" class="jetbrains.buildServer.serverSide.impl.organization.OrganizationsManagerImpl"/>
+
+  <bean id="organizationCleanupExtension" class="jetbrains.buildServer.serverSide.impl.organization.OrganizationCleanupExtension"/>
+
+  <bean id="organizationUsersManager" class="jetbrains.buildServer.serverSide.impl.organization.OrganizationUsersManagerImpl">
+    <constructor-arg index="0" ref="userModel"/>
+    <constructor-arg index="1" ref="organizationsManager"/>
+    <constructor-arg index="2" ref="organizationStore"/>
+    <constructor-arg index="3" ref="securityContext"/>
+  </bean>
+
+  <bean id="hiddenCriticalErrors" class="jetbrains.buildServer.serverSide.impl.CriticalErrorsImpl" autowire-candidate="false"/>
+  <bean id="criticalErrors" class="jetbrains.buildServer.serverSide.impl.SecuredCriticalErrorsImpl" autowire-candidate="true">
+    <constructor-arg index="0" ref="securityContext"/>
+    <constructor-arg index="1" ref="hiddenCriticalErrors"/>
+  </bean>
+
+  <bean id="configErrors" class="jetbrains.buildServer.serverSide.impl.ConfigurationErrorsImpl"/>
+
+  <bean id="projectPersistErrors" class="jetbrains.buildServer.serverSide.impl.persisting.projects.ProjectPersistErrorsImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.SettingsPersistErrorsReport"/>
+
+  <bean id="configActionFactory" class="jetbrains.buildServer.serverSide.impl.ConfigActionFactoryImpl" lazy-init="true">
+    <property name="userModel" ref="userModel"/>
+  </bean>
+  <bean id="commitMessageProducer" class="jetbrains.buildServer.serverSide.impl.CommitMessageProducerFactoryImpl"/>
+
+  <bean id="versionedSettingsConfigEvents" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsConfigEventDispatcher"/>
+
+  <bean id="versionedSettingsConfigStorage" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsConfigStorageImpl">
+    <constructor-arg index="0" ref="versionedSettingsConfigEvents"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsConfigUpdater"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsRootIdMapper"/>
+
+  <bean id="versionedSettingsManager" class="jetbrains.buildServer.serverSide.impl.auth.SecuredVersionedSettingsManager">
+    <constructor-arg index="0" ref="hiddenVersionedSettingsManager"/>
+    <constructor-arg index="1" ref="securityContext"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsDryRunExecutor"/>
+
+  <bean id="hiddenVersionedSettingsManager" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsManagerImpl" autowire-candidate="false" lazy-init="true">
+    <constructor-arg index="2" ref="configActionsDispatcher"/>
+    <constructor-arg index="3" ref="serverDispatcher"/>
+    <constructor-arg index="5" ref="vcsManager"/>
+    <property name="converterChangesStorage" ref="converterChangesStorage"/>
+    <property name="versionedSettingsStatusTracker" ref="versionedSettingsTracker"/>
+  </bean>
+
+  <bean id="versionedSettingsContentManager" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsContentManagerImpl"/>
+  <bean id="buildSettingsOptions" class="jetbrains.buildServer.serverSide.impl.build.BuildSettingsOptionsImpl"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.NotPersistedEntitiesHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsDisabledHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.ProjectVersionedSettingsDisabledHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.OutdatedProjectSettingsHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsConfigErrorHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsContextParametersReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsCommitErrorHealthReport"/>
+  <bean id="converterChangesStorage" class="jetbrains.buildServer.serverSide.impl.versionedSettings.ConverterChangesStorageImpl" lazy-init="true">
+    <property name="versionedSettingsManager" ref="hiddenVersionedSettingsManager"/>
+  </bean>
+
+  <bean id="versionedSettingsStartup" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsStartup" init-method="init"/>
+  <bean id="versionedSettingsDBVersion" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsDBVersionImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsRootUsagesContributor">
+    <constructor-arg index="0" ref="vcsRootsManagerImpl"/>
+  </bean>
+  <bean id="versionedSettingsOptions" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsOptionsImpl"/>
+  <bean id="versionedSettingsRegistry" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsRegistryImpl"/>
+  <bean id="versionedSettingsPendingDeletes" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsPendingDeletesImpl"/>
+  <bean id="configFileSystem" class="jetbrains.buildServer.serverSide.impl.projects.ConfigFileSystemImpl"/>
+  <bean id="configFilesUpdater" class="jetbrains.buildServer.serverSide.impl.projects.ConfigFilesUpdaterImpl"/>
+
+  <bean id="settingsCommitStrategy" class="jetbrains.buildServer.serverSide.impl.versionedSettings.DelayedCommitPerSettingsRootStrategy"/>
+  <bean id="directoryBasedTransactionCommitter" class="jetbrains.buildServer.serverSide.impl.versionedSettings.DirectoryBasedTransactionCommitter"/>
+  <bean id="configChangesCommitter" class="jetbrains.buildServer.serverSide.impl.versionedSettings.CompositeConfigChangesCommitter">
+    <constructor-arg index="0" ref="perProjectChangesCommitter"/>
+    <constructor-arg index="1" ref="globalConfigChangesCommitter"/>
+  </bean>
+
+  <bean id="perProjectChangesCommitter" class="jetbrains.buildServer.serverSide.impl.versionedSettings.ConfigChangesCommitterImpl" autowire-candidate="false">
+    <property name="commitStrategy" ref="settingsCommitStrategy"/>
+    <property name="versionedSettingsManager" ref="versionedSettingsManager"/>
+    <constructor-arg index="0" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean id="globalConfigChangesCommitter" class="jetbrains.buildServer.serverSide.impl.versionedSettings.GlobalConfigChangesCommitterImpl" autowire-candidate="false">
+    <constructor-arg index="0" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsProjectRestoredListener"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsRootPersistedListener" init-method="init">
+    <constructor-arg index="0" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean id="teamcityCommits" class="jetbrains.buildServer.serverSide.impl.versionedSettings.TeamCityCommitsImpl">
+    <constructor-arg index="0" ref="versionedSettingsConfigEvents"/>
+    <constructor-arg index="1" ref="vcsRootsManagerImpl"/>
+    <constructor-arg index="2" ref="vcsRootInstancesManager"/>
+    <constructor-arg index="3" ref="versionedSettingsManager"/>
+  </bean>
+  <bean id="configFileChangesListener" class="jetbrains.buildServer.serverSide.impl.ConfigFileChangesListenerImpl"/>
+  <bean id="currentVersionTracker" class="jetbrains.buildServer.serverSide.impl.versionedSettings.CurrentVersionTrackerImpl">
+    <constructor-arg index="0" ref="versionedSettingsConfigEvents"/>
+    <constructor-arg index="1" ref="serverDispatcher"/>
+  </bean>
+  <bean id="versionedSettingsStatusEventDispatcher" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsStatusEventDispatcher"/>
+  <bean id="versionedSettingsTracker" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsStatusTrackerImpl" lazy-init="true">
+    <property name="versionedSettingsManager" ref="hiddenVersionedSettingsManager"/>
+    <property name="customDataStorageManager" ref="customDataStorageManager"/>
+  </bean>
+  <bean id="applySettingsChangesListener" class="jetbrains.buildServer.serverSide.impl.versionedSettings.ApplySettingsChangesListener">
+    <constructor-arg index="3" ref="repositoryStateEventDispatcher"/>
+  </bean>
+  <bean id="deletedEntityTracker" class="jetbrains.buildServer.serverSide.impl.projects.DeletedEntityTrackerImpl" init-method="init"/>
+  <bean id="versionedSettingsUpdater" class="jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsUpdaterImpl"/>
+  <bean id="projectSettingsGeneratorRegistry" class="jetbrains.buildServer.serverSide.impl.versionedSettings.ProjectSettingsGeneratorRegistryImpl"/>
+  <bean id="projectsBuilderFactory" class="jetbrains.buildServer.serverSide.impl.versionedSettings.ProjectsBuilderFactory">
+    <property name="xmlBuildTriggersExternalizer" ref="xmlBuildTriggersExternalizer"/>
+  </bean>
+  <bean id="xmlProjectSettingsGenerator" class="jetbrains.buildServer.serverSide.impl.versionedSettings.XmlProjectSettingsGenerator" init-method="register">
+    <property name="registry" ref="projectSettingsGeneratorRegistry"/>
+    <property name="versionedSettingsManager" ref="versionedSettingsManager"/>
+    <property name="versionedSettingsRegistry" ref="versionedSettingsRegistry"/>
+  </bean>
+
+  <bean id="notificationRuleFactory" class="jetbrains.buildServer.notification.impl.NotificationRuleFactoryImpl" lazy-init="true"/>
+
+  <bean id="artifactsGuard" class="jetbrains.buildServer.serverSide.artifacts.ArtifactsGuardImpl"/>
+
+  <bean id="artifactDependencyFactory" class="jetbrains.buildServer.serverSide.impl.ArtifactDependencyFactoryImpl" lazy-init="true">
+    <property name="buildFinders" ref="buildFinders"/>
+    <property name="projectManager" ref="projectManager"/>
+  </bean>
+
+  <bean id="requirementFactory" class="jetbrains.buildServer.serverSide.impl.RequirementFactoryImpl" lazy-init="true" />
+
+  <bean id="dependencyFactory" class="jetbrains.buildServer.serverSide.impl.dependency.DependencyFactoryImpl" lazy-init="true">
+    <property name="projectManager" ref="projectManager"/>
+  </bean>
+
+  <bean id="fileWatcherFactory" class="jetbrains.buildServer.serverSide.impl.FileWatcherFactory" lazy-init="true">
+    <constructor-arg index="0" ref="serverPaths"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="recentlyFailedTestsCalculator" class="jetbrains.buildServer.serverSide.impl.RecentlyFailedTestsCalculator"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.SetStepNameContextProcessor"/>
+  <bean id="testFailureRateCollector" class="jetbrains.buildServer.serverSide.stat.TestFailureRateCollector">
+    <constructor-arg index="0" ref="dbFacade"/>
+    <constructor-arg index="1" ref="serverDispatcher"/>
+    <constructor-arg index="2" ref="buildTestsEventDispatcher"/>
+    <constructor-arg index="3" ref="projectManager"/>
+    <constructor-arg index="4" ref="testManager"/>
+    <constructor-arg index="5" ref="serverResponsibility"/>
+    <constructor-arg index="6" ref="timeService"/>
+  </bean>
+
+  <bean id="buildEstimator" class="jetbrains.buildServer.serverSide.impl.timeEstimation.CachingBuildEstimator"/>
+  <bean id="buildEstimatorListener" class="jetbrains.buildServer.serverSide.impl.timeEstimation.BuildEstimationListener"/>
+  <bean id="dagEdgeRelationsProvider" class="jetbrains.buildServer.vcs.impl.DagEdgeRelationsProviderImpl"/>
+  <bean id="finalRevisionCalculator" class="jetbrains.buildServer.vcs.impl.FinalRevisionCalculatorImpl" lazy-init="true">
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="settingsTracker" ref="vcsSettingsTracker"/>
+    <property name="vcsHistory" ref="dbVcsModificationHistory"/>
+    <property name="versionedSettingsManager" ref="hiddenVersionedSettingsManager"/>
+    <property name="dagEdgeRelationsProvider" ref="dagEdgeRelationsProvider"/>
+    <property name="buildsManager" ref="buildsManager"/>
+  </bean>
+
+  <bean id="buildChainChangesCollector" class="jetbrains.buildServer.vcs.impl.BuildChainChangesCollector"/>
+
+  <bean id="vcsChangesCollectorFactory" class="jetbrains.buildServer.vcs.impl.VcsChangesCollectorFactoryImpl" lazy-init="true">
+    <property name="buildChangesContextServices" ref="buildTypeContext"/>
+    <property name="buildChainChangesCollector" ref="buildChainChangesCollector"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.PluginPartNamesRegistryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.AgentPluginsRegistryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.AgentDistributionMonitorThreadImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.CompositeAgentPluginsHolder"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.AgentPluginsProviderImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.AgentPluginsVersionProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.AgentUpdatePluginsFolderCleaner"/>
+
+  <bean id="agentUpgraderTask" class="jetbrains.buildServer.serverSide.impl.agent.AgentUpradeTask"/>
+
+  <bean id="buildAgentUpgrader" class="jetbrains.buildServer.serverSide.impl.BuildAgentUpgrader">
+    <property name="agentManager" ref="agentManager"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="serverResponsibility" ref="serverResponsibility"/>
+  </bean>
+
+  <bean id="agentDistributionMonitorEvents" class="jetbrains.buildServer.serverSide.impl.agent.AgentDistributionMonitorEvents"/>
+
+  <bean id="serverParameterResolverFactory" class="jetbrains.buildServer.serverSide.parameters.ServerParameterResolverFactory"/>
+
+  <bean id="referenceServerResolver" class="jetbrains.buildServer.serverSide.parameters.ReferenceResolverServerProvider"/>
+
+  <bean class="jetbrains.buildServer.serverSide.parameters.SelectOptionsManagerImpl"/>
+
+  <bean id="testHistory" class="jetbrains.buildServer.serverSide.tests.TestHistoryImpl"/>
+  <bean id="buildTypeScopeProps" class="jetbrains.buildServer.serverSide.tests.BuildTypesTestScopeViaProperties"/>
+
+  <bean id="zipArchiveExtractor" class="jetbrains.buildServer.serverSide.util.ServerAlteringZipArchiveExtractor"/>
+  <bean id="tarArchiveExtractor" class="jetbrains.buildServer.util.ServerAwareTarArchiveExtractor"/>
+  <bean id="archiveExtractorManager" class="jetbrains.buildServer.util.impl.ArchiveExtractorManagerImpl"/>
+
+  <bean class="jetbrains.buildServer.artifacts.impl.DependencyHttpHelper"/>
+  <bean id="defaultTransportFactory" class="jetbrains.buildServer.artifacts.impl.HttpArtifactTransportFactory"/>
+  <bean id="storageSettingsProvider" class="jetbrains.buildServer.serverSide.storage.ServerArtifactStorageSettingsProviderImpl"/>
+  <bean id="checkoutDirectoryTargetDirRestrictor" class="jetbrains.buildServer.serverSide.artifacts.WorkingDirectoryTargetDirRestrictor"/>
+  <bean id="noopFreeSpaceCleanerProvider" class="jetbrains.buildServer.artifacts.impl.NoopFreeSpaceCleanerProvider"/>
+  <bean id="dependencyResolver" class="jetbrains.buildServer.artifacts.impl.DependencyResolverImpl">
+    <constructor-arg ref="archiveExtractorManager"/>
+    <constructor-arg ref="serverExtensionHolder"/>
+    <constructor-arg type="jetbrains.buildServer.artifacts.ArtifactCacheProvider"><null/></constructor-arg>
+    <constructor-arg ref="storageSettingsProvider"/>
+    <constructor-arg index="4">
+      <bean class="jetbrains.buildServer.artifacts.impl.DownloadedArtifactsProgress$Disabled"/>
+    </constructor-arg>
+    <constructor-arg index="5">
+      <bean class="jetbrains.buildServer.artifacts.impl.DisabledArtifactDependencyTargetDirectoryCleaner"/>
+    </constructor-arg>
+    <constructor-arg index="6" value="#{ null }"/>
+  </bean>
+
+  <bean id="serverTriggeredByProcessor" class="jetbrains.buildServer.serverSide.impl.ServerTriggeredByProcessor">
+    <constructor-arg index="4" ref="buildStateHelper"/>
+  </bean>
+
+  <bean id="backgroundTaskManager" class="jetbrains.buildServer.backgroundTasks.impl.BackgroundTaskManagerImpl">
+    <constructor-arg ref="commonExecutorService"/>
+  </bean>
+
+  <bean id="defaultAgentParametersProvider" class="jetbrains.buildServer.serverSide.parameters.DefaultAgentParametersProvider"/>
+  <bean id="dependencyParametersProvider" class="jetbrains.buildServer.serverSide.parameters.DependencyParametersProvider"/>
+
+  <bean id="dependencyParameterReferencesProcessor" class="jetbrains.buildServer.serverSide.parameters.DependencyParameterReferencesProcessor">
+    <constructor-arg index="1" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean id="vcsSettingsBuildParametersProvider" class="jetbrains.buildServer.serverSide.parameters.VCSSettingsBuildParametersProvider">
+    <constructor-arg index="0" ref="versionedSettingsManager"/>
+    <constructor-arg index="1" ref="configActionsDispatcher"/>
+    <constructor-arg index="2" ref="serverResponsibility"/>
+  </bean>
+  <bean id="defaultBuildCheckoutDirProvider" class="jetbrains.buildServer.serverSide.parameters.DefaultCheckoutDirParameterProvider"/>
+  <bean id="defaultParamsDescriptions" class="jetbrains.buildServer.serverSide.parameters.DefaultParametersDescription"/>
+  <bean id="buildBranchParameterProvider" class="jetbrains.buildServer.serverSide.parameters.BuildBranchParameterProvider"/>
+
+  <bean id="buildStepStatusParameterProvider" class="jetbrains.buildServer.serverSide.parameters.BuildStepsParameterProvider"/>
+  <bean id="buildStepStatusParameterDescriptionProvider" class="jetbrains.buildServer.serverSide.parameters.BuildStepsParameterDescriptionProvider"/>
+  <bean id="buildStepStatusParameterValueCompletion" class="jetbrains.buildServer.serverSide.parameters.BuildStepsParameterValueCompletion"/>
+
+  <bean id="triggeredByParametersProvider" class="jetbrains.buildServer.serverSide.parameters.TriggeredByParametersProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.UpperLimitRevisionParametersProvider"/>
+
+  <bean id="diskSpaceWatcher" class="jetbrains.buildServer.serverSide.impl.DiskSpaceWatcher"/>
+
+  <bean id="defaultPreconditions" class="jetbrains.buildServer.serverSide.impl.buildDistribution.DefaultPreconditions"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.VersionedSettingsPrecondition"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.LicensePrecondition"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.WaitApprovalBuildPrecondition"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.UntrustedBuildsPrecondition"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.ScheduledTimeBuildPrecondition"/>
+
+  <bean id="approvableBuildChangesCollectionCondition" class="jetbrains.buildServer.serverSide.impl.approval.ApprovableBuildChangesCollectionCondition"/>
+
+  <bean id="runOnTheSameAgentFilter" class="jetbrains.buildServer.serverSide.impl.buildDistribution.RunOnTheSameAgentFilter"/>
+  <bean id="priorityAgentsFilter" class="jetbrains.buildServer.serverSide.impl.buildDistribution.PriorityAgentsFilter"/>
+  <bean id="agentsWithCheckedConnectivityFilter" class="jetbrains.buildServer.serverSide.impl.buildDistribution.AgentsWithCheckedConnectivityFilter"/>
+
+  <bean id="hiddenResponsibilityManager" class="jetbrains.buildServer.responsibility.impl.InvestigationsManagerImpl">
+    <constructor-arg index="0" ref="dbFacade"/>
+    <constructor-arg index="1" ref="userModel"/>
+    <constructor-arg index="2" ref="projectImportEventDispatcher"/>
+  </bean>
+
+  <bean id="hiddenResponsibilityFacade" class="jetbrains.buildServer.responsibility.impl.ResponsibilityFacadeImpl" autowire-candidate="false">
+    <property name="responsibilityManager" ref="hiddenResponsibilityManager"/>
+    <property name="projectManager" ref="projectManager"/>
+  </bean>
+
+  <bean id="responsibilityFacade" class="jetbrains.buildServer.responsibility.impl.SecuredResponsibilityFacade">
+    <property name="delegate" ref="hiddenResponsibilityFacade"/>
+  </bean>
+
+  <bean id="buildProblemInvestigationsAndMutesManager" class="jetbrains.buildServer.responsibility.remover.BuildProblemInvestigationsAndMutesManagerImpl"/>
+  <bean id="buildProblemResponsibilitiesCleanUp" class="jetbrains.buildServer.responsibility.remover.ObsoleteBuildProblemResponsibilitiesCleanupExtension"/>
+
+  <bean class="jetbrains.buildServer.responsibility.remover.BuildProblemInvestigationsAndMutesListener">
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="buildProblemInvestigationsAndMutesManager" ref="buildProblemInvestigationsAndMutesManager"/>
+  </bean>
+
+  <bean name="testInvestigationsAndMutesListener" class="jetbrains.buildServer.responsibility.remover.TestInvestigationsAndMutesListener" lazy-init="true">
+    <constructor-arg index="0" ref="hiddenResponsibilityFacade"/>
+  </bean>
+
+  <bean name="currentProblemsManager" class="jetbrains.buildServer.serverSide.impl.CurrentProblemsManagerImpl">
+    <constructor-arg index="0" ref="buildServer"/>
+  </bean>
+
+  <bean name="investigationTestRunsHolder" class="jetbrains.buildServer.responsibility.impl.InvestigationTestRunsHolderImpl" lazy-init="true">
+    <constructor-arg index="0" ref="buildServer"/>
+    <constructor-arg index="1" ref="hiddenResponsibilityFacade"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.ToolEventsDispatcher"/>
+  <bean name="cachingCompatibilityListener" class="jetbrains.buildServer.serverSide.CachingCompatibilityListener">
+    <constructor-arg index="3" ref="hiddenProjectManager"/>
+  </bean>
+
+  <bean name="virtualAgentsManager" class="jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgentsManagerImpl"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.RunningBuildsLimiter"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.buildDistribution.FlushQueueExecutor"/>
+  <bean name="flushQueueAction" class="jetbrains.buildServer.serverSide.impl.FlushQueueAction"/>
+
+  <bean name="problemNotification" class="jetbrains.buildServer.serverSide.systemProblems.SystemProblemNotificationEngine" lazy-init="true">
+    <property name="vcsManager" ref="vcsManager"/>
+    <property name="projectManager" ref="projectManager"/>
+  </bean>
+
+  <bean name="buildProblemTicketManager" class="jetbrains.buildServer.serverSide.systemProblems.BuildProblemsTicketManagerImpl"/>
+
+  <bean name="buildFinders" class="jetbrains.buildServer.serverSide.util.BuildFinders" init-method="init" lazy-init="true"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.InactiveNodesDetector"/>
+
+  <bean name="firstBranchRevisionTracker" class="jetbrains.buildServer.serverSide.impl.CDSFirstBranchRevisionTracker"/>
+
+  <bean name="canRunOnAgentsCalculator" class="jetbrains.buildServer.serverSide.impl.CanRunOnAgentsCalculator"/>
+
+  <bean id="vcsSettingsTracker" class="jetbrains.buildServer.serverSide.impl.VcsSettingsTrackerImpl" lazy-init="true">
+    <property name="vcsHistory" ref="dbVcsModificationHistory"/>
+    <property name="firstBranchRevisionTracker" ref="firstBranchRevisionTracker"/>
+  </bean>
+
+  <bean id="deprecatedRunTypes" class="jetbrains.buildServer.serverSide.impl.runType.DeprecatedRunTypesImpl"/>
+
+  <bean id="runTypeRegistry" class="jetbrains.buildServer.serverSide.impl.runType.RunTypeRegistryImpl"/>
+  <bean id="runTypePerProjectRegistry" class="jetbrains.buildServer.serverSide.impl.runType.RunTypePerProjectRegistryImpl" lazy-init="true">
+  </bean>
+
+  <bean id="idGeneratorRegistry" class="jetbrains.buildServer.serverSide.impl.IdGeneratorRegistry" lazy-init="true" />
+
+  <bean id="defaultParametersForRunTypes" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForRunTypes" />
+
+  <bean id="buildTriggerServicesFinder" class="jetbrains.buildServer.buildTriggers.BuildTriggerServicesFinder" lazy-init="true"/>
+
+  <bean id="defaultParametersForBuildTriggers" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForBuildTriggers" />
+
+  <bean id="asyncPolledBuildTriggerFactory" class="jetbrains.buildServer.buildTriggers.async.AsyncPolledBuildTriggerFactoryImpl"/>
+
+  <bean id="triggersStatisticProvider" class="jetbrains.buildServer.buildTriggers.TriggersStatisticProviderImpl"/>
+  <bean id="byTriggerTypesLoadBalancer" class="jetbrains.buildServer.buildTriggers.ByTriggerTypesLoadBalancer"/>
+
+  <bean id="changesCalculationTimestamp" class="jetbrains.buildServer.buildTriggers.vcs.ChangesCalculationTimestamp"/>
+
+  <bean id="vcsTriggeringContext" class="jetbrains.buildServer.buildTriggers.vcs.VcsTriggeringContext">
+    <constructor-arg index="4" ref="repositoryStateEventDispatcher"/>
+  </bean>
+
+
+  <bean id="vcsBuildTrigger" class="jetbrains.buildServer.buildTriggers.vcs.VcsBuildTriggerService" lazy-init="true">
+    <constructor-arg index="0" ref="vcsTriggeringContext"/>
+  </bean>
+  <bean class="jetbrains.buildServer.buildTriggers.vcs.SetupFromUrlVcsTriggerExtension"/>
+  <bean id="slowVcsRootTracker" class="jetbrains.buildServer.buildTriggers.vcs.SlowVcsRootInstanceTracker"/>
+
+
+  <bean id="schedulingTrigger" class="jetbrains.buildServer.buildTriggers.scheduler.SchedulerBuildTriggerService" lazy-init="true"/>
+  <bean id="finishBuildTrigger" class="jetbrains.buildServer.buildTriggers.dependency.FinishBuildTriggerService" lazy-init="true"/>
+  <bean id="retryBuildTrigger" class="jetbrains.buildServer.buildTriggers.failedBuild.RetryBuildTriggerService" lazy-init="true"/>
+  <bean id="remoteRunOnBranchTrigger" class="jetbrains.buildServer.buildTriggers.vcs.remoteRun.RemoteRunOnBranchTriggerService" lazy-init="true"/>
+  <bean id="personalBranchSpecProvider" class="jetbrains.buildServer.buildTriggers.vcs.remoteRun.RemoteRunBranchSpecProvider" lazy-init="true"/>
+  <bean class="jetbrains.buildServer.buildTriggers.vcs.remoteRun.RemoteRunBranchTriggerCache"/>
+  <bean id="triggerRulesListener" class="jetbrains.buildServer.buildTriggers.triggerRules.TriggerRulesListener">
+    <constructor-arg index="0" ref="projectManager"/>
+    <constructor-arg index="1" ref="configActionsDispatcher"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.discovery.VcsResourceDiscoveryExtension"/>
+
+  <bean id="dependencyTriggerSettingsMapper" class="jetbrains.buildServer.buildTriggers.dependency.DependencyTriggersTriggerSettingsMapper">
+    <constructor-arg index="0" ref="projectManager"/>
+    <constructor-arg index="1" ref="configActionsDispatcher"/>
+  </bean>
+  <bean id="vcsLabelingBuildFeatureSettingsMapper" class="jetbrains.buildServer.serverSide.impl.VcsLabelingBuildFeatureSettingsMapper">
+    <constructor-arg index="0" ref="projectManager"/>
+    <constructor-arg index="1" ref="configActionsDispatcher"/>
+  </bean>
+
+  <bean id="reportTabSettingsMapper" class="jetbrains.buildServer.reportTabs.ReportTabSettingsMapper"/>
+
+  <bean id="internalErrorsHandler" class="jetbrains.buildServer.serverSide.impl.InternalErrorsHandler" lazy-init="true" init-method="init">
+    <property name="dispatcher" ref="serverDispatcher"/>
+    <property name="projectManager" ref="hiddenProjectManager"/>
+    <property name="systemProblems" ref="problemNotification"/>
+    <property name="buildsManager" ref="buildsManager"/>
+    <property name="executorServices" ref="executorServiceManager"/>
+    <property name="serverStartupTracker" ref="serverStartupTracker"/>
+  </bean>
+
+  <bean id="responsibilityCleaner" class="jetbrains.buildServer.responsibility.impl.InvestigationsCleanupExtension">
+    <property name="projectManager" ref="projectManager"/>
+    <property name="responsibilityManager" ref="hiddenResponsibilityManager"/>
+    <property name="buildProblemManager" ref="buildProblemManager"/>
+  </bean>
+
+  <bean id="testManager" class="jetbrains.buildServer.serverSide.impl.TestManagerImpl" lazy-init="true">
+    <property name="testServices"  ref="buildTypeContext"/>
+    <property name="testRunContext"  ref="buildTypeContext"/>
+  </bean>
+
+  <bean id="lowLevelProblemMutingService" class="jetbrains.buildServer.serverSide.mute.LowLevelProblemMutingServiceImpl" lazy-init="true">
+    <property name="testManager" ref="testManager"/>
+    <property name="userModel" ref="userModel"/>
+    <property name="eventDispatcher" ref="serverDispatcher"/>
+  </bean>
+
+  <bean id="hiddenProblemMutingService" class="jetbrains.buildServer.serverSide.mute.ProblemMutingServiceImpl" lazy-init="true"  autowire-candidate="false">
+    <property name="testManager" ref="testManager"/>
+    <property name="auditLogFactory" ref="auditLogFactory"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="problemMutingService" ref="lowLevelProblemMutingService"/>
+  </bean>
+
+  <bean id="problemMutingService" class="jetbrains.buildServer.serverSide.mute.SecuredProblemMutingService" lazy-init="true" autowire-candidate="true">
+    <property name="delegate" ref="hiddenProblemMutingService"/>
+    <property name="buildsManager" ref="buildsManager"/>
+  </bean>
+
+  <bean id="buildArtifactsFactory" class="jetbrains.buildServer.serverSide.impl.artifacts.BuildArtifactsFactoryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.artifacts.HiddenArtifactsFilter"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.artifacts.ArtifactsSecurityChecker"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.artifacts.InaccessibleArtifactsChecker"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.artifacts.TrustedDependencyArtifactChecker"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.artifacts.CompositeArtifactMapVisibilityChecker"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.artifacts.ExternalBuildArtifactsCacheImpl"/>
+  <bean id="backgroundArtifactsStateUpdater" class="jetbrains.buildServer.serverSide.impl.artifacts.BackgroundArtifactsStateUpdaterImpl"/>
+  <bean id="serverArtifactHelper" class="jetbrains.buildServer.serverSide.impl.artifacts.ServerArtifactHelperImpl"/>
+
+
+  <bean id="customSettingsManager" class="jetbrains.buildServer.serverSide.impl.CustomSettingsManagerImpl"/>
+
+  <bean id="testServerMode" class="jetbrains.buildServer.serverSide.TestServerMode"/>
+
+  <bean id="tmpFiles" class="jetbrains.buildServer.serverSide.TmpFilesImpl"/>
+
+  <!-- parameters UI -->
+  <bean id="parameterFactory" class="jetbrains.buildServer.serverSide.parameters.ParameterFactoryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.ParameterDescriptionFactoryImpl"/>
+
+  <!--types -->
+  <bean id="passwordType" class="jetbrains.buildServer.serverSide.parameters.types.PasswordType"/>
+  <bean id="passwordsSearcher" class="jetbrains.buildServer.serverSide.parameters.types.PasswordsSearcher"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.PasswordsBuildStartContextProcessor"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.OutdatedAgentCompatibilityExtension"/>
+
+  <bean id="buildCustomizerFactory" class="jetbrains.buildServer.serverSide.impl.BuildCustomizerFactoryImpl">
+    <property name="changesCollectorFactory" ref="vcsChangesCollectorFactory"/>
+    <property name="buildChainFactory" ref="chainFactory"/>
+    <property name="vcsModificationHistory" ref="dbVcsModificationHistory"/>
+    <property name="securityContext" ref="securityContext"/>
+    <property name="extensionsProvider" ref="serverExtensionHolder"/>
+    <property name="buildPromotionManager" ref="buildStateHelper"/>
+  </bean>
+
+  <!-- Chain changes collector -->
+  <bean id="chainChangesCalculator" class="jetbrains.buildServer.serverSide.impl.BuildChainChangesCalculator">
+    <constructor-arg index="0" ref="buildStateHelper"/>
+  </bean>
+
+  <bean id="chainFactory" class="jetbrains.buildServer.serverSide.dependency.BuildChainFactory"/>
+  <bean id="buildChainsManager" class="jetbrains.buildServer.serverSide.dependency.BuildChains">
+    <constructor-arg index="2" ref="buildStateHelper"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.UnknownBuildProblemProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.FailedTestsBuildProblemProvider"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.UnknownBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.CompilationErrorTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.FailedTestsBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.BuildStatusBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.UserProvidedBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.BuildFailureOnMessageBuildProblemTypeDescriptionProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.BuildFailureConditionBuildProblemTypeDetailsProviders"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.BuildFailureOnMetricBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.BuildFailureBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.ServiceMessageBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.ExitCodeBuildProblemTypeDetailsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.types.RevisionNotFoundDetailsProvider"/>
+
+  <bean id="buildProblemManager" class="jetbrains.buildServer.serverSide.impl.problems.BuildProblemManagerImpl" lazy-init="true">
+    <property name="mutingService" ref="hiddenProblemMutingService"/>
+    <property name="responsibilityFacade" ref="hiddenResponsibilityFacade"/>
+    <property name="sqlRunner" ref="dbFacade"/>
+    <property name="projectManager" ref="projectManager"/>
+    <property name="buildsManager" ref="buildsManager"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.problems.LastBuildProblemsFinder" lazy-init="true"/>
+
+  <bean id="problemDetailsProviderService" class="jetbrains.buildServer.serverSide.impl.problems.BuildProblemDetailsProviderService">
+    <constructor-arg ref="serverExtensionHolder"></constructor-arg>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.UserActionsProvider"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.remoteDebug.RemoteDebugBuildStartContextProcessor"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.remoteDebug.RemoteDebugTemporaryPersonalChangesCleaner"/>
+
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.impl.CompositeHealthStatusReportImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.impl.GlobalHealthStatusItemsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.GlobalHealthStatusItemsEventDispatcher"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.impl.HealthStatusProfileProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.impl.HealthStatusItemIdProviderImpl"/>
+  <bean id="hiddenHealthStatusItemVisibilityTracker" class="jetbrains.buildServer.serverSide.healthStatus.impl.HealthStatusItemVisibilityTrackerImpl" autowire-candidate="false"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.impl.HealthStatusBackgroundAnalyser"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.impl.HealthStatusAnalysisSessionCalculator"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.notifications.HealthStatusNotificationsProducer"/>
+  <bean class="jetbrains.buildServer.notification.AdministratorEmailsSender"/>
+
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.FrequentCleanCheckoutReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.DatabaseHealthReport">
+    <constructor-arg index="4" ref="dbManager"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.CollationMismatchProblemReporter" init-method="analyse"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.UnusedVcsRootsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InvalidVcsTriggerSettingsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.MainNodeInactiveHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.MissingNodesResponsibilitiesHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InvalidScheduleTriggerSettingsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.DuplicateBuildTriggerReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.RedundantVcsTriggerReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ManyBuildsProducedByTriggerHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.RedundantVcsRootsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.UnusedAgentsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.AgentUpgradeProblemsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.HugeLogBuildReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.LicenseIssuesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.NewVersionAvailableReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.OldLog4jConfigurationHealthReport"/>
+
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ConditionalStepsTracker"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ReuseSnapshotDependenciesReport"/>
+
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.BrokenArtifactDependenciesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.BrokenSnapshotDependenciesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InvalidApprovalRulesHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InvalidBranchFilterSyntaxReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.QueuedBuildAgentsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.DiskSpaceReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.TriggeringProblemsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ScheduleTriggerManyBranchesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.AutoCheckoutHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.AutoCheckoutResolveResults"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.CaptureErrorsForRecentErrorsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.HeavyServerCheckoutPatchesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InefficientArtifactsPublishingReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.BrokenProjectTokensReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.UnreachableDefaultTemplateReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.SuspiciousUUIDHealthStatusReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.BuiltInAuthModuleHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.SecondaryNodeVersionMismatchHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.LegacySecondaryNodeReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.SecurityUpdatesHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.DataDirectoryPermissionsHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.DisconnectedAgentsHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.UnauthorizedAgentsHealthReport">
+    <constructor-arg index="1" ref="hiddenAgentTypeFinder"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ServerCheckoutPatchesStats">
+    <constructor-arg ref="patchEventDispatcher"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.QuietPeriodHealthStatusReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.UnbundledPluginUsageReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.UnbundledPluginUsageGlobalReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InvalidCleanupKeepRulesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.fileCaches.FilesCachesReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.NodesTimeDiffReport">
+    <constructor-arg index="0" ref="databaseTimeProvider"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.InternalPropertiesUsageReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.CleanupErrorsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.CleanupExtensionsErrorsReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ConfigurationErrorsReport" init-method="init">
+    <property name="projectManager" ref="projectManager"/>
+    <property name="webLinks" ref="webLinks"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ProxyVersionMismatchReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.NoProxyMultiNodeSetupReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.DeprecatedJavaOnServerReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ExternalArtifactStorageMultiNodeReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.NotConfiguredRootUrlHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.SameRootAndArtifactHostsHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ArtifactsUrlStillHttpReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.ServerRootUrlStillHttpReport"/>
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.reports.LargeParameterValueHealthReport"/>
+
+  <bean class="jetbrains.buildServer.serverSide.healthStatus.utils.ScheduleTriggerBranchesHelper"/>
+<!--  <bean id="ntpTimeProvider" class="jetbrains.buildServer.serverSide.time.NtpTimeProvider"/>-->
+  <bean id="databaseTimeProvider" class="jetbrains.buildServer.serverSide.time.DatabaseTimeProvider"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.auth.SecuredHealthStatusItemVisibilityTracker">
+    <constructor-arg index="0" ref="hiddenHealthStatusItemVisibilityTracker"/>
+  </bean>
+
+  <bean id="serverProjectExportService" class="jetbrains.buildServer.serverSide.projectsExport.ServerProjectExportService">
+    <constructor-arg index="1" ref="zipFactory"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.projectsImport.impl.ServerProjectsImportManager">
+    <constructor-arg index="0" ref="projectImportEventDispatcher"/>
+    <constructor-arg index="1" ref="bigFileZipFactory"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.projectsImport.impl.ProjectImportSettingsImpl">
+   <constructor-arg index="0" ref="serverSettings"/>
+   <constructor-arg index="1" ref="serverPaths"/>
+ </bean>
+
+  <bean id="projectImportEventDispatcher" class="jetbrains.buildServer.serverSide.projectsImport.ProjectsImportEventDispatcher" autowire-candidate="false">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="buildTypeBranchesEventDispatcher" class="jetbrains.buildServer.serverSide.BuildTypeBranchesEventDispatcher" autowire-candidate="false">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <!-- DiskUsage -->
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.HugeLogs"/>
+  <bean id="diskUsageBean" class="jetbrains.buildServer.serverSide.statistics.diskusage.DiskUsage"/>
+  <bean id="inMemoryProjectDiskUsage" class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.InMemoryProjectDiskUsageImpl"/>
+  <bean id="diskUsageStoreProvider" class="jetbrains.buildServer.serverSide.statistics.diskusage.DiskUsageStoreProviderImpl"/>
+  <bean id="fileSystemFacade" class="jetbrains.buildServer.serverSide.statistics.diskusage.FileSystemFacade"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.DiskUsageTaskExecutor"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.DiskUsageSListener" init-method="register"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.ArtifactStorageDiskUsageInfoProviderImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.ExternalStoragesDiskUsageInfoProviderImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.BuiltInStorageIdAccessorImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.DiskUsageCleanupListener"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.ExternalStorageIdAccessorImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.ExternalStorageDiskUsageInfoFactoryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.ExternalStoragesInfoRegistryUpdater"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.CleanedBuildsCounterImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.statistics.diskusage.impl.ExternalStoragesInfoCustomDataStoragePersisterImpl"/>
+  <!-- DiskUsage end -->
+
+  <!-- Cleanup history -->
+  <bean id="cleanupHistoryRecordFactory" class="jetbrains.buildServer.serverSide.impl.cleanup.history.CleanupHistoryRecordFactoryImpl"/>
+
+  <bean id="cleanupHistory" class="jetbrains.buildServer.serverSide.impl.cleanup.history.CleanupHistoryImpl">
+    <constructor-arg index="0" ref="dbFacade"/>
+    <constructor-arg index="2" ref="cleanupHistoryRecordFactory"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.SuperUserTokenFileProvider"
+        init-method="init"
+        destroy-method="close"
+        autowire-candidate="false"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.VcsLabelingBuildFeature"/>
+
+  <bean class="jetbrains.buildServer.serverSide.buildLog.ObsoleteLogsMigrator"/>
+
+  <bean class="jetbrains.buildServer.vcs.impl.AutoCheckoutDecisionsProcessor"/>
+
+  <bean id="patchEventDispatcher" class="jetbrains.buildServer.serverSide.impl.projectSources.PatchEventDispatcher" autowire-candidate="false">
+    <constructor-arg ref="securityContext"/>
+  </bean>
+
+  <bean id="patchKeepAlive" class="jetbrains.buildServer.serverSide.impl.projectSources.PatchKeepAlive"/>
+
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.IntegerParameter"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.LongParameter"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.BooleanParameter"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.MapParameter"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.TextParameter"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.SelectParameter"/>
+  <bean class="jetbrains.buildServer.serverSide.parameters.types.ParameterTypeManager"/>
+
+  <!-- Artifact Storage customization -->
+  <bean class="jetbrains.buildServer.serverSide.storage.ArtifactStorageTypeRegistryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.storage.ArtifactsStorageSettingsContextProcessor"/>
+  <bean class="jetbrains.buildServer.serverSide.storage.ArtifactsStorageSettingsManagerImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.storage.ArtifactsStorageUsagesProviderImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.storage.ArtifactStorageSettingsMapper"/>
+  <bean class="jetbrains.buildServer.serverSide.storage.ArtifactStoragesWhitelistProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.DefaultParametersForArtifactStorages"/>
+  <!-- end of aritfact storage customization -->
+
+  <bean class="jetbrains.buildServer.templates.EmailTemplates"/>
+
+  <bean class="jetbrains.buildServer.util.HTTPRequestBuilder$DelegatingRequestHandler"/>
+
+  <bean id="activeBuildBranchesUpdater" class="jetbrains.buildServer.serverSide.impl.ActiveBuildBranchesUpdater" init-method="init"/>
+
+  <bean class="jetbrains.buildServer.users.impl.UserProjectVisibility"/>
+
+  <!-- server usage -->
+  <bean id="maxAuthorizedAgentsListenerFactory" class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.MaxAuthorizedAgentsStatsProvider" init-method="init"/>
+  <bean id="predefinedAgentsCountFactory" class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.PredefinedAgentsCount" init-method="init"/>
+  <bean id="maxConcurrentBuildsFactory" class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.MaxConcurrentBuilds" init-method="init"/>
+  <bean id="maxAuthorizedAgentsListener"
+        class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.StoredPeriodicalServerUsageStatsProvider"
+        factory-bean="maxAuthorizedAgentsListenerFactory" factory-method="getProvider"/>
+  <bean id="predefinedAgentsCount"
+        class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.StoredPeriodicalServerUsageStatsProvider"
+        factory-bean="predefinedAgentsCountFactory" factory-method="getProvider"/>
+  <bean id="maxConcurrentBuilds"
+        class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.StoredPeriodicalServerUsageStatsProvider"
+        factory-bean="maxConcurrentBuildsFactory" factory-method="getProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.db.ServerStatisticsStorageImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.ServerVersionStatsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.NodeRoleStatsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.PerUsageLicenseStatsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.ServerIPServerUsageStatsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.ServerURLServerUsageStatsProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.providers.ServerUUIDServerUsageStatsProvider"/>
+  <bean class="jetbrains.buildServer.a.s" init-method="d"/>
+  <bean class="jetbrains.buildServer.a.r"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.serverStatistics.ServerUsageStatsCollectorImpl"/>
+  <!-- server usage end -->
+
+  <bean class="jetbrains.buildServer.serverSide.impl.CompositeBuildStatusBuilder"/>
+
+  <!-- CLOUD -->
+
+  <!-- core -->
+  <bean class="jetbrains.buildServer.clouds.server.impl.profile.CloudProfileIdGenerator"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudRegistryImpl" destroy-method="unregisterAll"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.DBCloudStateManagerImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudInstancesDBPersistor"/>
+  <bean class="jetbrains.buildServer.clouds.server.CloudEventDispatcher"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.profile.CloudProfilePersistorFacade" name="internalCloudPersistor" autowire-candidate="false"/>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudManagerBaseImpl" name="cloudManagerBase" lazy-init="true">
+    <constructor-arg index="1" ref="internalCloudPersistor"/>
+    <property name="agentPoolManager" ref="agentPoolManager"/>
+    <property name="cloudStateHolder" ref="cloudStateHolder"/>
+  </bean>
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudManagerAgentPoolEventListener"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudQuotaCheckerImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.AgentCloudRelationImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.StartingCloudInstanceTokens"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.StartInstanceAction"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.StartInstanceUserActionImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.StopInstanceAction"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.StopInstanceQueueImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.profile.DeleteProfileAndStopInstancesAction"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.profile.DeleteImageAndStopInstancesAction"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.profile.DisposeClientAndStopInstancesAction"/>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.SecuredCloudInstancesProvider" name="cloudInstanceProvider" lazy-init="true">
+    <property name="runningAgentsTracker" ref="runningAgentsTracker"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudStateHolder" name="cloudStateHolder">
+    <constructor-arg index="0" ref="cloudInstanceProvider"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.ReadonlyClientFactory"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.ImageWithAgentUpdater"/>
+  <bean class="jetbrains.buildServer.clouds.server.serverHealth.CloudImageWarnings"/>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudManagerFacade" name="internalCloudManagerFacade" autowire-candidate="false"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.SecuredCloudManager">
+    <constructor-arg ref="internalCloudManagerFacade" index="1"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudEventsLogger"/>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.CloudStatisticsProviderImpl"/>
+
+  <!--<bean class="jetbrains.buildServer.clouds.server.impl.instances.RunningAgentsTrackerImpl"/>-->
+
+  <!-- running agents tracker -->
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.RunningInstanceTrackerImpl" name="runningAgentsTracker" lazy-init="true">
+    <property name="cloudInstanceProvider" ref="cloudInstanceProvider"/>
+  </bean>
+
+  <bean class="jetbrains.buildServer.clouds.server.instances.terminate.TerminateConditionsFactory"/>
+  <!--TODO: uncomment after 2017.1 EAP 1 -->
+  <!--<bean class="jetbrains.buildServer.clouds.server.instances.terminate.AfterNBuildsTerminateFactory"/>-->
+  <bean class="jetbrains.buildServer.clouds.server.instances.terminate.AfterFirstBuildTerminateFactory"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.terminate.AfterNMinutesWorkTerminateFactory"/>
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.UpdateInstancesCollectionFactoryImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.RunningInstanceTaskFactory"/>
+
+  <!--profiles persist -->
+  <bean class="jetbrains.buildServer.clouds.server.impl.profile.SecuredCloudProfilePersistor">
+    <constructor-arg index="1" ref="internalCloudPersistor"/>
+  </bean>
+
+
+
+  <bean class="jetbrains.buildServer.clouds.server.impl.auth.ServerCloudSecurityImpl"/>
+
+  <!-- agent types -->
+  <bean class="jetbrains.buildServer.clouds.server.agentTypes.CloudAgentTypeProviderImpl"/>
+
+  <!-- queue support -->
+  <bean class="jetbrains.buildServer.clouds.server.impl.virtual.VirtualAgentsProviderImpl">
+    <constructor-arg index="0" ref="internalCloudManagerFacade"/>
+  </bean>
+
+  <!-- ssl certificates -->
+  <bean id="hiddenUserSSLTrustStoreManager" class="jetbrains.buildServer.serverSide.impl.ssl.UserSSLTrustStoreManager" init-method="init" autowire-candidate="false"/>
+  <bean id="userSSLTrustStoreManager" class="jetbrains.buildServer.serverSide.impl.ssl.SecureUserSSLTrustStoreManager">
+    <constructor-arg index="0" ref="hiddenUserSSLTrustStoreManager"/>
+  </bean>
+  <!-- ssl certificates end -->
+
+  <!-- HTTPS ACME tools -->
+  <bean class="jetbrains.buildServer.serverSide.impl.ssl.acme.AcmeAccountStorageImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.ssl.acme.LetsEncryptAcmeService"/>
+  <!-- HTTPS ACME tools end -->
+
+  <!-- build queue -->
+  <bean class="jetbrains.buildServer.serverSide.impl.StuckBuildDetector"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.StuckQueuedBuildsRemover"/>
+  <!-- build queue end -->
+
+  <!-- misc -->
+  <bean class="jetbrains.buildServer.clouds.server.instances.terminate.AgentRemoverImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.AuthorizeCloudAgent"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.instances.AuthorizedCloudInstancesImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.CleanupObsoleteInstances"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.CleanupObsoleteInstancesTask"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.CleanupObsoleteIntancesAction"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.terminate.KillIdleRunningInstances"/>
+  <bean class="jetbrains.buildServer.clouds.server.instances.BuildStartFilter" />
+  <bean class="jetbrains.buildServer.clouds.server.agentTypes.CloudAgentNameGenerator"/>
+  <bean class="jetbrains.buildServer.clouds.server.serverHealth.CloudAgentsIdleHealthReport"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.projects.ProjectCredentialsStorage"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.MultiNodesEventsDbImpl" name="multiNodesEvents"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.MultiNodeTasksDbImpl" name="multiNodeTasks"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.MultiNodeLocksDbImpl" name="multiNodeLocks"/>
+  <bean class="jetbrains.buildServer.serverSide.BuildsRelatedMultiNodeTasks" name="buildsRelatedMultiNodeTasks"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.StopBuildTasks" name="stopBuildTasks"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.agent.MultiNodeAgentCommandsListener" name="multiNodeTasksAgentCommandsListener"/>
+
+  <bean class="jetbrains.buildServer.serverSide.impl.ServerCleanupEvents">
+    <constructor-arg index="3" ref="buildStateHelper"/>
+  </bean>
+  <bean id="projectEventsNotifier" class="jetbrains.buildServer.serverSide.impl.projects.ProjectEventsNotifier"/>
+
+  <bean id="serverMetrics" class="jetbrains.buildServer.metrics.ServerMetricsFactory" destroy-method="dispose"/>
+  <bean id="statisticsValueMetrics" class="jetbrains.buildServer.stats.StatisticsValueMetrics"/>
+  <bean id="buildQueueProcessingMetrics" class="jetbrains.buildServer.serverSide.impl.buildDistribution.BuildQueueProcessingMetrics"/>
+
+  <bean id="hiddenPresignedTokenStorage" class="jetbrains.buildServer.serverSide.auth.presigned.impl.InMemoryPresignedTokenStorage" autowire-candidate="false"/>
+  <bean id="presignedTokenStorage" class="jetbrains.buildServer.serverSide.auth.presigned.impl.SecurePresignedTokenStorage">
+    <constructor-arg index="0" ref="hiddenPresignedTokenStorage"/>
+  </bean>
+  <bean class="jetbrains.buildServer.serverSide.auth.resetPassword.ResetPasswordHandler"/>
+
+  <bean class="jetbrains.buildServer.responsibility.history.TestInvestigationAuditLog"/>
+  <bean class="jetbrains.buildServer.responsibility.history.BuildProblemInvestigationAuditLog"/>
+  <bean class="jetbrains.buildServer.responsibility.history.BuildTypeInvestigationAuditLog"/>
+
+  <bean class="jetbrains.buildServer.requirements.impl.AgentGeneralRequirementsManagerImpl"/>
+
+  <bean id="defaultParametersForIssueProviders" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForIssueProviders"/>
+  <bean id="defaultParametersForConnectionProviders" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForConnectionProviders"/>
+  <bean id="defaultParametersForExecutors" class="jetbrains.buildServer.serverSide.impl.DefaultParametersForExecutors"/>
+  <bean id="agentlessBuildExecutionManager" class="jetbrains.buildServer.serverSide.agentless.AgentlessBuildExecutionManager"/>
+  <bean class="jetbrains.buildServer.serverSide.agentless.AgentlessBuildParametersProvider"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.httpProxy.ProxyVersionsCollector"/>
+  <bean id="executorModeBuildVerifier" class="jetbrains.buildServer.serverSide.agentless.ExecutorModeBuildVerifier"/>
+
+  <bean id="virtualProjectGenerator" class="jetbrains.buildServer.virtualConfiguration.generator.impl.VirtualProjectGeneratorImpl"/>
+  <bean class="jetbrains.buildServer.virtualConfiguration.generator.impl.VirtualPromotionGeneratorFactoryImpl" />
+  <bean class="jetbrains.buildServer.virtualConfiguration.processor.impl.AddGeneratedPromotionsToGraphPreprocessor" />
+  <bean class="jetbrains.buildServer.virtualConfiguration.processor.impl.FreezeVirtualConfigurations" />
+  <bean class="jetbrains.buildServer.virtualConfiguration.processor.impl.CleanupUnlinkedGeneratedProjects" />
+
+  <bean id="jdkManager" class="jetbrains.buildServer.serverSide.JdkPackageManager"/>
+  <bean id="agentJdkBundleRegistry" class="jetbrains.buildServer.serverSide.impl.agent.AgentJdkBundleRegistryImpl"/>
+
+  <bean class="jetbrains.buildServer.serverSide.parameters.remote.RemoteParametersContextProcessor"/>
+
+  <bean id="deploymentDashboardStorage" class="jetbrains.buildServer.serverSide.deploymentDashboards.storage.JSONBasedDeploymentDashboardStorage" />
+
+  <bean id="deploymentDashboardManager" class="jetbrains.buildServer.serverSide.deploymentDashboards.DeploymentDashboardManager" />
+
+  <bean id="typedValueSetsProvider" class="jetbrains.buildServer.serverSide.parameters.TypedValueSetsProviderImpl" />
+  <bean class="jetbrains.buildServer.serverSide.parameters.typed.OperatingSystemValueSet" />
+  <bean class="jetbrains.buildServer.serverSide.parameters.typed.JdkTypedValueSet" />
+  <bean class="jetbrains.buildServer.serverSide.parameters.typed.AgentArchitectureValueSet" />
+
+  <bean class="jetbrains.buildServer.clouds.server.serverHealth.DuplicateCloudProfileHealthReport"/>
+  <bean class="jetbrains.buildServer.clouds.server.serverHealth.CloudProfileValidationHealthReport"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.fus.FusRegistryImpl"/>
+  <bean class="jetbrains.buildServer.serverSide.impl.fus.UsageStatisticsSettingsPersistor"/>
+
+  <!--executors -->
+  <bean class="jetbrains.buildServer.clouds.server.impl.executors.BuildExecutorsManagerImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.executors.ExecutorDescriptionFetcherImpl"/>
+  <bean class="jetbrains.buildServer.clouds.server.impl.executors.ExecutorCompatibilityManagerImpl"/>
+
+  <bean id="dslExtensionsService" class="jetbrains.buildServer.configs.dsl.extensions.DslExtensionsService"/>
+  <bean id="coreDslExtensionsBeanFactory" class="jetbrains.buildServer.configs.dsl.extensions.core.CoreDslExtensionsBeanFactory"/>
+  <bean id="coreUiSchemaExtensionsBeanFactory" class="jetbrains.buildServer.configs.dsl.extensions.plugins.CoreUiSchemaExtensionsBeanFactory"/>
+
+  <!--dynamic build chains -->
+  <bean id="createGeneratorBuild" class="jetbrains.buildServer.serverSide.dynamic.CreateGeneratorBuild"/>
+  <bean id="dynamicChainGenerator" class="jetbrains.buildServer.serverSide.dynamic.DynamicChainGenerator"/>
+
+</beans>

@@ -1,0 +1,1008 @@
+[
+  {
+    "path": "bin/catalina.sh",
+    "sha256": "ecd602add5bc86016e163a933e54a468c025bede0b70b5b020c010f01b777fcf",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bin/catalina.sh"
+  },
+  {
+    "path": "bin/teamcity-server.sh",
+    "sha256": "6daf0fc6dad7d770d55a510ad2766e85059788444bf02ab44bfa699ffe8eda3e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bin/teamcity-server.sh"
+  },
+  {
+    "path": "buildAgent/bin/agent.sh",
+    "sha256": "810c9cbdf073d9b7642ab871d35a5141c942da23d4463d06f52a61f233ef722f",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/buildAgent/bin/agent.sh"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/buildServerConfigurator.xml",
+    "sha256": "fdb4ed54fe3432f8538caa31cf4a2c7150b387645f3456d5f0ce07b573f10df4",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/buildServerConfigurator.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/buildServerSpringWeb.xml",
+    "sha256": "087a13fb69f2c6a0b37c150a8a1418be2fdfe5ba3a138daf06b655cf72be63b2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/buildServerSpringWeb.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/web.xml",
+    "sha256": "54f82f17646d13ec30ea218482d9b116d3b85b0ad8ce5c6fd59ee1a18ce578d2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/web.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/Ant/teamcity-plugin.xml",
+    "sha256": "87ecf4bcc8038b109685aa84a6e80b422096118d4953592d89a2f210ed233621",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/Ant/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/Duplicator/teamcity-plugin.xml",
+    "sha256": "ef65e45fb07105ffb436ba4caa519d064e4c473ecd5e9fd1a80e814b6cbfabc8",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/Duplicator/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/Inspection/teamcity-plugin.xml",
+    "sha256": "58db5a3c68450f27ddb5e713c8d13853aa8e1523d086dfc818dd1c08ec4d1788",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/Inspection/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/Ipr/teamcity-plugin.xml",
+    "sha256": "af5c210f08b534ca2740e4941885f479192e1becb745cb88d4846eac6aa19667",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/Ipr/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/WindowsTray/teamcity-plugin.xml",
+    "sha256": "cfa8858a6ab96a2256923b5cac1194fabdca1f1621ec806c4b3ad827fa299c06",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/WindowsTray/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/agent-system-info/teamcity-plugin.xml",
+    "sha256": "6243b528fb65b91bfa9a30a4b97a4dcd5ae150f76f18a52ed7e803805bc34e7f",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/agent-system-info/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/agent.push/teamcity-plugin.xml",
+    "sha256": "b75003c1d4aaa070b15eec3d3e27f4c0ac2d0f0470ff69c19ad2ccac526603d5",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/agent.push/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/ant-net-tasks/teamcity-plugin.xml",
+    "sha256": "7483dae8444c9bc8c2a0cf85b135e79189d4359d06ecfa67e58fc9c32a67fb48",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/ant-net-tasks/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/ant-tool/teamcity-plugin.xml",
+    "sha256": "43602028d9a3d492f03a045210cd944271a5c1c2709c8567b540c45fe762f87c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/ant-tool/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/artifactsSizeStatistics/teamcity-plugin.xml",
+    "sha256": "e1cd25fa98e9982cd4b8d07945662aacbd0169122f6c18e173289d70697f444c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/artifactsSizeStatistics/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/bugzilla/teamcity-plugin.xml",
+    "sha256": "940859b719e0a6a6fc0dbf3a75298f4facb7124032058c7c216d458d348ee183",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/bugzilla/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/buildDurationStatisticsPlugin/teamcity-plugin.xml",
+    "sha256": "5bf3a8f2bb6e256b8dffc51adf49c2d96431aea4a58430343f710b68e97c4fbf",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/buildDurationStatisticsPlugin/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/commandLineRunner/teamcity-plugin.xml",
+    "sha256": "db3bc4de72edcf59d0e6d6fcb2f8abc6d4086ac51e722e67b77ace33dde2a6a2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/commandLineRunner/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/coverage/teamcity-plugin.xml",
+    "sha256": "10b76170b779062c11fb29386bac520254a149a1d826f12bc88663c2f8b82c8f",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/coverage/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/crash-detector/teamcity-plugin.xml",
+    "sha256": "8f7e002ffa28468011b2d6f51e6d367ccaaaad9c83b5226e4d47fa0c76eb7178",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/crash-detector/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/data-dir/teamcity-plugin.xml",
+    "sha256": "7ef9abbfb5509ce1cfb6cc84b8590e48e17caa0b36717ebb130ccdd0c8a66975",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/data-dir/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/email/teamcity-plugin.xml",
+    "sha256": "ffc3da631cbda2021f36a0dd3964b3c0abbc46e1fd849e431eb3261fe0385a2a",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/email/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/environment-fetcher/teamcity-plugin.xml",
+    "sha256": "ac5655c8ba184679f58e4f3aadad9e3d4ba668cba9c311eae102c2009b5000b9",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/environment-fetcher/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/file-content-replacer/teamcity-plugin.xml",
+    "sha256": "883ea83227d2819cdd1eb010ab09919886845bb515afbeb6dedc906088bd04ab",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/file-content-replacer/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/flaky-test-detector/teamcity-plugin.xml",
+    "sha256": "8211be8c206ee877796e15f753c7f7d6bd445273ffb911e88f5f6e53cebb4ae2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/flaky-test-detector/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/gant-tool/teamcity-plugin.xml",
+    "sha256": "d6f9cef8dfc7d3722d2a3df7868fdeecaa027142a3b93cf5cc187e150ee1b436",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/gant-tool/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/gantRunner/teamcity-plugin.xml",
+    "sha256": "7935394138294e5527c15996019594f365d37f9cc8981dae8fb1a0a449f665ac",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/gantRunner/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/idea-tool/teamcity-plugin.xml",
+    "sha256": "0a4473f97ec028cdd3fd8b7d6a2dc143e40f73736014db5167b5c9184bea774e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/idea-tool/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/java-dowser/teamcity-plugin.xml",
+    "sha256": "7a6bd3e1262881694337113d810e44606e57feeeb1811ec353e3ed5ab7537675",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/java-dowser/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/jps-tool/teamcity-plugin.xml",
+    "sha256": "8c74f34462851131231a137165cd6b2eeeb88f0277e46c1158f619cc4b9e1ad6",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/jps-tool/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/jvm-update/teamcity-plugin.xml",
+    "sha256": "faf7944fe2100375902b518d1fe82d89fec1a9ab206f389e39a0c538f9075659",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/jvm-update/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/ldap/teamcity-plugin.xml",
+    "sha256": "cc2ce8fdc51412cce06f33c483ac3f3ba68fcd38b80b318c618eb5b19c58f8ce",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/ldap/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/nt-domain-login/teamcity-plugin.xml",
+    "sha256": "4dd390f33c0fac497050b1768ccda11101dc6f08d79ab5cc7db0dae6a1418f60",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/nt-domain-login/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/overview-plugin/teamcity-plugin.xml",
+    "sha256": "c18241de997cc1f331d1a9f82d553de0e07bbc091ad2edf500339dea882f8c7b",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/overview-plugin/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/perforce/teamcity-plugin.xml",
+    "sha256": "57cf1411906329fbd8f94e9a231553270378599fc4f07b4c9ad296a6cb08e9cb",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/perforce/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/priority-queue/teamcity-plugin.xml",
+    "sha256": "2bdaea758f9de5f7ad5c4f6e1b3a504dd51a08b10412ebfd9dbb9b3be19bb1b0",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/priority-queue/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/queue-pauser/teamcity-plugin.xml",
+    "sha256": "fd9e29e9c0a0fa11187a7f82b85868963a1cdacfa0bfb2975166c0827d5a934a",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/queue-pauser/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/rake-runner/teamcity-plugin.xml",
+    "sha256": "0d28b37939c1c6e7b41165db6cb2427cc3a94464adebb210785597a8ff081d30",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/rake-runner/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/remoteAccess/teamcity-plugin.xml",
+    "sha256": "a6da792008f9a7a7e28594be92f103d4a1a4a0c97b7f9890b58395f22878af99",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/remoteAccess/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/rest-api/teamcity-plugin.xml",
+    "sha256": "d25e8493187eb3f96f5d86b5a85c98ebf20b8c60639871cbeb1906158097b196",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/rest-api/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/rest-api-contrib/teamcity-plugin.xml",
+    "sha256": "b21f302eee4311febb456a95e4ab8874c63a9cded6f212edd6cd30a77eec73f4",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/rest-api-contrib/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/searchBuildByNumber/teamcity-plugin.xml",
+    "sha256": "f406031314d35ccad054186b3e1c20623df9b8b6f0e14364b802c06c07becf00",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/searchBuildByNumber/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/ssh-manager/teamcity-plugin.xml",
+    "sha256": "ec0f198ec16b0f20ef263014c7936c326aa68a61891f07ee3e26258c4b8aebbb",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/ssh-manager/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/stacktraces/teamcity-plugin.xml",
+    "sha256": "cccc7f4bebe6016889358dc81fecb03ccbf5d12cdacd3d9ea3e83274e8c253ab",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/stacktraces/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/starteam/teamcity-plugin.xml",
+    "sha256": "654d76bf112cb2ec503ab0ffcea591b0db7192e40b1e372d9d9881fe0b2335dd",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/starteam/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/support-plugin/teamcity-plugin.xml",
+    "sha256": "f762df9b893f4740aa99d247eac176fdd79b988cdb55fdf0e7a4b611cc76a4b0",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/support-plugin/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/svn/teamcity-plugin.xml",
+    "sha256": "1b4a6fe23bc545a117b9b528e221fb972a894b24db802cb1fb03a75ef9506ffc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/svn/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/teamcity-compare-builds/teamcity-plugin.xml",
+    "sha256": "6ada69c4d39e3c2409db03b5e6c4325cc8b2877db0e680d4c49dab3db339ec2e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/teamcity-compare-builds/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/tfs/teamcity-plugin.xml",
+    "sha256": "2c5d242bf43824f33e0279e2a1b04bfcdd6897df20ae14e95732f5c7ff5bbc08",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/tfs/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/unified-ui/teamcity-plugin.xml",
+    "sha256": "21e85979d8a8a0063a9d20348837d05089d83032bca589025117d7b2e5edd910",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/unified-ui/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/usage-statistics/teamcity-plugin.xml",
+    "sha256": "81d2c37e14cc5789142c794f2ea3ada480b6a97325204dd0c84c7ff7a2db5254",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/usage-statistics/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/vs-addin-distributor/teamcity-plugin.xml",
+    "sha256": "a37da0e1b2dacb75d3ed2d0a1113126fac650edae28b9b50f96de3c4fdb3f2f7",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/vs-addin-distributor/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/xcode-runner/teamcity-plugin.xml",
+    "sha256": "57738b2e04e6d38b1b96686ff53199a4407e7dca43ad4897d3dad4b3ec8ebf4e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/xcode-runner/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/xml-report-plugin/teamcity-plugin.xml",
+    "sha256": "36b40b93f2f49991e3c1b3497c3e518f96a92ff44902e8a3368cedc5d71002e7",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/xml-report-plugin/teamcity-plugin.xml"
+  },
+  {
+    "path": "webapps/ROOT/WEB-INF/plugins/youtrack/teamcity-plugin.xml",
+    "sha256": "9830638a37b8e19cadb0675b3e127f8441e7b2b89eb878bd102cd724a4cd5586",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/webapps/ROOT/WEB-INF/plugins/youtrack/teamcity-plugin.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/pipelines-server.jar",
+    "member": "META-INF/buildServerSpring-pipelines.xml",
+    "sha256": "701b1a4acbd547fe4e4a92e6de0ea5a1992bd50f72681a31d87d644c3dacd741",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/701b1a4acbd547fe4e4a92e6de0ea5a1992bd50f72681a31d87d644c3dacd741.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/remote-api-impl.jar",
+    "member": "META-INF/buildServerSpring-RemoteApiImpl.xml",
+    "sha256": "71de5a7b39993e4fe2f21c5370c08f221911699cee33954a944fc4777c0d80cc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/71de5a7b39993e4fe2f21c5370c08f221911699cee33954a944fc4777c0d80cc.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/messages-processing.jar",
+    "member": "META-INF/buildServerSpringMessagesProcessing.xml",
+    "sha256": "c0c8615c9765ce8459d69a9015cb8ffa5993ac44f1a0074c4e4454062cb6f526",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c0c8615c9765ce8459d69a9015cb8ffa5993ac44f1a0074c4e4454062cb6f526.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/feedback-server.jar",
+    "member": "META-INF/buildServerSpring-feedback.xml",
+    "sha256": "7c55b49c0e1ef2d2b440f2891bbcc6f7fa4dfc1b1290b610d5bc5deb19c3fea8",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/7c55b49c0e1ef2d2b440f2891bbcc6f7fa4dfc1b1290b610d5bc5deb19c3fea8.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_cloudscape.sql",
+    "sha256": "d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2bfdad712fae9097e0822c25c88f1e79e3ef51d836a3f1bef20458a769ba493.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_cubrid.sql",
+    "sha256": "2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2049910fb6a6bb6e0e66c65bf351070721384ab8952fb5093bba7e978e3fb78a.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_db2.sql",
+    "sha256": "aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/aafce445a060b24eb846151c8cb0eaee386bd6bc457cf48f6f71801960e1055e.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_db2_v72.sql",
+    "sha256": "8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8d55d689d5dac97037765b932338cdc23ed7284e83c8a4c8c499f83f7d946854.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_db2_v8.sql",
+    "sha256": "00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/00c1b91043fa3d070aac823f4395cb00f0a72d69f57eb6e3bb8b3a774ad44231.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_db2_v95.sql",
+    "sha256": "16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/16cfc690aa36ea7267249898fb314b070f1f201bf4c4badf240a71d91ce8a0b3.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_derby.sql",
+    "sha256": "c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c55ef24d662c51bbeaebae0c5169a03df0ee7c35d6826da6d972d492eba41d16.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_derby_previous.sql",
+    "sha256": "f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f03293e7ff5e0fef5e4cbde494001027d209a7b552edaa8a69f185ea1b7faecc.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_firebird.sql",
+    "sha256": "4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4b0c432593b9d9d972dee638238b4b43ebf2177d930ac77ccd3f99155180a4e2.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_h2.sql",
+    "sha256": "21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/21d806abef330e7c7175491b55b730acffa3c2e17a910840b32eee3fe2bf9fed.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb.sql",
+    "sha256": "bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bcb7f53fb00e348c66dcd2093c3f8bc4b7a18ddb63ba2a7e5ccc8ca2074dd3ce.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_hsqldb_old.sql",
+    "sha256": "b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b693c258036c6070122c004898ec287eb71b28d9685b5c50c95585e52d4995a1.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_informix.sql",
+    "sha256": "2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2a935a87fc2439b0e2acb90e0c450aea693c48d6dc40256b1d5f5e6f5b96d965.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_mysql.sql",
+    "sha256": "01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/01e99c010d2d0b46aa3da517a089b967358c19ec5f1632ee2dfadb8b2013b7bc.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_mysql_innodb.sql",
+    "sha256": "90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/90453cda26f4aad8abd35195a38ec36306561f0265f766dd12fbb42e185d5f82.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_oracle.sql",
+    "sha256": "a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a8526085becbb61fb48880a3fbcf5afa7b048b84e2e74952324f99ccb26daab8.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_pointbase.sql",
+    "sha256": "8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8db8128b4ea44b95cef58a7383cec86fe8a90f4899602c62deb41ada6f726867.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_postgres.sql",
+    "sha256": "60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60d22e05e00203702f18f835916c75270aeb6828e7051bb81dd87ebd7bf6a943.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_sapdb.sql",
+    "sha256": "d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d67ba62e05e7949ed2a7af7b16c49a3573ec07006f860888ab6308faf5fa8275.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_solid.sql",
+    "sha256": "df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/df0dfdf2e79dcd2530b762748164d49675151f738a6ff17b76aa61567b2c0076.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_sqlServer.sql",
+    "sha256": "d0bdc89f139be9c99b6d5f09fb480c87436a87877605966d25f932a599d26f3c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d0bdc89f139be9c99b6d5f09fb480c87436a87877605966d25f932a599d26f3c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/quartz.jar",
+    "member": "org/quartz/impl/jdbcjobstore/tables_sybase.sql",
+    "sha256": "75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/75337350d9b58b2b0065c765ddbc0022ef5d502cfa8f527afeafacb16b0522ac.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+    "member": "org/hsqldb/resources/information-schema.sql",
+    "sha256": "89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/89cf0483ee8d1f938414006e69729b142ecbfa96bdb51f44e8bcacf21aa6ca53.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/hsqldb.jar",
+    "member": "org/hsqldb/resources/lob-schema.sql",
+    "sha256": "28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/28ad17c8702135331be670ff612c10c237dd4b3585693b04aa6d42c3f6e7441c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/coverage-server-common.jar",
+    "member": "META-INF/buildServerSpringCoverage.xml",
+    "sha256": "59505a41c1e08c349f4f80d677ccc64c8694f2c6d27c94bfae105a79e789e525",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/59505a41c1e08c349f4f80d677ccc64c8694f2c6d27c94bfae105a79e789e525.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-vcs-api.jar",
+    "member": "META-INF/buildServerSpringVcsApi.xml",
+    "sha256": "f89a0a835ba15cebc2d49fc612260c6a0d99082028c3bdce660424141981dfe6",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f89a0a835ba15cebc2d49fc612260c6a0d99082028c3bdce660424141981dfe6.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "member": "META-INF/buildServerSpringMetadata.xml",
+    "sha256": "4314da5776faccec0636481f402ff5cf4d140c5750c02dbf440138375356a66a",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4314da5776faccec0636481f402ff5cf4d140c5750c02dbf440138375356a66a.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "member": "META-INF/buildServerSpring.xml",
+    "sha256": "bf7a2db6f377bb7008646d8fcda3744e6656c883b1189c0afb7f0e8be83c9752",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bf7a2db6f377bb7008646d8fcda3744e6656c883b1189c0afb7f0e8be83c9752.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "member": "META-INF/buildServerSpringCreateAll.xml",
+    "sha256": "5355185af8bd480e64e330c4c5f5d5541182a1b9c10b48e392ddd179e03658da",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/5355185af8bd480e64e330c4c5f5d5541182a1b9c10b48e392ddd179e03658da.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "member": "META-INF/buildServerSpringStatistics.xml",
+    "sha256": "26f32b42eb0dfbf43c9909eafb2593995115dc9a0c16344e9a27a193b0fe2405",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/26f32b42eb0dfbf43c9909eafb2593995115dc9a0c16344e9a27a193b0fe2405.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-diagnostic.jar",
+    "member": "META-INF/buildServerSpringDiag.xml",
+    "sha256": "e53245c3c35c5f9e8bab8d9372a3a89a9efc2f38942e69c9c1263b5585517825",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e53245c3c35c5f9e8bab8d9372a3a89a9efc2f38942e69c9c1263b5585517825.xml"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/redefine_agent_type_details.sql",
+    "sha256": "f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f1caacc2491cd0825bd4a8139805ffdba67c25dede2cfd77c11c451396d49f22.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_table_test_info_trunk.sql",
+    "sha256": "9ebb3668ee6d22c7dca0c81f59449b3e95017741528bc02c89f4656eaaec1ae4",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9ebb3668ee6d22c7dca0c81f59449b3e95017741528bc02c89f4656eaaec1ae4.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_6.sql",
+    "sha256": "ddd0d21b4ce394bb47f19b19d95dc6e52006772034e20da5c39ea3d18ced1c8d",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/ddd0d21b4ce394bb47f19b19d95dc6e52006772034e20da5c39ea3d18ced1c8d.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/associate_root_project_with_default_pool.sql",
+    "sha256": "15f0bdfb831853a20f16ccc18a56d12b43c636c04cc0c4d4026ebffbc87d7863",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/15f0bdfb831853a20f16ccc18a56d12b43c636c04cc0c4d4026ebffbc87d7863.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_config_table.sql",
+    "sha256": "1fc2d11bbca7206f49985db1864e6dade8a99582e43cce8e4bc965653ab3b339",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1fc2d11bbca7206f49985db1864e6dade8a99582e43cce8e4bc965653ab3b339.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_table_for_cleaned_history_entries.sql",
+    "sha256": "9c9c1af41327e63966b86a82d5fa3fcdcf49fc7e388ff7e77626afa8575f2a47",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9c9c1af41327e63966b86a82d5fa3fcdcf49fc7e388ff7e77626afa8575f2a47.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_status_column_to_build_labels.sql",
+    "sha256": "a5feca6eed46df1e5f6f551322292e0f3bafc33c227b0ee53b44635967fa53c3",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a5feca6eed46df1e5f6f551322292e0f3bafc33c227b0ee53b44635967fa53c3.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_data_storage_dict_table.sql",
+    "sha256": "d2260d6d44c2d89f0d1305e3bebe1e524066399c06fb2ecabc11559df60195e8",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d2260d6d44c2d89f0d1305e3bebe1e524066399c06fb2ecabc11559df60195e8.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_project_table.sql",
+    "sha256": "b5a64884b5091b533b5c8ca11f0331e64b9cce56c780c917617c45d64cf3c35d",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b5a64884b5091b533b5c8ca11f0331e64b9cce56c780c917617c45d64cf3c35d.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/incorrect_responsibilities_cleanup.sql",
+    "sha256": "cf463de93a03afc0a5dbfbfa971e1733090623db7c1e665ee7baa714af9854c2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/cf463de93a03afc0a5dbfbfa971e1733090623db7c1e665ee7baa714af9854c2.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_type_tables.sql",
+    "sha256": "712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/712edfc1ee479a09496a5b476be31fc750304df74b20e4f2b77973a979562234.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_agent_pools.sql",
+    "sha256": "e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e36efc35df06550d2df19b094ae657de2e33ff6e085022fed333b506279efa7c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/update_metrics_in_database_for_new_constants.sql",
+    "sha256": "6a6da0a39c8cda1eaab1c652514e1dd06cd15639f74024be5423e839780406fb",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/6a6da0a39c8cda1eaab1c652514e1dd06cd15639f74024be5423e839780406fb.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/table_build_tags.sql",
+    "sha256": "1e1a1e7ef6c84cfb51e9948d30829114b25adbe3597571a707f6bc4f80d0561f",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1e1a1e7ef6c84cfb51e9948d30829114b25adbe3597571a707f6bc4f80d0561f.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/agent_pool_project.sql",
+    "sha256": "0b0850f220407b5eb436fdc04a2e5252c0e371e5524b99049d039439ca39d28c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/0b0850f220407b5eb436fdc04a2e5252c0e371e5524b99049d039439ca39d28c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_clean_checkout_enforcement_table.sql",
+    "sha256": "3b26684437624d91fadf52ecb06258a516ca08005dd218a41ee6ac56334fc306",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/3b26684437624d91fadf52ecb06258a516ca08005dd218a41ee6ac56334fc306.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_1.sql",
+    "sha256": "595f768c9d06944db8257504863aa55321d29046fde00b5198db249f59418d15",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/595f768c9d06944db8257504863aa55321d29046fde00b5198db249f59418d15.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/update_clean_checkout_enforcement_remove_id.sql",
+    "sha256": "9e44446fb5f05f061620a1e5d34230b0ced33baf71d70e408407c9a59a89ab49",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9e44446fb5f05f061620a1e5d34230b0ced33baf71d70e408407c9a59a89ab49.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_build_status_column_to_statistics_table.sql",
+    "sha256": "ce382779a6747ffb6175c21a1dd47bd4fd007cecb4fc771ca2fc42aaf24c0436",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/ce382779a6747ffb6175c21a1dd47bd4fd007cecb4fc771ca2fc42aaf24c0436.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_vcs_revision_display_name_column_in_build_revisions_table.sql",
+    "sha256": "c89b4f38122a383404f19d2eb0ef0348f1060681f6c561a7395f12d94fd67d87",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c89b4f38122a383404f19d2eb0ef0348f1060681f6c561a7395f12d94fd67d87.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_build_problem_to_failed_builds.sql",
+    "sha256": "a4803f4fbf3ab0a106ac9a7433db00d3e7dbd76b0040149c424c4144a5f9acd7",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/a4803f4fbf3ab0a106ac9a7433db00d3e7dbd76b0040149c424c4144a5f9acd7.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_index_on_test_duration_statistics.sql",
+    "sha256": "c04c85fce53674384c9ab97fe9b4fdc55d2e5ac7222023434e2c7332ab7abfbe",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c04c85fce53674384c9ab97fe9b4fdc55d2e5ac7222023434e2c7332ab7abfbe.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_server_health_items_table.sql",
+    "sha256": "f743d81653b75d4b48170f2c1337d7431a6b6305e7ed06b284fbc1f2919f1b36",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f743d81653b75d4b48170f2c1337d7431a6b6305e7ed06b284fbc1f2919f1b36.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/two_indices_for_inspections.sql",
+    "sha256": "e4828e7a2296287970de3c98a5b48b4a351974bf40cbc78eff35f6b418e013e0",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e4828e7a2296287970de3c98a5b48b4a351974bf40cbc78eff35f6b418e013e0.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_action_history_table.sql",
+    "sha256": "040165fdb7067c870c72e40cc3ff9890297a4562386240b9580934d24f8f70a2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/040165fdb7067c870c72e40cc3ff9890297a4562386240b9580934d24f8f70a2.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_rule_id_index.sql",
+    "sha256": "6f34d7ff1617c3ad00eeb6df83021a7616b710ff874b894b1ba9ea7afa09f661",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/6f34d7ff1617c3ad00eeb6df83021a7616b710ff874b894b1ba9ea7afa09f661.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/perform_not_performed_cleanup_of_action_history.sql",
+    "sha256": "baf7d0d2a716d160f452e06962d9ca76884d8f5b9e615b8397a629ce02a715bc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/baf7d0d2a716d160f452e06962d9ca76884d8f5b9e615b8397a629ce02a715bc.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_user_notification_events_user_id_index.sql",
+    "sha256": "eef136708d74ac4b4a739bb0d850a0adb4edc075538f31c420b422da49368791",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/eef136708d74ac4b4a739bb0d850a0adb4edc075538f31c420b422da49368791.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/alternative_key_for_inspection_info.sql",
+    "sha256": "63035abb0640ac704fda7b41bf6dfd27fce4b4e5e2091612e64937590945597e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/63035abb0640ac704fda7b41bf6dfd27fce4b4e5e2091612e64937590945597e.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/change_test_metadata_tables.sql",
+    "sha256": "347e0aab54ee433ce2c9f8ff5d1e41a42273baf72059086787e4f676c699b585",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/347e0aab54ee433ce2c9f8ff5d1e41a42273baf72059086787e4f676c699b585.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_2.sql",
+    "sha256": "f5fc24a00f51354fc250397e8ac836060f972ab5277c5f81f63e6325f86403ab",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f5fc24a00f51354fc250397e8ac836060f972ab5277c5f81f63e6325f86403ab.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_depends_on_index_on_build_dependency_table.sql",
+    "sha256": "74a30d58f7886f869c4d00a9a2784c49db4ee1feef8c7673ee34341cc80e0ae3",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/74a30d58f7886f869c4d00a9a2784c49db4ee1feef8c7673ee34341cc80e0ae3.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_3.sql",
+    "sha256": "2e62344f83db80b1255a406501c1aea88d2efb65a4e6d81b35fe64ad986c927a",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/2e62344f83db80b1255a406501c1aea88d2efb65a4e6d81b35fe64ad986c927a.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_labels_table.sql",
+    "sha256": "9ed564b9cfc4bcf16f23656eab1563ec0a472fced656db8f907459c67ba32928",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/9ed564b9cfc4bcf16f23656eab1563ec0a472fced656db8f907459c67ba32928.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/started_instances_for_clouds.sql",
+    "sha256": "45c64025caf84edcd3845ff261d89c7c41bd6398d54ded778fdd311db582ec45",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/45c64025caf84edcd3845ff261d89c7c41bd6398d54ded778fdd311db582ec45.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_vcs_entries_hash_to_agent_sources_version.sql",
+    "sha256": "60725b88d30d63a5e8a9c7abf9661013775990fe66830633053a87c570e7449d",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/60725b88d30d63a5e8a9c7abf9661013775990fe66830633053a87c570e7449d.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_parameters_table.sql",
+    "sha256": "e9bbb454b5dd903e8be87a4195c3a19e2051bbf42e746be6885841ae60275a62",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e9bbb454b5dd903e8be87a4195c3a19e2051bbf42e746be6885841ae60275a62.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/make_build_state_modification_id_not_null.sql",
+    "sha256": "189e9e133e8d37196c3429976f8ef04fc76ec576a716de4c119f4682ba5bc836",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/189e9e133e8d37196c3429976f8ef04fc76ec576a716de4c119f4682ba5bc836.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/fix_current_vcs_versions_in_database.sql",
+    "sha256": "1f68067bd27b20c2f559a6feb69a6e75d53d6b94b3b5631d36885d53e0ed5011",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1f68067bd27b20c2f559a6feb69a6e75d53d6b94b3b5631d36885d53e0ed5011.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_notification_data_rule_id_index.sql",
+    "sha256": "22c1fb9d75fc9ed1c80fd13f6dd66cf71daefe29a70cafcd4fc488673054c3a7",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/22c1fb9d75fc9ed1c80fd13f6dd66cf71daefe29a70cafcd4fc488673054c3a7.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_build_runtime_info_table.sql",
+    "sha256": "b445d5f985167ee88f675766bf11175676c4ef53a2cbbec0b84aab35a6a36d0e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b445d5f985167ee88f675766bf11175676c4ef53a2cbbec0b84aab35a6a36d0e.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_limits_to_pools.sql",
+    "sha256": "647e3e6542d057fa4202e8ad4882df6510412d6a59665beb486f4550d4094527",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/647e3e6542d057fa4202e8ad4882df6510412d6a59665beb486f4550d4094527.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/single_row.sql",
+    "sha256": "6c748587edae1c1aa9768477aa4a5a4d565b3ae7dbf2d796f9a78c57fbcfcdee",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/6c748587edae1c1aa9768477aa4a5a4d565b3ae7dbf2d796f9a78c57fbcfcdee.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/index_build_labels_table.sql",
+    "sha256": "3d53ed7c681cf8dac65a26aaa02e81d9ada117f9b70df51a95ccc34bb60c1f21",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/3d53ed7c681cf8dac65a26aaa02e81d9ada117f9b70df51a95ccc34bb60c1f21.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_8.sql",
+    "sha256": "7524fd6127e59230112c6aa1a60c877e1cef8377b868bb25e1daca24721e519e",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/7524fd6127e59230112c6aa1a60c877e1cef8377b868bb25e1daca24721e519e.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_table_granted_license.sql",
+    "sha256": "7d5e794e221d4a997bdfcbc2dfd3eb646a02d3a93bd500a96397d31fefba3bb0",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/7d5e794e221d4a997bdfcbc2dfd3eb646a02d3a93bd500a96397d31fefba3bb0.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_message_column_to_build_labels.sql",
+    "sha256": "85852bd2f27cc4e222ada096e75932939c55b2d9f400017451e2a3ebcaa99d65",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/85852bd2f27cc4e222ada096e75932939c55b2d9f400017451e2a3ebcaa99d65.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/delete_last_selected_admin_tab_user_property.sql",
+    "sha256": "cf8b75aed19fdd8d84f31bda49e7240005bbd20e0ffc0ca6025336d7e4b015c9",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/cf8b75aed19fdd8d84f31bda49e7240005bbd20e0ffc0ca6025336d7e4b015c9.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_mute_info_build_problem_table.sql",
+    "sha256": "1d6b0e1946b541e4aedfc2fccff3d8bed6a4f95c063a70dee10cc153704183f9",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1d6b0e1946b541e4aedfc2fccff3d8bed6a4f95c063a70dee10cc153704183f9.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_user_id_index_on_personal_vcs_history.sql",
+    "sha256": "bff8ed6ab658260f2c9b50f0eca7326478a4f994093f5245a8c1aa68273c6047",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bff8ed6ab658260f2c9b50f0eca7326478a4f994093f5245a8c1aa68273c6047.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_authorization_token_index_for_agent.sql",
+    "sha256": "d85a7839129ef67fc8517d3d611c6f40c588d888c15b0d6c256728c995d6798c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d85a7839129ef67fc8517d3d611c6f40c588d888c15b0d6c256728c995d6798c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_revisions_table.sql",
+    "sha256": "15b969f144c182ad54756854e05950198d8280f239dfee83f74c5fd840865e88",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/15b969f144c182ad54756854e05950198d8280f239dfee83f74c5fd840865e88.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/update_cloud_tables_316.sql",
+    "sha256": "1dd8af261a4115e6ffecd37cb2e96976d2ff287345d3fc3dcbcad1ca6ac1186a",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1dd8af261a4115e6ffecd37cb2e96976d2ff287345d3fc3dcbcad1ca6ac1186a.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_agent_host_addr_index.sql",
+    "sha256": "31def50906b8eb7ff3544d13b718b34c48c05c2f630a806ffe9a12c9146c5590",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/31def50906b8eb7ff3544d13b718b34c48c05c2f630a806ffe9a12c9146c5590.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_cleanup_history_table.sql",
+    "sha256": "e15c13b4cdea706cd313a0520b1fdab6045ff36ba9c2c69f2fff32d6b4097024",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e15c13b4cdea706cd313a0520b1fdab6045ff36ba9c2c69f2fff32d6b4097024.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/convert_mute_6x_cleanup.sql",
+    "sha256": "0ac877e1aaea87c7963e9d39b669ab32f7b3c867e4854e897f7368ff2894b748",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/0ac877e1aaea87c7963e9d39b669ab32f7b3c867e4854e897f7368ff2894b748.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/change_backup_ids_to_server_in_action_history.sql",
+    "sha256": "296db4819945c511e2326c396c5b262f49bf6879ccaf20ba5634c5eb5ee6a4e0",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/296db4819945c511e2326c396c5b262f49bf6879ccaf20ba5634c5eb5ee6a4e0.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/trim_change_names.sql",
+    "sha256": "40c5f9f77383aea128b58c1c786165b421a5b120e83449bc696d6f524d707e65",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/40c5f9f77383aea128b58c1c786165b421a5b120e83449bc696d6f524d707e65.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/clear_remember_me_table.sql",
+    "sha256": "cbb0594b8331c0e12e3929ab5d279619c8d680f26173a4ed780237b67c72a25b",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/cbb0594b8331c0e12e3929ab5d279619c8d680f26173a4ed780237b67c72a25b.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_table_vcs_root_state.sql",
+    "sha256": "64a83cca794e36460c31ec9cd76b22a7cfec53ce36eea66f1b623372b3f8b14b",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/64a83cca794e36460c31ec9cd76b22a7cfec53ce36eea66f1b623372b3f8b14b.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/support_defined_unresolved_parameters_for_agent_type.sql",
+    "sha256": "038c6b7c08a3075edddc3608fc3c0c77cc032aec6d43203c3f713f8bb61cd550",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/038c6b7c08a3075edddc3608fc3c0c77cc032aec6d43203c3f713f8bb61cd550.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_4.sql",
+    "sha256": "8eb36e09bcb26b93d1aafe2db86119b9f9847670b9e4e4928722135657b65675",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8eb36e09bcb26b93d1aafe2db86119b9f9847670b9e4e4928722135657b65675.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/convert_audit_actions_from_agent_to_agent_type.sql",
+    "sha256": "6383ba65764d0b1c2030a55bcebeb8db76ec53a732b472705f0ed4e23ba1ae0d",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/6383ba65764d0b1c2030a55bcebeb8db76ec53a732b472705f0ed4e23ba1ae0d.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/update_cloud_state_tables.sql",
+    "sha256": "657c5255360e69eb8e269e8d7cf67a0fa3a851c874406d424f889d820bd9ef14",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/657c5255360e69eb8e269e8d7cf67a0fa3a851c874406d424f889d820bd9ef14.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/table_test_failure_rate.sql",
+    "sha256": "58c01c83988cb7bffe1b2ad32028e57b75ad489e3ea0f14cec82342e34af1d96",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/58c01c83988cb7bffe1b2ad32028e57b75ad489e3ea0f14cec82342e34af1d96.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_5.sql",
+    "sha256": "868a4fb1dc179ce58e4f78051c789e4f568b328b6e3b80ab7916ad2bac1beda2",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/868a4fb1dc179ce58e4f78051c789e4f568b328b6e3b80ab7916ad2bac1beda2.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_relative_personal_path_table.sql",
+    "sha256": "650dcb22969f3e0e269a0e21f76889b45e5c43ef4afee1176d3cbbc18ac5e9ef",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/650dcb22969f3e0e269a0e21f76889b45e5c43ef4afee1176d3cbbc18ac5e9ef.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/remove_data_of_deleted_build_configurations.sql",
+    "sha256": "c3de0cc7d15314f2b47e4779cf56e24aedbb75737b70e9a7e3a437c6b722a4e8",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c3de0cc7d15314f2b47e4779cf56e24aedbb75737b70e9a7e3a437c6b722a4e8.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_hidden_notifications_table.sql",
+    "sha256": "d664ab9abcaa6587f8be9a554fabd38864f6a26d6b3883363b76db0c9916bbd7",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/d664ab9abcaa6587f8be9a554fabd38864f6a26d6b3883363b76db0c9916bbd7.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/fix_remove_from_queue_time_for_canceled_builds.sql",
+    "sha256": "608c0a8543cf3253e635ffe899a97a7151714ee237bebe4ff23f803e49ac88b0",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/608c0a8543cf3253e635ffe899a97a7151714ee237bebe4ff23f803e49ac88b0.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/make_inspection_fixes_hash_mandatory.sql",
+    "sha256": "bf4aa68daf2b7fdc13a824e2c688a4c3e651e526d1d9d1d28b30ccfd0edfe08d",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/bf4aa68daf2b7fdc13a824e2c688a4c3e651e526d1d9d1d28b30ccfd0edfe08d.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_agent_sources_version_table.sql",
+    "sha256": "f7faace6700a0f063478689fe457e5bacfce5817ddf960e0d0fecde37480364c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/f7faace6700a0f063478689fe457e5bacfce5817ddf960e0d0fecde37480364c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/rename_reason_column_cleanup_history.sql",
+    "sha256": "5d418ad252d47ff42a476c702852916d6fa1a4594115768f878c359108f3f804",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/5d418ad252d47ff42a476c702852916d6fa1a4594115768f878c359108f3f804.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_hidden_notifications_table.sql",
+    "sha256": "204af8213afd4f392cbb2cc3b5aa73f8f4f1252327c7b80de518206d835fd5a5",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/204af8213afd4f392cbb2cc3b5aa73f8f4f1252327c7b80de518206d835fd5a5.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/index_on_build_finished_time_server_and_agent_name_for_history.sql",
+    "sha256": "1fdf9508090262e5219392443ee9c6ba17467af0563e296ecdd69265b92f8644",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/1fdf9508090262e5219392443ee9c6ba17467af0563e296ecdd69265b92f8644.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_indices_for_build_tags.sql",
+    "sha256": "18caa33fd5ab9f56211969c3fe7f98880f4f2b37db6194b3d4da93be9292db2f",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/18caa33fd5ab9f56211969c3fe7f98880f4f2b37db6194b3d4da93be9292db2f.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_dependency_table.sql",
+    "sha256": "3eb1e9b4045fdd11b2ed53769740b2aa8ee5b921b1f93a4e0c841775d98f2ddc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/3eb1e9b4045fdd11b2ed53769740b2aa8ee5b921b1f93a4e0c841775d98f2ddc.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/recreate_agent_sources_version_table.sql",
+    "sha256": "4bcbd46cb208c03fe2cc68d26161f96defc3f9c317bf5c4898ae6b560883b559",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4bcbd46cb208c03fe2cc68d26161f96defc3f9c317bf5c4898ae6b560883b559.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/remove_obsolete_build_timestamps_moved_to_build_state.sql",
+    "sha256": "297a1b5f4beed1962ddf23c7a9698ad715e7aee218a641742ce306377ae74ecc",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/297a1b5f4beed1962ddf23c7a9698ad715e7aee218a641742ce306377ae74ecc.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_state_tag_tables.sql",
+    "sha256": "c40832da5fada7e7ed7222787d818cbbbac8d6737cc142432e78849f73389bb9",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/c40832da5fada7e7ed7222787d818cbbbac8d6737cc142432e78849f73389bb9.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/create_build_problems_attribute_table.sql",
+    "sha256": "b51fc274f8ab1f8416f09439d51088aa029e32c720d75fe23fe9df4257a7a50d",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/b51fc274f8ab1f8416f09439d51088aa029e32c720d75fe23fe9df4257a7a50d.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/add_user_notification_events_notificator_type_index.sql",
+    "sha256": "8e23e8ba521a06ebb333c41e08b1b99e00646d49f71dd90946bdacd7e54b0270",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/8e23e8ba521a06ebb333c41e08b1b99e00646d49f71dd90946bdacd7e54b0270.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_table_fragments.sql",
+    "sha256": "74f4ad2fb313b4ffbedffe912c241390b3532268488f569791c886a64b340fba",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/74f4ad2fb313b4ffbedffe912c241390b3532268488f569791c886a64b340fba.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_edit_commit.sql",
+    "sha256": "e04591a6e914b6d243dca7ca80a472f600aa34d8d2f091dbd1682315c6defeca",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/e04591a6e914b6d243dca7ca80a472f600aa34d8d2f091dbd1682315c6defeca.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/db-upgrade.jar",
+    "member": "jetbrains/buildServer/serverSide/versioning/converters/drop_obsolete_audit_action_7.sql",
+    "sha256": "4bff167c678cfc240a8992854ac418682d455b3759fbf554f0da51b9c2d7197c",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4bff167c678cfc240a8992854ac418682d455b3759fbf554f0da51b9c2d7197c.sql"
+  },
+  {
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-vcs-impl.jar",
+    "member": "META-INF/buildServerSpringVcs.xml",
+    "sha256": "4ad3f8403a3a9a40f019fa434dd70dfbeffe4a537cb60602dd9ed0e443f72df1",
+    "copy": "rea/teamcity-reverse-engineering/25-evidencias/resources/4ad3f8403a3a9a40f019fa434dd70dfbeffe4a537cb60602dd9ed0e443f72df1.xml"
+  }
+]

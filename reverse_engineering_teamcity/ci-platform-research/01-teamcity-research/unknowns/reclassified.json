@@ -1,0 +1,323 @@
+[
+  {
+    "legacy_id": "U-03",
+    "original": {
+      "id": "U-03",
+      "subsystem": "03-bootstrap",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 260,
+      "disassembled_candidates": 5,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-04",
+    "original": {
+      "id": "U-04",
+      "subsystem": "04-servidor",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 12339,
+      "disassembled_candidates": 82,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-05",
+    "original": {
+      "id": "U-05",
+      "subsystem": "05-build-agents",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 3554,
+      "disassembled_candidates": 16,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "accepted_for_independent_design",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-06",
+    "original": {
+      "id": "U-06",
+      "subsystem": "06-build-queue",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 213,
+      "disassembled_candidates": 10,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "accepted_for_independent_design",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-07",
+    "original": {
+      "id": "U-07",
+      "subsystem": "07-scheduler",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 200,
+      "disassembled_candidates": 65,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "accepted_for_independent_design",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-08",
+    "original": {
+      "id": "U-08",
+      "subsystem": "08-build-lifecycle",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 224,
+      "disassembled_candidates": 10,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "accepted_for_independent_design",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-09",
+    "original": {
+      "id": "U-09",
+      "subsystem": "09-vcs",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 3431,
+      "disassembled_candidates": 2,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-10",
+    "original": {
+      "id": "U-10",
+      "subsystem": "10-build-configurations",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 9667,
+      "disassembled_candidates": 4,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-11",
+    "original": {
+      "id": "U-11",
+      "subsystem": "11-kotlin-dsl",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 1189,
+      "disassembled_candidates": 7,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-12",
+    "original": {
+      "id": "U-12",
+      "subsystem": "12-pipelines-dependencies",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 361,
+      "disassembled_candidates": 2,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-13",
+    "original": {
+      "id": "U-13",
+      "subsystem": "13-rest-api",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 1026,
+      "disassembled_candidates": 3,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-14",
+    "original": {
+      "id": "U-14",
+      "subsystem": "14-web-interface",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 5536,
+      "disassembled_candidates": 1,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-15",
+    "original": {
+      "id": "U-15",
+      "subsystem": "15-plugins",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 506,
+      "disassembled_candidates": 4,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-16",
+    "original": {
+      "id": "U-16",
+      "subsystem": "16-persistencia",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 574,
+      "disassembled_candidates": 1,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "accepted_for_independent_design",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-17",
+    "original": {
+      "id": "U-17",
+      "subsystem": "17-comunicacao",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 171,
+      "disassembled_candidates": 5,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-18",
+    "original": {
+      "id": "U-18",
+      "subsystem": "18-concorrencia",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 683,
+      "disassembled_candidates": 6,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "accepted_for_independent_design",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-19",
+    "original": {
+      "id": "U-19",
+      "subsystem": "19-algoritmos",
+      "classification": "UNKNOWN",
+      "gap": "Compreensão funcional e validação dinâmica não exaustivas; candidatos classificados por nome precisam de revisão de corpo e integração.",
+      "candidate_class_contents": 312,
+      "disassembled_candidates": 14,
+      "next_action": "Consultar catálogo do subsistema e symbols.sqlite; rastrear chamadores, beans concretos e efeitos persistentes antes de confirmar o fluxo."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-PROVENANCE",
+    "original": {
+      "id": "U-PROVENANCE",
+      "classification": "UNKNOWN",
+      "gap": "27 BACKUP files all differ from active counterparts. No official distribution signature/reference comparison; installed artifacts may be locally changed."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-DYNAMIC",
+    "original": {
+      "id": "U-DYNAMIC",
+      "classification": "UNKNOWN",
+      "gap": "0/14 dynamic scenarios executed. No isolated synthetic TeamCity server/database initialized."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-DISPATCH",
+    "original": {
+      "id": "U-DISPATCH",
+      "classification": "UNKNOWN",
+      "gap": "Virtual/interface calls, reflection, dynamic plugins, RPC and listener consumers not fully resolved."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-SEMANTICS",
+    "original": {
+      "id": "U-SEMANTICS",
+      "classification": "UNKNOWN",
+      "gap": "CFR contains failure stubs and syntactically invalid Java; no method counted as fully semantically recovered."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-INVENTORY",
+    "original": {
+      "id": "U-INVENTORY",
+      "classification": "UNKNOWN",
+      "gap": "os.walk no symlink traversal; runtime hashes only; nested non-ZIP formats and native binaries not semantically analyzed. ZIP overlap warnings observed; structural validity not proven."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  },
+  {
+    "legacy_id": "U-LICENSE",
+    "original": {
+      "id": "U-LICENSE",
+      "classification": "UNKNOWN",
+      "gap": "Installed edition and active license not established; confidential runtime configuration intentionally not inspected."
+    },
+    "disposition": "deferred_original_internals",
+    "reason": "Não é necessário reproduzir a implementação; validar o contrato próprio com testes de falha.",
+    "reopen_when": "Somente se requisito de compatibilidade explícita ou decisão concreta depender desse detalhe."
+  }
+]

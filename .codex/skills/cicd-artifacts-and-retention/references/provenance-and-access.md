@@ -1,0 +1,2 @@
+# Provenance and access
+Bind artifact to tenant, project, pipeline, run, job, attempt, producer and immutable source/config revisions. A digest proves equality of bytes, not trustworthiness or origin by itself. Authorize each read and listing server-side; hiding UI controls is insufficient. Pre-signed URLs have revocation windows and must be scoped, short-lived and protected from logs. Deduplicated storage may share bytes but not authorization metadata across tenants. Prevent filename injection into Content-Disposition.

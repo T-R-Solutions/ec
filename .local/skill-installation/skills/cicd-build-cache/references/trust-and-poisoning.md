@@ -1,0 +1,2 @@
+# Trust and cache poisoning
+Distinguish untrusted fork PR, trusted branch, release and production credentials. Deny writes from low-trust to high-trust namespaces; a low-trust run must never use an override to publish privileged entries. Even authenticated cache contents can be compromised if a writer is compromised. Verify producer provenance and content hashes; avoid secrets in cache paths and values. Restored executable outputs are attack surfaces. Cross-tenant deduplication of bytes must not imply cross-tenant authorization.

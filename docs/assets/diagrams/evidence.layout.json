@@ -1,0 +1,47 @@
+{
+  "title": "Evidência vinculada ao conteúdo observado",
+  "question": "Por que uma alteração pode invalidar um aceite?",
+  "status": "Contrato de evidência vigente",
+  "sources": [
+    "sdd/evidence.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "AC": {
+      "icon": "list-checks",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "INPUT": {
+      "icon": "files",
+      "tone": "blue",
+      "column": 1,
+      "row": 0
+    },
+    "RUN": {
+      "icon": "scan-search",
+      "tone": "teal",
+      "column": 2,
+      "row": 0
+    },
+    "ART": {
+      "icon": "archive",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "GATE": {
+      "icon": "shield-check",
+      "tone": "amber",
+      "column": 1,
+      "row": 1
+    },
+    "STALE": {
+      "icon": "refresh-cw",
+      "tone": "rose",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

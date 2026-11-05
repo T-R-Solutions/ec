@@ -1,0 +1,2155 @@
+Compiled from "BuildAgentConfigurationImpl.java"
+public class jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationImpl implements jetbrains.buildServer.agent.BuildAgentConfigurationEx,jetbrains.buildServer.agent.AgentConfiguration {
+  public static final int OWN_PORT;
+    descriptor: I
+
+  private final jetbrains.buildServer.agent.BuildAgentSystemInfo mySystemInfo;
+    descriptor: Ljetbrains/buildServer/agent/BuildAgentSystemInfo;
+
+  private final jetbrains.buildServer.agent.impl.BuildParametersMapsFactory myMapsFactory;
+    descriptor: Ljetbrains/buildServer/agent/impl/BuildParametersMapsFactory;
+
+  private final jetbrains.buildServer.agent.impl.config.BuildAgentConfigurablePaths myPaths;
+    descriptor: Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+
+  private final jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationWellKnownAgentProperties myWellknown;
+    descriptor: Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+
+  private final jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationInitializer myInitializer;
+    descriptor: Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer;
+
+  private final jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationPersister myPersister;
+    descriptor: Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationPersister;
+
+  private final jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationImplicitParameters myParameters;
+    descriptor: Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImplicitParameters;
+
+  private final java.lang.String myPingCode;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.agent.impl.config.AgentContextImpl myContext;
+    descriptor: Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+
+  private final java.util.List<java.lang.String> myAlternativeAddresses;
+    descriptor: Ljava/util/List;
+
+  private java.io.File myPropertiesFile;
+    descriptor: Ljava/io/File;
+
+  private final java.util.Set<java.lang.String> myPropertyNamesFromFile;
+    descriptor: Ljava/util/Set;
+
+  private final jetbrains.buildServer.agent.impl.operationModes.AgentOperationModeHolder myAgentOperationModeHolder;
+    descriptor: Ljetbrains/buildServer/agent/impl/operationModes/AgentOperationModeHolder;
+
+  public jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationImpl(jetbrains.buildServer.agent.BuildAgentSystemInfo, jetbrains.buildServer.agent.impl.BuildParametersMapsFactory, jetbrains.buildServer.agent.impl.parameters.factory.AgentUnresolvedParametersFactory, jetbrains.buildServer.agent.impl.config.BuildAgentConfigurablePaths, jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationWellKnownAgentProperties, jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationInitializer, jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationPersister, jetbrains.buildServer.agent.impl.config.BuildAgentConfigurationImplicitParameters, jetbrains.buildServer.agent.impl.operationModes.AgentOperationModeHolder);
+    descriptor: (Ljetbrains/buildServer/agent/BuildAgentSystemInfo;Ljetbrains/buildServer/agent/impl/BuildParametersMapsFactory;Ljetbrains/buildServer/agent/impl/parameters/factory/AgentUnresolvedParametersFactory;Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer;Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationPersister;Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImplicitParameters;Ljetbrains/buildServer/agent/impl/operationModes/AgentOperationModeHolder;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        33: aload         5
+        35: ifnonnull     42
+        38: iconst_4
+        39: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        42: aload         6
+        44: ifnonnull     51
+        47: iconst_5
+        48: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        51: aload         7
+        53: ifnonnull     61
+        56: bipush        6
+        58: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        61: aload         8
+        63: ifnonnull     71
+        66: bipush        7
+        68: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        71: aload         9
+        73: ifnonnull     81
+        76: bipush        8
+        78: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        81: aload_0
+        82: invokespecial #5                  // Method java/lang/Object."<init>":()V
+        85: aload_0
+        86: new           #11                 // class java/util/concurrent/CopyOnWriteArrayList
+        89: dup
+        90: invokespecial #13                 // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+        93: putfield      #14                 // Field myAlternativeAddresses:Ljava/util/List;
+        96: aload_0
+        97: new           #20                 // class java/util/concurrent/CopyOnWriteArraySet
+       100: dup
+       101: invokespecial #22                 // Method java/util/concurrent/CopyOnWriteArraySet."<init>":()V
+       104: putfield      #23                 // Field myPropertyNamesFromFile:Ljava/util/Set;
+       107: aload_0
+       108: aload_1
+       109: putfield      #27                 // Field mySystemInfo:Ljetbrains/buildServer/agent/BuildAgentSystemInfo;
+       112: aload_0
+       113: aload_2
+       114: putfield      #31                 // Field myMapsFactory:Ljetbrains/buildServer/agent/impl/BuildParametersMapsFactory;
+       117: aload_0
+       118: aload         4
+       120: putfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+       123: aload_0
+       124: aload         5
+       126: putfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+       129: aload_0
+       130: aload         6
+       132: putfield      #43                 // Field myInitializer:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer;
+       135: aload_0
+       136: aload         7
+       138: putfield      #47                 // Field myPersister:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationPersister;
+       141: aload_0
+       142: aload         8
+       144: putfield      #51                 // Field myParameters:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImplicitParameters;
+       147: aload_0
+       148: aload         9
+       150: putfield      #55                 // Field myAgentOperationModeHolder:Ljetbrains/buildServer/agent/impl/operationModes/AgentOperationModeHolder;
+       153: aload_0
+       154: invokestatic  #59                 // Method jetbrains/buildServer/util/StringUtil.generateUniqueHashQuickly:()Ljava/lang/String;
+       157: putfield      #65                 // Field myPingCode:Ljava/lang/String;
+       160: aload_0
+       161: new           #69                 // class jetbrains/buildServer/agent/impl/config/AgentContextImpl
+       164: dup
+       165: aload_3
+       166: aload_0
+       167: getfield      #51                 // Field myParameters:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImplicitParameters;
+       170: invokevirtual #71                 // Method jetbrains/buildServer/agent/impl/parameters/factory/AgentUnresolvedParametersFactory.createAgentUnresolvedParameters:(Ljetbrains/buildServer/agent/impl/parameters/AgentEnvironmentParametersProvider;)Ljetbrains/buildServer/agent/impl/parameters/AgentUnresolvedParametersEx;
+       173: invokespecial #77                 // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl."<init>":(Ljetbrains/buildServer/agent/impl/parameters/AgentUnresolvedParametersEx;)V
+       176: putfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+       179: aload_0
+       180: getfield      #43                 // Field myInitializer:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer;
+       183: new           #84                 // class jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl$1
+       186: dup
+       187: aload_0
+       188: invokespecial #86                 // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl$1."<init>":(Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;)V
+       191: invokevirtual #89                 // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer.setDefaultHandler:(Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializerRegistry$PropertyHandler;)V
+       194: return
+      LineNumberTable:
+        line 57: 81
+        line 44: 85
+        line 46: 96
+        line 58: 107
+        line 59: 112
+        line 60: 117
+        line 61: 123
+        line 62: 129
+        line 63: 135
+        line 64: 141
+        line 65: 147
+        line 67: 153
+        line 69: 160
+        line 70: 179
+        line 79: 194
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     195     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0     195     1 systemInfo   Ljetbrains/buildServer/agent/BuildAgentSystemInfo;
+            0     195     2 mapsFactory   Ljetbrains/buildServer/agent/impl/BuildParametersMapsFactory;
+            0     195     3 parametersFactory   Ljetbrains/buildServer/agent/impl/parameters/factory/AgentUnresolvedParametersFactory;
+            0     195     4 paths   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+            0     195     5 wellknown   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+            0     195     6 initializer   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer;
+            0     195     7 persister   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationPersister;
+            0     195     8 parameters   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImplicitParameters;
+            0     195     9 agentOperationModeHolder   Ljetbrains/buildServer/agent/impl/operationModes/AgentOperationModeHolder;
+
+  public java.util.Map<java.lang.String, java.lang.String> getCustomProperties();
+    descriptor: ()Ljava/util/Map;
+    Code:
+         0: aload_0
+         1: getfield      #31                 // Field myMapsFactory:Ljetbrains/buildServer/agent/impl/BuildParametersMapsFactory;
+         4: invokeinterface #95,  1           // InterfaceMethod jetbrains/buildServer/agent/impl/BuildParametersMapsFactory.createBuildParametersMap:()Ljava/util/Map;
+         9: astore_1
+        10: aload_1
+        11: aload_0
+        12: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        15: invokevirtual #101                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.getConfigurationParameters:()Ljava/util/Map;
+        18: invokeinterface #104,  2          // InterfaceMethod java/util/Map.putAll:(Ljava/util/Map;)V
+        23: aload_1
+        24: aload_0
+        25: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        28: invokevirtual #110                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.getBuildParameters:()Ljetbrains/buildServer/agent/BuildParametersMap;
+        31: invokeinterface #114,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildParametersMap.getAllParameters:()Ljava/util/Map;
+        36: invokeinterface #104,  2          // InterfaceMethod java/util/Map.putAll:(Ljava/util/Map;)V
+        41: aload_1
+        42: invokestatic  #119                // Method java/util/Collections.unmodifiableMap:(Ljava/util/Map;)Ljava/util/Map;
+        45: dup
+        46: ifnonnull     54
+        49: bipush        9
+        51: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        54: areturn
+      LineNumberTable:
+        line 84: 0
+        line 85: 10
+        line 86: 23
+        line 87: 41
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      55     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+           10      45     1   map   Ljava/util/Map;
+
+  public java.util.Map<java.lang.String, java.lang.String> getConfigurationParameters();
+    descriptor: ()Ljava/util/Map;
+    Code:
+         0: aload_0
+         1: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+         4: invokevirtual #101                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.getConfigurationParameters:()Ljava/util/Map;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        10
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 93: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public jetbrains.buildServer.parameters.ValueResolver getParametersResolver();
+    descriptor: ()Ljetbrains/buildServer/parameters/ValueResolver;
+    Code:
+         0: aload_0
+         1: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+         4: invokevirtual #125                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.getParametersResolver:()Ljetbrains/buildServer/parameters/ValueResolver;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        11
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 99: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public jetbrains.buildServer.agent.AgentOperationMode getOperationMode();
+    descriptor: ()Ljetbrains/buildServer/agent/AgentOperationMode;
+    Code:
+         0: aload_0
+         1: getfield      #55                 // Field myAgentOperationModeHolder:Ljetbrains/buildServer/agent/impl/operationModes/AgentOperationModeHolder;
+         4: invokevirtual #129                // Method jetbrains/buildServer/agent/impl/operationModes/AgentOperationModeHolder.getOperationMode:()Ljetbrains/buildServer/agent/AgentOperationModeEx;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        12
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 105: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public void setWorkDir(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        13
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+        13: aload_1
+        14: invokevirtual #135                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.setWorkDir:(Ljava/lang/String;)V
+        17: return
+      LineNumberTable:
+        line 110: 9
+        line 111: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      18     1 pathToWorkDir   Ljava/lang/String;
+
+  public java.lang.String getAuthorizationToken();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: invokevirtual #141                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.getAuthorizationToken:()Ljava/lang/String;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        14
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 116: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.lang.String getPingCode();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #65                 // Field myPingCode:Ljava/lang/String;
+         4: dup
+         5: ifnonnull     13
+         8: bipush        15
+        10: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        13: areturn
+      LineNumberTable:
+        line 122: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public void updateConfiguration(jetbrains.buildServer.agentServer.AgentRegistrationDetails);
+    descriptor: (Ljetbrains/buildServer/agentServer/AgentRegistrationDetails;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        16
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #47                 // Field myPersister:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationPersister;
+        13: aload_0
+        14: invokevirtual #146                // Method getPropertiesFile:()Ljava/io/File;
+        17: aload_1
+        18: invokevirtual #150                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationPersister.updateConfiguration:(Ljava/io/File;Ljetbrains/buildServer/agentServer/AgentRegistrationDetails;)V
+        21: return
+      LineNumberTable:
+        line 127: 9
+        line 128: 21
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      22     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      22     1 details   Ljetbrains/buildServer/agentServer/AgentRegistrationDetails;
+
+  public java.lang.String getInternalProperty(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        17
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: invokestatic  #156                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+        13: astore_3
+        14: aload_3
+        15: ifnonnull     32
+        18: aload_0
+        19: invokevirtual #162                // Method getCustomProperties:()Ljava/util/Map;
+        22: aload_1
+        23: invokeinterface #165,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        28: checkcast     #169                // class java/lang/String
+        31: astore_3
+        32: aload_3
+        33: ifnonnull     40
+        36: aload_2
+        37: goto          41
+        40: aload_3
+        41: areturn
+      LineNumberTable:
+        line 133: 9
+        line 134: 14
+        line 135: 18
+        line 137: 32
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      42     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      42     1  name   Ljava/lang/String;
+            0      42     2   def   Ljava/lang/String;
+           14      28     3 value   Ljava/lang/String;
+
+  public boolean isUpgradeDisabled();
+    descriptor: ()Z
+    Code:
+         0: ldc           #171                // String true
+         2: aload_0
+         3: ldc           #173                // String teamcity.agent.disable.autoupgrade
+         5: ldc           #175                // String false
+         7: invokevirtual #177                // Method getInternalProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        10: invokevirtual #181                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+        13: ireturn
+      LineNumberTable:
+        line 142: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public int getServerConnectionTimeout();
+    descriptor: ()I
+    Code:
+         0: aload_0
+         1: ldc           #185                // String teamcity.agentServer.connectionTimeout
+         3: sipush        180
+         6: invokestatic  #187                // Method java/lang/String.valueOf:(I)Ljava/lang/String;
+         9: invokevirtual #177                // Method getInternalProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        12: astore_1
+        13: aload_1
+        14: invokestatic  #191                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+        17: istore_2
+        18: iload_2
+        19: ifge          36
+        22: getstatic     #197                // Field jetbrains/buildServer/log/Loggers.AGENT:Lcom/intellij/openapi/diagnostic/Logger;
+        25: aload_1
+        26: invokedynamic #203,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        31: invokevirtual #206                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        34: iconst_0
+        35: ireturn
+        36: iload_2
+        37: ireturn
+        38: astore_2
+        39: getstatic     #197                // Field jetbrains/buildServer/log/Loggers.AGENT:Lcom/intellij/openapi/diagnostic/Logger;
+        42: aload_1
+        43: invokedynamic #213,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        48: invokevirtual #206                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        51: iconst_0
+        52: ireturn
+      Exception table:
+         from    to  target type
+            13    35    38   Class java/lang/NumberFormatException
+            36    37    38   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 147: 0
+        line 150: 13
+        line 151: 18
+        line 152: 22
+        line 153: 34
+        line 155: 36
+        line 156: 38
+        line 157: 39
+        line 159: 51
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           18      20     2 result   I
+           39      12     2     e   Ljava/lang/NumberFormatException;
+            0      53     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+           13      40     1 timeoutStr   Ljava/lang/String;
+
+  public void addAlternativeAgentAddress(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        18
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #14                 // Field myAlternativeAddresses:Ljava/util/List;
+        13: aload_1
+        14: invokeinterface #214,  2          // InterfaceMethod java/util/List.contains:(Ljava/lang/Object;)Z
+        19: ifne          33
+        22: aload_0
+        23: getfield      #14                 // Field myAlternativeAddresses:Ljava/util/List;
+        26: iconst_0
+        27: aload_1
+        28: invokeinterface #220,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+        33: return
+      LineNumberTable:
+        line 164: 9
+        line 165: 22
+        line 166: 33
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      34     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      34     1 address   Ljava/lang/String;
+
+  public java.util.Collection<java.lang.String> getAlternativeAddresses();
+    descriptor: ()Ljava/util/Collection;
+    Code:
+         0: aload_0
+         1: getfield      #14                 // Field myAlternativeAddresses:Ljava/util/List;
+         4: invokestatic  #224                // Method java/util/Collections.unmodifiableCollection:(Ljava/util/Collection;)Ljava/util/Collection;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        19
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 171: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public jetbrains.buildServer.agent.impl.config.AgentContextEx getAgentContext();
+    descriptor: ()Ljetbrains/buildServer/agent/impl/config/AgentContextEx;
+    Code:
+         0: aload_0
+         1: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+         4: dup
+         5: ifnonnull     13
+         8: bipush        20
+        10: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        13: areturn
+      LineNumberTable:
+        line 177: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentInfoFile();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: new           #228                // class java/io/File
+         3: dup
+         4: aload_0
+         5: ldc           #230                // String .teamcity-agent
+         7: invokevirtual #232                // Method getCacheDirectory:(Ljava/lang/String;)Ljava/io/File;
+        10: aload_0
+        11: invokevirtual #236                // Method getUpdateContentsXmlName:()Ljava/lang/String;
+        14: invokespecial #239                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+        17: areturn
+      LineNumberTable:
+        line 183: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentPluginsUnpackingInfoFile();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: new           #228                // class java/io/File
+         3: dup
+         4: aload_0
+         5: ldc           #230                // String .teamcity-agent
+         7: invokevirtual #232                // Method getCacheDirectory:(Ljava/lang/String;)Ljava/io/File;
+        10: ldc           #242                // String unpacked-plugins.xml
+        12: invokespecial #239                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+        15: areturn
+      LineNumberTable:
+        line 189: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentUpgradeFiltersFile();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #244                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getUpgradeFiltersFile:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        21
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 195: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getVcsCheckoutdirStateFile(java.io.File);
+    descriptor: (Ljava/io/File;)Ljava/io/File;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        22
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: invokevirtual #247                // Method getWorkDirectory:()Ljava/io/File;
+        13: aload_1
+        14: invokevirtual #250                // Method java/io/File.getParentFile:()Ljava/io/File;
+        17: invokevirtual #253                // Method java/io/File.equals:(Ljava/lang/Object;)Z
+        20: ifeq          31
+        23: aload_1
+        24: invokevirtual #256                // Method java/io/File.getName:()Ljava/lang/String;
+        27: astore_2
+        28: goto          59
+        31: ldc_w         #259                // String %08x_%s
+        34: iconst_2
+        35: anewarray     #6                  // class java/lang/Object
+        38: dup
+        39: iconst_0
+        40: aload_1
+        41: invokevirtual #261                // Method java/io/File.hashCode:()I
+        44: invokestatic  #265                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        47: aastore
+        48: dup
+        49: iconst_1
+        50: aload_1
+        51: invokevirtual #256                // Method java/io/File.getName:()Ljava/lang/String;
+        54: aastore
+        55: invokestatic  #268                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        58: astore_2
+        59: new           #228                // class java/io/File
+        62: dup
+        63: aload_0
+        64: ldc_w         #272                // String checkoutdir-revisions
+        67: invokevirtual #232                // Method getCacheDirectory:(Ljava/lang/String;)Ljava/io/File;
+        70: aload_2
+        71: invokedynamic #274,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        76: invokespecial #239                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+        79: areturn
+      LineNumberTable:
+        line 202: 9
+        line 203: 23
+        line 205: 31
+        line 208: 59
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           28       3     2 configFileName   Ljava/lang/String;
+            0      80     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      80     1 checkoutDir   Ljava/io/File;
+           59      21     2 configFileName   Ljava/lang/String;
+
+  public java.io.File[] getVcsCheckoutdirStateFiles();
+    descriptor: ()[Ljava/io/File;
+    Code:
+         0: aload_0
+         1: ldc_w         #272                // String checkoutdir-revisions
+         4: invokevirtual #232                // Method getCacheDirectory:(Ljava/lang/String;)Ljava/io/File;
+         7: astore_1
+         8: aload_1
+         9: new           #275                // class jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl$2
+        12: dup
+        13: aload_0
+        14: invokespecial #277                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl$2."<init>":(Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;)V
+        17: invokevirtual #278                // Method java/io/File.listFiles:(Ljava/io/FilenameFilter;)[Ljava/io/File;
+        20: astore_2
+        21: aload_2
+        22: ifnull        36
+        25: aload_2
+        26: dup
+        27: ifnonnull     35
+        30: bipush        23
+        32: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        35: areturn
+        36: new           #282                // class jetbrains/buildServer/agent/impl/BuildAgentStartFailedException
+        39: dup
+        40: ldc_w         #284                // String Unable to access checkoutdir-revisions folder.
+        43: invokespecial #286                // Method jetbrains/buildServer/agent/impl/BuildAgentStartFailedException."<init>":(Ljava/lang/String;)V
+        46: athrow
+      LineNumberTable:
+        line 214: 0
+        line 215: 8
+        line 221: 21
+        line 222: 25
+        line 224: 36
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      47     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            8      39     1 cacheDirectory   Ljava/io/File;
+           21      26     2 files   [Ljava/io/File;
+
+  public void validateParameters() throws jetbrains.buildServer.agent.impl.BuildAgentStartFailedException;
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokevirtual #288                // Method getServerUrl:()Ljava/lang/String;
+         4: astore_1
+         5: aload_1
+         6: invokestatic  #291                // Method jetbrains/buildServer/util/StringUtil.isEmptyOrSpaces:(Ljava/lang/String;)Z
+         9: ifeq          23
+        12: new           #282                // class jetbrains/buildServer/agent/impl/BuildAgentStartFailedException
+        15: dup
+        16: ldc_w         #294                // String Server url was not set. Please check \'serverUrl\' key in buildAgent.properties file
+        19: invokespecial #286                // Method jetbrains/buildServer/agent/impl/BuildAgentStartFailedException."<init>":(Ljava/lang/String;)V
+        22: athrow
+        23: return
+      LineNumberTable:
+        line 229: 0
+        line 230: 5
+        line 231: 12
+        line 233: 23
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      24     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            5      19     1   url   Ljava/lang/String;
+
+  public java.lang.String getServerProxyHost();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+         4: ldc_w         #297                // String teamcity.http.proxyHost
+         7: invokeinterface #165,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        12: checkcast     #169                // class java/lang/String
+        15: areturn
+      LineNumberTable:
+        line 238: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public int getServerProxyPort();
+    descriptor: ()I
+    Code:
+         0: aload_0
+         1: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+         4: ldc_w         #299                // String teamcity.http.proxyPort
+         7: invokeinterface #165,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        12: checkcast     #169                // class java/lang/String
+        15: astore_1
+        16: aload_1
+        17: ifnonnull     22
+        20: iconst_m1
+        21: ireturn
+        22: aload_1
+        23: iconst_m1
+        24: invokestatic  #301                // Method jetbrains/buildServer/util/StringUtil.parseInt:(Ljava/lang/String;I)I
+        27: ireturn
+      LineNumberTable:
+        line 243: 0
+        line 244: 16
+        line 245: 22
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      28     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+           16      12     1 proxyPort   Ljava/lang/String;
+
+  public jetbrains.buildServer.http.SimpleCredentials getServerProxyCredentials();
+    descriptor: ()Ljetbrains/buildServer/http/SimpleCredentials;
+    Code:
+         0: aload_0
+         1: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+         4: ldc_w         #304                // String teamcity.http.proxyLogin
+         7: invokeinterface #165,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        12: checkcast     #169                // class java/lang/String
+        15: astore_1
+        16: aload_0
+        17: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+        20: ldc_w         #306                // String teamcity.http.proxyPassword
+        23: invokeinterface #165,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        28: checkcast     #169                // class java/lang/String
+        31: astore_2
+        32: aload_1
+        33: invokestatic  #308                // Method jetbrains/buildServer/util/StringUtil.isNotEmpty:(Ljava/lang/String;)Z
+        36: ifeq          56
+        39: aload_2
+        40: invokestatic  #308                // Method jetbrains/buildServer/util/StringUtil.isNotEmpty:(Ljava/lang/String;)Z
+        43: ifeq          56
+        46: new           #311                // class jetbrains/buildServer/http/SimpleCredentials
+        49: dup
+        50: aload_1
+        51: aload_2
+        52: invokespecial #313                // Method jetbrains/buildServer/http/SimpleCredentials."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+        55: areturn
+        56: aconst_null
+        57: areturn
+      LineNumberTable:
+        line 251: 0
+        line 252: 16
+        line 253: 32
+        line 254: 46
+        line 256: 56
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      58     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+           16      42     1 login   Ljava/lang/String;
+           32      26     2  pass   Ljava/lang/String;
+
+  public void setTempDir(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        24
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+        13: aload_1
+        14: invokevirtual #316                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.setTempDir:(Ljava/lang/String;)V
+        17: return
+      LineNumberTable:
+        line 261: 9
+        line 262: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      18     1 pathToTempDir   Ljava/lang/String;
+
+  public jetbrains.buildServer.agent.BuildAgentSystemInfo getSystemInfo();
+    descriptor: ()Ljetbrains/buildServer/agent/BuildAgentSystemInfo;
+    Code:
+         0: aload_0
+         1: getfield      #27                 // Field mySystemInfo:Ljetbrains/buildServer/agent/BuildAgentSystemInfo;
+         4: dup
+         5: ifnonnull     13
+         8: bipush        25
+        10: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        13: areturn
+      LineNumberTable:
+        line 267: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getWorkDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #319                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getWorkDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        26
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 273: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getTempDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #320                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getTempDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        27
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 279: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getSystemDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #323                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getSystemDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        28
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 285: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getBuildTempDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #326                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getBuildTempDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        29
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 291: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentTempDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #329                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentTempDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        30
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 297: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentToolsDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #332                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentToolsDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        31
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 303: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getCacheDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #335                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getCacheDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        32
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 309: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getCacheDirectory(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/io/File;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        33
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+        13: aload_1
+        14: invokevirtual #337                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getCacheDirectory:(Ljava/lang/String;)Ljava/io/File;
+        17: dup
+        18: ifnonnull     26
+        21: bipush        34
+        23: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        26: areturn
+      LineNumberTable:
+        line 315: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      27     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      27     1   key   Ljava/lang/String;
+
+  public java.lang.String getServerUrl();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: invokevirtual #338                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.getServerUrl:()Ljava/lang/String;
+         7: areturn
+      LineNumberTable:
+        line 321: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public void addCustomProperty(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        35
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_2
+        10: ifnonnull     18
+        13: bipush        36
+        15: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        18: aload_1
+        19: ldc_w         #339                // String system.
+        22: invokevirtual #341                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        25: ifeq          49
+        28: aload_0
+        29: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        32: aload_1
+        33: ldc_w         #339                // String system.
+        36: invokevirtual #344                // Method java/lang/String.length:()I
+        39: invokevirtual #347                // Method java/lang/String.substring:(I)Ljava/lang/String;
+        42: aload_2
+        43: invokevirtual #350                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.addSystemProperty:(Ljava/lang/String;Ljava/lang/String;)V
+        46: goto          89
+        49: aload_1
+        50: ldc_w         #353                // String env.
+        53: invokevirtual #341                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        56: ifeq          80
+        59: aload_0
+        60: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        63: aload_1
+        64: ldc_w         #353                // String env.
+        67: invokevirtual #344                // Method java/lang/String.length:()I
+        70: invokevirtual #347                // Method java/lang/String.substring:(I)Ljava/lang/String;
+        73: aload_2
+        74: invokevirtual #355                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.addEnvironmentVariable:(Ljava/lang/String;Ljava/lang/String;)V
+        77: goto          89
+        80: aload_0
+        81: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        84: aload_1
+        85: aload_2
+        86: invokevirtual #358                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.addConfigurationParameter:(Ljava/lang/String;Ljava/lang/String;)V
+        89: return
+      LineNumberTable:
+        line 326: 18
+        line 327: 28
+        line 328: 49
+        line 329: 59
+        line 331: 80
+        line 333: 89
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      90     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      90     1  name   Ljava/lang/String;
+            0      90     2 value   Ljava/lang/String;
+
+  public void addConfigurationParameter(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        37
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_2
+        10: ifnonnull     18
+        13: bipush        38
+        15: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        18: aload_0
+        19: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        22: aload_1
+        23: aload_2
+        24: invokevirtual #358                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.addConfigurationParameter:(Ljava/lang/String;Ljava/lang/String;)V
+        27: return
+      LineNumberTable:
+        line 337: 18
+        line 338: 27
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      28     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      28     1  name   Ljava/lang/String;
+            0      28     2 value   Ljava/lang/String;
+
+  public synchronized boolean removeConfigurationParameter(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        39
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #23                 // Field myPropertyNamesFromFile:Ljava/util/Set;
+        13: aload_1
+        14: invokeinterface #361,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+        19: ifeq          24
+        22: iconst_0
+        23: ireturn
+        24: aload_0
+        25: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        28: aload_1
+        29: invokevirtual #364                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.removeConfigurationParameter:(Ljava/lang/String;)Z
+        32: ireturn
+      LineNumberTable:
+        line 342: 9
+        line 343: 24
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      33     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      33     1  name   Ljava/lang/String;
+
+  public int getOwnPort();
+    descriptor: ()I
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: invokevirtual #367                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.getOwnPort:()I
+         7: ireturn
+      LineNumberTable:
+        line 348: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.lang.String getOwnAddress();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: invokevirtual #370                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.getOwnAddress:()Ljava/lang/String;
+         7: areturn
+      LineNumberTable:
+        line 353: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public void setOwnAddress(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        40
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+        13: aload_1
+        14: invokevirtual #373                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.setOwnAddress:(Ljava/lang/String;)V
+        17: return
+      LineNumberTable:
+        line 358: 9
+        line 359: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      18     1 ownAddress   Ljava/lang/String;
+
+  public void initFrom(java.io.File);
+    descriptor: (Ljava/io/File;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #376                // Field myPropertiesFile:Ljava/io/File;
+         5: aload_0
+         6: getfield      #43                 // Field myInitializer:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer;
+         9: aload_1
+        10: invokevirtual #380                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationInitializer.initFrom:(Ljava/io/File;)V
+        13: return
+      LineNumberTable:
+        line 363: 0
+        line 364: 5
+        line 365: 13
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      14     1 propertiesFile   Ljava/io/File;
+
+  public java.io.File getPropertiesFile();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #376                // Field myPropertiesFile:Ljava/io/File;
+         4: areturn
+      LineNumberTable:
+        line 369: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: invokevirtual #384                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.getName:()Ljava/lang/String;
+         7: areturn
+      LineNumberTable:
+        line 374: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public void setServerUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: aload_1
+         5: invokevirtual #385                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.setServerUrl:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 379: 0
+        line 380: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0       9     1 serverUrl   Ljava/lang/String;
+
+  public void setOwnPort(int);
+    descriptor: (I)V
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: iload_1
+         5: invokevirtual #388                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.setOwnPort:(I)V
+         8: return
+      LineNumberTable:
+        line 384: 0
+        line 385: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0       9     1 ownPort   I
+
+  public void setName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+         4: aload_1
+         5: invokevirtual #392                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.setName:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 389: 0
+        line 390: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0       9     1  name   Ljava/lang/String;
+
+  public void setAuthorizationToken(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        41
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_0
+        10: getfield      #39                 // Field myWellknown:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties;
+        13: aload_1
+        14: invokevirtual #395                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationWellKnownAgentProperties.setAuthorizationToken:(Ljava/lang/String;)V
+        17: return
+      LineNumberTable:
+        line 394: 9
+        line 395: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      18     1 token   Ljava/lang/String;
+
+  public boolean shouldSkipPluginsHashCheck();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: ldc_w         #398                // String teamcity.agent.skip.plugins.hash.check
+         4: ldc           #175                // String false
+         6: invokevirtual #177                // Method getInternalProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+         9: invokestatic  #400                // Method java/lang/Boolean.valueOf:(Ljava/lang/String;)Ljava/lang/Boolean;
+        12: invokevirtual #405                // Method java/lang/Boolean.booleanValue:()Z
+        15: ireturn
+      LineNumberTable:
+        line 399: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public boolean isLoadingToolsOnDemandAllowing();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+         4: ldc_w         #411                // String teamcity.tools.loadingOnDemand.enabled
+         7: invokeinterface #165,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        12: checkcast     #169                // class java/lang/String
+        15: astore_1
+        16: aload_1
+        17: ifnonnull     22
+        20: iconst_1
+        21: ireturn
+        22: aload_1
+        23: invokestatic  #413                // Method java/lang/Boolean.parseBoolean:(Ljava/lang/String;)Z
+        26: ireturn
+      LineNumberTable:
+        line 404: 0
+        line 405: 16
+        line 406: 20
+        line 408: 22
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      27     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+           16      11     1 param   Ljava/lang/String;
+
+  public boolean isAgentUpgradeWithoutRestartAllowed();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+         4: ldc_w         #416                // String teamcity.agent.upgradeWithoutRestart.allowed
+         7: ldc           #171                // String true
+         9: invokeinterface #418,  3          // InterfaceMethod java/util/Map.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        14: checkcast     #169                // class java/lang/String
+        17: invokestatic  #413                // Method java/lang/Boolean.parseBoolean:(Ljava/lang/String;)Z
+        20: ireturn
+      LineNumberTable:
+        line 413: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      21     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public boolean isToolsRemovalWithoutRestartAllowed();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: invokevirtual #296                // Method getConfigurationParameters:()Ljava/util/Map;
+         4: ldc_w         #422                // String teamcity.agent.toolsRemovalWithoutRestart.allowed
+         7: ldc           #171                // String true
+         9: invokeinterface #418,  3          // InterfaceMethod java/util/Map.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        14: checkcast     #169                // class java/lang/String
+        17: invokestatic  #413                // Method java/lang/Boolean.parseBoolean:(Ljava/lang/String;)Z
+        20: ireturn
+      LineNumberTable:
+        line 418: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      21     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public void addEnvironmentVariable(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        42
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_2
+        10: ifnonnull     18
+        13: bipush        43
+        15: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        18: aload_0
+        19: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        22: aload_1
+        23: aload_2
+        24: invokevirtual #355                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.addEnvironmentVariable:(Ljava/lang/String;Ljava/lang/String;)V
+        27: return
+      LineNumberTable:
+        line 423: 18
+        line 424: 27
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      28     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      28     1   key   Ljava/lang/String;
+            0      28     2 value   Ljava/lang/String;
+
+  public void addSystemProperty(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        44
+         6: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+         9: aload_2
+        10: ifnonnull     18
+        13: bipush        45
+        15: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        18: aload_0
+        19: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+        22: aload_1
+        23: aload_2
+        24: invokevirtual #350                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.addSystemProperty:(Ljava/lang/String;Ljava/lang/String;)V
+        27: return
+      LineNumberTable:
+        line 428: 18
+        line 429: 27
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      28     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+            0      28     1   key   Ljava/lang/String;
+            0      28     2 value   Ljava/lang/String;
+
+  public jetbrains.buildServer.agent.BuildParametersMap getBuildParameters();
+    descriptor: ()Ljetbrains/buildServer/agent/BuildParametersMap;
+    Code:
+         0: aload_0
+         1: getfield      #80                 // Field myContext:Ljetbrains/buildServer/agent/impl/config/AgentContextImpl;
+         4: invokevirtual #110                // Method jetbrains/buildServer/agent/impl/config/AgentContextImpl.getBuildParameters:()Ljetbrains/buildServer/agent/BuildParametersMap;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        46
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 434: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentConfDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #424                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentConfDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        47
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 440: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentLibDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #427                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentLibDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        48
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 446: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentPluginsDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #430                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentPluginsDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        49
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 452: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentUpdateDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #433                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentUpdateDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        50
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 458: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentHomeDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #436                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentHomeDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        51
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 464: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.io.File getAgentLogsDirectory();
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: aload_0
+         1: getfield      #35                 // Field myPaths:Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths;
+         4: invokevirtual #439                // Method jetbrains/buildServer/agent/impl/config/BuildAgentConfigurablePaths.getAgentLogsDirectory:()Ljava/io/File;
+         7: dup
+         8: ifnonnull     16
+        11: bipush        52
+        13: invokestatic  #581                // Method $$$reportNull$$$0:(I)V
+        16: areturn
+      LineNumberTable:
+        line 470: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.lang.String getAgentZipName();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: ldc_w         #444                // String buildAgent.zip
+         3: areturn
+      LineNumberTable:
+        line 476: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       4     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.lang.String getUpdateContentsXmlName();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: ldc_w         #446                // String teamcity-agent.xml
+         3: areturn
+      LineNumberTable:
+        line 482: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       4     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  public java.lang.String getUpdatePluginsBasePath();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: ldc_w         #448                // String /update/plugins/
+         3: areturn
+      LineNumberTable:
+        line 488: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       4     0  this   Ljetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 52
+                       0: 228
+                       1: 228
+                       2: 228
+                       3: 228
+                       4: 228
+                       5: 228
+                       6: 228
+                       7: 228
+                       8: 228
+                       9: 234
+                      10: 234
+                      11: 234
+                      12: 234
+                      13: 228
+                      14: 234
+                      15: 234
+                      16: 228
+                      17: 228
+                      18: 228
+                      19: 234
+                      20: 234
+                      21: 234
+                      22: 228
+                      23: 234
+                      24: 228
+                      25: 234
+                      26: 234
+                      27: 234
+                      28: 234
+                      29: 234
+                      30: 234
+                      31: 234
+                      32: 234
+                      33: 228
+                      34: 234
+                      35: 228
+                      36: 228
+                      37: 228
+                      38: 228
+                      39: 228
+                      40: 228
+                      41: 228
+                      42: 228
+                      43: 228
+                      44: 228
+                      45: 228
+                      46: 234
+                      47: 234
+                      48: 234
+                      49: 234
+                      50: 234
+                      51: 234
+                      52: 234
+                 default: 228
+            }
+       228: ldc_w         #591                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+       231: goto          240
+       234: ldc_w         #593                // String @NotNull method %s.%s must not return null
+       237: goto          240
+       240: iload_0
+       241: tableswitch   { // 0 to 52
+                       0: 468
+                       1: 468
+                       2: 468
+                       3: 468
+                       4: 468
+                       5: 468
+                       6: 468
+                       7: 468
+                       8: 468
+                       9: 472
+                      10: 472
+                      11: 472
+                      12: 472
+                      13: 468
+                      14: 472
+                      15: 472
+                      16: 468
+                      17: 468
+                      18: 468
+                      19: 472
+                      20: 472
+                      21: 472
+                      22: 468
+                      23: 472
+                      24: 468
+                      25: 472
+                      26: 472
+                      27: 472
+                      28: 472
+                      29: 472
+                      30: 472
+                      31: 472
+                      32: 472
+                      33: 468
+                      34: 472
+                      35: 468
+                      36: 468
+                      37: 468
+                      38: 468
+                      39: 468
+                      40: 468
+                      41: 468
+                      42: 468
+                      43: 468
+                      44: 468
+                      45: 468
+                      46: 472
+                      47: 472
+                      48: 472
+                      49: 472
+                      50: 472
+                      51: 472
+                      52: 472
+                 default: 468
+            }
+       468: iconst_3
+       469: goto          476
+       472: iconst_2
+       473: goto          476
+       476: anewarray     #6                  // class java/lang/Object
+       479: iload_0
+       480: tableswitch   { // 0 to 52
+                       0: 708
+                       1: 717
+                       2: 726
+                       3: 735
+                       4: 744
+                       5: 753
+                       6: 762
+                       7: 771
+                       8: 780
+                       9: 789
+                      10: 789
+                      11: 789
+                      12: 789
+                      13: 798
+                      14: 789
+                      15: 789
+                      16: 807
+                      17: 816
+                      18: 825
+                      19: 789
+                      20: 789
+                      21: 789
+                      22: 834
+                      23: 789
+                      24: 843
+                      25: 789
+                      26: 789
+                      27: 789
+                      28: 789
+                      29: 789
+                      30: 789
+                      31: 789
+                      32: 789
+                      33: 852
+                      34: 789
+                      35: 816
+                      36: 861
+                      37: 816
+                      38: 861
+                      39: 816
+                      40: 870
+                      41: 879
+                      42: 852
+                      43: 861
+                      44: 852
+                      45: 861
+                      46: 789
+                      47: 789
+                      48: 789
+                      49: 789
+                      50: 789
+                      51: 789
+                      52: 789
+                 default: 708
+            }
+       708: dup
+       709: iconst_0
+       710: ldc_w         #594                // String systemInfo
+       713: aastore
+       714: goto          888
+       717: dup
+       718: iconst_0
+       719: ldc_w         #595                // String mapsFactory
+       722: aastore
+       723: goto          888
+       726: dup
+       727: iconst_0
+       728: ldc_w         #596                // String parametersFactory
+       731: aastore
+       732: goto          888
+       735: dup
+       736: iconst_0
+       737: ldc_w         #597                // String paths
+       740: aastore
+       741: goto          888
+       744: dup
+       745: iconst_0
+       746: ldc_w         #598                // String wellknown
+       749: aastore
+       750: goto          888
+       753: dup
+       754: iconst_0
+       755: ldc_w         #599                // String initializer
+       758: aastore
+       759: goto          888
+       762: dup
+       763: iconst_0
+       764: ldc_w         #600                // String persister
+       767: aastore
+       768: goto          888
+       771: dup
+       772: iconst_0
+       773: ldc_w         #601                // String parameters
+       776: aastore
+       777: goto          888
+       780: dup
+       781: iconst_0
+       782: ldc_w         #602                // String agentOperationModeHolder
+       785: aastore
+       786: goto          888
+       789: dup
+       790: iconst_0
+       791: ldc_w         #603                // String jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl
+       794: aastore
+       795: goto          888
+       798: dup
+       799: iconst_0
+       800: ldc_w         #604                // String pathToWorkDir
+       803: aastore
+       804: goto          888
+       807: dup
+       808: iconst_0
+       809: ldc_w         #605                // String details
+       812: aastore
+       813: goto          888
+       816: dup
+       817: iconst_0
+       818: ldc_w         #606                // String name
+       821: aastore
+       822: goto          888
+       825: dup
+       826: iconst_0
+       827: ldc_w         #607                // String address
+       830: aastore
+       831: goto          888
+       834: dup
+       835: iconst_0
+       836: ldc_w         #608                // String checkoutDir
+       839: aastore
+       840: goto          888
+       843: dup
+       844: iconst_0
+       845: ldc_w         #609                // String pathToTempDir
+       848: aastore
+       849: goto          888
+       852: dup
+       853: iconst_0
+       854: ldc_w         #610                // String key
+       857: aastore
+       858: goto          888
+       861: dup
+       862: iconst_0
+       863: ldc_w         #611                // String value
+       866: aastore
+       867: goto          888
+       870: dup
+       871: iconst_0
+       872: ldc_w         #612                // String ownAddress
+       875: aastore
+       876: goto          888
+       879: dup
+       880: iconst_0
+       881: ldc_w         #613                // String token
+       884: aastore
+       885: goto          888
+       888: iload_0
+       889: tableswitch   { // 0 to 52
+                       0: 1116
+                       1: 1116
+                       2: 1116
+                       3: 1116
+                       4: 1116
+                       5: 1116
+                       6: 1116
+                       7: 1116
+                       8: 1116
+                       9: 1125
+                      10: 1134
+                      11: 1143
+                      12: 1152
+                      13: 1116
+                      14: 1161
+                      15: 1170
+                      16: 1116
+                      17: 1116
+                      18: 1116
+                      19: 1179
+                      20: 1188
+                      21: 1197
+                      22: 1116
+                      23: 1206
+                      24: 1116
+                      25: 1215
+                      26: 1224
+                      27: 1233
+                      28: 1242
+                      29: 1251
+                      30: 1260
+                      31: 1269
+                      32: 1278
+                      33: 1116
+                      34: 1278
+                      35: 1116
+                      36: 1116
+                      37: 1116
+                      38: 1116
+                      39: 1116
+                      40: 1116
+                      41: 1116
+                      42: 1116
+                      43: 1116
+                      44: 1116
+                      45: 1116
+                      46: 1287
+                      47: 1296
+                      48: 1305
+                      49: 1314
+                      50: 1323
+                      51: 1332
+                      52: 1341
+                 default: 1116
+            }
+      1116: dup
+      1117: iconst_1
+      1118: ldc_w         #603                // String jetbrains/buildServer/agent/impl/config/BuildAgentConfigurationImpl
+      1121: aastore
+      1122: goto          1350
+      1125: dup
+      1126: iconst_1
+      1127: ldc_w         #614                // String getCustomProperties
+      1130: aastore
+      1131: goto          1350
+      1134: dup
+      1135: iconst_1
+      1136: ldc_w         #615                // String getConfigurationParameters
+      1139: aastore
+      1140: goto          1350
+      1143: dup
+      1144: iconst_1
+      1145: ldc_w         #616                // String getParametersResolver
+      1148: aastore
+      1149: goto          1350
+      1152: dup
+      1153: iconst_1
+      1154: ldc_w         #617                // String getOperationMode
+      1157: aastore
+      1158: goto          1350
+      1161: dup
+      1162: iconst_1
+      1163: ldc_w         #618                // String getAuthorizationToken
+      1166: aastore
+      1167: goto          1350
+      1170: dup
+      1171: iconst_1
+      1172: ldc_w         #619                // String getPingCode
+      1175: aastore
+      1176: goto          1350
+      1179: dup
+      1180: iconst_1
+      1181: ldc_w         #620                // String getAlternativeAddresses
+      1184: aastore
+      1185: goto          1350
+      1188: dup
+      1189: iconst_1
+      1190: ldc_w         #621                // String getAgentContext
+      1193: aastore
+      1194: goto          1350
+      1197: dup
+      1198: iconst_1
+      1199: ldc_w         #622                // String getAgentUpgradeFiltersFile
+      1202: aastore
+      1203: goto          1350
+      1206: dup
+      1207: iconst_1
+      1208: ldc_w         #623                // String getVcsCheckoutdirStateFiles
+      1211: aastore
+      1212: goto          1350
+      1215: dup
+      1216: iconst_1
+      1217: ldc_w         #624                // String getSystemInfo
+      1220: aastore
+      1221: goto          1350
+      1224: dup
+      1225: iconst_1
+      1226: ldc_w         #625                // String getWorkDirectory
+      1229: aastore
+      1230: goto          1350
+      1233: dup
+      1234: iconst_1
+      1235: ldc_w         #626                // String getTempDirectory
+      1238: aastore
+      1239: goto          1350
+      1242: dup
+      1243: iconst_1
+      1244: ldc_w         #627                // String getSystemDirectory
+      1247: aastore
+      1248: goto          1350
+      1251: dup
+      1252: iconst_1
+      1253: ldc_w         #628                // String getBuildTempDirectory
+      1256: aastore
+      1257: goto          1350
+      1260: dup
+      1261: iconst_1
+      1262: ldc_w         #629                // String getAgentTempDirectory
+      1265: aastore
+      1266: goto          1350
+      1269: dup
+      1270: iconst_1
+      1271: ldc_w         #630                // String getAgentToolsDirectory
+      1274: aastore
+      1275: goto          1350
+      1278: dup
+      1279: iconst_1
+      1280: ldc_w         #631                // String getCacheDirectory
+      1283: aastore
+      1284: goto          1350
+      1287: dup
+      1288: iconst_1
+      1289: ldc_w         #632                // String getBuildParameters
+      1292: aastore
+      1293: goto          1350
+      1296: dup
+      1297: iconst_1
+      1298: ldc_w         #633                // String getAgentConfDirectory
+      1301: aastore
+      1302: goto          1350
+      1305: dup
+      1306: iconst_1
+      1307: ldc_w         #634                // String getAgentLibDirectory
+      1310: aastore
+      1311: goto          1350
+      1314: dup
+      1315: iconst_1
+      1316: ldc_w         #635                // String getAgentPluginsDirectory
+      1319: aastore
+      1320: goto          1350
+      1323: dup
+      1324: iconst_1
+      1325: ldc_w         #636                // String getAgentUpdateDirectory
+      1328: aastore
+      1329: goto          1350
+      1332: dup
+      1333: iconst_1
+      1334: ldc_w         #637                // String getAgentHomeDirectory
+      1337: aastore
+      1338: goto          1350
+      1341: dup
+      1342: iconst_1
+      1343: ldc_w         #638                // String getAgentLogsDirectory
+      1346: aastore
+      1347: goto          1350
+      1350: iload_0
+      1351: tableswitch   { // 0 to 52
+                       0: 1576
+                       1: 1576
+                       2: 1576
+                       3: 1576
+                       4: 1576
+                       5: 1576
+                       6: 1576
+                       7: 1576
+                       8: 1576
+                       9: 1585
+                      10: 1585
+                      11: 1585
+                      12: 1585
+                      13: 1588
+                      14: 1585
+                      15: 1585
+                      16: 1597
+                      17: 1606
+                      18: 1615
+                      19: 1585
+                      20: 1585
+                      21: 1585
+                      22: 1624
+                      23: 1585
+                      24: 1633
+                      25: 1585
+                      26: 1585
+                      27: 1585
+                      28: 1585
+                      29: 1585
+                      30: 1585
+                      31: 1585
+                      32: 1585
+                      33: 1642
+                      34: 1585
+                      35: 1651
+                      36: 1651
+                      37: 1660
+                      38: 1660
+                      39: 1669
+                      40: 1678
+                      41: 1687
+                      42: 1696
+                      43: 1696
+                      44: 1705
+                      45: 1705
+                      46: 1585
+                      47: 1585
+                      48: 1585
+                      49: 1585
+                      50: 1585
+                      51: 1585
+                      52: 1585
+                 default: 1576
+            }
+      1576: dup
+      1577: iconst_2
+      1578: ldc_w         #639                // String <init>
+      1581: aastore
+      1582: goto          1714
+      1585: goto          1714
+      1588: dup
+      1589: iconst_2
+      1590: ldc_w         #640                // String setWorkDir
+      1593: aastore
+      1594: goto          1714
+      1597: dup
+      1598: iconst_2
+      1599: ldc_w         #641                // String updateConfiguration
+      1602: aastore
+      1603: goto          1714
+      1606: dup
+      1607: iconst_2
+      1608: ldc_w         #642                // String getInternalProperty
+      1611: aastore
+      1612: goto          1714
+      1615: dup
+      1616: iconst_2
+      1617: ldc_w         #643                // String addAlternativeAgentAddress
+      1620: aastore
+      1621: goto          1714
+      1624: dup
+      1625: iconst_2
+      1626: ldc_w         #644                // String getVcsCheckoutdirStateFile
+      1629: aastore
+      1630: goto          1714
+      1633: dup
+      1634: iconst_2
+      1635: ldc_w         #645                // String setTempDir
+      1638: aastore
+      1639: goto          1714
+      1642: dup
+      1643: iconst_2
+      1644: ldc_w         #631                // String getCacheDirectory
+      1647: aastore
+      1648: goto          1714
+      1651: dup
+      1652: iconst_2
+      1653: ldc_w         #646                // String addCustomProperty
+      1656: aastore
+      1657: goto          1714
+      1660: dup
+      1661: iconst_2
+      1662: ldc_w         #647                // String addConfigurationParameter
+      1665: aastore
+      1666: goto          1714
+      1669: dup
+      1670: iconst_2
+      1671: ldc_w         #648                // String removeConfigurationParameter
+      1674: aastore
+      1675: goto          1714
+      1678: dup
+      1679: iconst_2
+      1680: ldc_w         #649                // String setOwnAddress
+      1683: aastore
+      1684: goto          1714
+      1687: dup
+      1688: iconst_2
+      1689: ldc_w         #650                // String setAuthorizationToken
+      1692: aastore
+      1693: goto          1714
+      1696: dup
+      1697: iconst_2
+      1698: ldc_w         #651                // String addEnvironmentVariable
+      1701: aastore
+      1702: goto          1714
+      1705: dup
+      1706: iconst_2
+      1707: ldc_w         #652                // String addSystemProperty
+      1710: aastore
+      1711: goto          1714
+      1714: invokestatic  #268                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      1717: iload_0
+      1718: tableswitch   { // 0 to 52
+                       0: 1944
+                       1: 1944
+                       2: 1944
+                       3: 1944
+                       4: 1944
+                       5: 1944
+                       6: 1944
+                       7: 1944
+                       8: 1944
+                       9: 1955
+                      10: 1955
+                      11: 1955
+                      12: 1955
+                      13: 1944
+                      14: 1955
+                      15: 1955
+                      16: 1944
+                      17: 1944
+                      18: 1944
+                      19: 1955
+                      20: 1955
+                      21: 1955
+                      22: 1944
+                      23: 1955
+                      24: 1944
+                      25: 1955
+                      26: 1955
+                      27: 1955
+                      28: 1955
+                      29: 1955
+                      30: 1955
+                      31: 1955
+                      32: 1955
+                      33: 1944
+                      34: 1955
+                      35: 1944
+                      36: 1944
+                      37: 1944
+                      38: 1944
+                      39: 1944
+                      40: 1944
+                      41: 1944
+                      42: 1944
+                      43: 1944
+                      44: 1944
+                      45: 1944
+                      46: 1955
+                      47: 1955
+                      48: 1955
+                      49: 1955
+                      50: 1955
+                      51: 1955
+                      52: 1955
+                 default: 1944
+            }
+      1944: new           #654                // class java/lang/IllegalArgumentException
+      1947: dup_x1
+      1948: swap
+      1949: invokespecial #655                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      1952: goto          1966
+      1955: new           #657                // class java/lang/IllegalStateException
+      1958: dup_x1
+      1959: swap
+      1960: invokespecial #658                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      1963: goto          1966
+      1966: athrow
+}

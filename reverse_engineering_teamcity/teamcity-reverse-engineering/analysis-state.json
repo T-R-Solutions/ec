@@ -1,0 +1,37 @@
+{
+  "updated_at": "2026-10-30T19:46:59.566316+00:00",
+  "status": "in_progress",
+  "target": "/opt/jvm/TeamCity",
+  "version": "2026.2-239120",
+  "build_date": "2026-09-29",
+  "edition": "UNKNOWN",
+  "inventory": "completed within declared filesystem/ZIP scope",
+  "symbol_index": "completed; syntactic body indexing for jetbrains/, com/jetbrains/, org/jetbrains/teamcity/",
+  "functional_reconstruction": "partial",
+  "dynamic_validation": "not_executed",
+  "coverage": "27-cobertura/metrics.json",
+  "next_steps": [
+    "Trace REST Build.triggerBuild to promotion/queue insertion and record exact transition predicates.",
+    "Resolve StartupProcessor, agent stage assembly and concrete Spring bean graph.",
+    "Inspect compiler/evaluator/application path inside configs-dsl.zip and versioned settings.",
+    "Resolve protocol serialization, poller timing and server handlers across RPC boundary.",
+    "Build isolated synthetic runtime before 14 dynamic scenarios.",
+    "Audit remaining subsystem candidates and decompiler failures."
+  ],
+  "unknowns": "unknowns.json",
+  "resume": "python3 rea/tools/query.py CLASS --full; consult 20-classes-metodos/subsystem-catalog.json",
+  "do_not_repeat": [
+    "Full inventory and class indexing when artifact hashes match."
+  ],
+  "sensitive_data": "No Data Directory/database/log contents exported.",
+  "validation": {
+    "static": "passed",
+    "checks": 1239,
+    "original_artifacts_rehashed": 16,
+    "hash_mismatches": 0,
+    "evidence": [
+      "24-testes/static-validation.json",
+      "24-testes/original-artifacts-validation.json"
+    ]
+  }
+}

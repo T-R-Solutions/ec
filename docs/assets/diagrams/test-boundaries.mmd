@@ -1,0 +1,9 @@
+flowchart TB
+    accTitle: Testar na menor fronteira suficiente
+    accDescr: Onde cada tipo de teste deve ficar? 
+    UNIT["Unitário<br/>src/ do crate ou domínio"]
+    LOCAL["Integração local<br/>tests/ do crate ou domínio"]
+    MONO["Entre módulos<br/>tests/ da composição ou frontend"]
+    CROSS["Entre componentes<br/>application/integration/<br/>tests/integration/"]
+    E2E["Jornada completa<br/>application/integration/<br/>tests/e2e/"]
+    GOV["Governança existente<br/>tools/governance/tests/ · Python"]

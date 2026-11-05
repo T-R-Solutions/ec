@@ -1,0 +1,6 @@
+flowchart TB
+    accTitle: control · fronteira do domínio
+    accDescr: Quais imports Ec são permitidos neste módulo? SELF → EXECUTION: pode consumir
+    SELF["control<br/>Sessão e coordenação"]
+    EXECUTION["execution<br/>Execução de etapas"]
+    SELF -->|"pode consumir"| EXECUTION

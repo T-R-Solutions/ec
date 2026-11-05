@@ -1,0 +1,17 @@
+Compiled from "Server.java"
+public interface jetbrains.buildServer.agentServer.Server extends jetbrains.buildServer.agentServer.AgentLogListener {
+  public static final java.lang.String BUILD_SERVER;
+    descriptor: Ljava/lang/String;
+
+  public abstract boolean ping();
+    descriptor: ()Z
+
+  public abstract java.lang.String updateAgentParameteres(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+
+  public abstract boolean unregister(int);
+    descriptor: (I)Z
+
+  public abstract boolean unregister(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)Z
+}

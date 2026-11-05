@@ -1,0 +1,138 @@
+# ec — .gitignore (colocar na raiz do repositorio)
+# Arquivos de codigo, SDD, skills e evidencias oficiais devem ser versionados.
+
+# Rust / Cargo: build e caches (Cargo.lock DEVE ser versionado)
+**/target/
+**/*.rs.bk
+*.pdb
+
+# Distribuicoes geradas e empacotamento local
+/dist/
+
+# Arquivos temporarios e logs locais
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.rej
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Ambiente e preferencias pessoais de editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.shared.json
+.idea/
+*.iml
+.history/
+
+# Arquivos locais de ambiente e credenciais
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python — ferramentas de governanca
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tec/
+.nec/
+.venv/
+venv/
+
+# Cobertura, profiling e resultados gerados
+/coverage/
+**/coverage/
+*.profraw
+*.profdata
+*.gcda
+*.gcno
+
+# Dados operacionais locais da aplicacao (nao fontes/configs normativas)
+/.ec/local/
+/.ec/cache/
+/.ec/state/
+/.ec/logs/
+/.ec/backups/
+/.ec/secrets/
+/application/.ec/
+
+# Bancos e journals locais gerados em tempo de execucao
+*.sqlite-wal
+*.sqlite-shm
+*.db-wal
+*.db-shm
+
+# Importante: NAO ignorar .codex/, sdd/, docs/, config/governance/,
+# tools/, application/Cargo.lock ou evidencias SDD versionadas.
+# Arquivos SQLite de fixture e evidencias devem ser preservados.
+
+# Vue 3 / Vite / TypeScript: dependencias e caches locais
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+.vite/
+.vite-temp/
+.vite-inspect/
+*.tsbuildinfo
+vite.config.*.timestamp-*
+
+# Saidas do frontend; manter src, public, configuracoes e lockfiles
+/application/server/frontend/dist/
+/application/server/frontend/dist-ssr/
+/application/server/frontend/.cache/
+/application/server/frontend/.eslintcache
+/application/server/frontend/.stylelintcache
+
+# Testes frontend: relatorios e resultados temporarios, nao fixtures
+/application/**/playwright-report/
+/application/**/test-results/
+/application/**/blob-report/
+/application/**/.vitest/
+/application/**/.nyc_output/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Caches/builds locais usados neste checkout; preservar baseline e observacoes
+/.local/build/ec-cargo-home/
+/.local/build/ec-server-*/
+/.local/build/documentation-enterprise/site/
+
+# Locks/journal operacionais do instalador nao pertencem ao catalogo versionado
+/config/governance/install.lock
+/config/governance/install-journal.json
+/config/governance/.ec-metadata-*
+
+# Evidencias oficiais sao versionadas, inclusive logs historicos
+!/docs/validation/**/*.log
+!/reverse_engineering_teamcity/**/25-evidencias/**/*.log
+
+# Permanecem versionados: Cargo.lock, package-lock.json, pnpm-lock.yaml,
+# yarn.lock, bun.lock/bun.lockb, .yarnrc.yml, .yarn/releases e .yarn/plugins.
+
+# Indices volumosos de pesquisa: mantidos localmente, fora do GitHub
+/reverse_engineering_teamcity/teamcity-reverse-engineering/symbols.sqlite
+/reverse_engineering_teamcity/teamcity-reverse-engineering/25-evidencias/symbols.jsonl.gz

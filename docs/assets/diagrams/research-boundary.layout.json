@@ -1,0 +1,36 @@
+{
+  "title": "Pesquisa informa · contratos governam",
+  "question": "Como usar o material TeamCity?",
+  "status": "Limite de uso das fontes históricas",
+  "sources": [
+    "docs/constitution.md",
+    "reverse_engineering_teamcity/README.md"
+  ],
+  "columns": 2,
+  "nodes": {
+    "HIST": {
+      "icon": "archive",
+      "tone": "purple",
+      "column": 0,
+      "row": 0
+    },
+    "ANALYSIS": {
+      "icon": "scan-search",
+      "tone": "blue",
+      "column": 1,
+      "row": 0
+    },
+    "NORMS": {
+      "icon": "shield-check",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "DECISION": {
+      "icon": "git-branch",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    }
+  }
+}

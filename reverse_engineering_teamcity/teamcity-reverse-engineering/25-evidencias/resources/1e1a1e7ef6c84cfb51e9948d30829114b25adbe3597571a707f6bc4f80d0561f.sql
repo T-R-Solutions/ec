@@ -1,0 +1,1 @@
+create table build_tags (tag varchar(255), build_id bigint);

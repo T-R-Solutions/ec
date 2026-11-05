@@ -1,0 +1,229 @@
+Compiled from "StandardWaitReasons.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.StandardWaitReasons {
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason MAX_RUNNING_BUILDS_NUMBER_REACHED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason MAX_RUNNING_BUILDS_NUMBER_PER_BRANCH_REACHED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason WAITING_CHECKING_FOR_CHANGES;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason WAITING_CHECKING_FOR_CHANGES_IN_DEPS;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason DEPENDENCY_NOT_READY;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason WAITING_FOR_THE_FIRST_DEPENDENCY_TO_START;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason CHECKING_FOR_CHANGES_IN_PROGRESS;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason CHECKING_FOR_CHANGES_IN_PROGRESS_IN_DEPS;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason NO_COMPATIBLE_AGENTS_AVAILABLE;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason NO_AGENTS_IN_THE_SELECTED_POOL;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason NO_AGENTS_FOR_CLOUD_IMAGE;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason TARGET_AGENT_UNAVAILABLE;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason AGENTS_OUTDATED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason AGENTS_OUTDATED_UPGRADE_DISABLED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason NO_ENABLED_COMPATIBLE_AGENTS;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason WAITING_FOR_CLOUD_AGENT;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason WAITING_FOR_EXECUTOR;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason TARGET_AGENT_DISCONNECTED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason TARGET_AGENT_INCOMPATIBLE;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason TARGET_AGENT_INACCESSIBLE;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason TARGET_AGENT_OUTDATED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason TARGET_AGENT_OUTDATED_UPGRADE_DISABLED;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public static final jetbrains.buildServer.serverSide.buildDistribution.WaitReason NO_AGENTS_WITH_MATCHED_RESTRICTIONS;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.StandardWaitReasons();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #143                // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+         3: dup
+         4: ldc           #1                  // String The maximum number of running builds for this configuration is reached
+         6: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+         9: putstatic     #112                // Field MAX_RUNNING_BUILDS_NUMBER_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        12: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        15: dup
+        16: ldc           #20                 // String The maximum number of running builds in this branch is reached
+        18: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        21: putstatic     #132                // Field MAX_RUNNING_BUILDS_NUMBER_PER_BRANCH_REACHED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        24: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        27: dup
+        28: ldc           #3                  // String Waiting to start checking for changes
+        30: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        33: putstatic     #120                // Field WAITING_CHECKING_FOR_CHANGES:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        36: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        39: dup
+        40: ldc           #18                 // String A build that is dependent on this one is waiting to start collecting changes
+        42: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        45: putstatic     #51                 // Field WAITING_CHECKING_FOR_CHANGES_IN_DEPS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        48: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        51: dup
+        52: ldc           #5                  // String Build dependencies have not been built yet
+        54: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        57: putstatic     #57                 // Field DEPENDENCY_NOT_READY:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        60: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        63: dup
+        64: ldc           #11                 // String Waiting for the start of the first build in the build chain
+        66: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        69: putstatic     #74                 // Field WAITING_FOR_THE_FIRST_DEPENDENCY_TO_START:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        72: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        75: dup
+        76: ldc           #16                 // String Checking for changes is in progress
+        78: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        81: putstatic     #142                // Field CHECKING_FOR_CHANGES_IN_PROGRESS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        84: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+        87: dup
+        88: ldc           #23                 // String A build that is dependent on this one is collecting changes
+        90: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        93: putstatic     #65                 // Field CHECKING_FOR_CHANGES_IN_PROGRESS_IN_DEPS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        96: new           #91                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+        99: dup
+       100: ldc           #21                 // String There are no idle compatible agents which can run this build
+       102: iconst_1
+       103: invokespecial #49                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl."<init>":(Ljava/lang/String;Z)V
+       106: putstatic     #114                // Field NO_COMPATIBLE_AGENTS_AVAILABLE:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       109: new           #91                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+       112: dup
+       113: ldc           #19                 // String There are no idle compatible agents in the selected agent pool which can run this build
+       115: iconst_1
+       116: invokespecial #49                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl."<init>":(Ljava/lang/String;Z)V
+       119: putstatic     #105                // Field NO_AGENTS_IN_THE_SELECTED_POOL:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       122: new           #91                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+       125: dup
+       126: ldc           #6                  // String There are no idle compatible agents with the selected cloud image which can run this build
+       128: iconst_1
+       129: invokespecial #49                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl."<init>":(Ljava/lang/String;Z)V
+       132: putstatic     #71                 // Field NO_AGENTS_FOR_CLOUD_IMAGE:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       135: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       138: dup
+       139: ldc           #12                 // String The agent selected for the build is either incompatible or unavailable
+       141: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       144: putstatic     #98                 // Field TARGET_AGENT_UNAVAILABLE:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       147: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       150: dup
+       151: ldc           #2                  // String All compatible agents are outdated, waiting for upgrade
+       153: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       156: putstatic     #66                 // Field AGENTS_OUTDATED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       159: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       162: dup
+       163: ldc           #4                  // String All compatible agents are outdated and cannot be upgraded to a newer version
+       165: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       168: putstatic     #58                 // Field AGENTS_OUTDATED_UPGRADE_DISABLED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       171: new           #91                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+       174: dup
+       175: ldc           #22                 // String There are no enabled compatible agents which can run this build
+       177: iconst_1
+       178: invokespecial #49                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl."<init>":(Ljava/lang/String;Z)V
+       181: putstatic     #134                // Field NO_ENABLED_COMPATIBLE_AGENTS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       184: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       187: dup
+       188: ldc           #7                  // String Waiting for starting agent
+       190: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       193: putstatic     #129                // Field WAITING_FOR_CLOUD_AGENT:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       196: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       199: dup
+       200: ldc           #9                  // String Waiting for starting executor build
+       202: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       205: putstatic     #107                // Field WAITING_FOR_EXECUTOR:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       208: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       211: dup
+       212: ldc           #15                 // String The selected agent is disconnected
+       214: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       217: putstatic     #27                 // Field TARGET_AGENT_DISCONNECTED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       220: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       223: dup
+       224: ldc           #10                 // String The selected agent is not compatible
+       226: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       229: putstatic     #81                 // Field TARGET_AGENT_INCOMPATIBLE:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       232: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       235: dup
+       236: ldc           #17                 // String The selected agent is from inaccessible pool of agents
+       238: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       241: putstatic     #139                // Field TARGET_AGENT_INACCESSIBLE:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       244: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       247: dup
+       248: ldc           #8                  // String The selected agent is outdated, waiting for upgrade
+       250: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       253: putstatic     #89                 // Field TARGET_AGENT_OUTDATED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       256: new           #116                // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       259: dup
+       260: ldc           #14                 // String The selected agent is outdated and cannot be upgraded to a newer version
+       262: invokespecial #40                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       265: putstatic     #50                 // Field TARGET_AGENT_OUTDATED_UPGRADE_DISABLED:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       268: new           #91                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl
+       271: dup
+       272: ldc           #13                 // String There are no compatible agents which can run this build and match the specified restrictions
+       274: iconst_1
+       275: invokespecial #49                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/WaitReasonImpl."<init>":(Ljava/lang/String;Z)V
+       278: putstatic     #138                // Field NO_AGENTS_WITH_MATCHED_RESTRICTIONS:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+       281: return
+      LineNumberTable:
+        line 10: 0
+        line 11: 12
+        line 22: 24
+        line 16: 36
+        line 9: 48
+        line 15: 60
+        line 17: 72
+        line 8: 84
+        line 13: 96
+        line 3: 109
+        line 20: 122
+        line 23: 135
+        line 18: 147
+        line 12: 159
+        line 21: 171
+        line 7: 184
+        line 14: 196
+        line 19: 208
+        line 4: 220
+        line 5: 232
+        line 6: 244
+        line 24: 256
+        line 2: 268
+}

@@ -1,0 +1,331 @@
+Compiled from "StagesExecutor.java"
+public abstract class jetbrains.buildServer.agent.impl.buildStages.StagesExecutor<T extends jetbrains.buildServer.agent.impl.buildStages.InterruptableStage> {
+  private final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final java.util.concurrent.atomic.AtomicReference<T> myCurrentStartBuildStage;
+    descriptor: Ljava/util/concurrent/atomic/AtomicReference;
+
+  private final java.util.concurrent.atomic.AtomicBoolean myIsInterrupted;
+    descriptor: Ljava/util/concurrent/atomic/AtomicBoolean;
+
+  public jetbrains.buildServer.agent.impl.buildStages.StagesExecutor();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: aload_0
+         6: invokevirtual #7                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+         9: invokevirtual #11                 // Method java/lang/Class.getName:()Ljava/lang/String;
+        12: invokestatic  #17                 // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+        15: putfield      #23                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        18: aload_0
+        19: new           #29                 // class java/util/concurrent/atomic/AtomicReference
+        22: dup
+        23: invokespecial #31                 // Method java/util/concurrent/atomic/AtomicReference."<init>":()V
+        26: putfield      #32                 // Field myCurrentStartBuildStage:Ljava/util/concurrent/atomic/AtomicReference;
+        29: aload_0
+        30: new           #36                 // class java/util/concurrent/atomic/AtomicBoolean
+        33: dup
+        34: invokespecial #38                 // Method java/util/concurrent/atomic/AtomicBoolean."<init>":()V
+        37: putfield      #39                 // Field myIsInterrupted:Ljava/util/concurrent/atomic/AtomicBoolean;
+        40: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 4
+        line 19: 18
+        line 20: 29
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      41     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+
+  protected abstract jetbrains.buildServer.agent.BuildFinishedStatus callStage(T) throws java.lang.Throwable;
+    descriptor: (Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+
+  protected boolean shouldRunAllStages();
+    descriptor: ()Z
+    Code:
+         0: iconst_0
+         1: ireturn
+      LineNumberTable:
+        line 24: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+
+  protected final jetbrains.buildServer.agent.BuildFinishedStatus doStages(java.util.Collection<? extends T>) throws java.lang.Throwable;
+    descriptor: (Ljava/util/Collection;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #182                // Method $$$reportNull$$$0:(I)V
+         8: aconst_null
+         9: astore_2
+        10: aload_1
+        11: invokeinterface #43,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        16: astore_3
+        17: aload_3
+        18: invokeinterface #49,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        23: ifeq          94
+        26: aload_3
+        27: invokeinterface #55,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        32: checkcast     #59                 // class jetbrains/buildServer/agent/impl/buildStages/InterruptableStage
+        35: astore        4
+        37: aload_0
+        38: invokevirtual #61                 // Method shouldExit:()Z
+        41: ifeq          47
+        44: goto          94
+        47: aload_0
+        48: aload         4
+        50: invokevirtual #64                 // Method callRunStage:(Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        53: astore        5
+        55: aload_0
+        56: invokevirtual #61                 // Method shouldExit:()Z
+        59: ifeq          65
+        62: goto          94
+        65: aload         5
+        67: ifnull        91
+        70: aload         5
+        72: getstatic     #68                 // Field jetbrains/buildServer/agent/BuildFinishedStatus.FINISHED_SUCCESS:Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        75: if_acmpeq     91
+        78: aload         5
+        80: astore_2
+        81: aload_0
+        82: invokevirtual #74                 // Method shouldRunAllStages:()Z
+        85: ifne          91
+        88: goto          94
+        91: goto          17
+        94: aload_0
+        95: invokevirtual #77                 // Method isInterrupted:()Z
+        98: ifeq          107
+       101: getstatic     #80                 // Field jetbrains/buildServer/agent/BuildFinishedStatus.INTERRUPTED:Ljetbrains/buildServer/agent/BuildFinishedStatus;
+       104: goto          108
+       107: aload_2
+       108: areturn
+      LineNumberTable:
+        line 29: 8
+        line 30: 10
+        line 31: 37
+        line 32: 44
+        line 35: 47
+        line 37: 55
+        line 38: 62
+        line 41: 65
+        line 42: 78
+        line 43: 81
+        line 44: 88
+        line 47: 91
+        line 49: 94
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           55      36     5 status   Ljetbrains/buildServer/agent/BuildFinishedStatus;
+           37      54     4 stage   Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;
+            0     109     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+            0     109     1 stages   Ljava/util/Collection;
+           10      99     2 result   Ljetbrains/buildServer/agent/BuildFinishedStatus;
+
+  private boolean shouldExit();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: invokevirtual #77                 // Method isInterrupted:()Z
+         4: ifeq          27
+         7: aload_0
+         8: invokevirtual #74                 // Method shouldRunAllStages:()Z
+        11: ifeq          25
+        14: aload_0
+        15: getfield      #23                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        18: ldc           #83                 // String Build was interrupted, but all stages will be executed as there are \'always execute\' steps
+        20: invokevirtual #85                 // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        23: iconst_0
+        24: ireturn
+        25: iconst_1
+        26: ireturn
+        27: iconst_0
+        28: ireturn
+      LineNumberTable:
+        line 53: 0
+        line 54: 7
+        line 55: 14
+        line 56: 23
+        line 58: 25
+        line 60: 27
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      29     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+
+  public T getCurrentStage();
+    descriptor: ()Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;
+    Code:
+         0: aload_0
+         1: getfield      #32                 // Field myCurrentStartBuildStage:Ljava/util/concurrent/atomic/AtomicReference;
+         4: invokevirtual #89                 // Method java/util/concurrent/atomic/AtomicReference.get:()Ljava/lang/Object;
+         7: checkcast     #59                 // class jetbrains/buildServer/agent/impl/buildStages/InterruptableStage
+        10: areturn
+      LineNumberTable:
+        line 65: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+
+  public final void interrupt();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myIsInterrupted:Ljava/util/concurrent/atomic/AtomicBoolean;
+         4: iconst_1
+         5: invokevirtual #92                 // Method java/util/concurrent/atomic/AtomicBoolean.set:(Z)V
+         8: aload_0
+         9: invokevirtual #96                 // Method getCurrentStage:()Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;
+        12: astore_1
+        13: aload_1
+        14: ifnull        47
+        17: aload_0
+        18: getfield      #23                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        21: aload_1
+        22: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/buildStages/InterruptableStage.getClass:()Ljava/lang/Class;
+        27: invokestatic  #101                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        30: invokedynamic #107,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        35: invokevirtual #85                 // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        38: aload_1
+        39: invokeinterface #111,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/buildStages/InterruptableStage.interrupt:()V
+        44: goto          56
+        47: aload_0
+        48: getfield      #23                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        51: ldc           #114                // String There is no currently running stage to interrupt
+        53: invokevirtual #85                 // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        56: return
+      LineNumberTable:
+        line 69: 0
+        line 70: 8
+        line 71: 13
+        line 72: 17
+        line 73: 38
+        line 75: 47
+        line 77: 56
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      57     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+           13      44     1 stage   Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;
+
+  public final boolean isInterrupted();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #39                 // Field myIsInterrupted:Ljava/util/concurrent/atomic/AtomicBoolean;
+         4: invokevirtual #116                // Method java/util/concurrent/atomic/AtomicBoolean.get:()Z
+         7: ireturn
+      LineNumberTable:
+        line 80: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+
+  private jetbrains.buildServer.agent.BuildFinishedStatus callRunStage(T) throws java.lang.Throwable;
+    descriptor: (Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_1
+         5: invokestatic  #182                // Method $$$reportNull$$$0:(I)V
+         8: aload_1
+         9: invokeinterface #118,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/buildStages/InterruptableStage.isAvailable:()Z
+        14: ifne          19
+        17: aconst_null
+        18: areturn
+        19: aload_0
+        20: getfield      #32                 // Field myCurrentStartBuildStage:Ljava/util/concurrent/atomic/AtomicReference;
+        23: aload_1
+        24: invokevirtual #121                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+        27: aload_0
+        28: getfield      #23                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        31: aload_1
+        32: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/agent/impl/buildStages/InterruptableStage.getClass:()Ljava/lang/Class;
+        37: invokevirtual #11                 // Method java/lang/Class.getName:()Ljava/lang/String;
+        40: invokedynamic #125,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        45: invokevirtual #85                 // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        48: aload_0
+        49: aload_1
+        50: invokevirtual #126                // Method callStage:(Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        53: astore_2
+        54: aload_0
+        55: getfield      #32                 // Field myCurrentStartBuildStage:Ljava/util/concurrent/atomic/AtomicReference;
+        58: aconst_null
+        59: invokevirtual #121                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+        62: aload_2
+        63: areturn
+        64: astore_3
+        65: aload_0
+        66: getfield      #32                 // Field myCurrentStartBuildStage:Ljava/util/concurrent/atomic/AtomicReference;
+        69: aconst_null
+        70: invokevirtual #121                // Method java/util/concurrent/atomic/AtomicReference.set:(Ljava/lang/Object;)V
+        73: aload_3
+        74: athrow
+      Exception table:
+         from    to  target type
+            48    54    64   any
+      LineNumberTable:
+        line 84: 8
+        line 86: 19
+        line 88: 27
+        line 90: 48
+        line 92: 54
+        line 90: 62
+        line 92: 64
+        line 93: 73
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      75     0  this   Ljetbrains/buildServer/agent/impl/buildStages/StagesExecutor;
+            0      75     1 stage   Ljetbrains/buildServer/agent/impl/buildStages/InterruptableStage;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #184                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #2                  // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 1
+                       0: 28
+                       1: 36
+                 default: 28
+            }
+        28: dup
+        29: iconst_0
+        30: ldc           #185                // String stages
+        32: aastore
+        33: goto          44
+        36: dup
+        37: iconst_0
+        38: ldc           #186                // String stage
+        40: aastore
+        41: goto          44
+        44: dup
+        45: iconst_1
+        46: ldc           #187                // String jetbrains/buildServer/agent/impl/buildStages/StagesExecutor
+        48: aastore
+        49: iload_0
+        50: tableswitch   { // 0 to 1
+                       0: 72
+                       1: 80
+                 default: 72
+            }
+        72: dup
+        73: iconst_2
+        74: ldc           #188                // String doStages
+        76: aastore
+        77: goto          88
+        80: dup
+        81: iconst_2
+        82: ldc           #189                // String callRunStage
+        84: aastore
+        85: goto          88
+        88: invokestatic  #193                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        91: new           #195                // class java/lang/IllegalArgumentException
+        94: dup_x1
+        95: swap
+        96: invokespecial #197                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+        99: athrow
+}

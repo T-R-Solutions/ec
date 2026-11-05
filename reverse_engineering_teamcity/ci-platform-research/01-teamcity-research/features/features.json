@@ -1,0 +1,196 @@
+[
+  {
+    "id": "F01",
+    "feature": "Projetos, configuração e parâmetros",
+    "evidence": [
+      "D-PROJECT",
+      "D-PARAM",
+      "D-AUTH",
+      "TC-015"
+    ],
+    "behavior": "Projetos organizam configurações; parâmetros compõem settings e ambiente; permissões são concedidas por papéis.",
+    "problem": "Organizar builds e limitar quem pode alterar ou executar cada projeto.",
+    "functional_contract": "Configuração, parâmetros e identidade → configuração efetiva; alterações são aplicadas por fluxo próprio de settings.",
+    "limitations": "Regras completas de herança, templates e precedência não reconstruídas.",
+    "decision": "Adaptar: projeto simples com revisão imutável; templates adiados.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F02",
+    "feature": "Solicitação e validação",
+    "evidence": [
+      "TC-013",
+      "TC-016"
+    ],
+    "behavior": "Endpoint de fila consulta usuário e chama triggerBuild; compilador DSL converte diagnóstico em erro.",
+    "problem": "Recusar solicitações inválidas e criar execução identificável.",
+    "functional_contract": "Requisição autenticada → build na fila ou erro; ligação transacional integral ainda desconhecida.",
+    "limitations": "Não se demonstrou atomicidade entre REST, configuração e fila.",
+    "decision": "Substituir: JSON declarativo validado sem compilação de código no servidor.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F03",
+    "feature": "Fila durável",
+    "evidence": [
+      "TC-003",
+      "TC-004",
+      "D-QUEUE"
+    ],
+    "behavior": "Há índices de fila em memória e inserção parametrizada em build_queue.",
+    "problem": "Manter pedidos pendentes até haver capacidade.",
+    "functional_contract": "Build pendente → posição e persistência; integridade sob crash não foi observada.",
+    "limitations": "Isolamento e recuperação TeamCity desconhecidos.",
+    "decision": "Adotar o requisito; fila é consulta ao estado SQL, sem cópia autoritativa em memória.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F04",
+    "feature": "Compatibilidade e seleção",
+    "evidence": [
+      "TC-005",
+      "TC-006",
+      "TC-007",
+      "D-MATCH",
+      "D-QUEUE"
+    ],
+    "behavior": "Distribuidor processa fila; filtro pode ordenar agentes por prioridade limitada; requisitos restringem agentes.",
+    "problem": "Executar onde existem recursos e ferramentas necessários.",
+    "functional_contract": "Build + agentes → candidatos e distribuição ou espera.",
+    "limitations": "Justiça global, reserva e otimização global não demonstradas.",
+    "decision": "Adaptar: FIFO entre jobs elegíveis e slots autenticados; prioridade de agentes descartada inicialmente.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F05",
+    "feature": "Registro e transporte",
+    "evidence": [
+      "TC-008",
+      "TC-009",
+      "TC-017",
+      "TC-018",
+      "D-AGENT"
+    ],
+    "behavior": "Registro evita concorrência local; agente consulta comandos e lê identificadores da resposta.",
+    "problem": "Conectar executores ao orquestrador e transferir trabalho.",
+    "functional_contract": "Registro/poll → identidade e comando; protocolos alternativos podem ser tentados.",
+    "limitations": "Autenticação interna, serialização e leases não recuperados.",
+    "decision": "Substituir por HTTP versionado, credenciais de agente e leases próprios.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F06",
+    "feature": "Steps e processos",
+    "evidence": [
+      "TC-010",
+      "D-STEPS",
+      "D-PARAM"
+    ],
+    "behavior": "Estágios consultam interrupção e resultado; scripts podem executar ferramentas instaladas no agente.",
+    "problem": "Executar comandos reproduzíveis e propagar falha.",
+    "functional_contract": "Coleção de estágios → status parcial/final; execução pode parar após falha.",
+    "limitations": "Montagem completa de estágios e subprocessos não reconstruída.",
+    "decision": "Adaptar: argv explícito, workspace isolado, steps sequenciais e timeout.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F07",
+    "feature": "Logs, testes e diagnóstico",
+    "evidence": [
+      "D-LOG",
+      "D-ART"
+    ],
+    "behavior": "Log inclui eventos e saída de processos; relatórios podem ser artefatos.",
+    "problem": "Explicar resultado e disponibilizar evidência ao usuário.",
+    "functional_contract": "Saída/eventos → log e arquivos consultáveis.",
+    "limitations": "Parsing de testes, consistência do stream e limites internos UNKNOWN.",
+    "decision": "Adaptar: chunks numerados; relatórios como artefatos no CORE, parsing em fase posterior.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F08",
+    "feature": "Artefatos e finalização",
+    "evidence": [
+      "TC-012",
+      "D-ART"
+    ],
+    "behavior": "Finalização inspecionada aguarda publicação de artefatos e informa término ou detached state.",
+    "problem": "Vincular resultado aos produtos do build.",
+    "functional_contract": "Contexto final e arquivos → publicação e notificação.",
+    "limitations": "Confirmação remota e commit no servidor não comprovados.",
+    "decision": "Adaptar: manifesto verificado e conclusão idempotente com fencing.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F09",
+    "feature": "Cancelamento, retry e perda de agente",
+    "evidence": [
+      "TC-011",
+      "TC-012",
+      "TC-018"
+    ],
+    "behavior": "Interrupção marca estado e alcança estágio atual; poller captura falhas e continua.",
+    "problem": "Interromper trabalho e tolerar falhas de comunicação.",
+    "functional_contract": "Sinal de interrupção → encaminhamento; interrupção não comprova morte de descendentes.",
+    "limitations": "Reagendamento, exatamente uma vez e recuperação sob partição UNKNOWN.",
+    "decision": "Substituir por lease, fencing e cancelamento persistente; retry somente sob política explícita.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F10",
+    "feature": "DAG e cadeias",
+    "evidence": [
+      "D-DAG",
+      "TC-005"
+    ],
+    "behavior": "Dependências snapshot relacionam builds e sincronizam revisão segundo a documentação.",
+    "problem": "Coordenar trabalho paralelo sobre entradas consistentes.",
+    "functional_contract": "Dependências → cadeia de builds com política de pré-requisitos.",
+    "limitations": "Otimizações internas de reúso e transações não reconstruídas.",
+    "decision": "Adaptar: DAG estático com revisão fixada e falha propagada; reúso complexo adiado.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F11",
+    "feature": "VCS e triggers",
+    "evidence": [
+      "D-VCS",
+      "D-PROJECT"
+    ],
+    "behavior": "Detecção por polling considera commit hooks e mudanças pendentes compatíveis com checkout rules.",
+    "problem": "Iniciar builds sobre alterações relevantes.",
+    "functional_contract": "Mudança elegível → pedido de build; checkout fornece entradas.",
+    "limitations": "Drivers VCS, retries e validação de credenciais não inspecionados.",
+    "decision": "Adaptar: Git com revisão imutável primeiro; webhooks autenticados e polling posteriormente.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F12",
+    "feature": "Plugins e APIs",
+    "evidence": [
+      "TC-013",
+      "TC-014",
+      "TC-016"
+    ],
+    "behavior": "REST oferece submissão; carregamento de plugin cria contexto e publica eventos de carga.",
+    "problem": "Integrar sistemas e acrescentar capacidades.",
+    "functional_contract": "Plugin → contexto carregado ou evento de falha.",
+    "limitations": "ABI, segurança e isolamento de plugins não comprovados.",
+    "decision": "Adotar API própria; rejeitar plugins JVM e execução de DSL; extensões externas adiadas.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  },
+  {
+    "id": "F13",
+    "feature": "Retenção e cache",
+    "evidence": [
+      "D-GC",
+      "D-CACHE"
+    ],
+    "behavior": "Limpeza remove dados antigos; cache reutiliza arquivos publicados entre builds.",
+    "problem": "Conter armazenamento e evitar trabalho repetido.",
+    "functional_contract": "Política/cache key → retenção ou reaproveitamento.",
+    "limitations": "Atomicidade do GC e proteção contra cache poisoning não verificadas.",
+    "decision": "Adotar retenção básica; cache adiado até namespace por confiança e integridade.",
+    "classification": "STATIC_CONFIRMED/DOCUMENTED; consultar cada referência"
+  }
+]

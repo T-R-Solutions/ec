@@ -1,0 +1,8 @@
+COMMAND: /usr/bin/python3 tools/governance/install_skills.py --check
+EXIT: 0
+{
+  "status": "READY_TO_ATTEMPT",
+  "count": 67,
+  "target": "/home/rodrigo/Projetos/ec/.codex/skills",
+  "note": "Read-only preflight does not prove write permission. --apply performs installation."
+}

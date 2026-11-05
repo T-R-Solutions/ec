@@ -1,0 +1,18 @@
+flowchart TB
+    accTitle: Publicação · confirmar antes de efetivar
+    accDescr: O que permite ou impede uma publicação? DRAFT → VALID: proposta. VALID → DIFF: válida. VALID → INVALID: inválida. DIFF → AUTH: mudança revisada. AUTH → REV: condições satisfeitas. AUTH → DENIED: condições não satisfeitas. REV → SYNC: publicada
+    DRAFT["Rascunho<br/>Edição ainda não efetiva"]
+    VALID["Validação<br/>Sintaxe · schema · referências"]
+    DIFF["Diff e impacto<br/>Revisar a mudança proposta"]
+    AUTH["Permissão e aprovação<br/>Aplicar a política do recurso"]
+    REV["Revisão imutável<br/>Publicação identificável"]
+    SYNC["Reconciliação<br/>Consultar confirmação efetiva"]
+    INVALID["Diagnóstico<br/>Corrigir o rascunho inválido"]
+    DENIED["Publicação impedida<br/>Explicar permissão ou conflito"]
+    DRAFT -->|"proposta"| VALID
+    VALID -->|"válida"| DIFF
+    VALID -->|"inválida"| INVALID
+    DIFF -->|"mudança revisada"| AUTH
+    AUTH -->|"condições satisfeitas"| REV
+    AUTH -->|"condições não satisfeitas"| DENIED
+    REV -->|"publicada"| SYNC

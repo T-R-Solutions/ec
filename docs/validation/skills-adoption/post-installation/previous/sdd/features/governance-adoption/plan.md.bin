@@ -1,0 +1,20 @@
+# Plano — governança Ec
+
+## Fontes e decisões
+
+Normas originais em docs, três pacotes de skills, AGENTS e SDD Ox. Pedido atual autoriza adaptar o AGENTS local previamente protegido contra substituição na tarefa anterior.
+
+- D-01 / R-01 / REQ-01: 40 Ec + 26 Ox + README; excluir quatro, preservar arquivos e hashes. Risco: catálogo incompleto ou aplicação por palavra-chave.
+- D-02 / R-02 / REQ-02: ADR-001 documental e contexto real; propostas gRPC/SQLite não adotadas. Risco: importar permissões/aceite/stack Ox.
+- D-03 / R-03 / REQ-03: SDD portátil com links entre autoridades dentro da raiz; paths reais na preparação. Risco: links quebrados ou falso aceite.
+- D-04 / R-04 / REQ-04: auditor stdlib, testes negativos e validador oficial de skills disponível no ambiente. Risco: testes que só repetem implementação.
+- D-05 / R-05 / REQ-05: instalador sem overwrite e com verificação; respeitar EROFS. Risco: interromper migração multi-arquivo; manter baseline e reexaminar evidência após instalação.
+
+## Métodos efetivamente consultados
+
+Skill-creator em `/home/rodrigo/.codex/skills/.system/skill-creator/SKILL.md` orientou escopo, metadados e validação. Não faz parte das 67 migradas; seu hash e do quick_validate serão registrados na evidência de ferramentas. Entradas dos pacotes foram objeto da análise, não declaração de execução das 67 especialidades. A entrada README e fronteiras Ec foram consultadas para estrutura honesta de onboarding; não se alega estudo de usuários.
+Pontes formato 1, skill identity por name, versões locais por hashes no perfil. Fontes técnicas externas não foram atualizadas; esta tarefa adapta contratos documentais fornecidos, não recomenda bibliotecas/versionamento atuais.
+
+## Entregas e recuperação
+
+AGENTS, README, docs de autoridades/arquitetura/análise/ADR, perfil, 67 pacotes preparados, pontes, templates, auditor, instalador, testes e evidência schema 2. Não copiar features Ox nem construir aplicação. Instalar quando destino gravável; depois atualizar prose de status e coletar observações novas. Não modificar hashes antigos para mascarar drift.

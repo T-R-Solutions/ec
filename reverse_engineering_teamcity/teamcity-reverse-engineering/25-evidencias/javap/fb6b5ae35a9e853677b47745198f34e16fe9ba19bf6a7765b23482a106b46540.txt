@@ -1,0 +1,471 @@
+Compiled from "AgentMain.java"
+public class jetbrains.buildServer.agent.AgentMain {
+  private static final java.lang.String CUSTOM_PATH;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String AGENT_HOME;
+    descriptor: Ljava/lang/String;
+
+  public jetbrains.buildServer.agent.AgentMain();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 31: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/agent/AgentMain;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    Code:
+         0: ldc           #7                  // class jetbrains/buildServer/agent/AgentMain
+         2: invokevirtual #9                  // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: invokedynamic #15,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        10: astore_1
+        11: new           #19                 // class java/net/URLClassLoader
+        14: dup
+        15: invokestatic  #21                 // Method getAgentLibraries:()[Ljava/net/URL;
+        18: ldc           #7                  // class jetbrains/buildServer/agent/AgentMain
+        20: invokevirtual #25                 // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+        23: invokevirtual #29                 // Method java/lang/ClassLoader.getParent:()Ljava/lang/ClassLoader;
+        26: invokespecial #34                 // Method java/net/URLClassLoader."<init>":([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+        29: astore_2
+        30: invokestatic  #37                 // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+        33: aload_2
+        34: invokevirtual #43                 // Method java/lang/Thread.setContextClassLoader:(Ljava/lang/ClassLoader;)V
+        37: aload_2
+        38: aload_1
+        39: invokevirtual #47                 // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+        42: astore_3
+        43: aload_3
+        44: ldc           #51                 // String main
+        46: iconst_1
+        47: anewarray     #10                 // class java/lang/Class
+        50: dup
+        51: iconst_0
+        52: ldc           #53                 // class "[Ljava/lang/String;"
+        54: aastore
+        55: invokevirtual #55                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+        58: astore        4
+        60: aload         4
+        62: aconst_null
+        63: iconst_1
+        64: anewarray     #2                  // class java/lang/Object
+        67: dup
+        68: iconst_0
+        69: aload_0
+        70: aastore
+        71: invokevirtual #59                 // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+        74: pop
+        75: goto          236
+        78: astore_2
+        79: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        82: aload_2
+        83: invokevirtual #73                 // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException.getMessage:()Ljava/lang/String;
+        86: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        89: aload_2
+        90: invokevirtual #82                 // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException.printStackTrace:()V
+        93: getstatic     #85                 // Field jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.CLASS_LOADING_ERROR:Ljetbrains/buildServer/agent/impl/upgrade/AgentExitCode;
+        96: invokevirtual #91                 // Method jetbrains/buildServer/agent/impl/upgrade/AgentExitCode.exitApplication:()V
+        99: goto          236
+       102: astore_2
+       103: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       106: aload_1
+       107: aload_2
+       108: invokevirtual #96                 // Method java/lang/ClassNotFoundException.getMessage:()Ljava/lang/String;
+       111: invokedynamic #97,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       116: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       119: aload_2
+       120: invokevirtual #100                // Method java/lang/ClassNotFoundException.printStackTrace:()V
+       123: goto          236
+       126: astore_2
+       127: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       130: aload_1
+       131: aload_2
+       132: invokevirtual #103                // Method java/lang/NoSuchMethodException.getMessage:()Ljava/lang/String;
+       135: invokedynamic #104,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       140: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       143: aload_2
+       144: invokevirtual #105                // Method java/lang/NoSuchMethodException.printStackTrace:()V
+       147: goto          236
+       150: astore_2
+       151: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       154: aload_1
+       155: aload_2
+       156: invokevirtual #108                // Method java/lang/IllegalAccessException.getMessage:()Ljava/lang/String;
+       159: invokedynamic #109,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       164: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       167: aload_2
+       168: invokevirtual #110                // Method java/lang/IllegalAccessException.printStackTrace:()V
+       171: goto          236
+       174: astore_2
+       175: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       178: aload_1
+       179: aload_2
+       180: invokevirtual #113                // Method java/lang/reflect/InvocationTargetException.getMessage:()Ljava/lang/String;
+       183: invokedynamic #114,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       188: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       191: aload_2
+       192: invokevirtual #115                // Method java/lang/reflect/InvocationTargetException.printStackTrace:()V
+       195: goto          236
+       198: astore_2
+       199: ldc           #118                // String java.lang.reflect.InaccessibleObjectException
+       201: aload_2
+       202: invokevirtual #120                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       205: invokevirtual #9                  // Method java/lang/Class.getName:()Ljava/lang/String;
+       208: invokevirtual #124                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       211: ifne          216
+       214: aload_2
+       215: athrow
+       216: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       219: aload_1
+       220: aload_2
+       221: invokevirtual #130                // Method java/lang/RuntimeException.getMessage:()Ljava/lang/String;
+       224: invokedynamic #104,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       229: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       232: aload_2
+       233: invokevirtual #131                // Method java/lang/RuntimeException.printStackTrace:()V
+       236: return
+      Exception table:
+         from    to  target type
+            11    75    78   Class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+            11    75   102   Class java/lang/ClassNotFoundException
+            11    75   126   Class java/lang/NoSuchMethodException
+            11    75   150   Class java/lang/IllegalAccessException
+            11    75   174   Class java/lang/reflect/InvocationTargetException
+            11    75   198   Class java/lang/RuntimeException
+      LineNumberTable:
+        line 37: 0
+        line 40: 11
+        line 41: 30
+        line 42: 37
+        line 43: 43
+        line 44: 60
+        line 66: 75
+        line 45: 78
+        line 46: 79
+        line 47: 89
+        line 48: 93
+        line 66: 99
+        line 49: 102
+        line 50: 103
+        line 51: 119
+        line 66: 123
+        line 52: 126
+        line 53: 127
+        line 54: 143
+        line 66: 147
+        line 55: 150
+        line 56: 151
+        line 57: 167
+        line 66: 171
+        line 58: 174
+        line 59: 175
+        line 60: 191
+        line 66: 195
+        line 61: 198
+        line 63: 199
+        line 64: 216
+        line 65: 232
+        line 67: 236
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           30      45     2 agentLoader   Ljava/lang/ClassLoader;
+           43      32     3  main   Ljava/lang/Class;
+           60      15     4 mainMethod   Ljava/lang/reflect/Method;
+           79      20     2     e   Ljetbrains/buildServer/agent/AgentMain$SkipClassLoadingException;
+          103      20     2     e   Ljava/lang/ClassNotFoundException;
+          127      20     2     e   Ljava/lang/NoSuchMethodException;
+          151      20     2     e   Ljava/lang/IllegalAccessException;
+          175      20     2     e   Ljava/lang/reflect/InvocationTargetException;
+          199      37     2     e   Ljava/lang/RuntimeException;
+            0     237     0  args   [Ljava/lang/String;
+           11     226     1 newAgentMainClass   Ljava/lang/String;
+
+  private static java.net.URL[] getAgentLibraries() throws jetbrains.buildServer.agent.AgentMain$SkipClassLoadingException;
+    descriptor: ()[Ljava/net/URL;
+    Code:
+         0: invokestatic  #132                // Method getAgentLibrariesFolder:()Ljava/io/File;
+         3: astore_0
+         4: aload_0
+         5: new           #136                // class jetbrains/buildServer/agent/AgentMain$1
+         8: dup
+         9: invokespecial #138                // Method jetbrains/buildServer/agent/AgentMain$1."<init>":()V
+        12: invokevirtual #139                // Method java/io/File.listFiles:(Ljava/io/FilenameFilter;)[Ljava/io/File;
+        15: astore_1
+        16: aload_1
+        17: ifnull        25
+        20: aload_1
+        21: arraylength
+        22: ifne          42
+        25: new           #65                 // class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+        28: dup
+        29: aload_0
+        30: invokestatic  #145                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        33: invokedynamic #149,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        38: invokespecial #150                // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException."<init>":(Ljava/lang/String;)V
+        41: athrow
+        42: new           #152                // class java/util/ArrayList
+        45: dup
+        46: invokespecial #154                // Method java/util/ArrayList."<init>":()V
+        49: astore_2
+        50: aload_1
+        51: astore_3
+        52: aload_3
+        53: arraylength
+        54: istore        4
+        56: iconst_0
+        57: istore        5
+        59: iload         5
+        61: iload         4
+        63: if_icmpge     93
+        66: aload_3
+        67: iload         5
+        69: aaload
+        70: astore        6
+        72: aload_2
+        73: aload         6
+        75: invokevirtual #155                // Method java/io/File.toURI:()Ljava/net/URI;
+        78: invokevirtual #159                // Method java/net/URI.toURL:()Ljava/net/URL;
+        81: invokeinterface #165,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        86: pop
+        87: iinc          5, 1
+        90: goto          59
+        93: aload_2
+        94: aload_2
+        95: invokeinterface #170,  1          // InterfaceMethod java/util/List.size:()I
+       100: anewarray     #174                // class java/net/URL
+       103: invokeinterface #176,  2          // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+       108: checkcast     #180                // class "[Ljava/net/URL;"
+       111: areturn
+       112: astore_2
+       113: new           #65                 // class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+       116: dup
+       117: aload_2
+       118: invokevirtual #184                // Method java/net/MalformedURLException.getMessage:()Ljava/lang/String;
+       121: invokedynamic #185,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       126: aload_2
+       127: invokespecial #186                // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+       130: athrow
+      Exception table:
+         from    to  target type
+            42   111   112   Class java/net/MalformedURLException
+      LineNumberTable:
+        line 70: 0
+        line 72: 4
+        line 78: 16
+        line 79: 25
+        line 83: 42
+        line 84: 50
+        line 85: 72
+        line 84: 87
+        line 87: 93
+        line 88: 112
+        line 89: 113
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           72      15     6  file   Ljava/io/File;
+           50      62     2  urls   Ljava/util/List;
+          113      18     2     e   Ljava/net/MalformedURLException;
+            4     127     0 libFolder   Ljava/io/File;
+           16     115     1 files   [Ljava/io/File;
+
+  private static java.io.File getAgentLibrariesFolder() throws jetbrains.buildServer.agent.AgentMain$SkipClassLoadingException;
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: ldc           #189                // String teamcity.agent.debug.custom.lib.path
+         2: invokestatic  #191                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+         5: astore_0
+         6: aload_0
+         7: ifnull        31
+        10: getstatic     #194                // Field java/lang/System.out:Ljava/io/PrintStream;
+        13: aload_0
+        14: invokedynamic #197,  0            // InvokeDynamic #7:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        19: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        22: new           #140                // class java/io/File
+        25: dup
+        26: aload_0
+        27: invokespecial #198                // Method java/io/File."<init>":(Ljava/lang/String;)V
+        30: areturn
+        31: invokestatic  #199                // Method getAgentJar:()Ljava/io/File;
+        34: astore_1
+        35: aload_1
+        36: invokevirtual #202                // Method java/io/File.isFile:()Z
+        39: ifeq          49
+        42: aload_1
+        43: invokevirtual #206                // Method java/io/File.exists:()Z
+        46: ifne          59
+        49: new           #65                 // class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+        52: dup
+        53: ldc           #209                // String Build agent should be packed with jar
+        55: invokespecial #150                // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException."<init>":(Ljava/lang/String;)V
+        58: athrow
+        59: aload_1
+        60: invokevirtual #211                // Method java/io/File.getParentFile:()Ljava/io/File;
+        63: astore_2
+        64: aload_2
+        65: ifnull        75
+        68: aload_2
+        69: invokevirtual #206                // Method java/io/File.exists:()Z
+        72: ifne          92
+        75: new           #65                 // class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+        78: dup
+        79: aload_2
+        80: invokestatic  #145                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        83: invokedynamic #149,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        88: invokespecial #150                // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException."<init>":(Ljava/lang/String;)V
+        91: athrow
+        92: aload_2
+        93: areturn
+      LineNumberTable:
+        line 94: 0
+        line 95: 6
+        line 96: 10
+        line 97: 22
+        line 100: 31
+        line 101: 35
+        line 102: 49
+        line 105: 59
+        line 106: 64
+        line 107: 75
+        line 109: 92
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            6      88     0   lib   Ljava/lang/String;
+           35      59     1 mainJar   Ljava/io/File;
+           64      30     2 libFolder   Ljava/io/File;
+
+  private static java.io.File getAgentJar() throws jetbrains.buildServer.agent.AgentMain$SkipClassLoadingException;
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: ldc           #7                  // class jetbrains/buildServer/agent/AgentMain
+         2: invokestatic  #214                // Method jetbrains/buildServer/agent/ClasspathUtil.getClasspathEntry:(Ljava/lang/Class;)Ljava/lang/String;
+         5: astore_0
+         6: aload_0
+         7: ifnonnull     20
+        10: new           #65                 // class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+        13: dup
+        14: ldc           #220                // String Failed to find AgentMain class location
+        16: invokespecial #150                // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException."<init>":(Ljava/lang/String;)V
+        19: athrow
+        20: new           #140                // class java/io/File
+        23: dup
+        24: aload_0
+        25: invokespecial #198                // Method java/io/File."<init>":(Ljava/lang/String;)V
+        28: areturn
+        29: astore_0
+        30: new           #65                 // class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+        33: dup
+        34: ldc           #7                  // class jetbrains/buildServer/agent/AgentMain
+        36: invokestatic  #145                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        39: invokedynamic #224,  0            // InvokeDynamic #8:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        44: invokespecial #150                // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException."<init>":(Ljava/lang/String;)V
+        47: athrow
+      Exception table:
+         from    to  target type
+             0    28    29   Class java/io/IOException
+      LineNumberTable:
+        line 114: 0
+        line 115: 6
+        line 116: 20
+        line 117: 29
+        line 118: 30
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            6      23     0 entry   Ljava/lang/String;
+           30      18     0     e   Ljava/io/IOException;
+
+  public static java.io.File getAgentHome() throws java.lang.RuntimeException;
+    descriptor: ()Ljava/io/File;
+    Code:
+         0: ldc           #225                // String agent.home
+         2: invokestatic  #191                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+         5: astore_0
+         6: aload_0
+         7: ifnull        56
+        10: new           #140                // class java/io/File
+        13: dup
+        14: aload_0
+        15: invokespecial #198                // Method java/io/File."<init>":(Ljava/lang/String;)V
+        18: astore_1
+        19: aload_1
+        20: invokevirtual #206                // Method java/io/File.exists:()Z
+        23: ifeq          56
+        26: aload_1
+        27: invokestatic  #227                // Method jetbrains/buildServer/util/FileUtil.getCanonicalFile:(Ljava/io/File;)Ljava/io/File;
+        30: dup
+        31: ifnonnull     38
+        34: iconst_0
+        35: invokestatic  #330                // Method $$$reportNull$$$0:(I)V
+        38: areturn
+        39: astore_2
+        40: getstatic     #67                 // Field java/lang/System.err:Ljava/io/PrintStream;
+        43: aload_0
+        44: aload_2
+        45: invokevirtual #235                // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+        48: invokedynamic #236,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        53: invokevirtual #76                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        56: invokestatic  #199                // Method getAgentJar:()Ljava/io/File;
+        59: invokevirtual #211                // Method java/io/File.getParentFile:()Ljava/io/File;
+        62: invokevirtual #211                // Method java/io/File.getParentFile:()Ljava/io/File;
+        65: invokestatic  #227                // Method jetbrains/buildServer/util/FileUtil.getCanonicalFile:(Ljava/io/File;)Ljava/io/File;
+        68: dup
+        69: ifnonnull     76
+        72: iconst_1
+        73: invokestatic  #330                // Method $$$reportNull$$$0:(I)V
+        76: areturn
+        77: astore_1
+        78: new           #116                // class java/lang/RuntimeException
+        81: dup
+        82: aload_1
+        83: invokevirtual #73                 // Method jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException.getMessage:()Ljava/lang/String;
+        86: invokedynamic #237,  0            // InvokeDynamic #10:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        91: aload_1
+        92: invokespecial #238                // Method java/lang/RuntimeException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+        95: athrow
+      Exception table:
+         from    to  target type
+            26    30    39   Class java/lang/Throwable
+            56    68    77   Class jetbrains/buildServer/agent/AgentMain$SkipClassLoadingException
+      LineNumberTable:
+        line 124: 0
+        line 125: 6
+        line 126: 10
+        line 127: 19
+        line 129: 26
+        line 130: 39
+        line 131: 40
+        line 137: 56
+        line 138: 77
+        line 139: 78
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           40      16     2     t   Ljava/lang/Throwable;
+           19      37     1 agentHomeFile   Ljava/io/File;
+           78      18     1     e   Ljetbrains/buildServer/agent/AgentMain$SkipClassLoadingException;
+            6      90     0 agentHome   Ljava/lang/String;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc_w         #332                // String @NotNull method %s.%s must not return null
+         3: iconst_2
+         4: anewarray     #2                  // class java/lang/Object
+         7: dup
+         8: iconst_0
+         9: ldc_w         #333                // String jetbrains/buildServer/agent/AgentMain
+        12: aastore
+        13: dup
+        14: iconst_1
+        15: ldc_w         #334                // String getAgentHome
+        18: aastore
+        19: invokestatic  #338                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        22: new           #340                // class java/lang/IllegalStateException
+        25: dup_x1
+        26: swap
+        27: invokespecial #341                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+        30: athrow
+}

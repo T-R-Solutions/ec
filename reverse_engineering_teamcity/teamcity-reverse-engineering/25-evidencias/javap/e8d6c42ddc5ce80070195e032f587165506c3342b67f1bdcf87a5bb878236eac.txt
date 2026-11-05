@@ -1,0 +1,20 @@
+Compiled from "QueuedBuildInfo.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo extends jetbrains.buildServer.log.Loggable {
+  public abstract java.lang.String getItemId();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.BuildConfigurationInfo getBuildConfiguration();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/BuildConfigurationInfo;
+
+  public abstract java.lang.Integer getBuildAgentId();
+    descriptor: ()Ljava/lang/Integer;
+
+  public abstract jetbrains.buildServer.AgentRestrictor getAgentRestrictor();
+    descriptor: ()Ljetbrains/buildServer/AgentRestrictor;
+
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.BuildPromotionInfo getBuildPromotionInfo();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+
+  public abstract java.util.Collection<jetbrains.buildServer.serverSide.SBuildAgent> getCompatibleAgents(java.util.Collection<jetbrains.buildServer.serverSide.SBuildAgent>);
+    descriptor: (Ljava/util/Collection;)Ljava/util/Collection;
+}

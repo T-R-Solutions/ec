@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "name": "catalog",
+      "command": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "structure",
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--structure-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "installation",
+      "command": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "link_errors": [],
+  "module_count": 23,
+  "changed_inputs": [
+    "README.md",
+    "sdd/features/governance-adoption/tasks.md",
+    "sdd/project.md",
+    "tools/governance/tests/test_governance.py",
+    "application/agents/crates/ec-agent-control/README.md",
+    "application/agents/crates/ec-agent-workspace/README.md",
+    "application/agents/crates/ec-agent-execution/README.md",
+    "application/agents/crates/ec-agent-reporting/README.md",
+    "application/agents/crates/ec-agent-app/README.md",
+    "application/server/backend/crates/ec-server-access/README.md",
+    "application/server/backend/crates/ec-server-configuration/README.md",
+    "application/server/backend/crates/ec-server-projects/README.md",
+    "application/server/backend/crates/ec-server-orchestration/README.md",
+    "application/server/backend/crates/ec-server-results/README.md",
+    "application/server/backend/crates/ec-server-delivery/README.md",
+    "application/server/backend/crates/ec-server-extensions/README.md",
+    "application/server/backend/crates/ec-server-operations/README.md",
+    "application/server/backend/crates/ec-server-app/README.md",
+    "application/agents/README.md",
+    "application/server/README.md",
+    "application/server/backend/README.md",
+    "application/server/frontend/README.md",
+    "tests/README.md",
+    "tests/integration/README.md",
+    "tests/e2e/README.md",
+    "application/server/frontend/tests/e2e/README.md",
+    "docs/architecture/application-layout.md",
+    "docs/development/testing.md",
+    "docs/decisions/ADR-002-application-layout.md",
+    "sdd/features/governance-adoption/converge.md"
+  ]
+}

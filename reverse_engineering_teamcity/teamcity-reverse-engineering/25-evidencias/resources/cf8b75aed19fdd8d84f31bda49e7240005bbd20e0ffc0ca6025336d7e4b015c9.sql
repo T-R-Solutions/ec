@@ -1,0 +1,1 @@
+delete from user_property where prop_key = 'lastSelectedAdminTab'

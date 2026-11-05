@@ -1,0 +1,34 @@
+{
+  "updated_at": "2026-10-30T21:32:35.160455+00:00",
+  "prompt": "rea/prompt_v2.md",
+  "prompt_sha256": "9bd64e81cb6b9d28ab782fea6d4fcc24e14833289ef64db05643238e808d2fa6",
+  "status": "research_specification_and_architecture_delivered",
+  "target_version": "2026.2-239120",
+  "legacy_preserved": true,
+  "reused_claims": 19,
+  "new_decompilations": 0,
+  "teamcity_runtime_scenarios_executed": 0,
+  "phases": {
+    "1": "delivered_as_research_and_design",
+    "2": "delivered_as_research_and_design",
+    "3": "delivered_as_research_and_design",
+    "4": "delivered_as_research_and_design",
+    "5": "delivered_as_research_and_design",
+    "6": "delivered_as_research_and_design",
+    "7": "delivered_as_research_and_design",
+    "8": "delivered_as_research_and_design",
+    "9": "delivered_as_research_and_design",
+    "10": "delivered_as_research_and_design",
+    "11": "delivered_as_research_and_design"
+  },
+  "product_implementation": "not_implemented; independent domain prototype only",
+  "uncertainty_policy": "legacy gaps accepted or deferred explicitly; production gates remain open",
+  "production_gates": "implementation-plan.md",
+  "validation": "04-validation/findings/validation.json",
+  "validation_result": {
+    "status": "passed",
+    "checks_passed": 119,
+    "checks_total": 119,
+    "rust_contract_tests": 12
+  }
+}

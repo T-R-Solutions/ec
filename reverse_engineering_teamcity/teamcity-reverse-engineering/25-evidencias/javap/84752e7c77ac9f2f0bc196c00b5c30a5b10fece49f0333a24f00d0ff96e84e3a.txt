@@ -1,0 +1,118 @@
+Compiled from "FlushBuildLogFStage.java"
+public class jetbrains.buildServer.agent.impl.buildStages.finishStages.FlushBuildLogFStage implements jetbrains.buildServer.agent.impl.buildStages.BuildFinishStage {
+  private final jetbrains.buildServer.agent.BuildProgressLogger myLogger;
+    descriptor: Ljetbrains/buildServer/agent/BuildProgressLogger;
+
+  public jetbrains.buildServer.agent.impl.buildStages.finishStages.FlushBuildLogFStage(jetbrains.buildServer.agent.BuildProgressLogger);
+    descriptor: (Ljetbrains/buildServer/agent/BuildProgressLogger;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #40                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: putfield      #7                  // Field myLogger:Ljetbrains/buildServer/agent/BuildProgressLogger;
+        17: return
+      LineNumberTable:
+        line 17: 8
+        line 18: 12
+        line 19: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FlushBuildLogFStage;
+            0      18     1 logger   Ljetbrains/buildServer/agent/BuildProgressLogger;
+
+  public boolean isAvailable(jetbrains.buildServer.agent.impl.BuildFinishContext);
+    descriptor: (Ljetbrains/buildServer/agent/impl/BuildFinishContext;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_1
+         5: invokestatic  #40                 // Method $$$reportNull$$$0:(I)V
+         8: iconst_1
+         9: ireturn
+      LineNumberTable:
+        line 23: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FlushBuildLogFStage;
+            0      10     1 status   Ljetbrains/buildServer/agent/impl/BuildFinishContext;
+
+  public void doFinishStage(jetbrains.buildServer.agent.impl.BuildFinishContext);
+    descriptor: (Ljetbrains/buildServer/agent/impl/BuildFinishContext;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_2
+         5: invokestatic  #40                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: getfield      #7                  // Field myLogger:Ljetbrains/buildServer/agent/BuildProgressLogger;
+        12: invokeinterface #13,  1           // InterfaceMethod jetbrains/buildServer/agent/BuildProgressLogger.flush:()V
+        17: return
+      LineNumberTable:
+        line 28: 8
+        line 29: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/buildStages/finishStages/FlushBuildLogFStage;
+            0      18     1 status   Ljetbrains/buildServer/agent/impl/BuildFinishContext;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #42                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #2                  // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 2
+                       0: 32
+                       1: 40
+                       2: 40
+                 default: 32
+            }
+        32: dup
+        33: iconst_0
+        34: ldc           #43                 // String logger
+        36: aastore
+        37: goto          48
+        40: dup
+        41: iconst_0
+        42: ldc           #44                 // String status
+        44: aastore
+        45: goto          48
+        48: dup
+        49: iconst_1
+        50: ldc           #45                 // String jetbrains/buildServer/agent/impl/buildStages/finishStages/FlushBuildLogFStage
+        52: aastore
+        53: iload_0
+        54: tableswitch   { // 0 to 2
+                       0: 80
+                       1: 88
+                       2: 96
+                 default: 80
+            }
+        80: dup
+        81: iconst_2
+        82: ldc           #46                 // String <init>
+        84: aastore
+        85: goto          104
+        88: dup
+        89: iconst_2
+        90: ldc           #47                 // String isAvailable
+        92: aastore
+        93: goto          104
+        96: dup
+        97: iconst_2
+        98: ldc           #48                 // String doFinishStage
+       100: aastore
+       101: goto          104
+       104: invokestatic  #54                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       107: new           #56                 // class java/lang/IllegalArgumentException
+       110: dup_x1
+       111: swap
+       112: invokespecial #59                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       115: athrow
+}

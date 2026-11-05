@@ -1,0 +1,4189 @@
+{
+  "date": "2026-11-04",
+  "environment": "3.13.16 (main, Oct 16 2026, 19:23:15) [GCC]",
+  "route": "local documental",
+  "changed_previous_inputs": [
+    "README.md",
+    "application/README.md",
+    "application/agents/README.md",
+    "application/agents/crates/ec-agent-app/README.md",
+    "application/agents/crates/ec-agent-control/README.md",
+    "application/agents/crates/ec-agent-execution/README.md",
+    "application/agents/crates/ec-agent-reporting/README.md",
+    "application/agents/crates/ec-agent-workspace/README.md",
+    "application/integration/tests/README.md",
+    "application/integration/tests/e2e/README.md",
+    "application/integration/tests/integration/README.md",
+    "application/server/README.md",
+    "application/server/backend/README.md",
+    "application/server/backend/crates/ec-server-access/README.md",
+    "application/server/backend/crates/ec-server-app/README.md",
+    "application/server/backend/crates/ec-server-configuration/README.md",
+    "application/server/backend/crates/ec-server-delivery/README.md",
+    "application/server/backend/crates/ec-server-extensions/README.md",
+    "application/server/backend/crates/ec-server-operations/README.md",
+    "application/server/backend/crates/ec-server-orchestration/README.md",
+    "application/server/backend/crates/ec-server-projects/README.md",
+    "application/server/backend/crates/ec-server-results/README.md",
+    "application/server/frontend/README.md",
+    "application/server/frontend/src/app/README.md",
+    "application/server/frontend/src/domains/access/README.md",
+    "application/server/frontend/src/domains/administration/README.md",
+    "application/server/frontend/src/domains/configuration/README.md",
+    "application/server/frontend/src/domains/delivery/README.md",
+    "application/server/frontend/src/domains/extensions/README.md",
+    "application/server/frontend/src/domains/infrastructure/README.md",
+    "application/server/frontend/src/domains/pipelines/README.md",
+    "application/server/frontend/src/domains/projects/README.md",
+    "application/server/frontend/src/domains/runs/README.md",
+    "application/server/frontend/src/shared/README.md",
+    "application/server/frontend/tests/e2e/README.md",
+    "application/server/frontend/tests/integration/README.md",
+    "docs/README.md",
+    "docs/architecture/application-layout.md",
+    "docs/architecture/application-overview.md",
+    "docs/architecture/context.md",
+    "docs/architecture/contracts.md",
+    "docs/constitution.md",
+    "docs/decisions/ADR-002-application-layout.md",
+    "docs/development/contributing.md",
+    "docs/development/skill-installation.md",
+    "docs/development/testing.md",
+    "reverse_engineering_teamcity/README.md",
+    "sdd/README.md",
+    "sdd/features/governance-adoption/converge.md",
+    "sdd/project.md",
+    "tools/governance/README.md"
+  ],
+  "unexpected_previous_inputs": [],
+  "direct_readme_references": [
+    "application/README.md",
+    "docs/README.md",
+    "docs/architecture/application-overview.md",
+    "docs/architecture/contracts.md",
+    "docs/constitution.md",
+    "docs/decisions/ADR-002-application-layout.md",
+    "docs/development/contributing.md",
+    "docs/development/skill-installation.md",
+    "reverse_engineering_teamcity/README.md",
+    "sdd/README.md",
+    "sdd/project.md",
+    "tools/governance/README.md"
+  ],
+  "documents": [
+    "README.md",
+    "application/README.md",
+    "application/agents/README.md",
+    "application/agents/crates/ec-agent-app/README.md",
+    "application/agents/crates/ec-agent-control/README.md",
+    "application/agents/crates/ec-agent-execution/README.md",
+    "application/agents/crates/ec-agent-reporting/README.md",
+    "application/agents/crates/ec-agent-workspace/README.md",
+    "application/integration/tests/README.md",
+    "application/integration/tests/e2e/README.md",
+    "application/integration/tests/integration/README.md",
+    "application/server/README.md",
+    "application/server/backend/README.md",
+    "application/server/backend/crates/ec-server-access/README.md",
+    "application/server/backend/crates/ec-server-app/README.md",
+    "application/server/backend/crates/ec-server-configuration/README.md",
+    "application/server/backend/crates/ec-server-delivery/README.md",
+    "application/server/backend/crates/ec-server-extensions/README.md",
+    "application/server/backend/crates/ec-server-operations/README.md",
+    "application/server/backend/crates/ec-server-orchestration/README.md",
+    "application/server/backend/crates/ec-server-projects/README.md",
+    "application/server/backend/crates/ec-server-results/README.md",
+    "application/server/frontend/README.md",
+    "application/server/frontend/src/app/README.md",
+    "application/server/frontend/src/domains/access/README.md",
+    "application/server/frontend/src/domains/administration/README.md",
+    "application/server/frontend/src/domains/configuration/README.md",
+    "application/server/frontend/src/domains/delivery/README.md",
+    "application/server/frontend/src/domains/extensions/README.md",
+    "application/server/frontend/src/domains/infrastructure/README.md",
+    "application/server/frontend/src/domains/pipelines/README.md",
+    "application/server/frontend/src/domains/projects/README.md",
+    "application/server/frontend/src/domains/runs/README.md",
+    "application/server/frontend/src/shared/README.md",
+    "application/server/frontend/tests/e2e/README.md",
+    "application/server/frontend/tests/integration/README.md",
+    "docs/README.md",
+    "docs/architecture/application-layout.md",
+    "docs/architecture/application-overview.md",
+    "docs/architecture/context.md",
+    "docs/architecture/contracts.md",
+    "docs/assets/README.md",
+    "docs/constitution.md",
+    "docs/decisions/ADR-002-application-layout.md",
+    "docs/development/contributing.md",
+    "docs/development/skill-installation.md",
+    "docs/development/testing.md",
+    "docs/validation/documentation-enterprise-20261104/report.md",
+    "reverse_engineering_teamcity/README.md",
+    "sdd/README.md",
+    "sdd/project.md",
+    "tools/governance/README.md"
+  ],
+  "figures": 38,
+  "visual_cases": 312,
+  "links": [
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/ec-system.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/application-overview.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "application/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/delivery-journey.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/delivery-journey.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/delivery-journey.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/assets/diagrams/delivery-journey.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/application-overview.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/architecture/contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/contributing.md#verificar-a-mudança",
+      "anchor_checked": true
+    },
+    {
+      "source": "README.md",
+      "target": "application/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "sdd/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "tools/governance/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "reverse_engineering_teamcity/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/development/skill-installation.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "README.md",
+      "target": "docs/validation/documentation-enterprise-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "agents/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "server/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "server/backend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "server/frontend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "integration/tests/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/assets/diagrams/application-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/architecture/contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/README.md",
+      "target": "../docs/decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/assets/diagrams/agent-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/assets/diagrams/agent-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/assets/diagrams/agent-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/assets/diagrams/agent-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-control/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-workspace/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-execution/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-reporting/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "crates/ec-agent-app/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/README.md",
+      "target": "../../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-app/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-control.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-control.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-control.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-control.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-control/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-execution.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-execution.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-execution.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-execution.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-execution/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-reporting.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-reporting.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-reporting.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-reporting.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-reporting/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-workspace.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-workspace.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-workspace.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/assets/diagrams/agent-workspace.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/agents/crates/ec-agent-workspace/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/assets/diagrams/test-boundaries.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "integration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "e2e/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/README.md",
+      "target": "../../../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/e2e/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/assets/diagrams/test-boundaries.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/integration/tests/integration/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/assets/diagrams/ec-system.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "backend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "frontend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../integration/tests/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/README.md",
+      "target": "../../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/assets/diagrams/server-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/assets/diagrams/server-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/assets/diagrams/server-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/assets/diagrams/server-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-access/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-configuration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-projects/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-orchestration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-results/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-delivery/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-extensions/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-operations/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "crates/ec-server-app/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/README.md",
+      "target": "../../../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-access.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-access.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-access.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-access.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-access/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-app/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-configuration.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-configuration/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-delivery.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-delivery.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-delivery.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-delivery.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-delivery/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-extensions.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-extensions.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-extensions.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-extensions.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-extensions/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-operations.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-operations.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-operations.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-operations.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-operations/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-orchestration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-orchestration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-orchestration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-orchestration.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-orchestration/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-projects.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-projects.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-projects.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-projects.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-projects/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-results.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-results.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-results.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/assets/diagrams/server-results.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/backend/crates/ec-server-results/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/assets/diagrams/frontend-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/app/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/shared/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/configuration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/projects/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/pipelines/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/runs/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/delivery/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/infrastructure/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/access/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/extensions/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "src/domains/administration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "tests/integration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "tests/e2e/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/README.md",
+      "target": "../../../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/app/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-access.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-access.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-access.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-access.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/access/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-administration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-administration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-administration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-administration.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/administration/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-configuration.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/configuration/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-delivery.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-delivery.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-delivery.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-delivery.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/delivery/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-extensions.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-extensions.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-extensions.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-extensions.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/extensions/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-infrastructure.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-infrastructure.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-infrastructure.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-infrastructure.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/infrastructure/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-pipelines.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-pipelines.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-pipelines.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-pipelines.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/pipelines/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-projects.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-projects.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-projects.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-projects.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/projects/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-runs.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-runs.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-runs.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/assets/diagrams/frontend-runs.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../../../../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/domains/runs/README.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/assets/diagrams/frontend-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/src/shared/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/e2e/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/assets/diagrams/test-boundaries.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../../../../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "application/server/frontend/tests/integration/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "assets/diagrams/documentation-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "assets/diagrams/documentation-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "assets/diagrams/documentation-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "assets/diagrams/documentation-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/application-overview.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../AGENTS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../application/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../tools/governance/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/skills-analysis.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "development/skill-installation.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../sdd/chain/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "decisions/ADR-001-skills-sdd-adoption.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "ec-arquitetura-comunicacao-e-validacao.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "validation/documentation-refresh-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "validation/application-analysis-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "validation/application-path-audit-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "../reverse_engineering_teamcity/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "reavaliacao-skills-ec-dois-monolitos-atualizada.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "readme-lifecycle-engineering-SKILL.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/README.md",
+      "target": "validation/documentation-enterprise-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../assets/diagrams/application-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../validation/application-path-audit-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/agents/crates/ec-agent-control/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/agents/crates/ec-agent-workspace/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/agents/crates/ec-agent-execution/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/agents/crates/ec-agent-reporting/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-access/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-configuration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-projects/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-orchestration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-results/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-delivery/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-extensions/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../application/server/backend/crates/ec-server-operations/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../../sdd/workflow.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-layout.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/delivery-journey.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/delivery-journey.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/delivery-journey.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/delivery-journey.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "contracts.md#publicação-concorrência-e-revisões",
+      "anchor_checked": true
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/publication.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/publication.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/publication.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/publication.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../assets/diagrams/ec-system.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-access/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-configuration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-projects/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-orchestration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-results/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-delivery/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-extensions/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-operations/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/backend/crates/ec-server-app/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-control/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-workspace/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-execution/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-reporting/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/agents/crates/ec-agent-app/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../application/server/frontend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../tools/governance/validate.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../tools/governance/install_skills.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../sdd/tools/validate.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../tools/governance/tests/test_governance.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../config/governance/profile.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../reverse_engineering_teamcity/ci-platform-research/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../validation/application-analysis-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../validation/documentation-refresh-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/application-overview.md",
+      "target": "../validation/documentation-enterprise-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../assets/diagrams/ec-system.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../assets/diagrams/ec-system.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "application-overview.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/context.md",
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/configuration.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/configuration.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../ec-arquitetura-comunicacao-e-validacao.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/publication-sequence.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/publication-sequence.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/publication-sequence.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../assets/diagrams/publication-sequence.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-projects/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-extensions/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-orchestration/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/agents/crates/ec-agent-execution/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-results/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/agents/crates/ec-agent-reporting/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/agents/crates/ec-agent-workspace/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/backend/crates/ec-server-delivery/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../application/server/frontend/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../config/governance/profile.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../tools/governance/validate.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../decisions/ADR-001-skills-sdd-adoption.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../tools/governance/install_skills.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../development/skill-installation.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../sdd/evidence.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../sdd/tools/validate.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../../sdd/workflow.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/architecture/contracts.md",
+      "target": "../validation/application-analysis-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/assets/README.md",
+      "target": "catalog.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/assets/README.md",
+      "target": "render.mjs",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/assets/README.md",
+      "target": "vendor/lucide/provenance.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/assets/README.md",
+      "target": "../validation/documentation-enterprise-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/assets/README.md",
+      "target": "vendor/lucide/provenance.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/assets/README.md",
+      "target": "vendor/lucide/LICENSE",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "assets/diagrams/authorities.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "assets/diagrams/authorities.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "assets/diagrams/authorities.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "assets/diagrams/authorities.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "ec-arquitetura-comunicacao-e-validacao.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/constitution.md",
+      "target": "decisions/ADR-001-skills-sdd-adoption.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../validation/application-layout-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../validation/application-integration-tests-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../assets/diagrams/application-map.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../assets/diagrams/application-map.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../../sdd/workflow.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/decisions/ADR-002-application-layout.md",
+      "target": "../validation/application-layout-20261103/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../assets/diagrams/contribution.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../assets/diagrams/contribution.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../assets/diagrams/contribution.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../assets/diagrams/contribution.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../AGENTS.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../sdd/workflow.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../sdd/chain/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../architecture/contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "skill-installation.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/contributing.md",
+      "target": "../../sdd/evidence.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/skill-installation.md",
+      "target": "../assets/diagrams/skills-lifecycle.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/skill-installation.md",
+      "target": "../assets/diagrams/skills-lifecycle.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/skill-installation.md",
+      "target": "../assets/diagrams/skills-lifecycle.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/skill-installation.md",
+      "target": "../assets/diagrams/skills-lifecycle.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/skill-installation.md",
+      "target": "../validation/workspace-cleanup-20261103/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/skill-installation.md",
+      "target": "../validation/documentation-skill-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../assets/diagrams/test-boundaries.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../assets/diagrams/test-boundaries.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../validation/application-path-audit-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../validation/application-layout-20261103/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../../sdd/evidence.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../../application/integration/tests/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/development/testing.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "../../../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "../../architecture/application-overview.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "../../architecture/contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "previous.zip",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "scope.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "../../assets/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "../../assets/catalog.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "checks.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "visual-checks.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "gates.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "docs/validation/documentation-enterprise-20261104/report.md",
+      "target": "screenshots/README-1280-light.png",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../docs/assets/diagrams/research-boundary.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../docs/assets/diagrams/research-boundary.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../docs/assets/diagrams/research-boundary.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../docs/assets/diagrams/research-boundary.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "ci-platform-research/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "teamcity-reverse-engineering/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../docs/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "reverse_engineering_teamcity/README.md",
+      "target": "../sdd/project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/assets/diagrams/evidence.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/assets/diagrams/evidence.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/assets/diagrams/evidence.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/assets/diagrams/evidence.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "project.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "workflow.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "evidence.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "chain/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "templates/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "features/governance-adoption/spec.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/development/contributing.md#verificar-a-mudança",
+      "anchor_checked": true
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../tools/governance/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "features/governance-adoption/converge.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/README.md",
+      "target": "../docs/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/assets/diagrams/project-status.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/assets/diagrams/project-status.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/assets/diagrams/project-status.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/assets/diagrams/project-status.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "features/governance-adoption/spec.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/decisions/ADR-002-application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/validation/application-path-audit-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/constitution.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/context.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/application-layout.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/application-overview.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/architecture/contracts.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/validation/application-analysis-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../application/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../tools/governance/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../reverse_engineering_teamcity/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/validation/documentation-refresh-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "sdd/project.md",
+      "target": "../docs/validation/documentation-enterprise-20261104/report.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/assets/diagrams/skills-lifecycle.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/assets/diagrams/skills-lifecycle.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/assets/diagrams/skills-lifecycle.svg",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/assets/diagrams/skills-lifecycle.mmd",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/development/skill-installation.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "validate.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../config/governance/profile.json",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "install_skills.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "tests/test_governance.py",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../sdd/README.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/development/contributing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../docs/development/testing.md",
+      "anchor_checked": false
+    },
+    {
+      "source": "tools/governance/README.md",
+      "target": "../../README.md",
+      "anchor_checked": false
+    }
+  ],
+  "rust_dependency_oracle": [
+    {
+      "module": "ec-agent-control",
+      "expected": [
+        "ec-agent-execution"
+      ],
+      "observed": [
+        "ec-agent-execution"
+      ]
+    },
+    {
+      "module": "ec-agent-workspace",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "module": "ec-agent-execution",
+      "expected": [
+        "ec-agent-reporting",
+        "ec-agent-workspace"
+      ],
+      "observed": [
+        "ec-agent-reporting",
+        "ec-agent-workspace"
+      ]
+    },
+    {
+      "module": "ec-agent-reporting",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "module": "ec-server-access",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "module": "ec-server-configuration",
+      "expected": [
+        "ec-server-access"
+      ],
+      "observed": [
+        "ec-server-access"
+      ]
+    },
+    {
+      "module": "ec-server-projects",
+      "expected": [],
+      "observed": []
+    },
+    {
+      "module": "ec-server-orchestration",
+      "expected": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-projects"
+      ],
+      "observed": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-projects"
+      ]
+    },
+    {
+      "module": "ec-server-results",
+      "expected": [
+        "ec-server-access",
+        "ec-server-orchestration"
+      ],
+      "observed": [
+        "ec-server-access",
+        "ec-server-orchestration"
+      ]
+    },
+    {
+      "module": "ec-server-delivery",
+      "expected": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-orchestration",
+        "ec-server-results"
+      ],
+      "observed": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-orchestration",
+        "ec-server-results"
+      ]
+    },
+    {
+      "module": "ec-server-extensions",
+      "expected": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-orchestration",
+        "ec-server-projects"
+      ],
+      "observed": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-orchestration",
+        "ec-server-projects"
+      ]
+    },
+    {
+      "module": "ec-server-operations",
+      "expected": [],
+      "observed": []
+    }
+  ],
+  "palette_contrast": [
+    {
+      "tone": "blue",
+      "text": 10.464084618375686,
+      "stroke": 6.087605394813795
+    },
+    {
+      "tone": "teal",
+      "text": 8.161946087869948,
+      "stroke": 4.984403663421565
+    },
+    {
+      "tone": "purple",
+      "text": 8.761009019261998,
+      "stroke": 4.856410360274507
+    },
+    {
+      "tone": "amber",
+      "text": 7.194309849743239,
+      "stroke": 4.205560882267481
+    },
+    {
+      "tone": "rose",
+      "text": 7.944626031065726,
+      "stroke": 4.713041510072492
+    }
+  ],
+  "skills": [
+    {
+      "path": ".codex/skills/technical-documentation/SKILL.md",
+      "sha256": "3a83fa6aeed1d1c3a014b4e7e396c1a00298a658eb384f8742ec475c0aa848ec"
+    },
+    {
+      "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
+      "sha256": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9"
+    },
+    {
+      "path": ".codex/skills/frontend-testing/SKILL.md",
+      "sha256": "343c078d7785b63096deea640584fc9e7ccfece6ef3eda86ce7d66513d0d610f"
+    }
+  ],
+  "assets": [
+    {
+      "path": "docs/assets/diagrams/ec-system.mmd",
+      "sha256": "ea867c0e093b843c118f4147aefb0835e83e5d2d74d4e171d1ca92b4b3523a45"
+    },
+    {
+      "path": "docs/assets/diagrams/ec-system.layout.json",
+      "sha256": "c238f0c87077d75fb104632b48d762f6603df240df31d6e4e58d24ed992ca4f4"
+    },
+    {
+      "path": "docs/assets/diagrams/ec-system.svg",
+      "sha256": "a3d13d7367314e0a3c3d755aa3923d1acb474f52756f623ce61ffdfa77b7f45b"
+    },
+    {
+      "path": "docs/assets/diagrams/delivery-journey.mmd",
+      "sha256": "2d73b2b4a140ba7779702eeb6f4f1c85cf6efd7efd46a1bb4cf849ba8180c1b5"
+    },
+    {
+      "path": "docs/assets/diagrams/delivery-journey.layout.json",
+      "sha256": "1ac1fdcbcf7b76a3bf7e3f8298d6bfa609cfd77ed2f8a3e2f7d19222c7321bb3"
+    },
+    {
+      "path": "docs/assets/diagrams/delivery-journey.svg",
+      "sha256": "a16d12da15ffbd4c47ebe607390ec41e54d57e3d4985d55c79ccc1f423c10138"
+    },
+    {
+      "path": "docs/assets/diagrams/publication.mmd",
+      "sha256": "e46f20f2f31dcfb67fd5476f52d62ef9566874cceb0b1790f226fe122af89b55"
+    },
+    {
+      "path": "docs/assets/diagrams/publication.layout.json",
+      "sha256": "47aca06bce9ea4dc760193182ce6e9aadf3609ace84a59d46fa57ca3406ee7d8"
+    },
+    {
+      "path": "docs/assets/diagrams/publication.svg",
+      "sha256": "cc4d3b18d6d8d39b1b15077002ac8af3631459cb75775bf5246225e9a6855568"
+    },
+    {
+      "path": "docs/assets/diagrams/configuration.mmd",
+      "sha256": "57c8ddcba195ba1b12326d01c2200b1d16fd5cba3b9656d288e6c5b215564e42"
+    },
+    {
+      "path": "docs/assets/diagrams/configuration.layout.json",
+      "sha256": "cd2b7a26ae2258f6aa6b130b9e044d099a974dce913bd9b7c801b0068c8479fe"
+    },
+    {
+      "path": "docs/assets/diagrams/configuration.svg",
+      "sha256": "34ecdad6bb283ce859f541414cf5d583864302a8313d5440e4cf8aaf425eb4fa"
+    },
+    {
+      "path": "docs/assets/diagrams/authorities.mmd",
+      "sha256": "fb2264c6863fbaecb3f33a8efc7bd664c5da90ce3704db563c4eee6a3523e91c"
+    },
+    {
+      "path": "docs/assets/diagrams/authorities.layout.json",
+      "sha256": "a76c86493b5729aeb9ca057054def270023a9793c06d20c4d02be4b2e79778fd"
+    },
+    {
+      "path": "docs/assets/diagrams/authorities.svg",
+      "sha256": "eaf80b1ae11c1f044b128b4a119db243201defa7abacc01ff0a69d1dc1065921"
+    },
+    {
+      "path": "docs/assets/diagrams/documentation-map.mmd",
+      "sha256": "69fa8e3d4f16699d767285e4a075e639f98900df25e39c7cccbc7ee7ddfa3eed"
+    },
+    {
+      "path": "docs/assets/diagrams/documentation-map.layout.json",
+      "sha256": "e4e66873b35e6166aa73c45098c1b6f92be0d28ffe5ae3f08422ace6e2ff9af1"
+    },
+    {
+      "path": "docs/assets/diagrams/documentation-map.svg",
+      "sha256": "b1e9b43dda31832d996476c3a89d0ce397b6c9cf3f576dadb65b6779967d6140"
+    },
+    {
+      "path": "docs/assets/diagrams/application-map.mmd",
+      "sha256": "71514519544be79d12b44436c3979bd5ea7123a27fb980a1ea6409425b0eb540"
+    },
+    {
+      "path": "docs/assets/diagrams/application-map.layout.json",
+      "sha256": "ef800a69aa4c7aa8831645a7b5b6bc8f537c324d32bd196bc87314119c30ea71"
+    },
+    {
+      "path": "docs/assets/diagrams/application-map.svg",
+      "sha256": "14cd2bf7ab76d7ef9b6a812a1946d6d79d9f9ebb7eacd8811f656e07f0025765"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-map.mmd",
+      "sha256": "cc8d21a44b8a2175fd8be02ae1987b86d217086303b09bac4ac8d33a00e76a5f"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-map.layout.json",
+      "sha256": "b27d7d5a30e2c897700b95c0e1772c7f05969383460734b2d3ca7964ded5d6aa"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-map.svg",
+      "sha256": "f80eadda622f8652d0823688940f0796f4d7cbd9ad90938f958deb452a20d40c"
+    },
+    {
+      "path": "docs/assets/diagrams/server-map.mmd",
+      "sha256": "a48aa9c3d2e2e0e87f7ff510cf408c8c2f7aece14e260a36b0048bcc65dcd795"
+    },
+    {
+      "path": "docs/assets/diagrams/server-map.layout.json",
+      "sha256": "bb31fba54dfeab99986e4333505c1de9f155f2f8b9f10ce583392139b9ba4502"
+    },
+    {
+      "path": "docs/assets/diagrams/server-map.svg",
+      "sha256": "6c16afba3bad665518d1df1f63b5a9cd544d26ca558866bb5f5b10a650fe9aeb"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-map.mmd",
+      "sha256": "1ca9e057b3b64642a4dabf527706e49feda19eb38a0e63f4220e6e714a39640a"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-map.layout.json",
+      "sha256": "c7f8586233c45512a058745bf524b5124e209f26e0117c828c58475caed0290c"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-map.svg",
+      "sha256": "34e7f4c7dd9bfaf753d295bad2003f20402acf5f90dc6561054e3cc510a12ca2"
+    },
+    {
+      "path": "docs/assets/diagrams/test-boundaries.mmd",
+      "sha256": "b39ded419a6613383224772be3c2d2e036d072ac70654d7b46b5391a174cbd58"
+    },
+    {
+      "path": "docs/assets/diagrams/test-boundaries.layout.json",
+      "sha256": "7b9319c653467b60b41ba607525420dd47485d48619d54448884ba13a287ef15"
+    },
+    {
+      "path": "docs/assets/diagrams/test-boundaries.svg",
+      "sha256": "8ec3629b1305d824949d836419a6bd57658016207fb0f4cce85d827a5aacd7b7"
+    },
+    {
+      "path": "docs/assets/diagrams/contribution.mmd",
+      "sha256": "dc03529f535e7f6c078385c908c354c9517cf6702241de2714799f18c7d9abdb"
+    },
+    {
+      "path": "docs/assets/diagrams/contribution.layout.json",
+      "sha256": "6cbf8f7e3371f0e0729e0f3308ea8a8db6c9416ce041c0c17ab39ff4db1a6980"
+    },
+    {
+      "path": "docs/assets/diagrams/contribution.svg",
+      "sha256": "15f55a39a7feaf3413cbedff620eda3f93b900ad655462e350e580fe6ff0adc5"
+    },
+    {
+      "path": "docs/assets/diagrams/evidence.mmd",
+      "sha256": "4adf28e2e9d5f0e13d0d43ed856527d7f413cdc86056633ca23789b5c7373434"
+    },
+    {
+      "path": "docs/assets/diagrams/evidence.layout.json",
+      "sha256": "7f6668b8ad5159eea2870ff540ca57aa361131e32394c0d1b8f1806af6d52e94"
+    },
+    {
+      "path": "docs/assets/diagrams/evidence.svg",
+      "sha256": "ddfd92df8904ba216ad9d860bbcc6ce1d3c83eec1f1576977542824d0e2ba117"
+    },
+    {
+      "path": "docs/assets/diagrams/skills-lifecycle.mmd",
+      "sha256": "24e05e001cfac5944ee62ba9a70518d17397177dadc2138d21c9683243cda61d"
+    },
+    {
+      "path": "docs/assets/diagrams/skills-lifecycle.layout.json",
+      "sha256": "01ab218796034f829048fa7c7a888efafbde54e3a56fdc261b69ee1680897c61"
+    },
+    {
+      "path": "docs/assets/diagrams/skills-lifecycle.svg",
+      "sha256": "b43455b486362982b0051eefee36078247098184b776b5199f54cc8c7c4fb2e3"
+    },
+    {
+      "path": "docs/assets/diagrams/research-boundary.mmd",
+      "sha256": "1a5591fd721e134ad8eac78b1c26b55b8586a27ee5a74ef585d1732ff46e2d38"
+    },
+    {
+      "path": "docs/assets/diagrams/research-boundary.layout.json",
+      "sha256": "b4f0769039ed1e622f39b76933b8487dce6f6962130775e122adcf65a2c07480"
+    },
+    {
+      "path": "docs/assets/diagrams/research-boundary.svg",
+      "sha256": "d48253364b9340de86abff58051dee37a0259325bff1449f62fc78ef4b471514"
+    },
+    {
+      "path": "docs/assets/diagrams/project-status.mmd",
+      "sha256": "ba70501337f1e28a1bdd7c0a6f6408d4515a04c84c1fd850ccb35fe2269b67a2"
+    },
+    {
+      "path": "docs/assets/diagrams/project-status.layout.json",
+      "sha256": "44dd966e2e6dd6ce089b36ecef7ecab1bc63d9a6b2b1aface56a47d71284e715"
+    },
+    {
+      "path": "docs/assets/diagrams/project-status.svg",
+      "sha256": "7b4b5a9eb9b240f87d77680198cf0777cfc208b557604124d9d0e486478ae127"
+    },
+    {
+      "path": "docs/assets/diagrams/server-access.mmd",
+      "sha256": "e92bcb48c53007ea118036ae81599c891a66be83be225a481c348e349af84c77"
+    },
+    {
+      "path": "docs/assets/diagrams/server-access.layout.json",
+      "sha256": "57493d4ed3722c5633611b979b1319698662f630897f431b5a11d7ef49b56e85"
+    },
+    {
+      "path": "docs/assets/diagrams/server-access.svg",
+      "sha256": "bd0a049675259cece62d9ea76a48c7c8e32db763e0a1ac1481a21a098739817a"
+    },
+    {
+      "path": "docs/assets/diagrams/server-configuration.mmd",
+      "sha256": "b41d9d0493c1e323ceb3356967d5a2437e6478d51aed45a6b592cb6fc6993887"
+    },
+    {
+      "path": "docs/assets/diagrams/server-configuration.layout.json",
+      "sha256": "ee363fe2c0ee8d342b14ede2f4107ab99ee791bf1a15999faf5eb11da4620200"
+    },
+    {
+      "path": "docs/assets/diagrams/server-configuration.svg",
+      "sha256": "378d96b1b3715240d847e9dfaadde8214d5d9478e209d8db47aceadbdab998a6"
+    },
+    {
+      "path": "docs/assets/diagrams/server-projects.mmd",
+      "sha256": "0148ea97e9b905f2cd8fd6adc6eb91c7f07db35e1f9f57f267e524fd68bb3f09"
+    },
+    {
+      "path": "docs/assets/diagrams/server-projects.layout.json",
+      "sha256": "f1e5cdac9b838bb92539df62b4aeef48455a2c362264325fdbe2e03ebd273a7e"
+    },
+    {
+      "path": "docs/assets/diagrams/server-projects.svg",
+      "sha256": "b46c9228e40bca0ea490a557c88794a5aa0aa6bee545e59a8911c79a6fd5ddd6"
+    },
+    {
+      "path": "docs/assets/diagrams/server-orchestration.mmd",
+      "sha256": "2f33aa763bf880c5c981842d7807907ee68a52bdad82d00ed91ad344971dab8e"
+    },
+    {
+      "path": "docs/assets/diagrams/server-orchestration.layout.json",
+      "sha256": "e727ccd71f35fea3dae4226bdb4961e91de5d81c03afdc28e7050ed942ba2fad"
+    },
+    {
+      "path": "docs/assets/diagrams/server-orchestration.svg",
+      "sha256": "12c078ab878f5544ed9d67b71a68eaa429583e56064ae5749df96afe38cc53aa"
+    },
+    {
+      "path": "docs/assets/diagrams/server-results.mmd",
+      "sha256": "b0142f0875d565fc86c9adfe85e420fe122e34cb3089ddbe37c436ab90dd18fe"
+    },
+    {
+      "path": "docs/assets/diagrams/server-results.layout.json",
+      "sha256": "3a327e608c303d6aac707489bcf961151c45395c512474bdf377bf6ce8389eff"
+    },
+    {
+      "path": "docs/assets/diagrams/server-results.svg",
+      "sha256": "58249720ccda4151e69578a5f833ffa8022c877615413bcea9885eb88868d2ce"
+    },
+    {
+      "path": "docs/assets/diagrams/server-delivery.mmd",
+      "sha256": "b70f25658019ad465eff91b3df2ce66933e49ec317a71e90b03e38dd3fb495cc"
+    },
+    {
+      "path": "docs/assets/diagrams/server-delivery.layout.json",
+      "sha256": "f6993707addec7948aaf2ff738de4692a23d51e7c436103bca7c67eccb5405d0"
+    },
+    {
+      "path": "docs/assets/diagrams/server-delivery.svg",
+      "sha256": "73adcb3c527bc61b23705d2119dc8de7e779baa00f9f805f92e9cf2b92c26500"
+    },
+    {
+      "path": "docs/assets/diagrams/server-extensions.mmd",
+      "sha256": "dbaff21d4cb4a592116f7bff64a1063d47fe059766076684ced879e4d006aa35"
+    },
+    {
+      "path": "docs/assets/diagrams/server-extensions.layout.json",
+      "sha256": "d192806882fd36ac24b2422844c69e2f103a52c428c684d5fecd38f6d5add5b9"
+    },
+    {
+      "path": "docs/assets/diagrams/server-extensions.svg",
+      "sha256": "2df8a3b7c879f4e1f37af69a2d50876482f84d52204e2363af8557f84ea852c2"
+    },
+    {
+      "path": "docs/assets/diagrams/server-operations.mmd",
+      "sha256": "701866257ed628d10355d0607dda33b9dce853c6fd9ad3e2c0e7b08bf4d8d0b0"
+    },
+    {
+      "path": "docs/assets/diagrams/server-operations.layout.json",
+      "sha256": "1e3a83dccf2dbee7ac0b434f0ef4b29b7e7c36118aad4b14f6bd520e19c7e93a"
+    },
+    {
+      "path": "docs/assets/diagrams/server-operations.svg",
+      "sha256": "acefd22c34650e67ffe600189574f540d487820152fc2eaa7056e250e510e861"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-control.mmd",
+      "sha256": "bfd653092b24fa4f388433abe008737b6b39dde581f4fc64e2d0cf9944c1f679"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-control.layout.json",
+      "sha256": "d8017c097e6184bf870ddc71bec9ff62e8f36ee63daf23a357108f6386586f46"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-control.svg",
+      "sha256": "db0bed1f3132d605a808835a33534c500a597bbfadc20c81e5d1a4d0e7612052"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-execution.mmd",
+      "sha256": "d7792d364836166092b4885d395de0459a915d7225953b2713427191ad51bdf2"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-execution.layout.json",
+      "sha256": "bfc634759b38dc924a0904378a2fae86111ea25ad7a6e42db3c4bb051bf848fa"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-execution.svg",
+      "sha256": "24bd12a37242790b7d5fb5ab21a1082d07148b13282a30960a8ffc877347d10b"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-workspace.mmd",
+      "sha256": "1000ca06e53e19f45cb29f0f0dc7a23d7063d95d17adbb00d5503135701797f9"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-workspace.layout.json",
+      "sha256": "3a62b9342a27dbd2bc67f45feafb6d8d30c590d82d31dafc06d6b663abe23419"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-workspace.svg",
+      "sha256": "8d59abe82afde3c229f86cf884e5282cb39ace77c123e7002ce966fafe066e6e"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-reporting.mmd",
+      "sha256": "b1adaec92a08fa3fd1283a2e7854f245e387c434f1e61b3381d6934a4b921935"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-reporting.layout.json",
+      "sha256": "7ab9f9603306aa28b086d157c2b55316a5ff0a1706f25b01a057eac3c30a076a"
+    },
+    {
+      "path": "docs/assets/diagrams/agent-reporting.svg",
+      "sha256": "371e39a3e40ad103dd43fd3082bebe4ced5d5f99ad3c5942e8a27c3735f0ed46"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-configuration.mmd",
+      "sha256": "73447dfbb164048cf9727aafe4d3806eec9215ee9a4eeb519f70fc908b9e4af3"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-configuration.layout.json",
+      "sha256": "3c65627f62a53276bf62917dd76da3e730904d8033e4702a153074230a37fc83"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-configuration.svg",
+      "sha256": "efec2732d03cabb89ceb65e5809c0c9a1c14b22202b745345f3b075227548adf"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-projects.mmd",
+      "sha256": "b648c3f722504559380af90289d8314f6a898b19889d03967102fcb01ee89e15"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-projects.layout.json",
+      "sha256": "0e4302693ff85c767da728225f797f80c9628492785546c8ad813fd2d2756012"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-projects.svg",
+      "sha256": "51ee4c0945a6bae56b9a3d1e7b9be8eafd0022407b4b65835a270911510a9ea9"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-pipelines.mmd",
+      "sha256": "503c034f0dc539af26563a020a3cc5d2381e4e71c4ed9349cbc5e2f320014465"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-pipelines.layout.json",
+      "sha256": "362216943b4f72c6bbe13b3f30257acc12391b9110d204b47a9ab4084a1e2c98"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-pipelines.svg",
+      "sha256": "d9123669178f783de2f708dfcf085d6f45427f9519c08994448970064283bf6e"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-runs.mmd",
+      "sha256": "869fa036ea91f4a443c3ed80afa9b4954bcf8f79210d2e82131a76c8bb37afc1"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-runs.layout.json",
+      "sha256": "1889e1f92af587d4f28917644ead49ac2dd951f1bb962350e82d741b83dba3f8"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-runs.svg",
+      "sha256": "0bbb3544f284897027b9055483f53733835a020d060efba845665ae00a99e99b"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-delivery.mmd",
+      "sha256": "38ffc2598867c1cc6208a0b81c395f7a4e7d3f03ecef453005c434c23263efaa"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-delivery.layout.json",
+      "sha256": "b9a54100ea96025dd9d2d123bbbf4671be3f181feca6306c39cf6c65e97ea1a9"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-delivery.svg",
+      "sha256": "e486df09cae8ca27ac6125a306cd6896cf3c6d1f385b3a99a52fa837b3eec8f8"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-infrastructure.mmd",
+      "sha256": "90bb2a4b39125d4823b1699ee14fc6e3a914e2cdf45b8f1332c9ad7c45deaadd"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-infrastructure.layout.json",
+      "sha256": "64c8f84d474df0e18a81df1affa3fd64fe4a7ebefb53ed18e92bc98113d16f26"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-infrastructure.svg",
+      "sha256": "3dab09c6a1fa7604e4f07dcac12ab17208bb62e88ea5bfade05b7ae4bf0745e6"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-access.mmd",
+      "sha256": "6eb13574706a0ae91553e91524cd9c0b332ff82781be7c1cd254942cda67e134"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-access.layout.json",
+      "sha256": "32d754e92c7391daa8de383bc0127785f8cfd507dc6316d84211f6a832f8a0bd"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-access.svg",
+      "sha256": "c95b82f74f10ef7d591f8840de35c01f879662c399fd61d245687e036f1f09c1"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-extensions.mmd",
+      "sha256": "81f1668128aa237a8bfec7b299e0b7f46f0be8472f58fde6c9c44f986c1d391a"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-extensions.layout.json",
+      "sha256": "4ced12c39037a69116825f601396412b60e6db721a7c8024c4194956536de95e"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-extensions.svg",
+      "sha256": "b9b782776c93717bdce259ad56eea471bdf9bdbd4661516205330356f9841b34"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-administration.mmd",
+      "sha256": "d93f79f9c179b68a03d917955c3d863aabd5c3b9c36670c7e6d1b5e2f8495140"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-administration.layout.json",
+      "sha256": "5a8a725e6f7d144a9a6219bc5c62c5ba45b97744a7b3814c947df7d6c9c5ef6f"
+    },
+    {
+      "path": "docs/assets/diagrams/frontend-administration.svg",
+      "sha256": "8dd9e5179af347168faaf07a5a8449a2205a1513a3ece07c87bf98c85bf13f36"
+    },
+    {
+      "path": "docs/assets/diagrams/publication-sequence.mmd",
+      "sha256": "5f1df68bcbcff60b1babc5154daec4b020409f59e737ad26e93a7a4e3386ad0f"
+    },
+    {
+      "path": "docs/assets/diagrams/publication-sequence.layout.json",
+      "sha256": "824063cd8755bb39566843f578d987aa833df2e1b5b5016393adf665aed88fdc"
+    },
+    {
+      "path": "docs/assets/diagrams/publication-sequence.svg",
+      "sha256": "432f0c427aa885d5c1b7315ac2cfdb539ba5b3aac2138e10dccc847f85b98419"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 596,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"installation_status\": \"installed\",\n  \"selected\": 67,\n  \"conditional\": 6,\n  \"excluded\": 4,\n  \"skill_files\": 596,\n  \"errors\": [],\n  \"limits\": [\n    \"Local structure, integrity and routing only; no product or skill effectiveness certification.\",\n    \"External URLs and upstream technical claims are not revalidated.\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"ALREADY_INSTALLED\",\n  \"count\": 67\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--structure-only"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "exit_code": 0,
+      "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_acceptance_parser_does_not_promote_mentions (test_governance.GovernanceTests.test_acceptance_parser_does_not_promote_mentions) ... ok\ntest_changed_original_resource_is_rejected (test_governance.GovernanceTests.test_changed_original_resource_is_rejected) ... ok\ntest_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile) ... ok\ntest_curated_sources_work_without_retired_packages (test_governance.GovernanceTests.test_curated_sources_work_without_retired_packages) ... ok\ntest_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected) ... ok\ntest_duplicate_json_key_is_rejected (test_governance.GovernanceTests.test_duplicate_json_key_is_rejected) ... ok\ntest_escaping_and_symlink_paths_are_rejected (test_governance.GovernanceTests.test_escaping_and_symlink_paths_are_rejected) ... ok\ntest_evidence_hash_change_is_not_silently_accepted (test_governance.GovernanceTests.test_evidence_hash_change_is_not_silently_accepted) ... ok\ntest_excluded_skill_bridge_is_rejected (test_governance.GovernanceTests.test_excluded_skill_bridge_is_rejected) ... ok\ntest_install_success_and_idempotent_repeat (test_governance.GovernanceTests.test_install_success_and_idempotent_repeat) ... ok\ntest_interrupted_package_copy_can_resume (test_governance.GovernanceTests.test_interrupted_package_copy_can_resume) ... ok\ntest_local_link_drift_is_detected_even_with_rehashed_skill (test_governance.GovernanceTests.test_local_link_drift_is_detected_even_with_rehashed_skill) ... ok\ntest_missing_bridge_is_rejected (test_governance.GovernanceTests.test_missing_bridge_is_rejected) ... ok\ntest_missing_original_resource_is_rejected (test_governance.GovernanceTests.test_missing_original_resource_is_rejected) ... ok\ntest_missing_resource_is_rejected (test_governance.GovernanceTests.test_missing_resource_is_rejected) ... ok\ntest_missing_source_archive_is_rejected (test_governance.GovernanceTests.test_missing_source_archive_is_rejected) ... ok\ntest_missing_source_bundle_declaration_is_rejected (test_governance.GovernanceTests.test_missing_source_bundle_declaration_is_rejected) ... ok\ntest_modified_skill_is_rejected (test_governance.GovernanceTests.test_modified_skill_is_rejected) ... ok\ntest_preparation_passes_but_is_not_installation (test_governance.GovernanceTests.test_preparation_passes_but_is_not_installation) ... ok\ntest_readonly_error_preserves_metadata (test_governance.GovernanceTests.test_readonly_error_preserves_metadata) ... ok\ntest_schema_one_cannot_claim_freshness (test_governance.GovernanceTests.test_schema_one_cannot_claim_freshness) ... ok\ntest_sdd_links_may_reach_authority_but_not_escape_root (test_governance.GovernanceTests.test_sdd_links_may_reach_authority_but_not_escape_root) ... ok\ntest_source_bundle_path_escape_is_rejected (test_governance.GovernanceTests.test_source_bundle_path_escape_is_rejected) ... ok\ntest_unrelated_destination_is_preserved (test_governance.GovernanceTests.test_unrelated_destination_is_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 7.308s\n\nOK\n"
+    }
+  ],
+  "semantic_review": "As novas imagens mantêm requisitos planejados e dependências documentadas. Normas e fontes históricas preservadas; sem novas garantias de runtime.",
+  "visual_inspection": "README em claro/escuro, telas de arquitetura/contratos/contribuição e pranchas das 38 figuras inspecionadas. Correções: composição compacta e quebra de caminhos para evitar overflow de rótulos.",
+  "limits": [
+    "Prévia local Markdown-it; não é o frontend Ec nem um cliente Markdown remoto.",
+    "Sem estudo com leitores ou tecnologia assistiva e sem certificação WCAG.",
+    "Sem execução de produto ou consulta de URLs externas."
+  ]
+}

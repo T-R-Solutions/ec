@@ -1,0 +1,18 @@
+# Instalação das skills preparadas
+
+O destino solicitado é `.codex/skills/`. Nesta sessão `.codex` está somente leitura; o usuário deve liberar a escrita pelo ambiente. Não mudar permissões, remontar ou criar symlink para contornar a restrição.
+
+Da raiz, com Python 3.11+:
+
+```bash
+python3 tools/governance/install_skills.py --check
+python3 tools/governance/install_skills.py --apply
+python3 tools/governance/validate.py --require-installed
+python3 sdd/tools/validate.py --root .
+```
+
+`--check` valida conteúdo e conflitos sem escrever e sem garantir permissão. `--apply` tenta instalar os 67 diretórios completos, confere hashes e atualiza perfil/pontes. Se destino existir diferente ou houver entradas alheias, recusa sobrescrever. Uma cópia interrompida antes da migração das pontes pode ser retomada: somente pacotes completos e idênticos são aceitos. Preparação e originais são mantidos como baseline.
+
+Não há transação atômica entre todas as pontes e perfil: interrupção durante essa migração exige inspecionar/restaurar os metadados a partir da preparação e comparar conteúdos antes de retomar. Não apagar pacotes ou sobrescrever mudanças recentes para “corrigir” o estado.
+
+Depois da instalação, reexaminar AGENTS, README, sdd/project, sdd/README e ADR para atualizar o estado observado; reexecutar verificações e coletar novas evidências da feature. Não renovar hashes de evidências antigas. A interface pode precisar recarregar a descoberta; validar isso separadamente, sem alegar que um teste de cópia certifica descoberta.

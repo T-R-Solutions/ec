@@ -1,0 +1,17 @@
+
+running 12 tests
+test tests::all_small_deadline_points_obey_fencing ... ok
+test tests::cancel_expiry_never_requeues ... ok
+test tests::cancel_wins_when_committed_first ... ok
+test tests::cancelled_queued_job_never_starts ... ok
+test tests::complete_wins_when_committed_first ... ok
+test tests::exclusive_current_reservation ... ok
+test tests::expiry_boundary_rejects_result_and_renewal ... ok
+test tests::invalid_duration_does_not_mutate_job ... ok
+test tests::old_owner_cannot_finish_after_retry ... ok
+test tests::renewal_moves_deadline_without_changing_owner ... ok
+test tests::result_retry_after_lease_expiry_returns_receipt ... ok
+test tests::retry_requires_explicit_safe_policy ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

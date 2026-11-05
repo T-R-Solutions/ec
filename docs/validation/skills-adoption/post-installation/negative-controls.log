@@ -1,0 +1,25 @@
+COMMAND: /usr/bin/python3 -m unittest discover -s tools/governance/tests -v
+EXIT: 0
+test_acceptance_parser_does_not_promote_mentions (test_governance.GovernanceTests.test_acceptance_parser_does_not_promote_mentions) ... ok
+test_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile) ... ok
+test_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected) ... ok
+test_duplicate_json_key_is_rejected (test_governance.GovernanceTests.test_duplicate_json_key_is_rejected) ... ok
+test_escaping_and_symlink_paths_are_rejected (test_governance.GovernanceTests.test_escaping_and_symlink_paths_are_rejected) ... ok
+test_evidence_hash_change_is_not_silently_accepted (test_governance.GovernanceTests.test_evidence_hash_change_is_not_silently_accepted) ... ok
+test_excluded_skill_bridge_is_rejected (test_governance.GovernanceTests.test_excluded_skill_bridge_is_rejected) ... ok
+test_install_success_and_idempotent_repeat (test_governance.GovernanceTests.test_install_success_and_idempotent_repeat) ... ok
+test_interrupted_package_copy_can_resume (test_governance.GovernanceTests.test_interrupted_package_copy_can_resume) ... ok
+test_local_link_drift_is_detected_even_with_rehashed_skill (test_governance.GovernanceTests.test_local_link_drift_is_detected_even_with_rehashed_skill) ... ok
+test_missing_bridge_is_rejected (test_governance.GovernanceTests.test_missing_bridge_is_rejected) ... ok
+test_missing_resource_is_rejected (test_governance.GovernanceTests.test_missing_resource_is_rejected) ... ok
+test_modified_skill_is_rejected (test_governance.GovernanceTests.test_modified_skill_is_rejected) ... ok
+test_preparation_passes_but_is_not_installation (test_governance.GovernanceTests.test_preparation_passes_but_is_not_installation) ... ok
+test_readonly_error_preserves_metadata (test_governance.GovernanceTests.test_readonly_error_preserves_metadata) ... ok
+test_schema_one_cannot_claim_freshness (test_governance.GovernanceTests.test_schema_one_cannot_claim_freshness) ... ok
+test_sdd_links_may_reach_authority_but_not_escape_root (test_governance.GovernanceTests.test_sdd_links_may_reach_authority_but_not_escape_root) ... ok
+test_unrelated_destination_is_preserved (test_governance.GovernanceTests.test_unrelated_destination_is_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 6.806s
+
+OK

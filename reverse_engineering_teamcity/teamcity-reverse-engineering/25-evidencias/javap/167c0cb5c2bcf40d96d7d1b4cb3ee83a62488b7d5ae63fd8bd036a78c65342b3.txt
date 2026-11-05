@@ -1,0 +1,5 @@
+Compiled from "StartingBuildVirtualAgentsFilter.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.StartingBuildVirtualAgentsFilter extends jetbrains.buildServer.serverSide.ServerExtension {
+  public abstract jetbrains.buildServer.serverSide.impl.buildDistribution.VirtualAgentsFilterResult filterAgents(jetbrains.buildServer.serverSide.impl.buildDistribution.VirtualAgentsFilterContext);
+    descriptor: (Ljetbrains/buildServer/serverSide/impl/buildDistribution/VirtualAgentsFilterContext;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/VirtualAgentsFilterResult;
+}

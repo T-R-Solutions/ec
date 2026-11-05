@@ -1,0 +1,48 @@
+{
+  "title": "Estado real · próximo trabalho",
+  "question": "O que existe e o que falta implementar?",
+  "status": "Existente: linha superior · pendente: linha inferior",
+  "sources": [
+    "sdd/project.md",
+    "docs/architecture/application-overview.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "DOC": {
+      "icon": "book-open",
+      "tone": "teal",
+      "column": 0,
+      "row": 0
+    },
+    "GOV": {
+      "icon": "list-checks",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "TREE": {
+      "icon": "folder-tree",
+      "tone": "blue",
+      "column": 2,
+      "row": 0
+    },
+    "CONTRACT": {
+      "icon": "file-code-2",
+      "tone": "amber",
+      "column": 0,
+      "row": 1
+    },
+    "IMPL": {
+      "icon": "terminal",
+      "tone": "amber",
+      "column": 1,
+      "row": 1
+    },
+    "PROOF": {
+      "icon": "shield-check",
+      "tone": "amber",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

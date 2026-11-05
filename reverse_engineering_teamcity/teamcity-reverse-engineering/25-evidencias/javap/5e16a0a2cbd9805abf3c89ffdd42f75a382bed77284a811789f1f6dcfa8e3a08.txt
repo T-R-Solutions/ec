@@ -1,0 +1,517 @@
+Compiled from "ServerCommandsExecutor.java"
+public class jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsExecutor {
+  private final jetbrains.buildServer.messages.XStreamHolder myXStreamHolder;
+    descriptor: Ljetbrains/buildServer/messages/XStreamHolder;
+
+  private final jetbrains.buildServer.agent.impl.serverCommunication.PollingBasedServerCommandsHandlersRegistry myServerCommandsRegistry;
+    descriptor: Ljetbrains/buildServer/agent/impl/serverCommunication/PollingBasedServerCommandsHandlersRegistry;
+
+  private final java.util.concurrent.ExecutorService myExecutor;
+    descriptor: Ljava/util/concurrent/ExecutorService;
+
+  private volatile jetbrains.buildServer.agent.BuildAgent myAgent;
+    descriptor: Ljetbrains/buildServer/agent/BuildAgent;
+
+  private volatile jetbrains.buildServer.util.Action<jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command> myInterceptor;
+    descriptor: Ljetbrains/buildServer/util/Action;
+
+  public jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsExecutor(jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.agent.AgentLifeCycleListener>, jetbrains.buildServer.agent.impl.serverCommunication.PollingBasedServerCommandsHandlersRegistry);
+    descriptor: (Ljetbrains/buildServer/util/EventDispatcher;Ljetbrains/buildServer/agent/impl/serverCommunication/PollingBasedServerCommandsHandlersRegistry;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: new           #7                  // class jetbrains/buildServer/messages/XStreamHolder
+        16: dup
+        17: invokespecial #9                  // Method jetbrains/buildServer/messages/XStreamHolder."<init>":()V
+        20: putfield      #10                 // Field myXStreamHolder:Ljetbrains/buildServer/messages/XStreamHolder;
+        23: aload_0
+        24: new           #16                 // class jetbrains/buildServer/util/NamedDaemonThreadFactory
+        27: dup
+        28: ldc           #18                 // String ServerCommandsExecutor
+        30: invokespecial #20                 // Method jetbrains/buildServer/util/NamedDaemonThreadFactory."<init>":(Ljava/lang/String;)V
+        33: invokestatic  #23                 // Method java/util/concurrent/Executors.newSingleThreadExecutor:(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
+        36: putfield      #29                 // Field myExecutor:Ljava/util/concurrent/ExecutorService;
+        39: aload_0
+        40: aload_2
+        41: putfield      #33                 // Field myServerCommandsRegistry:Ljetbrains/buildServer/agent/impl/serverCommunication/PollingBasedServerCommandsHandlersRegistry;
+        44: aload_1
+        45: new           #37                 // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$1
+        48: dup
+        49: aload_0
+        50: invokespecial #39                 // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$1."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;)V
+        53: invokevirtual #42                 // Method jetbrains/buildServer/util/EventDispatcher.addListener:(Ljava/util/EventListener;)V
+        56: return
+      LineNumberTable:
+        line 31: 8
+        line 24: 12
+        line 26: 23
+        line 32: 39
+        line 33: 44
+        line 44: 56
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      57     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0      57     1 agentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0      57     2 serverCommandsRegistry   Ljetbrains/buildServer/agent/impl/serverCommunication/PollingBasedServerCommandsHandlersRegistry;
+
+  public java.util.concurrent.Future<java.lang.String> executeAsync(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command);
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)Ljava/util/concurrent/Future;
+    Code:
+         0: aload_0
+         1: getfield      #29                 // Field myExecutor:Ljava/util/concurrent/ExecutorService;
+         4: new           #48                 // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$2
+         7: dup
+         8: aload_0
+         9: aload_1
+        10: invokespecial #50                 // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$2."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)V
+        13: invokeinterface #53,  2           // InterfaceMethod java/util/concurrent/ExecutorService.submit:(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+        18: areturn
+      LineNumberTable:
+        line 52: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0      19     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+
+  private java.lang.String runBuild(java.io.Reader);
+    descriptor: (Ljava/io/Reader;)Ljava/lang/String;
+    Code:
+         0: new           #59                 // class jetbrains/buildServer/agentServer/polling/RunBuildCommandResult
+         3: dup
+         4: aload_0
+         5: getfield      #61                 // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+         8: aload_1
+         9: invokestatic  #65                 // Method jetbrains/buildServer/agentServer/AgentBuild.deserialize:(Ljava/io/Reader;)Ljetbrains/buildServer/agentServer/AgentBuild;
+        12: invokeinterface #71,  2           // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.runBuild:(Ljetbrains/buildServer/agentServer/AgentBuild;)Ljetbrains/buildServer/agentServer/AgentBuildResult;
+        17: invokespecial #77                 // Method jetbrains/buildServer/agentServer/polling/RunBuildCommandResult."<init>":(Ljetbrains/buildServer/agentServer/AgentBuildResult;)V
+        20: invokevirtual #80                 // Method jetbrains/buildServer/agentServer/polling/RunBuildCommandResult.serialize:()Ljava/lang/String;
+        23: dup
+        24: ifnonnull     31
+        27: iconst_1
+        28: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+        31: areturn
+        32: astore_2
+        33: new           #59                 // class jetbrains/buildServer/agentServer/polling/RunBuildCommandResult
+        36: dup
+        37: new           #86                 // class jetbrains/buildServer/agentServer/polling/Error
+        40: dup
+        41: ldc           #84                 // class jetbrains/buildServer/AlreadyRunningBuildException
+        43: invokevirtual #88                 // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+        46: aload_2
+        47: invokevirtual #93                 // Method jetbrains/buildServer/AlreadyRunningBuildException.getMessage:()Ljava/lang/String;
+        50: invokespecial #96                 // Method jetbrains/buildServer/agentServer/polling/Error."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+        53: invokespecial #99                 // Method jetbrains/buildServer/agentServer/polling/RunBuildCommandResult."<init>":(Ljetbrains/buildServer/agentServer/polling/Error;)V
+        56: invokevirtual #80                 // Method jetbrains/buildServer/agentServer/polling/RunBuildCommandResult.serialize:()Ljava/lang/String;
+        59: dup
+        60: ifnonnull     67
+        63: iconst_2
+        64: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+        67: areturn
+        68: astore_2
+        69: new           #59                 // class jetbrains/buildServer/agentServer/polling/RunBuildCommandResult
+        72: dup
+        73: new           #86                 // class jetbrains/buildServer/agentServer/polling/Error
+        76: dup
+        77: ldc           #102                // class jetbrains/buildServer/ShutdownInProgressException
+        79: invokevirtual #88                 // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+        82: aload_2
+        83: invokevirtual #104                // Method jetbrains/buildServer/ShutdownInProgressException.getMessage:()Ljava/lang/String;
+        86: invokespecial #96                 // Method jetbrains/buildServer/agentServer/polling/Error."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+        89: invokespecial #99                 // Method jetbrains/buildServer/agentServer/polling/RunBuildCommandResult."<init>":(Ljetbrains/buildServer/agentServer/polling/Error;)V
+        92: invokevirtual #80                 // Method jetbrains/buildServer/agentServer/polling/RunBuildCommandResult.serialize:()Ljava/lang/String;
+        95: dup
+        96: ifnonnull     103
+        99: iconst_3
+       100: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+       103: areturn
+      Exception table:
+         from    to  target type
+             0    23    32   Class jetbrains/buildServer/AlreadyRunningBuildException
+             0    23    68   Class jetbrains/buildServer/ShutdownInProgressException
+      LineNumberTable:
+        line 93: 0
+        line 94: 32
+        line 95: 33
+        line 96: 68
+        line 97: 69
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           33      35     2     e   Ljetbrains/buildServer/AlreadyRunningBuildException;
+           69      35     2     e   Ljetbrains/buildServer/ShutdownInProgressException;
+            0     104     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0     104     1 serializedBuild   Ljava/io/Reader;
+
+  private java.lang.String stopBuild(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: invokestatic  #105                // Method jetbrains/buildServer/util/StringUtil.isEmptyOrSpaces:(Ljava/lang/String;)Z
+         4: ifeq          28
+         7: aload_0
+         8: getfield      #61                 // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+        11: invokeinterface #111,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.stopBuild:()Z
+        16: invokestatic  #115                // Method java/lang/Boolean.toString:(Z)Ljava/lang/String;
+        19: dup
+        20: ifnonnull     27
+        23: iconst_4
+        24: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+        27: areturn
+        28: aload_0
+        29: getfield      #61                 // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+        32: invokeinterface #121,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.getBuildId:()Ljava/lang/String;
+        37: astore_2
+        38: aload_2
+        39: ifnull        66
+        42: aload_1
+        43: aload_2
+        44: invokevirtual #124                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        47: ifne          66
+        50: invokestatic  #130                // Method jetbrains/buildServer/agentServer/polling/PollingAgentLogger.getLogger:()Lcom/intellij/openapi/diagnostic/Logger;
+        53: aload_1
+        54: aload_2
+        55: invokedynamic #136,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        60: invokevirtual #140                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+        63: ldc           #145                // String false
+        65: areturn
+        66: aload_0
+        67: getfield      #61                 // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+        70: invokeinterface #111,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.stopBuild:()Z
+        75: invokestatic  #115                // Method java/lang/Boolean.toString:(Z)Ljava/lang/String;
+        78: dup
+        79: ifnonnull     86
+        82: iconst_5
+        83: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+        86: areturn
+      LineNumberTable:
+        line 103: 0
+        line 105: 7
+        line 108: 28
+        line 109: 38
+        line 110: 50
+        line 111: 63
+        line 113: 66
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      87     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0      87     1 buildId   Ljava/lang/String;
+           38      49     2 currentlyRunningBuild   Ljava/lang/String;
+
+  private java.lang.String upgrade();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #61                 // Field myAgent:Ljetbrains/buildServer/agent/BuildAgent;
+         4: aconst_null
+         5: invokeinterface #147,  2          // InterfaceMethod jetbrains/buildServer/agent/BuildAgent.upgrade:(Ljava/util/Vector;)Z
+        10: invokedynamic #151,  0            // InvokeDynamic #1:makeConcatWithConstants:(Z)Ljava/lang/String;
+        15: dup
+        16: ifnonnull     24
+        19: bipush        6
+        21: invokestatic  #331                // Method $$$reportNull$$$0:(I)V
+        24: areturn
+      LineNumberTable:
+        line 118: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      25     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+
+  protected java.lang.String testLocal(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: invokestatic  #153                // Method jetbrains/buildServer/agentServer/polling/PollingProtocolCommon.readLocalCheckFile:(Ljava/lang/String;)Ljava/lang/String;
+         4: astore_2
+         5: aload_2
+         6: ifnull        13
+         9: aload_2
+        10: goto          15
+        13: ldc           #159                // String
+        15: areturn
+      LineNumberTable:
+        line 126: 0
+        line 127: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      16     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0      16     1 filePath   Ljava/lang/String;
+            5      11     2  code   Ljava/lang/String;
+
+  private java.lang.String doCustomCommand(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command) throws java.lang.Exception;
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)Ljava/lang/String;
+    Code:
+         0: aload_1
+         1: invokevirtual #161                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.getType:()Ljava/lang/String;
+         4: ldc           #166                // String .
+         6: invokevirtual #168                // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+         9: iconst_m1
+        10: if_icmpne     15
+        13: aconst_null
+        14: areturn
+        15: aload_1
+        16: invokevirtual #161                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.getType:()Ljava/lang/String;
+        19: iconst_0
+        20: aload_1
+        21: invokevirtual #161                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.getType:()Ljava/lang/String;
+        24: ldc           #166                // String .
+        26: invokevirtual #168                // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+        29: invokevirtual #172                // Method java/lang/String.substring:(II)Ljava/lang/String;
+        32: astore_2
+        33: aload_1
+        34: invokevirtual #161                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.getType:()Ljava/lang/String;
+        37: aload_1
+        38: invokevirtual #161                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.getType:()Ljava/lang/String;
+        41: ldc           #166                // String .
+        43: invokevirtual #168                // Method java/lang/String.lastIndexOf:(Ljava/lang/String;)I
+        46: iconst_1
+        47: iadd
+        48: invokevirtual #176                // Method java/lang/String.substring:(I)Ljava/lang/String;
+        51: astore_3
+        52: aload_0
+        53: getfield      #33                 // Field myServerCommandsRegistry:Ljetbrains/buildServer/agent/impl/serverCommunication/PollingBasedServerCommandsHandlersRegistry;
+        56: aload_2
+        57: invokevirtual #179                // Method jetbrains/buildServer/agent/impl/serverCommunication/PollingBasedServerCommandsHandlersRegistry.getHandler:(Ljava/lang/String;)Ljava/lang/Object;
+        60: astore        4
+        62: aload_1
+        63: invokevirtual #185                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.getBodyReader:()Ljava/io/Reader;
+        66: aload_0
+        67: getfield      #10                 // Field myXStreamHolder:Ljetbrains/buildServer/messages/XStreamHolder;
+        70: invokestatic  #189                // Method jetbrains/buildServer/xstream/XStreamWrapper.deserializeObject:(Ljava/io/Reader;Ljetbrains/buildServer/messages/XStreamHolder;)Ljava/lang/Object;
+        73: checkcast     #195                // class "[Ljava/lang/Object;"
+        76: astore        5
+        78: aload         5
+        80: ifnull        88
+        83: aload         4
+        85: ifnonnull     90
+        88: aconst_null
+        89: areturn
+        90: aload         4
+        92: aload_3
+        93: aload         5
+        95: invokestatic  #197                // Method org/apache/commons/beanutils/MethodUtils.invokeMethod:(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+        98: astore        6
+       100: aload         6
+       102: aload_0
+       103: getfield      #10                 // Field myXStreamHolder:Ljetbrains/buildServer/messages/XStreamHolder;
+       106: invokestatic  #203                // Method jetbrains/buildServer/xstream/XStreamWrapper.serializeObject:(Ljava/lang/Object;Ljetbrains/buildServer/messages/XStreamHolder;)Ljava/lang/String;
+       109: areturn
+       110: astore        6
+       112: invokestatic  #130                // Method jetbrains/buildServer/agentServer/polling/PollingAgentLogger.getLogger:()Lcom/intellij/openapi/diagnostic/Logger;
+       115: aload_1
+       116: invokestatic  #209                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       119: invokedynamic #213,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       124: aload         6
+       126: invokevirtual #215                // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       129: new           #219                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$NotSupportedCommandException
+       132: dup
+       133: invokespecial #221                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$NotSupportedCommandException."<init>":()V
+       136: athrow
+       137: astore        6
+       139: new           #224                // class java/lang/Exception
+       142: dup
+       143: aload         6
+       145: invokevirtual #226                // Method java/lang/reflect/InvocationTargetException.getCause:()Ljava/lang/Throwable;
+       148: invokespecial #230                // Method java/lang/Exception."<init>":(Ljava/lang/Throwable;)V
+       151: athrow
+       152: astore        6
+       154: ldc           #235                // String java.lang.reflect.InaccessibleObjectException
+       156: aload         6
+       158: invokevirtual #237                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       161: invokevirtual #241                // Method java/lang/Class.getName:()Ljava/lang/String;
+       164: invokevirtual #124                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       167: ifne          173
+       170: aload         6
+       172: athrow
+       173: invokestatic  #130                // Method jetbrains/buildServer/agentServer/polling/PollingAgentLogger.getLogger:()Lcom/intellij/openapi/diagnostic/Logger;
+       176: aload_1
+       177: invokestatic  #209                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       180: invokedynamic #213,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       185: aload         6
+       187: invokevirtual #215                // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       190: new           #219                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$NotSupportedCommandException
+       193: dup
+       194: invokespecial #221                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$NotSupportedCommandException."<init>":()V
+       197: athrow
+      Exception table:
+         from    to  target type
+            90   109   110   Class java/lang/NoSuchMethodException
+            90   109   137   Class java/lang/reflect/InvocationTargetException
+            90   109   152   Class java/lang/RuntimeException
+      LineNumberTable:
+        line 137: 0
+        line 138: 13
+        line 141: 15
+        line 142: 33
+        line 144: 52
+        line 145: 62
+        line 147: 78
+        line 150: 90
+        line 151: 100
+        line 152: 110
+        line 153: 112
+        line 154: 129
+        line 155: 137
+        line 156: 139
+        line 157: 152
+        line 159: 154
+        line 160: 173
+        line 161: 190
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          100      10     6 result   Ljava/lang/Object;
+          112      25     6     e   Ljava/lang/NoSuchMethodException;
+          139      13     6     e   Ljava/lang/reflect/InvocationTargetException;
+          154      44     6     e   Ljava/lang/RuntimeException;
+            0     198     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0     198     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+           33     165     2 handlerName   Ljava/lang/String;
+           52     146     3 methodName   Ljava/lang/String;
+           62     136     4 handler   Ljava/lang/Object;
+           78     120     5  args   [Ljava/lang/Object;
+
+  public void setInterceptor(jetbrains.buildServer.util.Action<jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command>);
+    descriptor: (Ljetbrains/buildServer/util/Action;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #244                // Field myInterceptor:Ljetbrains/buildServer/util/Action;
+         5: return
+      LineNumberTable:
+        line 167: 0
+        line 168: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0       6     1 beforeExecute   Ljetbrains/buildServer/util/Action;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 6
+                       0: 44
+                       1: 50
+                       2: 50
+                       3: 50
+                       4: 50
+                       5: 50
+                       6: 50
+                 default: 44
+            }
+        44: ldc_w         #335                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        47: goto          56
+        50: ldc_w         #337                // String @NotNull method %s.%s must not return null
+        53: goto          56
+        56: iload_0
+        57: tableswitch   { // 0 to 6
+                       0: 100
+                       1: 104
+                       2: 104
+                       3: 104
+                       4: 104
+                       5: 104
+                       6: 104
+                 default: 100
+            }
+       100: iconst_3
+       101: goto          108
+       104: iconst_2
+       105: goto          108
+       108: anewarray     #2                  // class java/lang/Object
+       111: iload_0
+       112: tableswitch   { // 0 to 6
+                       0: 156
+                       1: 165
+                       2: 165
+                       3: 165
+                       4: 165
+                       5: 165
+                       6: 165
+                 default: 156
+            }
+       156: dup
+       157: iconst_0
+       158: ldc_w         #338                // String agentDispatcher
+       161: aastore
+       162: goto          174
+       165: dup
+       166: iconst_0
+       167: ldc_w         #339                // String jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor
+       170: aastore
+       171: goto          174
+       174: iload_0
+       175: tableswitch   { // 0 to 6
+                       0: 216
+                       1: 225
+                       2: 225
+                       3: 225
+                       4: 234
+                       5: 234
+                       6: 243
+                 default: 216
+            }
+       216: dup
+       217: iconst_1
+       218: ldc_w         #339                // String jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor
+       221: aastore
+       222: goto          252
+       225: dup
+       226: iconst_1
+       227: ldc_w         #340                // String runBuild
+       230: aastore
+       231: goto          252
+       234: dup
+       235: iconst_1
+       236: ldc_w         #341                // String stopBuild
+       239: aastore
+       240: goto          252
+       243: dup
+       244: iconst_1
+       245: ldc_w         #342                // String upgrade
+       248: aastore
+       249: goto          252
+       252: iload_0
+       253: tableswitch   { // 0 to 6
+                       0: 296
+                       1: 305
+                       2: 305
+                       3: 305
+                       4: 305
+                       5: 305
+                       6: 305
+                 default: 296
+            }
+       296: dup
+       297: iconst_2
+       298: ldc_w         #343                // String <init>
+       301: aastore
+       302: goto          308
+       305: goto          308
+       308: invokestatic  #347                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       311: iload_0
+       312: tableswitch   { // 0 to 6
+                       0: 356
+                       1: 367
+                       2: 367
+                       3: 367
+                       4: 367
+                       5: 367
+                       6: 367
+                 default: 356
+            }
+       356: new           #349                // class java/lang/IllegalArgumentException
+       359: dup_x1
+       360: swap
+       361: invokespecial #350                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       364: goto          378
+       367: new           #352                // class java/lang/IllegalStateException
+       370: dup_x1
+       371: swap
+       372: invokespecial #353                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       375: goto          378
+       378: athrow
+}

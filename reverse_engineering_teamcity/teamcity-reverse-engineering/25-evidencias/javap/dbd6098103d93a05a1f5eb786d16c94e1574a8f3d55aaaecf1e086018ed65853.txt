@@ -1,0 +1,408 @@
+Compiled from "CheckoutSourcesBuildStage.java"
+public class jetbrains.buildServer.agent.impl.patch.CheckoutSourcesBuildStage extends jetbrains.buildServer.agent.impl.buildStages.startStages.RecoverableBuildStage {
+  private static final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private static final java.lang.String AGENT_SIDE_CHECKOUT;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String SERVER_SIDE_CHECKOUT;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String AUTO_CHECKOUT;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.agent.AgentRunningBuildEx myBuild;
+    descriptor: Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+
+  private final jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.agent.AgentLifeCycleListener> myDispatcher;
+    descriptor: Ljetbrains/buildServer/util/EventDispatcher;
+
+  private final jetbrains.buildServer.agent.impl.patch.UpdateSourcesFromAgent myUpdateSourcesFromAgent;
+    descriptor: Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromAgent;
+
+  private final jetbrains.buildServer.agent.impl.patch.UpdateSourcesFromServer myUpdateSourcesFromServer;
+    descriptor: Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromServer;
+
+  private final jetbrains.buildServer.agent.impl.patch.AgentBuildCheckoutTypeResolver myCheckoutTypeResolver;
+    descriptor: Ljetbrains/buildServer/agent/impl/patch/AgentBuildCheckoutTypeResolver;
+
+  private volatile jetbrains.buildServer.agent.impl.patch.CheckoutSourcesBuildStage$CheckoutAction myRunningCheckout;
+    descriptor: Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;
+
+  static final boolean $assertionsDisabled;
+    descriptor: Z
+
+  public jetbrains.buildServer.agent.impl.patch.CheckoutSourcesBuildStage(jetbrains.buildServer.agent.BuildAgent, jetbrains.buildServer.agent.BuildProgressLogger, jetbrains.buildServer.agent.AgentRunningBuildEx, jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.agent.AgentLifeCycleListener>, jetbrains.buildServer.agent.impl.patch.UpdateSourcesFromAgent, jetbrains.buildServer.agent.impl.patch.UpdateSourcesFromServer, jetbrains.buildServer.agent.impl.patch.AgentBuildCheckoutTypeResolver);
+    descriptor: (Ljetbrains/buildServer/agent/BuildAgent;Ljetbrains/buildServer/agent/BuildProgressLogger;Ljetbrains/buildServer/agent/AgentRunningBuildEx;Ljetbrains/buildServer/util/EventDispatcher;Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromAgent;Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromServer;Ljetbrains/buildServer/agent/impl/patch/AgentBuildCheckoutTypeResolver;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+        33: aload         5
+        35: ifnonnull     42
+        38: iconst_4
+        39: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+        42: aload         6
+        44: ifnonnull     51
+        47: iconst_5
+        48: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+        51: aload         7
+        53: ifnonnull     61
+        56: bipush        6
+        58: invokestatic  #268                // Method $$$reportNull$$$0:(I)V
+        61: aload_0
+        62: aload_1
+        63: bipush        10
+        65: iconst_3
+        66: iconst_1
+        67: aload_2
+        68: invokespecial #1                  // Method jetbrains/buildServer/agent/impl/buildStages/startStages/RecoverableBuildStage."<init>":(Ljetbrains/buildServer/agent/BuildAgent;IIZLjetbrains/buildServer/agent/BuildProgressLogger;)V
+        71: aload_0
+        72: aload_3
+        73: putfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+        76: aload_0
+        77: aload         4
+        79: putfield      #13                 // Field myDispatcher:Ljetbrains/buildServer/util/EventDispatcher;
+        82: aload_0
+        83: aload         5
+        85: putfield      #17                 // Field myUpdateSourcesFromAgent:Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromAgent;
+        88: aload_0
+        89: aload         6
+        91: putfield      #21                 // Field myUpdateSourcesFromServer:Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromServer;
+        94: aload_0
+        95: aload         7
+        97: putfield      #25                 // Field myCheckoutTypeResolver:Ljetbrains/buildServer/agent/impl/patch/AgentBuildCheckoutTypeResolver;
+       100: return
+      LineNumberTable:
+        line 36: 61
+        line 37: 71
+        line 38: 76
+        line 39: 82
+        line 40: 88
+        line 41: 94
+        line 42: 100
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     101     0  this   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;
+            0     101     1 agent   Ljetbrains/buildServer/agent/BuildAgent;
+            0     101     2 logger   Ljetbrains/buildServer/agent/BuildProgressLogger;
+            0     101     3 build   Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+            0     101     4 agentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+            0     101     5 updateSourcesFromAgent   Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromAgent;
+            0     101     6 updateSourcesFromServer   Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromServer;
+            0     101     7 checkoutTypeResolver   Ljetbrains/buildServer/agent/impl/patch/AgentBuildCheckoutTypeResolver;
+
+  protected jetbrains.buildServer.agent.BuildFinishedStatus doRecoverableStage() throws jetbrains.buildServer.RunBuildException, jetbrains.buildServer.agent.impl.buildStages.startStages.RecoverableStageFailure;
+    descriptor: ()Ljetbrains/buildServer/agent/BuildFinishedStatus;
+    Code:
+         0: getstatic     #29                 // Field jetbrains/buildServer/agentServer/AgentBuild$CheckoutType.ON_AGENT:Ljetbrains/buildServer/agentServer/AgentBuild$CheckoutType;
+         3: aload_0
+         4: getfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+         7: invokeinterface #35,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.getCheckoutType:()Ljetbrains/buildServer/agentServer/AgentBuild$CheckoutType;
+        12: if_acmpne     34
+        15: aload_0
+        16: new           #41                 // class jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction
+        19: dup
+        20: aload_0
+        21: aload_0
+        22: getfield      #17                 // Field myUpdateSourcesFromAgent:Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromAgent;
+        25: ldc           #43                 // String agent side checkout
+        27: invokespecial #45                 // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction."<init>":(Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;Ljetbrains/buildServer/agent/impl/patch/AbstractSourcesUpdater;Ljava/lang/String;)V
+        30: invokevirtual #48                 // Method doCheckout:(Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        33: areturn
+        34: getstatic     #52                 // Field jetbrains/buildServer/agentServer/AgentBuild$CheckoutType.ON_SERVER:Ljetbrains/buildServer/agentServer/AgentBuild$CheckoutType;
+        37: aload_0
+        38: getfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+        41: invokeinterface #35,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.getCheckoutType:()Ljetbrains/buildServer/agentServer/AgentBuild$CheckoutType;
+        46: if_acmpne     68
+        49: aload_0
+        50: new           #41                 // class jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction
+        53: dup
+        54: aload_0
+        55: aload_0
+        56: getfield      #21                 // Field myUpdateSourcesFromServer:Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromServer;
+        59: ldc           #55                 // String server side checkout
+        61: invokespecial #45                 // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction."<init>":(Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;Ljetbrains/buildServer/agent/impl/patch/AbstractSourcesUpdater;Ljava/lang/String;)V
+        64: invokevirtual #48                 // Method doCheckout:(Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        67: areturn
+        68: getstatic     #57                 // Field jetbrains/buildServer/agentServer/AgentBuild$CheckoutType.AUTO:Ljetbrains/buildServer/agentServer/AgentBuild$CheckoutType;
+        71: aload_0
+        72: getfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+        75: invokeinterface #35,  1           // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.getCheckoutType:()Ljetbrains/buildServer/agentServer/AgentBuild$CheckoutType;
+        80: if_acmpne     170
+        83: aload_0
+        84: getfield      #25                 // Field myCheckoutTypeResolver:Ljetbrains/buildServer/agent/impl/patch/AgentBuildCheckoutTypeResolver;
+        87: invokevirtual #60                 // Method jetbrains/buildServer/agent/impl/patch/AgentBuildCheckoutTypeResolver.getAutoCheckoutDecision:()Ljetbrains/buildServer/vcs/AutoCheckoutModeDecision;
+        90: astore_1
+        91: getstatic     #66                 // Field $assertionsDisabled:Z
+        94: ifne          109
+        97: aload_1
+        98: ifnonnull     109
+       101: new           #70                 // class java/lang/AssertionError
+       104: dup
+       105: invokespecial #72                 // Method java/lang/AssertionError."<init>":()V
+       108: athrow
+       109: aload_1
+       110: invokevirtual #75                 // Method jetbrains/buildServer/vcs/AutoCheckoutModeDecision.getResolvedCheckoutMode:()Ljetbrains/buildServer/agent/AgentCheckoutMode;
+       113: getstatic     #81                 // Field jetbrains/buildServer/agent/AgentCheckoutMode.ON_AGENT:Ljetbrains/buildServer/agent/AgentCheckoutMode;
+       116: if_acmpne     126
+       119: aload_0
+       120: getfield      #17                 // Field myUpdateSourcesFromAgent:Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromAgent;
+       123: goto          130
+       126: aload_0
+       127: getfield      #21                 // Field myUpdateSourcesFromServer:Ljetbrains/buildServer/agent/impl/patch/UpdateSourcesFromServer;
+       130: astore_2
+       131: aload_1
+       132: invokevirtual #75                 // Method jetbrains/buildServer/vcs/AutoCheckoutModeDecision.getResolvedCheckoutMode:()Ljetbrains/buildServer/agent/AgentCheckoutMode;
+       135: getstatic     #81                 // Field jetbrains/buildServer/agent/AgentCheckoutMode.ON_AGENT:Ljetbrains/buildServer/agent/AgentCheckoutMode;
+       138: if_acmpne     146
+       141: ldc           #86                 // String  (on agent)
+       143: goto          148
+       146: ldc           #88                 // String  (on server)
+       148: astore_3
+       149: aload_0
+       150: new           #90                 // class jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$1
+       153: dup
+       154: aload_0
+       155: aload_2
+       156: aload_3
+       157: invokedynamic #92,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       162: aload_1
+       163: invokespecial #96                 // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$1."<init>":(Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;Ljetbrains/buildServer/agent/impl/patch/AbstractSourcesUpdater;Ljava/lang/String;Ljetbrains/buildServer/vcs/AutoCheckoutModeDecision;)V
+       166: invokevirtual #48                 // Method doCheckout:(Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+       169: areturn
+       170: aconst_null
+       171: areturn
+      LineNumberTable:
+        line 47: 0
+        line 48: 15
+        line 51: 34
+        line 52: 49
+        line 56: 68
+        line 57: 83
+        line 58: 91
+        line 59: 109
+        line 60: 131
+        line 61: 149
+        line 70: 170
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           91      79     1 decision   Ljetbrains/buildServer/vcs/AutoCheckoutModeDecision;
+          131      39     2 updater   Ljetbrains/buildServer/agent/impl/patch/AbstractSourcesUpdater;
+          149      21     3 descriptionSuffix   Ljava/lang/String;
+            0     172     0  this   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;
+
+  private jetbrains.buildServer.agent.BuildFinishedStatus doCheckout(jetbrains.buildServer.agent.impl.patch.CheckoutSourcesBuildStage$CheckoutAction) throws jetbrains.buildServer.agent.impl.buildStages.startStages.RecoverableStageFailure;
+    descriptor: (Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;)Ljetbrains/buildServer/agent/BuildFinishedStatus;
+    Code:
+         0: aload_0
+         1: invokevirtual #99                 // Method getLogger:()Ljetbrains/buildServer/agent/BuildProgressLogger;
+         4: ldc           #103                // String Updating sources
+         6: aload_1
+         7: invokevirtual #105                // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction.getDescription:()Ljava/lang/String;
+        10: ldc           #111                // String checkout
+        12: invokeinterface #113,  4          // InterfaceMethod jetbrains/buildServer/agent/BuildProgressLogger.activityStarted:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        17: getstatic     #119                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        20: aload_1
+        21: invokevirtual #105                // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction.getDescription:()Ljava/lang/String;
+        24: invokedynamic #123,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        29: invokevirtual #124                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        32: aload_0
+        33: aload_1
+        34: putfield      #130                // Field myRunningCheckout:Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;
+        37: aload_1
+        38: invokevirtual #134                // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction.checkout:()Ljetbrains/buildServer/agent/BuildFinishedStatus;
+        41: astore_2
+        42: aload_0
+        43: invokevirtual #99                 // Method getLogger:()Ljetbrains/buildServer/agent/BuildProgressLogger;
+        46: ldc           #103                // String Updating sources
+        48: ldc           #111                // String checkout
+        50: invokeinterface #137,  3          // InterfaceMethod jetbrains/buildServer/agent/BuildProgressLogger.activityFinished:(Ljava/lang/String;Ljava/lang/String;)V
+        55: goto          74
+        58: astore_3
+        59: aload_0
+        60: invokevirtual #99                 // Method getLogger:()Ljetbrains/buildServer/agent/BuildProgressLogger;
+        63: ldc           #103                // String Updating sources
+        65: ldc           #111                // String checkout
+        67: invokeinterface #137,  3          // InterfaceMethod jetbrains/buildServer/agent/BuildProgressLogger.activityFinished:(Ljava/lang/String;Ljava/lang/String;)V
+        72: aload_3
+        73: athrow
+        74: aload_2
+        75: ifnonnull     97
+        78: aload_0
+        79: getfield      #13                 // Field myDispatcher:Ljetbrains/buildServer/util/EventDispatcher;
+        82: invokevirtual #141                // Method jetbrains/buildServer/util/EventDispatcher.getMulticaster:()Ljava/util/EventListener;
+        85: checkcast     #147                // class jetbrains/buildServer/agent/AgentLifeCycleListener
+        88: aload_0
+        89: getfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+        92: invokeinterface #149,  2          // InterfaceMethod jetbrains/buildServer/agent/AgentLifeCycleListener.sourcesUpdated:(Ljetbrains/buildServer/agent/AgentRunningBuild;)V
+        97: aload_2
+        98: areturn
+      Exception table:
+         from    to  target type
+            32    42    58   any
+      LineNumberTable:
+        line 75: 0
+        line 76: 17
+        line 80: 32
+        line 81: 37
+        line 83: 42
+        line 84: 55
+        line 83: 58
+        line 84: 72
+        line 86: 74
+        line 87: 78
+        line 90: 97
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           42      16     2 status   Ljetbrains/buildServer/agent/BuildFinishedStatus;
+            0      99     0  this   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;
+            0      99     1 checkoutAction   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;
+           74      25     2 status   Ljetbrains/buildServer/agent/BuildFinishedStatus;
+
+  public void interrupt();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #153                // Method jetbrains/buildServer/agent/impl/buildStages/startStages/RecoverableBuildStage.interrupt:()V
+         4: aload_0
+         5: getfield      #130                // Field myRunningCheckout:Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;
+         8: astore_1
+         9: aload_1
+        10: ifnull        17
+        13: aload_1
+        14: invokevirtual #156                // Method jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction.interrupt:()V
+        17: return
+      LineNumberTable:
+        line 95: 0
+        line 96: 4
+        line 97: 9
+        line 98: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;
+            9       9     1 runningCheckout   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage$CheckoutAction;
+
+  public boolean isAvailable();
+    descriptor: ()Z
+    Code:
+         0: getstatic     #157                // Field jetbrains/buildServer/agent/AgentCheckoutMode.DO_NOT_CHECKOUT:Ljetbrains/buildServer/agent/AgentCheckoutMode;
+         3: aload_0
+         4: getfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+         7: invokeinterface #160,  1          // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.getEffectiveCheckoutMode:()Ljetbrains/buildServer/agent/AgentCheckoutMode;
+        12: if_acmpeq     36
+        15: aload_0
+        16: getfield      #7                  // Field myBuild:Ljetbrains/buildServer/agent/AgentRunningBuildEx;
+        19: invokeinterface #163,  1          // InterfaceMethod jetbrains/buildServer/agent/AgentRunningBuildEx.getVcsRootEntries:()Ljava/util/List;
+        24: invokeinterface #167,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        29: ifne          36
+        32: iconst_1
+        33: goto          37
+        36: iconst_0
+        37: ireturn
+      LineNumberTable:
+        line 102: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      38     0  this   Ljetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage;
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #8                  // class jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage
+         2: invokevirtual #173                // Method java/lang/Class.desiredAssertionStatus:()Z
+         5: ifne          12
+         8: iconst_1
+         9: goto          13
+        12: iconst_0
+        13: putstatic     #66                 // Field $assertionsDisabled:Z
+        16: ldc           #178                // class jetbrains/buildServer/agent/impl/patch/AbstractSourcesUpdater
+        18: invokevirtual #180                // Method java/lang/Class.getName:()Ljava/lang/String;
+        21: invokestatic  #183                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+        24: putstatic     #119                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        27: return
+      LineNumberTable:
+        line 15: 0
+        line 16: 16
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc_w         #270                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         3: iconst_3
+         4: anewarray     #272                // class java/lang/Object
+         7: iload_0
+         8: tableswitch   { // 0 to 6
+                       0: 52
+                       1: 61
+                       2: 70
+                       3: 79
+                       4: 88
+                       5: 97
+                       6: 106
+                 default: 52
+            }
+        52: dup
+        53: iconst_0
+        54: ldc_w         #273                // String agent
+        57: aastore
+        58: goto          115
+        61: dup
+        62: iconst_0
+        63: ldc_w         #274                // String logger
+        66: aastore
+        67: goto          115
+        70: dup
+        71: iconst_0
+        72: ldc_w         #275                // String build
+        75: aastore
+        76: goto          115
+        79: dup
+        80: iconst_0
+        81: ldc_w         #276                // String agentDispatcher
+        84: aastore
+        85: goto          115
+        88: dup
+        89: iconst_0
+        90: ldc_w         #277                // String updateSourcesFromAgent
+        93: aastore
+        94: goto          115
+        97: dup
+        98: iconst_0
+        99: ldc_w         #278                // String updateSourcesFromServer
+       102: aastore
+       103: goto          115
+       106: dup
+       107: iconst_0
+       108: ldc_w         #279                // String checkoutTypeResolver
+       111: aastore
+       112: goto          115
+       115: dup
+       116: iconst_1
+       117: ldc_w         #280                // String jetbrains/buildServer/agent/impl/patch/CheckoutSourcesBuildStage
+       120: aastore
+       121: dup
+       122: iconst_2
+       123: ldc_w         #281                // String <init>
+       126: aastore
+       127: invokestatic  #285                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       130: new           #287                // class java/lang/IllegalArgumentException
+       133: dup_x1
+       134: swap
+       135: invokespecial #289                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       138: athrow
+}

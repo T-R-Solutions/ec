@@ -1,0 +1,14 @@
+flowchart TB
+    accTitle: Três modos · uma semântica
+    accDescr: Como os modos de edição compartilham autoridade? VIS → MODEL: edita. FORM → MODEL: edita. CODE → MODEL: edita. MODEL → CHECK: proposta. CHECK → REV: publicação válida
+    VIS["Visual<br/>Projeção adequada ao recurso"]
+    FORM["Formulário<br/>Campos e validação contextual"]
+    CODE["YAML<br/>Acesso ao modelo completo"]
+    MODEL["Configuração desejada<br/>Mesmo modelo sem perda semântica"]
+    CHECK["Backend<br/>Validar e autorizar a publicação"]
+    REV["Revisão publicada<br/>Configuração versionada"]
+    VIS -->|"edita"| MODEL
+    FORM -->|"edita"| MODEL
+    CODE -->|"edita"| MODEL
+    MODEL -->|"proposta"| CHECK
+    CHECK -->|"publicação válida"| REV

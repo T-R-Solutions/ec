@@ -1,0 +1,20 @@
+flowchart TB
+    accTitle: Server · domínios e composição
+    accDescr: Como o backend organiza as responsabilidades? APP → ACCESS: compõe. APP → CONFIGURATION: compõe. APP → PROJECTS: compõe. APP → ORCHESTRATION: compõe. APP → RESULTS: compõe. APP → DELIVERY: compõe. APP → EXTENSIONS: compõe. APP → OPERATIONS: compõe
+    APP["ec-server-app<br/>Compõe os oito domínios"]
+    ACCESS["access<br/>Identidade e acesso"]
+    CONFIGURATION["configuration<br/>Configuração e publicação"]
+    PROJECTS["projects<br/>Projetos e pipelines"]
+    ORCHESTRATION["orchestration<br/>Fila, tentativas e agentes"]
+    RESULTS["results<br/>Resultados e retenção"]
+    DELIVERY["delivery<br/>Ambientes e entregas"]
+    EXTENSIONS["extensions<br/>Integrações e plugins"]
+    OPERATIONS["operations<br/>Diagnóstico e auditoria"]
+    APP -->|"compõe"| ACCESS
+    APP -->|"compõe"| CONFIGURATION
+    APP -->|"compõe"| PROJECTS
+    APP -->|"compõe"| ORCHESTRATION
+    APP -->|"compõe"| RESULTS
+    APP -->|"compõe"| DELIVERY
+    APP -->|"compõe"| EXTENSIONS
+    APP -->|"compõe"| OPERATIONS

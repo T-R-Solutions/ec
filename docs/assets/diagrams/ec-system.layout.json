@@ -1,0 +1,49 @@
+{
+  "title": "Ec · do desejo à execução",
+  "question": "Onde ficam autoria, controle e execução?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/constitution.md",
+    "docs/architecture/context.md",
+    "docs/architecture/contracts.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "UI": {
+      "icon": "panels-top-left",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "SERVER": {
+      "icon": "server",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "AGENT": {
+      "icon": "terminal",
+      "tone": "purple",
+      "column": 2,
+      "row": 0
+    },
+    "YAML": {
+      "icon": "file-code-2",
+      "tone": "blue",
+      "column": 0,
+      "row": 1
+    },
+    "PG": {
+      "icon": "database",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "RESULT": {
+      "icon": "files",
+      "tone": "purple",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

@@ -1,0 +1,35 @@
+# Contexto e estado do Ec
+
+## Identidade, fase e escopo
+
+Ec é uma plataforma CI/CD de gestão abrangente. Fase observada: pesquisa, normas de produto e preparação da governança; sem aplicação implementada. O pedido atual autoriza analisar os materiais, selecionar/migrar skills, adaptar SDD/AGENTS e validar. Não inicia a implementação do roadmap.
+A feature corrente é [governance-adoption](features/governance-adoption/spec.md).
+
+## Fontes e caminhos
+
+- [Constituição/autoridades](../docs/constitution.md), [arquitetura](../docs/architecture/context.md), [ADR](../docs/decisions/ADR-001-skills-sdd-adoption.md).
+- `docs/`: normas, propostas, análise e resultados desta integração.
+- `reverse_engineering_teamcity/`: pesquisa histórica, utilitários e protótipo de leases.
+- `skills_to_use/`: pacotes de entrada preservados.
+- `config/governance/profile.json`: catálogo, origem, arquivos/hashes e estado de instalação.
+- `.local/skill-installation/skills/`: preparação das 67 skills; `.codex/skills/`: destino solicitado, ainda bloqueado por filesystem somente leitura.
+- `sdd/`: workflow, templates, pontes, features e validador; `tools/governance/`: auditor e instalador.
+
+## Stack e comandos reais
+
+Alvo: Rust Server/Agent, Vue 3/TypeScript, PostgreSQL e HTTP versionado. Sem Cargo.toml/package.json de produto, toolchain fixada ou comandos de build/run Ec disponíveis. Git history não acessível neste ambiente. Não inicializar Git nem inventar comandos.
+Da raiz, Python 3.11+ stdlib:
+
+```bash
+python3 tools/governance/validate.py
+python3 sdd/tools/validate.py --root .
+python3 -m unittest discover -s tools/governance/tests -v
+python3 tools/governance/install_skills.py --check
+```
+
+Após liberar escrita, `python3 tools/governance/install_skills.py --apply` instala e migra as pontes. Depois, repetir validação com `--require-installed` e reexaminar evidências afetadas.
+O utilitário `python3 reverse_engineering_teamcity/tools/query.py BuildQueueImpl` consulta símbolos históricos. Scripts antigos com `rea/` e gerador que lê `/opt/jvm/TeamCity` exigem pré-requisitos; não executá-los como teste desta governança.
+
+## Decisões pendentes
+
+Transporte gRPC, Protobuf, SQLite local, plataformas, versões, isolamento, schemas reais e limites de escala continuam pendentes. A meta de 1.000 agentes é experimental. Aceitação estrutural das skills não certifica sua eficácia, acessibilidade, segurança ou comportamento do produto.

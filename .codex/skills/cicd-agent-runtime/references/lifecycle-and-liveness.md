@@ -1,0 +1,2 @@
+# Lifecycle and liveness
+Treat heartbeat receipt as an observation, not proof that all subsystems are healthy. Model `unknown`, `degraded` and `disconnected` separately from `stopped`. Use server-side timeout policy, monotonic local scheduling and a distinct agent incarnation/epoch after restart. Delayed old heartbeats must not resurrect an old incarnation. Avoid promising perfect failure detection under partitions. Test delayed, dropped, duplicated and reordered heartbeats; distinguish transient transport failures from accepted registration.

@@ -1,0 +1,41 @@
+{
+  "title": "Agent · coordenação e execução local",
+  "question": "Quais dependências internas são permitidas?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/application-layout.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "APP": {
+      "icon": "plug",
+      "tone": "purple",
+      "column": 0,
+      "row": 0
+    },
+    "CONTROL": {
+      "icon": "radio",
+      "tone": "purple",
+      "column": 1,
+      "row": 0
+    },
+    "EXEC": {
+      "icon": "terminal",
+      "tone": "purple",
+      "column": 2,
+      "row": 0
+    },
+    "WORK": {
+      "icon": "folder-git-2",
+      "tone": "purple",
+      "column": 0,
+      "row": 1
+    },
+    "REPORT": {
+      "icon": "send",
+      "tone": "purple",
+      "column": 1,
+      "row": 1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# SDD do Ec
+
+Comece por [project.md](project.md), [constituição](../docs/constitution.md), [workflow](workflow.md) e [evidências](evidence.md).
+Este modelo adapta o SDD portátil 1.3.0 do pacote Ox; histórico, features, aceites e autorizações do Ox não foram importados.
+
+Use a rota local para alterações delimitadas sem incerteza material. Use a completa para contratos, persistência, concorrência, segurança, migração e recuperação: spec → plan → tasks → implementação → evidência → converge.
+Os [templates](templates/README.md) são modelos; ajuste links relativos ao copiá-los para uma feature.
+
+As [67 pontes](chain/README.md) selecionam especialidades por problema. O catálogo está preparado, ainda não instalado em `.codex/skills/`; cada ponte aponta para o arquivo real disponível. Nenhuma ponte ativa outras recursivamente.
+
+Validação a partir da raiz:
+
+```bash
+python3 sdd/tools/validate.py --root .
+python3 tools/governance/validate.py
+python3 -m unittest discover -s tools/governance/tests -v
+```
+
+Para exigir instalação efetiva: `python3 tools/governance/validate.py --require-installed`.
+Para aceite completo: `python3 sdd/tools/validate.py --require-approved --require-fresh`.
+Enquanto a instalação estiver bloqueada, o aceite completo deve falhar. PASS estrutural não é aceite de produto.

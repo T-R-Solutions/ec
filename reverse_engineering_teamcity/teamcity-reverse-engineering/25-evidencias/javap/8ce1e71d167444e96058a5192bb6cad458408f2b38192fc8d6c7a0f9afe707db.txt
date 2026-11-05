@@ -1,0 +1,57 @@
+Compiled from "VirtualAgentsFilterResult.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.VirtualAgentsFilterResult {
+  private jetbrains.buildServer.serverSide.buildDistribution.WaitReason myWaitReason;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  private java.util.List<jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgent> myFilteredVirtualAgents;
+    descriptor: Ljava/util/List;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.VirtualAgentsFilterResult();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #22                 // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 2: 0
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason getWaitReason();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_0
+         1: getfield      #17                 // Field myWaitReason:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+         4: areturn
+      LineNumberTable:
+        line 6: 0
+
+  public void setWaitReason(jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #17                 // Field myWaitReason:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+         5: return
+      LineNumberTable:
+        line 7: 0
+        line 5: 5
+
+  public java.util.List<jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgent> getFilteredVirtualAgents();
+    descriptor: ()Ljava/util/List;
+    Code:
+         0: aload_0
+         1: getfield      #13                 // Field myFilteredVirtualAgents:Ljava/util/List;
+         4: areturn
+      LineNumberTable:
+        line 4: 0
+
+  public void setFilteredVirtualAgents(java.util.List<jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgent>);
+    descriptor: (Ljava/util/List;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #13                 // Field myFilteredVirtualAgents:Ljava/util/List;
+         5: return
+      LineNumberTable:
+        line 3: 0
+        line 1: 5
+}

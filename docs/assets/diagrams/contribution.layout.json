@@ -1,0 +1,48 @@
+{
+  "title": "Da intenção à evidência",
+  "question": "Como conduzir uma mudança neste checkout?",
+  "status": "Procedimento documental vigente",
+  "sources": [
+    "sdd/workflow.md",
+    "docs/development/contributing.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "READ": {
+      "icon": "scan-search",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "ROUTE": {
+      "icon": "git-branch",
+      "tone": "amber",
+      "column": 1,
+      "row": 0
+    },
+    "EDIT": {
+      "icon": "file-pen-line",
+      "tone": "blue",
+      "column": 2,
+      "row": 0
+    },
+    "CHECK": {
+      "icon": "list-checks",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "RECORD": {
+      "icon": "files",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "DELIVER": {
+      "icon": "package-check",
+      "tone": "teal",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

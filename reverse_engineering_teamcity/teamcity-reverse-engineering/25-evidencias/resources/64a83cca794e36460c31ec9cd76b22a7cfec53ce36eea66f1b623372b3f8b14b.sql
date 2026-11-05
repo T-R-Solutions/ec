@@ -1,0 +1,1 @@
+drop table vcs_root_state

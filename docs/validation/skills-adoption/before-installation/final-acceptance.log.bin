@@ -1,0 +1,3 @@
+COMMAND: python3 sdd/tools/validate.py --require-approved --require-fresh
+EXIT: 1
+FAIL: sdd/features/governance-adoption: Acceptance AC-05 is UNVERIFIED

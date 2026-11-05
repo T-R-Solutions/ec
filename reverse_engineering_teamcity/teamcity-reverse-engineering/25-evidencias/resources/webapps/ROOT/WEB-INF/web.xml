@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="BuildServer"
+         version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         metadata-complete="true">
+  <display-name>Jetbrains TeamCity</display-name>
+
+  <servlet>
+    <servlet-name>buildServer</servlet-name>
+    <servlet-class>jetbrains.buildServer.maintenance.TeamCityDispatcherServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+    <async-supported>true</async-supported>
+    <multipart-config>
+      <max-file-size>-1</max-file-size>
+      <max-request-size>-1</max-request-size>
+    </multipart-config>
+  </servlet>
+
+  <servlet>
+    <description>Support maintenance screens when TeamCity server is starting up.</description>
+    <servlet-name>MaintenanceServlet</servlet-name>
+    <servlet-class>jetbrains.buildServer.maintenance.StartupServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>realJspServlet</servlet-name>
+    <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+  </servlet>
+
+  <error-page>
+    <error-code>503</error-code>
+    <location>/mnt/welcome</location>
+  </error-page>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/mnt/welcome</location>
+  </error-page>
+
+  <error-page>
+    <error-code>410</error-code>
+    <location>/mnt/welcome</location>
+  </error-page>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.html</location>
+  </error-page>
+
+  <error-page>
+    <error-code>400</error-code>
+    <location>/400.html</location>
+  </error-page>
+
+  <filter>
+    <filter-name>websocketHandshakeFilter</filter-name>
+    <filter-class>jetbrains.buildServer.push.impl.jsr356.WebSocketHandshakeValidationFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>delegatingFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.DelegatingFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>disableBrowserCacheFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.DisableBrowserCacheFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>disableUrlSessionIdFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.DisableSessionIdFromUrlFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>responseFragmentFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.ResponseFragmentFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>commonsFileuploadSupportFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.CommonsFileuploadSupportFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>nodeInfoHeaderFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.NodeInfoHeaderFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>bannedIPsFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.BannedIPsFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>userIdProviderFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.UserIdProviderFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>gzipFilter</filter-name>
+    <filter-class>jetbrains.buildServer.web.GzipStaticResourcesFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <filter>
+    <filter-name>httpsRedirectFilter</filter-name>
+    <filter-class>jetbrains.buildServer.https.HttpsRedirectFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+
+  <!-- PRECOMPILED JSPS -->
+
+  <servlet-mapping>
+    <servlet-name>MaintenanceServlet</servlet-name>
+    <url-pattern>/mnt/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>realJspServlet</servlet-name>
+    <url-pattern>*.jspws</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/maintenance/ajax/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>*.jsp</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>*.jspx</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/update/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/chart.png</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/RPC2</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/repository/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/get/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/builds/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/httpAuth/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/guestAuth/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/presignedTokenAuth/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/.well-known/acme-challenge/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/.well-known/oauth-protected-resource</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/.well-known/oauth-authorization-server</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/.well-known/openid-configuration</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/.well-known/jwks.json</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/res/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/healthCheck/*</url-pattern>
+  </servlet-mapping>
+
+<!--  New UI-->
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/overview</url-pattern><!--  !DEPRICATED! new URL - /favorite/projects -->
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/favorite/projects</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/favorite</url-pattern><!--  !DEPRICATED! new URL - /favorite/builds -->
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/favorite/builds</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/favorite/agentPools</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/project/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/buildConfiguration/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/build/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/agents/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/agent/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/cloudImage/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/cloudProfile/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/agentPool/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/test/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/change/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/changes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/queue</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/learn</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/pipelines/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/pipeline/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/investigations</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/notifications</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/projects/create</url-pattern>
+  </servlet-mapping>
+<!--  New UI end-->
+
+  <!--
+  URLs starting with /app/ are reserved for plugins or controllers that want to handle all requests,
+       not only requests to .html and .jsp
+  -->
+  <servlet-mapping>
+    <servlet-name>buildServer</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- should go first to prevent calling request.getParameter()-->
+  <filter-mapping>
+    <filter-name>commonsFileuploadSupportFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>disableBrowserCacheFilter</filter-name>
+    <url-pattern>/update/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>responseFragmentFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>delegatingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>nodeInfoHeaderFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>bannedIPsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>userIdProviderFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+  <filter-mapping>
+    <filter-name>websocketHandshakeFilter</filter-name>
+    <url-pattern>/app/subscriptions</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>disableUrlSessionIdFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>gzipFilter</filter-name>
+    <url-pattern>/js/ring/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>httpsRedirectFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <mime-mapping>
+    <extension>com</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>dll</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>msi</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>obj</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>pdb</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>dmg</extension>
+    <mime-type>application/octet-stream</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>nupkg</extension>
+    <mime-type>application/zip</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>chm</extension>
+    <mime-type>application/x-chm</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>url</extension>
+    <mime-type>application/internet-shortcut</mime-type>
+  </mime-mapping>
+
+  <mime-mapping>
+    <extension>docx</extension>
+    <mime-type>application/vnd.openxmlformats-officedocument.wordprocessingml.document</mime-type>
+  </mime-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!--JSPServlet options. Use all standard JSPServlet parameters with prefix jsp:-->
+  <context-param>
+      <param-name>jsp:development</param-name>
+      <param-value>false</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:checkInterval</param-name>
+      <param-value>0</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:fork</param-name>
+      <param-value>false</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:xpoweredBy</param-name>
+      <param-value>false</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:suppressSmap</param-name>
+      <param-value>true</param-value>
+  </context-param>
+  <context-param>
+      <!-- trimSpaces is not supported by TeamCity -->
+      <param-name>jsp:trimSpaces</param-name>
+      <param-value>false</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:dumpSmap</param-name>
+      <param-value>false</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:classdebuginfo</param-name>
+      <param-value>false</param-value>
+  </context-param>
+  <context-param>
+      <param-name>jsp:jspIdleTimeout</param-name>
+      <param-value>3600</param-value> <!-- unload jsp if it was not used for one hour -->
+  </context-param>
+  <context-param>
+      <param-name>jsp:tagpoolMaxSize</param-name> <!-- reduces server memory usage -->
+      <param-value>0</param-value>
+  </context-param>
+  <context-param>
+    <param-name>jsp:enablePooling</param-name> <!-- disables Jasper TagHandlerPool, TagHandlerPool has internal synchronization and affects performance of concurrent threads -->
+    <param-value>false</param-value>
+  </context-param>
+
+  <context-param>
+    <description>List of MIME types for which TeamCity should return "Content-Disposition: attachment"</description>
+    <param-name>attachmentMimeTypes</param-name>
+    <param-value>
+      application/zip
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    </param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>jetbrains.buildServer.web.TCServletContextListener</listener-class>
+  </listener>
+
+  <listener>
+    <listener-class>jetbrains.buildServer.web.util.SessionLifecycleDiagnosticListener</listener-class>
+  </listener>
+
+  <listener>
+    <listener-class>jetbrains.buildServer.web.DelegatingHttpSessionEventListenerProxy</listener-class>
+  </listener>
+
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/runtimeError.html</location>
+  </error-page>
+
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+
+</web-app>

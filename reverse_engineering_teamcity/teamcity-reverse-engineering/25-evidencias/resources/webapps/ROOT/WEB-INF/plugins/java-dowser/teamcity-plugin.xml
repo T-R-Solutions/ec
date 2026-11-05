@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:schemas-jetbrains-com:teamcity-plugin-v1-xml">
+    <info>
+        <name>java-dowser</name>
+        <display-name>JavaDowser</display-name>
+        <description>Detects Java installations on a build agent and provides system variables</description>
+        <version>239120</version>
+        <vendor>
+            <name>JetBrains</name>
+            <url>https://www.jetbrains.com</url>
+        </vendor>
+    </info>
+    <deployment
+                use-separate-classloader="true"
+                node-responsibilities-aware="true"
+    />
+</teamcity-plugin>

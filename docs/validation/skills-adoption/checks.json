@@ -1,0 +1,3643 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "cicd-agent-runtime frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-agent-runtime UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-artifacts-and-retention UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-build-cache UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-execution-runtime UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-logs-and-test-results UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-pipeline-graph UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-release-and-deployment UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-scheduler UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cicd-vcs-event-processing UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "cli-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "css-layout-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-agent-control-protocol UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-agent-pool-console UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-configuration-publication frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-configuration-publication UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-declarative-resource-schemas frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-declarative-resource-schemas UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-effective-permissions frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-effective-permissions UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-environments-and-approvals UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-integrations-and-webhooks UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-operations-and-administration-console UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-people-and-access-administration frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-people-and-access-administration UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-product-contract-test-harness UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-project-hierarchy-management frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-project-hierarchy-management UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-run-execution-operations frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-run-execution-operations UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-semantic-configuration-projections frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ec-semantic-configuration-projections UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "frontend-form-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "frontend-routing UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "frontend-state-and-cache UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "frontend-testing UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "http-api-contracts UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "identity-federation UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "information-architecture UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "internationalization UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "property-based-testing UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "typescript-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "vue3-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "web-accessibility UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "web-realtime-streaming UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "agent-runtime-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "ai-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "api-testing UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "application-security UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "autonomous-verification-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "commit-governance frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "commit-governance UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "database-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "database-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-review frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "design-review UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-system frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "design-system UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "distributed-systems frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "distributed-systems UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "domain-modeling frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "domain-modeling UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "engineering-productivity frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "engineering-productivity UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "observability-and-diagnostics frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "observability-and-diagnostics UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "performance-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "plugin-protocol-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prompt frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "prompt UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prompt invocation policy",
+      "passed": true,
+      "detail": "No explicit-only instruction was requested"
+    },
+    {
+      "name": "reliability-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "reliability-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "rust UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-architecture frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "software-architecture UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-delivery frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "software-delivery UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-design frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "software-design UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-evolution frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "software-evolution UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "software-testing UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "technical-documentation frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "technical-documentation UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "tool-output-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "workspace-integrity-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering frontmatter",
+      "passed": true,
+      "detail": "Skill is valid!"
+    },
+    {
+      "name": "readme-lifecycle-engineering UI metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tools/governance/validate.py syntax",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tools/governance/install_skills.py syntax",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tools/governance/tests/test_governance.py syntax",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "sdd/tools/validate.py syntax",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec_skills.zip CRC",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec_skills.zip names",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ox_resume.zip CRC",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ox_resume.zip names",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/capabilities-and-slots.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/lifecycle-and-liveness.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/recovery-and-fencing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/routing-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/security-and-observability.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-agent-runtime source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/integrity-and-upload.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/provenance-and-access.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/retention-and-gc.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/routing-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/sources-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-artifacts-and-retention source references/storage-and-deletion.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/cas-and-integrity.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/invalidation-and-eviction.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/keys-and-hermeticity.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/sources-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/testing-and-routing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-build-cache source references/trust-and-poisoning.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/cancellation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/isolation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/oracles-and-routing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/process-execution.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-execution-runtime source references/streaming.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/chunks-and-replay.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/failure-taxonomy.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/routing-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/security-and-redaction.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/sources-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-logs-and-test-results source references/test-report-ingestion.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/cycle-diagnostics.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/evidence-and-reporting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/fan-in-fan-out.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/graph-contract-and-trust-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/graph-edits-and-revisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/performance-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/readiness-and-status.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/testing-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/topological-ordering.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-pipeline-graph source references/validation-and-diagnostics.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/abort-rollback-and-recovery.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/approvals-and-change-windows.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/concurrency-and-reconciliation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/deployment-state-contract.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/evidence-and-reporting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/health-gates-and-statistics.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/promotion-and-environments.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/release-identity-and-provenance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/schema-migration-safety.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/security-and-supply-chain.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/selection-and-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/strategies-and-traffic.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-release-and-deployment source references/testing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/fairness.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/leases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/routing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-scheduler source references/transactions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/authentication.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/durability-and-idempotency.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/failure-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/normalization-and-filters.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/revisions-and-trust.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cicd-vcs-event-processing source references/sources-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/argument-parsing-and-exit-status.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/authentication-and-secrets.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/command-taxonomy-and-help.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/config-environment-and-portability.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/confirmation-and-risk.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/idempotency-and-concurrency.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/integration-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/output-and-automation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cli-engineering source references/subprocess-and-terminal-safety.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/browser-verification-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/cascade-performance-and-resilience.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/container-media-and-feature-queries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/flexbox-and-content-flow.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/grid-and-intrinsic-sizing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/layout-accessibility-and-zoom.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/logical-properties-and-localization.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/responsive-shells-and-overflow.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "css-layout-engineering source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol source references/protocol-decision-guide.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-control-protocol source references/threat-and-compatibility-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console source references/administration-and-ui.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console source references/eligibility-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-agent-pool-console source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-configuration-publication source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-configuration-publication source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-configuration-publication source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-configuration-publication source references/state-machine-and-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-configuration-publication source references/test-oracles-and-routing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-declarative-resource-schemas source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-declarative-resource-schemas source references/checks-and-examples.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-declarative-resource-schemas source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-declarative-resource-schemas source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-effective-permissions source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-effective-permissions source references/evaluation-contract-and-freshness.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-effective-permissions source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-effective-permissions source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-effective-permissions source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals source references/gates-and-promotion-lifecycle.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals source references/security-and-ui.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-environments-and-approvals source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source references/connector-configuration-and-credentials.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source references/inbound-webhook-security-and-admission.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source references/outbound-delivery-and-observability.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-integrations-and-webhooks source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source references/admin-command-and-audit-safety.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source references/health-evidence-and-information-architecture.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source references/recovery-and-ux-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-operations-and-administration-console source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-people-and-access-administration source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-people-and-access-administration source references/identity-lifecycle-and-bindings.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-people-and-access-administration source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-people-and-access-administration source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-people-and-access-administration source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace source references/interaction-and-state-contract.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-pipeline-authoring-workspace source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source references/artifact-verification-and-trust.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source references/isolation-and-capability-enforcement.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source references/lifecycle-and-reconciliation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-isolation-and-lifecycle source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source references/constraint-resolution-and-contract-tests.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source references/manifest-and-version-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source references/security-catalog-and-ui.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-plugin-manifests-and-compatibility source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/authorization-version-and-reconciliation-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/execution-evidence-and-fault-injection.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/harness-architecture-and-adapters.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/semantic-config-contract-vectors.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-product-contract-test-harness source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-project-hierarchy-management source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-project-hierarchy-management source references/hierarchy-model-and-inheritance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-project-hierarchy-management source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-project-hierarchy-management source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-project-hierarchy-management source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-run-execution-operations source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-run-execution-operations source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-run-execution-operations source references/lifecycle-and-operation-contract.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-run-execution-operations source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-run-execution-operations source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-semantic-configuration-projections source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-semantic-configuration-projections source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-semantic-configuration-projections source references/lens-laws-and-data-model.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-semantic-configuration-projections source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ec-semantic-configuration-projections source references/test-oracles-and-routing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/async-submission-and-concurrency.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/conditional-and-dynamic-fields.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/field-types-and-formatting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/form-contract-and-state.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/native-accessible-controls.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/server-reconciliation-and-security.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/tests-and-evidence-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/validation-and-errors.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-form-engineering source references/vue-adapter-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/accessibility-focus-and-scroll.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/data-loading-and-race-avoidance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/guards-and-navigation-failures.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/history-and-deep-links.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/performance-and-migrations.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/route-identity-and-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/route-testing-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/safe-redirects-and-url-security.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/scope-transitions-and-permissions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/server-fallback-and-ssr.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/url-contracts-and-query-parameters.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-routing source references/vue-router-implementation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/cache-freshness-and-invalidation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/concurrency-cancellation-and-fencing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/lifecycle-memory-and-ssr.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/mutation-and-optimistic-safety.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/query-identity-and-isolation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/realtime-offline-and-resumption.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/security-privacy-and-http-cache.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/server-ack-conflict-and-revisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/state-ownership-and-projections.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/testing-and-evidence-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-state-and-cache source references/vue-pinia-query-adapters.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/acceptance-oracles-and-traceability.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/asynchronous-behavior-and-timers.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/browser-matrix-and-accessibility.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/fixtures-and-isolation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/flakiness-and-ci-diagnostics.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/mutation-and-coverage.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/network-and-contract-testing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/playwright-e2e-and-locators.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/test-evidence-and-reporting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/test-layers-and-scope.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/vitest-and-test-environments.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frontend-testing source references/vue-component-testing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/asynchronous-operations-and-idempotency.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/caching-privacy-and-validators.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/conditional-requests-and-lost-update.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/errors-and-problem-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/integration-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/openapi-and-schema-evolution.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/pagination-filtering-and-linking.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/rate-limits-and-client-resilience.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/request-response-media-and-validation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/resource-and-method-semantics.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/security-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/testing-and-evidence-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "http-api-contracts source references/versioning-deprecation-and-compatibility.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/authorization-code-pkce-and-callback.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/browser-clients-and-bff.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/browser-sessions-and-csrf.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/id-token-validation-and-jose.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/integration-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/interoperability-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/logout-and-recovery.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/multi-issuer-and-account-linkage.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/provider-discovery-and-key-management.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/refresh-rotation-and-revocation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/tokens-and-api-audiences.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "identity-federation source references/trust-boundaries-and-threat-model.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/acceptance-contracts-and-reporting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/content-model-and-taxonomy.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/discovery-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/experiments-and-metrics.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/labeling-and-information-scent.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/migration-and-url-governance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/navigation-and-context.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/search-and-findability.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "information-architecture source references/wayfinding-and-accessibility.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/bidi-rtl-and-input.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/date-time-and-time-zones.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/integration-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/locale-negotiation-bcp47.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/numeric-currency-unit-duration.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/plural-messageformat-and-context.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/resource-contracts-and-extraction.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/sort-search-segmentation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/testing-matrix-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/text-length-pseudolocalization-and-layout.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/translation-workflow-and-security.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "internationalization source references/vue-integration.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/evidence-and-reporting.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/framework-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/fuzzing-parser-and-security.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/generators-and-domain-partitions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/mutation-oracle-quality.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/property-oracles-and-metaprops.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/reproducibility-and-corpus.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/shrinking-and-minimization.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "property-based-testing source references/state-machine-testing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/generics-and-public-api-design.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/migration-and-version-gates.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/module-resolution-and-runtime.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/runtime-interop-and-safety.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/strictness-control-flow-and-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/tsconfig-build-and-declarations.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "typescript-engineering source references/verification-and-diagnostic-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/composables-lifecycle-and-ssr.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/reactivity-and-watchers.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/rendering-performance-and-testing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/security-accessibility-and-product-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/sfc-and-typed-component-contracts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "vue3-engineering source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/composite-widgets-and-structured-alternatives.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/contrast-reflow-motion-pointer.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/evaluation-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/forms-errors-and-feedback.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/keyboard-focus-and-dialogs.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/routing-and-selection-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/semantics-and-names.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/standards-and-scope.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-accessibility source references/testing-oracles-and-assistive-technology.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/backpressure-bounded-queues-and-flow-control.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/failure-and-recovery-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/integration-contract-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/observability-and-reliability.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/reconnect-retry-and-offline.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/routing-and-test-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/security-origin-auth-and-data-isolation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/sequencing-deduplication-and-snapshots.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/sse-event-stream-format-and-resume.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/testing-transport-and-browser-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/transport-choice-and-protocols.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/vue-lifecycle-and-client-architecture.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "web-realtime-streaming source references/websocket-lifecycle-and-message-contracts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering source references/acp-and-cli-adapters.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering source references/process-supervision.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-runtime-engineering source references/session-state-machine.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-usage-accounting source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-usage-accounting source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-usage-accounting source references/accounting-and-reconciliation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-usage-accounting source references/context-and-cost-estimates.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-usage-accounting source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "agent-usage-accounting source references/usage-event-schema.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source references/adaptation-and-operation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source references/agent-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source references/evaluation-and-data.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source references/model-resource-diagnosis.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ai-engineering source references/retrieval.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing source references/access-control-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing source references/boundary-scenarios.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing source references/contracts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "api-testing source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/bound-credentials-and-replay.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/controls.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/delegation-and-artifacts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/imported/api-testing/access-control-matrix.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/imported/api-testing/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/imported/prompt/evaluation-and-trust.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/imported/prompt/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/imported/reliability-engineering/resource-lifecycle.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "application-security source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering source references/acceptance-verdicts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering source references/evidence-provenance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "autonomous-verification-engineering source references/independent-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-context-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-context-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-context-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-context-engineering source references/incremental-indexing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-context-engineering source references/retrieval-evaluation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-context-engineering source references/symbols-and-resolution.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-knowledge-graph-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-knowledge-graph-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-knowledge-graph-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-knowledge-graph-engineering source references/graph-queries-and-visualization.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-knowledge-graph-engineering source references/graph-schema-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "code-knowledge-graph-engineering source references/incremental-graph-updates.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "commit-governance source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "commit-governance source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "database-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "database-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "database-engineering source references/access-and-change.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "database-engineering source references/model-and-transactions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-review source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-review source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-review source references/decision-communication.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-review source references/review-method.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-system source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-system source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-system source references/accessibility.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "design-system source references/pattern-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "distributed-systems source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "distributed-systems source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "distributed-systems source references/guarantees-and-failures.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "domain-modeling source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "domain-modeling source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "domain-modeling source references/integration-and-evolution.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "domain-modeling source references/modeling-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "engineering-productivity source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "engineering-productivity source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "iced-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "iced-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "iced-engineering source references/desktop-performance-and-accessibility.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "iced-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "iced-engineering source references/layout-and-custom-widgets.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "iced-engineering source references/message-update-state.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "observability-and-diagnostics source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "observability-and-diagnostics source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "observability-and-diagnostics source references/hypothesis-and-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "observability-and-diagnostics source references/signal-design.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/benchmark-inference.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/changes-and-comparisons.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/gc-diagnosis.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/measurement-and-diagnosis.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/memory-and-work.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/observation-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "performance-engineering source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering source references/permissions-and-isolation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering source references/protocol-negotiation.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "plugin-protocol-engineering source references/versioning-and-faults.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prompt source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prompt source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prompt source references/evaluation-and-trust.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "prompt source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source references/deployment-and-recovery.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source references/failure-controls.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source references/operational-signals.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source references/resource-lifecycle.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reliability-engineering source references/trust-preserving-recovery.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/advanced-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/atomic-publication.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/concurrency-and-safety.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/concurrent-primitives.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/design.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/examples.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/service-engineering.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/source-conflicts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "rust source references/validation-and-maintenance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-architecture source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-architecture source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-architecture source references/architecture-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-architecture source references/fitness-functions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-architecture source references/portable-sources.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-delivery source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-delivery source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-delivery source references/build-inputs-and-trust.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-delivery source references/release-and-state.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-design source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-design source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-design source references/algorithm-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-design source references/design-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-design source references/refactoring-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-evolution source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-evolution source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-evolution source references/state-migration.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-evolution source references/transition-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source references/boundary-evidence.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source references/case-design.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source references/coverage-guided-fuzzing.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source references/suite-quality.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "software-testing source references/visual-regression.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "technical-documentation source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "technical-documentation source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering source references/loss-aware-transformations.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering source references/token-measurement.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "tool-output-engineering source references/tool-parsers-and-fallbacks.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering source references/evaluation-cases.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering source references/file-operations.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering source references/git-worktrees-and-conflicts.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace-integrity-engineering source references/watcher-and-recovery.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source SKILL.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source agents/openai.yaml",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/documentation-topology-and-diataxis.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/ec-consumer-boundaries.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/implementation-details.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/maintenance-and-change-triggers.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/readme-scope-and-content.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/routing-and-oracles.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/scientific-evidence-and-limits.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/sources-and-decisions.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "readme-lifecycle-engineering source references/verification-and-acceptance.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "catalog",
+      "passed": true,
+      "detail": "exit=0 expected=0"
+    },
+    {
+      "name": "sdd-structure",
+      "passed": true,
+      "detail": "exit=0 expected=0"
+    },
+    {
+      "name": "negative-controls",
+      "passed": true,
+      "detail": "exit=0 expected=0"
+    },
+    {
+      "name": "installation-preflight",
+      "passed": true,
+      "detail": "exit=0 expected=0"
+    },
+    {
+      "name": "installation-gate",
+      "passed": true,
+      "detail": "exit=1 expected=1"
+    }
+  ],
+  "total": 726,
+  "failed": [],
+  "python": "3.13.16 (main, Oct 16 2026, 19:23:15) [GCC]",
+  "yaml": "6.0.3",
+  "limits": [
+    "Negative installation gate expected to fail because .codex is read-only.",
+    "No product runtime, remote URL checks, UI discovery or behavioral evals of all 67 skills."
+  ]
+}

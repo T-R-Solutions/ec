@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": {
+    "checks": 1239,
+    "json_files": 27,
+    "focus_classes": 124,
+    "third_party_body_comparisons_not_applicable": 5,
+    "evidence_files": 688
+  },
+  "failures": [],
+  "scope": "Static evidence integrity; all focused method/field descriptors and eligible first-party invocation counts cross-checked against javap. Not TeamCity behavior testing."
+}

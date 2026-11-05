@@ -1,0 +1,8 @@
+Compiled from "StartingBuildsSupplier.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.StartingBuildsSupplier {
+  public abstract java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.SBuildAgent> getStartingBuilds();
+    descriptor: ()Ljava/util/Map;
+
+  public abstract java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.SBuildAgent> getStartingBuilds(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/util/Map;
+}

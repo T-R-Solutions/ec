@@ -1,0 +1,65 @@
+{
+  "title": "Server · domínios e composição",
+  "question": "Como o backend organiza as responsabilidades?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/application-layout.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "APP": {
+      "icon": "server",
+      "tone": "teal",
+      "column": 0,
+      "row": 0
+    },
+    "ACCESS": {
+      "icon": "shield-check",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "CONFIGURATION": {
+      "icon": "file-code-2",
+      "tone": "teal",
+      "column": 2,
+      "row": 0
+    },
+    "PROJECTS": {
+      "icon": "folder-git-2",
+      "tone": "teal",
+      "column": 0,
+      "row": 1
+    },
+    "ORCHESTRATION": {
+      "icon": "network",
+      "tone": "teal",
+      "column": 1,
+      "row": 1
+    },
+    "RESULTS": {
+      "icon": "files",
+      "tone": "teal",
+      "column": 2,
+      "row": 1
+    },
+    "DELIVERY": {
+      "icon": "package-check",
+      "tone": "teal",
+      "column": 0,
+      "row": 2
+    },
+    "EXTENSIONS": {
+      "icon": "plug",
+      "tone": "teal",
+      "column": 1,
+      "row": 2
+    },
+    "OPERATIONS": {
+      "icon": "activity",
+      "tone": "teal",
+      "column": 2,
+      "row": 2
+    }
+  }
+}

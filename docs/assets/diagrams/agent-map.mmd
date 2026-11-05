@@ -1,0 +1,15 @@
+flowchart TB
+    accTitle: Agent · coordenação e execução local
+    accDescr: Quais dependências internas são permitidas? APP → CONTROL: pode consumir. APP → EXEC: pode consumir. APP → WORK: pode consumir. APP → REPORT: pode consumir. CONTROL → EXEC: pode consumir. EXEC → WORK: pode consumir. EXEC → REPORT: pode consumir
+    APP["app<br/>Inicialização e adaptadores"]
+    CONTROL["control<br/>Sessão e coordenação"]
+    EXEC["execution<br/>Processos e controle local"]
+    WORK["workspace<br/>Checkout e entradas"]
+    REPORT["reporting<br/>Chunks e resultados"]
+    APP -->|"pode consumir"| CONTROL
+    APP -->|"pode consumir"| EXEC
+    APP -->|"pode consumir"| WORK
+    APP -->|"pode consumir"| REPORT
+    CONTROL -->|"pode consumir"| EXEC
+    EXEC -->|"pode consumir"| WORK
+    EXEC -->|"pode consumir"| REPORT

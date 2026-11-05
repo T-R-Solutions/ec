@@ -1,0 +1,918 @@
+Compiled from "KotlinCompiler.java"
+public class jetbrains.buildServer.configs.dsl.kotlin.KotlinCompiler {
+  private final jetbrains.buildServer.configs.dsl.kotlin.KotlinLibs myLibs;
+    descriptor: Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;
+
+  private final java.lang.Class<?> myCompilerClass;
+    descriptor: Ljava/lang/Class;
+
+  private final java.lang.Class<?> myExitCodeClass;
+    descriptor: Ljava/lang/Class;
+
+  private final java.lang.Class<?> myServicesClass;
+    descriptor: Ljava/lang/Class;
+
+  public jetbrains.buildServer.configs.dsl.kotlin.KotlinCompiler(jetbrains.buildServer.configs.dsl.kotlin.KotlinLibs) throws java.lang.Exception;
+    descriptor: (Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: putfield      #7                  // Field myLibs:Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;
+        17: new           #13                 // class java/util/ArrayList
+        20: dup
+        21: invokespecial #15                 // Method java/util/ArrayList."<init>":()V
+        24: astore_2
+        25: aload_0
+        26: getfield      #7                  // Field myLibs:Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;
+        29: invokeinterface #16,  1           // InterfaceMethod jetbrains/buildServer/configs/dsl/kotlin/KotlinLibs.getKotlinLibJars:()Ljava/util/List;
+        34: invokeinterface #22,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        39: astore_3
+        40: aload_3
+        41: invokeinterface #28,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        46: ifeq          81
+        49: aload_3
+        50: invokeinterface #34,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        55: checkcast     #38                 // class java/io/File
+        58: astore        4
+        60: aload_2
+        61: aload         4
+        63: invokevirtual #40                 // Method java/io/File.getAbsoluteFile:()Ljava/io/File;
+        66: invokevirtual #44                 // Method java/io/File.toURI:()Ljava/net/URI;
+        69: invokevirtual #48                 // Method java/net/URI.toURL:()Ljava/net/URL;
+        72: invokeinterface #54,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        77: pop
+        78: goto          40
+        81: new           #58                 // class java/net/URLClassLoader
+        84: dup
+        85: aload_2
+        86: iconst_0
+        87: anewarray     #60                 // class java/net/URL
+        90: invokeinterface #62,  2           // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+        95: checkcast     #66                 // class "[Ljava/net/URL;"
+        98: aconst_null
+        99: invokespecial #68                 // Method java/net/URLClassLoader."<init>":([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+       102: astore_3
+       103: aload_0
+       104: aload_3
+       105: ldc           #71                 // String org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
+       107: invokevirtual #73                 // Method java/net/URLClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+       110: putfield      #77                 // Field myCompilerClass:Ljava/lang/Class;
+       113: aload_0
+       114: aload_3
+       115: ldc           #81                 // String org.jetbrains.kotlin.cli.common.ExitCode
+       117: invokevirtual #73                 // Method java/net/URLClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+       120: putfield      #83                 // Field myExitCodeClass:Ljava/lang/Class;
+       123: aload_0
+       124: aload_3
+       125: ldc           #86                 // String org.jetbrains.kotlin.config.Services
+       127: invokevirtual #73                 // Method java/net/URLClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+       130: putfield      #88                 // Field myServicesClass:Ljava/lang/Class;
+       133: return
+      LineNumberTable:
+        line 29: 8
+        line 30: 12
+        line 31: 17
+        line 33: 25
+        line 34: 60
+        line 35: 78
+        line 39: 81
+        line 40: 103
+        line 41: 113
+        line 42: 123
+        line 43: 133
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           60      18     4     f   Ljava/io/File;
+            0     134     0  this   Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+            0     134     1  libs   Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;
+           25     109     2  urls   Ljava/util/List;
+          103      31     3 loader   Ljava/net/URLClassLoader;
+
+  public void run(java.io.File, java.util.List<java.lang.String>, java.util.List<java.io.File>, java.io.File, java.lang.String) throws java.lang.Exception;
+    descriptor: (Ljava/io/File;Ljava/util/List;Ljava/util/List;Ljava/io/File;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_1
+         5: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_2
+        13: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+        16: aload         4
+        18: ifnonnull     25
+        21: iconst_3
+        22: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+        25: aload         5
+        27: ifnonnull     34
+        30: iconst_4
+        31: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+        34: aload_0
+        35: getfield      #77                 // Field myCompilerClass:Ljava/lang/Class;
+        38: ldc           #91                 // String execAndOutputXml
+        40: iconst_3
+        41: anewarray     #93                 // class java/lang/Class
+        44: dup
+        45: iconst_0
+        46: ldc           #95                 // class java/io/PrintStream
+        48: aastore
+        49: dup
+        50: iconst_1
+        51: aload_0
+        52: getfield      #88                 // Field myServicesClass:Ljava/lang/Class;
+        55: aastore
+        56: dup
+        57: iconst_2
+        58: ldc           #97                 // class "[Ljava/lang/String;"
+        60: aastore
+        61: invokevirtual #99                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+        64: astore        6
+        66: aload_0
+        67: getfield      #83                 // Field myExitCodeClass:Ljava/lang/Class;
+        70: ldc           #103                // String name
+        72: iconst_0
+        73: anewarray     #93                 // class java/lang/Class
+        76: invokevirtual #99                 // Method java/lang/Class.getMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+        79: astore        7
+        81: aload_0
+        82: getfield      #77                 // Field myCompilerClass:Ljava/lang/Class;
+        85: invokevirtual #105                // Method java/lang/Class.newInstance:()Ljava/lang/Object;
+        88: astore        8
+        90: new           #108                // class java/io/ByteArrayOutputStream
+        93: dup
+        94: invokespecial #110                // Method java/io/ByteArrayOutputStream."<init>":()V
+        97: astore        9
+        99: new           #95                 // class java/io/PrintStream
+       102: dup
+       103: aload         9
+       105: invokespecial #111                // Method java/io/PrintStream."<init>":(Ljava/io/OutputStream;)V
+       108: astore        10
+       110: aload_0
+       111: getfield      #7                  // Field myLibs:Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;
+       114: invokestatic  #114                // Method getKotlinHomeDir:(Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;)Lcom/intellij/openapi/util/Pair;
+       117: astore        11
+       119: new           #13                 // class java/util/ArrayList
+       122: dup
+       123: aload_2
+       124: invokespecial #118                // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+       127: astore_2
+       128: aload_2
+       129: iconst_0
+       130: ldc           #121                // String -kotlin-home
+       132: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       137: aload_2
+       138: iconst_1
+       139: aload         11
+       141: getfield      #126                // Field com/intellij/openapi/util/Pair.first:Ljava/lang/Object;
+       144: checkcast     #38                 // class java/io/File
+       147: invokevirtual #132                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+       150: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       155: aload_2
+       156: iconst_2
+       157: ldc           #136                // String -jvm-target
+       159: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       164: aload_2
+       165: iconst_3
+       166: ldc           #138                // String 1.8
+       168: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       173: aload_2
+       174: iconst_4
+       175: ldc           #140                // String -Xallow-any-scripts-in-source-roots
+       177: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       182: aload_2
+       183: iconst_5
+       184: ldc           #142                // String -language-version
+       186: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       191: aload_2
+       192: bipush        6
+       194: aload         5
+       196: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       201: aload_2
+       202: bipush        7
+       204: ldc           #144                // String -Xuse-fir-lt=false
+       206: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       211: aload_2
+       212: bipush        8
+       214: ldc           #146                // String -d
+       216: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       221: aload_2
+       222: bipush        9
+       224: aload         4
+       226: invokevirtual #132                // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+       229: invokeinterface #123,  3          // InterfaceMethod java/util/List.add:(ILjava/lang/Object;)V
+       234: aload_2
+       235: aload_3
+       236: invokeinterface #148,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       241: invokedynamic #152,  0            // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+       246: invokeinterface #156,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+       251: invokestatic  #162                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+       254: invokeinterface #168,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+       259: checkcast     #172                // class java/util/Collection
+       262: invokeinterface #174,  2          // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+       267: pop
+       268: aload         6
+       270: aload         8
+       272: iconst_3
+       273: anewarray     #2                  // class java/lang/Object
+       276: dup
+       277: iconst_0
+       278: aload         10
+       280: aastore
+       281: dup
+       282: iconst_1
+       283: aload_0
+       284: getfield      #88                 // Field myServicesClass:Ljava/lang/Class;
+       287: ldc           #178                // String EMPTY
+       289: invokevirtual #180                // Method java/lang/Class.getField:(Ljava/lang/String;)Ljava/lang/reflect/Field;
+       292: aconst_null
+       293: invokevirtual #184                // Method java/lang/reflect/Field.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       296: aastore
+       297: dup
+       298: iconst_2
+       299: aload_2
+       300: iconst_0
+       301: anewarray     #190                // class java/lang/String
+       304: invokeinterface #62,  2           // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+       309: aastore
+       310: invokevirtual #192                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+       313: astore        12
+       315: aload         7
+       317: aload         12
+       319: iconst_0
+       320: anewarray     #2                  // class java/lang/Object
+       323: invokevirtual #192                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+       326: checkcast     #190                // class java/lang/String
+       329: astore        13
+       331: aload         13
+       333: ldc           #198                // String OK
+       335: invokevirtual #200                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       338: ifne          380
+       341: aload         9
+       343: ldc           #203                // String UTF8
+       345: invokevirtual #205                // Method java/io/ByteArrayOutputStream.toString:(Ljava/lang/String;)Ljava/lang/String;
+       348: astore        14
+       350: aload_1
+       351: aload         14
+       353: invokestatic  #209                // Method getCompilationErrors:(Ljava/io/File;Ljava/lang/String;)Ljava/util/List;
+       356: astore        15
+       358: new           #213                // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsException
+       361: dup
+       362: ldc           #215                // String Kotlin DSL compilation error
+       364: aload         15
+       366: invokeinterface #217,  1          // InterfaceMethod java/util/List.size:()I
+       371: invokestatic  #221                // Method jetbrains/buildServer/util/StringUtil.pluralize:(Ljava/lang/String;I)Ljava/lang/String;
+       374: aload         15
+       376: invokespecial #227                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsException."<init>":(Ljava/lang/String;Ljava/util/List;)V
+       379: athrow
+       380: aload         11
+       382: getfield      #230                // Field com/intellij/openapi/util/Pair.second:Ljava/lang/Object;
+       385: checkcast     #233                // class java/lang/Boolean
+       388: invokevirtual #235                // Method java/lang/Boolean.booleanValue:()Z
+       391: ifeq          440
+       394: aload         11
+       396: getfield      #126                // Field com/intellij/openapi/util/Pair.first:Ljava/lang/Object;
+       399: checkcast     #38                 // class java/io/File
+       402: invokestatic  #238                // Method jetbrains/buildServer/util/FileUtil.delete:(Ljava/io/File;)Z
+       405: pop
+       406: goto          440
+       409: astore        16
+       411: aload         11
+       413: getfield      #230                // Field com/intellij/openapi/util/Pair.second:Ljava/lang/Object;
+       416: checkcast     #233                // class java/lang/Boolean
+       419: invokevirtual #235                // Method java/lang/Boolean.booleanValue:()Z
+       422: ifeq          437
+       425: aload         11
+       427: getfield      #126                // Field com/intellij/openapi/util/Pair.first:Ljava/lang/Object;
+       430: checkcast     #38                 // class java/io/File
+       433: invokestatic  #238                // Method jetbrains/buildServer/util/FileUtil.delete:(Ljava/io/File;)Z
+       436: pop
+       437: aload         16
+       439: athrow
+       440: return
+      Exception table:
+         from    to  target type
+           128   380   409   any
+           409   411   409   any
+      LineNumberTable:
+        line 51: 34
+        line 52: 66
+        line 53: 81
+        line 54: 90
+        line 55: 99
+        line 56: 110
+        line 58: 119
+        line 61: 128
+        line 62: 137
+        line 63: 155
+        line 64: 164
+        line 65: 173
+        line 66: 182
+        line 67: 191
+        line 68: 201
+        line 69: 211
+        line 70: 221
+        line 71: 234
+        line 73: 268
+        line 74: 315
+        line 75: 331
+        line 76: 341
+        line 77: 350
+        line 78: 358
+        line 81: 380
+        line 82: 394
+        line 81: 409
+        line 82: 425
+        line 83: 437
+        line 84: 440
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          350      30    14 errorOutput   Ljava/lang/String;
+          358      22    15 errors   Ljava/util/List;
+          315      65    12 result   Ljava/lang/Object;
+          331      49    13 errorCode   Ljava/lang/String;
+            0     441     0  this   Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+            0     441     1 baseDir   Ljava/io/File;
+            0     441     2  args   Ljava/util/List;
+            0     441     3 kotlinFiles   Ljava/util/List;
+            0     441     4 classesDirOrJarFile   Ljava/io/File;
+            0     441     5 languageVersion   Ljava/lang/String;
+           66     375     6  main   Ljava/lang/reflect/Method;
+           81     360     7  name   Ljava/lang/reflect/Method;
+           90     351     8 compiler   Ljava/lang/Object;
+           99     342     9 osErrors   Ljava/io/ByteArrayOutputStream;
+          110     331    10 errorsStream   Ljava/io/PrintStream;
+          119     322    11 kotlinHome   Lcom/intellij/openapi/util/Pair;
+
+  public static com.intellij.openapi.util.Pair<java.io.File, java.lang.Boolean> getKotlinHomeDir(jetbrains.buildServer.configs.dsl.kotlin.KotlinLibs) throws java.lang.Exception;
+    descriptor: (Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;)Lcom/intellij/openapi/util/Pair;
+    Code:
+         0: aload_0
+         1: ifnonnull     8
+         4: iconst_5
+         5: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokeinterface #16,  1           // InterfaceMethod jetbrains/buildServer/configs/dsl/kotlin/KotlinLibs.getKotlinLibJars:()Ljava/util/List;
+        14: astore_1
+        15: aload_1
+        16: iconst_0
+        17: invokeinterface #244,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        22: checkcast     #38                 // class java/io/File
+        25: aload_1
+        26: iconst_1
+        27: aload_1
+        28: invokeinterface #217,  1          // InterfaceMethod java/util/List.size:()I
+        33: invokeinterface #247,  3          // InterfaceMethod java/util/List.subList:(II)Ljava/util/List;
+        38: iconst_0
+        39: anewarray     #38                 // class java/io/File
+        42: invokeinterface #62,  2           // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+        47: checkcast     #251                // class "[Ljava/io/File;"
+        50: invokestatic  #253                // Method inSameDir:(Ljava/io/File;[Ljava/io/File;)Z
+        53: ifeq          114
+        56: aload_1
+        57: iconst_0
+        58: invokeinterface #244,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        63: checkcast     #38                 // class java/io/File
+        66: invokevirtual #257                // Method java/io/File.getParentFile:()Ljava/io/File;
+        69: invokevirtual #260                // Method java/io/File.getName:()Ljava/lang/String;
+        72: ldc_w         #263                // String lib
+        75: invokevirtual #200                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        78: ifeq          114
+        81: aload_1
+        82: iconst_0
+        83: invokeinterface #244,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        88: checkcast     #38                 // class java/io/File
+        91: invokevirtual #257                // Method java/io/File.getParentFile:()Ljava/io/File;
+        94: invokevirtual #257                // Method java/io/File.getParentFile:()Ljava/io/File;
+        97: iconst_0
+        98: invokestatic  #265                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       101: invokestatic  #269                // Method com/intellij/openapi/util/Pair.create:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/intellij/openapi/util/Pair;
+       104: dup
+       105: ifnonnull     113
+       108: bipush        6
+       110: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+       113: areturn
+       114: ldc_w         #273                // String kotlin
+       117: ldc_w         #275                // String home
+       120: invokestatic  #277                // Method jetbrains/buildServer/util/FileUtil.createTempDirectory:(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+       123: astore_2
+       124: new           #38                 // class java/io/File
+       127: dup
+       128: aload_2
+       129: ldc_w         #263                // String lib
+       132: invokespecial #281                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+       135: astore_3
+       136: aload_3
+       137: invokevirtual #284                // Method java/io/File.mkdirs:()Z
+       140: pop
+       141: aload_1
+       142: invokeinterface #22,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       147: astore        4
+       149: aload         4
+       151: invokeinterface #28,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       156: ifeq          205
+       159: aload         4
+       161: invokeinterface #34,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       166: checkcast     #38                 // class java/io/File
+       169: astore        5
+       171: aload         5
+       173: invokevirtual #260                // Method java/io/File.getName:()Ljava/lang/String;
+       176: ldc_w         #287                // String -[0-9]+\\.[0-9]+\\.[0-9]+(-RC[0-9]?)*
+       179: ldc_w         #289                // String
+       182: invokevirtual #291                // Method java/lang/String.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       185: astore        6
+       187: aload         5
+       189: new           #38                 // class java/io/File
+       192: dup
+       193: aload_3
+       194: aload         6
+       196: invokespecial #281                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+       199: invokestatic  #295                // Method jetbrains/buildServer/util/FileUtil.copy:(Ljava/io/File;Ljava/io/File;)V
+       202: goto          149
+       205: aload_2
+       206: iconst_1
+       207: invokestatic  #265                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       210: invokestatic  #269                // Method com/intellij/openapi/util/Pair.create:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/intellij/openapi/util/Pair;
+       213: dup
+       214: ifnonnull     222
+       217: bipush        7
+       219: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+       222: areturn
+      LineNumberTable:
+        line 90: 8
+        line 94: 15
+        line 95: 58
+        line 96: 81
+        line 98: 114
+        line 99: 124
+        line 100: 136
+        line 101: 141
+        line 103: 171
+        line 104: 187
+        line 105: 202
+        line 106: 205
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          187      15     6 jarName   Ljava/lang/String;
+          171      31     5   jar   Ljava/io/File;
+          124      99     2   tmp   Ljava/io/File;
+          136      87     3   lib   Ljava/io/File;
+            0     223     0 kotlinLibs   Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;
+           15     208     1 libJars   Ljava/util/List;
+
+  private static boolean inSameDir(java.io.File, java.io.File...);
+    descriptor: (Ljava/io/File;[Ljava/io/File;)Z
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        8
+         6: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: ifnonnull     18
+        13: bipush        9
+        15: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+        18: aload_0
+        19: invokevirtual #257                // Method java/io/File.getParentFile:()Ljava/io/File;
+        22: astore_2
+        23: aload_1
+        24: astore_3
+        25: aload_3
+        26: arraylength
+        27: istore        4
+        29: iconst_0
+        30: istore        5
+        32: iload         5
+        34: iload         4
+        36: if_icmpge     65
+        39: aload_3
+        40: iload         5
+        42: aaload
+        43: astore        6
+        45: aload_2
+        46: aload         6
+        48: invokevirtual #257                // Method java/io/File.getParentFile:()Ljava/io/File;
+        51: invokevirtual #299                // Method java/io/File.equals:(Ljava/lang/Object;)Z
+        54: ifne          59
+        57: iconst_0
+        58: ireturn
+        59: iinc          5, 1
+        62: goto          32
+        65: iconst_1
+        66: ireturn
+      LineNumberTable:
+        line 112: 18
+        line 113: 23
+        line 114: 45
+        line 115: 57
+        line 113: 59
+        line 117: 65
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           45      14     6  file   Ljava/io/File;
+            0      67     0     f   Ljava/io/File;
+            0      67     1 files   [Ljava/io/File;
+           23      44     2 parent   Ljava/io/File;
+
+  public static java.util.List<jetbrains.buildServer.serverSide.impl.versionedSettings.VersionedSettingsError> getCompilationErrors(java.io.File, java.lang.String);
+    descriptor: (Ljava/io/File;Ljava/lang/String;)Ljava/util/List;
+    Code:
+         0: aload_0
+         1: ifnonnull     9
+         4: bipush        10
+         6: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+         9: aload_1
+        10: ifnonnull     18
+        13: bipush        11
+        15: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+        18: aload_0
+        19: invokevirtual #300                // Method java/io/File.getCanonicalPath:()Ljava/lang/String;
+        22: astore_2
+        23: goto          31
+        26: astore_3
+        27: ldc_w         #289                // String
+        30: astore_2
+        31: new           #13                 // class java/util/ArrayList
+        34: dup
+        35: invokespecial #15                 // Method java/util/ArrayList."<init>":()V
+        38: astore_3
+        39: aload_1
+        40: invokestatic  #305                // Method jetbrains/buildServer/util/XmlUtil.from_s:(Ljava/lang/String;)Lorg/jdom/Element;
+        43: astore        4
+        45: aload         4
+        47: invokevirtual #311                // Method org/jdom/Element.getChildren:()Ljava/util/List;
+        50: invokeinterface #22,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        55: astore        5
+        57: aload         5
+        59: invokeinterface #28,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        64: ifeq          294
+        67: aload         5
+        69: invokeinterface #34,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        74: astore        6
+        76: aload         6
+        78: instanceof    #312                // class org/jdom/Element
+        81: ifeq          291
+        84: aload         6
+        86: checkcast     #312                // class org/jdom/Element
+        89: astore        7
+        91: aload         7
+        93: invokevirtual #316                // Method org/jdom/Element.getName:()Ljava/lang/String;
+        96: ldc_w         #317                // String error
+        99: invokevirtual #200                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       102: ifne          122
+       105: aload         7
+       107: invokevirtual #316                // Method org/jdom/Element.getName:()Ljava/lang/String;
+       110: ldc_w         #319                // String exception
+       113: invokevirtual #200                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       116: ifne          122
+       119: goto          57
+       122: aload         7
+       124: ldc_w         #321                // String path
+       127: invokevirtual #323                // Method org/jdom/Element.getAttributeValue:(Ljava/lang/String;)Ljava/lang/String;
+       130: astore        8
+       132: aload         8
+       134: ifnonnull     142
+       137: ldc_w         #289                // String
+       140: astore        8
+       142: aload         8
+       144: aload_2
+       145: invokevirtual #326                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       148: ifeq          164
+       151: aload         8
+       153: aload_2
+       154: invokevirtual #330                // Method java/lang/String.length:()I
+       157: iconst_1
+       158: iadd
+       159: invokevirtual #333                // Method java/lang/String.substring:(I)Ljava/lang/String;
+       162: astore        8
+       164: aload         7
+       166: invokevirtual #337                // Method org/jdom/Element.getText:()Ljava/lang/String;
+       169: astore        9
+       171: aload         7
+       173: ldc_w         #340                // String line
+       176: invokevirtual #323                // Method org/jdom/Element.getAttributeValue:(Ljava/lang/String;)Ljava/lang/String;
+       179: astore        10
+       181: aload         7
+       183: ldc_w         #342                // String column
+       186: invokevirtual #323                // Method org/jdom/Element.getAttributeValue:(Ljava/lang/String;)Ljava/lang/String;
+       189: astore        11
+       191: aload         10
+       193: ifnull        224
+       196: aload         11
+       198: ifnull        224
+       201: ldc_w         #344                // String [%s:%s]
+       204: iconst_2
+       205: anewarray     #2                  // class java/lang/Object
+       208: dup
+       209: iconst_0
+       210: aload         10
+       212: aastore
+       213: dup
+       214: iconst_1
+       215: aload         11
+       217: aastore
+       218: invokestatic  #346                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       221: goto          225
+       224: aconst_null
+       225: astore        12
+       227: aload         8
+       229: getstatic     #350                // Field java/io/File.separator:Ljava/lang/String;
+       232: invokestatic  #354                // Method jetbrains/buildServer/util/StringUtil.split:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+       235: astore        13
+       237: aload         13
+       239: invokeinterface #217,  1          // InterfaceMethod java/util/List.size:()I
+       244: ifle          261
+       247: aload         13
+       249: iconst_0
+       250: invokeinterface #244,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       255: checkcast     #190                // class java/lang/String
+       258: goto          264
+       261: ldc_w         #289                // String
+       264: astore        14
+       266: aload_3
+       267: new           #358                // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError
+       270: dup
+       271: getstatic     #360                // Field jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError$Type.COMPILATION_ERROR:Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError$Type;
+       274: aload         14
+       276: aload         8
+       278: aload         12
+       280: aload         9
+       282: invokespecial #366                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError."<init>":(Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError$Type;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       285: invokeinterface #54,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       290: pop
+       291: goto          57
+       294: aload_3
+       295: dup
+       296: ifnonnull     304
+       299: bipush        12
+       301: invokestatic  #468                // Method $$$reportNull$$$0:(I)V
+       304: areturn
+      Exception table:
+         from    to  target type
+            18    23    26   Class java/io/IOException
+      LineNumberTable:
+        line 130: 18
+        line 133: 23
+        line 131: 26
+        line 132: 27
+        line 134: 31
+        line 135: 39
+        line 136: 45
+        line 137: 76
+        line 138: 84
+        line 139: 91
+        line 141: 122
+        line 142: 132
+        line 143: 137
+        line 144: 142
+        line 145: 151
+        line 147: 164
+        line 148: 171
+        line 149: 181
+        line 150: 191
+        line 151: 227
+        line 152: 237
+        line 153: 266
+        line 155: 291
+        line 156: 294
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           23       3     2 basePath   Ljava/lang/String;
+           27       4     3     e   Ljava/io/IOException;
+           91     200     7 xmlEl   Lorg/jdom/Element;
+          132     159     8 source   Ljava/lang/String;
+          171     120     9   msg   Ljava/lang/String;
+          181     110    10  line   Ljava/lang/String;
+          191     100    11 column   Ljava/lang/String;
+          227      64    12 location   Ljava/lang/String;
+          237      54    13 pathComponents   Ljava/util/List;
+          266      25    14 extId   Ljava/lang/String;
+           76     215     6     o   Ljava/lang/Object;
+            0     305     0 baseDir   Ljava/io/File;
+            0     305     1 errorsInXml   Ljava/lang/String;
+           31     274     2 basePath   Ljava/lang/String;
+           39     266     3 errors   Ljava/util/List;
+           45     260     4 xmlErrors   Lorg/jdom/Element;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 12
+                       0: 68
+                       1: 68
+                       2: 68
+                       3: 68
+                       4: 68
+                       5: 68
+                       6: 74
+                       7: 74
+                       8: 68
+                       9: 68
+                      10: 68
+                      11: 68
+                      12: 74
+                 default: 68
+            }
+        68: ldc_w         #470                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        71: goto          80
+        74: ldc_w         #472                // String @NotNull method %s.%s must not return null
+        77: goto          80
+        80: iload_0
+        81: tableswitch   { // 0 to 12
+                       0: 148
+                       1: 148
+                       2: 148
+                       3: 148
+                       4: 148
+                       5: 148
+                       6: 152
+                       7: 152
+                       8: 148
+                       9: 148
+                      10: 148
+                      11: 148
+                      12: 152
+                 default: 148
+            }
+       148: iconst_3
+       149: goto          156
+       152: iconst_2
+       153: goto          156
+       156: anewarray     #2                  // class java/lang/Object
+       159: iload_0
+       160: tableswitch   { // 0 to 12
+                       0: 228
+                       1: 237
+                       2: 246
+                       3: 255
+                       4: 264
+                       5: 273
+                       6: 282
+                       7: 282
+                       8: 291
+                       9: 300
+                      10: 237
+                      11: 309
+                      12: 282
+                 default: 228
+            }
+       228: dup
+       229: iconst_0
+       230: ldc_w         #473                // String libs
+       233: aastore
+       234: goto          318
+       237: dup
+       238: iconst_0
+       239: ldc_w         #474                // String baseDir
+       242: aastore
+       243: goto          318
+       246: dup
+       247: iconst_0
+       248: ldc_w         #475                // String args
+       251: aastore
+       252: goto          318
+       255: dup
+       256: iconst_0
+       257: ldc_w         #476                // String classesDirOrJarFile
+       260: aastore
+       261: goto          318
+       264: dup
+       265: iconst_0
+       266: ldc_w         #477                // String languageVersion
+       269: aastore
+       270: goto          318
+       273: dup
+       274: iconst_0
+       275: ldc_w         #478                // String kotlinLibs
+       278: aastore
+       279: goto          318
+       282: dup
+       283: iconst_0
+       284: ldc_w         #479                // String jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler
+       287: aastore
+       288: goto          318
+       291: dup
+       292: iconst_0
+       293: ldc_w         #480                // String f
+       296: aastore
+       297: goto          318
+       300: dup
+       301: iconst_0
+       302: ldc_w         #481                // String files
+       305: aastore
+       306: goto          318
+       309: dup
+       310: iconst_0
+       311: ldc_w         #482                // String errorsInXml
+       314: aastore
+       315: goto          318
+       318: iload_0
+       319: tableswitch   { // 0 to 12
+                       0: 384
+                       1: 384
+                       2: 384
+                       3: 384
+                       4: 384
+                       5: 384
+                       6: 393
+                       7: 393
+                       8: 384
+                       9: 384
+                      10: 384
+                      11: 384
+                      12: 402
+                 default: 384
+            }
+       384: dup
+       385: iconst_1
+       386: ldc_w         #479                // String jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler
+       389: aastore
+       390: goto          411
+       393: dup
+       394: iconst_1
+       395: ldc_w         #483                // String getKotlinHomeDir
+       398: aastore
+       399: goto          411
+       402: dup
+       403: iconst_1
+       404: ldc_w         #484                // String getCompilationErrors
+       407: aastore
+       408: goto          411
+       411: iload_0
+       412: tableswitch   { // 0 to 12
+                       0: 480
+                       1: 489
+                       2: 489
+                       3: 489
+                       4: 489
+                       5: 498
+                       6: 507
+                       7: 507
+                       8: 510
+                       9: 510
+                      10: 519
+                      11: 519
+                      12: 507
+                 default: 480
+            }
+       480: dup
+       481: iconst_2
+       482: ldc_w         #485                // String <init>
+       485: aastore
+       486: goto          528
+       489: dup
+       490: iconst_2
+       491: ldc_w         #486                // String run
+       494: aastore
+       495: goto          528
+       498: dup
+       499: iconst_2
+       500: ldc_w         #483                // String getKotlinHomeDir
+       503: aastore
+       504: goto          528
+       507: goto          528
+       510: dup
+       511: iconst_2
+       512: ldc_w         #487                // String inSameDir
+       515: aastore
+       516: goto          528
+       519: dup
+       520: iconst_2
+       521: ldc_w         #484                // String getCompilationErrors
+       524: aastore
+       525: goto          528
+       528: invokestatic  #346                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       531: iload_0
+       532: tableswitch   { // 0 to 12
+                       0: 600
+                       1: 600
+                       2: 600
+                       3: 600
+                       4: 600
+                       5: 600
+                       6: 611
+                       7: 611
+                       8: 600
+                       9: 600
+                      10: 600
+                      11: 600
+                      12: 611
+                 default: 600
+            }
+       600: new           #489                // class java/lang/IllegalArgumentException
+       603: dup_x1
+       604: swap
+       605: invokespecial #492                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       608: goto          622
+       611: new           #494                // class java/lang/IllegalStateException
+       614: dup_x1
+       615: swap
+       616: invokespecial #495                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       619: goto          622
+       622: athrow
+}

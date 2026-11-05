@@ -1,0 +1,65 @@
+Compiled from "AgentTypeStorage.java"
+public interface jetbrains.buildServer.serverSide.agentTypes.AgentTypeStorage {
+  public abstract int getOrCreateAgentTypeId(jetbrains.buildServer.serverSide.agentTypes.AgentTypeKey);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/AgentTypeKey;)I
+
+  public abstract int getOrCreateAgentTypeId(jetbrains.buildServer.serverSide.agentTypes.AgentTypeKey, int);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/AgentTypeKey;I)I
+
+  public abstract jetbrains.buildServer.serverSide.agentTypes.AgentType findAgentTypeById(int);
+    descriptor: (I)Ljetbrains/buildServer/serverSide/agentTypes/AgentType;
+
+  public abstract java.util.Map<java.lang.Integer, jetbrains.buildServer.serverSide.agentTypes.AgentType> findAgentTypesByIds(java.util.Collection<java.lang.Integer>);
+    descriptor: (Ljava/util/Collection;)Ljava/util/Map;
+
+  public abstract jetbrains.buildServer.serverSide.agentTypes.AgentType findAgentTypeByKey(jetbrains.buildServer.serverSide.agentTypes.AgentTypeKey);
+    descriptor: (Ljetbrains/buildServer/serverSide/agentTypes/AgentTypeKey;)Ljetbrains/buildServer/serverSide/agentTypes/AgentType;
+
+  public abstract java.util.Set<java.lang.Integer> getAgentTypeIds();
+    descriptor: ()Ljava/util/Set;
+
+  public abstract java.util.Map<java.lang.Integer, jetbrains.buildServer.serverSide.agentTypes.AgentTypeKey> getAgentTypePairs();
+    descriptor: ()Ljava/util/Map;
+
+  public abstract java.util.Collection<java.lang.Integer> getAgentTypeIdsByPool(int);
+    descriptor: (I)Ljava/util/Collection;
+
+  public abstract jetbrains.buildServer.serverSide.agentTypes.AgentTypePolicy getPolicy(int);
+    descriptor: (I)Ljetbrains/buildServer/serverSide/agentTypes/AgentTypePolicy;
+
+  public abstract void setPolicyKind(int, int);
+    descriptor: (II)V
+
+  public abstract void includeBuildTypesToAllowed(int, java.util.Set<java.lang.String>);
+    descriptor: (ILjava/util/Set;)V
+
+  public abstract void excludeBuildTypesFromAllowed(int, java.util.Set<java.lang.String>);
+    descriptor: (ILjava/util/Set;)V
+
+  public abstract boolean isAllowedToRun(int, java.lang.String, java.lang.String);
+    descriptor: (ILjava/lang/String;Ljava/lang/String;)Z
+
+  public abstract void removeBuildTypeFromAllLists(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public abstract void copyAgentTypeRestrictions(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+
+  public abstract void invalidateCacheForAllAgentTypes();
+    descriptor: ()V
+
+  public abstract void invalidateCacheForAgentTypesFromPools(java.util.Set<java.lang.Integer>, jetbrains.buildServer.serverSide.agentTypes.CacheClearPolicy);
+    descriptor: (Ljava/util/Set;Ljetbrains/buildServer/serverSide/agentTypes/CacheClearPolicy;)V
+
+  public abstract void invalidateCacheForOneAgentType(int, jetbrains.buildServer.serverSide.agentTypes.CacheClearPolicy);
+    descriptor: (ILjetbrains/buildServer/serverSide/agentTypes/CacheClearPolicy;)V
+
+  public abstract void updateAgentTypesFromDB(java.util.Collection<java.lang.Integer>);
+    descriptor: (Ljava/util/Collection;)V
+
+  public abstract void deleteAgentType(int) throws java.lang.IllegalStateException;
+    descriptor: (I)V
+
+  public abstract int getAgentTypeInvalidationCounter(int);
+    descriptor: (I)I
+}

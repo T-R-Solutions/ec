@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress AutowiredDependenciesInspection -->
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+    default-autowire="constructor"
+    >
+
+  <bean id="vcsChangesLoaderMetrics" class="jetbrains.buildServer.vcs.VcsChangesLoaderMetrics"/>
+
+  <bean id="vcsRootChangesLoader" class="jetbrains.buildServer.buildTriggers.vcs.VcsRootChangesLoader" lazy-init="true">
+    <property name="branchSpecsHistory" ref="buildTypeBranchSpecsHistory"/>
+    <property name="buildServerState" ref="buildServerState"/>
+    <property name="changePersisterFactory" ref="vcsChangesLoaderFactory"/>
+    <property name="vcsSettingsTracker" ref="vcsSettingsTracker" />
+    <property name="vcsStatusProvider" ref="vcsStatusLogger" />
+    <property name="repositoryStateManager" ref="repositoryStateManager"/>
+    <property name="progressRunner" ref="vcsOperationProgress"/>
+  </bean>
+
+  <bean id="vcsChangesFetcher" class="jetbrains.buildServer.vcs.impl.VcsChangesFetcher" lazy-init="true">
+    <property name="changesInterval" ref="vcsChangesInterval"/>
+    <property name="buildTypeToInstanceCache" ref="vcsChangesLoaderVcsRootInstancesCache"/>
+    <property name="vcsRootChangesLoader" ref="vcsRootChangesLoader"/>
+    <property name="vcsSettingsTracker" ref="vcsSettingsTracker"/>
+    <property name="statesCollector" ref="vcsChangesStatesCollector"/>
+    <property name="repositoryStateManager" ref="repositoryStateManager"/>
+  </bean>
+
+  <bean id="vcsChangesInterval" class="jetbrains.buildServer.vcs.impl.VcsChangesInterval" lazy-init="true">
+    <property name="buildTypeToInstanceCache" ref="vcsChangesLoaderVcsRootInstancesCache"/>
+    <property name="repositoryStateManager" ref="repositoryStateManager"/>
+  </bean>
+
+  <bean id="vcsChangesLoaderVcsRootInstancesCache" class="jetbrains.buildServer.vcs.impl.VcsChangesLoaderPreviousVcsRootInstancesCache"/>
+
+  <bean id="vcsChangesStatesCollector" class="jetbrains.buildServer.vcs.impl.VcsChangesStatesCollector" lazy-init="true">
+    <property name="vcsStatusProvider" ref="vcsStatusLogger"/>
+    <property name="progressRunner" ref="vcsOperationProgress"/>
+  </bean>
+
+
+  <bean id="vcsChangesLoader" class="jetbrains.buildServer.vcs.impl.VcsChangesLoader" lazy-init="true">
+    <property name="fetcher" ref="vcsChangesFetcher"/>
+    <property name="executors" ref="executorServiceManager"/>
+  </bean>
+
+</beans>

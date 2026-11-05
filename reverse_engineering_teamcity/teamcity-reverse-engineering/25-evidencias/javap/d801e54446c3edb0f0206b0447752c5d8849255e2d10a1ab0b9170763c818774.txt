@@ -1,0 +1,267 @@
+Compiled from "BuildQueueOptimizerAwarePrecondition.java"
+public abstract class jetbrains.buildServer.serverSide.impl.buildDistribution.BuildQueueOptimizerAwarePrecondition implements jetbrains.buildServer.serverSide.buildDistribution.StartBuildPrecondition {
+  protected final jetbrains.buildServer.serverSide.BuildQueueEx myBuildQueue;
+    descriptor: Ljetbrains/buildServer/serverSide/BuildQueueEx;
+
+  protected jetbrains.buildServer.serverSide.impl.buildDistribution.BuildQueueOptimizerAwarePrecondition(jetbrains.buildServer.serverSide.BuildQueueEx);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildQueueEx;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #19                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #135                // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: putfield      #132                // Field myBuildQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+        17: return
+      LineNumberTable:
+        line 3: 8
+        line 5: 12
+        line 4: 17
+
+  public boolean processPotentialOptimizationCandidates(jetbrains.buildServer.serverSide.BuildPromotionEx, java.util.function.Predicate<jetbrains.buildServer.serverSide.BuildPromotionEx>);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljava/util/function/Predicate;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_1
+         5: invokestatic  #19                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_2
+        20: invokestatic  #19                 // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        29: athrow
+        30: aload_0
+        31: getfield      #132                // Field myBuildQueue:Ljetbrains/buildServer/serverSide/BuildQueueEx;
+        34: aload_1
+        35: invokeinterface #106,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getParentBuildTypeId:()Ljava/lang/String;
+        40: invokeinterface #122,  2          // InterfaceMethod jetbrains/buildServer/serverSide/BuildQueueEx.getItems:(Ljava/lang/String;)Ljava/util/List;
+        45: astore_3
+        46: aload_3
+        47: invokeinterface #38,  1           // InterfaceMethod java/util/List.size:()I
+        52: iconst_2
+        53: if_icmpge     62
+        56: iconst_0
+        57: ireturn
+        58: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        61: athrow
+        62: aload_1
+        63: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBranch:()Ljetbrains/buildServer/serverSide/Branch;
+        68: astore        4
+        70: aload         4
+        72: ifnull        92
+        75: aload         4
+        77: invokeinterface #36,  1           // InterfaceMethod jetbrains/buildServer/serverSide/Branch.isDefaultBranch:()Z
+        82: ifeq          100
+        85: goto          92
+        88: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        91: athrow
+        92: iconst_1
+        93: goto          101
+        96: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        99: athrow
+       100: iconst_0
+       101: istore        5
+       103: iload         5
+       105: aload         4
+       107: invokedynamic #95,  0             // InvokeDynamic #0:test:(ZLjetbrains/buildServer/serverSide/Branch;)Ljava/util/function/Predicate;
+       112: astore        6
+       114: aload_3
+       115: invokeinterface #137,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       120: astore        7
+       122: aload         7
+       124: invokeinterface #80,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+       129: ifeq          240
+       132: aload         7
+       134: invokeinterface #105,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       139: checkcast     #34                 // class jetbrains/buildServer/serverSide/SQueuedBuild
+       142: astore        8
+       144: aload         8
+       146: invokeinterface #17,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SQueuedBuild.isPersonal:()Z
+       151: ifeq          161
+       154: goto          122
+       157: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       160: athrow
+       161: aload         8
+       163: invokeinterface #50,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SQueuedBuild.getBuildPromotion:()Ljetbrains/buildServer/serverSide/BuildPromotion;
+       168: invokeinterface #115,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotion.getId:()J
+       173: aload_1
+       174: invokeinterface #125,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+       179: lcmp
+       180: ifne          189
+       183: iconst_0
+       184: ireturn
+       185: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       188: athrow
+       189: aload         8
+       191: invokeinterface #50,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SQueuedBuild.getBuildPromotion:()Ljetbrains/buildServer/serverSide/BuildPromotion;
+       196: checkcast     #114                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+       199: astore        9
+       201: aload_2
+       202: aload         9
+       204: invokeinterface #126,  2          // InterfaceMethod java/util/function/Predicate.test:(Ljava/lang/Object;)Z
+       209: ifeq          237
+       212: aload         6
+       214: aload         9
+       216: invokeinterface #126,  2          // InterfaceMethod java/util/function/Predicate.test:(Ljava/lang/Object;)Z
+       221: ifeq          237
+       224: goto          231
+       227: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       230: athrow
+       231: iconst_1
+       232: ireturn
+       233: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       236: athrow
+       237: goto          122
+       240: iconst_0
+       241: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    23    26   Class java/lang/IllegalArgumentException
+            46    58    58   Class java/lang/IllegalArgumentException
+            70    85    88   Class java/lang/IllegalArgumentException
+            75    96    96   Class java/lang/IllegalArgumentException
+           144   157   157   Class java/lang/IllegalArgumentException
+           161   185   185   Class java/lang/IllegalArgumentException
+           201   224   227   Class java/lang/IllegalArgumentException
+           212   233   233   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 13: 30
+        line 12: 46
+        line 1: 62
+        line 9: 70
+        line 18: 103
+        line 15: 114
+        line 19: 144
+        line 20: 161
+        line 11: 183
+        line 8: 189
+        line 16: 201
+        line 6: 231
+        line 17: 237
+        line 7: 240
+
+  private static boolean lambda$processPotentialOptimizationCandidates$0(boolean, jetbrains.buildServer.serverSide.Branch, jetbrains.buildServer.serverSide.BuildPromotionEx);
+    descriptor: (ZLjetbrains/buildServer/serverSide/Branch;Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Z
+    Code:
+         0: aload_2
+         1: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBranch:()Ljetbrains/buildServer/serverSide/Branch;
+         6: astore_3
+         7: aload_3
+         8: ifnull        27
+        11: aload_3
+        12: invokeinterface #36,  1           // InterfaceMethod jetbrains/buildServer/serverSide/Branch.isDefaultBranch:()Z
+        17: ifeq          33
+        20: goto          27
+        23: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        26: athrow
+        27: iconst_1
+        28: ireturn
+        29: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        32: athrow
+        33: iload_0
+        34: ifne          70
+        37: aload_3
+        38: invokeinterface #43,  1           // InterfaceMethod jetbrains/buildServer/serverSide/Branch.getName:()Ljava/lang/String;
+        43: aload_1
+        44: invokeinterface #43,  1           // InterfaceMethod jetbrains/buildServer/serverSide/Branch.getName:()Ljava/lang/String;
+        49: invokevirtual #12                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        52: ifeq          70
+        55: goto          62
+        58: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        61: athrow
+        62: iconst_1
+        63: goto          71
+        66: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        69: athrow
+        70: iconst_0
+        71: ireturn
+      Exception table:
+         from    to  target type
+             7    20    23   Class java/lang/IllegalArgumentException
+            11    29    29   Class java/lang/IllegalArgumentException
+            33    55    58   Class java/lang/IllegalArgumentException
+            37    66    66   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 14: 0
+        line 10: 7
+        line 2: 33
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #7                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #47                 // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 2
+                       0: 32
+                       1: 44
+                       2: 52
+                 default: 32
+            }
+        32: dup
+        33: iconst_0
+        34: ldc           #4                  // String buildQueue
+        36: aastore
+        37: goto          60
+        40: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        43: athrow
+        44: dup
+        45: iconst_0
+        46: ldc           #2                  // String current
+        48: aastore
+        49: goto          60
+        52: dup
+        53: iconst_0
+        54: ldc           #6                  // String predicate
+        56: aastore
+        57: goto          60
+        60: dup
+        61: iconst_1
+        62: ldc           #3                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/BuildQueueOptimizerAwarePrecondition
+        64: aastore
+        65: iload_0
+        66: tableswitch   { // 0 to 2
+                       0: 92
+                       1: 104
+                       2: 104
+                 default: 92
+            }
+        92: dup
+        93: iconst_2
+        94: ldc           #5                  // String <init>
+        96: aastore
+        97: goto          112
+       100: invokestatic  #101                // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       103: athrow
+       104: dup
+       105: iconst_2
+       106: ldc           #1                  // String processPotentialOptimizationCandidates
+       108: aastore
+       109: goto          112
+       112: invokestatic  #138                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       115: new           #86                 // class java/lang/IllegalArgumentException
+       118: dup_x1
+       119: swap
+       120: invokespecial #145                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       123: athrow
+      Exception table:
+         from    to  target type
+             0    40    40   Class java/lang/IllegalArgumentException
+            60   100   100   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

@@ -1,0 +1,14 @@
+flowchart TB
+    accTitle: Da configuração à entrega
+    accDescr: Qual é a jornada de uma mudança? EDIT → PUBLISH: proposta. PUBLISH → QUEUE: revisão identificada. QUEUE → ALLOC: trabalho elegível. ALLOC → RUN: tentativa autorizada. RUN → PROMOTE: resultado e artefato
+    EDIT["01 · Configurar<br/>Visual · Formulário · YAML"]
+    PUBLISH["02 · Publicar<br/>Validar · autorizar · versionar"]
+    QUEUE["03 · Submeter<br/>Fixar revisões e entrar na fila"]
+    ALLOC["04 · Alocar<br/>Elegibilidade · reserva · lease"]
+    RUN["05 · Executar<br/>Preparar · executar · reportar"]
+    PROMOTE["06 · Promover<br/>Resultados · gates · aprovação"]
+    EDIT -->|"proposta"| PUBLISH
+    PUBLISH -->|"revisão identificada"| QUEUE
+    QUEUE -->|"trabalho elegível"| ALLOC
+    ALLOC -->|"tentativa autorizada"| RUN
+    RUN -->|"resultado e artefato"| PROMOTE

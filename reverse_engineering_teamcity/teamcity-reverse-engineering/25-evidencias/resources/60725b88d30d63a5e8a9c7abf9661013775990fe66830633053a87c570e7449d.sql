@@ -1,0 +1,1 @@
+update agent_sources_version set vcs_entries_hash = null

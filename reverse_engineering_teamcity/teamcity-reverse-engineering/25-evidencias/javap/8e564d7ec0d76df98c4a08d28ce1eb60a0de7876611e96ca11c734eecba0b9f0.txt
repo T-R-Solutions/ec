@@ -1,0 +1,5 @@
+Compiled from "PluginClassesLoader.java"
+public interface jetbrains.buildServer.plugins.PluginClassesLoader {
+  public abstract void addPluginClassesLoadedListener(jetbrains.buildServer.plugins.PluginClassesLoadedListener);
+    descriptor: (Ljetbrains/buildServer/plugins/PluginClassesLoadedListener;)V
+}

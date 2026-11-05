@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:schemas-jetbrains-com:teamcity-plugin-v1-xml">
+    <info>
+        <name>Ipr</name>
+        <display-name>IntelliJ IDEA project runner</display-name>
+        <version>239120</version>
+        <vendor>
+            <name>JetBrains</name>
+            <url>https://www.jetbrains.com</url>
+        </vendor>
+    </info>
+    <deployment
+                use-separate-classloader="true"
+                node-responsibilities-aware="true"
+    />
+    <dependencies>
+        <plugin name="idea-tool"/>
+    </dependencies>
+</teamcity-plugin>

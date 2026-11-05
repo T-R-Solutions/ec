@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress AutowiredDependenciesInspection -->
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+    default-autowire="constructor"
+    >
+  
+  <bean name="vcsAccessFactory" class="jetbrains.buildServer.serverSide.VcsAccessFactoryImpl">
+    <property name="vcsManager" ref="vcsManager"/>
+  </bean>
+
+  <bean name="branchSpecs" class="jetbrains.buildServer.vcs.spec.BranchSpecsImpl"/>
+  <bean name="branchAttributesFilterManager" class="jetbrains.buildServer.vcs.spec.BranchAttributesFilterManager"/>
+
+  <bean class="jetbrains.buildServer.vcs.impl.VcsSupportContextRegistry"/>
+  <bean class="jetbrains.buildServer.vcs.impl.VcsSupportContextsDetector"/>
+
+  <bean id="branchDictionary" class="jetbrains.buildServer.vcs.impl.BranchDictionary"/>
+  <bean id="repositoryStateStorage" class="jetbrains.buildServer.vcs.impl.RepositoryStateStorage"/>
+  <bean id="cdsRepositoryStateStorage" class="jetbrains.buildServer.vcs.impl.CDSRepositoryStateStorage"/>
+  <bean id="dbRepositoryStateStorage" class="jetbrains.buildServer.vcs.impl.DBRepositoryStateStorage"/>
+
+  <bean id="repositoryStateManager" class="jetbrains.buildServer.vcs.impl.HistoryAwareRepositoryStateManagerImpl" lazy-init="true">
+    <constructor-arg index="2" ref="repositoryStateEventDispatcher"/>
+  </bean>
+
+</beans>

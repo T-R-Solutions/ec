@@ -1,0 +1,2 @@
+# oracles.md
+Positive: reservation uses one slot and quota; completion releases it. Negative: disconnected/mismatched agent, duplicate reservation, stale token, quota exhaustion, rollback. Boundary: one slot and two schedulers, exact expiration, equal priority, agent restart. Property: used slots <= capacity, tenant active <= quota, token increases after reassignment, no stale terminal transition. Integration: real PostgreSQL transactions with controlled barriers and injected failures.

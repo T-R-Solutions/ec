@@ -1,0 +1,552 @@
+Compiled from "StartingBuildsLimitPrecondition.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.StartingBuildsLimitPrecondition implements jetbrains.buildServer.serverSide.buildDistribution.StartBuildPrecondition,jetbrains.buildServer.util.positioning.PositionAware {
+  private static final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  public static final java.lang.String QUEUE_STARTING_BUILDS_LIMIT_ENABLED;
+    descriptor: Ljava/lang/String;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.StartingBuildsLimitPrecondition();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #89                 // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 18: 0
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason canStart(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, java.util.Map<jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.BuildAgent>, jetbrains.buildServer.serverSide.buildDistribution.BuildDistributorInput, boolean);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljava/util/Map;Ljetbrains/buildServer/serverSide/buildDistribution/BuildDistributorInput;Z)Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_0
+         5: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_1
+        20: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        29: athrow
+        30: aload_3
+        31: ifnonnull     45
+        34: iconst_2
+        35: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+        38: goto          45
+        41: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        44: athrow
+        45: ldc           #10                 // String teamcity.queue.startingBuildsLimit.enabled
+        47: invokestatic  #122                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBoolean:(Ljava/lang/String;)Z
+        50: ifne          59
+        53: aconst_null
+        54: areturn
+        55: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        58: athrow
+        59: aload_1
+        60: invokeinterface #193,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        65: invokeinterface #100,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo.isAgentLessBuild:()Z
+        70: ifeq          79
+        73: aconst_null
+        74: areturn
+        75: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        78: athrow
+        79: aload_0
+        80: aload_1
+        81: invokevirtual #255                // Method getLimit:(Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit;
+        84: astore        5
+        86: aload         5
+        88: ifnonnull     97
+        91: aconst_null
+        92: areturn
+        93: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        96: athrow
+        97: aload         5
+        99: getfield      #205                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit.myLimit:I
+       102: ifne          119
+       105: aload_0
+       106: aload         5
+       108: getfield      #205                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit.myLimit:I
+       111: invokevirtual #59                 // Method getWaitReason:(I)Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+       114: areturn
+       115: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       118: athrow
+       119: aload         5
+       121: getfield      #205                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit.myLimit:I
+       124: istore        6
+       126: aload_2
+       127: invokeinterface #171,  1          // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+       132: invokeinterface #84,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       137: astore        7
+       139: aload         7
+       141: invokeinterface #161,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       146: ifeq          229
+       149: aload         7
+       151: invokeinterface #137,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       156: checkcast     #254                // class jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo
+       159: astore        8
+       161: aload         8
+       163: invokeinterface #193,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+       168: invokeinterface #100,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo.isAgentLessBuild:()Z
+       173: ifeq          183
+       176: goto          139
+       179: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       182: athrow
+       183: aload_0
+       184: aload         5
+       186: getfield      #41                 // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit.myLimitedProject:Ljetbrains/buildServer/serverSide/SProject;
+       189: aload         8
+       191: invokevirtual #36                 // Method sameParentProject:(Ljetbrains/buildServer/serverSide/SProject;Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Z
+       194: ifeq          226
+       197: iinc          6, -1
+       200: iload         6
+       202: ifgt          226
+       205: goto          212
+       208: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       211: athrow
+       212: aload_0
+       213: aload         5
+       215: getfield      #205                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit.myLimit:I
+       218: invokevirtual #59                 // Method getWaitReason:(I)Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+       221: areturn
+       222: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       225: athrow
+       226: goto          139
+       229: aconst_null
+       230: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/NumberFormatException
+            15    23    26   Class java/lang/NumberFormatException
+            30    38    41   Class java/lang/NumberFormatException
+            45    55    55   Class java/lang/NumberFormatException
+            59    75    75   Class java/lang/NumberFormatException
+            86    93    93   Class java/lang/NumberFormatException
+            97   115   115   Class java/lang/NumberFormatException
+           161   179   179   Class java/lang/NumberFormatException
+           183   205   208   Class java/lang/NumberFormatException
+           197   222   222   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 2: 45
+        line 35: 59
+        line 15: 79
+        line 8: 86
+        line 25: 97
+        line 16: 119
+        line 4: 126
+        line 34: 161
+        line 23: 183
+        line 27: 197
+        line 37: 200
+        line 26: 226
+        line 41: 229
+
+  private boolean sameParentProject(jetbrains.buildServer.serverSide.SProject, jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/SProject;Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_3
+         5: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_4
+        20: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        29: athrow
+        30: aload_2
+        31: invokeinterface #210,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildConfiguration:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildConfigurationInfo;
+        36: astore_3
+        37: aload_3
+        38: instanceof    #35                 // class jetbrains/buildServer/serverSide/SBuildType
+        41: ifeq          100
+        44: aload_3
+        45: checkcast     #35                 // class jetbrains/buildServer/serverSide/SBuildType
+        48: astore        4
+        50: aload         4
+        52: invokeinterface #42,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getProject:()Ljetbrains/buildServer/serverSide/SProject;
+        57: astore        5
+        59: aload         5
+        61: ifnull        100
+        64: aload         5
+        66: aload_1
+        67: invokeinterface #126,  2          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.equals:(Ljava/lang/Object;)Z
+        72: ifeq          88
+        75: goto          82
+        78: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        81: athrow
+        82: iconst_1
+        83: ireturn
+        84: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        87: athrow
+        88: aload         5
+        90: invokeinterface #107,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SProject.getParentProject:()Ljetbrains/buildServer/serverSide/SProject;
+        95: astore        5
+        97: goto          59
+       100: iconst_0
+       101: ireturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/NumberFormatException
+            15    23    26   Class java/lang/NumberFormatException
+            59    75    78   Class java/lang/NumberFormatException
+            64    84    84   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 20: 30
+        line 5: 37
+        line 39: 44
+        line 32: 50
+        line 30: 59
+        line 17: 64
+        line 40: 88
+        line 11: 100
+
+  private jetbrains.buildServer.serverSide.buildDistribution.SimpleWaitReason getWaitReason(int);
+    descriptor: (I)Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+    Code:
+         0: new           #19                 // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+         3: dup
+         4: iload_1
+         5: invokedynamic #58,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+        10: invokespecial #196                // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+        13: areturn
+      LineNumberTable:
+        line 38: 0
+
+  private jetbrains.buildServer.serverSide.impl.buildDistribution.StartingBuildsLimitPrecondition$StartingBuildsLimit getLimit(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Ljetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_5
+         5: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #210,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildConfiguration:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildConfigurationInfo;
+        21: astore_2
+        22: aload_2
+        23: instanceof    #35                 // class jetbrains/buildServer/serverSide/SBuildType
+        26: ifeq          187
+        29: aload_2
+        30: checkcast     #35                 // class jetbrains/buildServer/serverSide/SBuildType
+        33: astore_3
+        34: aload_3
+        35: invokeinterface #42,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getProject:()Ljetbrains/buildServer/serverSide/SProject;
+        40: invokeinterface #94,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SProject.getProjectPath:()Ljava/util/List;
+        45: astore        4
+        47: ldc           #9                  // String teamcity.internal.queue.subProjects.startingBuildsLimit
+        49: astore        5
+        51: aload         4
+        53: invokeinterface #70,  1           // InterfaceMethod java/util/List.size:()I
+        58: iconst_2
+        59: isub
+        60: istore        6
+        62: iload         6
+        64: iflt          187
+        67: aload         4
+        69: iload         6
+        71: invokeinterface #203,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        76: checkcast     #252                // class jetbrains/buildServer/serverSide/impl/ProjectEx
+        79: astore        7
+        81: aload         7
+        83: aload         5
+        85: invokeinterface #111,  2          // InterfaceMethod jetbrains/buildServer/serverSide/impl/ProjectEx.getOwnNonInheritedParameter:(Ljava/lang/String;)Ljetbrains/buildServer/serverSide/Parameter;
+        90: astore        8
+        92: aload         8
+        94: ifnonnull     104
+        97: goto          181
+       100: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       103: athrow
+       104: aload         8
+       106: invokeinterface #124,  1          // InterfaceMethod jetbrains/buildServer/serverSide/Parameter.getValue:()Ljava/lang/String;
+       111: invokestatic  #21                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       114: istore        9
+       116: new           #29                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit
+       119: dup
+       120: aload         4
+       122: iload         6
+       124: iconst_1
+       125: iadd
+       126: invokeinterface #203,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       131: checkcast     #20                 // class jetbrains/buildServer/serverSide/SProject
+       134: iload         9
+       136: invokespecial #55                 // Method jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition$StartingBuildsLimit."<init>":(Ljetbrains/buildServer/serverSide/SProject;I)V
+       139: areturn
+       140: astore        9
+       142: getstatic     #66                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       145: invokevirtual #241                // Method com/intellij/openapi/diagnostic/Logger.isDebugEnabled:()Z
+       148: ifeq          181
+       151: getstatic     #66                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       154: aload         8
+       156: invokeinterface #174,  1          // InterfaceMethod jetbrains/buildServer/serverSide/Parameter.getName:()Ljava/lang/String;
+       161: aload         7
+       163: invokestatic  #76                 // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/log/Loggable;)Ljava/lang/String;
+       166: invokedynamic #199,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       171: invokevirtual #32                 // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       174: goto          181
+       177: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       180: athrow
+       181: iinc          6, -1
+       184: goto          62
+       187: aconst_null
+       188: areturn
+      Exception table:
+         from    to  target type
+            92   100   100   Class java/lang/NumberFormatException
+             0     8    11   Class java/lang/NumberFormatException
+           104   139   140   Class java/lang/NumberFormatException
+           142   174   177   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 3: 15
+        line 9: 22
+        line 21: 29
+        line 29: 34
+        line 19: 47
+        line 33: 51
+        line 42: 67
+        line 24: 81
+        line 12: 92
+        line 22: 104
+        line 31: 116
+        line 13: 140
+        line 6: 142
+        line 7: 151
+        line 14: 181
+        line 36: 187
+
+  public java.lang.String getOrderId();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: ldc           #5                  // class jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition
+         2: invokevirtual #217                // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: dup
+         6: ifnonnull     21
+         9: bipush        6
+        11: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+        14: goto          21
+        17: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        20: athrow
+        21: areturn
+      Exception table:
+         from    to  target type
+             0    14    17   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 10: 0
+
+  public jetbrains.buildServer.util.positioning.PositionConstraint getConstraint();
+    descriptor: ()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+    Code:
+         0: invokestatic  #82                 // Method jetbrains/buildServer/util/positioning/PositionConstraint.last:()Ljetbrains/buildServer/util/positioning/PositionConstraint;
+         3: dup
+         4: ifnonnull     19
+         7: bipush        7
+         9: invokestatic  #244                // Method $$$reportNull$$$0:(I)V
+        12: goto          19
+        15: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        18: athrow
+        19: areturn
+      Exception table:
+         from    to  target type
+             0    12    15   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 28: 0
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #5                  // class jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition
+         2: invokevirtual #217                // Method java/lang/Class.getName:()Ljava/lang/String;
+         5: invokestatic  #119                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/String;)Lcom/intellij/openapi/diagnostic/Logger;
+         8: putstatic     #66                 // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+        11: return
+      LineNumberTable:
+        line 1: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 7
+                       0: 48
+                       1: 48
+                       2: 48
+                       3: 48
+                       4: 48
+                       5: 48
+                       6: 57
+                       7: 57
+                 default: 48
+            }
+        48: ldc           #11                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        50: goto          62
+        53: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+        56: athrow
+        57: ldc           #1                  // String @NotNull method %s.%s must not return null
+        59: goto          62
+        62: iload_0
+        63: tableswitch   { // 0 to 7
+                       0: 108
+                       1: 108
+                       2: 108
+                       3: 108
+                       4: 108
+                       5: 108
+                       6: 116
+                       7: 116
+                 default: 108
+            }
+       108: iconst_3
+       109: goto          120
+       112: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       115: athrow
+       116: iconst_2
+       117: goto          120
+       120: anewarray     #57                 // class java/lang/Object
+       123: iload_0
+       124: tableswitch   { // 0 to 7
+                       0: 172
+                       1: 184
+                       2: 192
+                       3: 200
+                       4: 172
+                       5: 172
+                       6: 208
+                       7: 208
+                 default: 172
+            }
+       172: dup
+       173: iconst_0
+       174: ldc           #8                  // String queuedBuild
+       176: aastore
+       177: goto          216
+       180: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       183: athrow
+       184: dup
+       185: iconst_0
+       186: ldc           #2                  // String canBeStarted
+       188: aastore
+       189: goto          216
+       192: dup
+       193: iconst_0
+       194: ldc           #15                 // String buildDistributorInput
+       196: aastore
+       197: goto          216
+       200: dup
+       201: iconst_0
+       202: ldc           #13                 // String limitedProject
+       204: aastore
+       205: goto          216
+       208: dup
+       209: iconst_0
+       210: ldc           #12                 // String jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition
+       212: aastore
+       213: goto          216
+       216: iload_0
+       217: tableswitch   { // 0 to 7
+                       0: 264
+                       1: 264
+                       2: 264
+                       3: 264
+                       4: 264
+                       5: 264
+                       6: 276
+                       7: 284
+                 default: 264
+            }
+       264: dup
+       265: iconst_1
+       266: ldc           #12                 // String jetbrains/buildServer/serverSide/impl/buildDistribution/StartingBuildsLimitPrecondition
+       268: aastore
+       269: goto          292
+       272: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       275: athrow
+       276: dup
+       277: iconst_1
+       278: ldc           #14                 // String getOrderId
+       280: aastore
+       281: goto          292
+       284: dup
+       285: iconst_1
+       286: ldc           #6                  // String getConstraint
+       288: aastore
+       289: goto          292
+       292: iload_0
+       293: tableswitch   { // 0 to 7
+                       0: 340
+                       1: 340
+                       2: 340
+                       3: 352
+                       4: 352
+                       5: 360
+                       6: 368
+                       7: 368
+                 default: 340
+            }
+       340: dup
+       341: iconst_2
+       342: ldc           #7                  // String canStart
+       344: aastore
+       345: goto          371
+       348: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       351: athrow
+       352: dup
+       353: iconst_2
+       354: ldc           #3                  // String sameParentProject
+       356: aastore
+       357: goto          371
+       360: dup
+       361: iconst_2
+       362: ldc           #4                  // String getLimit
+       364: aastore
+       365: goto          371
+       368: goto          371
+       371: invokestatic  #243                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       374: iload_0
+       375: tableswitch   { // 0 to 7
+                       0: 420
+                       1: 420
+                       2: 420
+                       3: 420
+                       4: 420
+                       5: 420
+                       6: 435
+                       7: 435
+                 default: 420
+            }
+       420: new           #158                // class java/lang/IllegalArgumentException
+       423: dup_x1
+       424: swap
+       425: invokespecial #226                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       428: goto          446
+       431: invokestatic  #186                // Method a:(Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+       434: athrow
+       435: new           #31                 // class java/lang/IllegalStateException
+       438: dup_x1
+       439: swap
+       440: invokespecial #213                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       443: goto          446
+       446: athrow
+      Exception table:
+         from    to  target type
+             0    53    53   Class java/lang/NumberFormatException
+            62   112   112   Class java/lang/NumberFormatException
+           120   180   180   Class java/lang/NumberFormatException
+           216   272   272   Class java/lang/NumberFormatException
+           292   348   348   Class java/lang/NumberFormatException
+           371   431   431   Class java/lang/NumberFormatException
+
+  private static java.lang.NumberFormatException a(java.lang.NumberFormatException);
+    descriptor: (Ljava/lang/NumberFormatException;)Ljava/lang/NumberFormatException;
+    Code:
+         0: aload_0
+         1: areturn
+}

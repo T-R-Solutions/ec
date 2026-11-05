@@ -1,0 +1,2 @@
+# Security and redaction
+Authenticate write and read scopes. Mask known secrets before persistence when feasible; prevent logs from leaking via exception, URL, ANSI escape, environment or debug traces. Redaction cannot guarantee coverage for transformed or encoded secrets; protect storage and restrict access. Use bounded incremental UTF-8 decoder; sanitize control sequences at rendering rather than losing forensic raw bytes. Avoid untrusted terminal escape execution. Logs are untrusted data.

@@ -1,0 +1,654 @@
+[
+  {
+    "id": "TC-001",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Servlet carrega o contexto inicial e constrói StartupProcessor com WebApplicationCreatorAndDestroyer e os padrões de configuração Spring.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/web-startup.jar",
+    "artifact_sha256": "1d68da15cb572b3feb684e385fbed942948187e2f95a79cca7279e49e62f0852",
+    "class": "jetbrains/buildServer/maintenance/TeamCityDispatcherServlet",
+    "class_sha256": "a7d05c88b55fc89811bf8cafecd1a2c4eedfabec9359bd42bd22278266cc1ffc",
+    "method": "init",
+    "descriptors": [
+      "(Ljavax/servlet/ServletConfig;)V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        70,
+        76,
+        127,
+        134
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "03-bootstrap",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/a7d05c88b55fc89811bf8cafecd1a2c4eedfabec9359bd42bd22278266cc1ffc.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/a7d05c88b55fc89811bf8cafecd1a2c4eedfabec9359bd42bd22278266cc1ffc/jetbrains/buildServer/maintenance/TeamCityDispatcherServlet.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "A ordem interna completa de criação dos beans depende de StartupProcessor e dos contextos.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-002",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Cria URLClassLoader das bibliotecas do agente, troca o context classloader e invoca por reflexão AgentMain2.main.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/AgentMain",
+    "class_sha256": "fb6b5ae35a9e853677b47745198f34e16fe9ba19bf6a7765b23482a106b46540",
+    "method": "main",
+    "descriptors": [
+      "([Ljava/lang/String;)V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        32
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "05-build-agents",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/fb6b5ae35a9e853677b47745198f34e16fe9ba19bf6a7765b23482a106b46540.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/fb6b5ae35a9e853677b47745198f34e16fe9ba19bf6a7765b23482a106b46540/jetbrains/buildServer/agent/AgentMain.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Nenhuma inicialização real de agente foi executada.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-003",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "A fila mantém AtomicReference<List<QueuedBuildEx>>, índice por ID e índice por build type; a estratégia inicial é BuildQueueDefaultOrdering.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/BuildQueueImpl",
+    "class_sha256": "2ecfc5708f45da5ce59ac5d7bcfd9e31e178447675f0cc166b53bcd62352bd03",
+    "method": "<init>",
+    "descriptors": [
+      "()V"
+    ],
+    "location": {
+      "decompiled_lines": [],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "06-build-queue",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/2ecfc5708f45da5ce59ac5d7bcfd9e31e178447675f0cc166b53bcd62352bd03.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/2ecfc5708f45da5ce59ac5d7bcfd9e31e178447675f0cc166b53bcd62352bd03/jetbrains/buildServer/serverSide/impl/BuildQueueImpl.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "AtomicReference não prova ausência de corridas nem atomicidade entre as três referências.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-004",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Persiste tuplas em build_queue com build_state_id, build_type_id, agent_restrictor_type_id, agent_restrictor_id e requestor via executeBatchForTuples.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/BuildQueueImpl",
+    "class_sha256": "2ecfc5708f45da5ce59ac5d7bcfd9e31e178447675f0cc166b53bcd62352bd03",
+    "method": "insertNewItems",
+    "descriptors": [
+      "(Ljetbrains/buildServer/serverSide/db/DBFunctions;Ljava/util/List;)V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        1344,
+        3170
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "16-persistencia",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/2ecfc5708f45da5ce59ac5d7bcfd9e31e178447675f0cc166b53bcd62352bd03.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/2ecfc5708f45da5ce59ac5d7bcfd9e31e178447675f0cc166b53bcd62352bd03/jetbrains/buildServer/serverSide/impl/BuildQueueImpl.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Isolamento transacional e comportamento de drivers não foram reproduzidos.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-005",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Cria estados de distribuição e chama BuildQueueDistributionProcessor.doDistribute; há verificação periódica da ordem topológica fora do modo de emulação.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultBuildDistributor",
+    "class_sha256": "7cc9af8aea2da8a7f509f77ecd38b25e3d3c850e1b431dfa6c15c4968d5b6d0f",
+    "method": "assignBuildsToAgents",
+    "descriptors": [
+      "(Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributorInputEx;Ljava/util/Map;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/SetWaitReasonCallback;Ljetbrains/buildServer/serverSide/impl/buildDistribution/CompositeBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/AgentlessBuildStarter;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildOptimizer;Ljetbrains/buildServer/serverSide/impl/buildDistribution/BuildDistributor$QueuedBuildTerminator;Z)Ljetbrains/buildServer/serverSide/impl/buildDistribution/DistributionResult;"
+    ],
+    "location": {
+      "decompiled_lines": [
+        182
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "07-scheduler",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/7cc9af8aea2da8a7f509f77ecd38b25e3d3c850e1b431dfa6c15c4968d5b6d0f.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/7cc9af8aea2da8a7f509f77ecd38b25e3d3c850e1b431dfa6c15c4968d5b6d0f/jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultBuildDistributor.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "CFR produz trechos inválidos; javap é a referência. Não se afirma um algoritmo global de otimização.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-006",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Lê teamcity.agent.priority, usa zero para ausência e limita o inteiro ao intervalo [-10000,10000].",
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter",
+    "class_sha256": "4df2740340d45d58a0f70af72093485be3652fbb6114b875ea24a17b98826b9d",
+    "method": "getAgentPriority",
+    "descriptors": [
+      "(Ljetbrains/buildServer/serverSide/SBuildAgent;)I"
+    ],
+    "location": {
+      "decompiled_lines": [
+        95,
+        140
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "07-scheduler",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/4df2740340d45d58a0f70af72093485be3652fbb6114b875ea24a17b98826b9d.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/4df2740340d45d58a0f70af72093485be3652fbb6114b875ea24a17b98826b9d/jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Não mede justiça, starvation ou precedência global dos demais filtros.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-007",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Quando encontra prioridade diferente de zero e o requestor não é OTHER, ordena candidatos pela prioridade em ordem decrescente; o caminho sem prioridades preserva uma cópia da lista.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter",
+    "class_sha256": "4df2740340d45d58a0f70af72093485be3652fbb6114b875ea24a17b98826b9d",
+    "method": "filterAgents",
+    "descriptors": [
+      "(Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext;)Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;"
+    ],
+    "location": {
+      "decompiled_lines": [
+        72
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "19-algoritmos",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/4df2740340d45d58a0f70af72093485be3652fbb6114b875ea24a17b98826b9d.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/4df2740340d45d58a0f70af72093485be3652fbb6114b875ea24a17b98826b9d/jetbrains/buildServer/serverSide/impl/buildDistribution/PriorityAgentsFilter.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Custo local de ordenação O(A log A); não é a complexidade do scheduler completo.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-008",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Usa tryAcquire para evitar registro concorrente, atualiza myRegistered e libera o semáforo em finally.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/BuildAgentImpl",
+    "class_sha256": "497cbdbca247d65864fe6e9e5d1d014ecaaea78bccf3d8dd2e25458b04c5def2",
+    "method": "registerOnBuildServer",
+    "descriptors": [
+      "(Ljava/lang/String;)Z"
+    ],
+    "location": {
+      "decompiled_lines": [
+        1075
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "18-concorrencia",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/497cbdbca247d65864fe6e9e5d1d014ecaaea78bccf3d8dd2e25458b04c5def2.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/497cbdbca247d65864fe6e9e5d1d014ecaaea78bccf3d8dd2e25458b04c5def2/jetbrains/buildServer/agent/impl/BuildAgentImpl.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Propriedades de liveness e comportamento em rede não foram testados.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-009",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Resolve protocolos, tenta registerOnServer em sequência e prossegue para o próximo em ProtocolDoesNotWorkException; no sucesso atualiza configurações e ID.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/BuildAgentImpl",
+    "class_sha256": "497cbdbca247d65864fe6e9e5d1d014ecaaea78bccf3d8dd2e25458b04c5def2",
+    "method": "doRegisterOnBuildServer",
+    "descriptors": [
+      "(Ljava/lang/String;)Z"
+    ],
+    "location": {
+      "decompiled_lines": [
+        1081,
+        1108
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "17-comunicacao",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/497cbdbca247d65864fe6e9e5d1d014ecaaea78bccf3d8dd2e25458b04c5def2.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/497cbdbca247d65864fe6e9e5d1d014ecaaea78bccf3d8dd2e25458b04c5def2/jetbrains/buildServer/agent/impl/BuildAgentImpl.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Formatos de wire, timeouts e autenticação de cada protocolo exigem análise adicional.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-010",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Percorre estágios, consulta interrupção e para diante de status não bem-sucedido, exceto quando shouldRunAllStages permite continuar.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/buildStages/StagesExecutor",
+    "class_sha256": "0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c",
+    "method": "doStages",
+    "descriptors": [
+      "(Ljava/util/Collection;)Ljetbrains/buildServer/agent/BuildFinishedStatus;"
+    ],
+    "location": {
+      "decompiled_lines": [
+        34
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "08-build-lifecycle",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c/jetbrains/buildServer/agent/impl/buildStages/StagesExecutor.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "A ordem concreta de todos os estágios depende da montagem da coleção.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-011",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Marca myIsInterrupted e encaminha interrupt ao estágio atual quando presente.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/buildStages/StagesExecutor",
+    "class_sha256": "0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c",
+    "method": "interrupt",
+    "descriptors": [
+      "()V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        67,
+        72
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "21-variaveis-estados",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/0e7639aa89af22ce3a022f56c78b21288520ebd2ae3932b7c2e4bdb2d36ae65c/jetbrains/buildServer/agent/impl/buildStages/StagesExecutor.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Não prova interrupção imediata de processos filhos.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-012",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Aguarda publicação de artefatos para status finalizado e informa buildDetachedFromAgent ou buildFinished conforme motivo de interrupção e detached state.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage",
+    "class_sha256": "03acd496911a398228f630cd2ddac48c6d42ffcb5132d0d3df6f1c13415cf79e",
+    "method": "doFinishStage",
+    "descriptors": [
+      "(Ljetbrains/buildServer/agent/impl/BuildFinishContext;)V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        55
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "08-build-lifecycle",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/03acd496911a398228f630cd2ddac48c6d42ffcb5132d0d3df6f1c13415cf79e.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/03acd496911a398228f630cd2ddac48c6d42ffcb5132d0d3df6f1c13415cf79e/jetbrains/buildServer/agent/impl/buildStages/finishStages/FinishBuildOnAgentFStage.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Confirmação remota e persistência do resultado no servidor permanecem parciais.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-013",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "POST na raiz de /app/rest/buildQueue verifica fila grande, obtém usuário atual, chama Build.triggerBuild e opcionalmente moveTop.",
+    "artifact": "webapps/ROOT/WEB-INF/plugins/rest-api/server/rest-api-2026.2-239120.jar",
+    "artifact_sha256": "d021024c808d8691aabec689d006e04df608467318fbde6166b43b074c36aaa9",
+    "class": "jetbrains/buildServer/server/rest/request/BuildQueueRequest",
+    "class_sha256": "f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0",
+    "method": "queueNewBuild",
+    "descriptors": [
+      "(Ljetbrains/buildServer/server/rest/model/build/Build;Ljava/lang/Boolean;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)Ljetbrains/buildServer/server/rest/model/build/Build;"
+    ],
+    "location": {
+      "decompiled_lines": [
+        468
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "13-rest-api",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/f7c1c1852f43e8b44e4454590253619485bec166db43f75d564c798bd862feb0/jetbrains/buildServer/server/rest/request/BuildQueueRequest.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Permissões delegadas, todos os erros e códigos HTTP não estão exaustivamente rastreados.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-014",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Constrói contexto Spring do plugin, emite contextCreated, executa refresh e emite contextLoaded ou contextFailedToLoad.",
+    "artifact": "buildAgent/lib/plugin-model-common.jar",
+    "artifact_sha256": "02171685cb37650335be784653603af9c194056583928097ccaacc53907c967c",
+    "class": "jetbrains/buildServer/plugins/spring/SpringPluginLoader",
+    "class_sha256": "62233beb2727bb236090938fd16bc7f6fa2aac41e7ce8532038f411e35af4f64",
+    "method": "pluginClassesLoaded",
+    "descriptors": [
+      "(Ljetbrains/buildServer/plugins/PluginData;)V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        127
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "15-plugins",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/62233beb2727bb236090938fd16bc7f6fa2aac41e7ce8532038f411e35af4f64.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/62233beb2727bb236090938fd16bc7f6fa2aac41e7ce8532038f411e35af4f64/jetbrains/buildServer/plugins/spring/SpringPluginLoader.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Classloader ativo e recarga real não foram observados.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-015",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Prepara callbacks de geração, sucesso e falha e chama ConfigFilesUpdater.scheduleUpdateConfigTask.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/server-core.jar",
+    "artifact_sha256": "c3735adc6419f0ed274d292ec498ec052d12e5d3e5dbc6b8e24229ada5c06584",
+    "class": "jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdaterImpl",
+    "class_sha256": "2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5",
+    "method": "scheduleConfigUpdatingTask",
+    "descriptors": [
+      "(Ljava/util/List;Ljava/io/File;Ljetbrains/buildServer/serverSide/impl/versionedSettings/GenOptions;JLjetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdateConfig;Ljetbrains/buildServer/vcs/VcsRootInstance;Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdaterImpl$AffectedProjectsGroup;Ljava/util/Set;Ljava/util/function/Supplier;Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdaterImpl$ConfigUpdateCallback;Ljetbrains/buildServer/util/Disposable;)Ljetbrains/buildServer/serverSide/PersistTask;"
+    ],
+    "location": {
+      "decompiled_lines": [
+        829
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "11-kotlin-dsl",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/2a44ae045d3cd6545e42de45d60506c578e477a987f5e46ab0e6941bb1ce92b5/jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsUpdaterImpl.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Não equiparar esta etapa à execução dos passos de build; compilação Kotlin e aplicação completa ainda parciais.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-016",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Invoca execAndOutputXml por reflexão, acrescenta -jvm-target 1.8, linguagem e diretório de saída; converte diagnóstico XML em VersionedSettingsException quando o resultado não é OK.",
+    "artifact": "webapps/ROOT/WEB-INF/plugins/configs-dsl.zip!/server/configs-dsl-server-2026.2.jar",
+    "artifact_sha256": "c0fbe282dc1de2347a5affef7de569c53f1b7fd8d98f61ab4573928d50bc4f23",
+    "class": "jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler",
+    "class_sha256": "f1750a413a10c0b2795290d1a93c480f2187931c27fbe0dbe80d1e6f0c09f296",
+    "method": "run",
+    "descriptors": [
+      "(Ljava/io/File;Ljava/util/List;Ljava/util/List;Ljava/io/File;Ljava/lang/String;)V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        62
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "11-kotlin-dsl",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/f1750a413a10c0b2795290d1a93c480f2187931c27fbe0dbe80d1e6f0c09f296.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/f1750a413a10c0b2795290d1a93c480f2187931c27fbe0dbe80d1e6f0c09f296/jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Esse target de bytecode não determina o JDK mínimo do servidor; avaliação e aplicação da DSL ainda não foram reproduzidas.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-017",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Consulta /app/agents/v1/commands/next e lê TeamCity-AgentCommandName e TeamCity-AgentCommandId da resposta.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller",
+    "class_sha256": "f2a3bf0cae8212ded718618d2b1e69b217a0972473000f79b9f452f82b8695db",
+    "method": "getNextCommand",
+    "descriptors": [
+      "()Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;"
+    ],
+    "location": {
+      "decompiled_lines": [
+        134,
+        223
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "17-comunicacao",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/f2a3bf0cae8212ded718618d2b1e69b217a0972473000f79b9f452f82b8695db.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/f2a3bf0cae8212ded718618d2b1e69b217a0972473000f79b9f452f82b8695db/jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Servidor consumidor e todas as versões do protocolo precisam de correlação adicional.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-018",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Inicia intervalo configurável com padrão 5000 ms; após processar comando atribui o padrão de 500 ms; captura falhas e continua enquanto myStopped for falso.",
+    "artifact": "buildAgent/lib/agent-core.jar",
+    "artifact_sha256": "cc39f1bb22b1489f6a745a2ad2f65b0b7e4d4d9e7c6f195f0b7dde6ab1514289",
+    "class": "jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller",
+    "class_sha256": "f2a3bf0cae8212ded718618d2b1e69b217a0972473000f79b9f452f82b8695db",
+    "method": "run",
+    "descriptors": [
+      "()V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        130
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "17-comunicacao",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/f2a3bf0cae8212ded718618d2b1e69b217a0972473000f79b9f452f82b8695db.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/f2a3bf0cae8212ded718618d2b1e69b217a0972473000f79b9f452f82b8695db/jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "O intervalo não é redefinido para 5000 dentro do loop observado. Sem reprodução dinâmica de timing.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  },
+  {
+    "id": "TC-019",
+    "classification": "STATIC_CONFIRMED",
+    "statement": "Coordena processamento do ciclo de inicialização por estágios, distinto do simples registro do servlet.",
+    "artifact": "webapps/ROOT/WEB-INF/lib/web-startup.jar",
+    "artifact_sha256": "1d68da15cb572b3feb684e385fbed942948187e2f95a79cca7279e49e62f0852",
+    "class": "jetbrains/buildServer/maintenance/StartupProcessor",
+    "class_sha256": "911831a92c7aa1cad27d64e4d10a974e1abd0a2214bd20e3dc2b6ec246126d28",
+    "method": "processTeamCityLifecycle",
+    "descriptors": [
+      "()V"
+    ],
+    "location": {
+      "decompiled_lines": [
+        460
+      ],
+      "jvm_location": "method descriptor + ASM instruction ordinals in symbols.sqlite; byte offsets in javap"
+    },
+    "functional_flow": "03-bootstrap",
+    "tool": [
+      "ASM 9.11.1",
+      "javap 25.0.4.1",
+      "CFR 0.152"
+    ],
+    "evidence": {
+      "javap": "rea/teamcity-reverse-engineering/25-evidencias/javap/911831a92c7aa1cad27d64e4d10a974e1abd0a2214bd20e3dc2b6ec246126d28.txt",
+      "decompiled": "rea/teamcity-reverse-engineering/25-evidencias/decompiled/911831a92c7aa1cad27d64e4d10a974e1abd0a2214bd20e3dc2b6ec246126d28/jetbrains/buildServer/maintenance/StartupProcessor.java",
+      "symbols": "symbols.sqlite"
+    },
+    "limitations": [
+      "Predicados de todos os estados e efeitos de migração não foram integralmente reconstruídos.",
+      "Static inspection only; decompiled variable names are not original-source evidence."
+    ]
+  }
+]

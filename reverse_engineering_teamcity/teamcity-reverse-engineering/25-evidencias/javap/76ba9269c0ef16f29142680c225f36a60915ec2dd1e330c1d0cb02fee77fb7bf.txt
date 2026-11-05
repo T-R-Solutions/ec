@@ -1,0 +1,614 @@
+Compiled from "RunningBuildsLimiter.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.RunningBuildsLimiter implements jetbrains.buildServer.serverSide.buildDistribution.BuildDistributionCallback {
+  private static final com.intellij.openapi.diagnostic.Logger LOG;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final jetbrains.buildServer.serverSide.impl.QueuedTasksProcessor<jetbrains.buildServer.serverSide.BuildPromotionEx> myProcessor;
+    descriptor: Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+
+  public static final java.lang.String RUNNING_BUILDS_LIMITING_ENABLED;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.serverSide.ServerResponsibility myServerResponsibility;
+    descriptor: Ljetbrains/buildServer/serverSide/ServerResponsibility;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.RunningBuildsLimiter(jetbrains.buildServer.ExtensionHolder, jetbrains.buildServer.serverSide.impl.buildDistribution.FlushQueueExecutor, jetbrains.buildServer.serverSide.ServerResponsibility);
+    descriptor: (Ljetbrains/buildServer/ExtensionHolder;Ljetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor;Ljetbrains/buildServer/serverSide/ServerResponsibility;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+        24: aload_0
+        25: invokespecial #371                // Method java/lang/Object."<init>":()V
+        28: aload_0
+        29: aload_3
+        30: putfield      #57                 // Field myServerResponsibility:Ljetbrains/buildServer/serverSide/ServerResponsibility;
+        33: aload_1
+        34: ldc           #2                  // class jetbrains/buildServer/serverSide/buildDistribution/BuildDistributionCallback
+        36: ldc           #17                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/RunningBuildsLimiter
+        38: invokevirtual #226                // Method java/lang/Class.getName:()Ljava/lang/String;
+        41: aload_0
+        42: invokeinterface #181,  4          // InterfaceMethod jetbrains/buildServer/ExtensionHolder.registerExtension:(Ljava/lang/Class;Ljava/lang/String;Ljetbrains/buildServer/TeamCityExtension;)V
+        47: ldc           #13                 // String teamcity.runningBuildsLimiter.queue.size
+        49: sipush        2000
+        52: invokestatic  #42                 // Method jetbrains/buildServer/serverSide/TeamCityProperties.getInteger:(Ljava/lang/String;I)I
+        55: istore        4
+        57: ldc           #4                  // String teamcity.runningBuildsLimiter.maxTasks
+        59: sipush        1000
+        62: invokestatic  #42                 // Method jetbrains/buildServer/serverSide/TeamCityProperties.getInteger:(Ljava/lang/String;I)I
+        65: istore        5
+        67: aload_0
+        68: new           #380                // class jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor
+        71: dup
+        72: new           #135                // class jetbrains/buildServer/serverSide/impl/buildDistribution/RunningBuildsLimiter$1
+        75: dup
+        76: aload_0
+        77: invokespecial #219                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/RunningBuildsLimiter$1."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/RunningBuildsLimiter;)V
+        80: aload_2
+        81: invokevirtual #373                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/FlushQueueExecutor.getParallelTasksExecutor:()Ljava/util/concurrent/ExecutorService;
+        84: iload         4
+        86: iload         5
+        88: ldc           #16                 // String Running builds limiter
+        90: invokespecial #315                // Method jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor."<init>":(Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor$ManyTasksProcessor;Ljava/util/concurrent/ExecutorService;IILjava/lang/String;)V
+        93: putfield      #110                // Field myProcessor:Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+        96: return
+      LineNumberTable:
+        line 37: 24
+        line 20: 28
+        line 10: 33
+        line 9: 47
+        line 50: 57
+        line 55: 67
+        line 48: 81
+        line 30: 96
+
+  public void stopObsoleteRunningBuilds(java.util.List<jetbrains.buildServer.serverSide.BuildPromotionEx>);
+    descriptor: (Ljava/util/List;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_3
+         5: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #24,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        21: astore_2
+        22: aload_2
+        23: invokeinterface #65,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+        28: ifeq          349
+        31: aload_2
+        32: invokeinterface #339,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        37: checkcast     #175                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        40: astore_3
+        41: aload_0
+        42: aload_3
+        43: invokevirtual #157                // Method shouldCancelObsoleteRunningBuilds:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+        46: ifne          56
+        49: goto          22
+        52: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        55: athrow
+        56: aload_3
+        57: invokeinterface #268,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getParentBuildType:()Ljetbrains/buildServer/serverSide/BuildTypeEx;
+        62: astore        4
+        64: aload         4
+        66: ifnonnull     74
+        69: return
+        70: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        73: athrow
+        74: aload_3
+        75: invokeinterface #255,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getBranch:()Ljetbrains/buildServer/serverSide/Branch;
+        80: astore        5
+        82: aload         4
+        84: invokeinterface #102,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getMaximumNumberOfBuilds:()I
+        89: istore        6
+        91: aload_3
+        92: invokeinterface #316,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getMaximumNumberOfBuildsPerBranch:()I
+        97: istore        7
+        99: goto          105
+       102: astore        8
+       104: return
+       105: aload_3
+       106: aload         5
+       108: invokedynamic #344,  0            // InvokeDynamic #0:apply:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/Branch;)Ljetbrains/buildServer/util/Predicate;
+       113: astore        8
+       115: aload_3
+       116: invokedynamic #50,  0             // InvokeDynamic #1:apply:(Ljetbrains/buildServer/serverSide/BuildPromotionEx;)Ljetbrains/buildServer/util/Predicate;
+       121: astore        9
+       123: iload         7
+       125: ifle          237
+       128: aload         4
+       130: invokeinterface #87,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getRunningBuilds:()Ljava/util/List;
+       135: invokeinterface #74,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       140: aload         8
+       142: invokedynamic #62,  0             // InvokeDynamic #2:test:(Ljetbrains/buildServer/util/Predicate;)Ljava/util/function/Predicate;
+       147: invokeinterface #314,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+       152: invokestatic  #321                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+       155: invokeinterface #131,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+       160: checkcast     #153                // class java/util/List
+       163: dup
+       164: astore        10
+       166: invokeinterface #294,  1          // InterfaceMethod java/util/List.size:()I
+       171: iload         7
+       173: if_icmplt     237
+       176: getstatic     #317                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       179: aload         4
+       181: invokestatic  #155                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/serverSide/SBuildType;)Ljava/lang/String;
+       184: aload         5
+       186: invokestatic  #145                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/log/Loggable;)Ljava/lang/String;
+       189: iload         7
+       191: invokedynamic #246,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+       196: invokevirtual #324                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       199: aload         10
+       201: aload         10
+       203: invokeinterface #294,  1          // InterfaceMethod java/util/List.size:()I
+       208: iconst_1
+       209: isub
+       210: invokeinterface #376,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       215: checkcast     #105                // class jetbrains/buildServer/serverSide/RunningBuildEx
+       218: astore        11
+       220: aload         11
+       222: getstatic     #253                // Field jetbrains/buildServer/serverSide/impl/RunningBuildState.INTERRUPTED_BY_SYSTEM:Ljetbrains/buildServer/serverSide/impl/RunningBuildState;
+       225: aconst_null
+       226: ldc           #6                  // String Canceled because the running build limit was reached
+       228: iconst_0
+       229: invokeinterface #300,  5          // InterfaceMethod jetbrains/buildServer/serverSide/RunningBuildEx.stop:(Ljetbrains/buildServer/serverSide/impl/RunningBuildState;Ljetbrains/buildServer/users/User;Ljava/lang/String;Z)V
+       234: goto          128
+       237: iload         6
+       239: ifle          346
+       242: aload         4
+       244: invokeinterface #87,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getRunningBuilds:()Ljava/util/List;
+       249: invokeinterface #74,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       254: aload         9
+       256: invokedynamic #86,  0             // InvokeDynamic #4:test:(Ljetbrains/buildServer/util/Predicate;)Ljava/util/function/Predicate;
+       261: invokeinterface #314,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+       266: invokestatic  #321                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+       269: invokeinterface #131,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+       274: checkcast     #153                // class java/util/List
+       277: dup
+       278: astore        10
+       280: invokeinterface #294,  1          // InterfaceMethod java/util/List.size:()I
+       285: iload         6
+       287: if_icmplt     346
+       290: getstatic     #317                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+       293: aload         4
+       295: invokestatic  #155                // Method jetbrains/buildServer/serverSide/impl/LogUtil.describe:(Ljetbrains/buildServer/serverSide/SBuildType;)Ljava/lang/String;
+       298: iload         6
+       300: invokedynamic #264,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+       305: invokevirtual #324                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       308: aload         10
+       310: aload         10
+       312: invokeinterface #294,  1          // InterfaceMethod java/util/List.size:()I
+       317: iconst_1
+       318: isub
+       319: invokeinterface #376,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       324: checkcast     #105                // class jetbrains/buildServer/serverSide/RunningBuildEx
+       327: astore        11
+       329: aload         11
+       331: getstatic     #253                // Field jetbrains/buildServer/serverSide/impl/RunningBuildState.INTERRUPTED_BY_SYSTEM:Ljetbrains/buildServer/serverSide/impl/RunningBuildState;
+       334: aconst_null
+       335: ldc           #6                  // String Canceled because the running build limit was reached
+       337: iconst_0
+       338: invokeinterface #300,  5          // InterfaceMethod jetbrains/buildServer/serverSide/RunningBuildEx.stop:(Ljetbrains/buildServer/serverSide/impl/RunningBuildState;Ljetbrains/buildServer/users/User;Ljava/lang/String;Z)V
+       343: goto          242
+       346: goto          22
+       349: return
+      Exception table:
+         from    to  target type
+            64    70    70   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            41    52    52   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+             0     8    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            91    99   102   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 31: 15
+        line 4: 41
+        line 17: 56
+        line 27: 64
+        line 14: 74
+        line 29: 82
+        line 2: 91
+        line 53: 99
+        line 46: 102
+        line 6: 104
+        line 34: 105
+        line 42: 115
+        line 25: 123
+        line 23: 128
+        line 11: 176
+        line 21: 199
+        line 16: 220
+        line 38: 234
+        line 35: 237
+        line 36: 242
+        line 45: 290
+        line 39: 308
+        line 41: 329
+        line 13: 343
+        line 33: 346
+        line 43: 349
+
+  private boolean isEnabled();
+    descriptor: ()Z
+    Code:
+         0: ldc           #7                  // String teamcity.runningBuildsLimiting.enable
+         2: invokestatic  #107                // Method jetbrains/buildServer/serverSide/TeamCityProperties.getBooleanOrTrue:(Ljava/lang/String;)Z
+         5: ifeq          35
+         8: aload_0
+         9: getfield      #57                 // Field myServerResponsibility:Ljetbrains/buildServer/serverSide/ServerResponsibility;
+        12: invokeinterface #367,  1          // InterfaceMethod jetbrains/buildServer/serverSide/ServerResponsibility.canManageBuilds:()Z
+        17: ifeq          35
+        20: goto          27
+        23: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        26: athrow
+        27: iconst_1
+        28: goto          36
+        31: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        34: athrow
+        35: iconst_0
+        36: ireturn
+      Exception table:
+         from    to  target type
+             0    20    23   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+             8    31    31   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 51: 0
+
+  public void distributionStarted();
+    descriptor: ()V
+    Code:
+         0: return
+      LineNumberTable:
+        line 5: 0
+
+  public void distributionFinished();
+    descriptor: ()V
+    Code:
+         0: return
+      LineNumberTable:
+        line 47: 0
+
+  public void waitReasonSet(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo, jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_4
+         5: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_5
+        20: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        29: athrow
+        30: getstatic     #222                // Field jetbrains/buildServer/serverSide/impl/buildDistribution/MaxRunningBuildsPrecondition.ALL_WAIT_REASONS:Ljava/util/Set;
+        33: aload_2
+        34: invokeinterface #167,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+        39: ifeq          88
+        42: aload_0
+        43: aload_1
+        44: invokeinterface #283,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        49: checkcast     #175                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        52: invokevirtual #157                // Method shouldCancelObsoleteRunningBuilds:(Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+        55: ifeq          88
+        58: goto          65
+        61: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        64: athrow
+        65: aload_0
+        66: getfield      #110                // Field myProcessor:Ljetbrains/buildServer/serverSide/impl/QueuedTasksProcessor;
+        69: aload_1
+        70: invokeinterface #283,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo.getBuildPromotionInfo:()Ljetbrains/buildServer/serverSide/buildDistribution/BuildPromotionInfo;
+        75: checkcast     #175                // class jetbrains/buildServer/serverSide/BuildPromotionEx
+        78: invokevirtual #45                 // Method jetbrains/buildServer/serverSide/impl/QueuedTasksProcessor.addToQueue:(Ljava/lang/Object;)V
+        81: goto          88
+        84: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        87: athrow
+        88: return
+      Exception table:
+         from    to  target type
+             0     8    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            15    23    26   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            30    58    61   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            42    81    84   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 32: 30
+        line 7: 44
+        line 56: 65
+        line 28: 88
+
+  private boolean shouldCancelObsoleteRunningBuilds(jetbrains.buildServer.serverSide.BuildPromotion);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotion;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     16
+         4: bipush        6
+         6: invokestatic  #211                // Method $$$reportNull$$$0:(I)V
+         9: goto          16
+        12: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        15: athrow
+        16: aload_0
+        17: invokevirtual #320                // Method isEnabled:()Z
+        20: ifne          29
+        23: iconst_0
+        24: ireturn
+        25: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        28: athrow
+        29: aload_1
+        30: invokeinterface #34,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotion.getParentBuildType:()Ljetbrains/buildServer/serverSide/SBuildType;
+        35: astore_2
+        36: aload_2
+        37: ifnonnull     46
+        40: iconst_0
+        41: ireturn
+        42: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        45: athrow
+        46: aload_2
+        47: getstatic     #352                // Field jetbrains/buildServer/serverSide/BuildTypeOptions.BT_RUNNING_BUILDS_LIMITING_MODE:Ljetbrains/buildServer/util/EnumOption;
+        50: invokeinterface #272,  2          // InterfaceMethod jetbrains/buildServer/serverSide/SBuildType.getOption:(Ljetbrains/buildServer/util/Option;)Ljava/lang/Object;
+        55: getstatic     #91                 // Field jetbrains/buildServer/serverSide/BuildsLimitingMode.CANCEL_OLDEST_RUNNING_BUILD:Ljetbrains/buildServer/serverSide/BuildsLimitingMode;
+        58: if_acmpne     69
+        61: iconst_1
+        62: goto          70
+        65: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        68: athrow
+        69: iconst_0
+        70: ireturn
+      Exception table:
+         from    to  target type
+             0     9    12   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            16    25    25   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            36    42    42   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            46    65    65   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 12: 16
+        line 26: 29
+        line 40: 36
+        line 54: 46
+
+  private static boolean lambda$stopObsoleteRunningBuilds$3(jetbrains.buildServer.util.Predicate, jetbrains.buildServer.serverSide.SRunningBuild);
+    descriptor: (Ljetbrains/buildServer/util/Predicate;Ljetbrains/buildServer/serverSide/SRunningBuild;)Z
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #363,  2          // InterfaceMethod jetbrains/buildServer/util/Predicate.apply:(Ljava/lang/Object;)Z
+         7: ireturn
+      LineNumberTable:
+        line 18: 0
+
+  private static boolean lambda$stopObsoleteRunningBuilds$2(jetbrains.buildServer.util.Predicate, jetbrains.buildServer.serverSide.SRunningBuild);
+    descriptor: (Ljetbrains/buildServer/util/Predicate;Ljetbrains/buildServer/serverSide/SRunningBuild;)Z
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #363,  2          // InterfaceMethod jetbrains/buildServer/util/Predicate.apply:(Ljava/lang/Object;)Z
+         7: ireturn
+      LineNumberTable:
+        line 1: 0
+
+  private static boolean lambda$stopObsoleteRunningBuilds$1(jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.SRunningBuild);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/SRunningBuild;)Z
+    Code:
+         0: aload_1
+         1: invokeinterface #90,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SRunningBuild.isInterrupted:()Z
+         6: ifeq          15
+         9: iconst_0
+        10: ireturn
+        11: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_1
+        16: invokeinterface #168,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SRunningBuild.getBuildId:()J
+        21: aload_0
+        22: invokeinterface #290,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        27: lcmp
+        28: ifeq          39
+        31: iconst_1
+        32: goto          40
+        35: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        38: athrow
+        39: iconst_0
+        40: ireturn
+      Exception table:
+         from    to  target type
+             0    11    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            15    35    35   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 8: 0
+        line 15: 15
+
+  private static boolean lambda$stopObsoleteRunningBuilds$0(jetbrains.buildServer.serverSide.BuildPromotionEx, jetbrains.buildServer.serverSide.Branch, jetbrains.buildServer.serverSide.SRunningBuild);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildPromotionEx;Ljetbrains/buildServer/serverSide/Branch;Ljetbrains/buildServer/serverSide/SRunningBuild;)Z
+    Code:
+         0: aload_2
+         1: invokeinterface #90,  1           // InterfaceMethod jetbrains/buildServer/serverSide/SRunningBuild.isInterrupted:()Z
+         6: ifeq          15
+         9: iconst_0
+        10: ireturn
+        11: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        14: athrow
+        15: aload_2
+        16: invokeinterface #168,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SRunningBuild.getBuildId:()J
+        21: aload_0
+        22: invokeinterface #290,  1          // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotionEx.getId:()J
+        27: lcmp
+        28: ifne          37
+        31: iconst_0
+        32: ireturn
+        33: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        36: athrow
+        37: aload_2
+        38: invokeinterface #353,  1          // InterfaceMethod jetbrains/buildServer/serverSide/SRunningBuild.getBuildPromotion:()Ljetbrains/buildServer/serverSide/BuildPromotion;
+        43: invokeinterface #29,  1           // InterfaceMethod jetbrains/buildServer/serverSide/BuildPromotion.getBranch:()Ljetbrains/buildServer/serverSide/Branch;
+        48: astore_3
+        49: aload_3
+        50: ifnonnull     70
+        53: aload_1
+        54: ifnonnull     70
+        57: goto          64
+        60: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        63: athrow
+        64: iconst_1
+        65: ireturn
+        66: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        69: athrow
+        70: aload_3
+        71: ifnull        97
+        74: aload_3
+        75: aload_1
+        76: invokeinterface #288,  2          // InterfaceMethod jetbrains/buildServer/serverSide/Branch.equals:(Ljava/lang/Object;)Z
+        81: ifeq          97
+        84: goto          91
+        87: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        90: athrow
+        91: iconst_1
+        92: ireturn
+        93: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        96: athrow
+        97: iconst_0
+        98: ireturn
+      Exception table:
+         from    to  target type
+             0    11    11   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            15    33    33   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            49    57    60   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            53    66    66   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            70    84    87   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+            74    93    93   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+      LineNumberTable:
+        line 22: 0
+        line 44: 15
+        line 49: 37
+        line 3: 49
+        line 52: 70
+        line 24: 97
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: ldc           #17                 // class jetbrains/buildServer/serverSide/impl/buildDistribution/RunningBuildsLimiter
+         2: invokestatic  #270                // Method com/intellij/openapi/diagnostic/Logger.getInstance:(Ljava/lang/Class;)Lcom/intellij/openapi/diagnostic/Logger;
+         5: putstatic     #317                // Field LOG:Lcom/intellij/openapi/diagnostic/Logger;
+         8: return
+      LineNumberTable:
+        line 19: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc           #12                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         2: iconst_3
+         3: anewarray     #204                // class java/lang/Object
+         6: iload_0
+         7: tableswitch   { // 0 to 6
+                       0: 48
+                       1: 60
+                       2: 68
+                       3: 76
+                       4: 84
+                       5: 92
+                       6: 100
+                 default: 48
+            }
+        48: dup
+        49: iconst_0
+        50: ldc           #1                  // String extensionHolder
+        52: aastore
+        53: goto          108
+        56: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+        59: athrow
+        60: dup
+        61: iconst_0
+        62: ldc           #19                 // String flushQueueExecutor
+        64: aastore
+        65: goto          108
+        68: dup
+        69: iconst_0
+        70: ldc           #3                  // String serverResponsibility
+        72: aastore
+        73: goto          108
+        76: dup
+        77: iconst_0
+        78: ldc           #14                 // String promotions
+        80: aastore
+        81: goto          108
+        84: dup
+        85: iconst_0
+        86: ldc           #9                  // String build
+        88: aastore
+        89: goto          108
+        92: dup
+        93: iconst_0
+        94: ldc           #10                 // String reason
+        96: aastore
+        97: goto          108
+       100: dup
+       101: iconst_0
+       102: ldc           #8                  // String buildPromotion
+       104: aastore
+       105: goto          108
+       108: dup
+       109: iconst_1
+       110: ldc           #5                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/RunningBuildsLimiter
+       112: aastore
+       113: iload_0
+       114: tableswitch   { // 0 to 6
+                       0: 156
+                       1: 156
+                       2: 156
+                       3: 168
+                       4: 176
+                       5: 176
+                       6: 184
+                 default: 156
+            }
+       156: dup
+       157: iconst_2
+       158: ldc           #20                 // String <init>
+       160: aastore
+       161: goto          192
+       164: invokestatic  #232                // Method a:(Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+       167: athrow
+       168: dup
+       169: iconst_2
+       170: ldc           #11                 // String stopObsoleteRunningBuilds
+       172: aastore
+       173: goto          192
+       176: dup
+       177: iconst_2
+       178: ldc           #15                 // String waitReasonSet
+       180: aastore
+       181: goto          192
+       184: dup
+       185: iconst_2
+       186: ldc           #18                 // String shouldCancelObsoleteRunningBuilds
+       188: aastore
+       189: goto          192
+       192: invokestatic  #161                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       195: new           #351                // class java/lang/IllegalArgumentException
+       198: dup_x1
+       199: swap
+       200: invokespecial #162                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       203: athrow
+      Exception table:
+         from    to  target type
+             0    56    56   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+           108   164   164   Class jetbrains/buildServer/serverSide/BuildTypeNotFoundException
+
+  private static jetbrains.buildServer.serverSide.BuildTypeNotFoundException a(jetbrains.buildServer.serverSide.BuildTypeNotFoundException);
+    descriptor: (Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;)Ljetbrains/buildServer/serverSide/BuildTypeNotFoundException;
+    Code:
+         0: aload_0
+         1: areturn
+}

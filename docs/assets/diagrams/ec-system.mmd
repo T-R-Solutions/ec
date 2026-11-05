@@ -1,0 +1,15 @@
+flowchart TB
+    accTitle: Ec · do desejo à execução
+    accDescr: Onde ficam autoria, controle e execução? UI → SERVER: HTTP versionado. SERVER → AGENT: HTTP versionado. SERVER → YAML: validação e publicação. SERVER → PG: estado operacional. AGENT → RESULT: produção. RESULT → SERVER: envio de resultados
+    UI["Autoria e operação<br/>Vue 3 · TypeScript · Pinia"]
+    SERVER["Ec Server<br/>API e domínios · Rust"]
+    AGENT["Ec Agent<br/>Workspace e processos · Rust"]
+    YAML["Configuração desejada<br/>YAML canônico · revisões"]
+    PG["Estado operacional<br/>PostgreSQL · fila e tentativas"]
+    RESULT["Saída e resultados<br/>Logs · testes · artefatos"]
+    UI -->|"HTTP versionado"| SERVER
+    SERVER -->|"HTTP versionado"| AGENT
+    SERVER -->|"validação e publicação"| YAML
+    SERVER -->|"estado operacional"| PG
+    AGENT -->|"produção"| RESULT
+    RESULT -->|"envio de resultados"| SERVER

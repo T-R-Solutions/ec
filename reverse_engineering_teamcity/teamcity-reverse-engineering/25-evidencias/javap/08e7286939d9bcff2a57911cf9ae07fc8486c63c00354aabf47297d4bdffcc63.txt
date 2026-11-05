@@ -1,0 +1,5 @@
+Compiled from "StartingBuildAgentsFilter.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.StartingBuildAgentsFilter extends jetbrains.buildServer.serverSide.ServerExtension {
+  public abstract jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterResult filterAgents(jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterContext);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext;)Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+}

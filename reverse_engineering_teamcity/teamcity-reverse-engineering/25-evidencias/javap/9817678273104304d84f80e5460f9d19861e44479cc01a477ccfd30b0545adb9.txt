@@ -1,0 +1,378 @@
+Compiled from "DefaultAgentsFilter.java"
+public class jetbrains.buildServer.serverSide.impl.buildDistribution.DefaultAgentsFilter implements jetbrains.buildServer.serverSide.buildDistribution.StartingBuildAgentsFilter {
+  private final java.util.Collection<jetbrains.buildServer.serverSide.buildDistribution.StartingBuildAgentsFilter> myBuildAgentsFilters;
+    descriptor: Ljava/util/Collection;
+
+  public jetbrains.buildServer.serverSide.impl.buildDistribution.DefaultAgentsFilter(jetbrains.buildServer.ExtensionHolder);
+    descriptor: (Ljetbrains/buildServer/ExtensionHolder;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #131                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #61                 // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: ldc           #8                  // class jetbrains/buildServer/serverSide/buildDistribution/StartingBuildAgentsFilter
+        16: invokeinterface #178,  2          // InterfaceMethod jetbrains/buildServer/ExtensionHolder.getExtensions:(Ljava/lang/Class;)Ljava/util/Collection;
+        21: putfield      #90                 // Field myBuildAgentsFilters:Ljava/util/Collection;
+        24: return
+      LineNumberTable:
+        line 12: 8
+        line 32: 12
+        line 28: 24
+
+  public jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterResult filterAgents(jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterContext);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext;)Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_1
+         5: invokestatic  #131                // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        14: athrow
+        15: new           #177                // class java/util/ArrayList
+        18: dup
+        19: aload_1
+        20: invokeinterface #98,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.getAgentsForStartingBuild:()Ljava/util/Collection;
+        25: invokespecial #112                // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+        28: astore_2
+        29: aload_0
+        30: getfield      #90                 // Field myBuildAgentsFilters:Ljava/util/Collection;
+        33: invokeinterface #100,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        38: astore_3
+        39: aload_3
+        40: invokeinterface #187,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        45: ifeq          373
+        48: aload_3
+        49: invokeinterface #76,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        54: checkcast     #8                  // class jetbrains/buildServer/serverSide/buildDistribution/StartingBuildAgentsFilter
+        57: astore        4
+        59: aload         4
+        61: new           #103                // class jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultAgentsFilter$1
+        64: dup
+        65: aload_0
+        66: aload_1
+        67: aload_2
+        68: invokespecial #124                // Method jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultAgentsFilter$1."<init>":(Ljetbrains/buildServer/serverSide/impl/buildDistribution/DefaultAgentsFilter;Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext;Ljava/util/List;)V
+        71: invokeinterface #186,  2          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/StartingBuildAgentsFilter.filterAgents:(Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext;)Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+        76: astore        5
+        78: aload         5
+        80: invokevirtual #213                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.getWaitReason:()Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+        83: astore        6
+        85: aload         6
+        87: ifnull        198
+        90: aload_1
+        91: invokeinterface #65,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.isEmulationMode:()Z
+        96: ifne          140
+        99: goto          106
+       102: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       105: athrow
+       106: getstatic     #20                 // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+       109: aload_1
+       110: invokeinterface #94,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.getStartingBuild:()Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;
+       115: invokestatic  #14                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       118: aload         6
+       120: invokeinterface #161,  1          // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/WaitReason.getDescription:()Ljava/lang/String;
+       125: invokedynamic #78,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       130: invokevirtual #66                 // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       133: goto          140
+       136: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       139: athrow
+       140: new           #113                // class jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult
+       143: dup
+       144: invokespecial #68                 // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult."<init>":()V
+       147: astore        7
+       149: aload         7
+       151: aload         6
+       153: invokevirtual #121                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setWaitReason:(Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+       156: aload         5
+       158: invokevirtual #162                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.getFilteredConnectedAgents:()Ljava/util/List;
+       161: ifnonnull     177
+       164: aload         7
+       166: aload_2
+       167: invokevirtual #167                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setFilteredConnectedAgents:(Ljava/util/List;)V
+       170: goto          187
+       173: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       176: athrow
+       177: aload         7
+       179: aload         5
+       181: invokevirtual #162                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.getFilteredConnectedAgents:()Ljava/util/List;
+       184: invokevirtual #167                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setFilteredConnectedAgents:(Ljava/util/List;)V
+       187: aload         7
+       189: dup
+       190: ifnonnull     197
+       193: iconst_2
+       194: invokestatic  #131                // Method $$$reportNull$$$0:(I)V
+       197: areturn
+       198: aload         5
+       200: invokevirtual #162                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.getFilteredConnectedAgents:()Ljava/util/List;
+       203: astore        7
+       205: aload         7
+       207: ifnull        322
+       210: aload         7
+       212: invokeinterface #26,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+       217: ifeq          322
+       220: goto          227
+       223: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       226: athrow
+       227: aload_1
+       228: invokeinterface #65,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.isEmulationMode:()Z
+       233: ifne          280
+       236: goto          243
+       239: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       242: athrow
+       243: getstatic     #20                 // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+       246: aload_1
+       247: invokeinterface #94,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterContext.getStartingBuild:()Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;
+       252: invokestatic  #14                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       255: aload         4
+       257: invokeinterface #56,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/StartingBuildAgentsFilter.getClass:()Ljava/lang/Class;
+       262: invokevirtual #73                 // Method java/lang/Class.getName:()Ljava/lang/String;
+       265: invokedynamic #176,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       270: invokevirtual #66                 // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       273: goto          280
+       276: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       279: athrow
+       280: new           #113                // class jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult
+       283: dup
+       284: invokespecial #68                 // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult."<init>":()V
+       287: astore        8
+       289: aload         8
+       291: new           #97                 // class jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       294: dup
+       295: ldc           #5                  // String Build startup blocked for an unknown reason, see teamcity-server.log for details
+       297: invokespecial #79                 // Method jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason."<init>":(Ljava/lang/String;)V
+       300: invokevirtual #121                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setWaitReason:(Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+       303: aload         8
+       305: invokestatic  #17                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+       308: invokevirtual #167                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setFilteredConnectedAgents:(Ljava/util/List;)V
+       311: aload         8
+       313: dup
+       314: ifnonnull     321
+       317: iconst_3
+       318: invokestatic  #131                // Method $$$reportNull$$$0:(I)V
+       321: areturn
+       322: aload         7
+       324: ifnull        342
+       327: aload_2
+       328: invokeinterface #122,  1          // InterfaceMethod java/util/List.clear:()V
+       333: aload_2
+       334: aload         7
+       336: invokeinterface #164,  2          // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+       341: pop
+       342: goto          370
+       345: astore        5
+       347: getstatic     #20                 // Field jetbrains/buildServer/log/Loggers.SERVER:Lcom/intellij/openapi/diagnostic/Logger;
+       350: aload         4
+       352: invokeinterface #56,  1           // InterfaceMethod jetbrains/buildServer/serverSide/buildDistribution/StartingBuildAgentsFilter.getClass:()Ljava/lang/Class;
+       357: invokevirtual #73                 // Method java/lang/Class.getName:()Ljava/lang/String;
+       360: invokedynamic #169,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       365: aload         5
+       367: invokevirtual #59                 // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       370: goto          39
+       373: new           #113                // class jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult
+       376: dup
+       377: invokespecial #68                 // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult."<init>":()V
+       380: astore_3
+       381: aload_3
+       382: aload_2
+       383: invokevirtual #167                // Method jetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult.setFilteredConnectedAgents:(Ljava/util/List;)V
+       386: aload_3
+       387: dup
+       388: ifnonnull     402
+       391: iconst_4
+       392: invokestatic  #131                // Method $$$reportNull$$$0:(I)V
+       395: goto          402
+       398: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       401: athrow
+       402: areturn
+      Exception table:
+         from    to  target type
+           149   173   173   Class java/lang/Exception
+            90   133   136   Class java/lang/Exception
+            85    99   102   Class java/lang/Exception
+             0     8    11   Class java/lang/Exception
+            59   189   345   Class java/lang/Exception
+           227   273   276   Class java/lang/Exception
+           210   236   239   Class java/lang/Exception
+           205   220   223   Class java/lang/Exception
+           198   313   345   Class java/lang/Exception
+           322   342   345   Class java/lang/Exception
+           381   395   398   Class java/lang/Exception
+      LineNumberTable:
+        line 24: 15
+        line 2: 29
+        line 21: 59
+        line 3: 78
+        line 22: 85
+        line 15: 90
+        line 8: 106
+        line 5: 140
+        line 11: 149
+        line 25: 156
+        line 7: 164
+        line 18: 177
+        line 19: 187
+        line 13: 198
+        line 16: 205
+        line 17: 227
+        line 6: 243
+        line 31: 280
+        line 27: 289
+        line 20: 303
+        line 14: 311
+        line 33: 322
+        line 23: 327
+        line 4: 333
+        line 26: 342
+        line 10: 345
+        line 9: 347
+        line 34: 370
+        line 30: 373
+        line 29: 381
+        line 1: 386
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 4
+                       0: 36
+                       1: 36
+                       2: 45
+                       3: 45
+                       4: 45
+                 default: 36
+            }
+        36: ldc           #9                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        38: goto          50
+        41: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        44: athrow
+        45: ldc           #3                  // String @NotNull method %s.%s must not return null
+        47: goto          50
+        50: iload_0
+        51: tableswitch   { // 0 to 4
+                       0: 84
+                       1: 84
+                       2: 92
+                       3: 92
+                       4: 92
+                 default: 84
+            }
+        84: iconst_3
+        85: goto          96
+        88: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+        91: athrow
+        92: iconst_2
+        93: goto          96
+        96: anewarray     #202                // class java/lang/Object
+        99: iload_0
+       100: tableswitch   { // 0 to 4
+                       0: 136
+                       1: 148
+                       2: 156
+                       3: 156
+                       4: 156
+                 default: 136
+            }
+       136: dup
+       137: iconst_0
+       138: ldc           #7                  // String extensionHolder
+       140: aastore
+       141: goto          164
+       144: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       147: athrow
+       148: dup
+       149: iconst_0
+       150: ldc           #6                  // String context
+       152: aastore
+       153: goto          164
+       156: dup
+       157: iconst_0
+       158: ldc           #2                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultAgentsFilter
+       160: aastore
+       161: goto          164
+       164: iload_0
+       165: tableswitch   { // 0 to 4
+                       0: 200
+                       1: 200
+                       2: 212
+                       3: 212
+                       4: 212
+                 default: 200
+            }
+       200: dup
+       201: iconst_1
+       202: ldc           #2                  // String jetbrains/buildServer/serverSide/impl/buildDistribution/DefaultAgentsFilter
+       204: aastore
+       205: goto          220
+       208: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       211: athrow
+       212: dup
+       213: iconst_1
+       214: ldc           #1                  // String filterAgents
+       216: aastore
+       217: goto          220
+       220: iload_0
+       221: tableswitch   { // 0 to 4
+                       0: 256
+                       1: 268
+                       2: 276
+                       3: 276
+                       4: 276
+                 default: 256
+            }
+       256: dup
+       257: iconst_2
+       258: ldc           #4                  // String <init>
+       260: aastore
+       261: goto          279
+       264: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       267: athrow
+       268: dup
+       269: iconst_2
+       270: ldc           #1                  // String filterAgents
+       272: aastore
+       273: goto          279
+       276: goto          279
+       279: invokestatic  #77                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       282: iload_0
+       283: tableswitch   { // 0 to 4
+                       0: 316
+                       1: 316
+                       2: 331
+                       3: 331
+                       4: 331
+                 default: 316
+            }
+       316: new           #193                // class java/lang/IllegalArgumentException
+       319: dup_x1
+       320: swap
+       321: invokespecial #92                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       324: goto          342
+       327: invokestatic  #144                // Method a:(Ljava/lang/Exception;)Ljava/lang/Exception;
+       330: athrow
+       331: new           #149                // class java/lang/IllegalStateException
+       334: dup_x1
+       335: swap
+       336: invokespecial #117                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       339: goto          342
+       342: athrow
+      Exception table:
+         from    to  target type
+             0    41    41   Class java/lang/IllegalArgumentException
+            50    88    88   Class java/lang/IllegalArgumentException
+            96   144   144   Class java/lang/IllegalArgumentException
+           164   208   208   Class java/lang/IllegalArgumentException
+           220   264   264   Class java/lang/IllegalArgumentException
+           279   327   327   Class java/lang/IllegalArgumentException
+
+  private static java.lang.Exception a(java.lang.Exception);
+    descriptor: (Ljava/lang/Exception;)Ljava/lang/Exception;
+    Code:
+         0: aload_0
+         1: areturn
+}

@@ -1,0 +1,2 @@
+# Content-addressed storage
+Separate action cache mapping (key -> result manifest) from CAS (digest -> bytes). Verify digest and size on upload and download; never treat an HTTP ETag as a portable SHA-256. Publish mappings only after complete CAS verification. Conflicting writes to an immutable key must be rejected/quarantined. Reject traversal and symlink escapes on extraction; validate every manifest path and bound archive expansion. A corruption event becomes a miss plus diagnostic, not a successful hit.

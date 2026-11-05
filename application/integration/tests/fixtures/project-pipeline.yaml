@@ -1,0 +1,10 @@
+apiVersion: ec/v1alpha1
+kind: ProjectPipeline
+project: example
+pipeline: build
+repository: /tmp/ec-controlled-source
+commit: 0123456789abcdef0123456789abcdef01234567
+script: |
+  printf 'resultado controlado\n' > result.txt
+timeoutSeconds: 30
+artifact: result.txt

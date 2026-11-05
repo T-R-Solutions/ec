@@ -1,0 +1,24 @@
+# ADR-001 — Integração de skills e SDD ao Ec
+
+Status: decisão documental adotada pelo pedido de adaptação de 2026-11-03; instalação das 67 skills em `.codex/skills/` concluída em 2026-11-03, após execução autorizada fora do sandbox. Não é aceite de runtime.
+
+## Contexto e alternativas
+
+O pacote Ec contém 40 skills; Ox contém 30 e um SDD portátil com estado de outro produto; README acrescenta uma. Copiar Ox integralmente importaria Iced, features aceitas, permissões, versões e caminhos inexistentes. Instalar só as 40 perderia especialidades transversais úteis. Selecionar 67 preserva os limites técnicos da reavaliação e inclui a manutenção de README fornecida depois dela.
+
+## Decisão
+
+Adotar 40 Ec + 20 Ox gerais + 6 Ox condicionais + 1 README. Excluir Iced, contabilidade de tokens e os dois motores de contexto/grafo. Cada pacote mantém recursos internos e origem/hash; procedimentos Git e supervisão são adaptados ao Ec. Skills condicionais não autorizam IA, commits ou migrações sem escopo pertinente.
+Reutilizar workflow, templates, evidência schema 2 e validador portátil; reescrever contexto, constituição, entrada e pontes. Não copiar features/evidências de Ox. Registrar preparação e instalação separadamente.
+
+## Consequências e limites
+
+O perfil JSON é metadado de governança, não configuração do produto. Pontes apontam para arquivos reais; na preparação usam `.local/skill-installation/skills/`. Um instalador sem overwrite migra para `.codex/skills/` quando gravável. Preservar os ZIPs e fontes; isso não exige excluir originais para chamar a cópia de migração.
+Adotar Conventional Commits para futuros pedidos Git é uma convenção desta integração, não observação de histórico indisponível. Inglês no assunto; documentação nova em pt-BR, referências preservadas.
+gRPC/Protobuf/SQLite e números de escala permanecem propostas. Não modificar os documentos de entrada. Reexaminar evidências e hashes após instalação ou edição dos procedimentos.
+
+## Revisão de retenção — 2026-11-03
+
+O pedido posterior de limpeza substitui a retenção integral dos ZIPs de entrada. Preservar em `config/governance/sources/skills-inputs.zip` os bytes originais das 71 candidatas, pontes e métodos SDD importados e os contextos usados na adaptação. Remover `skills_to_use/` após conferir essa preservação e os consumidores. O material de produto, evidências e ativos exclusivos do Ox não faz parte da integração Ec.
+
+O perfil schema 2 distingue `source_archives` vigentes de `retired_source_archives` históricos; `source_bundle` identifica o arquivo compacto. O auditor continua exigindo o hash do contêiner e passa a comparar cada recurso original com `source_files`. O schema 1 anterior continua legível. Manter o baseline `.local/skill-installation/skills/`, a pesquisa TeamCity e os registros de validação; hashes de ZIPs retirados não permitem reconstruir seu conteúdo descartado.

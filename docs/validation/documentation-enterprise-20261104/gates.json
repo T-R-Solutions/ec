@@ -1,0 +1,28 @@
+[
+  {
+    "command": [
+      "/usr/bin/python3",
+      "sdd/tools/validate.py",
+      "--root",
+      "."
+    ],
+    "cwd": "/home/rodrigo/Projetos/ec",
+    "exit_code": 0,
+    "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "sdd/tools/validate.py",
+      "--root",
+      ".",
+      "--require-approved",
+      "--require-fresh"
+    ],
+    "cwd": "/home/rodrigo/Projetos/ec",
+    "exit_code": 0,
+    "stdout": "PASS: portable files, configured bridges and requested evidence checks\nNot proof of semantic adequacy, agent execution or comparative effectiveness.\n",
+    "stderr": ""
+  }
+]

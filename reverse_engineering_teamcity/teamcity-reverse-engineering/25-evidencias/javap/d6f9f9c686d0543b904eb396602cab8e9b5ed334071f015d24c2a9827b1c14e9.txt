@@ -1,0 +1,5 @@
+Compiled from "WaitReasonEx.java"
+public interface jetbrains.buildServer.serverSide.buildDistribution.WaitReasonEx extends jetbrains.buildServer.serverSide.buildDistribution.WaitReason {
+  public abstract boolean notEnoughAgents();
+    descriptor: ()Z
+}

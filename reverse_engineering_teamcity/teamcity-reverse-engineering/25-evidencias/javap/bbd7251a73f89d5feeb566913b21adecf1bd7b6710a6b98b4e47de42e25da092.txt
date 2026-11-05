@@ -1,0 +1,8 @@
+Compiled from "DslConverterManager.java"
+public interface jetbrains.buildServer.serverSide.impl.versionedSettings.DslConverterManager extends jetbrains.buildServer.TeamCityExtension {
+  public abstract boolean hasConverter(int);
+    descriptor: (I)Z
+
+  public abstract java.lang.String getConverterDescription(int);
+    descriptor: (I)Ljava/lang/String;
+}

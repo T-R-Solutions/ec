@@ -1,0 +1,169 @@
+Compiled from "BuildQueueImpl.java"
+class jetbrains.buildServer.serverSide.impl.BuildQueueImpl$BuildQueueDefaultOrdering implements jetbrains.buildServer.serverSide.BuildQueueOrderingStrategy {
+  private jetbrains.buildServer.serverSide.impl.BuildQueueImpl$BuildQueueDefaultOrdering();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #48                 // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 2: 0
+
+  public java.util.List<jetbrains.buildServer.serverSide.SQueuedBuild> addBuilds(java.util.List<jetbrains.buildServer.serverSide.SQueuedBuild>, java.util.List<jetbrains.buildServer.serverSide.SQueuedBuild>);
+    descriptor: (Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+    Code:
+         0: aload_1
+         1: ifnonnull     15
+         4: iconst_0
+         5: invokestatic  #35                 // Method $$$reportNull$$$0:(I)V
+         8: goto          15
+        11: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        14: athrow
+        15: aload_2
+        16: ifnonnull     30
+        19: iconst_1
+        20: invokestatic  #35                 // Method $$$reportNull$$$0:(I)V
+        23: goto          30
+        26: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        29: athrow
+        30: invokestatic  #18                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+        33: dup
+        34: ifnonnull     48
+        37: iconst_2
+        38: invokestatic  #35                 // Method $$$reportNull$$$0:(I)V
+        41: goto          48
+        44: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        47: athrow
+        48: areturn
+      Exception table:
+         from    to  target type
+             0     8    11   Class java/lang/IllegalArgumentException
+            15    23    26   Class java/lang/IllegalArgumentException
+            30    41    44   Class java/lang/IllegalArgumentException
+      LineNumberTable:
+        line 1: 30
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 2
+                       0: 28
+                       1: 28
+                       2: 37
+                 default: 28
+            }
+        28: ldc           #2                  // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        30: goto          42
+        33: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        36: athrow
+        37: ldc           #3                  // String @NotNull method %s.%s must not return null
+        39: goto          42
+        42: iload_0
+        43: tableswitch   { // 0 to 2
+                       0: 68
+                       1: 68
+                       2: 76
+                 default: 68
+            }
+        68: iconst_3
+        69: goto          80
+        72: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+        75: athrow
+        76: iconst_2
+        77: goto          80
+        80: anewarray     #61                 // class java/lang/Object
+        83: iload_0
+        84: tableswitch   { // 0 to 2
+                       0: 112
+                       1: 124
+                       2: 132
+                 default: 112
+            }
+       112: dup
+       113: iconst_0
+       114: ldc           #5                  // String itemsToAdd
+       116: aastore
+       117: goto          140
+       120: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       123: athrow
+       124: dup
+       125: iconst_0
+       126: ldc           #6                  // String currentQueueItems
+       128: aastore
+       129: goto          140
+       132: dup
+       133: iconst_0
+       134: ldc           #4                  // String jetbrains/buildServer/serverSide/impl/BuildQueueImpl$BuildQueueDefaultOrdering
+       136: aastore
+       137: goto          140
+       140: iload_0
+       141: tableswitch   { // 0 to 2
+                       0: 168
+                       1: 168
+                       2: 180
+                 default: 168
+            }
+       168: dup
+       169: iconst_1
+       170: ldc           #4                  // String jetbrains/buildServer/serverSide/impl/BuildQueueImpl$BuildQueueDefaultOrdering
+       172: aastore
+       173: goto          188
+       176: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       179: athrow
+       180: dup
+       181: iconst_1
+       182: ldc           #1                  // String addBuilds
+       184: aastore
+       185: goto          188
+       188: iload_0
+       189: tableswitch   { // 0 to 2
+                       0: 216
+                       1: 216
+                       2: 228
+                 default: 216
+            }
+       216: dup
+       217: iconst_2
+       218: ldc           #1                  // String addBuilds
+       220: aastore
+       221: goto          231
+       224: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       227: athrow
+       228: goto          231
+       231: invokestatic  #68                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       234: iload_0
+       235: tableswitch   { // 0 to 2
+                       0: 260
+                       1: 260
+                       2: 275
+                 default: 260
+            }
+       260: new           #24                 // class java/lang/IllegalArgumentException
+       263: dup_x1
+       264: swap
+       265: invokespecial #36                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       268: goto          286
+       271: invokestatic  #65                 // Method a:(Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+       274: athrow
+       275: new           #42                 // class java/lang/IllegalStateException
+       278: dup_x1
+       279: swap
+       280: invokespecial #54                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       283: goto          286
+       286: athrow
+      Exception table:
+         from    to  target type
+             0    33    33   Class java/lang/IllegalArgumentException
+            42    72    72   Class java/lang/IllegalArgumentException
+            80   120   120   Class java/lang/IllegalArgumentException
+           140   176   176   Class java/lang/IllegalArgumentException
+           188   224   224   Class java/lang/IllegalArgumentException
+           231   271   271   Class java/lang/IllegalArgumentException
+
+  private static java.lang.IllegalArgumentException a(java.lang.IllegalArgumentException);
+    descriptor: (Ljava/lang/IllegalArgumentException;)Ljava/lang/IllegalArgumentException;
+    Code:
+         0: aload_0
+         1: areturn
+}

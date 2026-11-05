@@ -1,0 +1,714 @@
+Compiled from "DslCompiler.java"
+public class jetbrains.buildServer.configs.dsl.DslCompiler {
+  private final java.io.File myPluginsDslDir;
+    descriptor: Ljava/io/File;
+
+  private final jetbrains.buildServer.configs.dsl.kotlin.KotlinCompiler myKotlinCompiler;
+    descriptor: Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+
+  private final jetbrains.buildServer.configs.dsl.PluginDslDigests myOldDigest;
+    descriptor: Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+
+  private final jetbrains.buildServer.configs.dsl.PluginDslDigests myNewDigest;
+    descriptor: Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+
+  public jetbrains.buildServer.configs.dsl.DslCompiler(java.io.File, jetbrains.buildServer.configs.dsl.kotlin.KotlinCompiler, java.io.File) throws java.io.IOException;
+    descriptor: (Ljava/io/File;Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;Ljava/io/File;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+        24: aload_0
+        25: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        28: aload_0
+        29: aload_1
+        30: putfield      #7                  // Field myPluginsDslDir:Ljava/io/File;
+        33: aload_0
+        34: aload_2
+        35: putfield      #13                 // Field myKotlinCompiler:Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+        38: new           #17                 // class jetbrains/buildServer/configs/dsl/PluginDslLogsConsoleProcessor
+        41: dup
+        42: invokespecial #19                 // Method jetbrains/buildServer/configs/dsl/PluginDslLogsConsoleProcessor."<init>":()V
+        45: astore        4
+        47: aload_0
+        48: new           #20                 // class jetbrains/buildServer/configs/dsl/PluginDslDigests
+        51: dup
+        52: aload_3
+        53: aload         4
+        55: invokespecial #22                 // Method jetbrains/buildServer/configs/dsl/PluginDslDigests."<init>":(Ljava/io/File;Ljetbrains/buildServer/configs/dsl/extensions/PluginDslLogsProcessor;)V
+        58: putfield      #25                 // Field myOldDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+        61: aload_0
+        62: new           #20                 // class jetbrains/buildServer/configs/dsl/PluginDslDigests
+        65: dup
+        66: aload_3
+        67: aload         4
+        69: invokespecial #22                 // Method jetbrains/buildServer/configs/dsl/PluginDslDigests."<init>":(Ljava/io/File;Ljetbrains/buildServer/configs/dsl/extensions/PluginDslLogsProcessor;)V
+        72: putfield      #29                 // Field myNewDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+        75: aload_0
+        76: getfield      #29                 // Field myNewDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+        79: invokevirtual #32                 // Method jetbrains/buildServer/configs/dsl/PluginDslDigests.cleanPluginsSrcDigests:()V
+        82: return
+      LineNumberTable:
+        line 36: 24
+        line 37: 28
+        line 38: 33
+        line 39: 38
+        line 40: 47
+        line 41: 61
+        line 42: 75
+        line 43: 82
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      83     0  this   Ljetbrains/buildServer/configs/dsl/DslCompiler;
+            0      83     1 pluginsDslDir   Ljava/io/File;
+            0      83     2 kotlinCompiler   Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+            0      83     3 digestsFile   Ljava/io/File;
+           47      36     4 logsProcessor   Ljetbrains/buildServer/configs/dsl/extensions/PluginDslLogsProcessor;
+
+  public static void main(java.lang.String...) throws java.lang.Exception;
+    descriptor: ([Ljava/lang/String;)V
+    Code:
+         0: invokestatic  #35                 // Method jetbrains/buildServer/configs/dsl/DslGeneratorProcess.disableLog4j:()V
+         3: invokestatic  #40                 // Method jetbrains/buildServer/configs/dsl/DslGeneratorProcess.initTeamCityProperties:()V
+         6: ldc           #43                 // String java.awt.headless
+         8: ldc           #45                 // String true
+        10: invokestatic  #47                 // Method java/lang/System.setProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        13: pop
+        14: ldc           #53                 // String kotlin.colors.enabled
+        16: ldc           #55                 // String false
+        18: invokestatic  #47                 // Method java/lang/System.setProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        21: pop
+        22: aload_0
+        23: iconst_0
+        24: aaload
+        25: astore_1
+        26: new           #57                 // class java/io/File
+        29: dup
+        30: aload_1
+        31: invokespecial #59                 // Method java/io/File."<init>":(Ljava/lang/String;)V
+        34: astore_2
+        35: aload_2
+        36: invokevirtual #62                 // Method java/io/File.isDirectory:()Z
+        39: ifne          43
+        42: return
+        43: aload_0
+        44: iconst_1
+        45: aaload
+        46: astore_3
+        47: new           #57                 // class java/io/File
+        50: dup
+        51: aload_3
+        52: invokespecial #59                 // Method java/io/File."<init>":(Ljava/lang/String;)V
+        55: astore        4
+        57: new           #66                 // class jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler
+        60: dup
+        61: new           #68                 // class jetbrains/buildServer/configs/dsl/kotlin/KotlinLibsEnv
+        64: dup
+        65: invokestatic  #70                 // Method java/lang/System.getenv:()Ljava/util/Map;
+        68: invokespecial #74                 // Method jetbrains/buildServer/configs/dsl/kotlin/KotlinLibsEnv."<init>":(Ljava/util/Map;)V
+        71: invokespecial #77                 // Method jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler."<init>":(Ljetbrains/buildServer/configs/dsl/kotlin/KotlinLibs;)V
+        74: astore        5
+        76: new           #8                  // class jetbrains/buildServer/configs/dsl/DslCompiler
+        79: dup
+        80: aload_2
+        81: aload         5
+        83: aload         4
+        85: invokespecial #80                 // Method "<init>":(Ljava/io/File;Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;Ljava/io/File;)V
+        88: invokevirtual #83                 // Method run:()Ljava/util/List;
+        91: astore        6
+        93: aload         6
+        95: invokeinterface #87,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+       100: ifne          132
+       103: aload         6
+       105: invokedynamic #92,  0             // InvokeDynamic #0:accept:()Ljava/util/function/Consumer;
+       110: invokeinterface #96,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+       115: new           #100                // class jetbrains/buildServer/configs/dsl/DslErrorsSerializer
+       118: dup
+       119: invokespecial #102                // Method jetbrains/buildServer/configs/dsl/DslErrorsSerializer."<init>":()V
+       122: aload         6
+       124: aload_2
+       125: invokevirtual #103                // Method jetbrains/buildServer/configs/dsl/DslErrorsSerializer.saveExceptions:(Ljava/util/List;Ljava/io/File;)V
+       128: iconst_1
+       129: invokestatic  #107                // Method java/lang/System.exit:(I)V
+       132: goto          159
+       135: astore        6
+       137: aload         6
+       139: invokestatic  #113                // Method printException:(Ljava/lang/Throwable;)V
+       142: new           #100                // class jetbrains/buildServer/configs/dsl/DslErrorsSerializer
+       145: dup
+       146: invokespecial #102                // Method jetbrains/buildServer/configs/dsl/DslErrorsSerializer."<init>":()V
+       149: aload         6
+       151: aload_2
+       152: invokevirtual #117                // Method jetbrains/buildServer/configs/dsl/DslErrorsSerializer.saveException:(Ljava/lang/Throwable;Ljava/io/File;)V
+       155: iconst_1
+       156: invokestatic  #107                // Method java/lang/System.exit:(I)V
+       159: return
+      Exception table:
+         from    to  target type
+            76   132   135   Class java/lang/Throwable
+      LineNumberTable:
+        line 47: 0
+        line 48: 3
+        line 49: 6
+        line 50: 14
+        line 52: 22
+        line 53: 26
+        line 54: 35
+        line 55: 42
+        line 57: 43
+        line 58: 47
+        line 60: 57
+        line 62: 76
+        line 63: 93
+        line 64: 103
+        line 65: 115
+        line 66: 128
+        line 72: 132
+        line 68: 135
+        line 69: 137
+        line 70: 142
+        line 71: 155
+        line 73: 159
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           93      39     6 exceptions   Ljava/util/List;
+          137      22     6     e   Ljava/lang/Throwable;
+            0     160     0  args   [Ljava/lang/String;
+           26     134     1 pluginsDslPath   Ljava/lang/String;
+           35     125     2 pluginsDslDir   Ljava/io/File;
+           47     113     3 digestsPath   Ljava/lang/String;
+           57     103     4 digestsFile   Ljava/io/File;
+           76      84     5 compiler   Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+
+  private static void printException(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+    Code:
+         0: aload_0
+         1: ifnonnull     8
+         4: iconst_3
+         5: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: instanceof    #121                // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsException
+        12: ifeq          159
+        15: aload_0
+        16: checkcast     #121                // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsException
+        19: astore_1
+        20: aload_1
+        21: invokevirtual #123                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsException.getErrors:()Ljava/util/List;
+        24: astore_2
+        25: aload_2
+        26: invokeinterface #87,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+        31: ifeq          44
+        34: aload_0
+        35: getstatic     #126                // Field java/lang/System.err:Ljava/io/PrintStream;
+        38: invokevirtual #130                // Method java/lang/Throwable.printStackTrace:(Ljava/io/PrintStream;)V
+        41: goto          156
+        44: aload_2
+        45: invokeinterface #134,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        50: astore_3
+        51: aload_3
+        52: invokeinterface #138,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        57: ifeq          156
+        60: aload_3
+        61: invokeinterface #143,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        66: checkcast     #147                // class jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError
+        69: astore        4
+        71: aload         4
+        73: invokevirtual #149                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError.getLocation:()Ljava/lang/String;
+        76: astore        5
+        78: aload         5
+        80: ifnull        122
+        83: getstatic     #126                // Field java/lang/System.err:Ljava/io/PrintStream;
+        86: ldc           #153                // String %s%s %s
+        88: iconst_3
+        89: anewarray     #2                  // class java/lang/Object
+        92: dup
+        93: iconst_0
+        94: aload         4
+        96: invokevirtual #155                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError.getSource:()Ljava/lang/String;
+        99: aastore
+       100: dup
+       101: iconst_1
+       102: aload         5
+       104: aastore
+       105: dup
+       106: iconst_2
+       107: aload         4
+       109: invokevirtual #158                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError.getMessage:()Ljava/lang/String;
+       112: aastore
+       113: invokestatic  #161                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       116: invokevirtual #167                // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       119: goto          153
+       122: getstatic     #126                // Field java/lang/System.err:Ljava/io/PrintStream;
+       125: ldc           #172                // String %s: %s
+       127: iconst_2
+       128: anewarray     #2                  // class java/lang/Object
+       131: dup
+       132: iconst_0
+       133: aload         4
+       135: invokevirtual #155                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError.getSource:()Ljava/lang/String;
+       138: aastore
+       139: dup
+       140: iconst_1
+       141: aload         4
+       143: invokevirtual #158                // Method jetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError.getMessage:()Ljava/lang/String;
+       146: aastore
+       147: invokestatic  #161                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       150: invokevirtual #167                // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       153: goto          51
+       156: goto          166
+       159: aload_0
+       160: getstatic     #126                // Field java/lang/System.err:Ljava/io/PrintStream;
+       163: invokevirtual #130                // Method java/lang/Throwable.printStackTrace:(Ljava/io/PrintStream;)V
+       166: return
+      LineNumberTable:
+        line 76: 8
+        line 77: 15
+        line 78: 20
+        line 79: 25
+        line 80: 34
+        line 82: 44
+        line 83: 71
+        line 84: 78
+        line 85: 83
+        line 87: 122
+        line 89: 153
+        line 91: 156
+        line 92: 159
+        line 94: 166
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           78      75     5 location   Ljava/lang/String;
+           71      82     4 error   Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsError;
+           20     136     1    ex   Ljetbrains/buildServer/serverSide/impl/versionedSettings/VersionedSettingsException;
+           25     131     2 errors   Ljava/util/List;
+            0     167     0     e   Ljava/lang/Throwable;
+
+  protected java.util.List<java.lang.Throwable> run();
+    descriptor: ()Ljava/util/List;
+    Code:
+         0: new           #174                // class java/util/LinkedList
+         3: dup
+         4: invokespecial #176                // Method java/util/LinkedList."<init>":()V
+         7: astore_1
+         8: aload_0
+         9: getfield      #7                  // Field myPluginsDslDir:Ljava/io/File;
+        12: invokevirtual #177                // Method java/io/File.listFiles:()[Ljava/io/File;
+        15: astore_2
+        16: aload_2
+        17: ifnull        25
+        20: aload_2
+        21: arraylength
+        22: ifne          27
+        25: aload_1
+        26: areturn
+        27: aload_2
+        28: astore_3
+        29: aload_3
+        30: arraylength
+        31: istore        4
+        33: iconst_0
+        34: istore        5
+        36: iload         5
+        38: iload         4
+        40: if_icmpge     100
+        43: aload_3
+        44: iload         5
+        46: aaload
+        47: astore        6
+        49: aload_0
+        50: getfield      #25                 // Field myOldDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+        53: aload         6
+        55: invokevirtual #181                // Method jetbrains/buildServer/configs/dsl/PluginDslDigests.updatePluginSrcDigestIfChanged:(Ljava/io/File;)Z
+        58: ifeq          81
+        61: aload_0
+        62: aload         6
+        64: invokespecial #185                // Method compilePluginDsl:(Ljava/io/File;)V
+        67: goto          81
+        70: astore        7
+        72: aload_1
+        73: aload         7
+        75: invokeinterface #191,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        80: pop
+        81: aload_0
+        82: getfield      #29                 // Field myNewDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+        85: aload_0
+        86: getfield      #25                 // Field myOldDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+        89: aload         6
+        91: invokevirtual #195                // Method jetbrains/buildServer/configs/dsl/PluginDslDigests.copyPluginSrcDigest:(Ljetbrains/buildServer/configs/dsl/PluginDslDigests;Ljava/io/File;)V
+        94: iinc          5, 1
+        97: goto          36
+       100: aload_0
+       101: getfield      #29                 // Field myNewDigest:Ljetbrains/buildServer/configs/dsl/PluginDslDigests;
+       104: invokevirtual #199                // Method jetbrains/buildServer/configs/dsl/PluginDslDigests.save:()V
+       107: aload_1
+       108: areturn
+      Exception table:
+         from    to  target type
+            61    67    70   Class java/lang/Exception
+      LineNumberTable:
+        line 97: 0
+        line 98: 8
+        line 99: 16
+        line 100: 25
+        line 102: 27
+        line 103: 49
+        line 105: 61
+        line 108: 67
+        line 106: 70
+        line 107: 72
+        line 110: 81
+        line 102: 94
+        line 112: 100
+        line 113: 107
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           72       9     7     e   Ljava/lang/Exception;
+           49      45     6 pluginDsl   Ljava/io/File;
+            0     109     0  this   Ljetbrains/buildServer/configs/dsl/DslCompiler;
+            8     101     1 exceptions   Ljava/util/List;
+           16      93     2 files   [Ljava/io/File;
+
+  private void compilePluginDsl(java.io.File) throws java.lang.Exception;
+    descriptor: (Ljava/io/File;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_4
+         5: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+         8: new           #57                 // class java/io/File
+        11: dup
+        12: aload_1
+        13: ldc           #204                // String generated-dsl.jar
+        15: invokespecial #206                // Method java/io/File."<init>":(Ljava/io/File;Ljava/lang/String;)V
+        18: astore_2
+        19: aload_0
+        20: invokespecial #209                // Method getClassPath:()Ljava/lang/String;
+        23: astore_3
+        24: aload_0
+        25: aload_1
+        26: invokespecial #212                // Method getKotlinFiles:(Ljava/io/File;)Ljava/util/List;
+        29: astore        4
+        31: aload_0
+        32: getfield      #13                 // Field myKotlinCompiler:Ljetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler;
+        35: aload_1
+        36: iconst_2
+        37: anewarray     #162                // class java/lang/String
+        40: dup
+        41: iconst_0
+        42: ldc           #216                // String -cp
+        44: aastore
+        45: dup
+        46: iconst_1
+        47: aload_3
+        48: aastore
+        49: invokestatic  #218                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+        52: aload         4
+        54: aload_2
+        55: ldc           #226                // String 1.9
+        57: invokevirtual #228                // Method jetbrains/buildServer/configs/dsl/kotlin/KotlinCompiler.run:(Ljava/io/File;Ljava/util/List;Ljava/util/List;Ljava/io/File;Ljava/lang/String;)V
+        60: return
+      LineNumberTable:
+        line 119: 8
+        line 120: 19
+        line 121: 24
+        line 122: 31
+        line 123: 60
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      61     0  this   Ljetbrains/buildServer/configs/dsl/DslCompiler;
+            0      61     1 pluginDsl   Ljava/io/File;
+           19      42     2   jar   Ljava/io/File;
+           24      37     3 classpath   Ljava/lang/String;
+           31      30     4 ktFiles   Ljava/util/List;
+
+  private java.util.List<java.io.File> getKotlinFiles(java.io.File);
+    descriptor: (Ljava/io/File;)Ljava/util/List;
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_5
+         5: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+         8: aload_1
+         9: invokevirtual #231                // Method java/io/File.toPath:()Ljava/nio/file/Path;
+        12: iconst_0
+        13: anewarray     #235                // class java/nio/file/FileVisitOption
+        16: invokestatic  #237                // Method java/nio/file/Files.walk:(Ljava/nio/file/Path;[Ljava/nio/file/FileVisitOption;)Ljava/util/stream/Stream;
+        19: invokedynamic #243,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+        24: invokeinterface #247,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+        29: invokedynamic #253,  0            // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+        34: invokeinterface #257,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+        39: invokestatic  #261                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+        42: invokeinterface #267,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+        47: checkcast     #88                 // class java/util/List
+        50: dup
+        51: ifnonnull     59
+        54: bipush        6
+        56: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+        59: areturn
+        60: astore_2
+        61: new           #273                // class java/util/ArrayList
+        64: dup
+        65: invokespecial #275                // Method java/util/ArrayList."<init>":()V
+        68: areturn
+      Exception table:
+         from    to  target type
+             8    50    60   Class java/io/IOException
+      LineNumberTable:
+        line 129: 8
+        line 130: 24
+        line 131: 34
+        line 132: 39
+        line 129: 50
+        line 133: 60
+        line 134: 61
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           61       8     2     e   Ljava/io/IOException;
+            0      69     0  this   Ljetbrains/buildServer/configs/dsl/DslCompiler;
+            0      69     1   dir   Ljava/io/File;
+
+  private java.lang.String getClassPath() throws java.lang.ClassNotFoundException;
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: iconst_5
+         1: anewarray     #276                // class java/lang/Class
+         4: dup
+         5: iconst_0
+         6: ldc           #8                  // class jetbrains/buildServer/configs/dsl/DslCompiler
+         8: invokevirtual #278                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+        11: ldc_w         #282                // String kotlin.jvm.functions.Function1
+        14: invokevirtual #284                // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+        17: aastore
+        18: dup
+        19: iconst_1
+        20: ldc_w         #290                // class jetbrains/buildServer/configs/ProjectsBuilder
+        23: aastore
+        24: dup
+        25: iconst_2
+        26: ldc_w         #292                // class jetbrains/buildServer/configs/ParameterBuilderImpl
+        29: aastore
+        30: dup
+        31: iconst_3
+        32: ldc_w         #294                // class org/jdom/Element
+        35: aastore
+        36: dup
+        37: iconst_4
+        38: ldc           #8                  // class jetbrains/buildServer/configs/dsl/DslCompiler
+        40: invokevirtual #278                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+        43: ldc_w         #296                // String jetbrains.buildServer.configs.kotlin.Context
+        46: invokevirtual #284                // Method java/lang/ClassLoader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+        49: aastore
+        50: invokestatic  #298                // Method jetbrains/buildServer/configs/dsl/ClasspathUtil.composeClasspath:([Ljava/lang/Class;)Ljava/lang/String;
+        53: dup
+        54: ifnonnull     62
+        57: bipush        7
+        59: invokestatic  #409                // Method $$$reportNull$$$0:(I)V
+        62: areturn
+      LineNumberTable:
+        line 141: 0
+        line 142: 8
+        line 146: 40
+        line 141: 50
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      63     0  this   Ljetbrains/buildServer/configs/dsl/DslCompiler;
+
+  private static boolean lambda$getKotlinFiles$0(java.io.File);
+    descriptor: (Ljava/io/File;)Z
+    Code:
+         0: aload_0
+         1: invokevirtual #304                // Method java/io/File.isFile:()Z
+         4: ifeq          24
+         7: aload_0
+         8: invokevirtual #307                // Method java/io/File.getName:()Ljava/lang/String;
+        11: ldc_w         #310                // String .kt
+        14: invokevirtual #312                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+        17: ifeq          24
+        20: iconst_1
+        21: goto          25
+        24: iconst_0
+        25: ireturn
+      LineNumberTable:
+        line 131: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      26     0     f   Ljava/io/File;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 7
+                       0: 48
+                       1: 48
+                       2: 48
+                       3: 48
+                       4: 48
+                       5: 48
+                       6: 54
+                       7: 54
+                 default: 48
+            }
+        48: ldc_w         #412                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        51: goto          60
+        54: ldc_w         #414                // String @NotNull method %s.%s must not return null
+        57: goto          60
+        60: iload_0
+        61: tableswitch   { // 0 to 7
+                       0: 108
+                       1: 108
+                       2: 108
+                       3: 108
+                       4: 108
+                       5: 108
+                       6: 112
+                       7: 112
+                 default: 108
+            }
+       108: iconst_3
+       109: goto          116
+       112: iconst_2
+       113: goto          116
+       116: anewarray     #2                  // class java/lang/Object
+       119: iload_0
+       120: tableswitch   { // 0 to 7
+                       0: 168
+                       1: 177
+                       2: 186
+                       3: 195
+                       4: 204
+                       5: 213
+                       6: 222
+                       7: 222
+                 default: 168
+            }
+       168: dup
+       169: iconst_0
+       170: ldc_w         #415                // String pluginsDslDir
+       173: aastore
+       174: goto          231
+       177: dup
+       178: iconst_0
+       179: ldc_w         #416                // String kotlinCompiler
+       182: aastore
+       183: goto          231
+       186: dup
+       187: iconst_0
+       188: ldc_w         #417                // String digestsFile
+       191: aastore
+       192: goto          231
+       195: dup
+       196: iconst_0
+       197: ldc_w         #418                // String e
+       200: aastore
+       201: goto          231
+       204: dup
+       205: iconst_0
+       206: ldc_w         #419                // String pluginDsl
+       209: aastore
+       210: goto          231
+       213: dup
+       214: iconst_0
+       215: ldc_w         #420                // String dir
+       218: aastore
+       219: goto          231
+       222: dup
+       223: iconst_0
+       224: ldc_w         #421                // String jetbrains/buildServer/configs/dsl/DslCompiler
+       227: aastore
+       228: goto          231
+       231: iload_0
+       232: tableswitch   { // 0 to 7
+                       0: 280
+                       1: 280
+                       2: 280
+                       3: 280
+                       4: 280
+                       5: 280
+                       6: 289
+                       7: 298
+                 default: 280
+            }
+       280: dup
+       281: iconst_1
+       282: ldc_w         #421                // String jetbrains/buildServer/configs/dsl/DslCompiler
+       285: aastore
+       286: goto          307
+       289: dup
+       290: iconst_1
+       291: ldc_w         #422                // String getKotlinFiles
+       294: aastore
+       295: goto          307
+       298: dup
+       299: iconst_1
+       300: ldc_w         #423                // String getClassPath
+       303: aastore
+       304: goto          307
+       307: iload_0
+       308: tableswitch   { // 0 to 7
+                       0: 356
+                       1: 356
+                       2: 356
+                       3: 365
+                       4: 374
+                       5: 383
+                       6: 392
+                       7: 392
+                 default: 356
+            }
+       356: dup
+       357: iconst_2
+       358: ldc_w         #424                // String <init>
+       361: aastore
+       362: goto          395
+       365: dup
+       366: iconst_2
+       367: ldc_w         #425                // String printException
+       370: aastore
+       371: goto          395
+       374: dup
+       375: iconst_2
+       376: ldc_w         #426                // String compilePluginDsl
+       379: aastore
+       380: goto          395
+       383: dup
+       384: iconst_2
+       385: ldc_w         #422                // String getKotlinFiles
+       388: aastore
+       389: goto          395
+       392: goto          395
+       395: invokestatic  #161                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       398: iload_0
+       399: tableswitch   { // 0 to 7
+                       0: 444
+                       1: 444
+                       2: 444
+                       3: 444
+                       4: 444
+                       5: 444
+                       6: 455
+                       7: 455
+                 default: 444
+            }
+       444: new           #428                // class java/lang/IllegalArgumentException
+       447: dup_x1
+       448: swap
+       449: invokespecial #429                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       452: goto          466
+       455: new           #431                // class java/lang/IllegalStateException
+       458: dup_x1
+       459: swap
+       460: invokespecial #432                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       463: goto          466
+       466: athrow
+}

@@ -1,0 +1,4 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 python3 tools/governance/install_skills.py --apply
+EXIT: 1
+OBSERVED: {"status": "BLOCKED", "error": "[Errno 30] Read-only file system: '/home/rodrigo/Projetos/ec/.codex/skills'"}
+Captured from the observed tool execution in this session; no retry or escalation.

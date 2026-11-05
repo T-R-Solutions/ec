@@ -1,0 +1,61 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "platform": "Linux-7.3.1-1-default-x86_64-with-glibc2.44"
+  },
+  "previous_input_drift": [
+    "README.md",
+    "application/README.md",
+    "application/server/backend/README.md",
+    "application/server/backend/crates/ec-server-app/README.md",
+    "application/server/backend/crates/ec-server-configuration/README.md",
+    "application/server/backend/crates/ec-server-projects/README.md",
+    "docs/architecture/application-layout.md",
+    "docs/architecture/application-overview.md",
+    "docs/architecture/context.md",
+    "docs/architecture/contracts.md",
+    "docs/development/skill-installation.md",
+    "docs/development/testing.md",
+    "sdd/features/governance-adoption/converge.md",
+    "sdd/features/governance-adoption/plan.md",
+    "sdd/features/governance-adoption/spec.md",
+    "sdd/features/governance-adoption/tasks.md",
+    "sdd/features/governance-adoption/traceability.json",
+    "sdd/project.md",
+    "tools/governance/install_skills.py",
+    "tools/governance/tests/test_governance.py"
+  ],
+  "criteria": {
+    "AC-01": "Reauditado catálogo real, inventários, hashes e bundle: PASS 67/6/4, 596 arquivos; nenhuma seleção ou hash de pacote foi modificado.",
+    "AC-02": "Inspeção das autoridades/ADR e diff desta mudança: Rust/Vue/TS, YAML, PostgreSQL/HTTP permanecem; gRPC/SQLite propostos. Fontes importadas conservadas e verificadas pelo auditor.",
+    "AC-03": "Links e pontes reexaminados pelo auditor, estrutura e vínculos pelo validador SDD. Critério acrescido possui traceability própria.",
+    "AC-04": "Suite atual executada com controles negativos, instalação e recuperação em cópias temporárias; ver tests.log.",
+    "AC-05": "Auditoria --require-installed PASS e --check ALREADY_INSTALLED na instalação real; ensaios não a alteram.",
+    "AC-06": "Conferência atual do bundle e ausência das entradas retiradas; histórico da remoção preservado em workspace-cleanup-20261103. Não se reexecutou nem reatribuiu a remoção. Conjunto de edição restrito a instalador, testes, procedimento e registros SDD/validação.",
+    "AC-07": "Interrupções representativas antes/depois das pontes 1,2,34,67 e do perfil; morte real via os._exit após primeira ponte; cópia interrompida; conflitos e flock entre processos. Retry converge e baseline é preservada."
+  },
+  "commands": [
+    {
+      "command": "python3 tools/governance/validate.py --require-installed",
+      "artifact": "docs/validation/installer-recovery-20261105/audit.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/governance/install_skills.py --check",
+      "artifact": "docs/validation/installer-recovery-20261105/preflight.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/governance/tests -v",
+      "artifact": "docs/validation/installer-recovery-20261105/tests.log",
+      "exit_code": 0
+    }
+  ],
+  "limits": [
+    "Incluída morte real durante cópia: staging parcial órfão preservado e retry aprovado.",
+    "Sem teste de corte de energia, filesystem de rede ou escritor hostil que ignora flock.",
+    "Testes não exercitam todas as 67 pontes; representam início, meio, fim e perfil.",
+    "Falha inicial da nova suíte: cópia de auditoria não incluía tools/governance; corrigido e suíte reexecutada.",
+    "Nenhum teste de produto nem eficácia de skills é aprovado por esta evidência."
+  ]
+}

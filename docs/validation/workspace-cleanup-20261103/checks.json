@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "name": "catalog",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/workspace-cleanup-20261103/catalog.log",
+      "sha256": "05ff7f925391708c8224c03840dc2728b8c9460a514628852655e93c5446760c"
+    },
+    {
+      "name": "sdd-structure",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--structure-only"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/workspace-cleanup-20261103/sdd-structure.log",
+      "sha256": "5216378a95f603e8f5b12a3f55bb4580da6af5892074b62917108c44dc4395fc"
+    },
+    {
+      "name": "negative-controls",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/workspace-cleanup-20261103/negative-controls.log",
+      "sha256": "85f960ec633d743577d9def7d77f32821ee2d6a1e74156f28f900ef679422543"
+    },
+    {
+      "name": "installation-preflight",
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "docs/validation/workspace-cleanup-20261103/installation-preflight.log",
+      "sha256": "f242ff7005a7e343222922f63c6df8cb55aae0d2e4fc6ddfc0e96c98191ed6a2"
+    }
+  ],
+  "original_files_inventoried": 2183,
+  "unchanged_files_compared_before_evidence_replacement": 2154,
+  "removed_files": 16,
+  "removed_bytes": 115771351,
+  "retained_bundle_bytes": 1295948,
+  "source_resources_verified": 578,
+  "source_bundle_members": 671,
+  "baseline_files_verified": 594,
+  "installed_files_verified": 594,
+  "sqlite_quick_check": "ok",
+  "sqlite_sample": "jetbrains/buildServer/serverSide/impl/BuildQueueImpl",
+  "limits": [
+    "Checagens de governança e integridade; não validam runtime Ec.",
+    "Pesquisa e registros históricos preservados; geradores não executados.",
+    "Sem prova de exclusão mútua contra escritores hostis ou atomicidade global."
+  ]
+}

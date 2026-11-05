@@ -1,0 +1,74 @@
+Compiled from "AgentsFilterResult.java"
+public class jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterResult {
+  private jetbrains.buildServer.serverSide.buildDistribution.WaitReason myWaitReason;
+    descriptor: Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  private java.util.List<jetbrains.buildServer.serverSide.SBuildAgent> myFilteredConnectedAgents;
+    descriptor: Ljava/util/List;
+
+  public jetbrains.buildServer.serverSide.buildDistribution.AgentsFilterResult();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 27: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+
+  public jetbrains.buildServer.serverSide.buildDistribution.WaitReason getWaitReason();
+    descriptor: ()Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+    Code:
+         0: aload_0
+         1: getfield      #7                  // Field myWaitReason:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+         4: areturn
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+
+  public void setWaitReason(jetbrains.buildServer.serverSide.buildDistribution.WaitReason);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #7                  // Field myWaitReason:Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+         5: return
+      LineNumberTable:
+        line 46: 0
+        line 47: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+            0       6     1 waitReason   Ljetbrains/buildServer/serverSide/buildDistribution/WaitReason;
+
+  public java.util.List<jetbrains.buildServer.serverSide.SBuildAgent> getFilteredConnectedAgents();
+    descriptor: ()Ljava/util/List;
+    Code:
+         0: aload_0
+         1: getfield      #13                 // Field myFilteredConnectedAgents:Ljava/util/List;
+         4: areturn
+      LineNumberTable:
+        line 57: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+
+  public void setFilteredConnectedAgents(java.util.List<jetbrains.buildServer.serverSide.SBuildAgent>);
+    descriptor: (Ljava/util/List;)V
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #13                 // Field myFilteredConnectedAgents:Ljava/util/List;
+         5: return
+      LineNumberTable:
+        line 66: 0
+        line 67: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/AgentsFilterResult;
+            0       6     1 filteredConnectedAgents   Ljava/util/List;
+}

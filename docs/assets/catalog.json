@@ -1,0 +1,1488 @@
+{
+  "figures": {
+    "ec-system": {
+      "title": "Ec · do desejo à execução",
+      "question": "Onde ficam autoria, controle e execução?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/constitution.md",
+        "docs/architecture/context.md",
+        "docs/architecture/contracts.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "UI": {
+          "icon": "panels-top-left",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "SERVER": {
+          "icon": "server",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "AGENT": {
+          "icon": "terminal",
+          "tone": "purple",
+          "column": 2,
+          "row": 0
+        },
+        "YAML": {
+          "icon": "file-code-2",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "PG": {
+          "icon": "database",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "RESULT": {
+          "icon": "files",
+          "tone": "purple",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "delivery-journey": {
+      "title": "Da configuração à entrega",
+      "question": "Qual é a jornada de uma mudança?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-overview.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "EDIT": {
+          "icon": "file-pen-line",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLISH": {
+          "icon": "git-pull-request",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "QUEUE": {
+          "icon": "list-ordered",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "ALLOC": {
+          "icon": "network",
+          "tone": "purple",
+          "column": 0,
+          "row": 1
+        },
+        "RUN": {
+          "icon": "terminal",
+          "tone": "purple",
+          "column": 1,
+          "row": 1
+        },
+        "PROMOTE": {
+          "icon": "package-check",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "publication": {
+      "title": "Publicação · confirmar antes de efetivar",
+      "question": "O que permite ou impede uma publicação?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/contracts.md",
+        "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "DRAFT": {
+          "icon": "file-pen-line",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "VALID": {
+          "icon": "list-checks",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "DIFF": {
+          "icon": "git-compare",
+          "tone": "blue",
+          "column": 2,
+          "row": 0
+        },
+        "AUTH": {
+          "icon": "shield-check",
+          "tone": "amber",
+          "column": 0,
+          "row": 1
+        },
+        "REV": {
+          "icon": "git-commit-horizontal",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "SYNC": {
+          "icon": "refresh-cw",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        },
+        "INVALID": {
+          "icon": "circle-alert",
+          "tone": "rose",
+          "column": 0,
+          "row": 2
+        },
+        "DENIED": {
+          "icon": "shield-x",
+          "tone": "rose",
+          "column": 1,
+          "row": 2
+        }
+      }
+    },
+    "configuration": {
+      "title": "Três modos · uma semântica",
+      "question": "Como os modos de edição compartilham autoridade?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/contracts.md",
+        "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "VIS": {
+          "icon": "workflow",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "FORM": {
+          "icon": "list-checks",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "CODE": {
+          "icon": "file-code-2",
+          "tone": "blue",
+          "column": 2,
+          "row": 0
+        },
+        "MODEL": {
+          "icon": "files",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "CHECK": {
+          "icon": "shield-check",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "REV": {
+          "icon": "git-commit-horizontal",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "authorities": {
+      "title": "Autoridades · significado de cada fonte",
+      "question": "Qual fonte deve orientar uma decisão?",
+      "status": "Governança vigente",
+      "sources": [
+        "docs/constitution.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "USER": {
+          "icon": "user-round-check",
+          "tone": "amber",
+          "column": 0,
+          "row": 0
+        },
+        "NORMS": {
+          "icon": "book-open",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "ADR": {
+          "icon": "git-branch",
+          "tone": "blue",
+          "column": 2,
+          "row": 0
+        },
+        "SKILL": {
+          "icon": "wrench",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "EVIDENCE": {
+          "icon": "scan-search",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "HISTORY": {
+          "icon": "archive",
+          "tone": "purple",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "documentation-map": {
+      "title": "Um caminho para cada leitor",
+      "question": "Por onde começar a leitura?",
+      "status": "Navegação documental",
+      "sources": [
+        "README.md",
+        "docs/README.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "START": {
+          "icon": "book-open",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PRODUCT": {
+          "icon": "workflow",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "CONTRIB": {
+          "icon": "wrench",
+          "tone": "purple",
+          "column": 2,
+          "row": 0
+        },
+        "SOURCES": {
+          "icon": "shield-check",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "METHOD": {
+          "icon": "list-checks",
+          "tone": "blue",
+          "column": 1,
+          "row": 1
+        },
+        "RECORD": {
+          "icon": "archive",
+          "tone": "purple",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "application-map": {
+      "title": "Aplicação · responsabilidade e localização",
+      "question": "Onde encontrar cada componente?",
+      "status": "Estrutura existente · sem código de produto",
+      "sources": [
+        "docs/architecture/application-layout.md",
+        "docs/decisions/ADR-002-application-layout.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "ROOT": {
+          "icon": "folder-tree",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "AGENTS": {
+          "icon": "terminal",
+          "tone": "purple",
+          "column": 1,
+          "row": 0
+        },
+        "SERVER": {
+          "icon": "server",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "BACK": {
+          "icon": "boxes",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "FRONT": {
+          "icon": "panels-top-left",
+          "tone": "blue",
+          "column": 1,
+          "row": 1
+        },
+        "TEST": {
+          "icon": "flask-conical",
+          "tone": "amber",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "agent-map": {
+      "title": "Agent · coordenação e execução local",
+      "question": "Quais dependências internas são permitidas?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "APP": {
+          "icon": "plug",
+          "tone": "purple",
+          "column": 0,
+          "row": 0
+        },
+        "CONTROL": {
+          "icon": "radio",
+          "tone": "purple",
+          "column": 1,
+          "row": 0
+        },
+        "EXEC": {
+          "icon": "terminal",
+          "tone": "purple",
+          "column": 2,
+          "row": 0
+        },
+        "WORK": {
+          "icon": "folder-git-2",
+          "tone": "purple",
+          "column": 0,
+          "row": 1
+        },
+        "REPORT": {
+          "icon": "send",
+          "tone": "purple",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "server-map": {
+      "title": "Server · domínios e composição",
+      "question": "Como o backend organiza as responsabilidades?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "APP": {
+          "icon": "server",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "ACCESS": {
+          "icon": "shield-check",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "CONFIGURATION": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "PROJECTS": {
+          "icon": "folder-git-2",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "ORCHESTRATION": {
+          "icon": "network",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "RESULTS": {
+          "icon": "files",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        },
+        "DELIVERY": {
+          "icon": "package-check",
+          "tone": "teal",
+          "column": 0,
+          "row": 2
+        },
+        "EXTENSIONS": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 2
+        },
+        "OPERATIONS": {
+          "icon": "activity",
+          "tone": "teal",
+          "column": 2,
+          "row": 2
+        }
+      }
+    },
+    "frontend-map": {
+      "title": "Frontend · interfaces públicas e composição",
+      "question": "Como evitar acoplamento entre domínios?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md",
+        "application/server/frontend/README.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "APP": {
+          "icon": "panels-top-left",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "DOMAIN": {
+          "icon": "boxes",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "BACKEND": {
+          "icon": "server",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "test-boundaries": {
+      "title": "Testar na menor fronteira suficiente",
+      "question": "Onde cada tipo de teste deve ficar?",
+      "status": "Localização prevista · governança já executável",
+      "sources": [
+        "docs/development/testing.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "UNIT": {
+          "icon": "test-tube-diagonal",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "LOCAL": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "MONO": {
+          "icon": "boxes",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "CROSS": {
+          "icon": "network",
+          "tone": "purple",
+          "column": 0,
+          "row": 1
+        },
+        "E2E": {
+          "icon": "route",
+          "tone": "purple",
+          "column": 1,
+          "row": 1
+        },
+        "GOV": {
+          "icon": "list-checks",
+          "tone": "amber",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "contribution": {
+      "title": "Da intenção à evidência",
+      "question": "Como conduzir uma mudança neste checkout?",
+      "status": "Procedimento documental vigente",
+      "sources": [
+        "sdd/workflow.md",
+        "docs/development/contributing.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "READ": {
+          "icon": "scan-search",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "ROUTE": {
+          "icon": "git-branch",
+          "tone": "amber",
+          "column": 1,
+          "row": 0
+        },
+        "EDIT": {
+          "icon": "file-pen-line",
+          "tone": "blue",
+          "column": 2,
+          "row": 0
+        },
+        "CHECK": {
+          "icon": "list-checks",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "RECORD": {
+          "icon": "files",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "DELIVER": {
+          "icon": "package-check",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "evidence": {
+      "title": "Evidência vinculada ao conteúdo observado",
+      "question": "Por que uma alteração pode invalidar um aceite?",
+      "status": "Contrato de evidência vigente",
+      "sources": [
+        "sdd/evidence.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "AC": {
+          "icon": "list-checks",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "INPUT": {
+          "icon": "files",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "RUN": {
+          "icon": "scan-search",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "ART": {
+          "icon": "archive",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "GATE": {
+          "icon": "shield-check",
+          "tone": "amber",
+          "column": 1,
+          "row": 1
+        },
+        "STALE": {
+          "icon": "refresh-cw",
+          "tone": "rose",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "skills-lifecycle": {
+      "title": "Skills · origem, instalação e integridade",
+      "question": "O que cada cópia do pacote representa?",
+      "status": "Instalação observada · eficácia não demonstrada",
+      "sources": [
+        "docs/development/skill-installation.md",
+        "config/governance/profile.json"
+      ],
+      "columns": 3,
+      "nodes": {
+        "SOURCE": {
+          "icon": "archive",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "BASE": {
+          "icon": "folder-tree",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "PROFILE": {
+          "icon": "list-checks",
+          "tone": "teal",
+          "column": 2,
+          "row": 0
+        },
+        "CHECK": {
+          "icon": "scan-search",
+          "tone": "amber",
+          "column": 0,
+          "row": 1
+        },
+        "LIVE": {
+          "icon": "boxes",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        },
+        "AUDIT": {
+          "icon": "shield-check",
+          "tone": "teal",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "research-boundary": {
+      "title": "Pesquisa informa · contratos governam",
+      "question": "Como usar o material TeamCity?",
+      "status": "Limite de uso das fontes históricas",
+      "sources": [
+        "docs/constitution.md",
+        "reverse_engineering_teamcity/README.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "HIST": {
+          "icon": "archive",
+          "tone": "purple",
+          "column": 0,
+          "row": 0
+        },
+        "ANALYSIS": {
+          "icon": "scan-search",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "NORMS": {
+          "icon": "shield-check",
+          "tone": "teal",
+          "column": 0,
+          "row": 1
+        },
+        "DECISION": {
+          "icon": "git-branch",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "project-status": {
+      "title": "Estado real · próximo trabalho",
+      "question": "O que existe e o que falta implementar?",
+      "status": "Existente: linha superior · pendente: linha inferior",
+      "sources": [
+        "sdd/project.md",
+        "docs/architecture/application-overview.md"
+      ],
+      "columns": 3,
+      "nodes": {
+        "DOC": {
+          "icon": "book-open",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "GOV": {
+          "icon": "list-checks",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "TREE": {
+          "icon": "folder-tree",
+          "tone": "blue",
+          "column": 2,
+          "row": 0
+        },
+        "CONTRACT": {
+          "icon": "file-code-2",
+          "tone": "amber",
+          "column": 0,
+          "row": 1
+        },
+        "IMPL": {
+          "icon": "terminal",
+          "tone": "amber",
+          "column": 1,
+          "row": 1
+        },
+        "PROOF": {
+          "icon": "shield-check",
+          "tone": "amber",
+          "column": 2,
+          "row": 1
+        }
+      }
+    },
+    "server-access": {
+      "title": "access · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "shield-check",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "NONE": {
+          "icon": "unplug",
+          "tone": "amber",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "server-configuration": {
+      "title": "configuration · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "ACCESS": {
+          "icon": "shield-check",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "server-projects": {
+      "title": "projects · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "folder-git-2",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "NONE": {
+          "icon": "unplug",
+          "tone": "amber",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "server-orchestration": {
+      "title": "orchestration · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "network",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "ACCESS": {
+          "icon": "shield-check",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "CONFIGURATION": {
+          "icon": "file-code-2",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "PROJECTS": {
+          "icon": "folder-git-2",
+          "tone": "blue",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "server-results": {
+      "title": "results · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "files",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "ACCESS": {
+          "icon": "shield-check",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "ORCHESTRATION": {
+          "icon": "network",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        }
+      }
+    },
+    "server-delivery": {
+      "title": "delivery · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "package-check",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "ACCESS": {
+          "icon": "shield-check",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "CONFIGURATION": {
+          "icon": "file-code-2",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "ORCHESTRATION": {
+          "icon": "network",
+          "tone": "blue",
+          "column": 1,
+          "row": 1
+        },
+        "RESULTS": {
+          "icon": "files",
+          "tone": "blue",
+          "column": 0,
+          "row": 2
+        }
+      }
+    },
+    "server-extensions": {
+      "title": "extensions · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "ACCESS": {
+          "icon": "shield-check",
+          "tone": "blue",
+          "column": 1,
+          "row": 0
+        },
+        "CONFIGURATION": {
+          "icon": "file-code-2",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "PROJECTS": {
+          "icon": "folder-git-2",
+          "tone": "blue",
+          "column": 1,
+          "row": 1
+        },
+        "ORCHESTRATION": {
+          "icon": "network",
+          "tone": "blue",
+          "column": 0,
+          "row": 2
+        }
+      }
+    },
+    "server-operations": {
+      "title": "operations · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "activity",
+          "tone": "teal",
+          "column": 0,
+          "row": 0
+        },
+        "NONE": {
+          "icon": "unplug",
+          "tone": "amber",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "agent-control": {
+      "title": "control · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "radio",
+          "tone": "purple",
+          "column": 0,
+          "row": 0
+        },
+        "EXECUTION": {
+          "icon": "terminal",
+          "tone": "purple",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "agent-execution": {
+      "title": "execution · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "terminal",
+          "tone": "purple",
+          "column": 0,
+          "row": 0
+        },
+        "WORKSPACE": {
+          "icon": "folder-git-2",
+          "tone": "purple",
+          "column": 1,
+          "row": 0
+        },
+        "REPORTING": {
+          "icon": "send",
+          "tone": "purple",
+          "column": 0,
+          "row": 1
+        }
+      }
+    },
+    "agent-workspace": {
+      "title": "workspace · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "folder-git-2",
+          "tone": "purple",
+          "column": 0,
+          "row": 0
+        },
+        "NONE": {
+          "icon": "unplug",
+          "tone": "amber",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "agent-reporting": {
+      "title": "reporting · fronteira do domínio",
+      "question": "Quais imports Ec são permitidos neste módulo?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "send",
+          "tone": "purple",
+          "column": 0,
+          "row": 0
+        },
+        "NONE": {
+          "icon": "unplug",
+          "tone": "amber",
+          "column": 1,
+          "row": 0
+        }
+      }
+    },
+    "frontend-configuration": {
+      "title": "configuration · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/configuration/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "file-code-2",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        }
+      }
+    },
+    "frontend-projects": {
+      "title": "projects · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/projects/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "folder-git-2",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "frontend-pipelines": {
+      "title": "pipelines · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/pipelines/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "workflow",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "frontend-runs": {
+      "title": "runs · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/runs/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "terminal",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        }
+      }
+    },
+    "frontend-delivery": {
+      "title": "delivery · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/delivery/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "package-check",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "frontend-infrastructure": {
+      "title": "infrastructure · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/infrastructure/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "network",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "frontend-access": {
+      "title": "access · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/access/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "shield-check",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "frontend-extensions": {
+      "title": "extensions · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/extensions/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "plug",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "frontend-administration": {
+      "title": "administration · interface e dependências",
+      "question": "Onde termina o domínio e como ele se integra?",
+      "status": "Arquitetura planejada",
+      "sources": [
+        "application/server/frontend/src/domains/administration/README.md",
+        "docs/architecture/application-layout.md"
+      ],
+      "columns": 2,
+      "nodes": {
+        "SELF": {
+          "icon": "activity",
+          "tone": "blue",
+          "column": 0,
+          "row": 0
+        },
+        "PUBLIC": {
+          "icon": "plug",
+          "tone": "teal",
+          "column": 1,
+          "row": 0
+        },
+        "SHARED": {
+          "icon": "component",
+          "tone": "blue",
+          "column": 0,
+          "row": 1
+        },
+        "CONFIG": {
+          "icon": "file-code-2",
+          "tone": "teal",
+          "column": 1,
+          "row": 1
+        }
+      }
+    },
+    "publication-sequence": {
+      "type": "sequence",
+      "title": "Publicação · proposta e confirmação",
+      "question": "O que a interface pode afirmar ao usuário?",
+      "status": "Interação conceitual · sem endpoints ou ordem transacional",
+      "sources": [
+        "docs/architecture/contracts.md",
+        "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md"
+      ],
+      "nodes": {}
+    }
+  },
+  "documents": {
+    "docs/README.md": "documentation-map",
+    "application/README.md": "application-map",
+    "docs/architecture/context.md": "ec-system",
+    "docs/architecture/application-layout.md": "application-map",
+    "docs/architecture/contracts.md": "configuration",
+    "docs/constitution.md": "authorities",
+    "docs/development/contributing.md": "contribution",
+    "docs/development/testing.md": "test-boundaries",
+    "docs/development/skill-installation.md": "skills-lifecycle",
+    "sdd/project.md": "project-status",
+    "sdd/README.md": "evidence",
+    "tools/governance/README.md": "skills-lifecycle",
+    "reverse_engineering_teamcity/README.md": "research-boundary",
+    "docs/decisions/ADR-002-application-layout.md": "application-map",
+    "application/agents/README.md": "agent-map",
+    "application/server/README.md": "ec-system",
+    "application/server/backend/README.md": "server-map",
+    "application/server/frontend/README.md": "frontend-map",
+    "application/agents/crates/ec-agent-app/README.md": "agent-map",
+    "application/server/backend/crates/ec-server-app/README.md": "server-map",
+    "application/integration/tests/README.md": "test-boundaries",
+    "application/integration/tests/integration/README.md": "test-boundaries",
+    "application/integration/tests/e2e/README.md": "test-boundaries",
+    "application/agents/crates/ec-agent-control/README.md": "agent-control",
+    "application/agents/crates/ec-agent-execution/README.md": "agent-execution",
+    "application/agents/crates/ec-agent-reporting/README.md": "agent-reporting",
+    "application/agents/crates/ec-agent-workspace/README.md": "agent-workspace",
+    "application/server/backend/crates/ec-server-access/README.md": "server-access",
+    "application/server/backend/crates/ec-server-configuration/README.md": "server-configuration",
+    "application/server/backend/crates/ec-server-delivery/README.md": "server-delivery",
+    "application/server/backend/crates/ec-server-extensions/README.md": "server-extensions",
+    "application/server/backend/crates/ec-server-operations/README.md": "server-operations",
+    "application/server/backend/crates/ec-server-orchestration/README.md": "server-orchestration",
+    "application/server/backend/crates/ec-server-projects/README.md": "server-projects",
+    "application/server/backend/crates/ec-server-results/README.md": "server-results",
+    "application/server/frontend/tests/e2e/README.md": "test-boundaries",
+    "application/server/frontend/tests/integration/README.md": "test-boundaries",
+    "application/server/frontend/src/app/README.md": "frontend-map",
+    "application/server/frontend/src/shared/README.md": "frontend-map",
+    "application/server/frontend/src/domains/access/README.md": "frontend-access",
+    "application/server/frontend/src/domains/administration/README.md": "frontend-administration",
+    "application/server/frontend/src/domains/configuration/README.md": "frontend-configuration",
+    "application/server/frontend/src/domains/delivery/README.md": "frontend-delivery",
+    "application/server/frontend/src/domains/extensions/README.md": "frontend-extensions",
+    "application/server/frontend/src/domains/infrastructure/README.md": "frontend-infrastructure",
+    "application/server/frontend/src/domains/pipelines/README.md": "frontend-pipelines",
+    "application/server/frontend/src/domains/projects/README.md": "frontend-projects",
+    "application/server/frontend/src/domains/runs/README.md": "frontend-runs"
+  }
+}

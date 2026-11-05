@@ -1,0 +1,11 @@
+Compiled from "BuildAgentsComparatorProvider.java"
+public interface jetbrains.buildServer.serverSide.impl.buildDistribution.agentsComparators.BuildAgentsComparatorProvider {
+  public abstract java.util.Comparator<jetbrains.buildServer.serverSide.SBuildAgent> getConnectedAgentsComparatorForQueuedBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Ljava/util/Comparator;
+
+  public abstract java.util.Comparator<jetbrains.buildServer.serverSide.impl.virtualAgent.VirtualAgent> getVirtualAgentsComparatorForQueuedBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Ljava/util/Comparator;
+
+  public abstract java.util.Comparator<jetbrains.buildServer.serverSide.impl.executors.ExecutorDescription> getStartableExecutorsComparatorForQueuedBuild(jetbrains.buildServer.serverSide.buildDistribution.QueuedBuildInfo);
+    descriptor: (Ljetbrains/buildServer/serverSide/buildDistribution/QueuedBuildInfo;)Ljava/util/Comparator;
+}

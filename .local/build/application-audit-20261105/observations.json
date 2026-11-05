@@ -1,0 +1,664 @@
+{
+  "observed_at_utc": "2026-11-05T11:19:29.780521+00:00",
+  "objective": "Analisar implementação observada do Ec, verificações existentes, lacunas e próximos passos.",
+  "scope": "Inventário integral de application; leitura de autoridades, arquitetura, módulos e ferramentas de governança; inspeção seletiva da pesquisa histórica. Não é aceite de produto.",
+  "environment": {
+    "python": "3.13.16",
+    "rustc": "1.99.1 (58cf8f9c3 2026-10-13)",
+    "node": "v26.13.0"
+  },
+  "application": {
+    "files": 81,
+    "markdown": 35,
+    "empty_markers": 46,
+    "planned_rust_modules": 14,
+    "planned_frontend_domains": 9,
+    "product_source_files": 0,
+    "inventory": [
+      {
+        "path": "application/README.md",
+        "bytes": 2414,
+        "sha256": "c076039bdb4e0e7163a2d65b9b4fadeb931fe033aa99782e41520433e234ad3a"
+      },
+      {
+        "path": "application/agents/README.md",
+        "bytes": 2600,
+        "sha256": "d174b16927fc95476df96dcccab2dc1eb1fa1c4d57b06094cdf81a9413e941d4"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-app/README.md",
+        "bytes": 2254,
+        "sha256": "7dc9c8dd36c8b6fb0d3acd9b348d4cfa52b65f59f09e457a2af38c0bfb1399dc"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-app/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-app/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-control/README.md",
+        "bytes": 2874,
+        "sha256": "67d40f7a7deb8e4c4c0b1e9b75dde4317a39a8779c22c8837490275309ad4dc2"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-control/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-control/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-execution/README.md",
+        "bytes": 2887,
+        "sha256": "1a74b8472de79acd71fd54072cec39b6bbb1162dcc0e2d8e10bd1f28112a114b"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-execution/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-execution/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-reporting/README.md",
+        "bytes": 2898,
+        "sha256": "cca38a4ecdb8173c274a810a368df7f432660664f29b747775014fdccdca723a"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-reporting/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-reporting/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-workspace/README.md",
+        "bytes": 2869,
+        "sha256": "fc69bb5bff455150727e4958baab4b31997b6140d5eebbce89bfddb1fe905558"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-workspace/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/agents/crates/ec-agent-workspace/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/integration/tests/README.md",
+        "bytes": 2021,
+        "sha256": "77869371dde7f7164e7a93e6b3c4f37123698e86ae0fca783877c0290da308b1"
+      },
+      {
+        "path": "application/integration/tests/e2e/README.md",
+        "bytes": 1430,
+        "sha256": "96f92120313963a06d4dc1f4ec7b3601bf31d8d7ca31c0027ba48c11e2a4d55d"
+      },
+      {
+        "path": "application/integration/tests/integration/README.md",
+        "bytes": 1359,
+        "sha256": "ac61dc24b65177b284f63503701e891b3a6ddce6428ae2c0658f3ab9c8ac2615"
+      },
+      {
+        "path": "application/server/README.md",
+        "bytes": 2126,
+        "sha256": "a336332f479e4b9a9a0e879c674477f1386f73e8988890dfe5b6d0b3a483bac4"
+      },
+      {
+        "path": "application/server/backend/README.md",
+        "bytes": 3471,
+        "sha256": "0d152f6250f9e24207d72addd7589bb7f2aec99a7b3b426f6e54721809e02beb"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-access/README.md",
+        "bytes": 2831,
+        "sha256": "f7cb08968b3e6cc05c501196c571204bcb09634b797bd41bd91929ac0e140511"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-access/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-access/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-app/README.md",
+        "bytes": 2449,
+        "sha256": "fd4b751bca4332a7c89bc9f5e627d9b38b1f0ae7f3383cc0fec080246f2f5e94"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-app/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-app/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-configuration/README.md",
+        "bytes": 2974,
+        "sha256": "c1d02d7982281aadf80a6bc6a7fde8a08263726c09d450de1e2c37b1e66528fe"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-configuration/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-configuration/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-delivery/README.md",
+        "bytes": 2981,
+        "sha256": "9c0718b19257cf3494dffc9c4bfa3f16b064e842f36679c5ea3f1f895b755dcd"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-delivery/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-delivery/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-extensions/README.md",
+        "bytes": 3056,
+        "sha256": "28ac092724440ce8fa39ab7f814ab9da83972c80073ab7da40989496a7d0128b"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-extensions/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-extensions/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-operations/README.md",
+        "bytes": 2935,
+        "sha256": "5c6f8409c80171c3b9175ba598b88140d7da46269f36ceaae34c345d631b2ed0"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-operations/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-operations/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-orchestration/README.md",
+        "bytes": 3011,
+        "sha256": "159308011034a2dc8da81e37c58aeef153ef0ba4eea0d397239b04709e859f2a"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-orchestration/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-orchestration/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-projects/README.md",
+        "bytes": 2925,
+        "sha256": "e1d5244bb09dbeb708cc6c3bcb4ec57e540e1192d6f4e0881e96c5b7b3c7dfdf"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-projects/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-projects/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-results/README.md",
+        "bytes": 2935,
+        "sha256": "809d520c6f04c05f5ac94960dad422899059814832edc142a289926ecf094ab6"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-results/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/backend/crates/ec-server-results/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/README.md",
+        "bytes": 4130,
+        "sha256": "3b5e81adbbcdd9deec9e3beba46f24b500e53e8a62ab9c4b396802eac255d294"
+      },
+      {
+        "path": "application/server/frontend/src/app/README.md",
+        "bytes": 1750,
+        "sha256": "fe02245693fdd26aba5622864a7a83b56a7f940b0af7ee8462ea2d43aa3fb3a6"
+      },
+      {
+        "path": "application/server/frontend/src/domains/access/README.md",
+        "bytes": 2900,
+        "sha256": "9ad54579d3f68b6292f903c2dd5122f7e7c97643767ae95a747ae8274e7191bc"
+      },
+      {
+        "path": "application/server/frontend/src/domains/access/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/access/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/administration/README.md",
+        "bytes": 2983,
+        "sha256": "217cdaabd98f421cb026bc2955ac760a38a22607867a1666b1145bf807061ab7"
+      },
+      {
+        "path": "application/server/frontend/src/domains/administration/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/administration/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/configuration/README.md",
+        "bytes": 2999,
+        "sha256": "a5db864662d5792fe4e2fd09b9d5b7a08230bd965b8431a028fb64a72be4a7c5"
+      },
+      {
+        "path": "application/server/frontend/src/domains/configuration/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/configuration/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/delivery/README.md",
+        "bytes": 2896,
+        "sha256": "48f9be0ace178beb26d9fc387ee272471e7de44e7c617fed7c6069fce6459241"
+      },
+      {
+        "path": "application/server/frontend/src/domains/delivery/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/delivery/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/extensions/README.md",
+        "bytes": 2919,
+        "sha256": "b354ca821a543065130f75ab74ed245e6156406a92bd8d31389672493bf2037c"
+      },
+      {
+        "path": "application/server/frontend/src/domains/extensions/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/extensions/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/infrastructure/README.md",
+        "bytes": 2914,
+        "sha256": "da3cfa4e19deb76a7e40a2a257424e74e18f5fc209988cad6819da8151922a26"
+      },
+      {
+        "path": "application/server/frontend/src/domains/infrastructure/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/infrastructure/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/pipelines/README.md",
+        "bytes": 2893,
+        "sha256": "929b20029a76d0653862f530dd6bf67a1ce38e6fc68c3e505b4a4346698e36b5"
+      },
+      {
+        "path": "application/server/frontend/src/domains/pipelines/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/pipelines/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/projects/README.md",
+        "bytes": 2836,
+        "sha256": "23050d98d8d0a7048c2e8ea8efe4a46bf210f598bf234836990edccfdc72cf95"
+      },
+      {
+        "path": "application/server/frontend/src/domains/projects/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/projects/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/runs/README.md",
+        "bytes": 2876,
+        "sha256": "3af4c2c94138d9a70023692a41bf19941bf52a0386ea5cd90909df6dc0132e5a"
+      },
+      {
+        "path": "application/server/frontend/src/domains/runs/src/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/domains/runs/tests/.gitkeep",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "application/server/frontend/src/shared/README.md",
+        "bytes": 1788,
+        "sha256": "9ff08df3a4f02018efdc28478aa399a6d0e02e472795ee9ceb03f800b528cb17"
+      },
+      {
+        "path": "application/server/frontend/tests/e2e/README.md",
+        "bytes": 1418,
+        "sha256": "028ead95ca393861d592d5f5063794892aa1baaa19a004bdac17eaed3302180c"
+      },
+      {
+        "path": "application/server/frontend/tests/integration/README.md",
+        "bytes": 1369,
+        "sha256": "71310ecb5845153db6d2e10ea997d37474b2f636969f7559edc2584cc239d232"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "command": "python3 tools/governance/validate.py --require-installed",
+      "exit_code": 0,
+      "result": "PASS; 67 instaladas, 6 condicionais, 4 excluídas, 596 arquivos de skills, sem erros."
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --require-approved --require-fresh",
+      "exit_code": 0,
+      "result": "PASS; seis critérios de governance-adoption APPROVED; schema 2. Não atesta runtime."
+    },
+    {
+      "command": "python3 tools/governance/install_skills.py --check",
+      "exit_code": 0,
+      "result": "ALREADY_INSTALLED; 67."
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/governance/tests -v",
+      "exit_code": 0,
+      "result": "24 testes; 7.849 segundos; OK."
+    },
+    {
+      "method": "rustc --test reverse_engineering_teamcity/ci-platform-research/04-validation/prototypes/lease_model.rs -o <diretório temporário>/lease-model; executar binário",
+      "exit_code": 0,
+      "result": "12 testes passaram; zero falhas. Modelo sequencial sem SQL/rede/processos."
+    },
+    {
+      "method": "sdd.tools.validate.markdown_errors aplicado a application, docs/architecture, docs/development e docs/decisions",
+      "exit_code": 0,
+      "result": "Nenhum erro de link de arquivo local nos 45 documentos; âncoras, links externos e renderização não verificados."
+    },
+    {
+      "command": "node --check docs/assets/render.mjs",
+      "exit_code": 0,
+      "result": "Sintaxe JavaScript aceita; não executa imports, renderização ou navegador."
+    },
+    {
+      "method": "SQLite em mode=ro: PRAGMA quick_check; SELECT count(*) FROM classes",
+      "exit_code": 0,
+      "result": "quick_check: ok; 412168 registros de classes no índice histórico. Não atesta comportamento TeamCity ou produto Ec."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-01",
+      "scope": "produto",
+      "observation": "application contém exclusivamente 35 documentos e 46 marcadores vazios; nenhum código, manifest, migração, endpoint ou teste executável de produto."
+    },
+    {
+      "id": "F-02",
+      "scope": "governança",
+      "observation": "Instalador não retoma automaticamente após interrupção durante migração de pontes, antes de gravar profile.json. Reproduzido somente em fixture temporária com GovernanceTests.setUp e injeção de OSError na segunda escrita de ponte.",
+      "result": "Auditoria subsequente FAIL: Bridge points to wrong active location: cicd-agent-runtime. Retry: Catalog audit failed.",
+      "implementation": "tools/governance/install_skills.py:57-66",
+      "impact": "Instalação atual íntegra. Risco de recuperação em futuras instalações/migrações.",
+      "suggested_verification": "Simular interrupções em todas as escritas das pontes/perfil e exigir retomada consistente sem sobrescrever conteúdo alheio."
+    },
+    {
+      "id": "F-03",
+      "scope": "documentação",
+      "observation": "Renderizador depende de ferramentas e Chromium em caminhos temporários externos; os caminhos padrão consultados não existem neste ambiente. Não foi executada renderização visual."
+    },
+    {
+      "id": "F-04",
+      "scope": "produto",
+      "observation": "Há apenas uma feature SDD, governance-adoption; contratos executáveis e aceite da primeira entrega funcional permanecem pendentes."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3279,
+      "sha256": "a6a44c462cfbc67893b83069ae72160984b79acbc2de2650173056e637094543"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6210,
+      "sha256": "143669fb1e5869c0ff62b8b6b26143cfd7484e114cfef9801c208f9d4da89793"
+    },
+    {
+      "path": "sdd/project.md",
+      "bytes": 5851,
+      "sha256": "0392ce3748d9ed54c1b51455f8252abca34acc3d809d469f4679d5b56c4ed6e7"
+    },
+    {
+      "path": "sdd/workflow.md",
+      "bytes": 5052,
+      "sha256": "acbf9400f2ea4cc83b4e67ba8957e58ce51178574d1988a54172117c92d597f9"
+    },
+    {
+      "path": "sdd/evidence.md",
+      "bytes": 8302,
+      "sha256": "5aff51a144d4fe800ca1c668c7180a25de1e4109a30d9d07161b85342b920483"
+    },
+    {
+      "path": "docs/constitution.md",
+      "bytes": 2744,
+      "sha256": "ce19c39d84fcd67bbc0961ff9abf89414a8980b7a03adc235a9e789d18532e31"
+    },
+    {
+      "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+      "bytes": 42151,
+      "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37"
+    },
+    {
+      "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+      "bytes": 18960,
+      "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62"
+    },
+    {
+      "path": "docs/ec-arquitetura-comunicacao-e-validacao.md",
+      "bytes": 26448,
+      "sha256": "f9689af6e68baae223d1c213518163e3506339c84519bff40d3ecb33f57296a6"
+    },
+    {
+      "path": "docs/decisions/ADR-001-skills-sdd-adoption.md",
+      "bytes": 2987,
+      "sha256": "964423adcd8933ad36f696c7b140d10321b190da0ac224b4ac360f8644923023"
+    },
+    {
+      "path": "docs/decisions/ADR-002-application-layout.md",
+      "bytes": 5779,
+      "sha256": "6f86163b5fc7a4b546acb568c60e9cd97958a2041ba769a3b426123c490149ad"
+    },
+    {
+      "path": "docs/architecture/context.md",
+      "bytes": 3028,
+      "sha256": "b2d1a6664b22403d0da0c913abab1bb0cdd2575c41c76d5d0eef9d4ce196c331"
+    },
+    {
+      "path": "docs/architecture/application-layout.md",
+      "bytes": 13721,
+      "sha256": "6eb5ffaae0d6fb812b31b5af6a0abf316b8b17ee8fe491007cca233e81f02ae1"
+    },
+    {
+      "path": "docs/architecture/application-overview.md",
+      "bytes": 16051,
+      "sha256": "63d00e621dc42e18ec6a300815f2039b51c0e39673074ab80451261085cc5051"
+    },
+    {
+      "path": "docs/architecture/contracts.md",
+      "bytes": 19028,
+      "sha256": "00d1cfaea97c0de5f6ab8f34d862b8e49a7fc48ca7bc21408ca1f6145f3a73f4"
+    },
+    {
+      "path": "docs/development/testing.md",
+      "bytes": 7767,
+      "sha256": "441d5961ab396999ecfd2ab9c1d0cfbe27ee1ea914978b7cecae19158dccae3b"
+    },
+    {
+      "path": "tools/governance/validate.py",
+      "bytes": 9188,
+      "sha256": "48bf1e3e5014a405c180df5da3b9430320cfaf03b76c39a73e094e76ce71beb4"
+    },
+    {
+      "path": "tools/governance/install_skills.py",
+      "bytes": 4499,
+      "sha256": "3d6b431380e2c3104b5769ea9414ac3444249666dcf0a20b95d88e82123622b2"
+    },
+    {
+      "path": "tools/governance/tests/test_governance.py",
+      "bytes": 11408,
+      "sha256": "027b0c23bad67f6500cd94fe4dc61d73a2c4b29fb4c32ec49fe9946ceacc592c"
+    },
+    {
+      "path": "sdd/tools/validate.py",
+      "bytes": 21053,
+      "sha256": "bc4581e9868eb52f4203be5fa05e971d2ba7f2600a70060cce508b07853a04c4"
+    },
+    {
+      "path": "sdd/features/governance-adoption/spec.md",
+      "bytes": 2535,
+      "sha256": "88e765b4fe076aeb2d7a2e8e74150822717b2f05ad602259254ece3dcbc6f153"
+    },
+    {
+      "path": "sdd/features/governance-adoption/evidence.json",
+      "bytes": 377211,
+      "sha256": "5e4e6aacfa66dfd4e779e7ef553e65253b79424201aa1a310b7c44b6968335c8"
+    },
+    {
+      "path": "config/governance/profile.json",
+      "bytes": 194034,
+      "sha256": "3a5b15a667aa610b56de1726a34a4fdb95fc518943dfabedafd4ff73f404bc05"
+    },
+    {
+      "path": "docs/assets/render.mjs",
+      "bytes": 24881,
+      "sha256": "415ca099a9a0ba87397f2365bfdd9b69badaecb8e594d206c368aa1c31c44311"
+    },
+    {
+      "path": "docs/assets/catalog.json",
+      "bytes": 38328,
+      "sha256": "6ceef3d0f8002615a2ff543e29da9d46063819395582c7cd0d56e1e79e2201e7"
+    },
+    {
+      "path": "reverse_engineering_teamcity/README.md",
+      "bytes": 1815,
+      "sha256": "fbdd7b1cdcd26eaef446f2b93a9ccd5e5e010a863c73164fbd352e163a9f8993"
+    },
+    {
+      "path": "reverse_engineering_teamcity/ci-platform-research/04-validation/prototypes/lease_model.rs",
+      "bytes": 7509,
+      "sha256": "b6cd65bbcef45b36358e4d4bd58f35f9a25ccdfa48e6ed312bb434260f7b9234"
+    },
+    {
+      "path": "reverse_engineering_teamcity/ci-platform-research/04-validation/tests/validate.py",
+      "bytes": 5642,
+      "sha256": "2bbcc7b3fa0123a7ceb437a6ad18a5440084047a1554a7b10e1461ac7cffd18f"
+    }
+  ],
+  "skills": [
+    {
+      "name": "software-architecture",
+      "contribution": "Revisão das fronteiras, autoridades, dependências e sequência incremental.",
+      "path": ".codex/skills/software-architecture/SKILL.md",
+      "bytes": 5984,
+      "sha256": "739571c2d2d28a4bd8ad389cc30ed59e599f4c8d65068f6d7e86ee0094dcefba"
+    },
+    {
+      "name": "software-testing",
+      "contribution": "Avaliação dos oráculos, execução das suítes e reprodução isolada de falha de recuperação.",
+      "path": ".codex/skills/software-testing/SKILL.md",
+      "bytes": 6883,
+      "sha256": "2d2fbc0b44e19a2d4428eb98b8602fc7dc58884294a9f6902606423959f34aba"
+    }
+  ],
+  "limitations": [
+    "Histórico Git indisponível.",
+    "Sem aplicação ou ambiente de produto para testes de API, PostgreSQL, navegador ou implantação.",
+    "Não revalidado o conteúdo completo dos 817 arquivos históricos ou suas afirmações externas.",
+    "Não calculada cobertura ou percentual de conclusão.",
+    "Snapshot local de inspeção; não constitui evidência automatizada de aceite de novas funcionalidades."
+  ],
+  "documentation_figures": 38,
+  "historical_inventory": {
+    "files_excluding_python_cache": 817,
+    "semantic_review": "seletiva",
+    "symbol_classes": 412168
+  }
+}

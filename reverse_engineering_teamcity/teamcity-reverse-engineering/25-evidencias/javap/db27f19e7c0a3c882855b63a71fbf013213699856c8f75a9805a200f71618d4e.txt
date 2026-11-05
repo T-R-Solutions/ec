@@ -1,0 +1,548 @@
+Compiled from "HttpBasedProtocolResolver.java"
+public class jetbrains.buildServer.agent.impl.serverCommunication.HttpBasedProtocolResolver implements jetbrains.buildServer.agent.impl.serverCommunication.IServerCommunicationProtocolResolver {
+  private static final java.lang.String PROTOCOLS_PATH;
+    descriptor: Ljava/lang/String;
+
+  private final jetbrains.buildServer.messages.XStreamHolder myXStreamHolder;
+    descriptor: Ljetbrains/buildServer/messages/XStreamHolder;
+
+  private final jetbrains.buildServer.agent.BuildAgentConfiguration myConfiguration;
+    descriptor: Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+
+  private final jetbrains.buildServer.agent.impl.serverCommunication.PollingProtocol myPollingProtocol;
+    descriptor: Ljetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol;
+
+  private final jetbrains.buildServer.http.HttpApi myServerApi;
+    descriptor: Ljetbrains/buildServer/http/HttpApi;
+
+  public jetbrains.buildServer.agent.impl.serverCommunication.HttpBasedProtocolResolver(jetbrains.buildServer.agent.BuildAgentConfiguration, jetbrains.buildServer.agent.impl.serverCommunication.PollingProtocol, jetbrains.buildServer.http.HttpApi);
+    descriptor: (Ljetbrains/buildServer/agent/BuildAgentConfiguration;Ljetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol;Ljetbrains/buildServer/http/HttpApi;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+        24: aload_0
+        25: invokespecial #3                  // Method java/lang/Object."<init>":()V
+        28: aload_0
+        29: new           #9                  // class jetbrains/buildServer/messages/XStreamHolder
+        32: dup
+        33: invokespecial #11                 // Method jetbrains/buildServer/messages/XStreamHolder."<init>":()V
+        36: putfield      #12                 // Field myXStreamHolder:Ljetbrains/buildServer/messages/XStreamHolder;
+        39: aload_0
+        40: aload_1
+        41: putfield      #18                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+        44: aload_0
+        45: aload_2
+        46: putfield      #22                 // Field myPollingProtocol:Ljetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol;
+        49: aload_0
+        50: aload_3
+        51: putfield      #26                 // Field myServerApi:Ljetbrains/buildServer/http/HttpApi;
+        54: return
+      LineNumberTable:
+        line 35: 24
+        line 27: 28
+        line 36: 39
+        line 37: 44
+        line 38: 49
+        line 39: 54
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      55     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/HttpBasedProtocolResolver;
+            0      55     1 configuration   Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+            0      55     2 pollingProtocol   Ljetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol;
+            0      55     3 serverApi   Ljetbrains/buildServer/http/HttpApi;
+
+  public java.lang.Iterable<jetbrains.buildServer.agent.impl.serverCommunication.CommunicationProtocol> resolve();
+    descriptor: ()Ljava/lang/Iterable;
+    Code:
+         0: aload_0
+         1: getfield      #18                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+         4: invokeinterface #30,  1           // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfiguration.getServerUrl:()Ljava/lang/String;
+         9: invokedynamic #36,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        14: astore_1
+        15: aload_0
+        16: getfield      #26                 // Field myServerApi:Ljetbrains/buildServer/http/HttpApi;
+        19: aload_1
+        20: iconst_0
+        21: anewarray     #40                 // class jetbrains/buildServer/http/HttpApi$HeaderPair
+        24: invokeinterface #42,  3           // InterfaceMethod jetbrains/buildServer/http/HttpApi.get:(Ljava/lang/String;[Ljetbrains/buildServer/http/HttpApi$HeaderPair;)Ljetbrains/buildServer/http/HttpApi$Response;
+        29: astore_2
+        30: aload_2
+        31: invokeinterface #48,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+        36: sipush        503
+        39: if_icmpne     90
+        42: aload_1
+        43: aload_2
+        44: invokeinterface #54,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+        49: invokedynamic #57,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        54: invokestatic  #60                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;)V
+        57: aload_2
+        58: invokeinterface #54,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+        63: invokestatic  #66                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.debug:(Ljava/lang/String;)V
+        66: invokestatic  #69                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+        69: astore_3
+        70: aload_2
+        71: ifnull        80
+        74: aload_2
+        75: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+        80: aload_3
+        81: dup
+        82: ifnonnull     89
+        85: iconst_3
+        86: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+        89: areturn
+        90: aload_2
+        91: invokeinterface #48,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+        96: sipush        200
+        99: if_icmpeq     150
+       102: aload_1
+       103: aload_2
+       104: invokeinterface #48,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+       109: invokedynamic #78,  0             // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+       114: invokestatic  #60                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;)V
+       117: aload_2
+       118: invokeinterface #54,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+       123: invokestatic  #66                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.debug:(Ljava/lang/String;)V
+       126: invokestatic  #69                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+       129: astore_3
+       130: aload_2
+       131: ifnull        140
+       134: aload_2
+       135: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       140: aload_3
+       141: dup
+       142: ifnonnull     149
+       145: iconst_4
+       146: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+       149: areturn
+       150: aload_2
+       151: invokeinterface #54,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+       156: astore_3
+       157: aload_0
+       158: aload_3
+       159: invokevirtual #81                 // Method tryParse:(Ljava/lang/String;)Ljava/util/List;
+       162: astore        4
+       164: aload         4
+       166: ifnonnull     210
+       169: aload_1
+       170: aload_2
+       171: invokeinterface #54,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+       176: invokedynamic #85,  0             // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       181: invokestatic  #60                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;)V
+       184: invokestatic  #69                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+       187: astore        5
+       189: aload_2
+       190: ifnull        199
+       193: aload_2
+       194: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       199: aload         5
+       201: dup
+       202: ifnonnull     209
+       205: iconst_5
+       206: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+       209: areturn
+       210: aload_0
+       211: aload         4
+       213: invokevirtual #86                 // Method fromIds:(Ljava/util/List;)Ljava/util/List;
+       216: invokeinterface #90,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+       221: ifeq          256
+       224: ldc           #96                 // String The server returns empty protocols list, probably it means that it\'s operation mode does not support agents registration. Will try later.
+       226: invokestatic  #60                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;)V
+       229: invokestatic  #69                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+       232: astore        5
+       234: aload_2
+       235: ifnull        244
+       238: aload_2
+       239: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       244: aload         5
+       246: dup
+       247: ifnonnull     255
+       250: bipush        6
+       252: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+       255: areturn
+       256: aload         4
+       258: invokestatic  #98                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       261: invokedynamic #104,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       266: invokestatic  #105                // Method jetbrains/buildServer/agent/impl/RegistrationLogger.info:(Ljava/lang/String;)V
+       269: aload_0
+       270: aload         4
+       272: invokevirtual #86                 // Method fromIds:(Ljava/util/List;)Ljava/util/List;
+       275: astore        5
+       277: aload_2
+       278: ifnull        287
+       281: aload_2
+       282: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       287: aload         5
+       289: dup
+       290: ifnonnull     298
+       293: bipush        7
+       295: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+       298: areturn
+       299: astore_3
+       300: aload_2
+       301: ifnull        321
+       304: aload_2
+       305: invokeinterface #75,  1           // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       310: goto          321
+       313: astore        4
+       315: aload_3
+       316: aload         4
+       318: invokevirtual #110                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       321: aload_3
+       322: athrow
+       323: astore_2
+       324: aload_1
+       325: invokedynamic #116,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       330: invokestatic  #60                 // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;)V
+       333: invokestatic  #69                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+       336: dup
+       337: ifnonnull     345
+       340: bipush        8
+       342: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+       345: areturn
+       346: astore_2
+       347: aload_1
+       348: invokedynamic #117,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       353: aload_2
+       354: invokestatic  #118                // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       357: invokestatic  #69                 // Method java/util/Collections.emptyList:()Ljava/util/List;
+       360: dup
+       361: ifnonnull     369
+       364: bipush        9
+       366: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+       369: areturn
+      Exception table:
+         from    to  target type
+            30    70   299   Class java/lang/Throwable
+            90   130   299   Class java/lang/Throwable
+           150   189   299   Class java/lang/Throwable
+           210   234   299   Class java/lang/Throwable
+           256   277   299   Class java/lang/Throwable
+           304   310   313   Class java/lang/Throwable
+            15    80   323   Class java/net/UnknownHostException
+            90   140   323   Class java/net/UnknownHostException
+           150   199   323   Class java/net/UnknownHostException
+           210   244   323   Class java/net/UnknownHostException
+           256   287   323   Class java/net/UnknownHostException
+           299   323   323   Class java/net/UnknownHostException
+            15    80   346   Class java/lang/Throwable
+            90   140   346   Class java/lang/Throwable
+           150   199   346   Class java/lang/Throwable
+           210   244   346   Class java/lang/Throwable
+           256   287   346   Class java/lang/Throwable
+           299   323   346   Class java/lang/Throwable
+      LineNumberTable:
+        line 44: 0
+        line 46: 15
+        line 48: 30
+        line 49: 42
+        line 50: 57
+        line 51: 66
+        line 77: 70
+        line 51: 80
+        line 54: 90
+        line 55: 102
+        line 56: 104
+        line 55: 114
+        line 57: 117
+        line 58: 126
+        line 77: 130
+        line 58: 140
+        line 61: 150
+        line 62: 157
+        line 64: 164
+        line 65: 169
+        line 66: 171
+        line 65: 181
+        line 67: 184
+        line 77: 189
+        line 67: 199
+        line 70: 210
+        line 71: 224
+        line 72: 229
+        line 77: 234
+        line 72: 244
+        line 75: 256
+        line 76: 269
+        line 77: 277
+        line 76: 287
+        line 46: 299
+        line 78: 323
+        line 79: 324
+        line 80: 333
+        line 81: 346
+        line 82: 347
+        line 83: 357
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          157     142     3 responseBody   Ljava/lang/String;
+          164     135     4 serverProtocolsIds   Ljava/util/List;
+           30     293     2 response   Ljetbrains/buildServer/http/HttpApi$Response;
+          324      22     2     e   Ljava/net/UnknownHostException;
+          347      23     2     e   Ljava/lang/Throwable;
+            0     370     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/HttpBasedProtocolResolver;
+           15     355     1 protocolsUrl   Ljava/lang/String;
+
+  private java.util.List<jetbrains.buildServer.agent.impl.serverCommunication.CommunicationProtocol> fromIds(java.util.List<java.lang.String>);
+    descriptor: (Ljava/util/List;)Ljava/util/List;
+    Code:
+         0: aload_1
+         1: ifnonnull     9
+         4: bipush        10
+         6: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+         9: new           #121                // class java/util/ArrayList
+        12: dup
+        13: invokespecial #123                // Method java/util/ArrayList."<init>":()V
+        16: astore_2
+        17: aload_1
+        18: invokeinterface #124,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        23: astore_3
+        24: aload_3
+        25: invokeinterface #128,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        30: ifeq          73
+        33: aload_3
+        34: invokeinterface #133,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        39: checkcast     #99                 // class java/lang/String
+        42: astore        4
+        44: aload_0
+        45: getfield      #22                 // Field myPollingProtocol:Ljetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol;
+        48: invokevirtual #137                // Method jetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol.getId:()Ljava/lang/String;
+        51: aload         4
+        53: invokevirtual #142                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        56: ifeq          70
+        59: aload_2
+        60: aload_0
+        61: getfield      #22                 // Field myPollingProtocol:Ljetbrains/buildServer/agent/impl/serverCommunication/PollingProtocol;
+        64: invokeinterface #146,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        69: pop
+        70: goto          24
+        73: aload_2
+        74: dup
+        75: ifnonnull     83
+        78: bipush        11
+        80: invokestatic  #238                // Method $$$reportNull$$$0:(I)V
+        83: areturn
+      LineNumberTable:
+        line 89: 9
+        line 90: 17
+        line 91: 44
+        line 92: 59
+        line 94: 70
+        line 95: 73
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           44      26     4    id   Ljava/lang/String;
+            0      84     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/HttpBasedProtocolResolver;
+            0      84     1 protocolsIds   Ljava/util/List;
+           17      67     2 result   Ljava/util/List;
+
+  private java.util.List<java.lang.String> tryParse(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/util/List;
+    Code:
+         0: aload_1
+         1: aload_0
+         2: getfield      #12                 // Field myXStreamHolder:Ljetbrains/buildServer/messages/XStreamHolder;
+         5: invokestatic  #149                // Method jetbrains/buildServer/xstream/XStreamWrapper.deserializeObject:(Ljava/lang/String;Ljetbrains/buildServer/messages/XStreamHolder;)Ljava/lang/Object;
+         8: checkcast     #91                 // class java/util/List
+        11: areturn
+        12: astore_2
+        13: ldc           #157                // String Error while parsing communication protocols returned by the server
+        15: aload_2
+        16: invokestatic  #118                // Method jetbrains/buildServer/agent/impl/RegistrationLogger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        19: aconst_null
+        20: areturn
+      Exception table:
+         from    to  target type
+             0    11    12   Class java/lang/Exception
+      LineNumberTable:
+        line 101: 0
+        line 102: 12
+        line 103: 13
+        line 104: 19
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           13       8     2     e   Ljava/lang/Exception;
+            0      21     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/HttpBasedProtocolResolver;
+            0      21     1 responseBody   Ljava/lang/String;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 11
+                       0: 64
+                       1: 64
+                       2: 64
+                       3: 69
+                       4: 69
+                       5: 69
+                       6: 69
+                       7: 69
+                       8: 69
+                       9: 69
+                      10: 64
+                      11: 69
+                 default: 64
+            }
+        64: ldc           #240                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        66: goto          74
+        69: ldc           #242                // String @NotNull method %s.%s must not return null
+        71: goto          74
+        74: iload_0
+        75: tableswitch   { // 0 to 11
+                       0: 136
+                       1: 136
+                       2: 136
+                       3: 140
+                       4: 140
+                       5: 140
+                       6: 140
+                       7: 140
+                       8: 140
+                       9: 140
+                      10: 136
+                      11: 140
+                 default: 136
+            }
+       136: iconst_3
+       137: goto          144
+       140: iconst_2
+       141: goto          144
+       144: anewarray     #4                  // class java/lang/Object
+       147: iload_0
+       148: tableswitch   { // 0 to 11
+                       0: 212
+                       1: 220
+                       2: 228
+                       3: 236
+                       4: 236
+                       5: 236
+                       6: 236
+                       7: 236
+                       8: 236
+                       9: 236
+                      10: 244
+                      11: 236
+                 default: 212
+            }
+       212: dup
+       213: iconst_0
+       214: ldc           #243                // String configuration
+       216: aastore
+       217: goto          252
+       220: dup
+       221: iconst_0
+       222: ldc           #244                // String pollingProtocol
+       224: aastore
+       225: goto          252
+       228: dup
+       229: iconst_0
+       230: ldc           #245                // String serverApi
+       232: aastore
+       233: goto          252
+       236: dup
+       237: iconst_0
+       238: ldc           #246                // String jetbrains/buildServer/agent/impl/serverCommunication/HttpBasedProtocolResolver
+       240: aastore
+       241: goto          252
+       244: dup
+       245: iconst_0
+       246: ldc           #247                // String protocolsIds
+       248: aastore
+       249: goto          252
+       252: iload_0
+       253: tableswitch   { // 0 to 11
+                       0: 316
+                       1: 316
+                       2: 316
+                       3: 324
+                       4: 324
+                       5: 324
+                       6: 324
+                       7: 324
+                       8: 324
+                       9: 324
+                      10: 316
+                      11: 332
+                 default: 316
+            }
+       316: dup
+       317: iconst_1
+       318: ldc           #246                // String jetbrains/buildServer/agent/impl/serverCommunication/HttpBasedProtocolResolver
+       320: aastore
+       321: goto          340
+       324: dup
+       325: iconst_1
+       326: ldc           #248                // String resolve
+       328: aastore
+       329: goto          340
+       332: dup
+       333: iconst_1
+       334: ldc           #249                // String fromIds
+       336: aastore
+       337: goto          340
+       340: iload_0
+       341: tableswitch   { // 0 to 11
+                       0: 404
+                       1: 404
+                       2: 404
+                       3: 412
+                       4: 412
+                       5: 412
+                       6: 412
+                       7: 412
+                       8: 412
+                       9: 412
+                      10: 415
+                      11: 412
+                 default: 404
+            }
+       404: dup
+       405: iconst_2
+       406: ldc           #250                // String <init>
+       408: aastore
+       409: goto          423
+       412: goto          423
+       415: dup
+       416: iconst_2
+       417: ldc           #249                // String fromIds
+       419: aastore
+       420: goto          423
+       423: invokestatic  #254                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       426: iload_0
+       427: tableswitch   { // 0 to 11
+                       0: 488
+                       1: 488
+                       2: 488
+                       3: 499
+                       4: 499
+                       5: 499
+                       6: 499
+                       7: 499
+                       8: 499
+                       9: 499
+                      10: 488
+                      11: 499
+                 default: 488
+            }
+       488: new           #256                // class java/lang/IllegalArgumentException
+       491: dup_x1
+       492: swap
+       493: invokespecial #258                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       496: goto          510
+       499: new           #260                // class java/lang/IllegalStateException
+       502: dup_x1
+       503: swap
+       504: invokespecial #261                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       507: goto          510
+       510: athrow
+}

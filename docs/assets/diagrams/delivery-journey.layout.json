@@ -1,0 +1,47 @@
+{
+  "title": "Da configuração à entrega",
+  "question": "Qual é a jornada de uma mudança?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/application-overview.md"
+  ],
+  "columns": 3,
+  "nodes": {
+    "EDIT": {
+      "icon": "file-pen-line",
+      "tone": "blue",
+      "column": 0,
+      "row": 0
+    },
+    "PUBLISH": {
+      "icon": "git-pull-request",
+      "tone": "teal",
+      "column": 1,
+      "row": 0
+    },
+    "QUEUE": {
+      "icon": "list-ordered",
+      "tone": "teal",
+      "column": 2,
+      "row": 0
+    },
+    "ALLOC": {
+      "icon": "network",
+      "tone": "purple",
+      "column": 0,
+      "row": 1
+    },
+    "RUN": {
+      "icon": "terminal",
+      "tone": "purple",
+      "column": 1,
+      "row": 1
+    },
+    "PROMOTE": {
+      "icon": "package-check",
+      "tone": "teal",
+      "column": 2,
+      "row": 1
+    }
+  }
+}

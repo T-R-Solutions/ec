@@ -1,0 +1,143 @@
+Compiled from "SimpleWaitReason.java"
+public class jetbrains.buildServer.serverSide.buildDistribution.SimpleWaitReason implements jetbrains.buildServer.serverSide.buildDistribution.WaitReason {
+  private final java.lang.String myDescription;
+    descriptor: Ljava/lang/String;
+
+  public jetbrains.buildServer.serverSide.buildDistribution.SimpleWaitReason(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #52                 // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        12: aload_0
+        13: aload_1
+        14: putfield      #7                  // Field myDescription:Ljava/lang/String;
+        17: return
+      LineNumberTable:
+        line 28: 8
+        line 29: 12
+        line 30: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+            0      18     1 description   Ljava/lang/String;
+
+  public java.lang.String getDescription();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #7                  // Field myDescription:Ljava/lang/String;
+         4: dup
+         5: ifnonnull     12
+         8: iconst_1
+         9: invokestatic  #52                 // Method $$$reportNull$$$0:(I)V
+        12: areturn
+      LineNumberTable:
+        line 35: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      13     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    Code:
+         0: aload_0
+         1: getfield      #7                  // Field myDescription:Ljava/lang/String;
+         4: invokedynamic #13,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+         9: areturn
+      LineNumberTable:
+        line 40: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Ljetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason;
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: iload_0
+         1: tableswitch   { // 0 to 1
+                       0: 24
+                       1: 29
+                 default: 24
+            }
+        24: ldc           #56                 // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+        26: goto          34
+        29: ldc           #58                 // String @NotNull method %s.%s must not return null
+        31: goto          34
+        34: iload_0
+        35: tableswitch   { // 0 to 1
+                       0: 56
+                       1: 60
+                 default: 56
+            }
+        56: iconst_3
+        57: goto          64
+        60: iconst_2
+        61: goto          64
+        64: anewarray     #2                  // class java/lang/Object
+        67: iload_0
+        68: tableswitch   { // 0 to 1
+                       0: 92
+                       1: 100
+                 default: 92
+            }
+        92: dup
+        93: iconst_0
+        94: ldc           #59                 // String description
+        96: aastore
+        97: goto          108
+       100: dup
+       101: iconst_0
+       102: ldc           #60                 // String jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       104: aastore
+       105: goto          108
+       108: iload_0
+       109: tableswitch   { // 0 to 1
+                       0: 132
+                       1: 140
+                 default: 132
+            }
+       132: dup
+       133: iconst_1
+       134: ldc           #60                 // String jetbrains/buildServer/serverSide/buildDistribution/SimpleWaitReason
+       136: aastore
+       137: goto          148
+       140: dup
+       141: iconst_1
+       142: ldc           #61                 // String getDescription
+       144: aastore
+       145: goto          148
+       148: iload_0
+       149: tableswitch   { // 0 to 1
+                       0: 172
+                       1: 180
+                 default: 172
+            }
+       172: dup
+       173: iconst_2
+       174: ldc           #62                 // String <init>
+       176: aastore
+       177: goto          183
+       180: goto          183
+       183: invokestatic  #66                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       186: iload_0
+       187: tableswitch   { // 0 to 1
+                       0: 208
+                       1: 219
+                 default: 208
+            }
+       208: new           #68                 // class java/lang/IllegalArgumentException
+       211: dup_x1
+       212: swap
+       213: invokespecial #70                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       216: goto          230
+       219: new           #72                 // class java/lang/IllegalStateException
+       222: dup_x1
+       223: swap
+       224: invokespecial #73                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       227: goto          230
+       230: athrow
+}

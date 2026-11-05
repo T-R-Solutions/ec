@@ -1,0 +1,2 @@
+# Invalidation and eviction
+Use versioned key schema and explicit policy epochs. Invalidate on toolchain, lockfile, platform or relevant input changes. Manual purge and credential revocation may require scope-specific namespace rotation. TTL and LRU/size quotas are operational policy; eviction must not remove in-use blobs. Track misses by reason, transfer overhead and stale/corrupt entries. Cache can increase total CI time when upload/download overhead exceeds recomputation; verify with workload-specific measurements.

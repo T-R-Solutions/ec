@@ -1,0 +1,13 @@
+{
+  "status": "KNOWN_INPUT_GAPS",
+  "new_document_errors": 0,
+  "original_document_broken_links": [
+    "Nonportable or missing link: /home/rodrigo/Projetos/ec/docs/readme-lifecycle-engineering-SKILL.md: references/readme-scope-and-content.md",
+    "Nonportable or missing link: /home/rodrigo/Projetos/ec/docs/readme-lifecycle-engineering-SKILL.md: references/documentation-topology-and-diataxis.md",
+    "Nonportable or missing link: /home/rodrigo/Projetos/ec/docs/readme-lifecycle-engineering-SKILL.md: references/maintenance-and-change-triggers.md",
+    "Nonportable or missing link: /home/rodrigo/Projetos/ec/docs/readme-lifecycle-engineering-SKILL.md: references/verification-and-acceptance.md",
+    "Nonportable or missing link: /home/rodrigo/Projetos/ec/docs/readme-lifecycle-engineering-SKILL.md: references/implementation-details.md"
+  ],
+  "resolution": "Original entrypoint in docs has no adjacent references/. It is preserved as input. The complete prepared skill contains and passes checks for all referenced resources. No fake docs/references tree created.",
+  "limits": "External URLs and heading anchors not checked."
+}

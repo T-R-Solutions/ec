@@ -1,0 +1,23 @@
+{
+  "title": "operations · fronteira do domínio",
+  "question": "Quais imports Ec são permitidos neste módulo?",
+  "status": "Arquitetura planejada",
+  "sources": [
+    "docs/architecture/application-layout.md"
+  ],
+  "columns": 2,
+  "nodes": {
+    "SELF": {
+      "icon": "activity",
+      "tone": "teal",
+      "column": 0,
+      "row": 0
+    },
+    "NONE": {
+      "icon": "unplug",
+      "tone": "amber",
+      "column": 1,
+      "row": 0
+    }
+  }
+}

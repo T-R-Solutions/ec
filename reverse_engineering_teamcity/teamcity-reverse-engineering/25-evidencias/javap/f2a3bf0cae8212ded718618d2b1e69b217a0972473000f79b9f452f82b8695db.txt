@@ -1,0 +1,1205 @@
+Compiled from "ServerCommandsPoller.java"
+public class jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller {
+  private static final java.lang.String GET_COMMAND_PATH;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String COMMAND_RESULT_PATH;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String COMMAND_PROGRESS_PATH;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String COMMAND_EXECUTION_ERROR_PATH;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String DELAY_AFTER_NO_COMMAND;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String DELAY_AFTER_COMMAND_RECEIVED;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String DELAY_AFTER_FAILED_COMMAND_CONFIRMATION_REQUEST;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String LONG_COMMAND_PROGRESS_INTERVAL;
+    descriptor: Ljava/lang/String;
+
+  private static final com.intellij.openapi.diagnostic.Logger LOGGER;
+    descriptor: Lcom/intellij/openapi/diagnostic/Logger;
+
+  private final jetbrains.buildServer.agent.BuildAgentConfiguration myConfiguration;
+    descriptor: Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+
+  private final jetbrains.buildServer.http.HttpApi myServerApi;
+    descriptor: Ljetbrains/buildServer/http/HttpApi;
+
+  private volatile jetbrains.buildServer.agent.impl.BuildAgentImpl myAgent;
+    descriptor: Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+
+  private final jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsExecutor myServerCommandsExecutor;
+    descriptor: Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+
+  private final jetbrains.buildServer.util.NamedThreadFactory myThreadFactory;
+    descriptor: Ljetbrains/buildServer/util/NamedThreadFactory;
+
+  private volatile java.lang.Thread myThread;
+    descriptor: Ljava/lang/Thread;
+
+  private volatile java.lang.String mySessionId;
+    descriptor: Ljava/lang/String;
+
+  private volatile jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$OnExit myOnExit;
+    descriptor: Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit;
+
+  private volatile boolean myExecutingCommand;
+    descriptor: Z
+
+  private volatile boolean myStopped;
+    descriptor: Z
+
+  private volatile java.lang.String myConnectError;
+    descriptor: Ljava/lang/String;
+
+  public jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller(jetbrains.buildServer.agent.BuildAgentConfiguration, jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsExecutor, jetbrains.buildServer.http.HttpApi, jetbrains.buildServer.util.EventDispatcher<jetbrains.buildServer.agent.AgentLifeCycleListener>);
+    descriptor: (Ljetbrains/buildServer/agent/BuildAgentConfiguration;Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;Ljetbrains/buildServer/http/HttpApi;Ljetbrains/buildServer/util/EventDispatcher;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_0
+         5: invokestatic  #582                // Method $$$reportNull$$$0:(I)V
+         8: aload_2
+         9: ifnonnull     16
+        12: iconst_1
+        13: invokestatic  #582                // Method $$$reportNull$$$0:(I)V
+        16: aload_3
+        17: ifnonnull     24
+        20: iconst_2
+        21: invokestatic  #582                // Method $$$reportNull$$$0:(I)V
+        24: aload         4
+        26: ifnonnull     33
+        29: iconst_3
+        30: invokestatic  #582                // Method $$$reportNull$$$0:(I)V
+        33: aload_0
+        34: invokespecial #3                  // Method java/lang/Object."<init>":()V
+        37: aload_0
+        38: iconst_0
+        39: putfield      #9                  // Field myStopped:Z
+        42: aload_0
+        43: aconst_null
+        44: putfield      #15                 // Field myConnectError:Ljava/lang/String;
+        47: aload_0
+        48: aload_1
+        49: putfield      #19                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+        52: aload_0
+        53: aload_3
+        54: putfield      #23                 // Field myServerApi:Ljetbrains/buildServer/http/HttpApi;
+        57: aload_0
+        58: aload_2
+        59: putfield      #27                 // Field myServerCommandsExecutor:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+        62: aload_0
+        63: new           #31                 // class jetbrains/buildServer/util/NamedDaemonThreadFactory
+        66: dup
+        67: ldc           #33                 // String Server Commands Poller
+        69: invokespecial #35                 // Method jetbrains/buildServer/util/NamedDaemonThreadFactory."<init>":(Ljava/lang/String;)V
+        72: putfield      #38                 // Field myThreadFactory:Ljetbrains/buildServer/util/NamedThreadFactory;
+        75: aload         4
+        77: new           #42                 // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$1
+        80: dup
+        81: aload_0
+        82: invokespecial #44                 // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$1."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;)V
+        85: invokevirtual #47                 // Method jetbrains/buildServer/util/EventDispatcher.addListener:(Ljava/util/EventListener;)V
+        88: return
+      LineNumberTable:
+        line 58: 33
+        line 52: 37
+        line 53: 42
+        line 59: 47
+        line 60: 52
+        line 61: 57
+        line 62: 62
+        line 64: 75
+        line 70: 88
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      89     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      89     1 configuration   Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+            0      89     2 serverCommandsExecutor   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+            0      89     3 serverApi   Ljetbrains/buildServer/http/HttpApi;
+            0      89     4 agentDispatcher   Ljetbrains/buildServer/util/EventDispatcher;
+
+  public synchronized void start(java.lang.String, jetbrains.buildServer.agent.impl.BuildAgentImpl, jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$OnExit);
+    descriptor: (Ljava/lang/String;Ljetbrains/buildServer/agent/impl/BuildAgentImpl;Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit;)V
+    Code:
+         0: aload_1
+         1: ifnonnull     8
+         4: iconst_4
+         5: invokestatic  #582                // Method $$$reportNull$$$0:(I)V
+         8: aload_0
+         9: getfield      #53                 // Field myThread:Ljava/lang/Thread;
+        12: ifnull        46
+        15: aload_0
+        16: getfield      #53                 // Field myThread:Ljava/lang/Thread;
+        19: invokevirtual #57                 // Method java/lang/Thread.isAlive:()Z
+        22: ifeq          46
+        25: aload_0
+        26: getfield      #9                  // Field myStopped:Z
+        29: ifne          46
+        32: aload_0
+        33: getfield      #63                 // Field myAgent:Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+        36: aload_2
+        37: if_acmpne     46
+        40: aload_0
+        41: aload_1
+        42: putfield      #67                 // Field mySessionId:Ljava/lang/String;
+        45: return
+        46: aload_0
+        47: iconst_1
+        48: invokevirtual #70                 // Method stop:(Z)V
+        51: aload_0
+        52: aload_2
+        53: putfield      #63                 // Field myAgent:Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+        56: aload_0
+        57: aload_1
+        58: putfield      #67                 // Field mySessionId:Ljava/lang/String;
+        61: aload_0
+        62: aload_3
+        63: putfield      #74                 // Field myOnExit:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit;
+        66: aload_0
+        67: iconst_0
+        68: putfield      #9                  // Field myStopped:Z
+        71: aload_0
+        72: aload_0
+        73: getfield      #38                 // Field myThreadFactory:Ljetbrains/buildServer/util/NamedThreadFactory;
+        76: new           #78                 // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$2
+        79: dup
+        80: aload_0
+        81: invokespecial #80                 // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$2."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;)V
+        84: invokevirtual #81                 // Method jetbrains/buildServer/util/NamedThreadFactory.newThread:(Ljava/lang/Runnable;)Ljava/lang/Thread;
+        87: putfield      #53                 // Field myThread:Ljava/lang/Thread;
+        90: aload_0
+        91: getfield      #53                 // Field myThread:Ljava/lang/Thread;
+        94: invokevirtual #87                 // Method java/lang/Thread.start:()V
+        97: return
+      LineNumberTable:
+        line 74: 8
+        line 76: 40
+        line 77: 45
+        line 80: 46
+        line 82: 51
+        line 83: 56
+        line 84: 61
+        line 85: 66
+        line 87: 71
+        line 93: 90
+        line 94: 97
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      98     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      98     1 sessionId   Ljava/lang/String;
+            0      98     2 agent   Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+            0      98     3 onExit   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit;
+
+  private synchronized void stop(boolean);
+    descriptor: (Z)V
+    Code:
+         0: aload_0
+         1: getfield      #53                 // Field myThread:Ljava/lang/Thread;
+         4: ifnull        48
+         7: aload_0
+         8: iconst_1
+         9: putfield      #9                  // Field myStopped:Z
+        12: aload_0
+        13: getfield      #53                 // Field myThread:Ljava/lang/Thread;
+        16: invokevirtual #90                 // Method java/lang/Thread.interrupt:()V
+        19: iload_1
+        20: ifeq          43
+        23: aload_0
+        24: getfield      #53                 // Field myThread:Ljava/lang/Thread;
+        27: invokevirtual #93                 // Method java/lang/Thread.join:()V
+        30: goto          43
+        33: astore_2
+        34: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        37: ldc           #102                // String Stopping server commands poller was interrupted
+        39: aload_2
+        40: invokevirtual #104                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        43: aload_0
+        44: aconst_null
+        45: putfield      #53                 // Field myThread:Ljava/lang/Thread;
+        48: return
+      Exception table:
+         from    to  target type
+            23    30    33   Class java/lang/InterruptedException
+      LineNumberTable:
+        line 97: 0
+        line 98: 7
+        line 99: 12
+        line 100: 19
+        line 102: 23
+        line 105: 30
+        line 103: 33
+        line 104: 34
+        line 107: 43
+        line 109: 48
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           34       9     2     e   Ljava/lang/InterruptedException;
+            0      49     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      49     1  join   Z
+
+  public void run();
+    descriptor: ()V
+    Code:
+         0: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+         3: ldc           #110                // String Start polling server for commands
+         5: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+         8: aload_0
+         9: ldc           #114                // String teamcity.agent.serverPolling.delayAfterNoCommand
+        11: sipush        5000
+        14: invokevirtual #116                // Method getIntegerProperty:(Ljava/lang/String;I)I
+        17: i2l
+        18: lstore_1
+        19: aload_0
+        20: getfield      #9                  // Field myStopped:Z
+        23: ifne          134
+        26: aload_0
+        27: invokevirtual #120                // Method getNextCommand:()Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+        30: astore_3
+        31: aload_0
+        32: aload_3
+        33: invokevirtual #124                // Method processOneCommand:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)Z
+        36: ifeq          50
+        39: aload_0
+        40: ldc           #128                // String teamcity.agent.serverPolling.delayAfterCommandReceived
+        42: sipush        500
+        45: invokevirtual #116                // Method getIntegerProperty:(Ljava/lang/String;I)I
+        48: i2l
+        49: lstore_1
+        50: aload_3
+        51: ifnull        86
+        54: aload_3
+        55: invokevirtual #130                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.close:()V
+        58: goto          86
+        61: astore        4
+        63: aload_3
+        64: ifnull        83
+        67: aload_3
+        68: invokevirtual #130                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.close:()V
+        71: goto          83
+        74: astore        5
+        76: aload         4
+        78: aload         5
+        80: invokevirtual #137                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        83: aload         4
+        85: athrow
+        86: goto          116
+        89: astore_3
+        90: aload_0
+        91: getfield      #74                 // Field myOnExit:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit;
+        94: aload_3
+        95: getfield      #143                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException.reason:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;
+        98: invokeinterface #147,  2          // InterfaceMethod jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit.onExit:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;)V
+       103: goto          116
+       106: astore_3
+       107: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       110: ldc           #153                // String Error while polling server for commands, continue polling
+       112: aload_3
+       113: invokevirtual #155                // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       116: aload_0
+       117: getfield      #9                  // Field myStopped:Z
+       120: ifne          19
+       123: lload_1
+       124: invokestatic  #158                // Method java/lang/Thread.sleep:(J)V
+       127: goto          19
+       130: astore_3
+       131: goto          19
+       134: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       137: ldc           #162                // String Stop polling server for commands
+       139: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       142: aload_0
+       143: getfield      #74                 // Field myOnExit:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit;
+       146: getstatic     #164                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason.NORMAL_EXIT:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;
+       149: invokeinterface #147,  2          // InterfaceMethod jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit.onExit:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;)V
+       154: return
+      Exception table:
+         from    to  target type
+            31    50    61   Class java/lang/Throwable
+            67    71    74   Class java/lang/Throwable
+            26    86    89   Class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException
+            26    86   106   Class java/lang/Throwable
+           123   127   130   Class java/lang/InterruptedException
+      LineNumberTable:
+        line 112: 0
+        line 113: 8
+        line 114: 19
+        line 115: 26
+        line 116: 31
+        line 117: 39
+        line 119: 50
+        line 115: 61
+        line 123: 86
+        line 119: 89
+        line 120: 90
+        line 123: 103
+        line 121: 106
+        line 122: 107
+        line 125: 116
+        line 127: 123
+        line 130: 127
+        line 128: 130
+        line 130: 131
+        line 134: 134
+        line 135: 142
+        line 136: 154
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           31      55     3 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+           90      13     3     e   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException;
+          107       9     3     e   Ljava/lang/Throwable;
+            0     155     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+           19     136     1 sleepMillis   J
+
+  private boolean processOneCommand(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command);
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)Z
+    Code:
+         0: aload_1
+         1: ifnonnull     6
+         4: iconst_0
+         5: ireturn
+         6: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+         9: aload_1
+        10: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        13: invokedynamic #175,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        18: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        21: aload_0
+        22: iconst_1
+        23: putfield      #179                // Field myExecutingCommand:Z
+        26: aload_0
+        27: getfield      #27                 // Field myServerCommandsExecutor:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor;
+        30: aload_1
+        31: invokevirtual #182                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor.executeAsync:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)Ljava/util/concurrent/Future;
+        34: astore_2
+        35: aload_2
+        36: aload_0
+        37: ldc           #188                // String teamcity.agent.serverPolling.longCommandProgressInterval
+        39: sipush        5000
+        42: invokevirtual #116                // Method getIntegerProperty:(Ljava/lang/String;I)I
+        45: i2l
+        46: getstatic     #190                // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+        49: invokeinterface #196,  4          // InterfaceMethod java/util/concurrent/Future.get:(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+        54: checkcast     #170                // class java/lang/String
+        57: astore_3
+        58: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        61: aload_1
+        62: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        65: aload_3
+        66: invokedynamic #202,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        71: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        74: aload_0
+        75: aload_1
+        76: aload_3
+        77: invokevirtual #205                // Method postCommandResult:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljava/lang/String;)V
+        80: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        83: aload_1
+        84: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        87: invokedynamic #209,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        92: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        95: goto          137
+        98: astore_3
+        99: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       102: aload_1
+       103: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       106: invokedynamic #212,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       111: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       114: aload_0
+       115: aload_1
+       116: invokevirtual #213                // Method postCommandInProgress:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)V
+       119: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       122: aload_1
+       123: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       126: invokedynamic #217,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       131: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+       134: goto          35
+       137: goto          263
+       140: astore_2
+       141: new           #141                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException
+       144: dup
+       145: getstatic     #164                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason.NORMAL_EXIT:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;
+       148: invokespecial #218                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;)V
+       151: athrow
+       152: astore_2
+       153: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       156: aload_1
+       157: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       160: invokedynamic #222,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       165: aload_2
+       166: invokevirtual #223                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       169: aload_2
+       170: invokevirtual #226                // Method java/util/concurrent/ExecutionException.getCause:()Ljava/lang/Throwable;
+       173: instanceof    #230                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsExecutor$NotSupportedCommandException
+       176: ifeq          205
+       179: aload_0
+       180: aload_1
+       181: new           #232                // class jetbrains/buildServer/agentServer/polling/Error
+       184: dup
+       185: ldc           #234                // String UnknownCommandError
+       187: aload_1
+       188: getfield      #236                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.type:Ljava/lang/String;
+       191: invokedynamic #239,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       196: invokespecial #240                // Method jetbrains/buildServer/agentServer/polling/Error."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+       199: invokevirtual #243                // Method postCommandError:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljetbrains/buildServer/agentServer/polling/Error;)V
+       202: goto          226
+       205: aload_0
+       206: aload_1
+       207: new           #232                // class jetbrains/buildServer/agentServer/polling/Error
+       210: dup
+       211: ldc           #247                // String UnexpectedError
+       213: aload_2
+       214: invokevirtual #226                // Method java/util/concurrent/ExecutionException.getCause:()Ljava/lang/Throwable;
+       217: invokevirtual #249                // Method java/lang/Throwable.toString:()Ljava/lang/String;
+       220: invokespecial #240                // Method jetbrains/buildServer/agentServer/polling/Error."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+       223: invokevirtual #243                // Method postCommandError:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljetbrains/buildServer/agentServer/polling/Error;)V
+       226: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       229: aload_1
+       230: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       233: invokedynamic #253,  0            // InvokeDynamic #7:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       238: invokevirtual #254                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       241: goto          263
+       244: astore_2
+       245: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       248: aload_1
+       249: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       252: invokedynamic #256,  0            // InvokeDynamic #8:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       257: aload_2
+       258: invokevirtual #223                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       261: aload_2
+       262: athrow
+       263: aload_0
+       264: iconst_0
+       265: putfield      #179                // Field myExecutingCommand:Z
+       268: goto          281
+       271: astore        4
+       273: aload_0
+       274: iconst_0
+       275: putfield      #179                // Field myExecutingCommand:Z
+       278: aload         4
+       280: athrow
+       281: iconst_1
+       282: ireturn
+      Exception table:
+         from    to  target type
+            35    95    98   Class java/util/concurrent/TimeoutException
+            26   137   140   Class java/lang/InterruptedException
+            26   137   152   Class java/util/concurrent/ExecutionException
+            26   137   244   Class java/lang/Throwable
+            21   263   271   any
+           271   273   271   any
+      LineNumberTable:
+        line 144: 0
+        line 145: 4
+        line 148: 6
+        line 150: 21
+        line 152: 26
+        line 155: 35
+        line 156: 58
+        line 157: 74
+        line 158: 80
+        line 159: 95
+        line 160: 98
+        line 161: 99
+        line 162: 114
+        line 163: 119
+        line 164: 134
+        line 179: 137
+        line 166: 140
+        line 167: 141
+        line 168: 152
+        line 169: 153
+        line 170: 169
+        line 171: 179
+        line 173: 205
+        line 175: 226
+        line 179: 241
+        line 176: 244
+        line 177: 245
+        line 178: 261
+        line 181: 263
+        line 182: 268
+        line 181: 271
+        line 182: 278
+        line 184: 281
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           58      40     3 result   Ljava/lang/String;
+           99      35     3     e   Ljava/util/concurrent/TimeoutException;
+           35     102     2 resultFuture   Ljava/util/concurrent/Future;
+          141      11     2     e   Ljava/lang/InterruptedException;
+          153      88     2     e   Ljava/util/concurrent/ExecutionException;
+          245      18     2     t   Ljava/lang/Throwable;
+            0     283     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0     283     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+
+  boolean isExecutingCommand();
+    descriptor: ()Z
+    Code:
+         0: aload_0
+         1: getfield      #179                // Field myExecutingCommand:Z
+         4: ireturn
+      LineNumberTable:
+        line 189: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+
+  private int getIntegerProperty(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)I
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+         4: invokeinterface #257,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfiguration.getConfigurationParameters:()Ljava/util/Map;
+         9: aload_1
+        10: invokeinterface #263,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        15: checkcast     #170                // class java/lang/String
+        18: invokestatic  #268                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+        21: ireturn
+        22: astore_3
+        23: iload_2
+        24: ireturn
+      Exception table:
+         from    to  target type
+             0    21    22   Class java/lang/NumberFormatException
+      LineNumberTable:
+        line 194: 0
+        line 195: 22
+        line 196: 23
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           23       2     3     e   Ljava/lang/NumberFormatException;
+            0      25     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      25     1 propName   Ljava/lang/String;
+            0      25     2 defaultVal   I
+
+  private jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command getNextCommand();
+    descriptor: ()Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+         4: invokeinterface #276,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfiguration.getServerUrl:()Ljava/lang/String;
+         9: invokedynamic #279,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        14: astore_1
+        15: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        18: aload_1
+        19: invokedynamic #280,  0            // InvokeDynamic #10:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        24: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        27: aconst_null
+        28: astore_2
+        29: aconst_null
+        30: astore_3
+        31: aload_0
+        32: getfield      #23                 // Field myServerApi:Ljetbrains/buildServer/http/HttpApi;
+        35: aload_1
+        36: iconst_1
+        37: anewarray     #284                // class jetbrains/buildServer/http/HttpApi$HeaderPair
+        40: dup
+        41: iconst_0
+        42: new           #284                // class jetbrains/buildServer/http/HttpApi$HeaderPair
+        45: dup
+        46: ldc_w         #288                // String TeamCity-AgentSessionId
+        49: aload_0
+        50: getfield      #67                 // Field mySessionId:Ljava/lang/String;
+        53: invokespecial #290                // Method jetbrains/buildServer/http/HttpApi$HeaderPair."<init>":(Ljava/lang/String;Ljava/lang/Object;)V
+        56: aastore
+        57: invokeinterface #293,  3          // InterfaceMethod jetbrains/buildServer/http/HttpApi.get:(Ljava/lang/String;[Ljetbrains/buildServer/http/HttpApi$HeaderPair;)Ljetbrains/buildServer/http/HttpApi$Response;
+        62: astore_3
+        63: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        66: aload_3
+        67: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+        72: aload_1
+        73: invokedynamic #304,  0            // InvokeDynamic #11:makeConcatWithConstants:(ILjava/lang/String;)Ljava/lang/String;
+        78: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        81: aload_0
+        82: aconst_null
+        83: putfield      #15                 // Field myConnectError:Ljava/lang/String;
+        86: aload_0
+        87: invokevirtual #307                // Method checkInterrupted:()V
+        90: aload_0
+        91: aload_3
+        92: ldc_w         #310                // String asking next command
+        95: invokevirtual #312                // Method checkUnauthorized:(Ljetbrains/buildServer/http/HttpApi$Response;Ljava/lang/String;)V
+        98: aload_3
+        99: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+       104: sipush        200
+       107: if_icmpne     208
+       110: aload_0
+       111: getfield      #63                 // Field myAgent:Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+       114: invokevirtual #316                // Method jetbrains/buildServer/agent/impl/BuildAgentImpl.ping2:()Ljava/lang/String;
+       117: pop
+       118: aload_3
+       119: ldc_w         #321                // String TeamCity-AgentCommandName
+       122: invokeinterface #323,  2          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getHeader:(Ljava/lang/String;)Ljava/lang/String;
+       127: astore        4
+       129: aload_3
+       130: ldc_w         #326                // String TeamCity-AgentCommandId
+       133: invokeinterface #323,  2          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getHeader:(Ljava/lang/String;)Ljava/lang/String;
+       138: astore        5
+       140: aload         4
+       142: ifnull        173
+       145: aload         5
+       147: ifnull        173
+       150: new           #131                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command
+       153: dup
+       154: aload_0
+       155: aload         5
+       157: invokestatic  #268                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       160: invokestatic  #328                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       163: aload         4
+       165: aload_3
+       166: invokespecial #331                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;Ljava/lang/Integer;Ljava/lang/String;Ljetbrains/buildServer/http/HttpApi$Response;)V
+       169: astore_2
+       170: goto          205
+       173: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       176: aload_1
+       177: invokedynamic #334,  0            // InvokeDynamic #12:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       182: invokevirtual #254                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       185: aconst_null
+       186: astore        6
+       188: aload_2
+       189: ifnonnull     202
+       192: aload_3
+       193: ifnull        202
+       196: aload_3
+       197: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       202: aload         6
+       204: areturn
+       205: goto          279
+       208: aload_3
+       209: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+       214: sipush        204
+       217: if_icmpne     231
+       220: aload_0
+       221: getfield      #63                 // Field myAgent:Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+       224: invokevirtual #316                // Method jetbrains/buildServer/agent/impl/BuildAgentImpl.ping2:()Ljava/lang/String;
+       227: pop
+       228: goto          279
+       231: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       234: aload_1
+       235: aload_3
+       236: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+       241: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       244: invokevirtual #336                // Method com/intellij/openapi/diagnostic/Logger.isDebugEnabled:()Z
+       247: ifne          256
+       250: ldc_w         #339                // String  (enable debug to see full response body)
+       253: goto          259
+       256: ldc_w         #341                // String
+       259: invokedynamic #343,  0            // InvokeDynamic #13:makeConcatWithConstants:(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;
+       264: invokevirtual #254                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       267: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       270: aload_3
+       271: invokeinterface #346,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+       276: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       279: aload_2
+       280: ifnonnull     389
+       283: aload_3
+       284: ifnull        389
+       287: aload_3
+       288: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       293: goto          389
+       296: astore        4
+       298: aload         4
+       300: invokevirtual #351                // Method java/io/IOException.getMessage:()Ljava/lang/String;
+       303: aload_0
+       304: getfield      #15                 // Field myConnectError:Ljava/lang/String;
+       307: invokevirtual #354                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       310: ifne          339
+       313: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       316: aload_1
+       317: invokedynamic #358,  0            // InvokeDynamic #14:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       322: aload         4
+       324: invokevirtual #155                // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       327: aload_0
+       328: aload         4
+       330: invokevirtual #351                // Method java/io/IOException.getMessage:()Ljava/lang/String;
+       333: putfield      #15                 // Field myConnectError:Ljava/lang/String;
+       336: goto          353
+       339: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       342: aload_1
+       343: invokedynamic #358,  0            // InvokeDynamic #14:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       348: aload         4
+       350: invokevirtual #359                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       353: aload_2
+       354: ifnonnull     389
+       357: aload_3
+       358: ifnull        389
+       361: aload_3
+       362: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       367: goto          389
+       370: astore        7
+       372: aload_2
+       373: ifnonnull     386
+       376: aload_3
+       377: ifnull        386
+       380: aload_3
+       381: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       386: aload         7
+       388: athrow
+       389: aload_2
+       390: areturn
+      Exception table:
+         from    to  target type
+            31   188   296   Class java/io/IOException
+           205   279   296   Class java/io/IOException
+            31   188   370   any
+           205   279   370   any
+           296   353   370   any
+           370   372   370   any
+      LineNumberTable:
+        line 202: 0
+        line 203: 15
+        line 204: 27
+        line 205: 29
+        line 207: 31
+        line 208: 63
+        line 210: 81
+        line 212: 86
+        line 213: 90
+        line 215: 98
+        line 216: 110
+        line 217: 118
+        line 218: 129
+        line 219: 140
+        line 220: 150
+        line 222: 173
+        line 224: 185
+        line 241: 188
+        line 242: 196
+        line 224: 202
+        line 226: 205
+        line 227: 220
+        line 229: 231
+        line 230: 236
+        line 229: 264
+        line 231: 267
+        line 241: 279
+        line 242: 287
+        line 233: 296
+        line 234: 298
+        line 235: 313
+        line 236: 327
+        line 238: 339
+        line 241: 353
+        line 242: 361
+        line 241: 370
+        line 242: 380
+        line 244: 386
+        line 245: 389
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          129      76     4 commandName   Ljava/lang/String;
+          140      65     5 commandIdHeader   Ljava/lang/String;
+          298      55     4     e   Ljava/io/IOException;
+            0     391     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+           15     376     1 nextCommandUrl   Ljava/lang/String;
+           29     362     2     c   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+           31     360     3 response   Ljetbrains/buildServer/http/HttpApi$Response;
+
+  private void postCommandResult(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+         4: invokeinterface #276,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfiguration.getServerUrl:()Ljava/lang/String;
+         9: invokedynamic #361,  0            // InvokeDynamic #15:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        14: astore_3
+        15: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        18: aload_1
+        19: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        22: aload_3
+        23: invokedynamic #362,  0            // InvokeDynamic #16:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        28: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        31: aload_0
+        32: aload_1
+        33: aload_3
+        34: aload_2
+        35: ldc_w         #363                // String application/xml
+        38: invokevirtual #365                // Method postConfirmationUntilSuccessful:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        41: return
+      LineNumberTable:
+        line 249: 0
+        line 250: 15
+        line 251: 31
+        line 252: 41
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      42     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      42     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+            0      42     2 result   Ljava/lang/String;
+           15      27     3   url   Ljava/lang/String;
+
+  private void postCommandInProgress(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command);
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;)V
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+         4: invokeinterface #276,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfiguration.getServerUrl:()Ljava/lang/String;
+         9: invokedynamic #369,  0            // InvokeDynamic #17:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        14: astore_2
+        15: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        18: aload_1
+        19: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        22: aload_2
+        23: invokedynamic #370,  0            // InvokeDynamic #18:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        28: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        31: aload_0
+        32: aload_1
+        33: aload_2
+        34: ldc_w         #371                // String <progress/>
+        37: ldc_w         #363                // String application/xml
+        40: invokevirtual #365                // Method postConfirmationUntilSuccessful:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        43: return
+      LineNumberTable:
+        line 255: 0
+        line 256: 15
+        line 257: 31
+        line 258: 43
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      44     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      44     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+           15      29     2   url   Ljava/lang/String;
+
+  private void postCommandError(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command, jetbrains.buildServer.agentServer.polling.Error);
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljetbrains/buildServer/agentServer/polling/Error;)V
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field myConfiguration:Ljetbrains/buildServer/agent/BuildAgentConfiguration;
+         4: invokeinterface #276,  1          // InterfaceMethod jetbrains/buildServer/agent/BuildAgentConfiguration.getServerUrl:()Ljava/lang/String;
+         9: invokedynamic #373,  0            // InvokeDynamic #19:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        14: astore_3
+        15: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        18: aload_1
+        19: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        22: aload_2
+        23: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        26: aload_3
+        27: invokedynamic #374,  0            // InvokeDynamic #20:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        32: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        35: aload_0
+        36: aload_1
+        37: aload_3
+        38: aload_2
+        39: invokevirtual #377                // Method jetbrains/buildServer/agentServer/polling/Error.toXml:()Ljava/lang/String;
+        42: ldc_w         #363                // String application/xml
+        45: invokevirtual #365                // Method postConfirmationUntilSuccessful:(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        48: return
+      LineNumberTable:
+        line 261: 0
+        line 262: 15
+        line 263: 35
+        line 264: 48
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      49     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      49     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+            0      49     2 error   Ljetbrains/buildServer/agentServer/polling/Error;
+           15      34     3   url   Ljava/lang/String;
+
+  private void postConfirmationUntilSuccessful(jetbrains.buildServer.agent.impl.serverCommunication.ServerCommandsPoller$Command, java.lang.String, java.lang.String, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    Code:
+         0: aload_0
+         1: ldc_w         #380                // String teamcity.agent.serverPolling.delayAfterFailedConfirmationRequest
+         4: sipush        3000
+         7: invokevirtual #116                // Method getIntegerProperty:(Ljava/lang/String;I)I
+        10: istore        5
+        12: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        15: aload_1
+        16: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        19: aload_2
+        20: invokedynamic #382,  0            // InvokeDynamic #21:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        25: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+        28: aload_0
+        29: getfield      #23                 // Field myServerApi:Ljetbrains/buildServer/http/HttpApi;
+        32: aload_2
+        33: aload_3
+        34: aload         4
+        36: ldc_w         #383                // String UTF-8
+        39: iconst_2
+        40: anewarray     #284                // class jetbrains/buildServer/http/HttpApi$HeaderPair
+        43: dup
+        44: iconst_0
+        45: new           #284                // class jetbrains/buildServer/http/HttpApi$HeaderPair
+        48: dup
+        49: ldc_w         #288                // String TeamCity-AgentSessionId
+        52: aload_0
+        53: getfield      #67                 // Field mySessionId:Ljava/lang/String;
+        56: invokespecial #290                // Method jetbrains/buildServer/http/HttpApi$HeaderPair."<init>":(Ljava/lang/String;Ljava/lang/Object;)V
+        59: aastore
+        60: dup
+        61: iconst_1
+        62: new           #284                // class jetbrains/buildServer/http/HttpApi$HeaderPair
+        65: dup
+        66: ldc_w         #326                // String TeamCity-AgentCommandId
+        69: aload_1
+        70: getfield      #385                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command.id:Ljava/lang/Integer;
+        73: invokespecial #290                // Method jetbrains/buildServer/http/HttpApi$HeaderPair."<init>":(Ljava/lang/String;Ljava/lang/Object;)V
+        76: aastore
+        77: invokeinterface #389,  6          // InterfaceMethod jetbrains/buildServer/http/HttpApi.post:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljetbrains/buildServer/http/HttpApi$HeaderPair;)Ljetbrains/buildServer/http/HttpApi$Response;
+        82: astore        6
+        84: aload_0
+        85: invokevirtual #307                // Method checkInterrupted:()V
+        88: aload_0
+        89: aload         6
+        91: aload_1
+        92: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        95: invokedynamic #393,  0            // InvokeDynamic #22:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       100: invokevirtual #312                // Method checkUnauthorized:(Ljetbrains/buildServer/http/HttpApi$Response;Ljava/lang/String;)V
+       103: aload         6
+       105: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+       110: sipush        200
+       113: if_icmpne     186
+       116: aload         6
+       118: invokeinterface #346,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+       123: invokestatic  #394                // Method jetbrains/buildServer/agentServer/polling/AgentServerResponse.deserialize:(Ljava/lang/String;)Ljetbrains/buildServer/agentServer/polling/AgentServerResponse;
+       126: astore        7
+       128: aload         7
+       130: ifnull        165
+       133: aload         7
+       135: invokevirtual #400                // Method jetbrains/buildServer/agentServer/polling/AgentServerResponse.getError:()Ljetbrains/buildServer/agentServer/polling/Error;
+       138: ifnull        165
+       141: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       144: aload_1
+       145: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       148: aload_2
+       149: aload         7
+       151: invokevirtual #400                // Method jetbrains/buildServer/agentServer/polling/AgentServerResponse.getError:()Ljetbrains/buildServer/agentServer/polling/Error;
+       154: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       157: invokedynamic #404,  0            // InvokeDynamic #23:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       162: invokevirtual #254                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       165: aload_0
+       166: getfield      #63                 // Field myAgent:Ljetbrains/buildServer/agent/impl/BuildAgentImpl;
+       169: invokevirtual #316                // Method jetbrains/buildServer/agent/impl/BuildAgentImpl.ping2:()Ljava/lang/String;
+       172: pop
+       173: aload         6
+       175: ifnull        185
+       178: aload         6
+       180: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       185: return
+       186: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       189: aload_1
+       190: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       193: aload_2
+       194: iload         5
+       196: aload         6
+       198: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+       203: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       206: invokevirtual #336                // Method com/intellij/openapi/diagnostic/Logger.isDebugEnabled:()Z
+       209: ifne          218
+       212: ldc_w         #339                // String  (enable debug to see full response body)
+       215: goto          221
+       218: ldc_w         #341                // String
+       221: invokedynamic #405,  0            // InvokeDynamic #24:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)Ljava/lang/String;
+       226: invokevirtual #254                // Method com/intellij/openapi/diagnostic/Logger.warn:(Ljava/lang/String;)V
+       229: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       232: aload         6
+       234: invokeinterface #346,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getBody:()Ljava/lang/String;
+       239: invokevirtual #281                // Method com/intellij/openapi/diagnostic/Logger.debug:(Ljava/lang/String;)V
+       242: aload         6
+       244: ifnull        286
+       247: aload         6
+       249: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       254: goto          286
+       257: astore        7
+       259: aload         6
+       261: ifnull        283
+       264: aload         6
+       266: invokeinterface #335,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.close:()V
+       271: goto          283
+       274: astore        8
+       276: aload         7
+       278: aload         8
+       280: invokevirtual #137                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       283: aload         7
+       285: athrow
+       286: goto          311
+       289: astore        6
+       291: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+       294: aload_1
+       295: invokestatic  #169                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       298: aload_2
+       299: iload         5
+       301: invokedynamic #408,  0            // InvokeDynamic #25:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+       306: aload         6
+       308: invokevirtual #155                // Method com/intellij/openapi/diagnostic/Logger.warnAndDebugDetails:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       311: iload         5
+       313: i2l
+       314: invokestatic  #411                // Method jetbrains/buildServer/util/ThreadUtil.sleep:(J)V
+       317: goto          0
+      Exception table:
+         from    to  target type
+            84   173   257   Class java/lang/Throwable
+           186   242   257   Class java/lang/Throwable
+           264   271   274   Class java/lang/Throwable
+            28   185   289   Class java/io/IOException
+           186   286   289   Class java/io/IOException
+      LineNumberTable:
+        line 268: 0
+        line 270: 12
+        line 271: 28
+        line 276: 84
+        line 277: 88
+        line 279: 103
+        line 280: 116
+        line 281: 128
+        line 282: 141
+        line 285: 165
+        line 292: 173
+        line 286: 185
+        line 288: 186
+        line 290: 198
+        line 288: 226
+        line 291: 229
+        line 292: 242
+        line 271: 257
+        line 295: 286
+        line 292: 289
+        line 293: 291
+        line 296: 311
+        line 297: 317
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          128      58     7 parsedResponse   Ljetbrains/buildServer/agentServer/polling/AgentServerResponse;
+           84     202     6 response   Ljetbrains/buildServer/http/HttpApi$Response;
+          291      20     6     e   Ljava/io/IOException;
+           12     305     5 sleepMillis   I
+            0     320     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0     320     1 command   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$Command;
+            0     320     2   url   Ljava/lang/String;
+            0     320     3  data   Ljava/lang/String;
+            0     320     4 contentType   Ljava/lang/String;
+
+  private void checkInterrupted();
+    descriptor: ()V
+    Code:
+         0: aload_0
+         1: getfield      #9                  // Field myStopped:Z
+         4: ifeq          18
+         7: new           #141                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException
+        10: dup
+        11: getstatic     #164                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason.NORMAL_EXIT:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;
+        14: invokespecial #218                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;)V
+        17: athrow
+        18: return
+      LineNumberTable:
+        line 301: 0
+        line 302: 7
+        line 304: 18
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+
+  private void checkUnauthorized(jetbrains.buildServer.http.HttpApi$Response, java.lang.String);
+    descriptor: (Ljetbrains/buildServer/http/HttpApi$Response;Ljava/lang/String;)V
+    Code:
+         0: aload_1
+         1: invokeinterface #298,  1          // InterfaceMethod jetbrains/buildServer/http/HttpApi$Response.getStatusCode:()I
+         6: sipush        401
+         9: if_icmpne     35
+        12: getstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+        15: aload_2
+        16: invokedynamic #414,  0            // InvokeDynamic #26:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        21: invokevirtual #112                // Method com/intellij/openapi/diagnostic/Logger.info:(Ljava/lang/String;)V
+        24: new           #141                // class jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException
+        27: dup
+        28: getstatic     #415                // Field jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason.UNAUTHORIZED:Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;
+        31: invokespecial #218                // Method jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$ExitException."<init>":(Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller$OnExit$Reason;)V
+        34: athrow
+        35: return
+      LineNumberTable:
+        line 307: 0
+        line 308: 12
+        line 309: 24
+        line 311: 35
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      36     0  this   Ljetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller;
+            0      36     1 response   Ljetbrains/buildServer/http/HttpApi$Response;
+            0      36     2 operationName   Ljava/lang/String;
+
+  static {};
+    descriptor: ()V
+    Code:
+         0: invokestatic  #418                // Method jetbrains/buildServer/agentServer/polling/PollingAgentLogger.getLogger:()Lcom/intellij/openapi/diagnostic/Logger;
+         3: putstatic     #98                 // Field LOGGER:Lcom/intellij/openapi/diagnostic/Logger;
+         6: return
+      LineNumberTable:
+        line 40: 0
+
+  private static void $$$reportNull$$$0(int);
+    descriptor: (I)V
+    Code:
+         0: ldc_w         #584                // String Argument for @NotNull parameter \'%s\' of %s.%s must not be null
+         3: iconst_3
+         4: anewarray     #4                  // class java/lang/Object
+         7: iload_0
+         8: tableswitch   { // 0 to 4
+                       0: 44
+                       1: 53
+                       2: 62
+                       3: 71
+                       4: 80
+                 default: 44
+            }
+        44: dup
+        45: iconst_0
+        46: ldc_w         #585                // String configuration
+        49: aastore
+        50: goto          89
+        53: dup
+        54: iconst_0
+        55: ldc_w         #586                // String serverCommandsExecutor
+        58: aastore
+        59: goto          89
+        62: dup
+        63: iconst_0
+        64: ldc_w         #587                // String serverApi
+        67: aastore
+        68: goto          89
+        71: dup
+        72: iconst_0
+        73: ldc_w         #588                // String agentDispatcher
+        76: aastore
+        77: goto          89
+        80: dup
+        81: iconst_0
+        82: ldc_w         #589                // String sessionId
+        85: aastore
+        86: goto          89
+        89: dup
+        90: iconst_1
+        91: ldc_w         #590                // String jetbrains/buildServer/agent/impl/serverCommunication/ServerCommandsPoller
+        94: aastore
+        95: iload_0
+        96: tableswitch   { // 0 to 4
+                       0: 132
+                       1: 132
+                       2: 132
+                       3: 132
+                       4: 141
+                 default: 132
+            }
+       132: dup
+       133: iconst_2
+       134: ldc_w         #591                // String <init>
+       137: aastore
+       138: goto          150
+       141: dup
+       142: iconst_2
+       143: ldc_w         #592                // String start
+       146: aastore
+       147: goto          150
+       150: invokestatic  #596                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       153: new           #598                // class java/lang/IllegalArgumentException
+       156: dup_x1
+       157: swap
+       158: invokespecial #599                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+       161: athrow
+}

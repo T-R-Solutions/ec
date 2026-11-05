@@ -1,0 +1,2 @@
+# Retention and GC
+Retention policy must specify start time, minimum/maximum duration, holds, audit and backup/replication behavior. Expiry is eligibility for cleanup, not guaranteed deletion. For content-addressed storage, count live references transactionally and do not delete while referenced or held. Race-safe GC uses tombstones, recheck before physical delete, and idempotent retries. Hold removal requires authorization and audit. Provider lifecycle behavior may be asynchronous; keep status accurate.

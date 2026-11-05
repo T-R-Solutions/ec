@@ -1,0 +1,8 @@
+flowchart TB
+    accTitle: execution · fronteira do domínio
+    accDescr: Quais imports Ec são permitidos neste módulo? SELF → WORKSPACE: pode consumir. SELF → REPORTING: pode consumir
+    SELF["execution<br/>Execução de etapas"]
+    WORKSPACE["workspace<br/>Preparação do workspace"]
+    REPORTING["reporting<br/>Saída e resultados"]
+    SELF -->|"pode consumir"| WORKSPACE
+    SELF -->|"pode consumir"| REPORTING
