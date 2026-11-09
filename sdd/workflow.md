@@ -14,7 +14,8 @@ material uncertainty about contracts, permissions, integrity, concurrency or ope
 Examples: a text correction or local repair that preserves a known contract.
 
 1. Inspect instructions, existing changes, the contract/callers and relevant checks.
-2. Implement the bounded change and run focused verification supporting the result.
+2. Implement the bounded change and inspect the result. No Ec verification script
+   runs before an explicit commit request and the choice defined below.
 3. Fix failures caused by the change and report results, observations and material
    limitations. Record the goal, observed files/versions and check in an artifact
    already used by the project (issue, review or note); do not create spec/plan/tasks
@@ -84,3 +85,13 @@ When resuming, read the spec, plan, tasks and latest convergence record; compare
 them with current files. Do not rely on hidden chat state or repeat already verified
 work. Update evidence affected by code changes. Completion depends on applicable
 criteria, not the existence of directories or number of documents.
+
+## Encerramento no Ec
+
+Antes de concluir tarefas, aplicar a [política canônica de verificação](../docs/development/task-verification.md):
+inspecionar as alterações e registrar evidências e lacunas sem acionar scripts.
+Somente após pedido de commit, perguntar “Deseja executar o script automate.sh (que roda todos os outros scripts)?”,
+com apenas `sim` ou `não`, e aguardar a escolha. Com `não`, seguir com os commits;
+com `sim`, executar `bash scripts/automate.sh run` sem filtros e só criar commits
+se todos os scripts terminarem sem erros. Não executar scripts avulsos.
+Checks não executados não aprovam critérios da feature; registrar essa limitação.

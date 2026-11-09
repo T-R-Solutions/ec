@@ -3,6 +3,21 @@ name: design-system
 description: Create or evolve shared UI tokens, components, variants, states, and usage contracts. Use when implementing reusable interfaces, resolving component inconsistency, or maintaining a design system. Do not use for unrelated backend work or a purely aesthetic opinion; use design-review for evidence-based journey evaluation.
 ---
 
+## Acionamento de scripts no Ec
+
+Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
+suas referências. Scripts de verificação só podem ser acionados após pedido explícito
+de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
+Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
+Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
+Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
+os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
+ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
+Não execute scripts avulsos nem os acione automaticamente durante implementação,
+revisão ou encerramento. Inspeção manual continua permitida; checks não executados
+permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
+(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+
 # Design System
 
 Make shared interface behavior understandable, accessible and maintainable within the existing product. Preserve established conventions unless task evidence justifies a change. Basic accessibility and correctness apply even when this skill is not selected.

@@ -3,6 +3,21 @@ name: reliability-engineering
 description: Design or verify failure containment, bounded retries and resources, degradation, service objectives, and recovery. Use when behavior under dependency failure, overload, restart, or rollout needs a reliability decision; ordinary errors, background code, telemetry plumbing, or measured tuning alone do not trigger this workflow.
 ---
 
+## Acionamento de scripts no Ec
+
+Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
+suas referências. Scripts de verificação só podem ser acionados após pedido explícito
+de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
+Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
+Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
+Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
+os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
+ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
+Não execute scripts avulsos nem os acione automaticamente durante implementação,
+revisão ou encerramento. Inspeção manual continua permitida; checks não executados
+permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
+(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+
 # Reliability engineering
 
 Make essential behavior survive specified faults and recover predictably. Attach every mechanism to an observed or credible failure mode and a verifiable user outcome.

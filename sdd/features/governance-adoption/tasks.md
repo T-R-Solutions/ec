@@ -35,3 +35,8 @@ A [revisão](../../../docs/validation/documentation-skill-20261104/report.md) re
 ## Recuperação do instalador
 
 - [x] T007 [REQ-07, AC-07, D-07, R-07]: reproduzir em fixture, implementar journal/lock e regressões de interrupção/conflito/concorrência; registrar comandos e limitações na validação de 2026-11-05.
+
+
+## Reobservação após T004 do produto — 2026-11-05
+
+T004 de first-functional-journey atualizou quatro documentos vinculados a esta evidência: contexto do projeto/arquitetura e READMEs do backend/orquestração. A revisão preserva autoridades, dependências e propostas; reconhece apenas implementação e evidência efetivamente observadas. AC-01 a AC-07 desta feature continuam restritos à governança, com nova execução do auditor, preflight e 34 testes em cópias isoladas. Registros anteriores preservados em docs/validation/orchestration-20261105/governance-previous.zip; comandos, comparação de inputs e limites em governance-checks.json na mesma validação. Nenhuma remoção histórica ou instalação foi reatribuída; aceite de produto é independente.

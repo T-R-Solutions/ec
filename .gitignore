@@ -136,3 +136,46 @@ lerna-debug.log*
 # Indices volumosos de pesquisa: mantidos localmente, fora do GitHub
 /reverse_engineering_teamcity/teamcity-reverse-engineering/symbols.sqlite
 /reverse_engineering_teamcity/teamcity-reverse-engineering/25-evidencias/symbols.jsonl.gz
+
+# Runs privados de verificação; evidências oficiais continuam em docs/validation
+/.local/automation/
+/.local/build/scripts-ec/
+
+# Estado histórico da ponte removida; apenas evidências remanescentes
+/.local/toolbox/
+
+# Executáveis e dependências de ferramentas preparados para este checkout
+/.local/tools/
+
+# Relatórios locais de navegador; fixtures e evidências oficiais permanecem versionadas
+/playwright-report/
+/test-results/
+/blob-report/
+
+# Permanecem versionados: scripts/config/, scripts/rules/, scripts/stacks/,
+# sdd/ e docs/validation/. Não existem receitas/adapters Toolbox no Ec.
+# Não ignorar /.local/ inteiro: usage.md e skill-installation são fontes preservadas.
+
+# Bases e preparação dos scanners; fontes/regras e evidências continuam versionadas
+/.local/security/
+/.local/build/scripts-security/
+
+# Targets, caches e saídas temporárias de tarefas locais; fontes preservadas acima
+/.local/build/ec-agent-target/
+/.local/build/ec-frontend-*/
+/.local/build/npm-remediation-cache/
+
+# Snapshots e exportações explícitas STIC; nunca volumes de scanners
+/.local/verification/
+
+# Recuperação e inventários privados da limpeza de 09/11/2026; preservar localmente
+/.local/cleanup-20261109/
+
+# Cópias anteriores da adequação ao contrato central de ferramentas
+/.local/toolbox-alignment-20261109/
+
+# Recuperação da revisão documental e de artefatos em scripts
+/.local/scripts-cleanup-20261109/
+
+# Recuperação da declaração de licença do produto
+/.local/commit-license-20261109/

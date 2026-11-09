@@ -1,12 +1,11 @@
 # Ec
 
-Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](docs/development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.
+Estado observado em 2026-11-05: Server e Agent Rust executáveis, publicação/fila/saída em PostgreSQL via HTTP v1 e frontend Vue 3/TypeScript/Pinia. Os guias de [publicação](docs/development/publication.md), [orquestração](docs/development/orchestration.md), [Agent](docs/development/agent.md) e [frontend](docs/development/frontend.md) delimitam os incrementos locais Linux confiáveis. Segredos por referência e aceite agregado da primeira jornada permanecem pendentes; não há release/implantação remota demonstrada.
 
 **Engenharia de entrega contínua, da configuração ao resultado.**
 
 Plataforma independente de CI/CD planejada para administrar projetos, pipelines, execuções, agentes e entregas de software. Ec Server e Ec Agent serão monólitos modulares Rust; a interface será Vue 3, TypeScript e Pinia.
 
-> **Estado em 2026-11-04 · pesquisa e preparação documental.** Há normas, arquitetura, diretórios da aplicação e ferramentas de governança executáveis. Server, Agent e frontend ainda não têm código de produto, manifests, instalador ou release.
 
 ## Uma plataforma, responsabilidades explícitas
 
@@ -57,15 +56,27 @@ O [catálogo de contratos](docs/architecture/contracts.md) detalha fontes, rejei
 
 ## Verificar este checkout
 
-Com **Python 3.11+**, biblioteca padrão e diretório temporário gravável, execute a partir da raiz:
+O acionamento depende de pedido explícito de commit e da escolha `sim`, conforme a
+[política canônica](docs/development/task-verification.md). A entrada da suíte é:
 
 ```bash
-python3 tools/governance/validate.py
-python3 sdd/tools/validate.py --root .
-python3 -m unittest discover -s tools/governance/tests -v
+bash scripts/automate.sh run
 ```
 
-Os validadores devem informar `PASS` e exit 0; a suíte deve terminar com `OK` e exit 0. Esses comandos verificam governança e evidências. Pré-requisitos, diagnóstico e aceite com freshness estão no [guia de contribuição](docs/development/contributing.md#verificar-a-mudança).
+A [política canônica](docs/development/task-verification.md) define pré-requisitos,
+evidências e gates SDD. `plan` descreve comandos sem executar tarefas; filtros
+pertencem à interface técnica e não substituem a suíte completa no fluxo de commit.
+Dependências ausentes bloqueiam, não aprovam. Veja também [scripts/](scripts/README.md).
+
+A integração de scanners usa [comandos nativos da Toolbox](scripts/README.md), com
+regras e aprovação no Ec. Configurações STIC e locks de imagens do consumidor
+foram retirados. O [registro da migração](docs/validation/toolbox-native-20261108/report.md)
+distingue testes de contrato, validações reais e bloqueios de preparo/ativação.
+A autorização específica de 08/11 pertence àquela tarefa histórica. Para novas
+tarefas vale a política de verificação acima. A [configuração do consumidor](docs/development/verification-tools.md)
+segue os guias centrais consumer-integration/application; a
+[adequação de 09/11](docs/validation/toolbox-alignment-20261109/report.md) registra
+ambiente, proveniência de bases e Checks Bundle, sem execução da suíte.
 
 ## Explore o repositório
 
@@ -80,6 +91,6 @@ Os validadores devem informar `PASS` e exit 0; a suíte deve terminar com `OK` e
 
 As **67 skills selecionadas** estão instaladas em `.codex/skills/`; a baseline de recuperação fica em `.local/skill-installation/skills/`. Consulte o [procedimento de instalação](docs/development/skill-installation.md) para integridade e recuperação e a [ADR-002](docs/decisions/ADR-002-application-layout.md) para a organização documental.
 
-Antes do código de produto, faltam schemas, interfaces concretas, toolchains, runners e evidências de autorização, isolamento, recuperação e acessibilidade. Não há licença própria nem canal de suporte de produto definidos por esta integração.
+O produto completo ainda exige contratos e capacidades além dos incrementos descritos nos guias; isolamento de workloads não confiáveis, segredos por referência e implantação remota não estão demonstrados. O código próprio do Ec usa [GPL-3.0-only](LICENSE), conforme a [declaração de licenciamento](docs/development/licensing.md). Não há canal de suporte de produto definido por esta integração.
 
 As figuras descrevem o planejamento. Cada uma possui acesso à imagem ampliada e à fonte editável. O [registro da revisão visual](docs/validation/documentation-enterprise-20261104/report.md) documenta renderização, verificações e manutenção dos assets.

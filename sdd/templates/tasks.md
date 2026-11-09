@@ -8,3 +8,13 @@ Inputs: spec e plan desta feature. Descobrir comandos reais; não executar place
   concluir quando os cenários e verificações pertinentes passarem.
 - [ ] T003 [AC-01]: registrar evidências e convergência; depende de T002; declarar
   resultados observados, limites e tarefas residuais.
+
+## Encerramento no Ec
+
+Antes de concluir tarefas, aplicar a [política canônica de verificação](../../docs/development/task-verification.md):
+inspecionar as alterações e registrar evidências e lacunas sem acionar scripts.
+Somente após pedido de commit, perguntar “Deseja executar o script automate.sh (que roda todos os outros scripts)?”,
+com apenas `sim` ou `não`, e aguardar a escolha. Com `não`, seguir com os commits;
+com `sim`, executar `bash scripts/automate.sh run` sem filtros e só criar commits
+se todos os scripts terminarem sem erros. Não executar scripts avulsos.
+Checks não executados não aprovam critérios da feature; registrar essa limitação.

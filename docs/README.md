@@ -1,6 +1,9 @@
 # Documentação do Ec
 
-O Ec está em pesquisa e estrutura documental, sem aplicação executável. Este índice organiza a leitura vigente em 2026-11-04. Para os primeiros comandos, consulte o [README principal](../README.md).
+O Ec possui incrementos executáveis Rust Server/Agent e frontend Vue 3/TypeScript/Pinia.
+Os guias de desenvolvimento delimitam implementação e pendências; o produto completo
+não está aceito. Índice atualizado em 2026-11-07. Consulte o [README principal](../README.md)
+e o [estado do projeto](../sdd/project.md).
 
 ## Leitura visual
 
@@ -28,6 +31,10 @@ O README encaminha para produto ou contribuição. Normas conservam requisitos; 
 | [Instruções do repositório](../AGENTS.md) | Consultar convenções e autoridades locais |
 | [Mapa da aplicação](../application/README.md) | Entrar no Agent, Server ou testes da plataforma |
 | [Política de testes](development/testing.md) | Escolher categoria e local de um teste |
+| [Verificação de tarefas](development/task-verification.md) | Acionamento autorizado da suíte, resultados e limites |
+| [Ferramentas](development/verification-tools.md) e [contrato Toolbox/Ec](../scripts/README.md) | Configurações atuais, responsabilidades e pré-requisitos |
+| [Plano de conclusão dos scanners](../sdd/features/scripts-verification/toolbox-completion-plan.md) | Histórico do plano anterior; contrato vigente em scripts/README.md |
+| [Feature de scripts](../sdd/features/scripts-verification/converge.md) | Critérios, tarefas e estado de evidência atual |
 | [Workflow SDD](../sdd/README.md) | Registrar escopo e evidências proporcionais à mudança |
 | [Ferramentas de governança](../tools/governance/README.md) | Consultar comandos, efeitos e falhas |
 | [Skills: análise](development/skills-analysis.md), [instalação](development/skill-installation.md) e [seleção](../sdd/chain/README.md) | Selecionar e verificar os pacotes efetivamente instalados |
@@ -44,10 +51,24 @@ As [autoridades](constitution.md) estabelecem a precedência. As sínteses não 
 
 ## Evidências e pesquisa
 
-A [revisão documental atual](validation/documentation-refresh-20261104/report.md) registra mudanças, verificações e limitações. A [análise funcional](validation/application-analysis-20261104/report.md) e a [auditoria de caminhos](validation/application-path-audit-20261104/report.md) preservam suas observações anteriores. Os demais relatórios em `validation/` são registros datados; seu conteúdo não é atualizado retroativamente.
+A [adequação ao contrato central de ferramentas](validation/toolbox-alignment-20261109/report.md)
+registra a revisão de descoberta, ambiente, bases e Checks Bundle conforme os
+guias de integração e operação da Shared Toolbox, sem execução de testes.
+
+A [limpeza de 09/11/2026](validation/cleanup-20261109/report.md) registra escopo,
+remoções justificadas, preservação dos históricos, limites e recuperação local.
+O [inventário vigente de scripts](development/scripts-inventory.md) distingue
+entradas, auxiliares e configurações das decisões de migração preservadas.
+
+A [atualização documental de scanners e SDD](validation/toolbox-docs-20261107/report.md)
+registra a revisão de 2026-11-07 e suas limitações. A
+[revisão documental de 2026-11-04](validation/documentation-refresh-20261104/report.md)
+preserva as mudanças e observações daquela etapa. A [análise funcional](validation/application-analysis-20261104/report.md) e a [auditoria de caminhos](validation/application-path-audit-20261104/report.md) preservam suas observações anteriores. Os demais relatórios em `validation/` são registros datados; seu conteúdo não é atualizado retroativamente.
 
 A [pesquisa TeamCity](../reverse_engineering_teamcity/README.md), a [reavaliação das skills](reavaliacao-skills-ec-dois-monolitos-atualizada.md) e a [cópia importada da skill de README](readme-lifecycle-engineering-SKILL.md) são fontes preservadas. Caminhos antigos, JSON como configuração Ec e UI tardia encontrados nessas fontes não alteram os contratos vigentes. Os recursos relativos da skill importada estão no pacote instalado, indicado no catálogo.
 
 Mantenha este índice ao adicionar ou substituir uma referência vigente. Cada guia mantém seu procedimento; as normas mantêm contratos e os relatórios mantêm observações históricas.
 
 A [refatoração visual enterprise](validation/documentation-enterprise-20261104/report.md) registra a revisão atual das entradas, mapas e guias, com fontes editáveis e inspeção visual local. Os registros anteriores permanecem preservados.
+
+[Verificação de tarefas](development/task-verification.md) · [Inventário de scripts](development/scripts-inventory.md)

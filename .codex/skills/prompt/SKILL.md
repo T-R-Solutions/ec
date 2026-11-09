@@ -3,6 +3,21 @@ name: prompt
 description: Create, rewrite, or refine prompts from user input, translating intent into technical requirements and verifiable criteria, with clarifying questions when needed. Use when the user asks to write, build, improve, or refine a prompt; do not execute the task described in it unless explicitly requested.
 ---
 
+## Acionamento de scripts no Ec
+
+Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
+suas referências. Scripts de verificação só podem ser acionados após pedido explícito
+de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
+Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
+Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
+Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
+os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
+ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
+Não execute scripts avulsos nem os acione automaticamente durante implementação,
+revisão ou encerramento. Inspeção manual continua permitida; checks não executados
+permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
+(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+
 # Prompt
 
 Turn the user's information into a ready-to-use prompt that preserves their intent and provides enough detail to guide a strong response. Use the user's language unless they request otherwise.

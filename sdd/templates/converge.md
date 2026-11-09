@@ -11,3 +11,13 @@ do not approve based on absence of errors.
 For each observation, identify the checked implementation, oracle, configuration
 and contract by path and observed version/hash. On resumption, compare inputs and
 reevaluate affected criteria; a Git revision alone does not cover uncommitted changes.
+
+## Encerramento no Ec
+
+Antes de concluir tarefas, aplicar a [política canônica de verificação](../../docs/development/task-verification.md):
+inspecionar as alterações e registrar evidências e lacunas sem acionar scripts.
+Somente após pedido de commit, perguntar “Deseja executar o script automate.sh (que roda todos os outros scripts)?”,
+com apenas `sim` ou `não`, e aguardar a escolha. Com `não`, seguir com os commits;
+com `sim`, executar `bash scripts/automate.sh run` sem filtros e só criar commits
+se todos os scripts terminarem sem erros. Não executar scripts avulsos.
+Checks não executados não aprovam critérios da feature; registrar essa limitação.

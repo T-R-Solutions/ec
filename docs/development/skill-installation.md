@@ -42,3 +42,21 @@ No Linux, executar novamente `python3 tools/governance/install_skills.py --apply
 Execuções cooperantes usam `config/governance/install.lock` com flock não bloqueante; a segunda é rejeitada. O inode do lock permanece, mas a morte do processo libera a exclusão. Um conflito exige comparar conteúdo atual, journal e baseline e preservar a edição externa antes de qualquer resolução manual; não recalcular hashes para aceitá-la. Journal inválido/ausente não autoriza recuperar metadados divergentes.
 
 A baseline permanece intacta. Temporários órfãos `.ec-install-*` e `.ec-metadata-*` não são instalação confirmada e não são removidos automaticamente: podem conter dados de diagnóstico. A garantia é retomada entre operações individuais em filesystem local Linux, não atomicidade de vários arquivos nem proteção contra escritor hostil concorrente.
+
+## Manutenção do encerramento — 2026-11-05
+
+Somente software-delivery e software-testing receberam uma referência textual ao
+procedimento canônico `docs/development/task-verification.md`, relativo à raiz Ec.
+Os pacotes permanecem portáveis: não há link Markdown escapando da pasta da skill.
+A revisão preserva propósito, referências internas e versão anterior em
+`docs/validation/scripts-ec-20261105/previous.zip`. Foram sincronizados apenas seus
+SKILL.md entre instalação e baseline, com precondições de hash e autorização real
+do ambiente; o perfil atualiza `files` e `adaptations` desses dois pacotes.
+`source_files`, bundle e os demais 65 pacotes permanecem intactos.
+
+Em manutenção futura: ler/revisar o pacote real, preservar a versão anterior e
+comparar precondições antes de escrever; sincronizar somente pacotes alterados e
+revisar metadados/hashes. Não usar o instalador sem overwrite como mecanismo de
+atualização forçada. Reexecutar auditor, preflight, testes e reobservar evidências
+vinculadas. Seguir a [política de encerramento](task-verification.md); não renovar
+hashes apenas para aceitar divergências ou reutilizar observações antigas.

@@ -1,6 +1,43 @@
+> Adequação de 09/11/2026: o consumidor nativo segue os guias centrais
+> consumer-integration/application. Ambiente selecionado de Docker/estado chega
+> à CLI; OSV/Trivy usam proveniência upstream do diagnóstico e Trivy exige bundle
+> externo identificado. Implementação e documentação inspecionadas, sem suíte.
+> [Análise e limites](../docs/validation/toolbox-alignment-20261109/report.md).
+
+> Integração nativa de 08/11/2026: `scripts/toolbox.sh exec` substitui o caminho
+> STIC. Gates reais, configs/regras e parsers estão implementados no Ec; configs
+> e lock obsoletos foram retirados. A execução depende de ferramentas centrais
+> ativas, bases válidas e pré-requisitos do produto. Consulte `scripts/README.md`
+> e `docs/validation/toolbox-native-20261108/report.md`. As observações datadas
+> abaixo preservam estados anteriores e não descrevem o contrato atual.
+
+> Atualização de 08/11/2026: a migração STIC e a exclusão de downloads locais
+> substituem a ponte/preparo/armazenamento descritos anteriormente. Estado atual:
+> wrapper comum implantado, gates de scanners bloqueados, nenhuma execução de suíte.
+> Consulte `scripts/README.md` e `docs/validation/scripts-stic-20261108/report.md`
+> (caminhos a partir da raiz Ec). O texto anterior registra decisões históricas.
+
+Atualização documental de 2026-11-07: o [contrato Toolbox/Ec](../scripts/README.md)
+registra dez famílias de ferramentas e os limites da integração. O
+[plano de conclusão](features/scripts-verification/toolbox-completion-plan.md) é
+proposto, ainda não implementado: estado somente no Ec, regras YARA-X, identidades
+reais, checks no padrão e paridade Trivy. Código atual mantém novos checks adicionais,
+YARA-X bloqueado e Trivy nativo padrão. Nenhuma atualização de documentação ou
+`.gitignore` comprova preparo/execução; a Toolbox externa não será alterada.
+
+Atualização consolidada de 2026-11-05: manifests, lockfiles e toolchains reais nos workspaces
+`application/agents` e `application/server/backend`; frontend npm Vue/TS/Pinia em
+`application/server/frontend`. Os incrementos e limites vigentes estão nos guias de
+publicação, orquestração, Agent e frontend em docs/development. Descrições anteriores
+de ausência de código abaixo são baseline histórica, superada somente nos incrementos
+implementados. Encerramento de tarefas segue docs/development/task-verification.md;
+não inventar comandos nem inferir funcionalidade pela existência de diretórios.
+
+Atualização T005 em 2026-11-05: Agent Rust real, workspace com cinco crates, logs e artefatos PostgreSQL/HTTP implementados. [Operação e limites](../docs/development/agent.md). Baselines documentais abaixo são preservadas historicamente; frontend e segredos por referência permanecem pendentes.
+
 # Contexto e estado do Ec
 
-Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../docs/development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.
+Atualização T004 em 2026-11-05: parsing/schema, publicação PostgreSQL, sessões/autorização HTTP e fila/tentativas do Server estão implementados e exercitados. [Estado operacional, comandos e limites](../docs/development/orchestration.md). Agent real, logs/artefatos e frontend continuam pendentes. As descrições de ausência de implementação abaixo preservam a baseline documental e são superadas por esta atualização somente nesses incrementos. Governança não constitui aceite da jornada completa.
 
 ## Leitura visual
 
@@ -33,7 +70,8 @@ A feature de governança é [governance-adoption](features/governance-adoption/s
 ## Stack e comandos reais
 
 Alvo: Rust Server/Agent, Vue 3/TypeScript/Pinia, PostgreSQL e HTTP versionado. Sem Cargo.toml/package.json de produto, toolchain fixada ou comandos de build/run Ec disponíveis. Git history não acessível neste ambiente. Não inicializar Git nem inventar comandos.
-Da raiz, Python 3.11+ stdlib:
+Interfaces de referência (Python 3.11+ stdlib). Não executar avulsamente;
+o acionamento segue a escolha após pedido de commit em [workflow.md](workflow.md):
 
 ```bash
 python3 tools/governance/validate.py

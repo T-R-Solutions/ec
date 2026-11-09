@@ -1,0 +1,2043 @@
+{
+  "schema_version": 2,
+  "environment": "08/11/2026, Linux/amd64; Docker29.7.2 acessível fora do sandbox; Rust1.99.1, Node26.13.0, npm11.20.0, Firefox158.0.1. Run final run-13bf8eQO, sem filtros, exit2. Sem downloads/ativação central. Runtime Rust/Cargo existente fornecido por EC_CODEQL_* explicitamente, sem descarga/instalação.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "AC-01 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-02",
+      "criterion": "AC-02 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-03",
+      "criterion": "AC-03 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-04",
+      "criterion": "AC-04 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Integração e contratos de Opengrep/OSV conforme spec.md; eficácia real em AC-04.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-06",
+      "criterion": "AC-06 conforme migração shell em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-07",
+      "criterion": "AC-07 conforme spec.md; integração/configuração e falhas fechadas observadas; execução completa permanece em AC-04.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-08",
+      "criterion": "AC-08 conforme spec.md; integração/configuração e falhas fechadas observadas; execução completa permanece em AC-04.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-09",
+      "criterion": "Catálogo padrão e Geiger conforme AC-09.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-10",
+      "criterion": "Cobertura de linhas >=80% por componente conforme AC-10.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-11",
+      "criterion": "Trivy/CodeQL sem rede, integridade e rejeições conforme AC-11.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-12",
+      "criterion": "Responsabilidades, configurações, preparo e rejeições conforme REQ-12/AC-12 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-13",
+      "criterion": "Fronteira de escrita do consumidor conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-14",
+      "criterion": "YARA-X local conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-15",
+      "criterion": "Imagens e bases reais conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-16",
+      "criterion": "Suíte padrão completa conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-17",
+      "criterion": "Migração Trivy com paridade conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-18",
+      "criterion": "Aceite observado da conclusão conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-19",
+      "criterion": "Adequação STIC e limpeza conforme REQ-19.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Critério histórico não renovado nesta migração; partes obsoletas foram substituídas por REQ-20–26. Evidência anterior preservada no backup."
+    },
+    {
+      "id": "AC-20",
+      "criterion": "AC-20 conforme REQ-20 em spec.md.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-NATIVE-CONTRACT"
+      ],
+      "reason": "Critério de contrato exercitado com fontes atuais; operação real de containers/ferramentas permanece em AC-22/23/24/26."
+    },
+    {
+      "id": "AC-21",
+      "criterion": "AC-21 conforme REQ-21 em spec.md.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-NATIVE-CONTRACT"
+      ],
+      "reason": "Critério de contrato exercitado com fontes atuais; operação real de containers/ferramentas permanece em AC-22/23/24/26."
+    },
+    {
+      "id": "AC-22",
+      "criterion": "AC-22 conforme REQ-22 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Implementação e testes de contrato disponíveis, sem scanners/Chromium/CodeQL centrais ativos. Homologação real necessária."
+    },
+    {
+      "id": "AC-23",
+      "criterion": "AC-23 conforme REQ-23 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Implementação e testes de contrato disponíveis, sem scanners/Chromium/CodeQL centrais ativos. Homologação real necessária."
+    },
+    {
+      "id": "AC-24",
+      "criterion": "AC-24 conforme REQ-24 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Implementação e testes de contrato disponíveis, sem scanners/Chromium/CodeQL centrais ativos. Homologação real necessária."
+    },
+    {
+      "id": "AC-25",
+      "criterion": "AC-25 conforme REQ-25 em spec.md.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-NATIVE-CONTRACT"
+      ],
+      "reason": "Critério de contrato exercitado com fontes atuais; operação real de containers/ferramentas permanece em AC-22/23/24/26."
+    },
+    {
+      "id": "AC-26",
+      "criterion": "AC-26 conforme REQ-26 em spec.md.",
+      "status": "REJECTED",
+      "evidence_ids": [
+        "E-NATIVE-FULL"
+      ],
+      "reason": "Suíte completa executada e reprovada; não há aprovação integral com requisitos obrigatórios bloqueados/erros."
+    },
+    {
+      "id": "AC-27",
+      "criterion": "Adequação ao contrato central conforme REQ-27.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "09/11/2026: implementação e inspeção manual; testes de regressão escritos, sem execução autorizada da suíte neste pedido."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-NATIVE-CONTRACT",
+      "kind": "test",
+      "command_or_method": "python3 -m unittest discover -s scripts/tests -v, executado dentro de bash scripts/automate.sh run sem filtros",
+      "observed_result": "80 testes passaram; executor fixture. Cobre argv, seleção, regras/relatórios, sinais, cancelamento tardio, integridade, symlinks e segredos sintéticos. Não comprova scanner/browser real.",
+      "artifact": "docs/validation/toolbox-native-20261108/contract-tests.stderr",
+      "sha256": "f53906e119a14f808c14fb73d53afacd4543573b32ed5f3ef8a20ce3383bc67e",
+      "inputs": [
+        {
+          "path": "application/server/frontend/tests/playwright/server.mjs",
+          "sha256": "52ded82c6e8567446babc144a69b22ea15af4bd7156420f2e2fb99b9d9592b59",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "b3c8a3f8a364d08766e01638fc586fdd25c8bcdb534474c4f57aa0b14eced671",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/LICENSE",
+          "sha256": "b2fa7b84692d6b7d79bc3538f670cb7110ec089ac04b7d5f9aa917713661ecd0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "956b73e3c482854833da755a0485c2a4abc390bc7944dc69cc86d8e47f183823",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "6e37053ce2bc2a9e02916949a96e884893ff6155f362afaf849d753f1c4e0e09",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/check.sh",
+          "sha256": "cb524d37a1112e47330de39da3cdbd35bfec75f7da41c7cff34a6566530be1f4",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "46db533fc31aca8cd1ad9e52485e5b0c424986ca2379d9a073503535765f7762",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/cargo-audit/audit.toml",
+          "sha256": "56980089ca448f15fbe6fc38b9391e36ddd74d3c0577424606f4d4432f37e322",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/cargo-deny/deny.toml",
+          "sha256": "fe868493dd1801b3b6044592a2cda4cba1b11ca7e7af88ef2d3401022b0df65d",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/codeql/projects.json",
+          "sha256": "7b96b2d0c748e097fc559992d628281edff71331aa5b7180dacdec1c32934eab",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/gitleaks/gitleaks.toml",
+          "sha256": "99e136dc342326fa5650248478dd49c4f2d75f05d63fa256dcd193c4446d76de",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/grype/grype.yaml",
+          "sha256": "99686fbc6039505cf3a2e4c213639dd407a4a83add1020785f7667367ffb1ee3",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/osv-scanner/osv-scanner.toml",
+          "sha256": "9311d41f8d1ef5fa4514eb78f8ead2a815332c7d4d711f5d9850e712fb11bf61",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/playwright/playwright.config.mjs",
+          "sha256": "e1abec0c8e19fcae846158dbd5e6041d8e4923e98fa873149e751d12ff5e977d",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/ruff/ruff.toml",
+          "sha256": "ec78c81a8cc1e4b94fe189498864e683a36a35220fbf18042372b02c7e589629",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/shellcheck/shellcheckrc",
+          "sha256": "f09b0bb5d8e256c380055b4b00ee6e758df5c6b3a0afe6eff0b2d64dda29df3f",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/config/native/trivy/trivy.yaml",
+          "sha256": "68442c60137f3d67171ec8ea085b801872f32b7b2d5717bbf34b7f44e04e3ab9",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/codeql/codeql-rust.qls",
+          "sha256": "430be0b6b634a521a95eaf1f134c2e3af37795ff3222b87e80937a7fa1769a02",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/codeql/codeql.qls",
+          "sha256": "3b2f57a6c56c5bbd7a9b8847951da252a509c6d0ad15646a3b0ff0a983433a0c",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/opengrep/rust.rs",
+          "sha256": "0f4c26b24f357f1e318a07a4be8787115fc6a884e515bb8360be78ce9d694d14",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/opengrep/rust.yml",
+          "sha256": "e243f63f5f033f122b52fc4ffecb09e77582351ed2a304e82907c93b2d53e11f",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/opengrep/typescript.ts",
+          "sha256": "27989e43e7ef5b6d9748b25925c5673b03c305536059d60c5306cd76726b68b0",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/opengrep/typescript.yml",
+          "sha256": "24ea64f748f9951ab9a2ef75a923c85194b90c2e61056bf68c517476646b93a5",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/opengrep/vue.vue",
+          "sha256": "01188f0b7a109773f985cb5dabea3de657ebb5ec93399d7b2ecb09014210dac8",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/opengrep/vue.yml",
+          "sha256": "37e6f4dfd4957228aaff6cbff0b2800a341498f2175c2b5267effa25a80797a9",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/rules/yara-x/ec.yar",
+          "sha256": "b0955b7f93f97ccf673f330af93c851aa163d4a394f735d0e8fffcf0f0deb179",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/stacks/ec/catalog.sh",
+          "sha256": "be395b3f07e69bcaccd898c823d1c0fb0a969a8d4d73fc77cf7bcf6be846d483",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/common.sh",
+          "sha256": "785d69945e5be6011b6bfc2357c7da762265cd3fd4a1a21426f7d47192232879",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/coverage.json",
+          "sha256": "152691c311aea4c59accfe1a42f86440761090a8b929118f67ae7c81d257b5a5",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "0a3304831d5cc371f0cfa2c36cb8b2aa5ff6b553c8737e1f8947be172e26f939",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/integration.sh",
+          "sha256": "31aa5c1c9bb9606b0b74e8e017390bf7a1b3fdd2990d2fd56dfbaefdda030d38",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/metrics/check.sh",
+          "sha256": "bc5db9c0db5ce683dc5cff390d4f31693621bc9134b5c7f5cb328df1cf64eca4",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/metrics/coverage.sh",
+          "sha256": "edbfb888fdc78e44cbfa8aaf238c4b036a7d3a676ac9cb7c0efc75057b5628dd",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/reports/summarize.sh",
+          "sha256": "d0d63adc75ff609d682bbca1a0e8dca26cb6e0dd00f7d4bcf78b610bdfd63c0d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "e8a57d677e8d2670fa19a6e6d5fe844325ca75d359f438f3b6442b210d18e671",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/scanner-gate.sh",
+          "sha256": "67d5694658d43c5eee5c323a9b9a84f8edeb221ed1daa503fd950fffe56bb1b7",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/security/check-report.sh",
+          "sha256": "83dd2cdab47c19f1aadd9b59da10c098a62263ffdf93538986c65015ef7e9db4",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/security/redact-trivy.jq",
+          "sha256": "2c85b48d15aa09716ae5068c567c7c4f17ae166135bc0560fa474464ce0217fd",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/security/validate-exceptions.sh",
+          "sha256": "4bf783a86b06258edff6507793273881392c2e8b2f83a7af634e8109e7c1e5b6",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/frontend/check.sh",
+          "sha256": "361e589a11b1415711f517c62025b0721abcf6d7b47a118e085d38abcc199ca2",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/frontend/eslint-ratchet.sh",
+          "sha256": "8346087bd22256466e4b9abef89ac28da2584487605b4130f18b65235ad51aec",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/rust/check.sh",
+          "sha256": "4a2f35fa063b8d61db5ccb871166fa71b941b161a0268ecff3b33f7184888f96",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_consumer.py",
+          "sha256": "91f592fd7153229154bf355c49a55ba954e0ca6cafdd983c67ec3d9afb5a9764",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "8c471d03a7e284e9cac869c45e11b84f97071c3cf545a8167043161e26df844d",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_quality.py",
+          "sha256": "ef6b45443be560260e77101f7b615f9303580c508fb3f9e38835eaf5d47eb95f",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "31ba94fe42567af968651d87def5ad95f6b2690ef347b0254c2f8533a4695fdd",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/toolbox.sh",
+          "sha256": "de43006956f7e528429f286ef9b8411e32a200c01e94d0604049d03ce626a96e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/features/scripts-verification/plan.md",
+          "sha256": "d29b94620bad8aea5f5e0c05fd1c37dd7a04c3dcf07e7e202208b0edf7da54b1",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "2b86a6ca570e8146f971b54bfb57c692cb47919ff64eff5df68b7a1ef642a2e7",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/scripts-verification/tasks.md",
+          "sha256": "cbc0b110ffef5bf3ac09ee8e2e3dc2449ac27fa87b74960f1245e1706fe90dae",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/scripts-verification/traceability.json",
+          "sha256": "d548f21d6123c8a7782b505c4f44dbb2934ebe45e89347e0cc5bebe243e91f70",
+          "role": "contract"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "9c686976de50c1d3de8e2bf5603757fe4424d19979b92d991b38ddee47fa4fa8",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-NATIVE-FULL",
+      "kind": "test",
+      "command_or_method": "env TOOLBOX_BIN=/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox EC_CODEQL_RUSTUP_HOME=/home/rodrigo/.rustup EC_CODEQL_CARGO_HOME=/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home EC_CODEQL_CARGO_BIN=/home/rodrigo/.cargo/bin bash scripts/automate.sh run (fora do sandbox, sem filtros)",
+      "observed_result": "Exit2; 24 passed, 12 blocked, 7 error; changed_inputs=[], cancelled=false. 80 testes, HTTP/PostgreSQL e Firefox passaram. Runtime Rust/Cargo explicitamente fornecido; três alvos CodeQL tentaram a API, todos sem versão central ativa. RustSec ausente, Geiger/cobertura reprovados.",
+      "artifact": "docs/validation/toolbox-native-20261108/full-run-results.json",
+      "sha256": "288192e2ae87f841a2cfb76c01679af15395ce6a97ee09feba682ebc7cbbf7ea",
+      "inputs": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "e7cc2bfbee65a77fdc47b7fecdb95cb1eec0ca8edf6ed12188a115cf2ca1c407",
+          "role": "other"
+        },
+        {
+          "path": "README.md",
+          "sha256": "2591652e0e075d332e46bd43f4084a5b1c04eef4c12f8381c6815c03eaea25c0",
+          "role": "other"
+        },
+        {
+          "path": "application/README.md",
+          "sha256": "9aea034177ec3dc88d2c599aae8e1038058cab6ff3e8ddd9b0e200aba92bb441",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/Cargo.lock",
+          "sha256": "c765aea49fb6b3ee6cb15a7cfdaf6af5759b599bd8ef4ea592c2c84da52aa631",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/Cargo.toml",
+          "sha256": "cb6c523142c42b972fc00cd51697c78ea8154047de8f096af0698b8b00b7b121",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/README.md",
+          "sha256": "7e781de92075a89e7fc6db36f3d04ac767315db66ccb6a67dafa11560983194b",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-app/Cargo.toml",
+          "sha256": "b45a894ba6d6594f539e9eeda2166ab9fb4de63aca1d08575f086e75174131d9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-app/README.md",
+          "sha256": "7161f77e0fa3e0b3dc8df18e3f8df78a9ec52d0fe426757b7f6fa971e272375e",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-app/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-app/src/main.rs",
+          "sha256": "d71a8a2dd0a32f144c8ce322e2f21fb5e33b46691310b404ccd234f57a74bbee",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-app/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-control/Cargo.toml",
+          "sha256": "a2bb053c285d0d69d29e045186a035e275ff1dcc2fbf9c79c9f3b032529ed346",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-control/README.md",
+          "sha256": "a47acb1f60022f004f999a22f23e779b602ef5c45d179d102b1a7bfc80fe158f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-control/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-control/src/lib.rs",
+          "sha256": "8d5ae9a450babd95e81330f765f72df8c960f010aff1f79a132eaf23a341c7bd",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-control/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+          "sha256": "f36b6ae7e8cfb0b083c87eeb00c1635672d3e605b295fb6e653e7a815209d61e",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/README.md",
+          "sha256": "3879e911f6d2fd14f078f86705f6ebc45e94d5b0907adc50ede35fe87d6b7eb3",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/src/lib.rs",
+          "sha256": "ce2790c7c5f4a621f340fb83800f6c5a4db958c66a0c6446b262d554b6f8231e",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-reporting/Cargo.toml",
+          "sha256": "3ad0c5841ecdd75a7c30d4102adac1745a69dbb012de861b780897aa945bad41",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-reporting/README.md",
+          "sha256": "ad1358de3af7686aeaa672c18b52425f13eabe6c1c48bcdfcd3530f63e3016be",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-reporting/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-reporting/src/lib.rs",
+          "sha256": "cb41ee1d20d041c979b35a182bddba74cbcd024afa4e467b108455038e786543",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-reporting/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-workspace/Cargo.toml",
+          "sha256": "033f42f4125d1477b0f80a604c5ed67f5c58b331d83e074b7f91453d498789d6",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-workspace/README.md",
+          "sha256": "c04a53d8afcd2ae374c9f4608791e1666ec175426362477a47d3da82c8c95c4d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-workspace/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-workspace/src/lib.rs",
+          "sha256": "3b824f8c9f9ce2f2820ccc404930c4a7fde2ec2c970eb001e878a0d5877b129b",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-workspace/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/rust-toolchain.toml",
+          "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/README.md",
+          "sha256": "cf367e557856b01a54d8e2169ac2852b504b8c367706e96d13182b1d45c525f0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/e2e/README.md",
+          "sha256": "38c08f8b1ceb010af6189c0dbf75bf8e4fa7db923246e15fb6c3b94a852b4f1b",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_firefox.py",
+          "sha256": "302b922265a021a95c20b3d10f52b06e0b4d1939fe69ec88f76e7014618027f0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/fixtures/project-pipeline.yaml",
+          "sha256": "8574490ed45d4be147200c7c5990e83a8bef85dd360b12e6eb69a62ef76609ce",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/integration/README.md",
+          "sha256": "ac61dc24b65177b284f63503701e891b3a6ddce6428ae2c0658f3ab9c8ac2615",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/integration/agent_http.py",
+          "sha256": "ed769c0ea29ae55949e1f329a908a7d80ec45d1039fd772d17ebb707d5bcfba8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/integration/orchestration_http.py",
+          "sha256": "4e4b1d05872edd11d27c931438feacb0c765aea7a7c41acd7efe4d6db5fb6fb3",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/integration/publication_http.py",
+          "sha256": "7f650e6b1aff529b4403aa26945d8b279222e662f7aa9b1466f235c3797c63fe",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/README.md",
+          "sha256": "0c4838d2ab07d4c851755a93b41606a4c23725959078f6eb7a9a58ee1f88af7e",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/Cargo.lock",
+          "sha256": "67967974f663ec67d50b90a376efb3ac7bf385920899ef12f82804a4f048be71",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/Cargo.toml",
+          "sha256": "77b11b97c3af492b704a392099e7470d56407f92d9fc0282fdab3f5991a1cd74",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/README.md",
+          "sha256": "6ff1af2aaa05a47573966209fa363d6a3059f70f24785bf94a7df6ae9a7f0af4",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-access/Cargo.toml",
+          "sha256": "3192d8dc9226f08d10664de677bc2cc754169eaaa3f550ffd01dc9b43f93a7d9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-access/README.md",
+          "sha256": "f7cb08968b3e6cc05c501196c571204bcb09634b797bd41bd91929ac0e140511",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-access/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-access/src/lib.rs",
+          "sha256": "ee133997b04862174732514b92a207a07f952d980f01a12f06cedcc5e09ff802",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-access/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/Cargo.toml",
+          "sha256": "cb9ca0c9abf41648f3b0dcfb7042a5b1fa8e1e37b29932aa5da969f0b320c304",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/README.md",
+          "sha256": "44be2987ecec57486681ec54dcb3ba57772045a90375b055cddb901fdfe18bf0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/src/main.rs",
+          "sha256": "a7ce4af23b943e0c9e5b8658954a39c48c9b54d285f3b882da2f72b0399d88f4",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/src/service.rs",
+          "sha256": "6e0538393c43da588c024ed3570f7745a80c494ce25bc00ad66b5cb61d0edaaa",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/tests/validation.rs",
+          "sha256": "25b50adfcdcbde3aa8ce23f55e6936ad428a8ff956d39c4427ada9cb3cf34052",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/Cargo.toml",
+          "sha256": "4e7480862e07b7c231ab25dc74a9207060b0444e473bba1d141a53c395f5025c",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/README.md",
+          "sha256": "219e250af281d90bb10280f83038b624f6291ef84d3de87b2d4464608c0a0f80",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/src/lib.rs",
+          "sha256": "15abd9ba67ee707677b0372658ff438f76c47bfdb93df322448fb181ae7435fb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-configuration/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-delivery/README.md",
+          "sha256": "9c0718b19257cf3494dffc9c4bfa3f16b064e842f36679c5ea3f1f895b755dcd",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-delivery/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-delivery/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-extensions/README.md",
+          "sha256": "28ac092724440ce8fa39ab7f814ab9da83972c80073ab7da40989496a7d0128b",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-extensions/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-extensions/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-operations/README.md",
+          "sha256": "5c6f8409c80171c3b9175ba598b88140d7da46269f36ceaae34c345d631b2ed0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-operations/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-operations/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-orchestration/Cargo.toml",
+          "sha256": "03231083fc124ecd2cff9b8c2cb942366bfcf405eb53dc35aa5c83f5a2dd1857",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-orchestration/README.md",
+          "sha256": "f0f2803704523efc505cdf6331a6a4ace9f9c2e9693bf5ee9113b8ccf4b245af",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-orchestration/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-orchestration/src/lib.rs",
+          "sha256": "efafc04c43e795e89cd619ab50b3786923bd5d64142169599cb638595935c89f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-orchestration/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/Cargo.toml",
+          "sha256": "8863be8e97139680fcb2dce93b64bedbb680e2a18024806892db2d930234663e",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/README.md",
+          "sha256": "a93ea9331df46767cf4b0202ebb4a6b34bd21d64d5e9883150cc234031f2c7b7",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/src/lib.rs",
+          "sha256": "fd29e224abcad99d199bded93d3772887ce94758a41cc0fa2512e4cc48551ec3",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/src/publication.rs",
+          "sha256": "9659b72bf1d08b5b940c576afff533a46ace2226439c630b2dbcd0ae11ead8cd",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-projects/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-results/Cargo.toml",
+          "sha256": "d3ddbaefed2ce4671ba3cf52f4981a45f4b655b42542e795ca2a9c1ef4359bd9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-results/README.md",
+          "sha256": "76270b82b57eb2d184c0a35b54135f73cc7ee15edec61f6b1d8552dfae7cc570",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-results/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-results/src/lib.rs",
+          "sha256": "8873acf5e253f53a6862b7774ba1d738c157da0e4f34c4af1be44a725646f4f0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-results/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/migrations/001_publication.sql",
+          "sha256": "5c88172bc0fd0e4ce06356b508c2ff51e2b6d0870e69587d4bc8044405525a71",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/migrations/002_orchestration.sql",
+          "sha256": "7e3306f0d24c8f8cd70b548d47bd5caa831e907fb045f653d3d6c04d6b94a228",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/migrations/003_results.sql",
+          "sha256": "2fd7ae2b9016ce294903955fef81b955b2eb9129352dc37bc9d40291531eb3d1",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/backend/rust-toolchain.toml",
+          "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/README.md",
+          "sha256": "b854abb1fb772aab1ebb59a2ea52a60ae9531e5194972bc529454ab4d2715337",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/index.html",
+          "sha256": "73fd86be45ba79978e2fbc6d65b7593b8da76949c8b324b3ef657d6150a741da",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "ae4507e8a009cb7a9f7b03148ad96ec491e88bf16d21161d7fcc8611404e5972",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "20f91a89169080867cc1c3e410c96342b13f4404694a75b8a8b442642a918fc0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "3f9554de2ab5bb280e5d187b1a7ef6a112ab512fc62233eb9d1e48abb653b2e7",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/README.md",
+          "sha256": "5bd7a5facfa1ed83d5d791e851699d015157f4af8c468c226c0b7fc6062496f1",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/contrast.test.ts",
+          "sha256": "d9913b1aef367353048269ff3c174bd123434bdd333b54c68e7228f0a17068e8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/main.ts",
+          "sha256": "0a333f20c86caf275eb09cd70949f88a71911dcb67c7db0d878169152389d7a9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "888fabfe03b6c808cd6a635ab775aa87852adb0d29ebcaa43462a3065d05e033",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/README.md",
+          "sha256": "ca56c506feddb6bf424d0a5dee3ae70df684928bc1c1a8d99b74bfced606c9de",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "5c1ac00fc99873fb00b5e2218f554583cacadeb2d0030c6070ce05cb3dba73f0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/README.md",
+          "sha256": "217cdaabd98f421cb026bc2955ac760a38a22607867a1666b1145bf807061ab7",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/README.md",
+          "sha256": "87a2db42aa7bb6a33497e37574c0a80484225a1b66690a262c9a998f53787086",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/Editor.vue",
+          "sha256": "666ccc890866e64f3eb4db71d76e4bfa35758611657077c046c540fbf76920e6",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
+          "sha256": "0ba879744b269765d917b5ab1f44d68ebcb4de1fdcb2dc787c355e68fe5d49d0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.ts",
+          "sha256": "61a682e0818cf994503b16008d31bfd0a1b4700bce4793a470435156360aacf5",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/index.ts",
+          "sha256": "44ca2fe51630edc2fb1da9b83a7f39e6cbaa2bd8fe22bb65f16efed61e53727b",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.test.ts",
+          "sha256": "8c4bbc8142fd0914c3bac677326db32d3de53af4b1cdbd89f238199c7ae8a163",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.ts",
+          "sha256": "f85492b474dabda091b365a12770c026c0957ca08a0ebdca8b1dd914e8fd5fe4",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/README.md",
+          "sha256": "48f9be0ace178beb26d9fc387ee272471e7de44e7c617fed7c6069fce6459241",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/README.md",
+          "sha256": "b354ca821a543065130f75ab74ed245e6156406a92bd8d31389672493bf2037c",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/README.md",
+          "sha256": "40b44d46b9cd2c485528bdbfa248da7b805de7a1b780d4e62c479ddae49b82bf",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/src/index.ts",
+          "sha256": "167a0c1d80f9cf78bf61751bd86547c1e997b408c43298087fa700f4ccb97ceb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/README.md",
+          "sha256": "929b20029a76d0653862f530dd6bf67a1ce38e6fc68c3e505b4a4346698e36b5",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/README.md",
+          "sha256": "463aad51397679b0ff0a18d24143ddce1494db5403251b5bf370b0fe1fe74e38",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/src/index.ts",
+          "sha256": "7710860c28259728bce093b74549848d6b78aef5c37377f91c03eeb674df8017",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/README.md",
+          "sha256": "a46dbab945eca6ae9eb91e09b3b7412db80dd2027e699792bbf88e22e6186095",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/Runs.vue",
+          "sha256": "9b875b7bef87ccfb8768ced9bbc4d34e0969490f105227dcf52b41e439f822bc",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.test.ts",
+          "sha256": "5d74f664ca9049631e2ee6080db0121e054814e967d5520fda0b06b111e05528",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.ts",
+          "sha256": "853b1952d2a2bed93beb78e716f7fa4bd08488e9c4add767a7a7a7c2f938f268",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/index.ts",
+          "sha256": "d7a84f27be79c7894f642d85d2573b70fe1dc32f9928d2fd77a00b261f40c1dc",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/tests/.gitkeep",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/README.md",
+          "sha256": "8cd3cb4cfb4083b9ab7f1413aa0db2c2ce239c8ca1acaa18d8b8794d3ae72f1d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/e2e/README.md",
+          "sha256": "ddd196d81dd82f6686cad00a418701da32df0e45a6c329b7e96be1c31fb3029c",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/e2e/firefox_driver.py",
+          "sha256": "4052ff5d6ec1f01a466b948e07b829075453a5401df9aa50b32e3ee55de9cf97",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/integration/README.md",
+          "sha256": "71310ecb5845153db6d2e10ea997d37474b2f636969f7559edc2584cc239d232",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/server.mjs",
+          "sha256": "52ded82c6e8567446babc144a69b22ea15af4bd7156420f2e2fb99b9d9592b59",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "b3c8a3f8a364d08766e01638fc586fdd25c8bcdb534474c4f57aa0b14eced671",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tsconfig.json",
+          "sha256": "3393cc3b1b26f98fbc6db23f32a0d8c14fa3188e7e4e7baa8eba92ee0918e42f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "61eb51c37368cd97f323c8f6228f84c6567c393f62a5255d68f6b46531a921e7",
+          "role": "implementation"
+        },
+        {
+          "path": "config/governance/normative-coverage.json",
+          "sha256": "bd4e31ecbb00795d7ec5145d061abee5c1f8a74b45c4bfdff07704c3f7cdac82",
+          "role": "other"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "2bd811b32c67a40e5cce9a052b9b5423647df622b57f77fa837e98814f72afd8",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/agent.md",
+          "sha256": "6aaadb4e61be04f75626486a55075b486bcf2e2f18c1d811d8be9886494921e6",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/contributing.md",
+          "sha256": "9a17129bf6c84b173944d3e2a0b7a489aa4b0be39879fc9525d892823b561f79",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/first-functional-journey.md",
+          "sha256": "137f8641a8ba286aa812266bc1ee8d1431362055dfb529b27d2bf78c7f56ae26",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/frontend.md",
+          "sha256": "3b9d88826df65af6a6dec61656c8e0af596b1cfbc09160a9453212345247441e",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/orchestration.md",
+          "sha256": "5f2ddcc522311e5d3da00692625661cccc7cadda8c0fcc5b4715ff344cf97597",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/publication.md",
+          "sha256": "e391fb2d0c85f842e793e80212ea7304255771500dac6288a89ec6c79d862970",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/scripts-inventory.md",
+          "sha256": "e23c1918188b41b74e30c3990d473f1bfb9d84fd696d3f4bdd1a2d50e4c7c453",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/skill-installation.md",
+          "sha256": "54c7be90e3c93bed815180f2e55e986a4186977c5550114da48f803a76456967",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/skills-analysis.md",
+          "sha256": "efdcb38918a80be78b83e70b3fa00a04653c219e0d3eb6a3bdffc84cffc02a42",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "5fb23d9db40bb35821d0a5c95bb2ad173fcfbb5d073a837100a80694b18df905",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/testing.md",
+          "sha256": "90d59a6a6228c746a36a227f83eac0689f037e3f68533724c8a8004bb82c2947",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/verification-tools.md",
+          "sha256": "d712067f9df2f8684cf86114fb7692c117e4448a3f213b3d1abe673beed93214",
+          "role": "other"
+        },
+        {
+          "path": "scripts/LICENSE",
+          "sha256": "b2fa7b84692d6b7d79bc3538f670cb7110ec089ac04b7d5f9aa917713661ecd0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "956b73e3c482854833da755a0485c2a4abc390bc7944dc69cc86d8e47f183823",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "6e37053ce2bc2a9e02916949a96e884893ff6155f362afaf849d753f1c4e0e09",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/check.sh",
+          "sha256": "cb524d37a1112e47330de39da3cdbd35bfec75f7da41c7cff34a6566530be1f4",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "46db533fc31aca8cd1ad9e52485e5b0c424986ca2379d9a073503535765f7762",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/cargo-audit/audit.toml",
+          "sha256": "56980089ca448f15fbe6fc38b9391e36ddd74d3c0577424606f4d4432f37e322",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/cargo-deny/deny.toml",
+          "sha256": "fe868493dd1801b3b6044592a2cda4cba1b11ca7e7af88ef2d3401022b0df65d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/codeql/projects.json",
+          "sha256": "7b96b2d0c748e097fc559992d628281edff71331aa5b7180dacdec1c32934eab",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/gitleaks/gitleaks.toml",
+          "sha256": "99e136dc342326fa5650248478dd49c4f2d75f05d63fa256dcd193c4446d76de",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/grype/grype.yaml",
+          "sha256": "99686fbc6039505cf3a2e4c213639dd407a4a83add1020785f7667367ffb1ee3",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/osv-scanner/osv-scanner.toml",
+          "sha256": "9311d41f8d1ef5fa4514eb78f8ead2a815332c7d4d711f5d9850e712fb11bf61",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/playwright/playwright.config.mjs",
+          "sha256": "e1abec0c8e19fcae846158dbd5e6041d8e4923e98fa873149e751d12ff5e977d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/ruff/ruff.toml",
+          "sha256": "ec78c81a8cc1e4b94fe189498864e683a36a35220fbf18042372b02c7e589629",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/shellcheck/shellcheckrc",
+          "sha256": "f09b0bb5d8e256c380055b4b00ee6e758df5c6b3a0afe6eff0b2d64dda29df3f",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/trivy/trivy.yaml",
+          "sha256": "68442c60137f3d67171ec8ea085b801872f32b7b2d5717bbf34b7f44e04e3ab9",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/codeql/codeql-rust.qls",
+          "sha256": "430be0b6b634a521a95eaf1f134c2e3af37795ff3222b87e80937a7fa1769a02",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/codeql/codeql.qls",
+          "sha256": "3b2f57a6c56c5bbd7a9b8847951da252a509c6d0ad15646a3b0ff0a983433a0c",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/opengrep/rust.rs",
+          "sha256": "0f4c26b24f357f1e318a07a4be8787115fc6a884e515bb8360be78ce9d694d14",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/opengrep/rust.yml",
+          "sha256": "e243f63f5f033f122b52fc4ffecb09e77582351ed2a304e82907c93b2d53e11f",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/opengrep/typescript.ts",
+          "sha256": "27989e43e7ef5b6d9748b25925c5673b03c305536059d60c5306cd76726b68b0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/opengrep/typescript.yml",
+          "sha256": "24ea64f748f9951ab9a2ef75a923c85194b90c2e61056bf68c517476646b93a5",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/opengrep/vue.vue",
+          "sha256": "01188f0b7a109773f985cb5dabea3de657ebb5ec93399d7b2ecb09014210dac8",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/opengrep/vue.yml",
+          "sha256": "37e6f4dfd4957228aaff6cbff0b2800a341498f2175c2b5267effa25a80797a9",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/rules/yara-x/ec.yar",
+          "sha256": "b0955b7f93f97ccf673f330af93c851aa163d4a394f735d0e8fffcf0f0deb179",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/catalog.sh",
+          "sha256": "be395b3f07e69bcaccd898c823d1c0fb0a969a8d4d73fc77cf7bcf6be846d483",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/common.sh",
+          "sha256": "785d69945e5be6011b6bfc2357c7da762265cd3fd4a1a21426f7d47192232879",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/coverage.json",
+          "sha256": "152691c311aea4c59accfe1a42f86440761090a8b929118f67ae7c81d257b5a5",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "0a3304831d5cc371f0cfa2c36cb8b2aa5ff6b553c8737e1f8947be172e26f939",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/integration.sh",
+          "sha256": "31aa5c1c9bb9606b0b74e8e017390bf7a1b3fdd2990d2fd56dfbaefdda030d38",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/metrics/check.sh",
+          "sha256": "bc5db9c0db5ce683dc5cff390d4f31693621bc9134b5c7f5cb328df1cf64eca4",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/metrics/coverage.sh",
+          "sha256": "edbfb888fdc78e44cbfa8aaf238c4b036a7d3a676ac9cb7c0efc75057b5628dd",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/reports/summarize.sh",
+          "sha256": "d0d63adc75ff609d682bbca1a0e8dca26cb6e0dd00f7d4bcf78b610bdfd63c0d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "e8a57d677e8d2670fa19a6e6d5fe844325ca75d359f438f3b6442b210d18e671",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/scanner-gate.sh",
+          "sha256": "67d5694658d43c5eee5c323a9b9a84f8edeb221ed1daa503fd950fffe56bb1b7",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/security/check-report.sh",
+          "sha256": "83dd2cdab47c19f1aadd9b59da10c098a62263ffdf93538986c65015ef7e9db4",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/security/redact-trivy.jq",
+          "sha256": "2c85b48d15aa09716ae5068c567c7c4f17ae166135bc0560fa474464ce0217fd",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/security/validate-exceptions.sh",
+          "sha256": "4bf783a86b06258edff6507793273881392c2e8b2f83a7af634e8109e7c1e5b6",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/frontend/check.sh",
+          "sha256": "361e589a11b1415711f517c62025b0721abcf6d7b47a118e085d38abcc199ca2",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/frontend/eslint-ratchet.sh",
+          "sha256": "8346087bd22256466e4b9abef89ac28da2584487605b4130f18b65235ad51aec",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/rust/check.sh",
+          "sha256": "4a2f35fa063b8d61db5ccb871166fa71b941b161a0268ecff3b33f7184888f96",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_consumer.py",
+          "sha256": "91f592fd7153229154bf355c49a55ba954e0ca6cafdd983c67ec3d9afb5a9764",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "8c471d03a7e284e9cac869c45e11b84f97071c3cf545a8167043161e26df844d",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_quality.py",
+          "sha256": "ef6b45443be560260e77101f7b615f9303580c508fb3f9e38835eaf5d47eb95f",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "31ba94fe42567af968651d87def5ad95f6b2690ef347b0254c2f8533a4695fdd",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/toolbox.sh",
+          "sha256": "de43006956f7e528429f286ef9b8411e32a200c01e94d0604049d03ce626a96e",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/README.md",
+          "sha256": "ddcb5ed2b54a438b0b939bf8b34069d34ae03d9f205c61506692f45be3db0125",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/README.md",
+          "sha256": "23a427fe52d96d2f55888f4897820426312c1c47f9b823741ca6d750dcc4d022",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/agent-runtime-engineering.md",
+          "sha256": "73a6dee53238443a8638e96d51bffbf576d87e7240cd3ae16486a0d04204011f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ai-engineering.md",
+          "sha256": "8ac6b74521665788b141cdfb843ca96c60020c3256249cdd7cc25728e2a696fe",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/api-testing.md",
+          "sha256": "8f272533d02fcf22b14be876291618218426a71878b0bcb65e4346fb79c8d3b7",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/application-security.md",
+          "sha256": "2661be6ea1b14febe95da6186f5c19de1b7aa7d203eee40bc803bd4ea7d940fd",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/autonomous-verification-engineering.md",
+          "sha256": "7c0cb483af8f8f824463514e35ef91b8568332e0c162bd2a1f58d983bb8c8c06",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-agent-runtime.md",
+          "sha256": "0d5bd2d46e7401cf4b3dd8fd86e88a6bb653d602a6e30291f86d06304082552f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-artifacts-and-retention.md",
+          "sha256": "7065c04de6e1ab2834735b147cdef09ca18343be282281f9498cf994f27edce0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-build-cache.md",
+          "sha256": "f381de715cb778bf9d3e8b353fbabf191e1848c860e499c5478b2c5b3983b88b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-execution-runtime.md",
+          "sha256": "28cf309c9acc82ce0206c6f417537cbadf2d780bce43ea7fc2dbc36fba40151b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-logs-and-test-results.md",
+          "sha256": "9e1f06028633c12d7410dbd6466d948e009994b5a0ad7416813a3fed5d274077",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-pipeline-graph.md",
+          "sha256": "c38c00014282fd93a903763325dcf679c7cf0e6c4a3cdf79fdfcc55affa9ebdf",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-release-and-deployment.md",
+          "sha256": "c90a80c3ca85ed724ec26f96a18dedd85856902ec7c86e6b27f7551326d2745e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-scheduler.md",
+          "sha256": "861d423333627cd50ba12a8ed3f72fa09e038f78ec58698dd095e5e984615f38",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-vcs-event-processing.md",
+          "sha256": "308f0b3426a06b7e4a6921850fea28af744eb77bb1d02c5fc8044d63d25b61e4",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cli-engineering.md",
+          "sha256": "c64f0e525b203b029bbee5d1cf83f07b0c1a3c0ed878c5a87ebd032247dc5de6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/commit-governance.md",
+          "sha256": "67c234fb4e273bc0874301417e800d73b31cf3b61c5246bf607703ed4db80e8d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/css-layout-engineering.md",
+          "sha256": "c4e457a789b5b92ddd033e7d9368ad47e1c43310299b21e9cd08a8386c2fc9da",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/database-engineering.md",
+          "sha256": "75d44776cf48f4ed58deae72d779720b181ddf2116fb7fb03f76e16fc1e427a6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/design-review.md",
+          "sha256": "d9d02dde44fc032a642422ef89baeaea839daf1a116a98caa2b191e4635a3ddb",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/design-system.md",
+          "sha256": "e5e01202bb32f9247bc886aae7b72f5e73712cec76cbaf43deb27ca6c5990d96",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/distributed-systems.md",
+          "sha256": "eafe4a555b3425ba6550f391c09ad91cc6a4e867011a664347041b0b4f7410b6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/domain-modeling.md",
+          "sha256": "32a3333d79e24d0aab74e00c5594636854172e538f52f7504f63d1b5ccb85378",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-agent-control-protocol.md",
+          "sha256": "6132f92441f45f5bde9cdb1c9c28955a17390d8e6bc35887058f2f4d975530b3",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-agent-pool-console.md",
+          "sha256": "2a1043115c73e491ca5a68e879af2731a89122441bab3ff441c1c305e5bcb661",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-configuration-publication.md",
+          "sha256": "8f6d879cd233f8b9eb79dd154ee8a09a77f49c6759d29c23bf511d1aec5f8e70",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-declarative-resource-schemas.md",
+          "sha256": "5da3711f8631814e48bd6bf987e13c3b098eb1dc46c2d11e55b270425a28dc93",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-effective-permissions.md",
+          "sha256": "94384c02372d2ac95bd7c23951904e1f6804ebd68597496a633d1c6d3000d53b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-environments-and-approvals.md",
+          "sha256": "0c6b7041a1af3f30a47e8152f33508cdb0cabfbe0ecce399f7ed72487bbb3ad1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-integrations-and-webhooks.md",
+          "sha256": "1b6e3e57ecc5a8c469f3fd64624fff78bf66b6cf6d6a269531a0d0a90099c91d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-operations-and-administration-console.md",
+          "sha256": "060a995912ea57ffdbfa4cbe9c6ac4e15739966a864bd924b3f5603b4ba5da6e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-people-and-access-administration.md",
+          "sha256": "0a73412dae13f454a9e4d98ac46273b81eaee1b8b77808e2f3ad7984ffc50945",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-pipeline-authoring-workspace.md",
+          "sha256": "b7968aa91cd36d7a4ee8909b9c8ed1f89d85123f117894544c85331f4e7587d5",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-plugin-isolation-and-lifecycle.md",
+          "sha256": "82609a8f70da778f6d44949d85df689eb948338a79a27a3390a4c2ca23fd98b0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-plugin-manifests-and-compatibility.md",
+          "sha256": "3f4ee2cf6e08ef64ec029cf81f3ee52a62860d5c14ab5192ff77bf9281b755a7",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-product-contract-test-harness.md",
+          "sha256": "5806605fd816f545b92872f63d1ad1af37c50c11ed09e41e559c5bd82f6e0653",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-project-hierarchy-management.md",
+          "sha256": "c8b37adb009aedc348fb24498505e0833d2f6ac9231109dc76e8cd37a8693660",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-run-execution-operations.md",
+          "sha256": "9ecd077f00564a53c427900571f46f43a21056001417eafa9b8d76267ba6aceb",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-semantic-configuration-projections.md",
+          "sha256": "fcd189d92bb475d8b238b1a224e80ff27f5530a3d0749b35eea8fb8f4f014d82",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/engineering-productivity.md",
+          "sha256": "acee0f885b3bc3ba4d189bb15727219a8a1f11961dbbee2634ec7ac9d813dfb8",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-form-engineering.md",
+          "sha256": "45812b6b1302a6175d281f2d7d9a37ef4c2f753a6b66eca086b53b827536c60a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-routing.md",
+          "sha256": "19bcf4985a07cecc1b56cae1820ddc56264b3c782e2d36df97583d6644e0e9d7",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-state-and-cache.md",
+          "sha256": "8c14cc3591988af0b995177cc364170e68542d65a5520dd941c9bbcf0c2b9b82",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-testing.md",
+          "sha256": "f593a8ca011fba4d6e7b9f167ebb81acef8ba130647a96fe40ff348f2bb4fca7",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/http-api-contracts.md",
+          "sha256": "90bc7a42ba70e6bf11c0a7c8e46cf8051f6eca125c1b8b0bb20c1e127f13c4b9",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/identity-federation.md",
+          "sha256": "1d17c3a12d9f1271c7a990acd57e3ad6570c9a11aeeb42e87e7d7c13f3cd1c1b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/information-architecture.md",
+          "sha256": "a2e55010499a2039f72d313a8b873b390fbf25bb39ed5486626ecb5ed9f8e383",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/internationalization.md",
+          "sha256": "4c6cca0392a6f8d1a94a050afd9d133662d838c99a3de55130ae83b815e4162a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/observability-and-diagnostics.md",
+          "sha256": "3fcea0ceb5726315b857c835652177d5582e7009c48a2e2e844145cd48c2aa85",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/performance-engineering.md",
+          "sha256": "3c21beb1945cd0ac67ceeeffea39b470d4a644a7b4cb9a695474038f37ea86bb",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/plugin-protocol-engineering.md",
+          "sha256": "1c8264038f32ea4bfd3a2f20cff2b1eca5ab632972dac3b0453462ec80b885ea",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/prompt.md",
+          "sha256": "b95ac5d423153c6d5bf2443bf4477b62986df269d7239371fe88efebaa78b9b0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/property-based-testing.md",
+          "sha256": "73ff8635bf423ed230a7659cb9a09dd9af7476b47e6d0f493c8a4e9ca2c5d793",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/readme-lifecycle-engineering.md",
+          "sha256": "4de7623f7f951232954247f404feeeea10e09806c328a7dbbbed28c2458aa9bd",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/reliability-engineering.md",
+          "sha256": "77a50e40657d3f652321ae4c4cf2e4d6a958f886168566904ca1af23e3e6206a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/rust.md",
+          "sha256": "be4c0dcf14542912e8112c574a172361f7825508c0acdc903a67419126ea62ed",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-architecture.md",
+          "sha256": "f733a53334b6937755b9efbcf05fcfda927cecdda28a782252bf4b299b9f5548",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-delivery.md",
+          "sha256": "0da9369c34e3a373c640ad6febdea8a6eb6675c7ce9bc43189d68e74cba39e9c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-design.md",
+          "sha256": "9f7a80aa731f882a1d0ba71c4fb85aae1bca7a9b1ef55ab104a1546e1fe16a1f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-evolution.md",
+          "sha256": "84dd8f0d83dd7dcfdd1d3b2a75697a44cbb3498c2c584057451e3eba2cc628d5",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-testing.md",
+          "sha256": "e580f29de5ba4d88e0b6e495e00fe4262d4657c3183c0bf318ce62905e6a0502",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/technical-documentation.md",
+          "sha256": "b4d246e029cb69a40744d1b1fd57565292248021a584442a98fd111b919186ea",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/tool-output-engineering.md",
+          "sha256": "ab5f98c2981e5dc4dc66f21cc3b561d5333346085f8520d29deaf87b41300915",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/typescript-engineering.md",
+          "sha256": "a9a9667eaaab036b09f08ad538b8bd40ebfb599e64ae5c331b26a583ee3a29e1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/vue3-engineering.md",
+          "sha256": "b16d4992edde53f2f67daefd5316fb0cd4995770852d7d01054ccfb7d3b69224",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/web-accessibility.md",
+          "sha256": "992b3dda85e1b31b83bbf6a70e486297e1cf18ddcfc45dec86dde518151901f0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/web-realtime-streaming.md",
+          "sha256": "ae0273cd4249b1cdd6663d3a448f4316354b7f4e121ee5814b7404a9b64ad5ae",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/workspace-integrity-engineering.md",
+          "sha256": "2896c455dbdc7b8320ef251883639a1d311e95f3462488c7100ee41131b1df76",
+          "role": "other"
+        },
+        {
+          "path": "sdd/constitution.md",
+          "sha256": "223076a92eae47680c5e41369c0757e6fd6ec3e132045170d03f6506482878ff",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "62ed38377efbe95c1ad21b91d2fe4acf92d0640de17a1a738fea58e8ed42d9b6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/converge.md",
+          "sha256": "5301fbaa70db1a0d0136a1c608dfd4ac5fcf767599519fc4798cca66f0723b75",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/evidence.json",
+          "sha256": "77f30ed6e11ee0e8181e8b13acb6fd1df4818220f37d3fa2555a57ed7d112798",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/plan.md",
+          "sha256": "a66e989b5e4278af2a6bc710175fa5a014e51734845b89eb7ead30a9dd6a4fdd",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "a6f90d2e5d200fc0e16694473633c5668b7ec7d862a3ff56b709de51af555097",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/tasks.md",
+          "sha256": "a3ee22cb43124794f2feb286b11fb4502fbfc05014716c1e40d36aa630ab5025",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/traceability.json",
+          "sha256": "8e41b952bdd223dcbef8577585cb959a95d40665072cf3ea09db0c4ba48dced2",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/converge.md",
+          "sha256": "0b8e5e1f66347c99541bbe6e98cd201cf937197d260dd63bbfc0ff255aa46559",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/evidence.json",
+          "sha256": "77bd663439f9be92856752d882b60c0e845cebc4e1fe91be6acac849245add74",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "55e77c15a0441b8a4cd637b494bbf606e889f3ffc7464e8674ce08ee35dcfc80",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "f2c568e9a582dd2e9a3c23e595bedbe4470e7e202efcc1d5d65a8de4d5298d9a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "57779a693528d8ee94c96ec6b3c0ac7206b00fffc0e279475317df52af248c56",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/traceability.json",
+          "sha256": "ed179df7d913f6af9b0a863da54fbfbe69850d1f74d81b826b97da5f5238220d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/plan.md",
+          "sha256": "d29b94620bad8aea5f5e0c05fd1c37dd7a04c3dcf07e7e202208b0edf7da54b1",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "2b86a6ca570e8146f971b54bfb57c692cb47919ff64eff5df68b7a1ef642a2e7",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/scripts-verification/tasks.md",
+          "sha256": "cbc0b110ffef5bf3ac09ee8e2e3dc2449ac27fa87b74960f1245e1706fe90dae",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/scripts-verification/toolbox-completion-plan.md",
+          "sha256": "6865d9c24c3b4a244874b581e7358334f0dd77db3315e87f6a0e19bfc570cad8",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/traceability.json",
+          "sha256": "d548f21d6123c8a7782b505c4f44dbb2934ebe45e89347e0cc5bebe243e91f70",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/project.md",
+          "sha256": "f85cdfa3e76389a6bc04981611ba9825ac6a1a7ccb489b2905bf91957ed094a5",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/README.md",
+          "sha256": "9a51c26ad0e86551b88fe534bbc17fbdee2c833297fad026b73ac153ab82fd60",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/checklist.md",
+          "sha256": "a660321fc8669b4b96d8bd0ccdfe077c88cdbbcac2b2417309a170d2c87bc58e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/converge.md",
+          "sha256": "17008b261b2897586b9108280fa36c3c58103194f248b690d9728e731e5bb383",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/plan.md",
+          "sha256": "b871b0674c054a7b4b6cb9aa3030d8fd74c764dc0f3b869eb001f608088dcb71",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/spec.md",
+          "sha256": "2ef528f28c10746850c576d97b63dc46a1150012b34a43d4e41f67b274026701",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/tasks.md",
+          "sha256": "cd0f522991c33ff2a0b0c5e923d4f9e60920f29bc70020312deac8e71ea3026e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "bc4581e9868eb52f4203be5fa05e971d2ba7f2600a70060cce508b07853a04c4",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "44aecdd1c0faf8e86134f6578289097c0cae7f4c092686971ea5ab6310ee1d91",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/README.md",
+          "sha256": "a0bbc906a5c963d87c94d060472a34f5ca0910a536ee8f4d6da4291778b6df01",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/install_skills.py",
+          "sha256": "f1ead4f9e8d8f88380f8b677140f95208c91857e4e079a631f761ef7c6d6ffa6",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "12f319cc9a53688cbd218bccad9bdbcc1fc5ce865609a8da0c236ba52d3eec4d",
+          "role": "oracle"
+        },
+        {
+          "path": "tools/governance/validate.py",
+          "sha256": "48bf1e3e5014a405c180df5da3b9430320cfaf03b76c39a73e094e76ce71beb4",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "9c686976de50c1d3de8e2bf5603757fe4424d19979b92d991b38ddee47fa4fa8",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/validation/toolbox-native-20261108/codeql-rust-inputs.json",
+          "sha256": "e335b06b94f5ceeede4cb25f733d807cfe5dc703e10f265dd8d3a68ec9fd3618",
+          "role": "other"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Nenhum scanner/browser central executou: versões ativas ausentes; native_exit_code/image/version/database desconhecidos no resolve_active.",
+    "Contract tests usam executor fixture; não aprovam eficácia real, isolamento/limpeza/concorrência Docker.",
+    "RustSec/Deny sem base; CodeQL Rust com ambiente fornecido, mas sem compatibilidade demonstrada na imagem; Geiger com inventário incompleto; cobertura abaixo de80% nos três componentes.",
+    "Metadados da própria evidência/convergência foram publicados após a observação; code/config/spec/plan/tasks/traceability vinculados correspondem aos bytes observados no run.",
+    "Firefox passou no último run; erro de bind na rodada anterior foi preservado.",
+    "Adequação de 09/11/2026: ambiente, diagnósticos e testes alterados; evidências anteriores são históricas e não aprovam estes inputs. Fontes, diferenças e limites em docs/validation/toolbox-alignment-20261109/report.md."
+  ]
+}

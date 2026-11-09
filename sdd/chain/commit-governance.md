@@ -16,6 +16,15 @@ commits/tags, residual changes, checks and limitations to evidence/convergence.
 Do not infer acceptance from a commit or publication from a local tag. Preserve the
 five SDD states. This bridge neither installs skills nor authorizes effects.
 
+## Escolha antes dos scripts
+
+Após pedido explícito de commit, perguntar “Deseja executar o script automate.sh (que roda todos os outros scripts)?”,
+com apenas `sim` e `não`; aguardar a resposta. `não`: criar os commits normalmente
+sem scripts. `sim`: executar `bash scripts/automate.sh run` sem filtros e bloquear
+os commits até todos os scripts terminarem sem erros. Não executar scripts avulsos
+ou antecipar a execução durante outras tarefas. Consultar a
+[política canônica](../../docs/development/task-verification.md).
+
 ## Integração Ec
 
 Uso condicional: Somente em operações Git explicitamente solicitadas.

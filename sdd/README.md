@@ -21,6 +21,8 @@ O critério define o que observar. Inputs e artefato identificam o conteúdo exa
 | [chain/](chain/README.md) | Seleção das 67 especialidades por problema |
 | [templates/](templates/README.md) | Modelos para features que precisam da rota completa |
 | [governance-adoption](features/governance-adoption/spec.md) | Escopo e critérios da feature de governança existente |
+| [scripts-verification](features/scripts-verification/spec.md) | Requisitos da automação e scanners; [tarefas](features/scripts-verification/tasks.md) e [convergência](features/scripts-verification/converge.md) |
+| [Conclusão dos scanners](features/scripts-verification/toolbox-completion-plan.md) | Histórico; integração nativa e critérios vigentes na feature scripts-verification |
 
 ## Escolher a rota
 
@@ -32,7 +34,14 @@ As pontes apontam para as skills instaladas em `.codex/skills/`. Leia a entrada 
 
 ## Verificar
 
-A partir da raiz, com Python 3.11+:
+Scripts só são acionados após pedido de commit e resposta `sim` à pergunta
+“Deseja executar o script automate.sh (que roda todos os outros scripts)?”.
+Com `não`, os commits seguem normalmente, sem scripts. Com `sim`, executar
+`bash scripts/automate.sh run` sem filtros e só criar commits após sucesso de toda
+a suíte. Não executar validadores avulsos; os comandos abaixo documentam interfaces
+e critérios, sem autorizar execução. Ver [política canônica](../docs/development/task-verification.md).
+
+Referência técnica do validador (Python 3.11+):
 
 ```bash
 python3 sdd/tools/validate.py --root .

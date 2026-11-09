@@ -3,6 +3,21 @@ name: domain-modeling
 description: Model business rules, domain language, valid states, invariants, and transactional boundaries when implementing or changing behavior whose meaning or consistency is uncertain. Use for domain modeling and proportional DDD; do not activate for routine persistence mapping or purely mechanical code edits.
 ---
 
+## Acionamento de scripts no Ec
+
+Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
+suas referências. Scripts de verificação só podem ser acionados após pedido explícito
+de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
+Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
+Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
+Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
+os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
+ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
+Não execute scripts avulsos nem os acione automaticamente durante implementação,
+revisão ou encerramento. Inspeção manual continua permitida; checks não executados
+permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
+(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+
 # Domain Modeling
 
 Turn business requirements into a model whose behavior and consistency can be checked. Match modeling effort to uncertainty and consequence; simple rules can remain simple procedures.

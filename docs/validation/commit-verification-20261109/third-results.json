@@ -1,0 +1,1172 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "agent",
+    "docs",
+    "e2e",
+    "frontend",
+    "integration",
+    "scripts",
+    "security",
+    "server"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "machete",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "deny",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "audit",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "geiger",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "coverage",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "machete",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "deny",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "audit",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "geiger",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "coverage",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "cwd": "application/agents",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "coverage",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets-rules",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "depends": [
+        "security:secrets-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "depends": [
+        "security:sast-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "trivy",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "codeql",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 14400
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "playwright",
+      "cwd": ".",
+      "depends": [
+        "frontend:build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-shellcheck",
+          "tool": "shellcheck",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:3124bba122bff75dce2623e63636d099fce0a4ea33c1c840929b6e6f13c54221",
+          "version": "0.11.0",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-ruff",
+          "tool": "ruff",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:d2805f4120030ba62383ec263067893114f86acc229a15dbd1b0aea2db10f5b6",
+          "version": "0.11.13",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "machete",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-machete",
+        "launcher_sha256": "3e548ddbbd1bff8cfad77dddf71ff382a99d19bbff1a16a1905f33010a742c18",
+        "version": "0.9.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "deny",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 4,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-deny",
+        "launcher_sha256": "f0f044feade2054507a76e3a222afbfb0bd17198ce34fb72a15f1963d65b832f",
+        "version": "cargo-deny 0.20.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "audit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-audit",
+        "launcher_sha256": "1cc9768f7dcbda4c406530476c7c49037984ef47b4fe0d4a584700469d56ac36",
+        "version": "cargo-audit-audit 0.22.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "geiger",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-geiger",
+        "launcher_sha256": "e6e3d04bffcbf99f92abb13506d418fd4581704a94990fa4a0c7cfb2387a5d20",
+        "version": "cargo-geiger 0.14.0"
+      }
+    },
+    {
+      "project": "server",
+      "task": "coverage",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-llvm-cov",
+        "launcher_sha256": "2a36479eb7fa5beb65518d09ed652b04eb9973361e3d4ef2aa1b77f7c81eef48",
+        "version": "cargo-llvm-cov 0.9.1"
+      },
+      "coverage": {
+        "metrics": {
+          "lines": {
+            "covered": 332,
+            "total": 1540,
+            "actual": 21.558441558441558,
+            "minimum": 80,
+            "passed": false
+          }
+        },
+        "passed": false
+      }
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "machete",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-machete",
+        "launcher_sha256": "3e548ddbbd1bff8cfad77dddf71ff382a99d19bbff1a16a1905f33010a742c18",
+        "version": "0.9.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "deny",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 4,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-deny",
+        "launcher_sha256": "f0f044feade2054507a76e3a222afbfb0bd17198ce34fb72a15f1963d65b832f",
+        "version": "cargo-deny 0.20.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "audit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-audit",
+        "launcher_sha256": "1cc9768f7dcbda4c406530476c7c49037984ef47b4fe0d4a584700469d56ac36",
+        "version": "cargo-audit-audit 0.22.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "geiger",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-geiger",
+        "launcher_sha256": "e6e3d04bffcbf99f92abb13506d418fd4581704a94990fa4a0c7cfb2387a5d20",
+        "version": "cargo-geiger 0.14.0"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "coverage",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-llvm-cov",
+        "launcher_sha256": "2a36479eb7fa5beb65518d09ed652b04eb9973361e3d4ef2aa1b77f7c81eef48",
+        "version": "cargo-llvm-cov 0.9.1"
+      },
+      "coverage": {
+        "metrics": {
+          "lines": {
+            "covered": 111,
+            "total": 686,
+            "actual": 16.18075801749271,
+            "minimum": 80,
+            "passed": false
+          }
+        },
+        "passed": false
+      }
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "coverage",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      },
+      "coverage": {
+        "metrics": {
+          "lines": {
+            "covered": 17,
+            "total": 115,
+            "actual": 14.782608695652174,
+            "minimum": 80,
+            "passed": false
+          }
+        },
+        "passed": false
+      }
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-gitleaks",
+          "tool": "gitleaks",
+          "returncode": 10,
+          "outcome": "native",
+          "native_exit_code": 10,
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "version": "8.24.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "01-gitleaks",
+          "tool": "gitleaks",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "version": "8.24.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "02-gitleaks",
+          "tool": "gitleaks",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "version": "8.24.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "03-gitleaks",
+          "tool": "gitleaks",
+          "returncode": 10,
+          "outcome": "native",
+          "native_exit_code": 10,
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "version": "8.24.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-gitleaks",
+          "tool": "gitleaks",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "version": "8.24.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-opengrep",
+          "tool": "opengrep",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7eb87fed71d00ced341d2100ee9bdfcacb3b4f725d7b4b195d51e0f534c66ccc",
+          "version": "1.33.1",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-opengrep",
+          "tool": "opengrep",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7eb87fed71d00ced341d2100ee9bdfcacb3b4f725d7b4b195d51e0f534c66ccc",
+          "version": "1.33.1",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "error",
+      "reason": "base futura ou expirada",
+      "returncode": 2,
+      "cwd": ".",
+      "finding_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-osv-scanner",
+          "tool": "osv-scanner",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:a6f08d5112ff5d427b83ba941b889765f1423d55354d66c0d982bac123a99f89",
+          "version": "2.7.0",
+          "database": "dcae8ee87e45ff57d83aa216a67930741f81dbe3d7098e033d3051e07604bddd",
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "trivy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-trivy",
+          "tool": "trivy",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "version": "0.76.2",
+          "database": "0f06e4d5d8655da0d71f285810effa3095fd892269202311b1c24d9270befea0",
+          "cleanup": "removed",
+          "checks": "1f6ea2e89fcc464775a4c3bec737a24216709367b3c973963940101fff9202ea"
+        },
+        {
+          "step": "01-trivy",
+          "tool": "trivy",
+          "returncode": 1,
+          "outcome": "native",
+          "native_exit_code": 1,
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "version": "0.76.2",
+          "database": "0f06e4d5d8655da0d71f285810effa3095fd892269202311b1c24d9270befea0",
+          "cleanup": "removed",
+          "checks": "1f6ea2e89fcc464775a4c3bec737a24216709367b3c973963940101fff9202ea"
+        },
+        {
+          "step": "02-trivy",
+          "tool": "trivy",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "version": "0.76.2",
+          "database": "0f06e4d5d8655da0d71f285810effa3095fd892269202311b1c24d9270befea0",
+          "cleanup": "removed",
+          "checks": "1f6ea2e89fcc464775a4c3bec737a24216709367b3c973963940101fff9202ea"
+        },
+        {
+          "step": "03-trivy",
+          "tool": "trivy",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "version": "0.76.2",
+          "database": "0f06e4d5d8655da0d71f285810effa3095fd892269202311b1c24d9270befea0",
+          "cleanup": "removed",
+          "checks": "1f6ea2e89fcc464775a4c3bec737a24216709367b3c973963940101fff9202ea"
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "codeql",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "01-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "02-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "03-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "04-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "05-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "06-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "07-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        },
+        {
+          "step": "08-codeql",
+          "tool": "codeql",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:7aa093072735275efb77c793cd505ff72eacc6db88ce1181cf703af60a0ba38b",
+          "version": "2.27.3",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "e2e",
+      "task": "playwright",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-playwright",
+          "tool": "playwright",
+          "returncode": 0,
+          "outcome": "native",
+          "native_exit_code": 0,
+          "image": "sha256:c9cc05cbd1bc8cd772db071f809cb41b5b9ea76fe549190cb93879c0ffe88af0",
+          "version": "1.56.1",
+          "database": null,
+          "cleanup": "removed",
+          "checks": null
+        }
+      ]
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "1895f91ef16f4698cb792a70a7273fa341e8e0c039052f8e2f6323cd1361a397",
+  "complete": false,
+  "exit_code": 2,
+  "changed_inputs": [],
+  "cancelled": false
+}

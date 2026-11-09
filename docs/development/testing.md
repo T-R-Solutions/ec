@@ -1,14 +1,15 @@
 # Política de testes da aplicação Ec
 
-Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.
-
-Estado: política de organização adotada; testes de produto não implementados. As verificações Python existentes exercitam governança. Não há cobertura, build Cargo/npm ou runner frontend de produto.
+Estado atual: dois workspaces Rust e frontend Vue executáveis, com unitários,
+harnesses HTTP/PostgreSQL e jornada Firefox. Consulte os guias de [publicação](publication.md),
+[orquestração](orchestration.md), [Agent](agent.md) e [frontend](frontend.md).
+O aceite de governança não é aceite de produto. Os limites dos incrementos permanecem explícitos.
 
 ## Leitura visual
 
-[![Onde cada tipo de teste deve ficar? Cada painel indica uma fronteira de teste e seu local. Não há relação de quantidade ou cobertura entre os painéis. Somente a suíte Python de governança está implementada.](../assets/diagrams/test-boundaries.svg)](../assets/diagrams/test-boundaries.svg)
+[![Onde cada tipo de teste deve ficar? Cada painel indica uma fronteira de teste e seu local. A figura preserva a baseline documental; não mede quantidade, cobertura ou estado atual de execução. Os guias vigentes descrevem as suítes implementadas.](../assets/diagrams/test-boundaries.svg)](../assets/diagrams/test-boundaries.svg)
 
-Cada painel indica uma fronteira de teste e seu local. Não há relação de quantidade ou cobertura entre os painéis. Somente a suíte Python de governança está implementada.
+Cada painel indica uma fronteira de teste e seu local. A figura preserva a baseline documental; não mede quantidade, cobertura ou estado atual de execução. Os guias vigentes descrevem as suítes implementadas.
 
 [Ampliar figura](../assets/diagrams/test-boundaries.svg) · [Fonte Mermaid](../assets/diagrams/test-boundaries.mmd)
 
@@ -51,26 +52,28 @@ No Rust, documentar os alvos de teste de cada crate e a organização dos módul
 
 No frontend, definir padrões de descoberta separados para unitários nos `src/`, integração nos `tests/` de domínio e suítes globais. Configurar compilação, bundling e publicação para não levar testes e fixtures ao artefato de produção, especialmente porque os `tests/` de domínio ficam sob o `src/` global. Registrar ambiente DOM/navegador, dependências reais, simulações e tratamento de recursos ao selecionar o runner.
 
-Runners, bibliotecas de teste, navegadores, plataformas, versões, bootstrap PostgreSQL e harness entre componentes permanecem pendentes. Nenhum comando de produto é apresentado como disponível nesta etapa. Criar testes vazios ou um manifest sem implementação não resolve descoberta nem cobertura.
+Os runners atuais e o bootstrap descartável estão documentados nos guias dos componentes. Diretórios e testes vazios não comprovam cobertura.
 
 ## Verificações disponíveis agora
 
-Com Python 3.11+ e a partir da raiz:
+Siga a [política canônica de encerramento](task-verification.md): entrada comum,
+seleção por superfície, comandos efetivos, pré-requisitos, critérios SDD, logs e limites.
+O runner encadeia harnesses em sequência e reexecuta builds com failpoints antes deles.
+Não executar suítes avulsas concorrentes nas portas/targets compartilhados.
+Testes do runner exercitam também falhas, ferramentas ausentes e retenção de evidência.
 
-```bash
-python3 tools/governance/validate.py
-python3 sdd/tools/validate.py --root .
-python3 -m unittest discover -s tools/governance/tests -v
-```
+## Regressões de scanners e fronteira do consumidor
 
-- O auditor verifica integridade, links e catálogo de skills; o validador SDD verifica estrutura e vínculos de evidência.
-- Os testes de governança usam cópias temporárias e verificam rejeições de entradas inválidas. Exigem um diretório temporário gravável.
-- Para exigir instalação efetiva: `python3 tools/governance/validate.py --require-installed`.
-- Para conferir a instalação: `python3 tools/governance/install_skills.py --check`.
-- Para exigir aceite SDD e evidências atuais: `python3 sdd/tools/validate.py --root . --require-approved --require-fresh`. Deve falhar diante de lacunas ou conteúdo diferente do observado.
-- `--structure-only` serve à inspeção estrutural durante trabalho em andamento; não substitui aceite e não deve ser combinado com exigência de freshness.
-
-A localização vigente foi conferida na [auditoria dos caminhos](../validation/application-path-audit-20261104/report.md); o [relatório inicial](../validation/application-layout-20261103/report.md) preserva a observação antes das movimentações. PASS dessas verificações não certifica comportamento, segurança, acessibilidade ou desempenho do Ec.
+Os contratos atuais de scanners estão no [guia nativo](../../scripts/README.md).
+A migração removeu backends e ferramentas baixadas locais, preservando os critérios.
+A integração nativa implementa comandos, seleção, parsers e testes de contrato;
+os antigos requisitos STIC de staging/export/layout foram substituídos. A execução
+depende de ferramentas centrais ativas, bases válidas e runtimes/serviços preparados.
+Syft permanece medição. O [registro nativo](../validation/toolbox-native-20261108/report.md)
+conserva resultados e bloqueios históricos; esta inspeção não renova seu aceite.
+Na [limpeza de 09/11](../validation/cleanup-20261109/report.md), fontes de testes,
+fixtures e descoberta foram preservadas; somente caches derivados foram retirados.
+Nenhum teste ou script de verificação foi executado.
 
 ## Manutenção
 
@@ -79,3 +82,7 @@ Ao introduzir uma suíte, documente local, intenção, comandos realmente execut
 [Organização da aplicação](../architecture/application-layout.md) · [Testes da plataforma](../../application/integration/tests/README.md) · [README](../../README.md).
 
 Os caminhos completos nesta política partem da raiz do repositório. `tests/` isolado indica o diretório do crate ou domínio citado; os testes entre componentes ficam em `application/integration/tests/`.
+
+## Incremento T005
+
+[Agent real, logs, artefatos, migration 003 e recuperação](agent.md). Os contratos e evidências anteriores permanecem históricos; o endpoint result legado não certifica entrega de saída. Harnesses devem rodar em sequência por compartilharem a porta HTTP.

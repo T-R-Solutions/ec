@@ -36,12 +36,13 @@
       },
       "adaptations": [
         "Slots e recuperação pertencem ao Agent, a autoridade de tentativa pertence ao Server. SQLite privado/outbox persist-before-send/limpeza após ACK são propostas condicionadas a ADR e testes de crash e disco cheio; não declarar adoção por instalar esta skill.",
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-agent-runtime/SKILL.md",
       "target_path": ".codex/skills/cicd-agent-runtime/SKILL.md",
       "files": {
-        "SKILL.md": "38318abea006ead9ea43dc4ec060b170f4d28833b724f2b08ca305433636976f",
+        "SKILL.md": "92f9e02501ed8c1df0435447694f20ae7fa75ec74a67b09a6d5861b749c1f877",
         "agents/openai.yaml": "95567abd2222f01c0382267cd0caf1ed937bd712baf5d27f24ac29757c8eb7e9",
         "references/capabilities-and-slots.md": "41dff968395699e29507203018ba67a8aeac8be9b2018c552c639cfb39aae18b",
         "references/implementation-details.md": "a7b91c4d64f7d53cd37de1f5da8155a3a6d3f7a1c6427080f3e8ebe7d0805643",
@@ -69,12 +70,13 @@
         "references/storage-and-deletion.md": "459b5b533217512ba93d49fa88b4a60e92e5aa73fecf6e2169a9dc910e5cf41c"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-artifacts-and-retention/SKILL.md",
       "target_path": ".codex/skills/cicd-artifacts-and-retention/SKILL.md",
       "files": {
-        "SKILL.md": "5a856e3153b92859a416e87862e64e7c547ca5d1fa4caeec19b4910d9691ddcf",
+        "SKILL.md": "057b9ad9bcf3a93b5b8c4a5d5a5cde6af03d381ba400e18880adc342737522ce",
         "agents/openai.yaml": "b71d8c463cd2de2a088ca950a58cc5518cf7ab798daa14112689fae7ea0a3b7a",
         "references/implementation-details.md": "d561bf7836154071490ebf0f30d3444f013302e52e827f65f183cfe6e067cdbd",
         "references/integrity-and-upload.md": "caf53d4973025cb11df979b4e12b7582f84264f1d98c520e1283d1a4beab2cb5",
@@ -102,12 +104,13 @@
         "references/trust-and-poisoning.md": "8f5cbd87555a6fb91c8ec88e663c68a325caba0cf18122ec56ef3a2878fa44e9"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-build-cache/SKILL.md",
       "target_path": ".codex/skills/cicd-build-cache/SKILL.md",
       "files": {
-        "SKILL.md": "ff99931b7bd2b28b8feb21e3ed129b1aa89d862ac2e671874cdd01c933730dca",
+        "SKILL.md": "905be4b0fae6485af37d41bb97570c6e94fa9f7730f2b5fd30e3254beaa2137a",
         "agents/openai.yaml": "fa5ad6a500866f07e5dd888cc6e94f8727877ce23ada0c9c3aed80381a3dd492",
         "references/cas-and-integrity.md": "38d6aaff93f0ef2a6a2a2e370247b875cc839ede18e55dfef929e69a256a80d4",
         "references/implementation-details.md": "b768d0c587bd9ff8793c39197bcf815a2d82e6953e0b698b84599bf7b5d46476",
@@ -136,12 +139,13 @@
       },
       "adaptations": [
         "Distinguir comando recebido, processo iniciado, término observado e resultado persistido no Server. Cancelamento exige observar descendentes e coleta; testar corridas e efeitos parciais.",
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-execution-runtime/SKILL.md",
       "target_path": ".codex/skills/cicd-execution-runtime/SKILL.md",
       "files": {
-        "SKILL.md": "4bafb0730fa09237a9e75082cb2328c003c8b0e69a4dfab9141a7616672b0f7b",
+        "SKILL.md": "6fb9a2df29c15a3753a8bd123c1d010ec33444f155f8beba4cf1299ce1fc6e64",
         "agents/openai.yaml": "4c6677ab242bc3c391b64a26922351e047bc3242c09e8d21fa9f145e2a970d47",
         "references/cancellation.md": "f9883586141df8b76974c4db71afda5780c4df9279bc463b026bfab7d70c8163",
         "references/implementation-details.md": "90051a7284f486e2e6e4137237c2f94f14f66208ebac8876279af4201d583ff7",
@@ -170,12 +174,13 @@
       },
       "adaptations": [
         "Identificar chunks por job/attempt/stream/offset; testar duplicatas, gaps, replay e redaction entre chunks. Controlar volume sem impedir cancelamento; truncamento nunca silencioso.",
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-logs-and-test-results/SKILL.md",
       "target_path": ".codex/skills/cicd-logs-and-test-results/SKILL.md",
       "files": {
-        "SKILL.md": "bd1f984084707137b5aeeabe6978c2a629c9f25810c2ec30e868862af24b935d",
+        "SKILL.md": "8b21254792d33c3b31de19ec7d254ea8c8d5c1c04e014516544469ae2f0797b7",
         "agents/openai.yaml": "ffea3dfe0b15fcbecee0b8f97f88e5dfd829944bfbfbbd97b9867db86f6d0f3f",
         "references/chunks-and-replay.md": "754f3650886f472957cb82c740d85139d7613a35ac46d4b4e981cd5a0c06200e",
         "references/failure-taxonomy.md": "4772ea4356656d51520150cd9e1fb7608a5f210adbbba740640e3c11f0c3f6d1",
@@ -210,12 +215,13 @@
         "references/validation-and-diagnostics.md": "dbe229ba65fc87786d2525d3369fb3f0058321f232cc95911b1cb8889b033318"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-pipeline-graph/SKILL.md",
       "target_path": ".codex/skills/cicd-pipeline-graph/SKILL.md",
       "files": {
-        "SKILL.md": "c35918f31a290c847dc6b17e7e892adafff5dfdc1f8ec3237f931f9bba0f0f46",
+        "SKILL.md": "f4cd1a79504aba325db206eaf86a534ae589ef3fbce6639f0abdb197a5caef3d",
         "agents/openai.yaml": "4ac2adccf8aae511308bc6c53979924610a8977abcee91313638c5eb14bd8a37",
         "references/cycle-diagnostics.md": "f1af36e3fad0985da3773f81f8f07a4d39c8ba6f46b6d07a450550f97cc0aa8c",
         "references/evidence-and-reporting.md": "b18f74b7c2fa06807364ce51dd54ac7c3beba7afa32f00669326e5b2c57bc548",
@@ -259,12 +265,13 @@
         "references/testing-and-test-oracles.md": "ceec107bd010d157b365c0e07bbc83409dd1deec6e136f906725e411e101fa66"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-release-and-deployment/SKILL.md",
       "target_path": ".codex/skills/cicd-release-and-deployment/SKILL.md",
       "files": {
-        "SKILL.md": "a2bdbc5f70b8dbd97cbd7f74a6589b5a2a630c14071faf345d876986880231e0",
+        "SKILL.md": "2ca30d8e118e439dd5508a355b7c8133ffaa18a11f59b66611083749762e202f",
         "agents/openai.yaml": "2c1c0c9c027ba8f79cffbc27e0d3f7d1663cefb9e059011c13e7ecd60bbca2a5",
         "references/abort-rollback-and-recovery.md": "4cb270ffd6cf81daf7d6af896550007300d636717564fdc20e35eef8cc367a0d",
         "references/approvals-and-change-windows.md": "226339d081ecf20194029d2b6737e459f379b901bfeb98e4f62b7eeb2038cfbe",
@@ -302,12 +309,13 @@
       },
       "adaptations": [
         "PostgreSQL é a autoridade global planejada de fila, tentativas, quotas e leases. Testar duas reservas concorrentes, fencing obsoleto e reatribuição; lease expirado não encerra efeitos externos.",
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-scheduler/SKILL.md",
       "target_path": ".codex/skills/cicd-scheduler/SKILL.md",
       "files": {
-        "SKILL.md": "1f4b793380998c8a8a64a58e1587e2ee3a6363880e63c0b54dab1a4228e14fb4",
+        "SKILL.md": "da9ca9c826614cf97363fc736db0563a2f19ada17a76654384a80918d32f7f8d",
         "agents/openai.yaml": "15ed3ec1d52641b24220d1ea1e2a6a6336e815a5560011fec7fb61030daee4f8",
         "references/fairness.md": "6ebdd9a7929a6f2c8a67af3a7d33070f161e1c32b94b8446e0953dd4665af34c",
         "references/implementation-details.md": "11e94bb54227bca06a77b97dc94d1d4f629a896d4627c89c61547c601859c0fd",
@@ -335,12 +343,13 @@
         "references/sources-and-evidence.md": "97eaa96bfd76bf425177598209ba02a53c60a99e4204cbf105d3b0e144d69e77"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cicd-vcs-event-processing/SKILL.md",
       "target_path": ".codex/skills/cicd-vcs-event-processing/SKILL.md",
       "files": {
-        "SKILL.md": "028518fb68870bf856cf37d7ba292d01a2e5ade9f08cd726eb9f6cca6a3afb84",
+        "SKILL.md": "4f23e409f02ed156ab781e71d320f906da5adcadf352c2644004e72ba5ae2e30",
         "agents/openai.yaml": "a3474823a93fd3695cbf7f655274c174ff1c48ff60a76064aa1e4ef7e81d3d39",
         "references/authentication.md": "0f05d439055433a90f7e1b7e9f6bf3bf0dd253b08a53b7c92ddd8e8db4881185",
         "references/durability-and-idempotency.md": "8b1d8e46408f9892df2b74b70ddbe2b8eebf31df854222796c90b096b1b82015",
@@ -374,12 +383,13 @@
         "references/subprocess-and-terminal-safety.md": "e08f924ab71128a0e833b748cfcaa36688bffda222322d36c596f6058215d174"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/cli-engineering/SKILL.md",
       "target_path": ".codex/skills/cli-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "530da9febf3cc02dad798db1c484a4dcffcdd40a5df3d660c755b197563ee466",
+        "SKILL.md": "1d1e7d70435a6469bfb9981227ecf0774c723cb4aec2f0ca498078ba568a54b8",
         "agents/openai.yaml": "a360336a68ff28f5bf02611cbffb1113fa819f29e87d8011f33fd5b8b65af932",
         "references/argument-parsing-and-exit-status.md": "a21be713a5b97ae78ae9a63966f9e7fd81329de0fb21313976ee0e6b0d2d9453",
         "references/authentication-and-secrets.md": "f5fa6175c868fec38192a404d3c073259a34d59edef64a6110702a7eebb0e862",
@@ -417,12 +427,13 @@
         "references/sources-and-decisions.md": "de30a12d81d09e080ee16205f519457b6b8b65f2bc3196eb2c16a6dd8719b9e6"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/css-layout-engineering/SKILL.md",
       "target_path": ".codex/skills/css-layout-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "416124f7ceaa90340f63219ff9082d25f3b3c865d5a7a9db344241f7850849c4",
+        "SKILL.md": "bd347380b7b3c3485c4cd90c4517e56515790d70a4fc9e8394505b53850f9326",
         "agents/openai.yaml": "eedf67fc6a5edfbe2c13ec29dc3825bbfebdecbcc6f3d094865146d7c7c7d191",
         "references/browser-verification-and-oracles.md": "a85d91914d015f9d6df621d6c8230dea994ed5e3277d0bf6bc205b4b32f5189b",
         "references/cascade-performance-and-resilience.md": "fadb2946388f970f6b957a7743cfc6f4403ce8f5962032edb5c28d6b1ed231e5",
@@ -453,12 +464,13 @@
       },
       "adaptations": [
         "HTTP versionado é a decisão vigente. gRPC bidirecional/HTTP2/Protobuf e compatibilidade N/N−1 específica são propostas sujeitas a ADR e ensaios. Separar ACK durável, efeito aplicado e conclusão; verificar autenticação, sessão, tentativa, fencing, replay, reconexão e backpressure.",
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
       "target_path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
       "files": {
-        "SKILL.md": "34ad20d94bec1006d92718ecde9976e1326ef4dc65854b0b9fc0d716d2a4136f",
+        "SKILL.md": "0df014960ef34e662282bdf8e5a9235ea98bea306db19f780e1a8262d521a127",
         "agents/openai.yaml": "92a57fedf4cf7741b0d88f4ddd95a3e623222f47c2b15f8a0c2239937c5d47d6",
         "references/implementation-details.md": "1810571553097298ffbbf119b7c95723e6409f1cfc7e572624583306276812ee",
         "references/protocol-decision-guide.md": "e364fa4669a587281cb3197f5b0739bf84bb2e6b0616581caf284150db26ec4e",
@@ -482,12 +494,13 @@
         "references/sources-and-decisions.md": "21ae4841c179c51187d766763aaf501d4e7eeca73d1d7717973b1774f870588e"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-agent-pool-console/SKILL.md",
       "target_path": ".codex/skills/ec-agent-pool-console/SKILL.md",
       "files": {
-        "SKILL.md": "9109b1500a75644e244daa0d5c75383fe38a63339c72b5cd03a4d77b2882a100",
+        "SKILL.md": "4c6b7b87f038d3dd15d6fcee466fa47540c5e924546a641a12528c778b9a7085",
         "agents/openai.yaml": "5cf14233acefd45f4701b8629fad4989931b2b866928caa2adc4b7e353f01012",
         "references/administration-and-ui.md": "1951e12fa090dadaaa2d8c1eb423fa11885d62b12334f0c6081056f5a8b6886a",
         "references/eligibility-and-evidence.md": "187e267b66298147804879f27fef3b31fd45975666d0c06f6236c5aa8d3f3147",
@@ -510,12 +523,13 @@
         "references/test-oracles-and-routing.md": "de3ce232d9bb5075abcbc509fc1d70f170dba3af6d4864d87511291b18c8eb23"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-configuration-publication/SKILL.md",
       "target_path": ".codex/skills/ec-configuration-publication/SKILL.md",
       "files": {
-        "SKILL.md": "d849d9a2183bfc9ad4d1e0a4fc0a740b309954383dd8269c4256d4fe59a103ee",
+        "SKILL.md": "7bee10951acba7802dd88769f1725d5045f27bf86ca162af536a04545e28f835",
         "agents/openai.yaml": "5f3d4dd100ad91d282133625ba19db3ba99e56b53f23b5fbd21446da46e2291b",
         "references/implementation-details.md": "1e3352ba6e2faf0e12d3ad008ea35b7d9f7fe2fbe73d3aca7a3079775d83b0a6",
         "references/sources-and-decisions.md": "a25afdc0ad5d4c408e1d94b4d4a27d9f6cc0d4627b26af5e6fce502deae11ecb",
@@ -536,12 +550,13 @@
         "references/sources-and-decisions.md": "620231e4a260f788290690fda3d13af008a5378d1a34dd14c5f484ec27909a82"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
       "target_path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
       "files": {
-        "SKILL.md": "0582d13a8beb309350d1de838b35c2b1b57cfbde465de5c87b76f4191b720867",
+        "SKILL.md": "1bb1ac8ee0bd93149555aecf84626d87e443ec251803deac15eeecbdfc514560",
         "agents/openai.yaml": "a234db6784a1ca198e1c322d1dd2da72b9a251aa983e85616c1bdce90360ef08",
         "references/checks-and-examples.md": "ec1b0bb65636c4f52eaa100254ae051945c6ee6b0e2acb6206b9857636f40750",
         "references/implementation-details.md": "c08b2c96de82b3bd1f41e0028a6d9ff30289d7e498f4df5cd156a060a752808f",
@@ -562,12 +577,13 @@
         "references/sources-and-decisions.md": "42465f05ab384334c8baa3df1f0ed737ba4d387110180c93a4dc2bacbf7627f7"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-effective-permissions/SKILL.md",
       "target_path": ".codex/skills/ec-effective-permissions/SKILL.md",
       "files": {
-        "SKILL.md": "4a0083d154d2f8cfb72663901ad879077615a153802888ea5d916277ac176e28",
+        "SKILL.md": "28d79b76dde865c60bb4fd861884a5a622bd144eda4e1ec95131ea02bd8ffa98",
         "agents/openai.yaml": "29ed645c245955ff1974a3a117657b34200f5823ade22948eec4d1247179ae24",
         "references/evaluation-contract-and-freshness.md": "4834ee6aea6f282723ccee0261edd9b7279ef2dc792c79bee367aad6af7956a2",
         "references/implementation-details.md": "596d9cb95471cdab45b9093bcf34c3bf913547b7f2e3c262b4eb28bbea10982a",
@@ -590,12 +606,13 @@
         "references/sources-and-decisions.md": "7f9cbdbbcfd356e19e585c2ff98ac4754683cffe078dc43abed80a599bcdd43d"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-environments-and-approvals/SKILL.md",
       "target_path": ".codex/skills/ec-environments-and-approvals/SKILL.md",
       "files": {
-        "SKILL.md": "4f54ac8e0370d2393011e4f7534c2075daaac2ee6d3e65d166cb80104883c7ef",
+        "SKILL.md": "229e07b6fa1ca14bed54def6b0f27940a4794355b3fad78fefc0a17a7e2ff2a2",
         "agents/openai.yaml": "b99648a0556a77a75015d91f4aaf40732f11b5aecd1c04d71d2e641a2e61697b",
         "references/gates-and-promotion-lifecycle.md": "ff06dba2bd07390ae461a0ebe975e22bb232b9166172c3ed1a135e5bd259cc00",
         "references/implementation-details.md": "d0c43885c0af2fb09f0d5ab3373cd7c9f6bf9dec6c76b451371fff32acf202c7",
@@ -620,12 +637,13 @@
         "references/sources-and-decisions.md": "34619d36c40793cd8e22f2c814ac60a070019b10454ffa96b687c68ece528d9e"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-integrations-and-webhooks/SKILL.md",
       "target_path": ".codex/skills/ec-integrations-and-webhooks/SKILL.md",
       "files": {
-        "SKILL.md": "cc5568f5b3ca4fd46d9ad72fbc1a199ca720c43000eb717ac9cf15bd9fcd6eab",
+        "SKILL.md": "d804ff7de1ef9c93ad82f09eeff4853d15c28e60a1b441645d954aec2e73a106",
         "agents/openai.yaml": "ba2741560dc19c1a1d49440dcc647916876ecacf4b8d297449a3c54414259c67",
         "references/connector-configuration-and-credentials.md": "f264d2bcbfcae07d4df58915ae19a2847ddc49d40bab10403dcc65d5edfbe0b6",
         "references/implementation-details.md": "9ddf0123c2f496e96276d76fe4c6b8a6e6c12a923a722c1f6e9515f2374af0a3",
@@ -651,12 +669,13 @@
         "references/sources-and-decisions.md": "0e9d5a7c981a318576a7c3b0c492a604813dbef3bc6eed9ecc57da561f182d30"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-operations-and-administration-console/SKILL.md",
       "target_path": ".codex/skills/ec-operations-and-administration-console/SKILL.md",
       "files": {
-        "SKILL.md": "19d1de008c56c381ce600f561fd7084b266f306fad8cb0d83be32e04fb699b60",
+        "SKILL.md": "031ea055a9aac07659084d0766deae83b72de9b37ddb81050bb99eed09c1190e",
         "agents/openai.yaml": "6d8052dd811a8106d1302123a10e6091878152fc30ab548d4750ba88c8c37fd7",
         "references/admin-command-and-audit-safety.md": "33fde06a738f6f6299bc17047b656d75c8e82ed6b960c0e09348cf8ae8996f12",
         "references/health-evidence-and-information-architecture.md": "07b12e908867cdcce5840e45017e4094190a80a91b0abe2dc1f4a8cdf8feec95",
@@ -680,12 +699,13 @@
         "references/sources-and-decisions.md": "6fd332e150e8cb771e45c2492d7ecf53eba95f3e72306c96a2ee8ea9108ad734"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-people-and-access-administration/SKILL.md",
       "target_path": ".codex/skills/ec-people-and-access-administration/SKILL.md",
       "files": {
-        "SKILL.md": "95bb7906f62f62ad4e9d8eb9b4022b8d2ac33f54cb1e995873a1047873bac3d9",
+        "SKILL.md": "ea0c1a0c70a36f20f3b20e82345aa7654df27ea0c803a3a0c3cdca75a79009ea",
         "agents/openai.yaml": "6acd78b29fe8a2b8343a39698a3829aa647b785070e69ce63bb8335436580b7e",
         "references/identity-lifecycle-and-bindings.md": "3ab7585d8120e4b8ab066777c3fcd45e91729454b8113a41301d06d17bdb508d",
         "references/implementation-details.md": "40a47dc348f0b817d121d9b483d2d631742b4157ebf37a9e064b570abec4411e",
@@ -707,12 +727,13 @@
         "references/sources-and-decisions.md": "fe067b6ff340d443c7a9654a447f4b60ca4a179af35f84fcf1a2025cd1a9aa67"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-pipeline-authoring-workspace/SKILL.md",
       "target_path": ".codex/skills/ec-pipeline-authoring-workspace/SKILL.md",
       "files": {
-        "SKILL.md": "faba43c0ebe850d82aebbcbf802f188b1c47bec4acdef35ec7a884a4578b170b",
+        "SKILL.md": "82ac60330de144daeadeec595a7b1719cd16f178dea9c41872423cea9deff950",
         "agents/openai.yaml": "70afd3101d1df8ae2d5a4ee94edf93b71cf70df49f3771810288f195947d305d",
         "references/implementation-details.md": "0b8d391efc6390c7391d4f7be3f0c873b7c24c05c66d302e98d3113474d6ab02",
         "references/interaction-and-state-contract.md": "05f66f430c4914c09a0a00b9dc64c9613da9656305970cd82f183e10cf41e8ac",
@@ -736,12 +757,13 @@
         "references/sources-and-decisions.md": "00201d8fd9bf699f0fa2abaee90f54bde813147f2cc672a71b2357fb24daefb8"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
       "target_path": ".codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
       "files": {
-        "SKILL.md": "f5a38d6a000b249f1bdfe87b26bcd678159a65c9ef404f229a20590a73ab98e4",
+        "SKILL.md": "7434cf724a9840f0fa336b41b07e7e1f3c4f3a14925f006d349349ab6a91aec4",
         "agents/openai.yaml": "c88fa8c117165c0e042c9e6d20ccddc73038f3d9e9dadb61ea326a6617d47d39",
         "references/artifact-verification-and-trust.md": "31f3b36c878fbe89cf53a864c8b75d5c04f50c7406ab0c430e2251e8b10bd48c",
         "references/implementation-details.md": "297703b36c6ca22463d79eb33265f291752561cbaa53a0e732c5156adc48023e",
@@ -767,12 +789,13 @@
         "references/sources-and-decisions.md": "0c48eb014acc0f2bc26e36f4e8d5aaae08d341d079e9e4210b29f44420452a01"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
       "target_path": ".codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
       "files": {
-        "SKILL.md": "1df686cccab0aa2c4491505d302a2520713221b71ab003471e00b8757a83aa4d",
+        "SKILL.md": "ce14b8e64eac6f40c8371ba2f72539e85418ca0127b818dcaf5f9dc6a8b14073",
         "agents/openai.yaml": "bdf72e62b2f43916f2c5d9f2bf93cef0171eed36344402b64d67c9ee1ab174b0",
         "references/constraint-resolution-and-contract-tests.md": "6bb32ed88e1163356353cd02b73a0c7af8bb41cb137e949a881060b2374b81f6",
         "references/implementation-details.md": "16d58249f7bdb753f1c53b658c568ff3f88c2e08cebb4a2e2e272326989e986e",
@@ -800,12 +823,13 @@
       },
       "adaptations": [
         "Testar parser YAML real, autorização, revisão imutável e paridade Visual/Formulário/YAML quando implementados. Contratos gRPC/SQLite somente após ADR; não substituir integração real por um segundo produto simulado.",
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-product-contract-test-harness/SKILL.md",
       "target_path": ".codex/skills/ec-product-contract-test-harness/SKILL.md",
       "files": {
-        "SKILL.md": "8a9fc535edbb905a580f73b721f6707ec62a4462328e2a5560f8721c44c679a4",
+        "SKILL.md": "1f149935873c34cde3b4ce612ea4ee806adcdb824e70b7499473b318b1349e83",
         "agents/openai.yaml": "ffbd47a2f2b8c00050b48a206dedd015dbb7233b1ba1bc148894dba10e25b6f8",
         "references/authorization-version-and-reconciliation-oracles.md": "3f98278c52ebda0c0a860ba55b3d9f0dbf3631c01ba41578450ab6e9d94aa927",
         "references/execution-evidence-and-fault-injection.md": "eb905d27421a732ec5d914d9d31ef50cdd51f283676b3c4bdfe51893c8867a62",
@@ -830,12 +854,13 @@
         "references/sources-and-decisions.md": "c54572729d1e46baf532ca5bd3f330d30d39cb844e44fa37041b05db1c895cc8"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-project-hierarchy-management/SKILL.md",
       "target_path": ".codex/skills/ec-project-hierarchy-management/SKILL.md",
       "files": {
-        "SKILL.md": "41598585c8b42d77cdee08156ddf1db9a961a0785aa06102a8fba24c771b2b20",
+        "SKILL.md": "3e9d41f56d83c39d45977873a2fc8653ae2071339ca2eda221fca6f30fdfc964",
         "agents/openai.yaml": "66a307d5c5da2a7c6e300590699e0726802c7730870ccbda5cf862781cabbe28",
         "references/hierarchy-model-and-inheritance.md": "eb1359828edad83c522d5be930211dc0d5897e08e152bb5aa5565041a7b31744",
         "references/implementation-details.md": "294f69a81bb7374cb0d91d545301359c6590ceb9a00aed5607363899df56c2b7",
@@ -857,12 +882,13 @@
         "references/sources-and-decisions.md": "8e80a8d0817aa1d182909772ae20f6455f091fc3944c536f58307c958a0e22bd"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-run-execution-operations/SKILL.md",
       "target_path": ".codex/skills/ec-run-execution-operations/SKILL.md",
       "files": {
-        "SKILL.md": "5fe19e1dababa67b9b2cf146cd593fe287c7c4d1a60391fa9f2cb5bfcde27dea",
+        "SKILL.md": "9f3a7f0e1765fdb13c9f397933ecf0312f65d06c0aca09a6ea84a9413a0edfb6",
         "agents/openai.yaml": "432227a56f950ef280cce3f658dcffcfdd4a7d2948606de895c8c13b1834998f",
         "references/implementation-details.md": "f25b9c7f6acd1c7f50f6558b957104ef0a012335d4a6f451b04720091462d2d5",
         "references/lifecycle-and-operation-contract.md": "e8c18234c3172f7f3a2b7b8ea3aae5c1cee74a6c690feb1043b73a9ba1fb23b3",
@@ -884,12 +910,13 @@
         "references/test-oracles-and-routing.md": "4435b452c0bd69c8086e29835394d947963f164c960e672e3b23256a33719d11"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ec-semantic-configuration-projections/SKILL.md",
       "target_path": ".codex/skills/ec-semantic-configuration-projections/SKILL.md",
       "files": {
-        "SKILL.md": "d8e833a14c393737a0f9472873e3c989408b99958d431feec4ba747e85208477",
+        "SKILL.md": "feab83bc0c928eedbc72ec9756e4fa620e1a3f3e3d2eeb6826b9bf2299dc7a27",
         "agents/openai.yaml": "880cc8a29a7be0186c7d3b8d418d05aadd9163ff175f1356d6f15327f79890d1",
         "references/implementation-details.md": "abcb1fe38bff33f27df0b93e9c16ccf8ecc202a9cf813b0c6c9998c0edf206b9",
         "references/lens-laws-and-data-model.md": "eed446f520041b0d6bdef969d82facdd16be02f5224b249eae2a3d4e0e2d373b",
@@ -920,12 +947,13 @@
         "references/vue-adapter-boundaries.md": "3e49226dde206a9e2028ecdfc4df7ff59df87cb7cc2b8151395f94f2d3d934f5"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/frontend-form-engineering/SKILL.md",
       "target_path": ".codex/skills/frontend-form-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "167196a12da8db4979728adc201ba551d73eba192bdfe71757a53574900580c4",
+        "SKILL.md": "e98119d5a72abc3f9076480b5fca6fdbf062caa18ef68d0f566ff8b9d3e556c0",
         "agents/openai.yaml": "e0344eedc526d16e52aa657246c5b475464aa6c83127c47770f181026a95c17a",
         "references/async-submission-and-concurrency.md": "f35774d80ad8e089260685db0a528f638534a3180e6476df606f3d0cd112b828",
         "references/conditional-and-dynamic-fields.md": "665b135ec997e2899d838c34006d30e92e1a5634a08289a3b4a6afeda0f04d32",
@@ -968,12 +996,13 @@
         "references/vue-router-implementation.md": "ce6d1aadf3bef9316e4d318ee4c277751c6f2ad1c4b5ba08de70f2c52b9baa5e"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/frontend-routing/SKILL.md",
       "target_path": ".codex/skills/frontend-routing/SKILL.md",
       "files": {
-        "SKILL.md": "fb43d2562a11553f6b1505f50f6aaabd8cc488c513d101902b2cf2c26cd8b960",
+        "SKILL.md": "438e7bbdb2b292044ddb4da3eb2863204ddde574ebae4bf59b7852def8b0a630",
         "agents/openai.yaml": "3f6436cc68e9b25ec139f6d7dc753b906ba659b4a79b7a31dcd0b9b0e8a1f88a",
         "references/accessibility-focus-and-scroll.md": "f9fac0e5596c4fe4fb927ef33fc668b3e45e9d15fbd943b05036186920b49ba9",
         "references/data-loading-and-race-avoidance.md": "772b4abc4acbfe49177bed90d2f1b221e3a7f5abc97c68c7ff20fe518591ccb2",
@@ -1018,12 +1047,13 @@
         "references/vue-pinia-query-adapters.md": "748cf387b01c84880bd6fcec8de2dc0d50a7094a12bde7116c860235f73f6d41"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/frontend-state-and-cache/SKILL.md",
       "target_path": ".codex/skills/frontend-state-and-cache/SKILL.md",
       "files": {
-        "SKILL.md": "87ef78391852027062bc56e611f01325ea0873488b6639189b1b5de8f102c1d0",
+        "SKILL.md": "78446cac4678d869f3f572771dee3206ccff87a191797a4d22f9a3eb30365892",
         "agents/openai.yaml": "0e68545c003d38dc78b5536d82015f6c68b955ad9a68f27c1329269b7a8746ff",
         "references/cache-freshness-and-invalidation.md": "57a11553cdbfd08f54679a123555b28a719283030c4b83d6d8bde60fb9f5aafa",
         "references/concurrency-cancellation-and-fencing.md": "0bfb68e5a92904ea8461008906ab0c0136fa7dbd5bf5a8652620f94a2eeb1da0",
@@ -1068,12 +1098,13 @@
         "references/vue-component-testing.md": "55365a2bd9b3d3ed2af6bf6c86b9cb297f437a6e0aebc5c12de09a4154fc6545"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/frontend-testing/SKILL.md",
       "target_path": ".codex/skills/frontend-testing/SKILL.md",
       "files": {
-        "SKILL.md": "343c078d7785b63096deea640584fc9e7ccfece6ef3eda86ce7d66513d0d610f",
+        "SKILL.md": "67b711a02c687c87d153c6037ca872d30be3900c0b0a582b86f2d2716daaca06",
         "agents/openai.yaml": "16a9553783909196411a7d89a5a9ee1ab960687cdd3761b95b7981104427360e",
         "references/acceptance-oracles-and-traceability.md": "1d57605a3b704a1d49eae45f71cbe4b633af4f5c8c51df54ab013bf0cba0ab14",
         "references/asynchronous-behavior-and-timers.md": "08b5927991446fba753f636b73eafe4fde5e6f1b36659b59c77617e91ab1d19b",
@@ -1120,12 +1151,13 @@
         "references/versioning-deprecation-and-compatibility.md": "bc61f10ba9ba5c6ebf52c9816f0241086cab2551367c732562f394d6fbae4b4f"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/http-api-contracts/SKILL.md",
       "target_path": ".codex/skills/http-api-contracts/SKILL.md",
       "files": {
-        "SKILL.md": "616964b9319cd105fb72e18c05c25ac34abd62bcee186b517642854ecb8dac31",
+        "SKILL.md": "b2ccbfeb3f796a66daf0bf0f5d29bdfa3739c6cf06855ced3e91f956e17342fd",
         "agents/openai.yaml": "e4270e3cb633b9ffbed455e560760af4816cae876fd128ded9eb2e0299757080",
         "references/asynchronous-operations-and-idempotency.md": "6a0bd9e03e9dffc6ff3925cad5d6c2daea486ba2348fcb0ca5f602d0373c56df",
         "references/caching-privacy-and-validators.md": "948315bb16dc34bfa77f79f450f08ae52ff2f2ea7459ebd455f7fda55c780b9d",
@@ -1172,12 +1204,13 @@
         "references/trust-boundaries-and-threat-model.md": "9ea847402cc0ac31cfe5f8bca3648c803d7e7e964119c9a31c0f2ccf85016b9c"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/identity-federation/SKILL.md",
       "target_path": ".codex/skills/identity-federation/SKILL.md",
       "files": {
-        "SKILL.md": "595df8b3c43c062527f4f0ec63c6745a1fa71127f00bccb319cf53cc17631496",
+        "SKILL.md": "a064ab0d18c2c6d38fe54201388c9645ff5d342d931b37c66ced48e7a1c37568",
         "agents/openai.yaml": "356e430ea42ed4bdba1f0c59f7cfdc09aa105773f8beeff6bb9ee84487e97218",
         "references/authorization-code-pkce-and-callback.md": "7ca1b88aa1d446947d582b67c861c0b62cd71acf4e649acb581398e75da5c7e1",
         "references/browser-clients-and-bff.md": "e4f7dda656e4d517778da7f216c10542406c37e804cebf78f14ffdf68a5aec4e",
@@ -1220,12 +1253,13 @@
         "references/wayfinding-and-accessibility.md": "b552ce6246c75d9255ed6d672ce2336f24cf506dfe3c99f6a2366768db130f60"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/information-architecture/SKILL.md",
       "target_path": ".codex/skills/information-architecture/SKILL.md",
       "files": {
-        "SKILL.md": "73f4d95df780a2630ac401f02913f9c47b6edb1a5f3b16143a05e205f6abbe7d",
+        "SKILL.md": "6c3f70948c88ba5ebbea9c3aba535e87987be02a1f8da51a70aec0621f6af38e",
         "agents/openai.yaml": "49f95c930c2663802ae6917e334268757ac4dc39aa12b426abf50748361691d3",
         "references/acceptance-contracts-and-reporting.md": "6b60c287b14ff9734b10bd0c24901c3c7c95cd25081514f58d7b49c4d4d91dd2",
         "references/content-model-and-taxonomy.md": "c26f11c2cd216a709cc3897f3a4a5931d4eb9e1b7e950eafb04ece1b6a4a43ef",
@@ -1268,12 +1302,13 @@
         "references/vue-integration.md": "56892da05fba9455d4c33cc771d3bf6e1793da90620210216e3e23e4e88c6661"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/internationalization/SKILL.md",
       "target_path": ".codex/skills/internationalization/SKILL.md",
       "files": {
-        "SKILL.md": "decc3a8e0eaf250e48124abd8683566d59c24ca73312fa1d2465f7988a05d40a",
+        "SKILL.md": "756b44b55a94cd946b7dfac7621c64666be55bb0f6e12d1c573a1e41e05432a3",
         "agents/openai.yaml": "ce97f2180b037001e7cf854637ae5e6a2a5acf60c3a395e5de15036c81b1c7b8",
         "references/bidi-rtl-and-input.md": "b2b7265f6681b3c7bf832733357716836c2a5cc67c1ba42f4bff8779c0287da2",
         "references/date-time-and-time-zones.md": "ecb15336e4f71fabebb8ba0ded1ff89a2b16043f310dfce318476985e44f68b5",
@@ -1316,12 +1351,13 @@
         "references/state-machine-testing.md": "cb3517faf84cadd8e5ef305f23f0240dd19cf77d2a9cf80ab587bb69aec75463"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/property-based-testing/SKILL.md",
       "target_path": ".codex/skills/property-based-testing/SKILL.md",
       "files": {
-        "SKILL.md": "05c18da5af596d6bf5bdf413137b2e1a2f8bdfd18e91f6c9aea72e869043ffdc",
+        "SKILL.md": "35910e18cf30dcf0e7aec605980d164e481cfb8b8c1e1e056018ef8d77cf05c8",
         "agents/openai.yaml": "25f00e1d15c003d451553cd9bd97f7585067aff0e15ff5ce1e709c8737b981bc",
         "references/evidence-and-reporting.md": "7a59762c568d93d7eeab266a3011d802ebf0dd96c785ecf49492aca3c94d649c",
         "references/framework-matrix.md": "1f522cca8874b36adefd3921c5492c8eab4215e5b273030c0a4b86b893f19ebb",
@@ -1358,12 +1394,13 @@
         "references/verification-and-diagnostic-oracles.md": "d6a72f0b0271fcbc9b4d3c43e5a64181bcd3ba418d7751408308fe01b3754b86"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/typescript-engineering/SKILL.md",
       "target_path": ".codex/skills/typescript-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "b7938345056884d65f1c55feb758ac22ffd439cd144bfb33df919864dc3b6005",
+        "SKILL.md": "b6afe9655fe95de4a60f7fad6718e864622e87e9c75d864a531fc407b2b93080",
         "agents/openai.yaml": "2d67746413ca0f2e85a42aaa47d9b2bd4bfff51ed3f22a0e765bd50397d5b7ee",
         "references/generics-and-public-api-design.md": "e8a0f792a2c58eaaa54f8b83b5483935ee224aac3f2b6fb8a714c2a1881add78",
         "references/implementation-details.md": "10d57a2ab746076d82e81f848c50a2b529c7b2de3b2bd8d80c038a16aa7f940b",
@@ -1395,12 +1432,13 @@
         "references/sources-and-decisions.md": "ff98f1136e96c683f7b249c941c5d550dde128e47a68e9b9c58e9649121024bd"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/vue3-engineering/SKILL.md",
       "target_path": ".codex/skills/vue3-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "ab9a21bcebafb5fc98cfb01d29da77a32c2dbc612d03276340f54a1691cf5180",
+        "SKILL.md": "0ce1578a719c4d0494f4236b61b01298ae434fa414778539617468f5b3226741",
         "agents/openai.yaml": "8d535159dadc2001294b756550b51cc1dc8035189df4ab83edaa0bb8886bd332",
         "references/composables-lifecycle-and-ssr.md": "c0a6e786ed4f599a73d4b784577b9ec28407e7f3defae5c8164b9503c681d262",
         "references/implementation-details.md": "a4390a2ee3cf89939f263e337e50164156922aab7ac1c11357785bf7f87ace71",
@@ -1434,12 +1472,13 @@
         "references/testing-oracles-and-assistive-technology.md": "a36a0c65a95bed490b3a8e90f7baf4178b08fdc7cd81d16fcd4df4534020488a"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/web-accessibility/SKILL.md",
       "target_path": ".codex/skills/web-accessibility/SKILL.md",
       "files": {
-        "SKILL.md": "a10ddd66b0db21879e5c482f4e2f428541c8ae8518f08c1e5a766a892bc512c9",
+        "SKILL.md": "ec37b58550bd7fa0fc04013a050e5088d7eb2a0a85c5d7b557eeb526a0fb1ab7",
         "agents/openai.yaml": "c1d6b22e8be8a8e294da4e92cdb3da7ca43b55b7137c1621d0a78da99fc7564e",
         "references/composite-widgets-and-structured-alternatives.md": "17c09130c6e0f05ec72713438de5ccb5e2d25fc85de95d9d157d03089d484e4d",
         "references/contrast-reflow-motion-pointer.md": "203fa799eff2ce946b3ea7d8dce13b19b255695360d36791145195059fb8a61f",
@@ -1481,12 +1520,13 @@
         "references/websocket-lifecycle-and-message-contracts.md": "c771e5b949e900e1ccd0180c437e041b18e6fbb96343810b8b18cab1df5d0a92"
       },
       "adaptations": [
-        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais."
+        "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/web-realtime-streaming/SKILL.md",
       "target_path": ".codex/skills/web-realtime-streaming/SKILL.md",
       "files": {
-        "SKILL.md": "48380c1e7312e071f9b57dd8f855c8bea865460a162d2ced8eecd7d99e853401",
+        "SKILL.md": "86dc2dc5f639e59cbb3e3bb0a25fc0216576366bc1d3bf662b25a9e3e5571f55",
         "agents/openai.yaml": "4d80e723f37d08d61cb4ee0700d3b8c81c2d1e1bb0dbbbccbf4a5f0b369615d9",
         "references/backpressure-bounded-queues-and-flow-control.md": "9f8393914fe8c852af693da310eb1d77ec1e17641e70bee0731bc28345473ab1",
         "references/failure-and-recovery-matrix.md": "027b6ed66c4294ef2994ee92d33de7823980e23e4f8cbcc3ba7df3db50fb7e5c",
@@ -1521,12 +1561,13 @@
         "references/session-state-machine.md": "3ccea3d90a99bf6048a4200eece20a1abb6d9294c4bab8f416167155e78fc490"
       },
       "adaptations": [
-        "Use como auxiliar somente para supervisão, eventos, cancelamento e recuperação de processos. As primárias são cicd-agent-runtime e cicd-execution-runtime. Sessões LLM, ACP e uso de tokens não são contratos do Ec Agent."
+        "Use como auxiliar somente para supervisão, eventos, cancelamento e recuperação de processos. As primárias são cicd-agent-runtime e cicd-execution-runtime. Sessões LLM, ACP e uso de tokens não são contratos do Ec Agent.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/agent-runtime-engineering/SKILL.md",
       "target_path": ".codex/skills/agent-runtime-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "9f9f7d19a7577882e14bbe04c655684bb41a9f49c032cf03cbbb2576b379ff49",
+        "SKILL.md": "10adea5189fbba5df2c2bb52ed436d105e2be6f220173ea2c9cba520236e639e",
         "agents/openai.yaml": "e4c60afd1920354fd289abdb5f1f617ed90395bea44ef0b0042eec3078a0a12a",
         "references/acp-and-cli-adapters.md": "d7f5ad8f2650cd0215299102b2c9a98983bc672cf0da2eec5f9a1c1125b3d9af",
         "references/evaluation-cases.md": "4e216a83e617e653e986ae7b685350138ccac64b8b666c9198c7ee5968deadfb",
@@ -1566,12 +1607,13 @@
         "references/retrieval.md": "70454eb39597b76d18f1c436e726002b6e4fb58c9b3f21bec30ebe36602ffb47"
       },
       "adaptations": [
-        "Condicional a recurso de IA explicitamente incluído no escopo. Scheduler e Agent CI/CD não são agentes de IA."
+        "Condicional a recurso de IA explicitamente incluído no escopo. Scheduler e Agent CI/CD não são agentes de IA.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/ai-engineering/SKILL.md",
       "target_path": ".codex/skills/ai-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "ad2c15cce5a38cd52fae001ffa3350ad131675a98ac70f921e957c1170461dba",
+        "SKILL.md": "4c5f073a45db112bbb5975826466d5d55bbb24bbede2ffdc7dc30353d8c00025",
         "agents/openai.yaml": "9df477edca976ad8330169ac97da67053fed5f6b82de8f537ea5e2e9d068e903",
         "references/adaptation-and-operation.md": "5ab9d2b9159cf50ad2ec66c5667efae4c5bf04a5382babbb2f05edf9023fd711",
         "references/agent-boundaries.md": "426dbdb2cc6ea7af7973b50fe016ec31b5153c1344cd149d3951f4721e4d03f5",
@@ -1595,12 +1637,13 @@
         "references/portable-sources.md": "af3956a95bc9da214bc627dc08d7ef547bfa8f3f795729b8b51decf97ce9f2b2"
       },
       "adaptations": [
-        "Verificar API pública HTTP, permissões e efeitos duráveis. Testes de gRPC/Protobuf e pares N/N−1 dependem da ADR e implementação; mocks não validam consumidores/provedores reais."
+        "Verificar API pública HTTP, permissões e efeitos duráveis. Testes de gRPC/Protobuf e pares N/N−1 dependem da ADR e implementação; mocks não validam consumidores/provedores reais.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/api-testing/SKILL.md",
       "target_path": ".codex/skills/api-testing/SKILL.md",
       "files": {
-        "SKILL.md": "1ef6434deb21c5499073796503f92b6c8a43f008ff51f1c4b083ffe11b4ef7c7",
+        "SKILL.md": "afe31651315d353bf17ec5ab01a1c271edc2f9e6cf4549a9c06b0b15b6665be9",
         "agents/openai.yaml": "f47440dfb0f47575a4b09d6c0d440195f43ae3b6f343c24e67bcb711c16e1b10",
         "references/access-control-matrix.md": "f976a0a37386816b3067c8655779152ab55f5b8307df4d5052bb0b405e001ae1",
         "references/boundary-scenarios.md": "57dc592fc932386de450ee57a4f2aef96291df0779952d7e71d0a45bd8dddec3",
@@ -1627,11 +1670,13 @@
         "references/imported/reliability-engineering/resource-lifecycle.md": "e03d0d45be3a62e5f37179fe827560acd3cb51f431e7659e9aace042569e1db1",
         "references/portable-sources.md": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/application-security/SKILL.md",
       "target_path": ".codex/skills/application-security/SKILL.md",
       "files": {
-        "SKILL.md": "0d992c0538df30bd5e0c6be689990184ec51671225809eac0f01759cc08257c4",
+        "SKILL.md": "322ad2397adeceb69bcb2215d2ee589512a11cfb2ed0d2bb17cce10c801ce3ac",
         "agents/openai.yaml": "18ad79ae563118e3800a61adedda1e646e3dbaa930732b721e4440de2331223d",
         "references/bound-credentials-and-replay.md": "1b395ca1306242f97719df0717deba77b8e309198f739265af5ce59e4a300323",
         "references/controls.md": "80ef899acf741a7a018b4aaacf7aabb0eb6b1c0b298ab5bd53d86df1dff1600b",
@@ -1658,11 +1703,13 @@
         "references/evidence-provenance.md": "f5d308b8c0a1bf60bcf2a595df465571b2636918f70698a86bbb3986a9cb9356",
         "references/independent-oracles.md": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
       "target_path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "3b8e2a6fbd6b09ba79f2316fdb444de0d2dda2ac0907b34c352ad09d1e360c94",
+        "SKILL.md": "7440223cd19f2b0d33da5070a6a19e045e7c00241d5d4746fedf73ef3a194a4c",
         "agents/openai.yaml": "36e71ebbc575868be39fbd325d1f9f0efff32cc725b9d993624793f94e7afec9",
         "references/acceptance-verdicts.md": "82bfb6801c64939710ef17b83a7816e0f399ef82de99a7264c30d16756ad73c9",
         "references/evaluation-cases.md": "aca5982f048888099b13d27da224742dfc27598e0a5ce297d447b4eaa668263e",
@@ -1713,12 +1760,13 @@
         "agents/openai.yaml": "855bab233567cb2789f80084db06d18fb5110250265eb6c54e11291405d76aca"
       },
       "adaptations": [
-        "Procedimento Git reescrito para Ec sem paths/versões/autorização do Ox."
+        "Procedimento Git reescrito para Ec sem paths/versões/autorização do Ox.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/commit-governance/SKILL.md",
       "target_path": ".codex/skills/commit-governance/SKILL.md",
       "files": {
-        "SKILL.md": "87cf79be8cfa3341f3ca8034a3e536f51dcb320954ebc412f70e8132ec77cef8",
+        "SKILL.md": "86befaae4ff6c59c0b5b9469bb80ba96a1dceac725b0acadfecef2058c2df3d3",
         "agents/openai.yaml": "0e4ef65891b33c49828a221e981957840db4b2c33831ccbd9a99f8c4b2217ee7"
       }
     },
@@ -1735,12 +1783,13 @@
         "references/model-and-transactions.md": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2"
       },
       "adaptations": [
-        "PostgreSQL é a autoridade global planejada. SQLite privado por Agent, WAL e synchronous=FULL são hipóteses de durabilidade a ensaiar se a ADR for adotada. Avaliar inbox/outbox, UNIQUE e transações; não afirmar atomicidade entre Git e PostgreSQL."
+        "PostgreSQL é a autoridade global planejada. SQLite privado por Agent, WAL e synchronous=FULL são hipóteses de durabilidade a ensaiar se a ADR for adotada. Avaliar inbox/outbox, UNIQUE e transações; não afirmar atomicidade entre Git e PostgreSQL.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/database-engineering/SKILL.md",
       "target_path": ".codex/skills/database-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "7e1a29e4043ad60785660e677d8c9dd6ef50c69017d1b8aacdcae63e9ac9a9d3",
+        "SKILL.md": "ee47d3ca83fe54b563217beccbf18bf1e97776e0828d4e1c62494a201cb73f1e",
         "agents/openai.yaml": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
         "references/access-and-change.md": "e243a93a0839564f2acf3bdf287ad86060fd5cfe667592c1d2f184862b2bb6ba",
         "references/model-and-transactions.md": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2"
@@ -1758,11 +1807,13 @@
         "references/decision-communication.md": "85f7a961c743a78a20bd032fdba58babc75c0bf05011c5f98ed3c9a219314edf",
         "references/review-method.md": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/design-review/SKILL.md",
       "target_path": ".codex/skills/design-review/SKILL.md",
       "files": {
-        "SKILL.md": "b5b4716458d9f14a43292434f46f5c46ce523bffbf90f30b9cfad0d929252c29",
+        "SKILL.md": "e3fd16d6dfd727c9c6f52fddbe247f6959a4af6bd0414e5455ba62e5e12afad3",
         "agents/openai.yaml": "910d8b636b7cfefdfde51abe38c17ca13df3d44df2569a24bf30eb30d1ee2085",
         "references/decision-communication.md": "85f7a961c743a78a20bd032fdba58babc75c0bf05011c5f98ed3c9a219314edf",
         "references/review-method.md": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf"
@@ -1780,11 +1831,13 @@
         "references/accessibility.md": "54c2064005c5bf560a7010cb21cc7189c9862759b55e789b2ffc331a6278885b",
         "references/pattern-decisions.md": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/design-system/SKILL.md",
       "target_path": ".codex/skills/design-system/SKILL.md",
       "files": {
-        "SKILL.md": "bd5c8bac71c275efc4cfc2ae31b2ac7d2e009014a32ffecb91918e5b39279e96",
+        "SKILL.md": "6dd9f14e52dd08f482e77e5e14ac41290648563cd734becac294f7bafe6fce4b",
         "agents/openai.yaml": "244440a0047dcc4a00e1784de92aa7fbeeef6d6ce514fb30590f4b4b290f9ae7",
         "references/accessibility.md": "54c2064005c5bf560a7010cb21cc7189c9862759b55e789b2ffc331a6278885b",
         "references/pattern-decisions.md": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e"
@@ -1802,12 +1855,13 @@
         "references/guarantees-and-failures.md": "0e9d33e8c9ec56c3b14a7d03aa10836c5dc5cd49bff6e4add73b323022eaa79f"
       },
       "adaptations": [
-        "Dois monólitos em hosts independentes têm falhas distribuídas. Explicitar ACK após commit, IDs estáveis, deduplicação, ordem por tentativa, fencing e recuperação. Não prometer exactly-once externo nem exigir broker/microsserviços."
+        "Dois monólitos em hosts independentes têm falhas distribuídas. Explicitar ACK após commit, IDs estáveis, deduplicação, ordem por tentativa, fencing e recuperação. Não prometer exactly-once externo nem exigir broker/microsserviços.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/distributed-systems/SKILL.md",
       "target_path": ".codex/skills/distributed-systems/SKILL.md",
       "files": {
-        "SKILL.md": "bd6ccf6a978167d3d047b12409e2e4a5a1923701ae969034bbc9e9ce427d657b",
+        "SKILL.md": "24787e6c0873010f75b83a70fbef79c9248b7e22e4fe1eb0d7179222a3f10ef6",
         "agents/openai.yaml": "49f8aeac3efa97fc428c48e07fe438082bf4b04cbbd30847992b1057cc721876",
         "references/guarantees-and-failures.md": "0e9d33e8c9ec56c3b14a7d03aa10836c5dc5cd49bff6e4add73b323022eaa79f"
       }
@@ -1824,11 +1878,13 @@
         "references/integration-and-evolution.md": "628997b195dbdf83950b38356afe99ef0828b4364071c8c890dd8d8f84d8a9ac",
         "references/modeling-decisions.md": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/domain-modeling/SKILL.md",
       "target_path": ".codex/skills/domain-modeling/SKILL.md",
       "files": {
-        "SKILL.md": "abf26d78093f28ec3491415c9eb5cfd8ed1ae878a00513caf0c9a7a461faa87f",
+        "SKILL.md": "ec0b8b59a4588fc6272f1d3f01fa878d8c4a22b74ab0d8410baaf86c3572a773",
         "agents/openai.yaml": "26e6d1f0521f2136b8e3802b45481cdbcd849bc32d93ad92d0a0683ff11513b8",
         "references/integration-and-evolution.md": "628997b195dbdf83950b38356afe99ef0828b4364071c8c890dd8d8f84d8a9ac",
         "references/modeling-decisions.md": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929"
@@ -1845,12 +1901,13 @@
         "agents/openai.yaml": "0b3b325bd05637d16d229edca798b2800e304c6ab1949d87ef8074fc98caf17c"
       },
       "adaptations": [
-        "Condicional a pergunta sobre fluxo de trabalho dos desenvolvedores. Desempenho de jobs é responsabilidade de performance-engineering."
+        "Condicional a pergunta sobre fluxo de trabalho dos desenvolvedores. Desempenho de jobs é responsabilidade de performance-engineering.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/engineering-productivity/SKILL.md",
       "target_path": ".codex/skills/engineering-productivity/SKILL.md",
       "files": {
-        "SKILL.md": "167d5216a4069405e48d8f56886a2ab796b7c0f4a1e73617ef6bc6b9173e4c38",
+        "SKILL.md": "5625e6b3ea26f0f5287117b4b4e02553d7ac86f6568a4ce2745c9b8f85c4881a",
         "agents/openai.yaml": "0b3b325bd05637d16d229edca798b2800e304c6ab1949d87ef8074fc98caf17c"
       }
     },
@@ -1883,12 +1940,13 @@
         "references/signal-design.md": "a8b5327558d996b8fbf9232ab2476be2da26b9170cf18a2a633c67c9174d3d2b"
       },
       "adaptations": [
-        "Correlacionar sessão, job/attempt, fila, leases, ACK/retry, backlog e ingestão de logs. Métricas gRPC/SQLite só quando esses componentes existirem; ausência de telemetria não é zero."
+        "Correlacionar sessão, job/attempt, fila, leases, ACK/retry, backlog e ingestão de logs. Métricas gRPC/SQLite só quando esses componentes existirem; ausência de telemetria não é zero.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/observability-and-diagnostics/SKILL.md",
       "target_path": ".codex/skills/observability-and-diagnostics/SKILL.md",
       "files": {
-        "SKILL.md": "31a797d9cf58bf9e9f60ca325121df07322ad472e1004393f4be16fdeeb54cfb",
+        "SKILL.md": "7cfb2ae7a0d61d658ea24de84bde7cba172bd3323876460b577a0568ab641e7b",
         "agents/openai.yaml": "fdb89e79567f000e74d8d4d714a93af87d18e3db264a3a08c37df41d0ea79f28",
         "references/hypothesis-and-evidence.md": "78baa562d0631c66db394658c0e772b168495df0a9656702723e5c5641d276f6",
         "references/signal-design.md": "a8b5327558d996b8fbf9232ab2476be2da26b9170cf18a2a633c67c9174d3d2b"
@@ -1912,12 +1970,13 @@
         "references/portable-sources.md": "7168585bc1b4a485d99b5cce658503c5ed4aeebc5d8c753e1bb48ee38b05911c"
       },
       "adaptations": [
-        "100/500/1.000/2.000 agentes são patamares propostos de ensaio. Separar conectados/ociosos/executando, hardware, duração, perfil de logs, percentis e erros; 1.000 não é capacidade comprovada. Não adotar os números ilustrativos como SLO/default."
+        "100/500/1.000/2.000 agentes são patamares propostos de ensaio. Separar conectados/ociosos/executando, hardware, duração, perfil de logs, percentis e erros; 1.000 não é capacidade comprovada. Não adotar os números ilustrativos como SLO/default.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/performance-engineering/SKILL.md",
       "target_path": ".codex/skills/performance-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "b058f2af783c68552be3a2c4634a633cf9e765920dd85c0c277d22941b24b6f0",
+        "SKILL.md": "85112b6f30dd7567168593a18693f5515a1710c41293e93768cd42eaffb7a495",
         "agents/openai.yaml": "efcf46fd9163d5b55f574fcb2a8adb505717ecf88ea5165ed6f4ccfa09799055",
         "references/benchmark-inference.md": "29ab4059971a6765755711806a6147bd1a05e379219a707724bc24d366613911",
         "references/changes-and-comparisons.md": "007394ab92f32df7c82fa25bbf8bb304c261ca7ad7b5b3eb04600fb56b21c211",
@@ -1942,11 +2001,13 @@
         "references/protocol-negotiation.md": "3a9c0fdcd141a6cb71166db6ef054861a6299663de0e5d37dfe3e508fcec6879",
         "references/versioning-and-faults.md": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
       "target_path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "c6b9857e9bd80734b4c4c98a3227406b46d8e7fa2149c0881bd93f452efada95",
+        "SKILL.md": "dac7110108df6715642ab3cba8d16f85ef02110abcf49a138bf37fa6ec67f28c",
         "agents/openai.yaml": "9db53b60491567395cfb75f150829356af1e2ca2ba56366479785894c60916b8",
         "references/evaluation-cases.md": "2c93959130236da7623aa72b9eff187655d9cd0428c7ab70fab21baa27447222",
         "references/permissions-and-isolation.md": "fe7138487cbe61edf732b763f451e2e5ebeeeccaf8932e770ee49afca245e66e",
@@ -1967,12 +2028,13 @@
         "references/portable-sources.md": "319f0741ec3bc974479b8716f40da15cdc842ae9a1d21947f6b7d3fd0fff9244"
       },
       "adaptations": [
-        "Condicional a autoria ou revisão de prompts solicitada; não interpretar jobs CI/CD como prompts."
+        "Condicional a autoria ou revisão de prompts solicitada; não interpretar jobs CI/CD como prompts.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/prompt/SKILL.md",
       "target_path": ".codex/skills/prompt/SKILL.md",
       "files": {
-        "SKILL.md": "4b4b32232ce2ba74d90fbc922c66f3918b98ff3a01156a42c486c259b49af325",
+        "SKILL.md": "ac4b7e6971a10528e932d0a8c15b00eaf0a04b8acc09bf26e60330af32e027d6",
         "agents/openai.yaml": "e95795a175718df6b56bf5fde549dc74cfa318cfef40fd47ffe4e406425a48d7",
         "references/evaluation-and-trust.md": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
         "references/portable-sources.md": "319f0741ec3bc974479b8716f40da15cdc842ae9a1d21947f6b7d3fd0fff9244"
@@ -1995,12 +2057,13 @@
         "references/trust-preserving-recovery.md": "4bf45f7777b29633160a49d50573fd9c8e24e5ce24be70eb560471b2d40242ce"
       },
       "adaptations": [
-        "Cobrir perda de ACK, crash antes/depois de commit, partições, falha de banco, esgotamento de armazenamento e reconexão coletiva. Outbox SQLite é proposta; deadlines/backoff/jitter precisam de contratos e limites verificáveis."
+        "Cobrir perda de ACK, crash antes/depois de commit, partições, falha de banco, esgotamento de armazenamento e reconexão coletiva. Outbox SQLite é proposta; deadlines/backoff/jitter precisam de contratos e limites verificáveis.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/reliability-engineering/SKILL.md",
       "target_path": ".codex/skills/reliability-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "f26b2f983cfa79b8487e696167edddbaef706aac658e0e447e44ec1fb3110a6d",
+        "SKILL.md": "48327f537ac512177015cc1f9c690bd5d457379f788b66756c52fb9fed24db32",
         "agents/openai.yaml": "7c05b297f31439fd24dd606d7096141ca39a3840c58edcb752d8280a62139782",
         "references/deployment-and-recovery.md": "2b152ba8f22c553cf0ba8a4887f900787cc6c22b26d63d5b25d5266cf2bd95e1",
         "references/failure-controls.md": "5ba76483d998449412263773cf5a88325507110ebe319d395e68d6ad903b1cf7",
@@ -2031,11 +2094,13 @@
         "references/sources.md": "29a20f4bb00af9053c73f5bd4d7944d0161d6ed8acedaf9e89bdf0e3feca72d8",
         "references/validation-and-maintenance.md": "092ec4d268ad8516a95f5676fe49972cd9b7ed965e558dfe6aab59082d9d515c"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/rust/SKILL.md",
       "target_path": ".codex/skills/rust/SKILL.md",
       "files": {
-        "SKILL.md": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+        "SKILL.md": "a2926aaeee5df8492c86acd31b09df7ba3c33545b146e635506962f053759b12",
         "agents/openai.yaml": "61c496ae4d9bb073390dfb9375129eaf4e0a36fc43cfbfa2ba104806e42eb399",
         "references/advanced-boundaries.md": "3c4e88ae866a1c304f1cf74752f9436bd0864d053787defeeb9fdc3916e41535",
         "references/atomic-publication.md": "b6f38d5d5c4f02efa32fa43bf4f00de98d8f230040484796d3186a37a6e3ee15",
@@ -2063,11 +2128,13 @@
         "references/fitness-functions.md": "e0665214ea44bb94a565d8f85294e1dc383af87b4806e83e8f0c041ad9e43422",
         "references/portable-sources.md": "b8dfa0354beb49d7a544535af1edf11c77199d0df1c299b6b6d31906d70b0650"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/software-architecture/SKILL.md",
       "target_path": ".codex/skills/software-architecture/SKILL.md",
       "files": {
-        "SKILL.md": "739571c2d2d28a4bd8ad389cc30ed59e599f4c8d65068f6d7e86ee0094dcefba",
+        "SKILL.md": "eeee62544926d66e07e860b2d3dd7d5610355da1a692a472c48e06e67ab6a38e",
         "agents/openai.yaml": "2df6efff9a60518d3e99c5f9e2206afed6fabd189649315e4545a563172cf5d7",
         "references/architecture-decisions.md": "55c3b5b5c36bd7ae34550816883b818de789debd032d90404a18dd3e77d745aa",
         "references/fitness-functions.md": "e0665214ea44bb94a565d8f85294e1dc383af87b4806e83e8f0c041ad9e43422",
@@ -2086,11 +2153,14 @@
         "references/build-inputs-and-trust.md": "e1a6e47a7f79101f2f940e70b7c0c81745531f2fb93d00fb0ca9d76593eff7ad",
         "references/release-and-state.md": "39eedb1662cf3c6b53cd19f8ac713a89c58c1911808717420d87a192fc83e99d"
       },
-      "adaptations": [],
+      "adaptations": [
+        "Referência ao procedimento canônico de encerramento/verificação Ec, 2026-11-05; propósito preservado.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/software-delivery/SKILL.md",
       "target_path": ".codex/skills/software-delivery/SKILL.md",
       "files": {
-        "SKILL.md": "cfa0249938fb4dd95fe8dc9b93ffd5dfd71ca137014327090aaeb8e196dc7480",
+        "SKILL.md": "b0166f50c4532b55cae5ac7e4cde24c35767d56e7db142ea7001402fdd2b94a0",
         "agents/openai.yaml": "64816ff241416f2f0880a87ebf6b9e5e93ba391e1a7ed1425fc0982d728fd078",
         "references/build-inputs-and-trust.md": "e1a6e47a7f79101f2f940e70b7c0c81745531f2fb93d00fb0ca9d76593eff7ad",
         "references/release-and-state.md": "39eedb1662cf3c6b53cd19f8ac713a89c58c1911808717420d87a192fc83e99d"
@@ -2109,11 +2179,13 @@
         "references/design-decisions.md": "e52de77b16c2da4706adb72c07ac2ecbdfca6be396159c9b99c591c86a209046",
         "references/refactoring-evidence.md": "88a789f669b9f7a34b2fc74d9b20556cdbb53604147fa78c6ab2883b44e44b7d"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/software-design/SKILL.md",
       "target_path": ".codex/skills/software-design/SKILL.md",
       "files": {
-        "SKILL.md": "4e214fd5dbf141ee437814a5c817b6924a05e8ad75cf6bc208281155204f6143",
+        "SKILL.md": "0c9c262d893476999857858f12dba2b789dbd522294d5b19c1ed99831a7aaddc",
         "agents/openai.yaml": "01fbc2fca737f8ca307453866bd8ad07ef3b1a18cfdfe9d1d0102e159c460eb9",
         "references/algorithm-decisions.md": "f98d4fe6d7754315c33ded2a678bd66295f797320eb17ffff798332c7ec3eade",
         "references/design-decisions.md": "e52de77b16c2da4706adb72c07ac2ecbdfca6be396159c9b99c591c86a209046",
@@ -2133,12 +2205,13 @@
         "references/transition-decisions.md": "9f9abae4f80618b0f98637b42cf175981d4179da9d614fe512dc2b5a6be3d8f0"
       },
       "adaptations": [
-        "Condicional a migração, coexistência ou rollout de contratos/dados entre versões; não exigir workflow de migração para correção textual."
+        "Condicional a migração, coexistência ou rollout de contratos/dados entre versões; não exigir workflow de migração para correção textual.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/software-evolution/SKILL.md",
       "target_path": ".codex/skills/software-evolution/SKILL.md",
       "files": {
-        "SKILL.md": "00ae1e5fd99ae1a727278d234ddf0427e410cdaf7914bd1e3c1b97b8d635bbf1",
+        "SKILL.md": "5fb16064473e4eda082a337262452499749647598c08f47ebbb315692eff5f32",
         "agents/openai.yaml": "f8b80a5637ea6e49cd798d3b62798a14afb44762858a4036b038958ae681d541",
         "references/state-migration.md": "77fd0706b58a32bf45c8a6c87783388d1f2ed74883afaf3e534fc6416c984dff",
         "references/transition-decisions.md": "9f9abae4f80618b0f98637b42cf175981d4179da9d614fe512dc2b5a6be3d8f0"
@@ -2159,11 +2232,14 @@
         "references/suite-quality.md": "1f56d2ca697d36c1039ac2b03e404e319bf77ccb98005d038b313f16607e5c39",
         "references/visual-regression.md": "c874d4c78c3be1bcaa2791acdf4a2ff57c9537e2dca1d3ee333cd91daf362976"
       },
-      "adaptations": [],
+      "adaptations": [
+        "Referência ao procedimento canônico de encerramento/verificação Ec, 2026-11-05; propósito preservado.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/software-testing/SKILL.md",
       "target_path": ".codex/skills/software-testing/SKILL.md",
       "files": {
-        "SKILL.md": "2d2fbc0b44e19a2d4428eb98b8602fc7dc58884294a9f6902606423959f34aba",
+        "SKILL.md": "67fb6565d48fbad42b6c58f48caeaf16c76bcb448f518fe835d2ab480564d6a8",
         "agents/openai.yaml": "ad921163723ad852df45b7c88b38e7a0d7fa2604f7937f82ebe314a42e6adf61",
         "references/boundary-evidence.md": "32a79b7001cfb8b0a7b76d7c89afe55fb8468ebcdee24f8426e199f56f30e15c",
         "references/case-design.md": "d13fe4d628689203be043b568eab997b16ecf1a387e3c779775bd8737ae3eb4b",
@@ -2183,12 +2259,13 @@
         "agents/openai.yaml": "1ea12cbfb19d87253cb821cb701d5486db63626490361d22334bc8936af78300"
       },
       "adaptations": [
-        "2026-11-04: refatoração autorizada para Mermaid, iconografia vetorial especializada, critérios visuais mensuráveis e referências de renderização/acessibilidade; originais preservados e baseline atualizada."
+        "2026-11-04: refatoração autorizada para Mermaid, iconografia vetorial especializada, critérios visuais mensuráveis e referências de renderização/acessibilidade; originais preservados e baseline atualizada.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/technical-documentation/SKILL.md",
       "target_path": ".codex/skills/technical-documentation/SKILL.md",
       "files": {
-        "SKILL.md": "3a83fa6aeed1d1c3a014b4e7e396c1a00298a658eb384f8742ec475c0aa848ec",
+        "SKILL.md": "784a09861f93774ce4a3ee43da709e698b7815645c9ee43c27c9e811aa00b166",
         "agents/openai.yaml": "93b82edabca8ef5db04aabbac2796c8afd3ade35b1021a53720ca6f716e674c5",
         "references/mermaid-and-assets.md": "3f2e8e1af4c204322555601f3de46113ebe4b0efecd1b4dc227c2393b3be60f2",
         "references/visual-quality.md": "a190c452ba27ac2749a5845b7333ee94486ddbf0a74e42ae8de53a1d66ee72e9"
@@ -2208,11 +2285,13 @@
         "references/token-measurement.md": "05f7fb7d405b84e2680518031486b8a843b0891f47fd11464105b8f410ee3303",
         "references/tool-parsers-and-fallbacks.md": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/tool-output-engineering/SKILL.md",
       "target_path": ".codex/skills/tool-output-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "fd130ef1657f87d540dc3e2577869926d5b41f4b2990dc6d1b6c92330f829529",
+        "SKILL.md": "90108fc6932bb514bbaaf320117d3727358d3c98afd4130f70a6c21e328d3ad6",
         "agents/openai.yaml": "34332f59e9be0409aa25d26ce68561c4763d1de99ffa804a92cd2f0d61a1da06",
         "references/evaluation-cases.md": "d3bee6289434dd9d3c8fabc3429fa8ad7b5f2fe792a6f99585363724ce3acf9f",
         "references/loss-aware-transformations.md": "fb4b14a18194d6d6f9a7a592f095bc22e8f3c03cbb080c5605fa73b01d282647",
@@ -2235,12 +2314,13 @@
         "references/watcher-and-recovery.md": "046382bbb97faa08006f341eedcce2720c499a83b05bce71566d948710693867"
       },
       "adaptations": [
-        "Aplicar a checkout em revisão fixa, workspace por tentativa, contenção de caminhos/symlinks, concorrência e limpeza. Não pressupor editor multiagente nem reconstruir Git."
+        "Aplicar a checkout em revisão fixa, workspace por tentativa, contenção de caminhos/symlinks, concorrência e limpeza. Não pressupor editor multiagente nem reconstruir Git.",
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
       ],
       "path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
       "target_path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "6811f2e83a4bdc376eb37df172fe3112f8ac02d2eb25f65821dabdf41dfa6bc8",
+        "SKILL.md": "bcc2b63eef177063847e7a95a433fe95bef59cccf622ff2963a55d9d4d0e9d01",
         "agents/openai.yaml": "7f2e47dce012aeae680eafaa5018d4e674df0dab4a6e9c36e6677f4f5d08e38a",
         "references/evaluation-cases.md": "14a0da21921ed8fc1a22a80c4b67f879e59d3f6353aa8e4807d5e7384d5e56f6",
         "references/file-operations.md": "8a74d3e3725a3c1bd64a1f44cff0ec769738fe28e9f67fa0dcaea1948ed6d32c",
@@ -2267,11 +2347,13 @@
         "references/sources-and-decisions.md": "9be659af822a906bde93f84fe7282c9d8e84b137d7bd92ffd5a206e204698005",
         "references/verification-and-acceptance.md": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336"
       },
-      "adaptations": [],
+      "adaptations": [
+        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas."
+      ],
       "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
       "target_path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "4a68d48bfa52160ab3cacbe7f04da1d7faadd6c76cde126617cbd945969473c9",
+        "SKILL.md": "f6376d52d5cd250f10a9c7fa94abecbd78cf968fcd438672b173be5d5a4f037b",
         "agents/openai.yaml": "a284c53da7d7f26fea4670c2d5725eeb9f1f9b790fe949093705812fa6951e38",
         "references/documentation-topology-and-diataxis.md": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
         "references/ec-consumer-boundaries.md": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",

@@ -3,6 +3,21 @@ name: design-review
 description: Review user journeys, interface behavior, hierarchy and usability; explain design trade-offs and respond to stakeholder feedback using evidence. Use for UX critiques, design decision presentations and review follow-up. Do not use for backend code design, generic meeting advice, unsupported aesthetic judgments or routine implementation of an already agreed component contract.
 ---
 
+## Acionamento de scripts no Ec
+
+Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
+suas referências. Scripts de verificação só podem ser acionados após pedido explícito
+de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
+Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
+Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
+Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
+os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
+ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
+Não execute scripts avulsos nem os acione automaticamente durante implementação,
+revisão ou encerramento. Inspeção manual continua permitida; checks não executados
+permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
+(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+
 # Design Review
 
 Evaluate whether people can understand and complete the intended task, including recovery. Explain choices so others can assess them. Separate observed defects, evidence-based risks, aesthetic preferences and hypotheses needing user research. Stakeholder support and demonstrated usability are different outcomes.

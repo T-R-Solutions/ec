@@ -109,7 +109,7 @@ def _install(root, apply=False):
         # Audit the recorded pre-install view without mutating live metadata.
         with tempfile.TemporaryDirectory(prefix='ec-install-audit-') as temp:
             view = Path(temp)
-            for name in ['config/governance', 'sdd', 'docs', 'tools/governance', 'application',
+            for name in ['config/governance', 'sdd', 'docs', 'tools/governance', 'application', 'scripts',
                          '.local/skill-installation/skills', 'reverse_engineering_teamcity']:
                 # Research is only needed for README link targets; avoid copying its index.
                 if name == 'reverse_engineering_teamcity':
@@ -119,7 +119,7 @@ def _install(root, apply=False):
                         shutil.copyfile(root/name/file, dest)
                 else:
                     shutil.copytree(root/name, view/name, symlinks=True)
-            for name in ['README.md', 'AGENTS.md']:
+            for name in ['README.md', 'AGENTS.md', 'LICENSE']:
                 shutil.copyfile(root/name, view/name)
             for name, content in journal['before'].items():
                 (view/name).write_text(content)

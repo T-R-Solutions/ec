@@ -1,6 +1,8 @@
 # Contribuir com o Ec
 
-Guia para alterações locais neste checkout de pesquisa e governança. Não existe aplicação Ec a instalar ou iniciar. Python 3.11+ e biblioteca padrão bastam para os verificadores existentes; os testes precisam de diretório temporário gravável.
+Guia para mudanças no código, pesquisa e governança. Há implementação local Rust e
+Vue/TS; preparação e limites estão nos guias de publicação, orquestração, Agent e
+frontend. O procedimento de encerramento é a [política de verificação](task-verification.md).
 
 ## Leitura visual
 
@@ -27,6 +29,7 @@ Inspecione fontes e consumidores, escolha a rota pelo risco, implemente e verifi
 | Localização ou execução de testes | [Política de testes](testing.md) e README da suíte |
 | Pacote de skill | [Procedimento de instalação](skill-installation.md), perfil e ponte correspondente |
 | Nova referência vigente | [Índice documental](../README.md) |
+| Scanners, dados, imagens ou catálogo da suíte | [Contrato Toolbox/Ec](../../scripts/README.md), [plano local](../../sdd/features/scripts-verification/toolbox-completion-plan.md) e feature scripts-verification |
 
 Documentação nova deve usar pt-BR; referências importadas conservam o idioma original. Python novo usa quatro espaços e `snake_case`; JSON de governança usa dois espaços. Cada README introduz seu escopo e aponta para políticas canônicas, evitando copiar regras comuns para todos os módulos.
 
@@ -34,34 +37,18 @@ Diagramas técnicos usam fonte Mermaid editável e explicação textual adjacent
 
 ## Verificar a mudança
 
-Execute da raiz do repositório:
+Após implementar e antes de concluir, siga a [política canônica](task-verification.md).
+Ela concentra seleção por superfície, entrada `bash scripts/automate.sh run`,
+pré-requisitos, diagnóstico, evidências e aceite com freshness. Corrija regressões
+causadas pela alteração e registre resultados/limitações. Não dispense critérios da
+feature por usar uma seleção parcial ou porque uma ferramenta está ausente.
 
-```bash
-python3 tools/governance/validate.py
-python3 sdd/tools/validate.py --root .
-python3 -m unittest discover -s tools/governance/tests -v
-```
-
-Os validadores devem retornar `PASS` e exit 0; a suíte deve terminar com `OK` e exit 0. Os testes usam cópias temporárias, incluindo casos de rejeição. Esses resultados verificam governança, não runtime, acessibilidade ou segurança do produto.
-
-Para exigir integridade das skills instaladas e fazer o preflight sem escrita:
-
-```bash
-python3 tools/governance/validate.py --require-installed
-python3 tools/governance/install_skills.py --check
-```
-
-A instalação atual íntegra deve produzir `ALREADY_INSTALLED`. Se houver divergência, confira o arquivo apontado e o procedimento de recuperação; não ajuste hashes apenas para fazer o auditor passar.
-
-Quando uma mudança afeta inputs de evidência da feature de governança, preserve a observação anterior, reexamine os critérios afetados e registre os novos resultados conforme [evidence.md](../../sdd/evidence.md). Só então exija aceite atual:
-
-```bash
-python3 sdd/tools/validate.py --root . --require-approved --require-fresh
-```
-
-Esse gate falha diante de lacunas ou inputs alterados. `--structure-only` serve à inspeção durante o trabalho; não substitui aceite. Não regenere hashes para reutilizar silenciosamente uma observação antiga.
-
-Confira também os links locais e as instruções alteradas. Os validadores têm escopos próprios; seu sucesso não equivale a conferir todos os links, âncoras, URLs externas ou renderização. Registre verificações não executadas como lacunas.
+Configurações, regras, receitas locais e locks reais são fontes versionadas;
+artefatos privados preparados e saídas ficam nas raízes locais ignoradas, conforme
+`.gitignore`. Não ignorar `.local/` inteiro nem promover um hash a evidência de
+execução. A migração de scanners permanece planejada; a ponte atual não deve
+escrever na Toolbox externa sob a restrição vigente. Nenhuma autorização de
+verificação implica permissão para alterar outro projeto.
 
 ## Entregar e manter
 

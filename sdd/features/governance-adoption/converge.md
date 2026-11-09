@@ -1,3 +1,18 @@
+## Revisão dos scripts após análise do run-oUebC3O4 — 2026-11-07
+
+Os scripts vinculados à inspeção anterior foram corrigidos; nenhum script foi
+executado nesta tarefa. Critérios atuais permanecem UNVERIFIED. Esta revisão
+inspecionou o impacto nas verificações; não exercitou a jornada de produto.
+[Análise e limites](../../../docs/validation/automation-run-oUebC3O4-20261107/report.md).
+Originais de evidência/convergência preservados em previous-related-evidence.zip
+nesse diretório. As observações abaixo são históricas.
+
+> Atualização de 2026-11-07 — os registros abaixo são históricos. A promoção
+> de Geiger/Coverage/Trivy/CodeQL alterou inputs vinculados à evidência agregada
+> desta feature. Os critérios atuais ficam UNVERIFIED até nova observação
+> autorizada; nenhum resultado antigo foi reaproveitado como aprovação atual.
+> [Registro e preservação](../../../docs/validation/default-quality-20261107/report.md).
+
 # Convergência — governança Ec após limpeza
 
 Data: 2026-11-03. Nova observação após retirada das entradas dispensáveis; não reutiliza os hashes de aceitação anterior.
@@ -48,3 +63,30 @@ A [revisão visual](../../../docs/validation/documentation-enterprise-20261104/r
 ## Recuperação — 2026-11-05
 
 AC-01 a AC-06 reexaminados nos seus escopos de governança; AC-07 APPROVED para interrupções de processo em Linux local. A [validação da recuperação](../../../docs/validation/installer-recovery-20261105/checks.json) identifica reobservações, comandos, drift, falha inicial corrigida e limites. Registros anteriores preservados em previous.zip da mesma validação. Produto permanece fora deste aceite.
+
+
+## Reobservação após T004 do produto — 2026-11-05
+
+T004 de first-functional-journey atualizou quatro documentos vinculados a esta evidência: contexto do projeto/arquitetura e READMEs do backend/orquestração. A revisão preserva autoridades, dependências e propostas; reconhece apenas implementação e evidência efetivamente observadas. AC-01 a AC-07 desta feature continuam restritos à governança, com nova execução do auditor, preflight e 34 testes em cópias isoladas. Registros anteriores preservados em docs/validation/orchestration-20261105/governance-previous.zip; comandos, comparação de inputs e limites em governance-checks.json na mesma validação. Nenhuma remoção histórica ou instalação foi reatribuída; aceite de produto é independente.
+
+
+## Reobservação T006 — interface web
+
+Entradas frontend atualizadas com implementação real, preservando baselines históricas. Auditor require-installed PASS, install_skills --check ALREADY_INSTALLED e 34 testes OK; revisão dos links/autoridades atuais em docs/validation/frontend-20261105/governance-review.json. Evidência anterior preservada em previous-governance.zip; sem reinstalação ou mudança de skills. Governança não aprova a jornada do produto nem AC-01/AC-07 da feature funcional.
+
+## Reobservação de scripts e encerramento — 2026-11-05
+
+[Registro atual](../../../docs/validation/scripts-ec-20261105/report.md): comandos
+reais de governança, Rust, frontend, integração e Firefox reexecutados; observações
+anteriores preservadas em previous.zip. A política de verificação foi centralizada
+e somente duas skills atualizadas. Gitleaks ausente bloqueia o aceite agregado da
+verificação; AC-01/AC-07 da primeira jornada continuam pendentes por seus próprios
+motivos. Não há aceitação por renovar hashes de observações antigas.
+
+## Reintegração SAST/dependências — 2026-11-05
+
+[Reobservação](../../../docs/validation/scripts-security-20261105/report.md): Opengrep
+e OSV reintegrados, documentação de pré-requisitos e contratos revisados; 32 testes
+de automação e 34 de governança passam. Instalação de skills/bundle não alterada;
+aceite de scans reais permanece bloqueado por CLIs/bases ausentes. Fontes/evidências
+anteriores preservadas no backup da revisão, sem redução dos critérios.

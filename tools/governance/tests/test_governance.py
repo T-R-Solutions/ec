@@ -21,10 +21,10 @@ class GovernanceTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
         for path in ['.local/skill-installation/skills','config/governance','sdd','docs','tools/governance',
-                     'application']:
+                     'application','scripts']:
             shutil.copytree(ROOT/path,self.root/path,ignore=shutil.ignore_patterns('__pycache__'))
         # Source bundles are copied with config/governance; retired inputs are unnecessary.
-        for name in ['AGENTS.md','README.md']:
+        for name in ['AGENTS.md','README.md','LICENSE']:
             shutil.copyfile(ROOT/name,self.root/name)
         research_index=Path('reverse_engineering_teamcity/README.md')
         (self.root/research_index).parent.mkdir(parents=True)
@@ -241,7 +241,7 @@ class GovernanceTests(unittest.TestCase):
             "install_skills.install(Path(sys.argv[2]), True)"
         )
         with install_skills.installation_lock(self.root, True):
-            result = subprocess.run(
+            result = subprocess.run(  # noqa: S603 — Interpretador sys.executable; programa literal do teste de interrupção/lock, caminhos separados em argv.
                 [sys.executable, '-c', script, str(ROOT/'tools/governance'), str(self.root)],
                 capture_output=True, text=True)
             self.assertNotEqual(result.returncode, 0)
@@ -264,7 +264,7 @@ def killed(path, content):
 install_skills.atomic_write = killed
 install_skills.install(Path(sys.argv[2]), True)
 """
-        result = subprocess.run([sys.executable, '-c', script,
+        result = subprocess.run([sys.executable, '-c', script,  # noqa: S603 — Interpretador sys.executable; programa literal do teste de interrupção/lock, caminhos separados em argv.
                                  str(ROOT/'tools/governance'), str(self.root)])
         self.assertEqual(result.returncode, 71)
         self.assertEqual(self.audit()['status'], 'FAIL')
@@ -308,7 +308,7 @@ def killed(source, destination):
 install_skills.shutil.copytree = killed
 install_skills.install(Path(sys.argv[2]), True)
 """
-        result = subprocess.run([sys.executable, '-c', script,
+        result = subprocess.run([sys.executable, '-c', script,  # noqa: S603 — Interpretador sys.executable; programa literal do teste de interrupção/lock, caminhos separados em argv.
                                  str(ROOT/'tools/governance'), str(self.root)])
         self.assertEqual(result.returncode, 72)
         orphans = list((self.root/'.codex').glob('.ec-install-*/*/partial.txt'))

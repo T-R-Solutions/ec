@@ -138,3 +138,13 @@ A local manual record may be short: goal/criterion, change, inputs/versions,
 method, result, state and relevant limitation. Preserve the previous observation
 when something changes; rerun/reexamine only affected evidence without renewing
 an old result's hashes to make it appear current.
+
+## Encerramento no Ec
+
+Antes de concluir tarefas, aplicar a [política canônica de verificação](../docs/development/task-verification.md):
+inspecionar as alterações e registrar evidências e lacunas sem acionar scripts.
+Somente após pedido de commit, perguntar “Deseja executar o script automate.sh (que roda todos os outros scripts)?”,
+com apenas `sim` ou `não`, e aguardar a escolha. Com `não`, seguir com os commits;
+com `sim`, executar `bash scripts/automate.sh run` sem filtros e só criar commits
+se todos os scripts terminarem sem erros. Não executar scripts avulsos.
+Checks não executados não aprovam critérios da feature; registrar essa limitação.
