@@ -1,0 +1,428 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "docs",
+    "scripts",
+    "server",
+    "agent",
+    "frontend",
+    "security",
+    "integration",
+    "e2e"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "argv": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [
+        "application/server/backend/Cargo.lock"
+      ],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [
+        "application/server/backend/Cargo.lock"
+      ],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [
+        "application/server/backend/Cargo.lock"
+      ],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-failpoints"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [
+        "application/agents/Cargo.lock"
+      ],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [
+        "application/agents/Cargo.lock"
+      ],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [
+        "application/agents/Cargo.lock"
+      ],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-failpoints"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "argv": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "application/server/frontend",
+      "prerequisites": [
+        "application/server/frontend/package-lock.json",
+        "application/server/frontend/node_modules/.package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "argv": [
+        "npm",
+        "run",
+        "test"
+      ],
+      "cwd": "application/server/frontend",
+      "prerequisites": [
+        "application/server/frontend/package-lock.json",
+        "application/server/frontend/node_modules/.package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "application/server/frontend",
+      "prerequisites": [
+        "application/server/frontend/package-lock.json",
+        "application/server/frontend/node_modules/.package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "argv": [
+        "gitleaks",
+        "dir",
+        "--config",
+        "{root}/scripts/automation/rules/gitleaks.toml",
+        "--redact",
+        "--ignore-gitleaks-allow",
+        "--exit-code",
+        "10",
+        "--report-format",
+        "json",
+        "--report-path",
+        "{task}/report.json",
+        "{task}/source"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [
+        "/usr/bin/firefox"
+      ],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": false
+}

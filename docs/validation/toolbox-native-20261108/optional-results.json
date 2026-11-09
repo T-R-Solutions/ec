@@ -1,0 +1,215 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "security"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "grype",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "bandit",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "syft",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "yara-x",
+      "cwd": ".",
+      "depends": [],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "grype",
+      "state": "blocked",
+      "reason": "infraestrutura Toolbox indisponível; consultar diagnóstico",
+      "returncode": 3,
+      "cwd": ".",
+      "finding_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-grype",
+          "tool": "grype",
+          "returncode": 125,
+          "outcome": "infrastructure",
+          "native_exit_code": null,
+          "image": null,
+          "version": null,
+          "database": null,
+          "cleanup": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "bandit",
+      "state": "blocked",
+      "reason": "infraestrutura Toolbox indisponível; consultar diagnóstico",
+      "returncode": 3,
+      "cwd": ".",
+      "finding_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-bandit",
+          "tool": "bandit",
+          "returncode": 125,
+          "outcome": "infrastructure",
+          "native_exit_code": null,
+          "image": null,
+          "version": null,
+          "database": null,
+          "cleanup": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "syft",
+      "state": "blocked",
+      "reason": "infraestrutura Toolbox indisponível; consultar diagnóstico",
+      "returncode": 3,
+      "cwd": ".",
+      "finding_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-syft",
+          "tool": "syft",
+          "returncode": 125,
+          "outcome": "infrastructure",
+          "native_exit_code": null,
+          "image": null,
+          "version": null,
+          "database": null,
+          "cleanup": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "yara-x",
+      "state": "blocked",
+      "reason": "infraestrutura Toolbox indisponível; consultar diagnóstico",
+      "returncode": 3,
+      "cwd": ".",
+      "finding_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "native_executions": [
+        {
+          "step": "00-yara-x",
+          "tool": "yara-x",
+          "returncode": 125,
+          "outcome": "infrastructure",
+          "native_exit_code": null,
+          "image": null,
+          "version": null,
+          "database": null,
+          "cleanup": null
+        }
+      ]
+    }
+  ],
+  "inputs_sha256": "824131108ce178a5dd7e0307d50fda8acd6e67d87cf4ad86c45473fde9346deb",
+  "complete": false,
+  "exit_code": 3,
+  "changed_inputs": []
+}

@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: MIT
+[extend]
+useDefault = true
+
+# O scan real de 8.24.3 confundiu 28 hashes de recursos com chaves de API.
+# A exceção exige simultaneamente o arquivo e uma linha de mapa arquivo -> SHA256.
+# O auditor de governança confere estes hashes contra os bytes dos recursos.
+[[rules]]
+id = "generic-api-key"
+[[rules.allowlists]]
+description = "Hashes de recursos de skills, conferidos pelo auditor de governança"
+condition = "AND"
+regexTarget = "line"
+paths = ['''(^|/)config/governance/profile\.json$''']
+regexes = ['''^\s*"(?:SKILL\.md|references/[^"\r\n]+)": "[a-f0-9]{64}",?\s*$''']

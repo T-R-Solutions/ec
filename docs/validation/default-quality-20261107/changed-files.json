@@ -1,0 +1,202 @@
+[
+  {
+    "path": "application/server/frontend/package-lock.json",
+    "change": "modified",
+    "sha256": "ae4507e8a009cb7a9f7b03148ad96ec491e88bf16d21161d7fcc8611404e5972"
+  },
+  {
+    "path": "application/server/frontend/package.json",
+    "change": "modified",
+    "sha256": "20f91a89169080867cc1c3e410c96342b13f4404694a75b8a8b442642a918fc0"
+  },
+  {
+    "path": "application/server/frontend/vite.config.ts",
+    "change": "modified",
+    "sha256": "61eb51c37368cd97f323c8f6228f84c6567c393f62a5255d68f6b46531a921e7"
+  },
+  {
+    "path": "config/quality/codeql-rust.qls",
+    "change": "added",
+    "sha256": "3e9f957d5217e3e2ac0ab57d673e54fd3e2e3b44cbc75556bcac0394ba6eb008"
+  },
+  {
+    "path": "config/quality/codeql.qls",
+    "change": "modified",
+    "sha256": "5f1dcc33a715b16a9042380f7a82dc651a4d9ff5f552f192a1df8ef7d3f75333"
+  },
+  {
+    "path": "config/quality/coverage.json",
+    "change": "added",
+    "sha256": "152691c311aea4c59accfe1a42f86440761090a8b929118f67ae7c81d257b5a5"
+  },
+  {
+    "path": "config/quality/native-scanners.json",
+    "change": "added",
+    "sha256": "c91a5f0d9b87e130b1ecfa4cd1c2b852d193941914b3e0cded209aa3319efb20"
+  },
+  {
+    "path": "config/quality/trivy.yaml",
+    "change": "modified",
+    "sha256": "fd4359c1f59b1f9e649b3cf4fb5cc0d4a8651ce43e6140cd263b917c057205a3"
+  },
+  {
+    "path": "docs/development/task-verification.md",
+    "change": "modified",
+    "sha256": "efe46b29dc15707a536af5bfe69b10a9e4ecae3bc57a1c4d32f1e68d4690ca36"
+  },
+  {
+    "path": "docs/development/verification-tools.md",
+    "change": "modified",
+    "sha256": "bf063229546b3366706bea6ad02d71f3d4b575fdd35f02dfc4e886e0f271ef08"
+  },
+  {
+    "path": "scripts/README.md",
+    "change": "modified",
+    "sha256": "fc211bb6bd8f26d55f125bf417626ffb75e3bb0cb716ed89b28c8362a58ddbb8"
+  },
+  {
+    "path": "scripts/automate.sh",
+    "change": "modified",
+    "sha256": "8a8240792d134ed844473fb0a05bfc3467dad50e196208f31db5fb1910b0f2b4"
+  },
+  {
+    "path": "scripts/frontend/check.sh",
+    "change": "modified",
+    "sha256": "c50920fe616f778b08fd6822dac0843ce00d359346cf32a29fdf2da3c2df926e"
+  },
+  {
+    "path": "scripts/lib/catalog.sh",
+    "change": "modified",
+    "sha256": "ac083e15ae2577dfdb31c83e66bbbd4e1c615f5460e633def9a072a96a77c219"
+  },
+  {
+    "path": "scripts/lib/inputs.sh",
+    "change": "modified",
+    "sha256": "360bbeb8c3f245ef033681eeb8857ac43b8b3688ad7e583b761a63b2f2973536"
+  },
+  {
+    "path": "scripts/lib/runtime.sh",
+    "change": "modified",
+    "sha256": "54536d4b14054f6da05470867ce52ef915a75de0c2ab5263b80d9808edd737ee"
+  },
+  {
+    "path": "scripts/metrics/check.sh",
+    "change": "modified",
+    "sha256": "cd90751cc7f4ce9e9dbbd319fa98a1ace3536cc94da8c1fe20a2f2995b067b47"
+  },
+  {
+    "path": "scripts/metrics/coverage.sh",
+    "change": "added",
+    "sha256": "8d78b1dc8aef8a28bc73d0576bfce3925d549aac6bd44aba06534499aa28150b"
+  },
+  {
+    "path": "scripts/prepare.sh",
+    "change": "modified",
+    "sha256": "d467affffe3fa8e53e94d0db6499569ac73bbf1f6aba3f3fdf96fb27ed191f89"
+  },
+  {
+    "path": "scripts/rust/check.sh",
+    "change": "modified",
+    "sha256": "81d93c1aca875b1534ce16563814c0da62fc0d8702bf8f2bbbbb4c58a6e17910"
+  },
+  {
+    "path": "scripts/security/README.md",
+    "change": "modified",
+    "sha256": "a90673e4e30d327c893de5eab71f6fea0ec8c8ed7087ba15856057ea6801d118"
+  },
+  {
+    "path": "scripts/security/analyzers/check-report.sh",
+    "change": "modified",
+    "sha256": "d7820a38f4b46847a454d16a870c92513f5f66a82df55a0d5c1ad5bcb7f4b41a"
+  },
+  {
+    "path": "scripts/security/analyzers/redact-trivy.jq",
+    "change": "added",
+    "sha256": "2c85b48d15aa09716ae5068c567c7c4f17ae166135bc0560fa474464ce0217fd"
+  },
+  {
+    "path": "scripts/security/check.sh",
+    "change": "modified",
+    "sha256": "6ca18a5f920b676434749ff25da3a7b483dfc2749525f8c839f0e96f4e12895a"
+  },
+  {
+    "path": "scripts/security/native-scanners.md",
+    "change": "added",
+    "sha256": "7ae6f6dfa5b01f5d027d21de849aa509641a9e1ebb8056c2499eecbfdd629106"
+  },
+  {
+    "path": "scripts/security/native.sh",
+    "change": "added",
+    "sha256": "a6dc6d52ca207fce30b5775d351e41d292e8924da99ab760e390b3846aa48c22"
+  },
+  {
+    "path": "scripts/security/prepare-native.sh",
+    "change": "added",
+    "sha256": "37b1eef90862a73d19e46b22b1a149f0996ff159934c38edd990b60c3b9c2501"
+  },
+  {
+    "path": "scripts/tests/test_quality.py",
+    "change": "added",
+    "sha256": "bb62f5079c6cfc7cf42cdf57ea64963f3b7f2d3817b4642725ce2866e9eb27dc"
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "change": "modified",
+    "sha256": "88fcecea4e283aa105080729da1d440ef3448d5670bbf81bd2406848e5013994"
+  },
+  {
+    "path": "sdd/features/first-functional-journey/converge.md",
+    "change": "modified",
+    "sha256": "1aa62ee737711fc41fdac1e1062b412c8fd23cc0a9f01e5d07dad5fdfd18ed0f"
+  },
+  {
+    "path": "sdd/features/first-functional-journey/evidence.json",
+    "change": "modified",
+    "sha256": "33049b5105bcc1b74f2fc07cdf7b37a8c599c7e9208228e03364f9aa40a375f3"
+  },
+  {
+    "path": "sdd/features/governance-adoption/converge.md",
+    "change": "modified",
+    "sha256": "f1bc0c5c08dd79e34dfc9856904948dc4b2ddca5512c14d86b678af0546b2072"
+  },
+  {
+    "path": "sdd/features/governance-adoption/evidence.json",
+    "change": "modified",
+    "sha256": "d70ff74e257fb626284fca3c37f61a85f8c990a1ae3daf928f9cbab07ab8d300"
+  },
+  {
+    "path": "sdd/features/scripts-verification/converge.md",
+    "change": "modified",
+    "sha256": "f5ad08778fb3e410e61c32e022d1266bd72a978dc3686bf9ad5adb6c3c4afefa"
+  },
+  {
+    "path": "sdd/features/scripts-verification/evidence.json",
+    "change": "modified",
+    "sha256": "84d4890cfd3d9988ba66e99203c4d68648d2920ae927f6dd35ca4d82f37d8268"
+  },
+  {
+    "path": "sdd/features/scripts-verification/plan.md",
+    "change": "modified",
+    "sha256": "406c3c4ddfa5bc0f3eb6266d32401a62c3d10c464d5fe344daaa579809e54e09"
+  },
+  {
+    "path": "sdd/features/scripts-verification/spec.md",
+    "change": "modified",
+    "sha256": "c247a618355f3d162bf450cfebcbfe40d2c356895b12c56417bf43561bb87aa5"
+  },
+  {
+    "path": "sdd/features/scripts-verification/tasks.md",
+    "change": "modified",
+    "sha256": "25125948ccf8e7517bd8ffd7cdf420f135da3dfe95a5796d077e89ae92b89afc"
+  },
+  {
+    "path": "sdd/features/scripts-verification/traceability.json",
+    "change": "modified",
+    "sha256": "f8595a8eb480a017409632166726447b75cd416269f9cee00450e51be7cb3ef5"
+  },
+  {
+    "path": "toolbox.json",
+    "change": "modified",
+    "sha256": "36567d09a209c727564510307dea0271c345464794eae58774d59681c15d04a0"
+  }
+]

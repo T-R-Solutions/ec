@@ -1,0 +1,27 @@
+[
+  {
+    "command": [
+      "/usr/bin/firefox",
+      "--version"
+    ],
+    "chunk_id": "f14a90",
+    "wall_time_seconds": 0.00000815,
+    "exit_code": 0,
+    "original_token_count": 6,
+    "output": "Mozilla Firefox 158.0.1\n"
+  },
+  {
+    "command": [
+      "rustup",
+      "run",
+      "1.99.1",
+      "rustc",
+      "--version"
+    ],
+    "chunk_id": "f5c18a",
+    "wall_time_seconds": 0.00000897,
+    "exit_code": 0,
+    "original_token_count": 9,
+    "output": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\n"
+  }
+]

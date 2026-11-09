@@ -1,0 +1,11 @@
+{
+  "docker_cli": "/usr/bin/docker",
+  "uid": 1000,
+  "gid": 1000,
+  "python": "3.13.16 (main, Oct 16 2026, 19:23:15) [GCC]",
+  "machine": "x86_64",
+  "remote_daemon_supported": false,
+  "endpoint": "unix:///var/run/docker.sock",
+  "ready": false,
+  "error": "permission denied while trying to connect to the docker API at unix:///var/run/docker.sock"
+}

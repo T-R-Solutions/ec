@@ -1,0 +1,346 @@
+{
+  "after-inputs.json": {
+    "sha256": "3069cc489aca828cb329710ed61e3da5a11e64857e3240715a07968cb8c2180c",
+    "size": 5778
+  },
+  "before.zip": {
+    "sha256": "44c909f1cb909f564d0a100f32ec1d035e4d0c741e3318a8bc58233df28481ce",
+    "size": 95326
+  },
+  "catalog-inventory.json": {
+    "sha256": "00da81dfe825d3b33d33659f4e43293c181c60dbe5509ebdd13cb4636b83d380",
+    "size": 428
+  },
+  "central-list-after.json": {
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "size": 3
+  },
+  "central-list.json": {
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "size": 3
+  },
+  "changes.json": {
+    "sha256": "137bf0121bb13da1fa906e5803e5d8862c8a424c53e7a7f9797fe32c978992a5",
+    "size": 12812
+  },
+  "codeql-rust-inputs.json": {
+    "sha256": "e335b06b94f5ceeede4cb25f733d807cfe5dc703e10f265dd8d3a68ec9fd3618",
+    "size": 982
+  },
+  "codeql-targets.json": {
+    "sha256": "3b31fa3edaa8483ae6eee980daa3b38f36e300d58822cb9ecae7b33784268d75",
+    "size": 406
+  },
+  "contract-tests.stderr": {
+    "sha256": "f53906e119a14f808c14fb73d53afacd4543573b32ed5f3ef8a20ce3383bc67e",
+    "size": 10742
+  },
+  "coverage.json": {
+    "sha256": "ea2bd22a54494e681f1c465f20aa815c88d9e51cdd7d7194564a2749b962e6d7",
+    "size": 393
+  },
+  "doctor.json": {
+    "sha256": "dd3703a53a6eb83a8eac713916ec70d6a3c77cf9bfb0bf331bce5c2644d00729",
+    "size": 354
+  },
+  "full-run-inputs-after.json": {
+    "sha256": "57180ae2b128be34dd32a4ea0bf21d0de009792ee1333b145eddc1167afc8f6f",
+    "size": 37050
+  },
+  "full-run-inputs.json": {
+    "sha256": "57180ae2b128be34dd32a4ea0bf21d0de009792ee1333b145eddc1167afc8f6f",
+    "size": 37050
+  },
+  "full-run-results.json": {
+    "sha256": "288192e2ae87f841a2cfb76c01679af15395ce6a97ee09feba682ebc7cbbf7ea",
+    "size": 24366
+  },
+  "full-run.stdout": {
+    "sha256": "d1c8a9ab0f251da6e91a4fdebcb48c70e9b300fbf87e76161427fd03982ea1d7",
+    "size": 2437
+  },
+  "git-status-after.txt": {
+    "sha256": "cd039c08416bf0a26ad5383ebaa9d8124ff432d2e30c53cccc4d4a345145fdec",
+    "size": 15057
+  },
+  "git-status-before.txt": {
+    "sha256": "e3a9a3a4c86df1e4360e8215af9627c825009c926e4439fe251590fcb2ba239c",
+    "size": 14995
+  },
+  "governance-publication.stderr": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "governance-publication.stdout": {
+    "sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de",
+    "size": 345
+  },
+  "governance-tests.stderr": {
+    "sha256": "36d8ea7771718632c84abeeb22274e45f0b298981aa41a18ec4a8a2962a29f8d",
+    "size": 4540
+  },
+  "inputs-before.json": {
+    "sha256": "2985e45e04b3deb46ee679baf4dd88cbc9fb07268e1d7f8f1424562216e1b7e4",
+    "size": 6298
+  },
+  "llvm-cov-version.json": {
+    "sha256": "963ba1a75a686d7148f652296004e90c271e11054f0424a346ec9ab5ffd59c36",
+    "size": 138
+  },
+  "native-diagnostics/full-06-scripts-shellcheck-00-shellcheck.json": {
+    "sha256": "c9018f70ccd46ef48541008c502a145fca964c4f26f982ea5be6a4fb0b82a5a9",
+    "size": 363
+  },
+  "native-diagnostics/full-07-scripts-ruff-00-ruff.json": {
+    "sha256": "afe6470d9350d615fe94953d4fe61c6f58fd79050df3094edf85a06daa5030fb",
+    "size": 357
+  },
+  "native-diagnostics/full-31-security-secrets-rules-00-gitleaks.json": {
+    "sha256": "c97f2376d8dbc9f94163f9aaa7d99cf61b30b64226a053cef5187930eab969ea",
+    "size": 361
+  },
+  "native-diagnostics/full-33-security-sast-rules-00-opengrep.json": {
+    "sha256": "4efb79bff1fd9a345f9455b0089f4938abdf247a46e244f2dec28296143cdc14",
+    "size": 361
+  },
+  "native-diagnostics/full-35-security-dependencies-00-osv-scanner.json": {
+    "sha256": "926dd11554d961c9269b9c74c1be17cf11c5ed99a413ff34aab519435983319c",
+    "size": 364
+  },
+  "native-diagnostics/full-36-security-trivy-00-trivy.json": {
+    "sha256": "c7b9bc62bf8f3748dd507f7b5b3c08c196fbd3601031cf32571992cacb6480ec",
+    "size": 358
+  },
+  "native-diagnostics/full-37-security-codeql-00-codeql.json": {
+    "sha256": "584bda25f3eb7c0383fce945fa53b53da4a8386e181daa60208f53e64f24e81e",
+    "size": 359
+  },
+  "native-diagnostics/full-37-security-codeql-01-codeql.json": {
+    "sha256": "3e7a28ed4e62a1bac523ebe6456e2adc7d6ae362ec1eaed86e3f3f9d0b04202d",
+    "size": 359
+  },
+  "native-diagnostics/full-37-security-codeql-02-codeql.json": {
+    "sha256": "5230483424c6f55e90569c7a4771a2464259e50ef9d411c87016ee1c03f04561",
+    "size": 359
+  },
+  "native-diagnostics/full-41-e2e-playwright-00-playwright.json": {
+    "sha256": "a1ceb678e1c76ce862735ef38be6e04be4ce0a2724a83d6d1fe66bac61c1a37b",
+    "size": 363
+  },
+  "native-diagnostics/optional-05-security-grype-00-grype.json": {
+    "sha256": "dd33da49692d648276976c7c35b9054c4b68e849ad8a0b973ae2791fb2707393",
+    "size": 358
+  },
+  "native-diagnostics/optional-06-security-bandit-00-bandit.json": {
+    "sha256": "17a34667b8a1ac6f5ff6f9d3633276daba73f5db2b0a420b3fadf9ea6ccf5efc",
+    "size": 359
+  },
+  "native-diagnostics/optional-07-security-syft-00-syft.json": {
+    "sha256": "6e207de94fc00261b6e506bf8c7579bf9836960e9805f44e8195c685fa1d662b",
+    "size": 357
+  },
+  "native-diagnostics/optional-08-security-yara-x-00-yara-x.json": {
+    "sha256": "d785d4718c0a6d315dd05367d71d1a5c2f42b56bba79366599d268f25da1e22a",
+    "size": 359
+  },
+  "operations.json": {
+    "sha256": "84a8a228a3ec290398cb3c48584eb42fe4d0919b7d4a65889cf85112666fc6bf",
+    "size": 8573
+  },
+  "optional-results.json": {
+    "sha256": "b71989adaf3d6115327e23f0530127b91fdaad8943781612dbeadd8800aa4a73",
+    "size": 4664
+  },
+  "optional-run.stdout": {
+    "sha256": "9c457fe2c9417494008fc29def7674c31136e5e9e4b7298d8ac370122599eafc",
+    "size": 615
+  },
+  "product-tools.json": {
+    "sha256": "cd100bd40169730c42aed15bf361f0074d4a22416b6e8bb1661924b36d701d92",
+    "size": 1627
+  },
+  "publication-first-attempt/sdd-acceptance.stderr": {
+    "sha256": "2b42dfde92e27eeb082e509965455ad52c92ae598c0b7b7dcc764df6ad123734",
+    "size": 35
+  },
+  "publication-first-attempt/sdd-acceptance.stdout": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "publication-first-attempt/sdd-fresh.stderr": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "publication-first-attempt/sdd-fresh.stdout": {
+    "sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d",
+    "size": 149
+  },
+  "recovery.md": {
+    "sha256": "2be3fe714c6e2cd9adc4cffe0a071798a90e54b319af8aad48a2fea3a21fac2e",
+    "size": 2831
+  },
+  "references.md": {
+    "sha256": "2423d53cd09a784f8a9c9913bdfd33b1501f75d8300cd1e282abc72d90a886fe",
+    "size": 4866
+  },
+  "report.md": {
+    "sha256": "2c19b93c3e40d530d43b47f0b88a5c5589cb79492d12c3cb41999510e66629e0",
+    "size": 15040
+  },
+  "rounds/run-Mol8xL9N/firefox.log": {
+    "sha256": "13e4cfbee9674b471528619b7b9a3044a314d66f89316ac26091271be768a408",
+    "size": 744
+  },
+  "rounds/run-Mol8xL9N/firefox.stderr.log": {
+    "sha256": "518509cf3dcc8946605b2078d36bd7b07bc84679a327d659fc435b9fe1a9ee7d",
+    "size": 831
+  },
+  "rounds/run-Mol8xL9N/results.json": {
+    "sha256": "4a37e54bcae7db07631de12c319b97a5b92cece7f1493c5901fd0b560cb2805f",
+    "size": 23832
+  },
+  "rounds/run-fbfcTlTR/contract-tests.stderr": {
+    "sha256": "62683f0222b6f1463d8795e0c164b5740310f31c3210a27ede6e872d12a0b983",
+    "size": 10237
+  },
+  "rounds/run-fbfcTlTR/full-run-inputs-after.json": {
+    "sha256": "97697d6e0eb27744532cf9adce2d398eb346e6a3e79b3821a9844de61d0ba9dd",
+    "size": 37050
+  },
+  "rounds/run-fbfcTlTR/full-run-inputs.json": {
+    "sha256": "97697d6e0eb27744532cf9adce2d398eb346e6a3e79b3821a9844de61d0ba9dd",
+    "size": 37050
+  },
+  "rounds/run-fbfcTlTR/full-run-results.json": {
+    "sha256": "b0dbe03b1e8c09a55c1f731d261ac4d0fde230cee26827f167b4010309a7c95d",
+    "size": 23764
+  },
+  "rounds/run-fbfcTlTR/full-run.stdout": {
+    "sha256": "6530a2d7a5cc2d023189e8c702e4d5eb88a8fbb6b47104c33ba05ae7e3bf18b8",
+    "size": 2437
+  },
+  "rounds/run-fbfcTlTR/governance-tests.stderr": {
+    "sha256": "7f270233efed182490d81c09ce8c5ea6c0df396b693cd0e93ef1c04a4267bfe8",
+    "size": 4540
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-06-scripts-shellcheck-00-shellcheck.json": {
+    "sha256": "ae7b7199512568664291642e4f48f2592f053bcb25196e1973f76f48b40ea1eb",
+    "size": 363
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-07-scripts-ruff-00-ruff.json": {
+    "sha256": "c55a49c054ee6896dd9be0a88b7610661d61621ebbfe2eb79a7b534e277eee1c",
+    "size": 357
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-31-security-secrets-rules-00-gitleaks.json": {
+    "sha256": "1c4004d83e2a59609a345f70e9b41ff97c92e4dc48dbe33f0ddd07662288ed8f",
+    "size": 361
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-33-security-sast-rules-00-opengrep.json": {
+    "sha256": "3074e3418abe8a38556a01498e7c5c4727dd7ee57eb12b4936aad42960cfa812",
+    "size": 361
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-35-security-dependencies-00-osv-scanner.json": {
+    "sha256": "e1b4c1c231b63f0060f25d5022777bf0645d2957c3b66a9a1791a51e73d0c0ae",
+    "size": 364
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-36-security-trivy-00-trivy.json": {
+    "sha256": "6080fccb0dd4b4c9f9c7980dab31e0d7674800c549ae9188041fb0cd497da081",
+    "size": 358
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-37-security-codeql-00-codeql.json": {
+    "sha256": "338c94693144774f2ef8b322d6aea0bbc89e0b2885886f66fec49881af4a23b4",
+    "size": 359
+  },
+  "rounds/run-fbfcTlTR/native-diagnostics/full-41-e2e-playwright-00-playwright.json": {
+    "sha256": "439aa10c5c12c5c20995043b1e53574adc81ca91ceba019770fd2bb78022692c",
+    "size": 363
+  },
+  "rounds/run-fbfcTlTR/operations.json": {
+    "sha256": "6b226f5e4b6f4c3e005615782720ca7f5415d7e090812819ba003d04824ac3b5",
+    "size": 5216
+  },
+  "rounds/run-fbfcTlTR/report.md": {
+    "sha256": "f6606d8483f5f897ac61aadf25cac3bb0377f47d40232e88df6d34662e60005c",
+    "size": 13350
+  },
+  "rounds/run-zOrKuWph/codeql-targets.json": {
+    "sha256": "8fba657d60e9bc76b5de86e033dd48ecc192e364d3ed828210877796f4f88edd",
+    "size": 420
+  },
+  "rounds/run-zOrKuWph/contract-tests.stderr": {
+    "sha256": "1686f6fbe7b556eedfa16e0c36510ec58e263b2f67f4332cf1fd30bce750c92f",
+    "size": 10742
+  },
+  "rounds/run-zOrKuWph/full-run-inputs-after.json": {
+    "sha256": "1a554d5a924c50e0a53bd81936ceaf86c2ff8113e3f88c85527004c7e86cff98",
+    "size": 37050
+  },
+  "rounds/run-zOrKuWph/full-run-inputs.json": {
+    "sha256": "1a554d5a924c50e0a53bd81936ceaf86c2ff8113e3f88c85527004c7e86cff98",
+    "size": 37050
+  },
+  "rounds/run-zOrKuWph/full-run-results.json": {
+    "sha256": "91583dc749fac00e3ae570df9e5c3cb150a5bd6c5c109dbf90686779e6930568",
+    "size": 23786
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-06-scripts-shellcheck-00-shellcheck.json": {
+    "sha256": "cd261634608387358292fe32a95055f764d087e4d42b0cf91a855f55a2e17bcc",
+    "size": 363
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-07-scripts-ruff-00-ruff.json": {
+    "sha256": "76368e98a48e98b15da50b913e40eb8a39296a1635a40e97c0bf5d3c76423b7a",
+    "size": 357
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-31-security-secrets-rules-00-gitleaks.json": {
+    "sha256": "d8daa64ba9788d4a95ab43fd6944e9eb7d4aa76e1bbc998c92aba6895f3991e6",
+    "size": 361
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-33-security-sast-rules-00-opengrep.json": {
+    "sha256": "d04412c88ec8f44a662491c90604a561c7e8c19757d53ebe8e02a3434fc22cd5",
+    "size": 361
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-35-security-dependencies-00-osv-scanner.json": {
+    "sha256": "bc704c9b6c7252cbe0280f5ceef62eccec65a359092313f131abc1d0cf19cd1b",
+    "size": 364
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-36-security-trivy-00-trivy.json": {
+    "sha256": "42bd112c8157a72487a9ca64a97af0d6e45d0e8c7d74a79e333cb61b913ade31",
+    "size": 358
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-37-security-codeql-00-codeql.json": {
+    "sha256": "98f68315f1850d0d5507f407bcad59140b8e96de616ae02d31b5c6f0b390c4f3",
+    "size": 359
+  },
+  "rounds/run-zOrKuWph/native-diagnostics/full-41-e2e-playwright-00-playwright.json": {
+    "sha256": "d06084cf3e82278c0f7911ca780e43b3225bf76d481dd1448d1120fa52e884b7",
+    "size": 363
+  },
+  "rounds/run-zOrKuWph/operations.json": {
+    "sha256": "7a0f2ea1a2daaf1e626ad60a31a2206797a8dc0a14fb741c167f4ae0188729ce",
+    "size": 7424
+  },
+  "runtime-versions.json": {
+    "sha256": "0ae41648d4100907c851ca38ffed67165e2e91731fd58354190b8dcd6140c203",
+    "size": 515
+  },
+  "sdd-acceptance.stderr": {
+    "sha256": "2bcb7da572bf405f36652bdd5110b25c75d2681dca9aedad109946d6619c7cf6",
+    "size": 2683
+  },
+  "sdd-acceptance.stdout": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "sdd-fresh.stderr": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  "sdd-fresh.stdout": {
+    "sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d",
+    "size": 149
+  },
+  "shellcheck-probe.json": {
+    "sha256": "1e5abfae450cd3b2695e26dd8ad7b61d6815256cbce6a93d00b0140ab990d9b7",
+    "size": 363
+  }
+}

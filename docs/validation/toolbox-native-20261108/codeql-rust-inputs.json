@@ -1,0 +1,24 @@
+{
+  "selected_environment": {
+    "EC_CODEQL_RUSTUP_HOME": "/home/rodrigo/.rustup",
+    "EC_CODEQL_CARGO_HOME": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home",
+    "EC_CODEQL_CARGO_BIN": "/home/rodrigo/.cargo/bin"
+  },
+  "toolchain": "1.99.1",
+  "rustup_launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+  "dependency_manifests": [
+    {
+      "target": "server",
+      "path": ".local/automation/runs/run-13bf8eQO/37-security-codeql/codeql-server-dependencies.json",
+      "files": 6219,
+      "sha256": "d7b3187246e41909f75a725403b5cdb8c8915271295d023a0fd90e4116abc5b5"
+    },
+    {
+      "target": "agent",
+      "path": ".local/automation/runs/run-13bf8eQO/37-security-codeql/codeql-agent-dependencies.json",
+      "files": 6219,
+      "sha256": "d7b3187246e41909f75a725403b5cdb8c8915271295d023a0fd90e4116abc5b5"
+    }
+  ],
+  "image_compatibility": "UNVERIFIED: nenhuma imagem central ativa; nenhum runtime executado no container."
+}

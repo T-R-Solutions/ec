@@ -1,0 +1,716 @@
+[
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 54,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'createdb', '-U', 'postgres', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 54,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'createdb', '-U', 'postgres', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 73,
+    "rule": "S603",
+    "original": "subprocess.run(['git','init','-q',str(repo)],check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 73,
+    "rule": "S607",
+    "original": "subprocess.run(['git','init','-q',str(repo)],check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 75,
+    "rule": "S603",
+    "original": "subprocess.run(['git','-C',str(repo),'add','.'],check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 75,
+    "rule": "S607",
+    "original": "subprocess.run(['git','-C',str(repo),'add','.'],check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 76,
+    "rule": "S603",
+    "original": "subprocess.run(['git','-C',str(repo),'-c','user.name=Ec Test','-c','user.email=test@example.invalid','commit','-qm','fixture'],check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 76,
+    "rule": "S607",
+    "original": "subprocess.run(['git','-C',str(repo),'-c','user.name=Ec Test','-c','user.email=test@example.invalid','commit','-qm','fixture'],check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 77,
+    "rule": "S603",
+    "original": "commit = subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 77,
+    "rule": "S607",
+    "original": "commit = subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 95,
+    "rule": "S603",
+    "original": "processes.append(subprocess.Popen(['npm','run','dev','--','--port','5173','--strictPort'],cwd=FRONT,stdout=vite_log,stderr=subprocess.STDOUT,start_new_session=True))",
+    "disposition": "npm do PATH confiável do operador; script dev versionado, cwd frontend fixo, argumentos literais."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 95,
+    "rule": "S607",
+    "original": "processes.append(subprocess.Popen(['npm','run','dev','--','--port','5173','--strictPort'],cwd=FRONT,stdout=vite_log,stderr=subprocess.STDOUT,start_new_session=True))",
+    "disposition": "npm do PATH confiável do operador; script dev versionado, cwd frontend fixo, argumentos literais."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 107,
+    "rule": "S603",
+    "original": "firefox = subprocess.Popen(['/usr/bin/firefox','--headless','--no-remote','--profile',str(profile),'--marionette'],env=dict(os.environ,MOZ_REMOTE_ALLOW_SYSTEM_ACCESS='1'),stdout=ff_log,stderr=subprocess.STDOUT,start_new_session=True)",
+    "disposition": "Firefox absoluto do sistema; flags literais e perfil temporário privado, sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 173,
+    "rule": "S603",
+    "original": "agent=subprocess.Popen([str(AGENT),str(config)],stdout=subprocess.DEVNULL,stderr=subprocess.PIPE);processes.append(agent)",
+    "disposition": "Agent compilado em caminho fixo do checkout; configuração privada criada pelo harness, sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 237,
+    "rule": "S603",
+    "original": "process=subprocess.Popen([str(AGENT),str(ac)],stdout=subprocess.DEVNULL,stderr=subprocess.PIPE);processes.append(process)",
+    "disposition": "Agent compilado em caminho fixo do checkout; configuração privada criada pelo harness, sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 290,
+    "rule": "S603",
+    "original": "(ART/'browser-results.json').write_text(json.dumps({'browser':subprocess.check_output(['/usr/bin/firefox','--version'],text=True).strip(),'results':results,'viewports':viewports,'oracles':{'yamlSha256':revision['sha256'],'runId':run['runId'],'revisionId':1,'commit':commit,'artifactSha256':hashlib.sha256((repo/'pinned').read_bytes()).hexdigest(),'artifactSize':len((repo/'pinned').read_bytes())},'limitations':['Interação de campos usa eventos DOM via Marionette; cliques nativos WebDriver. Sem leitor de tela.','Falhas de transporte injetadas no fetch do Firefox; respostas de domínio e persistência são reais.','Sem teste com leitor de tela ou certificação WCAG completa; foco/teclado e reflow observados neste Firefox.']},ensure_ascii=False,indent=2)+'\\n')",
+    "disposition": "Firefox absoluto do sistema; flags literais e perfil temporário privado, sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 292,
+    "rule": "S603",
+    "original": "subprocess.run(['docker','exec',h.CONTAINER,'dropdb','-U','postgres','--force',h.DATABASE],check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/e2e/frontend_firefox.py",
+    "original_line": 292,
+    "rule": "S607",
+    "original": "subprocess.run(['docker','exec',h.CONTAINER,'dropdb','-U','postgres','--force',h.DATABASE],check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 28,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'createdb', '-U', 'postgres', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 28,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'createdb', '-U', 'postgres', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 41,
+    "rule": "S603",
+    "original": "subprocess.run(['git', 'init', '-q', str(repo)], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 41,
+    "rule": "S607",
+    "original": "subprocess.run(['git', 'init', '-q', str(repo)], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 44,
+    "rule": "S603",
+    "original": "subprocess.run(['git', '-C', str(repo), 'add', '.'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 44,
+    "rule": "S607",
+    "original": "subprocess.run(['git', '-C', str(repo), 'add', '.'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 45,
+    "rule": "S603",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'fixture'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 45,
+    "rule": "S607",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '-qm', 'fixture'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 46,
+    "rule": "S603",
+    "original": "return subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 46,
+    "rule": "S607",
+    "original": "return subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 75,
+    "rule": "S603",
+    "original": "p = subprocess.Popen([str(AGENT), str(config)], stderr=subprocess.PIPE, stdout=subprocess.DEVNULL, env=dict(os.environ, **(extra_env or {})))",
+    "disposition": "Agent compilado em caminho fixo do checkout; configuração privada criada pelo harness, sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 117,
+    "rule": "S608",
+    "original": "assert h.sql(f'SELECT sum(octet_length(data)) FROM output_logs WHERE attempt_id={a[\"attemptId\"]}').stdout.strip() == '16777216'",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 120,
+    "rule": "S608",
+    "original": "assert h.sql(f'SELECT count(*) FROM output_uploads WHERE attempt_id={a[\"attemptId\"]} AND receipt IS NOT NULL').stdout.strip() == '0'",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 129,
+    "rule": "S608",
+    "original": "a_id = wait(lambda: h.sql(f\"SELECT id FROM attempts WHERE run_id={run} AND state='running'\").stdout.strip())",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 147,
+    "rule": "S608",
+    "original": "aid = wait(lambda: h.sql(f\"SELECT id FROM attempts WHERE run_id={run} AND state='running'\").stdout.strip())",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 150,
+    "rule": "S608",
+    "original": "session_before = h.sql(f'SELECT session_id FROM attempts WHERE id={aid}').stdout",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 155,
+    "rule": "S608",
+    "original": "assert h.sql(f'SELECT session_id FROM attempts WHERE id={aid}').stdout == session_before",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 162,
+    "rule": "S608",
+    "original": "aid = h.sql(f'SELECT id FROM attempts WHERE run_id={run}').stdout.strip()",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 163,
+    "rule": "S608",
+    "original": "before_lease = h.sql(f'SELECT lease_until FROM attempts WHERE id={aid}').stdout",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 164,
+    "rule": "S608",
+    "original": "wait(lambda: h.sql(f'SELECT lease_until FROM attempts WHERE id={aid}').stdout != before_lease)",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 172,
+    "rule": "S608",
+    "original": "aid = wait(lambda: h.sql(f\"SELECT id FROM attempts WHERE run_id={run} AND state='running'\").stdout.strip())",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 176,
+    "rule": "S608",
+    "original": "h.sql(f\"UPDATE attempts SET lease_until=clock_timestamp()-interval '1 second' WHERE id={aid}\")",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 183,
+    "rule": "S608",
+    "original": "aid2 = wait(lambda: h.sql(f\"SELECT id FROM attempts WHERE run_id={run} AND ordinal=2 AND state='running'\").stdout.strip())",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 184,
+    "rule": "S608",
+    "original": "h.sql(f\"UPDATE attempts SET lease_until=clock_timestamp()-interval '1 second' WHERE id={aid2}\")",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 193,
+    "rule": "S608",
+    "original": "aid = wait(lambda: h.sql(f\"SELECT id FROM attempts WHERE run_id={run} AND state='running'\").stdout.strip())",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 236,
+    "rule": "S608",
+    "original": "assert h.sql(f\"SELECT count(*) FROM output_uploads WHERE attempt_id={a['attemptId']} AND receipt IS NOT NULL\").stdout.strip() == '0'",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 270,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'dropdb', '-U', 'postgres', '--force', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/agent_http.py",
+    "original_line": 270,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'dropdb', '-U', 'postgres', '--force', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 77,
+    "rule": "S603",
+    "original": "self.process = subprocess.Popen(['docker', 'exec', '-i', h.CONTAINER, 'psql', '-U', 'postgres', '-d', h.DATABASE, '-At', '-v', 'ON_ERROR_STOP=1'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 77,
+    "rule": "S607",
+    "original": "self.process = subprocess.Popen(['docker', 'exec', '-i', h.CONTAINER, 'psql', '-U', 'postgres', '-d', h.DATABASE, '-At', '-v', 'ON_ERROR_STOP=1'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 105,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'createdb', '-U', 'postgres', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 105,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'createdb', '-U', 'postgres', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 130,
+    "rule": "S603",
+    "original": "subprocess.run(['git', 'init', '-q', str(repo)], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 130,
+    "rule": "S607",
+    "original": "subprocess.run(['git', 'init', '-q', str(repo)], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 131,
+    "rule": "S603",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-qm', 'fixture'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 131,
+    "rule": "S607",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-qm', 'fixture'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 132,
+    "rule": "S603",
+    "original": "commit = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 132,
+    "rule": "S607",
+    "original": "commit = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 165,
+    "rule": "S603",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-qm', 'second'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 165,
+    "rule": "S607",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-qm', 'second'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 166,
+    "rule": "S603",
+    "original": "commit2 = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 166,
+    "rule": "S607",
+    "original": "commit2 = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 233,
+    "rule": "S608",
+    "original": "h.sql(\"UPDATE attempts SET lease_until=clock_timestamp()+interval '0.3 seconds' WHERE id=\" + str(a['attemptId']) + ';')",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 244,
+    "rule": "S608",
+    "original": "h.sql(\"UPDATE attempts SET lease_until=clock_timestamp()-interval '1 second' WHERE id=\" + str(b['attemptId']) + ';')",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 277,
+    "rule": "S608",
+    "original": "h.sql(\"UPDATE agent_sessions SET expires=clock_timestamp()-interval '1 second' WHERE id='\" + sa2['agentSessionId'] + \"';\")",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 307,
+    "rule": "S608",
+    "original": "h.sql(\"UPDATE attempts SET lease_until=clock_timestamp()-interval '1 second' WHERE id=\" + str(a['attemptId']) + ';')",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 320,
+    "rule": "S608",
+    "original": "h.sql(\"UPDATE attempts SET lease_until=clock_timestamp()+interval '0.5 seconds' WHERE id=\" + str(a['attemptId']) + ';')",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 323,
+    "rule": "S608",
+    "original": "wait_for(lambda: h.sql('SELECT lease_until<=clock_timestamp() FROM attempts WHERE id=' + str(a['attemptId']) + ';').stdout.strip() == 't')",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 325,
+    "rule": "S608",
+    "original": "assert h.sql('SELECT state FROM attempts WHERE id=' + str(a['attemptId']) + ';').stdout.strip() == 'assigned'",
+    "disposition": "Corrigido: valores transmitidos por variáveis psql com quoting de literal, sem interpolação SQL."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 383,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'dropdb', '-U', 'postgres', '--if-exists', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/orchestration_http.py",
+    "original_line": 383,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', h.CONTAINER, 'dropdb', '-U', 'postgres', '--if-exists', h.DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 26,
+    "rule": "S603",
+    "original": "return subprocess.run(['docker', 'exec', '-i', CONTAINER, 'psql', '-U', 'postgres', '-d', DATABASE, '-At', '-v', 'ON_ERROR_STOP=1'], input=query, text=True, capture_output=True, check=check)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 26,
+    "rule": "S607",
+    "original": "return subprocess.run(['docker', 'exec', '-i', CONTAINER, 'psql', '-U', 'postgres', '-d', DATABASE, '-At', '-v', 'ON_ERROR_STOP=1'], input=query, text=True, capture_output=True, check=check)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 30,
+    "rule": "S603",
+    "original": "subprocess.run([str(BIN), *args], env=ENV, check=True, capture_output=True)",
+    "disposition": "Server compilado em caminho fixo; subcomandos e argumentos dos testes locais, sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 40,
+    "rule": "S310",
+    "original": "request = urllib.request.Request(BASE + path, data=data, headers=headers, method=method)",
+    "disposition": "Corrigido: HTTPConnection fixo em loopback; sem proxies, outros protocolos ou redirects automáticos."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 42,
+    "rule": "S310",
+    "original": "with urllib.request.urlopen(request, timeout=15) as response:",
+    "disposition": "Corrigido: HTTPConnection fixo em loopback; sem proxies, outros protocolos ou redirects automáticos."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 62,
+    "rule": "S603",
+    "original": "process = subprocess.Popen([str(BIN), 'serve'], env=ENV, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)",
+    "disposition": "Server compilado em caminho fixo; subcomandos e argumentos dos testes locais, sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 81,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', CONTAINER, 'createdb', '-U', 'postgres', DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 81,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', CONTAINER, 'createdb', '-U', 'postgres', DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 97,
+    "rule": "S603",
+    "original": "subprocess.run(['git', 'init', '-q', str(repo)], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 97,
+    "rule": "S607",
+    "original": "subprocess.run(['git', 'init', '-q', str(repo)], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 98,
+    "rule": "S603",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-qm', 'fixture'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 98,
+    "rule": "S607",
+    "original": "subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Ec Test', '-c', 'user.email=test@example.invalid', 'commit', '--allow-empty', '-qm', 'fixture'], check=True)",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 99,
+    "rule": "S603",
+    "original": "commit = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 99,
+    "rule": "S607",
+    "original": "commit = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()",
+    "disposition": "Git do PATH confiável do operador; comandos literais sobre repositório temporário criado pelo teste, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 149,
+    "rule": "S603",
+    "original": "locker = subprocess.Popen(['docker', 'exec', '-i', CONTAINER, 'psql', '-U', 'postgres', '-d', DATABASE, '-At'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 149,
+    "rule": "S607",
+    "original": "locker = subprocess.Popen(['docker', 'exec', '-i', CONTAINER, 'psql', '-U', 'postgres', '-d', DATABASE, '-At'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 213,
+    "rule": "S603",
+    "original": "subprocess.run(['docker', 'exec', CONTAINER, 'dropdb', '-U', 'postgres', '--if-exists', '--force', DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "application/integration/tests/integration/publication_http.py",
+    "original_line": 213,
+    "rule": "S607",
+    "original": "subprocess.run(['docker', 'exec', CONTAINER, 'dropdb', '-U', 'postgres', '--if-exists', '--force', DATABASE], check=True)",
+    "disposition": "Docker do PATH confiável do operador; container dedicado literal, banco UUID do harness, argv sem shell."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 33,
+    "rule": "S603",
+    "original": "return subprocess.run(['bash', str(SCRIPTS / script), *map(str, args)],",
+    "disposition": "Bash do PATH confiável; script versionado ou programa literal, argumentos separados, sem interpolação em código shell."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 33,
+    "rule": "S607",
+    "original": "return subprocess.run(['bash', str(SCRIPTS / script), *map(str, args)],",
+    "disposition": "Bash do PATH confiável; script versionado ou programa literal, argumentos separados, sem interpolação em código shell."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 58,
+    "rule": "S603",
+    "original": "return subprocess.Popen(['bash', '-c', harness, 'fixture', str(ROOT), str(self.root), str(plan)],",
+    "disposition": "Bash do PATH confiável; programa harness literal, caminhos passados como parâmetros posicionais."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 58,
+    "rule": "S607",
+    "original": "return subprocess.Popen(['bash', '-c', harness, 'fixture', str(ROOT), str(self.root), str(plan)],",
+    "disposition": "Bash do PATH confiável; programa harness literal, caminhos passados como parâmetros posicionais."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 70,
+    "rule": "S108",
+    "original": "result = self.shell('automate.sh', 'plan', cwd='/tmp')",
+    "disposition": "Corrigido: cwd/escape usam diretório temporário gerenciado pelo teste, sem /tmp literal."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 109,
+    "rule": "S108",
+    "original": "result = self.shell('automate.sh', 'plan', '--root', self.root, '--surface', 'scripts', cwd='/tmp')",
+    "disposition": "Corrigido: cwd/escape usam diretório temporário gerenciado pelo teste, sem /tmp literal."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 155,
+    "rule": "S108",
+    "original": "(self.root / 'scripts').symlink_to('/tmp', target_is_directory=True)",
+    "disposition": "Corrigido: cwd/escape usam diretório temporário gerenciado pelo teste, sem /tmp literal."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 159,
+    "rule": "S603",
+    "original": "result = subprocess.run(['bash', '-c', 'source \"$1\"; inside \"$2\" ../outside',",
+    "disposition": "Bash do PATH confiável; script versionado ou programa literal, argumentos separados, sem interpolação em código shell."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 159,
+    "rule": "S607",
+    "original": "result = subprocess.run(['bash', '-c', 'source \"$1\"; inside \"$2\" ../outside',",
+    "disposition": "Bash do PATH confiável; script versionado ou programa literal, argumentos separados, sem interpolação em código shell."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 227,
+    "rule": "S105",
+    "original": "self.env['EC_TEST_SECRET_TOKEN'] = 'do-not-inherit'",
+    "disposition": "Corrigido: sentinela aleatória de teste para provar remoção de variável do ambiente."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 289,
+    "rule": "S603",
+    "original": "self.assertEqual(subprocess.run(args, capture_output=True).returncode, 0)",
+    "disposition": "argv criado neste teste com Bash e parser versionado; arquivo JSON fixture separado, sem shell=True."
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "original_line": 291,
+    "rule": "S603",
+    "original": "self.assertEqual(subprocess.run(args, capture_output=True).returncode, 2)",
+    "disposition": "argv criado neste teste com Bash e parser versionado; arquivo JSON fixture separado, sem shell=True."
+  },
+  {
+    "path": "tools/governance/tests/test_governance.py",
+    "original_line": 244,
+    "rule": "S603",
+    "original": "result = subprocess.run(",
+    "disposition": "Interpretador sys.executable; programa literal do teste de interrupção/lock, caminhos separados em argv."
+  },
+  {
+    "path": "tools/governance/tests/test_governance.py",
+    "original_line": 267,
+    "rule": "S603",
+    "original": "result = subprocess.run([sys.executable, '-c', script,",
+    "disposition": "Interpretador sys.executable; programa literal do teste de interrupção/lock, caminhos separados em argv."
+  },
+  {
+    "path": "tools/governance/tests/test_governance.py",
+    "original_line": 311,
+    "rule": "S603",
+    "original": "result = subprocess.run([sys.executable, '-c', script,",
+    "disposition": "Interpretador sys.executable; programa literal do teste de interrupção/lock, caminhos separados em argv."
+  }
+]

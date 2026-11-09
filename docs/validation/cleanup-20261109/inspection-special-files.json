@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-09T16:02:30.357041+00:00",
+  "correction": "inspection.json tratou inicialmente entradas especiais como bytes divergentes. Reobservação separada das duas FIFOs; resultado inicial preservado.",
+  "special_files": [
+    {
+      "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stderr.pipe",
+      "before": {
+        "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stderr.pipe",
+        "mode": 384,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 0,
+        "mtime_ns": 1794194166252407229,
+        "device": 66307,
+        "inode": 1617680710,
+        "nlink": 1,
+        "special": true
+      },
+      "after": {
+        "device": 66307,
+        "inode": 1617680710,
+        "mode": 384,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 0,
+        "mtime_ns": 1794194166252407229,
+        "is_fifo": true
+      },
+      "same_identity_and_metadata": true,
+      "observation": "FIFO histórica mantida; sem conteúdo regular para SHA-256; não aberta nem drenada."
+    },
+    {
+      "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stdout.pipe",
+      "before": {
+        "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stdout.pipe",
+        "mode": 384,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 0,
+        "mtime_ns": 1794194150541391253,
+        "device": 66307,
+        "inode": 1617680709,
+        "nlink": 1,
+        "special": true
+      },
+      "after": {
+        "device": 66307,
+        "inode": 1617680709,
+        "mode": 384,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 0,
+        "mtime_ns": 1794194150541391253,
+        "is_fifo": true
+      },
+      "same_identity_and_metadata": true,
+      "observation": "FIFO histórica mantida; sem conteúdo regular para SHA-256; não aberta nem drenada."
+    }
+  ],
+  "counts": {
+    "unchanged": 209551,
+    "modified": 13,
+    "removed": 32
+  },
+  "unexpected_regular_changes": [],
+  "all_special_identities_preserved": true,
+  "regular_log_files_preserved": 4262
+}

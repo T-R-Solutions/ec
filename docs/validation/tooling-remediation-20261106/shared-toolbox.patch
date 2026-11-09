@@ -1,0 +1,465 @@
+--- a/toolbox/config.py
++++ b/toolbox/config.py
+@@ -119,7 +119,9 @@
+                 raise ConfigError(f'{where}.{field}: expected positive finite number')
+         if name == 'gitleaks' and spec.get('mode', 'files') not in ['files', 'history']:
+             raise ConfigError(f'{where}.mode: files or history')
+-        if name != 'gitleaks' and 'mode' in spec:
++        if name == 'opengrep' and spec.get('mode', 'scan') not in ('scan', 'test'):
++            raise ConfigError('opengrep mode: scan or test')
++        if name not in ('gitleaks', 'opengrep') and 'mode' in spec:
+             raise ConfigError(f'{where}.mode: unsupported for this tool')
+         if 'variant' in spec and (name != 'playwright' or spec['variant'] not in ['api', 'chromium', 'firefox', 'webkit']):
+             raise ConfigError(f'{where}.variant: Playwright accepts api, chromium, firefox, webkit')
+--- a/toolbox/runner.py
++++ b/toolbox/runner.py
+@@ -2,6 +2,7 @@
+ import shutil
+ import os
+ import re
++import datetime as dt
+ import hashlib
+ from pathlib import Path
+ from . import docker
+@@ -95,13 +96,17 @@
+                         if not candidate.is_relative_to(source) or not candidate.exists():
+                             raise ValueError(f'input is missing or escapes consumer root: {path}')
+                     database = None
+-                    if name == 'grype':
++                    if name in ('grype', 'osv-scanner'):
+                         if not spec.get('database'):
+-                            raise ValueError('Grype database snapshot not selected')
++                            raise ValueError('database snapshot not selected')
+                         database = store.database(name, spec['version'], spec['database'])
+                         metadata = read_json(database.parent / (spec['database'] + '.json'))
+                         if digest(tree_manifest(database)) != spec['database'] or metadata['version'] != spec['version']:
+                             raise ValueError('database snapshot integrity/version mismatch')
++                        if name == 'osv-scanner':
++                            age = (dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(metadata['prepared_at'].replace('Z', '+00:00'))).total_seconds()
++                            if not 0 <= age <= spec['max_database_age_hours'] * 3600:
++                                raise ValueError('OSV database expired or future dated')
+                         shutil.copytree(database, output / 'database')
+                         record['database'] = metadata
+                     if name == 'playwright':
+@@ -116,6 +121,13 @@
+                     execution = docker.execute(cmd, container, output, spec.get('timeout', 600))
+                     record.update(execution)
+                     status, reason = classify(adapter(name, spec['version']), execution, output)
++                    if database and digest(tree_manifest(output / 'database')) != spec['database']:
++                        raise ValueError('scanner changed database snapshot')
++                    if name == 'osv-scanner' and status in ('success', 'findings'):
++                        report = read_json(output / 'stdout.log')
++                        expected = sorted('/src/' + path for path in spec['paths'])
++                        if sorted(item['source']['path'] for item in report['results']) != expected:
++                            raise ValueError('OSV did not scan every explicit lockfile')
+                     record.update(status=status, reason=reason)
+                     if execution.get('cancelled'):
+                         summary['cancelled'] = True
+--- a/toolbox/prepare.py
++++ b/toolbox/prepare.py
+@@ -1,4 +1,6 @@
+ """Explicit preparation. All network access is confined to this module/builds."""
++import io
++import zipfile
+ import hashlib
+ import json
+ import os
+@@ -200,6 +202,8 @@
+ 
+ 
+ def update_database(store, name, spec, lock):
++    if name == 'osv-scanner':
++        return update_osv_database(store, spec, lock)
+     if name != 'grype':
+         raise ValueError(f'{name}: explicit database updater not implemented; see tool limitations')
+     record = lock.get('tools', {}).get(name)
+@@ -231,3 +235,37 @@
+                         'note': 'upstream build/schema/hash metadata is preserved inside native database files'})
+     atomic_json(staging / 'summary.json', {'status': 'database_prepared', 'snapshot': identity})
+     return {'database': identity, 'path': str(target), 'configuration_change_required': True}
++
++
++def update_osv_database(store, spec, lock):
++    record = lock.get('tools', {}).get('osv-scanner')
++    if not record or record['version'] != spec['version']:
++        raise ValueError('prepare selected OSV image first')
++    staging = store.preparation_dir('osv-scanner')
++    database = staging / 'data'
++    sources = []
++    for ecosystem in ('crates.io', 'npm'):
++        url = 'https://osv-vulnerabilities.storage.googleapis.com/' + ecosystem + '/all.zip'
++        content = fetch(url)
++        with zipfile.ZipFile(io.BytesIO(content)) as archive:
++            if not archive.namelist() or archive.testzip() is not None:
++                raise ValueError('invalid OSV database archive')
++        path = database / 'osv-scanner' / ecosystem / 'all.zip'
++        path.parent.mkdir(parents=True, exist_ok=True)
++        path.write_bytes(content)
++        scalibr = database / 'osv-scalibr' / ecosystem / 'all.zip'
++        scalibr.parent.mkdir(parents=True, exist_ok=True)
++        scalibr.write_bytes(content)
++        sources.append({'url': url, 'sha256': hashlib.sha256(content).hexdigest()})
++    manifest = tree_manifest(database)
++    identity = digest(manifest)
++    target = store.database('osv-scanner', spec['version'], identity)
++    with store.lock(['database', 'osv-scanner']):
++        if not target.exists():
++            target.parent.mkdir(parents=True, exist_ok=True)
++            database.rename(target)
++            atomic_json(target.parent / (identity + '.json'), {'schema': 1, 'tool': 'osv-scanner',
++                        'version': spec['version'], 'image': record['id'], 'id': identity,
++                        'prepared_at': now(), 'files': manifest, 'sources': sources,
++                        'note': 'Downloaded via HTTPS from official OSV storage; local hashes bind snapshot bytes, not signatures.'})
++    return {'database': identity, 'path': str(target), 'configuration_change_required': True}
+--- a/docs/references.json
++++ b/docs/references.json
+@@ -367,5 +367,41 @@
+     "consulted_at": "2026-11-06",
+     "status": "read",
+     "supports": "Opt-in TOOLBOX_SELINUX_LABEL=private uses ro,Z source/database and rw,Z output, existing absolute directories, without disabling SELinux. Ec uses disposable snapshots; run checks immutable images."
++  },
++  {
++    "tool": "ShellCheck",
++    "version": "0.11.0",
++    "url": "https://github.com/koalaman/shellcheck/releases/tag/v0.11.0",
++    "section": "release assets",
++    "consulted_at": "2026-11-06",
++    "status": "read",
++    "supports": "Release API supplies SHA256; old 0.10.0 preserved; substitution test rejects mismatched download."
++  },
++  {
++    "tool": "Opengrep",
++    "version": "1.33.1",
++    "url": "https://github.com/opengrep/opengrep/releases/tag/v1.33.1",
++    "section": "release and bundled CLI help",
++    "consulted_at": "2026-11-06",
++    "status": "read",
++    "supports": "Local rules, test/scan modes, metrics off, strict errors, disabled suppressions; real execution required."
++  },
++  {
++    "tool": "OSV-Scanner",
++    "version": "2.7.0",
++    "url": "https://raw.githubusercontent.com/google/osv-scanner/v2.7.0/docs/offline-mode.md",
++    "section": "Offline mode and manual database download",
++    "consulted_at": "2026-11-06",
++    "status": "read",
++    "supports": "Explicit HTTPS database update; immutable local snapshot, age, exact lockfile inventory; scan offline."
++  },
++  {
++    "tool": "OSV-Scanner",
++    "version": "2.7.0 / SCALIBR 0.5.3",
++    "url": "https://github.com/google/osv-scalibr/blob/5be78a00e3c2/enricher/vulnmatch/osvlocal/matcher.go",
++    "section": "envKeyLocalDBCacheDirectory and setupLocalDBDirectory",
++    "consulted_at": "2026-11-06",
++    "status": "read",
++    "supports": "Runtime requires OSV_SCALIBR_LOCAL_DB_CACHE_DIRECTORY and osv-scalibr/<ecosystem>/all.zip alongside the documented scanner cache."
+   }
+ ]
+--- a/docs/references.md
++++ b/docs/references.md
+@@ -54,3 +54,11 @@
+ `Z` altera o rótulo no host; o consumidor Ec fornece snapshot descartável.
+ [Docker: Configure the SELinux label](https://docs.docker.com/engine/storage/bind-mounts/),
+ consultado em 2026-11-06. Não usa privileged nem desabilita SELinux.
++
++- ShellCheck 0.11.0: [release assets](https://github.com/koalaman/shellcheck/releases/tag/v0.11.0). Release API supplies SHA256; old 0.10.0 preserved; substitution test rejects mismatched download.
++
++- Opengrep 1.33.1: [release and bundled CLI help](https://github.com/opengrep/opengrep/releases/tag/v1.33.1). Local rules, test/scan modes, metrics off, strict errors, disabled suppressions; real execution required.
++
++- OSV-Scanner 2.7.0: [Offline mode and manual database download](https://raw.githubusercontent.com/google/osv-scanner/v2.7.0/docs/offline-mode.md). Explicit HTTPS database update; immutable local snapshot, age, exact lockfile inventory; scan offline.
++
++- OSV 2.7.0 / SCALIBR 0.5.3: [matcher fixado](https://github.com/google/osv-scalibr/blob/5be78a00e3c2/enricher/vulnmatch/osvlocal/matcher.go). Execução observada exige os dois namespaces de cache; mesma base oficial copiada, hash vinculado ao snapshot. Opengrep 1.33.1: CLI nativa não aceita --metrics; rede none e flags de version-check desativadas.
+--- a/tests/test_security_adapters.py
++++ b/tests/test_security_adapters.py
+@@ -0,0 +1,53 @@
++import json
++from pathlib import Path
++import tempfile
++import unittest
++from unittest.mock import patch
++from toolbox.adapters import adapter, classify
++from toolbox.prepare import checked_download
++
++
++class SecurityAdapters(unittest.TestCase):
++    def test_download_rejects_substitution_and_missing_digest(self):
++        with tempfile.TemporaryDirectory() as tmp, patch('toolbox.prepare.fetch', return_value=b'substituted'):
++            target = Path(tmp) / 'binary'
++            with self.assertRaisesRegex(ValueError, 'mismatch'):
++                checked_download('https://example.invalid/tool', '0' * 64, target)
++            self.assertFalse(target.exists())
++            with self.assertRaisesRegex(ValueError, 'authoritative'):
++                checked_download('https://example.invalid/tool', '', target)
++
++    def classify_report(self, name, version, code, report):
++        with tempfile.TemporaryDirectory() as tmp:
++            output = Path(tmp)
++            (output / 'stdout.log').write_text(json.dumps(report))
++            return classify(adapter(name, version), {'tool_exit_code': code}, output)[0]
++
++    def test_opengrep_rejects_errors_skips_and_exit_mismatch(self):
++        clean = {'results': [], 'errors': [], 'paths': {'scanned': ['a.rs']}}
++        self.assertEqual(self.classify_report('opengrep', '1.33.1', 0, clean), 'success')
++        for report, code in [(clean, 1), (dict(clean, errors=[{}]), 0), (dict(clean, paths={'scanned': []}), 0), (dict(clean, paths={'scanned': ['a.rs'], 'skipped': ['b.rs']}), 0)]:
++            self.assertEqual(self.classify_report('opengrep', '1.33.1', code, report), 'operational_failure')
++
++    def test_opengrep_test_requires_positive_oracle(self):
++        report = {'results': {'a.yml': {'checks': {'rule': {'passed': True, 'matches': {'a.rs': {'expected_lines': [], 'reported_lines': []}}}}}}, 'config_missing_tests': [], 'config_with_errors': []}
++        self.assertEqual(self.classify_report('opengrep', '1.33.1', 0, report), 'operational_failure')
++        report['results']['a.yml']['checks']['rule']['matches']['a.rs'] = {'expected_lines': [2], 'reported_lines': [2]}
++        self.assertEqual(self.classify_report('opengrep', '1.33.1', 0, report), 'success')
++
++    def test_osv_requires_inventory_and_consistent_exit(self):
++        report = {'results': [{'source': {'path': '/src/Cargo.lock', 'type': 'lockfile'}, 'packages': [{'package': {'name': 'x', 'version': '1', 'ecosystem': 'crates.io'}}]}]}
++        self.assertEqual(self.classify_report('osv-scanner', '2.7.0', 0, report), 'success')
++        self.assertEqual(self.classify_report('osv-scanner', '2.7.0', 1, report), 'operational_failure')
++        report['results'][0]['packages'][0]['vulnerabilities'] = [{'id': 'TEST-1'}]
++        self.assertEqual(self.classify_report('osv-scanner', '2.7.0', 1, report), 'findings')
++        for malformed in ({}, {'results': []}, dict(report, errors=['failed'])):
++            self.assertEqual(self.classify_report('osv-scanner', '2.7.0', 0, malformed), 'operational_failure')
++
++    def test_offline_invocations(self):
++        argv, env = adapter('osv-scanner', '2.7.0').invocation({'config': 'osv.toml', 'database': 'a' * 64, 'max_database_age_hours': 24, 'paths': ['Cargo.lock']})
++        self.assertIn('--offline', argv)
++        self.assertNotIn('--download-offline-databases', argv)
++        self.assertEqual(env['OSV_SCANNER_LOCAL_DB_CACHE_DIRECTORY'], '/out/database')
++        argv, _ = adapter('opengrep', '1.33.1').invocation({'config': 'rules', 'paths': ['src'], 'mode': 'test'})
++        self.assertIn('--test', argv)
+--- a/tools/shellcheck/versions/0.11.0/Dockerfile
++++ b/tools/shellcheck/versions/0.11.0/Dockerfile
+@@ -0,0 +1,24 @@
++# Base identity is required; no mutable default is permitted.
++ARG BASE
++FROM ${BASE} AS unpack
++ARG SNAPSHOT
++RUN test -n "$SNAPSHOT" \
++    && rm -f /etc/apt/sources.list.d/debian.sources \
++    && printf 'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/%s/ trixie main\n' "$SNAPSHOT" > /etc/apt/sources.list \
++    && apt-get update && apt-get install -y --no-install-recommends xz-utils \
++    && rm -rf /var/lib/apt/lists/*
++COPY payload /payload/
++RUN mkdir /unpacked && if [ -f /payload/tool.tar ]; then tar -xf /payload/tool.tar -C /unpacked; else cp /payload/tool /unpacked/shellcheck; fi \
++    && mkdir /output && find /unpacked -type f -name shellcheck -exec cp {} /output/shellcheck \; \
++    && test -s /output/shellcheck && chmod 755 /output/shellcheck
++FROM ${BASE}
++ARG SNAPSHOT
++RUN test -n "$SNAPSHOT" \
++    && rm -f /etc/apt/sources.list.d/debian.sources \
++    && printf 'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/%s/ trixie main\n' "$SNAPSHOT" > /etc/apt/sources.list \
++    && apt-get update && apt-get install -y --no-install-recommends ca-certificates libgcc-s1 libc6 \
++    && rm -rf /var/lib/apt/lists/*
++COPY --from=unpack /output/shellcheck /usr/local/bin/shellcheck
++RUN mkdir /toolbox && dpkg-query -W > /toolbox/packages.tsv
++WORKDIR /src
++ENTRYPOINT ["shellcheck"]
+--- a/tools/shellcheck/versions/0.11.0/adapter.py
++++ b/tools/shellcheck/versions/0.11.0/adapter.py
+@@ -0,0 +1,20 @@
++from toolbox.adapters import read_report, ReportError
++
++
++def invocation(spec):
++    args = ['--format=json1']
++    if spec.get('config'):
++        args += ['--rcfile', '/src/' + spec['config']]
++    return args + ['--'] + spec['paths'], {}
++
++
++def classify(code, output):
++    if code not in [0, 1]:
++        return 'operational_failure', f'shellcheck exit {code}'
++    report = read_report(output / 'stdout.log')
++    comments = report['comments']
++    if not isinstance(comments, list) or any(not isinstance(item, dict) or 'code' not in item for item in comments):
++        raise ReportError('invalid ShellCheck report shape')
++    if (code == 1) != bool(comments):
++        raise ReportError('ShellCheck report and exit code disagree')
++    return ('findings' if comments else 'success'), f'{len(comments)} diagnostics'
+--- a/tools/shellcheck/versions/0.11.0/tool.json
++++ b/tools/shellcheck/versions/0.11.0/tool.json
+@@ -0,0 +1,11 @@
++{
++  "name": "shellcheck",
++  "version": "0.11.0",
++  "repository": "koalaman/shellcheck",
++  "tag": "v0.11.0",
++  "asset_pattern": "shellcheck-v0\\.11\\.0\\.linux\\.x86_64\\.tar\\.xz",
++  "binary": "shellcheck",
++  "status": "candidate",
++  "architecture": "linux/amd64",
++  "observed": false
++}
+--- a/tools/shellcheck/versions/0.11.0/README.md
++++ b/tools/shellcheck/versions/0.11.0/README.md
+@@ -0,0 +1,3 @@
++# shellcheck 0.11.0
++
++Versão isolada para preservar consumidores anteriores. Preparo por digest oficial da release GitHub; execução offline e relatórios estritos.
+--- a/tools/opengrep/versions/1.33.1/Dockerfile
++++ b/tools/opengrep/versions/1.33.1/Dockerfile
+@@ -0,0 +1,20 @@
++# Base identity is required; no mutable default is permitted.
++ARG BASE
++FROM ${BASE} AS unpack
++COPY payload /payload/
++RUN mkdir /unpacked && if [ -f /payload/tool.tar ]; then tar -xf /payload/tool.tar -C /unpacked; else cp /payload/tool /unpacked/opengrep; fi \
++    && mkdir /output && find /unpacked -type f -name opengrep -exec cp {} /output/opengrep \; \
++    && test -s /output/opengrep && chmod 755 /output/opengrep
++FROM ${BASE}
++ARG SNAPSHOT
++RUN test -n "$SNAPSHOT" \
++    && rm -f /etc/apt/sources.list.d/debian.sources \
++    && printf 'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/%s/ trixie main\n' "$SNAPSHOT" > /etc/apt/sources.list \
++    && apt-get update && apt-get install -y --no-install-recommends ca-certificates libgcc-s1 libc6 libstdc++6 zlib1g \
++    && rm -rf /var/lib/apt/lists/*
++COPY --from=unpack /output/opengrep /usr/local/bin/opengrep
++RUN mkdir /toolbox && dpkg-query -W > /toolbox/packages.tsv
++ENV XDG_CACHE_HOME=/opt/opengrep-cache
++RUN opengrep --disable-version-check --version && chmod -R a+rX /opt/opengrep-cache
++WORKDIR /src
++ENTRYPOINT ["opengrep"]
+--- a/tools/opengrep/versions/1.33.1/tool.json
++++ b/tools/opengrep/versions/1.33.1/tool.json
+@@ -0,0 +1,11 @@
++{
++  "name": "opengrep",
++  "version": "1.33.1",
++  "repository": "opengrep/opengrep",
++  "tag": "v1.33.1",
++  "asset_pattern": "opengrep_manylinux_x86",
++  "binary": "opengrep",
++  "status": "candidate",
++  "architecture": "linux/amd64",
++  "observed": false
++}
+--- a/tools/opengrep/versions/1.33.1/README.md
++++ b/tools/opengrep/versions/1.33.1/README.md
+@@ -0,0 +1,3 @@
++# opengrep 1.33.1
++
++Versão isolada para preservar consumidores anteriores. Preparo por digest oficial da release GitHub; execução offline e relatórios estritos.
+--- a/tools/opengrep/versions/1.33.1/adapter.py
++++ b/tools/opengrep/versions/1.33.1/adapter.py
+@@ -0,0 +1,42 @@
++from toolbox.adapters import read_report, ReportError
++
++
++def invocation(spec):
++    if not spec.get('config'):
++        raise ValueError('opengrep requires explicit local rules')
++    args = ['scan', '--json', '--strict', '--disable-version-check']
++    if spec.get('mode', 'scan') == 'test':
++        args += ['--test', '/src/' + spec['config']]
++    else:
++        args += ['--config', '/src/' + spec['config'], '--no-git-ignore', '--disable-nosem', '--error', '--x-ignore-semgrepignore-files']
++        args += ['/src/' + path for path in spec['paths']]
++    return args, {'SEMGREP_SEND_METRICS': 'off', 'SEMGREP_ENABLE_VERSION_CHECK': '0',
++                  'OPENGREP_ENABLE_VERSION_CHECK': '0', 'SEMGREP_SETTINGS_FILE': '/tmp/settings.yml',
++                  'LANG': 'C.UTF-8', 'LC_ALL': 'C.UTF-8', 'PYTHONUTF8': '1', 'XDG_CONFIG_HOME': '/tmp', 'XDG_CACHE_HOME': '/opt/opengrep-cache'}
++
++
++def classify(code, output):
++    if code not in (0, 1):
++        return 'operational_failure', f'opengrep exit {code}'
++    report = read_report(output / 'stdout.log')
++    if isinstance(report.get('results'), dict):
++        if code or report.get('config_missing_tests') != [] or report.get('config_with_errors') != [] or not report['results']:
++            raise ReportError('missing or failed rule tests')
++        checks = [check for result in report['results'].values() for check in result.get('checks', {}).values()]
++        if not checks or any(check.get('passed') is not True or check.get('errors') or not check.get('matches') for check in checks):
++            raise ReportError('empty or failed rule checks')
++        for check in checks:
++            if not any(match.get('expected_lines') for match in check['matches'].values()):
++                raise ReportError('rule has no positive test')
++            if any(match.get('expected_lines') != match.get('reported_lines') for match in check['matches'].values()):
++                raise ReportError('rule match differs from oracle')
++        return 'success', f'{len(checks)} rule checks'
++    findings = report.get('results')
++    paths = report.get('paths', {})
++    if not isinstance(findings, list) or report.get('errors') != [] or not paths.get('scanned') or paths.get('skipped'):
++        raise ReportError('incomplete opengrep scan')
++    if any(not item.get('check_id') or item.get('extra', {}).get('is_ignored') for item in findings):
++        raise ReportError('invalid or suppressed finding')
++    if (code == 1) != bool(findings):
++        raise ReportError('opengrep exit disagrees with findings')
++    return ('findings' if findings else 'success'), f'{len(findings)} findings'
+--- a/tools/osv-scanner/versions/2.7.0/Dockerfile
++++ b/tools/osv-scanner/versions/2.7.0/Dockerfile
+@@ -0,0 +1,18 @@
++# Base identity is required; no mutable default is permitted.
++ARG BASE
++FROM ${BASE} AS unpack
++COPY payload /payload/
++RUN mkdir /unpacked && if [ -f /payload/tool.tar ]; then tar -xf /payload/tool.tar -C /unpacked; else cp /payload/tool /unpacked/osv-scanner; fi \
++    && mkdir /output && find /unpacked -type f -name osv-scanner -exec cp {} /output/osv-scanner \; \
++    && test -s /output/osv-scanner && chmod 755 /output/osv-scanner
++FROM ${BASE}
++ARG SNAPSHOT
++RUN test -n "$SNAPSHOT" \
++    && rm -f /etc/apt/sources.list.d/debian.sources \
++    && printf 'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/%s/ trixie main\n' "$SNAPSHOT" > /etc/apt/sources.list \
++    && apt-get update && apt-get install -y --no-install-recommends ca-certificates libgcc-s1 libc6 \
++    && rm -rf /var/lib/apt/lists/*
++COPY --from=unpack /output/osv-scanner /usr/local/bin/osv-scanner
++RUN mkdir /toolbox && dpkg-query -W > /toolbox/packages.tsv
++WORKDIR /src
++ENTRYPOINT ["osv-scanner"]
+--- a/tools/osv-scanner/versions/2.7.0/tool.json
++++ b/tools/osv-scanner/versions/2.7.0/tool.json
+@@ -0,0 +1,11 @@
++{
++  "name": "osv-scanner",
++  "version": "2.7.0",
++  "repository": "google/osv-scanner",
++  "tag": "v2.7.0",
++  "asset_pattern": "osv-scanner_linux_amd64",
++  "binary": "osv-scanner",
++  "status": "candidate",
++  "architecture": "linux/amd64",
++  "observed": false
++}
+--- a/tools/osv-scanner/versions/2.7.0/README.md
++++ b/tools/osv-scanner/versions/2.7.0/README.md
+@@ -0,0 +1,3 @@
++# osv-scanner 2.7.0
++
++Versão isolada para preservar consumidores anteriores. Preparo por digest oficial da release GitHub; execução offline e relatórios estritos.
+--- a/tools/osv-scanner/versions/2.7.0/adapter.py
++++ b/tools/osv-scanner/versions/2.7.0/adapter.py
+@@ -0,0 +1,36 @@
++from toolbox.adapters import read_report, ReportError
++
++
++def invocation(spec):
++    if not spec.get('database') or 'max_database_age_hours' not in spec or not spec.get('config'):
++        raise ValueError('osv requires a database snapshot, age policy and explicit config')
++    args = ['scan', 'source', '--offline', '--all-packages', '--all-vulns', '--no-call-analysis=rust',
++            '--config', '/src/' + spec['config'], '--format', 'json']
++    for path in spec['paths']:
++        if not path.endswith(('Cargo.lock', 'package-lock.json')):
++            raise ValueError('only explicit Cargo.lock/package-lock.json supported')
++        args += ['--lockfile', '/src/' + path]
++    return args, {'OSV_SCANNER_LOCAL_DB_CACHE_DIRECTORY': '/out/database', 'OSV_SCALIBR_LOCAL_DB_CACHE_DIRECTORY': '/out/database'}
++
++
++def classify(code, output):
++    if code not in (0, 1):
++        return 'operational_failure', f'osv exit {code}'
++    report = read_report(output / 'stdout.log')
++    results = report.get('results')
++    if report.get('errors') or report.get('experimental_generic_findings') or not isinstance(results, list) or not results:
++        raise ReportError('incomplete OSV report')
++    count = 0
++    for result in results:
++        if result.get('source', {}).get('type') != 'lockfile' or not result.get('packages') or result.get('experimental_pes'):
++            raise ReportError('invalid OSV lockfile inventory')
++        for item in result['packages']:
++            if not all(isinstance(item.get('package', {}).get(key), str) and item['package'][key] for key in ('name', 'version', 'ecosystem')):
++                raise ReportError('incomplete package')
++            vulnerabilities = item.get('vulnerabilities', [])
++            if not isinstance(vulnerabilities, list) or any(not v.get('id') for v in vulnerabilities):
++                raise ReportError('invalid vulnerability')
++            count += len(vulnerabilities)
++    if (code == 1) != (count > 0):
++        raise ReportError('OSV exit disagrees with findings')
++    return ('findings' if count else 'success'), f'{count} vulnerabilities'

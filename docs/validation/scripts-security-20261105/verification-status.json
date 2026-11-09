@@ -1,0 +1,50 @@
+[
+  {
+    "command": [
+      "python3",
+      "tools/governance/validate.py"
+    ],
+    "exit_code": 0,
+    "log": "audit-final.log"
+  },
+  {
+    "command": [
+      "python3",
+      "tools/governance/validate.py",
+      "--require-installed"
+    ],
+    "exit_code": 0,
+    "log": "installed-final.log"
+  },
+  {
+    "command": [
+      "python3",
+      "tools/governance/install_skills.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "log": "preflight-final.log"
+  },
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      "."
+    ],
+    "exit_code": 0,
+    "log": "sdd-final.log"
+  },
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      ".",
+      "--require-approved",
+      "--require-fresh"
+    ],
+    "exit_code": 1,
+    "log": "acceptance-final.log"
+  }
+]

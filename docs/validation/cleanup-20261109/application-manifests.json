@@ -1,0 +1,222 @@
+{
+  "observation": "Leitura estática dos manifests/locks. Nenhum comando Cargo/npm foi executado.",
+  "files": [
+    {
+      "path": "application/agents/Cargo.toml",
+      "sha256": "cb6c523142c42b972fc00cd51697c78ea8154047de8f096af0698b8b00b7b121"
+    },
+    {
+      "path": "application/agents/Cargo.lock",
+      "sha256": "c765aea49fb6b3ee6cb15a7cfdaf6af5759b599bd8ef4ea592c2c84da52aa631",
+      "lock_packages": 26
+    },
+    {
+      "path": "application/agents/rust-toolchain.toml",
+      "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/Cargo.toml",
+      "sha256": "a2bb053c285d0d69d29e045186a035e275ff1dcc2fbf9c79c9f3b032529ed346",
+      "dependencies": {
+        "serde_json": "=1.0.145"
+      }
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/Cargo.toml",
+      "sha256": "033f42f4125d1477b0f80a604c5ed67f5c58b331d83e074b7f91453d498789d6",
+      "dependencies": {
+        "libc": "=0.2.191"
+      }
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+      "sha256": "f36b6ae7e8cfb0b083c87eeb00c1635672d3e605b295fb6e653e7a815209d61e",
+      "dependencies": {
+        "libc": "=0.2.191",
+        "ec-agent-reporting": {
+          "path": "../ec-agent-reporting",
+          "version": "=0.1.0"
+        }
+      }
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/Cargo.toml",
+      "sha256": "3ad0c5841ecdd75a7c30d4102adac1745a69dbb012de861b780897aa945bad41",
+      "dependencies": {
+        "serde_json": "=1.0.145",
+        "sha2": "=0.10.9"
+      }
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/Cargo.toml",
+      "sha256": "b45a894ba6d6594f539e9eeda2166ab9fb4de63aca1d08575f086e75174131d9",
+      "dependencies": {
+        "serde_json": "=1.0.145",
+        "libc": "=0.2.191",
+        "ec-agent-control": {
+          "path": "../ec-agent-control",
+          "version": "=0.1.0"
+        },
+        "ec-agent-workspace": {
+          "path": "../ec-agent-workspace",
+          "version": "=0.1.0"
+        },
+        "ec-agent-execution": {
+          "path": "../ec-agent-execution",
+          "version": "=0.1.0"
+        },
+        "ec-agent-reporting": {
+          "path": "../ec-agent-reporting",
+          "version": "=0.1.0"
+        }
+      }
+    },
+    {
+      "path": "application/server/backend/Cargo.toml",
+      "sha256": "77b11b97c3af492b704a392099e7470d56407f92d9fc0282fdab3f5991a1cd74"
+    },
+    {
+      "path": "application/server/backend/Cargo.lock",
+      "sha256": "67967974f663ec67d50b90a376efb3ac7bf385920899ef12f82804a4f048be71",
+      "lock_packages": 108
+    },
+    {
+      "path": "application/server/backend/rust-toolchain.toml",
+      "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/Cargo.toml",
+      "sha256": "d3ddbaefed2ce4671ba3cf52f4981a45f4b655b42542e795ca2a9c1ef4359bd9",
+      "dependencies": {
+        "postgres": "=0.19.12",
+        "serde_json": "=1.0.145",
+        "ec-server-access": {
+          "path": "../ec-server-access",
+          "version": "=0.1.0"
+        },
+        "ec-server-orchestration": {
+          "path": "../ec-server-orchestration",
+          "version": "=0.1.0"
+        }
+      }
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/Cargo.toml",
+      "sha256": "4e7480862e07b7c231ab25dc74a9207060b0444e473bba1d141a53c395f5025c",
+      "dependencies": {
+        "yaml-rust2": {
+          "version": "=0.13.0",
+          "default-features": false
+        }
+      }
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/Cargo.toml",
+      "sha256": "8863be8e97139680fcb2dce93b64bedbb680e2a18024806892db2d930234663e",
+      "dependencies": {
+        "postgres": "=0.19.12",
+        "sha2": "=0.10.9",
+        "serde_json": "=1.0.145"
+      }
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/Cargo.toml",
+      "sha256": "cb9ca0c9abf41648f3b0dcfb7042a5b1fa8e1e37b29932aa5da969f0b320c304",
+      "dependencies": {
+        "ec-server-configuration": {
+          "path": "../ec-server-configuration",
+          "version": "=0.1.0"
+        },
+        "ec-server-projects": {
+          "path": "../ec-server-projects",
+          "version": "=0.1.0"
+        },
+        "postgres": "=0.19.12",
+        "tiny_http": "=0.12.0",
+        "serde_json": "=1.0.145",
+        "ec-server-access": {
+          "path": "../ec-server-access",
+          "version": "=0.1.0"
+        },
+        "ec-server-orchestration": {
+          "path": "../ec-server-orchestration",
+          "version": "=0.1.0"
+        },
+        "ec-server-results": {
+          "path": "../ec-server-results",
+          "version": "=0.1.0"
+        }
+      }
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/Cargo.toml",
+      "sha256": "3192d8dc9226f08d10664de677bc2cc754169eaaa3f550ffd01dc9b43f93a7d9",
+      "dependencies": {
+        "postgres": "=0.19.12",
+        "sha2": "=0.10.9"
+      }
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/Cargo.toml",
+      "sha256": "03231083fc124ecd2cff9b8c2cb942366bfcf405eb53dc35aa5c83f5a2dd1857",
+      "dependencies": {
+        "postgres": "=0.19.12",
+        "serde_json": "=1.0.145",
+        "ec-server-access": {
+          "path": "../ec-server-access",
+          "version": "=0.1.0"
+        }
+      }
+    },
+    {
+      "path": "application/server/frontend/package.json",
+      "sha256": "20f91a89169080867cc1c3e410c96342b13f4404694a75b8a8b442642a918fc0"
+    },
+    {
+      "path": "application/server/frontend/package-lock.json",
+      "sha256": "ae4507e8a009cb7a9f7b03148ad96ec491e88bf16d21161d7fcc8611404e5972"
+    },
+    {
+      "path": "application/server/frontend/vite.config.ts",
+      "sha256": "61eb51c37368cd97f323c8f6228f84c6567c393f62a5255d68f6b46531a921e7"
+    },
+    {
+      "path": "application/server/frontend/tsconfig.json",
+      "sha256": "3393cc3b1b26f98fbc6db23f32a0d8c14fa3188e7e4e7baa8eba92ee0918e42f"
+    },
+    {
+      "path": "application/server/frontend/index.html",
+      "sha256": "73fd86be45ba79978e2fbc6d65b7593b8da76949c8b324b3ef657d6150a741da"
+    }
+  ],
+  "frontend": {
+    "name": "ec-frontend",
+    "private": true,
+    "version": "0.1.0",
+    "type": "module",
+    "engines": {
+      "node": ">=22.12"
+    },
+    "scripts": {
+      "dev": "vite --host 127.0.0.1",
+      "typecheck": "vue-tsc --noEmit",
+      "build": "vite build",
+      "test": "vitest run",
+      "coverage": "vitest run --coverage.enabled",
+      "test:e2e": "python3 ../../integration/tests/e2e/frontend_firefox.py"
+    },
+    "dependencies": {
+      "pinia": "4.1.0",
+      "vue": "3.5.45"
+    },
+    "devDependencies": {
+      "@types/node": "24.10.1",
+      "@vitejs/plugin-vue": "6.0.4",
+      "@vitest/coverage-v8": "4.1.12",
+      "typescript": "5.9.3",
+      "vite": "7.3.7",
+      "vitest": "4.1.12",
+      "vue-tsc": "3.2.5"
+    }
+  }
+}

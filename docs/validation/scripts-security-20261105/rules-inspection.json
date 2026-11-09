@@ -1,0 +1,35 @@
+{
+  "method": "PyYAML já instalado: sintaxe YAML e presença das fixtures positivas/negativas. Não executa o motor de patterns Opengrep.",
+  "rules": [
+    {
+      "path": "scripts/security/rules/opengrep/rust.yml",
+      "rule_ids": [
+        "ec.rust.uninitialized-value",
+        "ec.rust.dynamic-postgres-query",
+        "ec.rust.weak-hash"
+      ],
+      "yaml": "parsed",
+      "positive_and_negative_annotations": true
+    },
+    {
+      "path": "scripts/security/rules/opengrep/typescript.yml",
+      "rule_ids": [
+        "ec.typescript.dynamic-eval",
+        "ec.typescript.raw-html",
+        "ec.typescript.persistent-token"
+      ],
+      "yaml": "parsed",
+      "positive_and_negative_annotations": true
+    },
+    {
+      "path": "scripts/security/rules/opengrep/vue.yml",
+      "rule_ids": [
+        "ec.vue.raw-html",
+        "ec.vue.dynamic-eval"
+      ],
+      "yaml": "parsed",
+      "positive_and_negative_annotations": true
+    }
+  ],
+  "engine_validation": "UNVERIFIED: CLI ausente"
+}

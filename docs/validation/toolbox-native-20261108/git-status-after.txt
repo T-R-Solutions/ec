@@ -1,0 +1,285 @@
+ M .codex/skills/agent-runtime-engineering/SKILL.md
+ M .codex/skills/ai-engineering/SKILL.md
+ M .codex/skills/api-testing/SKILL.md
+ M .codex/skills/application-security/SKILL.md
+ M .codex/skills/autonomous-verification-engineering/SKILL.md
+ M .codex/skills/cicd-agent-runtime/SKILL.md
+ M .codex/skills/cicd-artifacts-and-retention/SKILL.md
+ M .codex/skills/cicd-build-cache/SKILL.md
+ M .codex/skills/cicd-execution-runtime/SKILL.md
+ M .codex/skills/cicd-logs-and-test-results/SKILL.md
+ M .codex/skills/cicd-pipeline-graph/SKILL.md
+ M .codex/skills/cicd-release-and-deployment/SKILL.md
+ M .codex/skills/cicd-scheduler/SKILL.md
+ M .codex/skills/cicd-vcs-event-processing/SKILL.md
+ M .codex/skills/cli-engineering/SKILL.md
+ M .codex/skills/commit-governance/SKILL.md
+ M .codex/skills/css-layout-engineering/SKILL.md
+ M .codex/skills/database-engineering/SKILL.md
+ M .codex/skills/design-review/SKILL.md
+ M .codex/skills/design-system/SKILL.md
+ M .codex/skills/distributed-systems/SKILL.md
+ M .codex/skills/domain-modeling/SKILL.md
+ M .codex/skills/ec-agent-control-protocol/SKILL.md
+ M .codex/skills/ec-agent-pool-console/SKILL.md
+ M .codex/skills/ec-configuration-publication/SKILL.md
+ M .codex/skills/ec-declarative-resource-schemas/SKILL.md
+ M .codex/skills/ec-effective-permissions/SKILL.md
+ M .codex/skills/ec-environments-and-approvals/SKILL.md
+ M .codex/skills/ec-integrations-and-webhooks/SKILL.md
+ M .codex/skills/ec-operations-and-administration-console/SKILL.md
+ M .codex/skills/ec-people-and-access-administration/SKILL.md
+ M .codex/skills/ec-pipeline-authoring-workspace/SKILL.md
+ M .codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md
+ M .codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md
+ M .codex/skills/ec-product-contract-test-harness/SKILL.md
+ M .codex/skills/ec-project-hierarchy-management/SKILL.md
+ M .codex/skills/ec-run-execution-operations/SKILL.md
+ M .codex/skills/ec-semantic-configuration-projections/SKILL.md
+ M .codex/skills/engineering-productivity/SKILL.md
+ M .codex/skills/frontend-form-engineering/SKILL.md
+ M .codex/skills/frontend-routing/SKILL.md
+ M .codex/skills/frontend-state-and-cache/SKILL.md
+ M .codex/skills/frontend-testing/SKILL.md
+ M .codex/skills/http-api-contracts/SKILL.md
+ M .codex/skills/identity-federation/SKILL.md
+ M .codex/skills/information-architecture/SKILL.md
+ M .codex/skills/internationalization/SKILL.md
+ M .codex/skills/observability-and-diagnostics/SKILL.md
+ M .codex/skills/performance-engineering/SKILL.md
+ M .codex/skills/plugin-protocol-engineering/SKILL.md
+ M .codex/skills/prompt/SKILL.md
+ M .codex/skills/property-based-testing/SKILL.md
+ M .codex/skills/readme-lifecycle-engineering/SKILL.md
+ M .codex/skills/reliability-engineering/SKILL.md
+ M .codex/skills/rust/SKILL.md
+ M .codex/skills/software-architecture/SKILL.md
+ M .codex/skills/software-delivery/SKILL.md
+ M .codex/skills/software-design/SKILL.md
+ M .codex/skills/software-evolution/SKILL.md
+ M .codex/skills/software-testing/SKILL.md
+ M .codex/skills/technical-documentation/SKILL.md
+ M .codex/skills/tool-output-engineering/SKILL.md
+ M .codex/skills/typescript-engineering/SKILL.md
+ M .codex/skills/vue3-engineering/SKILL.md
+ M .codex/skills/web-accessibility/SKILL.md
+ M .codex/skills/web-realtime-streaming/SKILL.md
+ M .codex/skills/workspace-integrity-engineering/SKILL.md
+ M .gitignore
+ M .local/skill-installation/skills/agent-runtime-engineering/SKILL.md
+ M .local/skill-installation/skills/ai-engineering/SKILL.md
+ M .local/skill-installation/skills/api-testing/SKILL.md
+ M .local/skill-installation/skills/application-security/SKILL.md
+ M .local/skill-installation/skills/autonomous-verification-engineering/SKILL.md
+ M .local/skill-installation/skills/cicd-agent-runtime/SKILL.md
+ M .local/skill-installation/skills/cicd-artifacts-and-retention/SKILL.md
+ M .local/skill-installation/skills/cicd-build-cache/SKILL.md
+ M .local/skill-installation/skills/cicd-execution-runtime/SKILL.md
+ M .local/skill-installation/skills/cicd-logs-and-test-results/SKILL.md
+ M .local/skill-installation/skills/cicd-pipeline-graph/SKILL.md
+ M .local/skill-installation/skills/cicd-release-and-deployment/SKILL.md
+ M .local/skill-installation/skills/cicd-scheduler/SKILL.md
+ M .local/skill-installation/skills/cicd-vcs-event-processing/SKILL.md
+ M .local/skill-installation/skills/cli-engineering/SKILL.md
+ M .local/skill-installation/skills/commit-governance/SKILL.md
+ M .local/skill-installation/skills/css-layout-engineering/SKILL.md
+ M .local/skill-installation/skills/database-engineering/SKILL.md
+ M .local/skill-installation/skills/design-review/SKILL.md
+ M .local/skill-installation/skills/design-system/SKILL.md
+ M .local/skill-installation/skills/distributed-systems/SKILL.md
+ M .local/skill-installation/skills/domain-modeling/SKILL.md
+ M .local/skill-installation/skills/ec-agent-control-protocol/SKILL.md
+ M .local/skill-installation/skills/ec-agent-pool-console/SKILL.md
+ M .local/skill-installation/skills/ec-configuration-publication/SKILL.md
+ M .local/skill-installation/skills/ec-declarative-resource-schemas/SKILL.md
+ M .local/skill-installation/skills/ec-effective-permissions/SKILL.md
+ M .local/skill-installation/skills/ec-environments-and-approvals/SKILL.md
+ M .local/skill-installation/skills/ec-integrations-and-webhooks/SKILL.md
+ M .local/skill-installation/skills/ec-operations-and-administration-console/SKILL.md
+ M .local/skill-installation/skills/ec-people-and-access-administration/SKILL.md
+ M .local/skill-installation/skills/ec-pipeline-authoring-workspace/SKILL.md
+ M .local/skill-installation/skills/ec-plugin-isolation-and-lifecycle/SKILL.md
+ M .local/skill-installation/skills/ec-plugin-manifests-and-compatibility/SKILL.md
+ M .local/skill-installation/skills/ec-product-contract-test-harness/SKILL.md
+ M .local/skill-installation/skills/ec-project-hierarchy-management/SKILL.md
+ M .local/skill-installation/skills/ec-run-execution-operations/SKILL.md
+ M .local/skill-installation/skills/ec-semantic-configuration-projections/SKILL.md
+ M .local/skill-installation/skills/engineering-productivity/SKILL.md
+ M .local/skill-installation/skills/frontend-form-engineering/SKILL.md
+ M .local/skill-installation/skills/frontend-routing/SKILL.md
+ M .local/skill-installation/skills/frontend-state-and-cache/SKILL.md
+ M .local/skill-installation/skills/frontend-testing/SKILL.md
+ M .local/skill-installation/skills/http-api-contracts/SKILL.md
+ M .local/skill-installation/skills/identity-federation/SKILL.md
+ M .local/skill-installation/skills/information-architecture/SKILL.md
+ M .local/skill-installation/skills/internationalization/SKILL.md
+ M .local/skill-installation/skills/observability-and-diagnostics/SKILL.md
+ M .local/skill-installation/skills/performance-engineering/SKILL.md
+ M .local/skill-installation/skills/plugin-protocol-engineering/SKILL.md
+ M .local/skill-installation/skills/prompt/SKILL.md
+ M .local/skill-installation/skills/property-based-testing/SKILL.md
+ M .local/skill-installation/skills/readme-lifecycle-engineering/SKILL.md
+ M .local/skill-installation/skills/reliability-engineering/SKILL.md
+ M .local/skill-installation/skills/rust/SKILL.md
+ M .local/skill-installation/skills/software-architecture/SKILL.md
+ M .local/skill-installation/skills/software-delivery/SKILL.md
+ M .local/skill-installation/skills/software-design/SKILL.md
+ M .local/skill-installation/skills/software-evolution/SKILL.md
+ M .local/skill-installation/skills/software-testing/SKILL.md
+ M .local/skill-installation/skills/technical-documentation/SKILL.md
+ M .local/skill-installation/skills/tool-output-engineering/SKILL.md
+ M .local/skill-installation/skills/typescript-engineering/SKILL.md
+ M .local/skill-installation/skills/vue3-engineering/SKILL.md
+ M .local/skill-installation/skills/web-accessibility/SKILL.md
+ M .local/skill-installation/skills/web-realtime-streaming/SKILL.md
+ M .local/skill-installation/skills/workspace-integrity-engineering/SKILL.md
+ M AGENTS.md
+ M README.md
+ M application/README.md
+ M application/agents/README.md
+ M application/agents/crates/ec-agent-app/README.md
+ M application/agents/crates/ec-agent-control/README.md
+ M application/agents/crates/ec-agent-execution/README.md
+ M application/agents/crates/ec-agent-reporting/README.md
+ M application/agents/crates/ec-agent-workspace/README.md
+ M application/integration/tests/README.md
+ M application/integration/tests/e2e/README.md
+ M application/server/README.md
+ M application/server/backend/Cargo.lock
+ M application/server/backend/Cargo.toml
+ M application/server/backend/README.md
+ M application/server/backend/crates/ec-server-app/Cargo.toml
+ M application/server/backend/crates/ec-server-app/src/main.rs
+ M application/server/backend/crates/ec-server-orchestration/README.md
+ M application/server/backend/crates/ec-server-projects/Cargo.toml
+ M application/server/backend/crates/ec-server-projects/src/lib.rs
+ M application/server/backend/crates/ec-server-results/README.md
+ M application/server/frontend/README.md
+ M application/server/frontend/src/app/README.md
+ M application/server/frontend/src/domains/access/README.md
+ M application/server/frontend/src/domains/configuration/README.md
+ M application/server/frontend/src/domains/infrastructure/README.md
+ M application/server/frontend/src/domains/projects/README.md
+ M application/server/frontend/src/domains/runs/README.md
+ M application/server/frontend/src/shared/README.md
+ M application/server/frontend/tests/e2e/README.md
+ M config/governance/profile.json
+ M docs/README.md
+ M docs/architecture/application-layout.md
+ M docs/architecture/context.md
+ M docs/development/contributing.md
+ M docs/development/first-functional-journey.md
+ M docs/development/skill-installation.md
+ M docs/development/testing.md
+ M sdd/README.md
+ M sdd/chain/commit-governance.md
+ M sdd/chain/software-delivery.md
+ M sdd/chain/software-testing.md
+ M sdd/evidence.md
+ M sdd/features/first-functional-journey/converge.md
+ M sdd/features/first-functional-journey/evidence.json
+ M sdd/features/first-functional-journey/plan.md
+ M sdd/features/first-functional-journey/spec.md
+ M sdd/features/first-functional-journey/tasks.md
+ M sdd/features/first-functional-journey/traceability.json
+ M sdd/features/governance-adoption/converge.md
+ M sdd/features/governance-adoption/evidence.json
+ M sdd/features/governance-adoption/tasks.md
+ M sdd/project.md
+ M sdd/templates/converge.md
+ M sdd/templates/tasks.md
+ M sdd/workflow.md
+ M tools/governance/install_skills.py
+ M tools/governance/tests/test_governance.py
+?? .local/build/frontend-checks.py
+?? .local/build/record-tooling-evidence.py
+?? .local/build/scripts-shell-20261106/
+?? .local/build/shellcheck-release.json
+?? .local/build/toolbox-platform-before.json
+?? .local/build/toolbox-platform-reviewed.json
+?? .local/build/toolbox-selinux/
+?? .local/build/tooling-docs/
+?? .local/build/tooling-final-plan.json
+?? .local/build/tooling-remediation/
+?? .local/native-migration-20261108/
+?? .local/usage.md
+?? application/agents/Cargo.lock
+?? application/agents/Cargo.toml
+?? application/agents/crates/ec-agent-app/Cargo.toml
+?? application/agents/crates/ec-agent-app/src/main.rs
+?? application/agents/crates/ec-agent-control/Cargo.toml
+?? application/agents/crates/ec-agent-control/src/lib.rs
+?? application/agents/crates/ec-agent-execution/Cargo.toml
+?? application/agents/crates/ec-agent-execution/src/lib.rs
+?? application/agents/crates/ec-agent-reporting/Cargo.toml
+?? application/agents/crates/ec-agent-reporting/src/lib.rs
+?? application/agents/crates/ec-agent-workspace/Cargo.toml
+?? application/agents/crates/ec-agent-workspace/src/lib.rs
+?? application/agents/rust-toolchain.toml
+?? application/integration/tests/e2e/frontend_firefox.py
+?? application/integration/tests/integration/agent_http.py
+?? application/integration/tests/integration/orchestration_http.py
+?? application/integration/tests/integration/publication_http.py
+?? application/server/backend/crates/ec-server-access/Cargo.toml
+?? application/server/backend/crates/ec-server-access/src/lib.rs
+?? application/server/backend/crates/ec-server-app/src/service.rs
+?? application/server/backend/crates/ec-server-orchestration/Cargo.toml
+?? application/server/backend/crates/ec-server-orchestration/src/lib.rs
+?? application/server/backend/crates/ec-server-projects/src/publication.rs
+?? application/server/backend/crates/ec-server-results/Cargo.toml
+?? application/server/backend/crates/ec-server-results/src/lib.rs
+?? application/server/backend/migrations/
+?? application/server/frontend/index.html
+?? application/server/frontend/package-lock.json
+?? application/server/frontend/package.json
+?? application/server/frontend/src/app/App.vue
+?? application/server/frontend/src/app/contrast.test.ts
+?? application/server/frontend/src/app/main.ts
+?? application/server/frontend/src/app/style.css
+?? application/server/frontend/src/domains/access/src/index.ts
+?? application/server/frontend/src/domains/configuration/src/Editor.vue
+?? application/server/frontend/src/domains/configuration/src/drafts.test.ts
+?? application/server/frontend/src/domains/configuration/src/drafts.ts
+?? application/server/frontend/src/domains/configuration/src/index.ts
+?? application/server/frontend/src/domains/configuration/src/model.test.ts
+?? application/server/frontend/src/domains/configuration/src/model.ts
+?? application/server/frontend/src/domains/infrastructure/src/index.ts
+?? application/server/frontend/src/domains/projects/src/index.ts
+?? application/server/frontend/src/domains/runs/src/Runs.vue
+?? application/server/frontend/src/domains/runs/src/bytes.test.ts
+?? application/server/frontend/src/domains/runs/src/bytes.ts
+?? application/server/frontend/src/domains/runs/src/index.ts
+?? application/server/frontend/src/shared/api.ts
+?? application/server/frontend/tests/e2e/firefox_driver.py
+?? application/server/frontend/tests/playwright/
+?? application/server/frontend/tsconfig.json
+?? application/server/frontend/vite.config.ts
+?? docs/development/agent.md
+?? docs/development/frontend.md
+?? docs/development/orchestration.md
+?? docs/development/publication.md
+?? docs/development/scripts-inventory.md
+?? docs/development/task-verification.md
+?? docs/development/verification-tools.md
+?? docs/validation/agent-20261105/
+?? docs/validation/automation-run-oUebC3O4-20261107/
+?? docs/validation/commit-readiness-20261107/
+?? docs/validation/commit-script-policy-20261107.md
+?? docs/validation/default-quality-20261107/
+?? docs/validation/frontend-20261105/
+?? docs/validation/orchestration-20261105/
+?? docs/validation/publication-20261105/
+?? docs/validation/scripts-ec-20261105/
+?? docs/validation/scripts-security-20261105/
+?? docs/validation/scripts-shell-20261106/
+?? docs/validation/scripts-stic-20261108/
+?? docs/validation/scripts-stic-completion-20261108/
+?? docs/validation/toolbox-contract-20261107/
+?? docs/validation/toolbox-docs-20261107/
+?? docs/validation/toolbox-native-20261108/
+?? docs/validation/tooling-20261106/
+?? docs/validation/tooling-remediation-20261106/
+?? erase.md
+?? scripts/
+?? sdd/features/scripts-verification/
+?? tools/quality/

@@ -1,0 +1,467 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "agent",
+    "docs",
+    "e2e",
+    "frontend",
+    "integration",
+    "scripts",
+    "security",
+    "server"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "machete",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "machete"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "deny",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "deny"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "audit",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "audit"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "machete",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "machete"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "deny",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "deny"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "audit",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "audit"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "typecheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "depends": [
+        "security:secrets-rules"
+      ],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "playwright",
+      "cwd": ".",
+      "depends": [
+        "frontend:build"
+      ],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "playwright"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": false
+}

@@ -1,0 +1,6 @@
+# Sem baseline, exclusões de testes ou supressões globais.
+# Python e dependências são fornecidos pela imagem Toolbox.
+# Política exigida: ignorar nosec e avaliar todas as severidades/confianças.
+# Imposta por --ignore-nosec no chamador nativo Ec.
+exclude_dirs: []
+skips: []

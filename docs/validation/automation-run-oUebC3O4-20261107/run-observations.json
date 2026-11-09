@@ -1,0 +1,299 @@
+{
+  "run": ".local/automation/runs/run-oUebC3O4",
+  "method": "Leitura dos artefatos existentes; sem reexecução",
+  "complete": false,
+  "exit_code": 2,
+  "changed_inputs": [],
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "error",
+      "returncode": 2
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "findings",
+      "returncode": 1
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "error",
+      "returncode": 1
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "machete",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "deny",
+      "state": "error",
+      "returncode": 4
+    },
+    {
+      "project": "server",
+      "task": "audit",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "geiger",
+      "state": "error",
+      "returncode": 2
+    },
+    {
+      "project": "server",
+      "task": "coverage",
+      "state": "blocked",
+      "returncode": 3
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "machete",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "deny",
+      "state": "error",
+      "returncode": 4
+    },
+    {
+      "project": "agent",
+      "task": "audit",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "geiger",
+      "state": "error",
+      "returncode": 2
+    },
+    {
+      "project": "agent",
+      "task": "coverage",
+      "state": "blocked",
+      "returncode": 3
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "coverage",
+      "state": "blocked",
+      "returncode": 3
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "trivy",
+      "state": "blocked",
+      "returncode": 3
+    },
+    {
+      "project": "security",
+      "task": "codeql",
+      "state": "blocked",
+      "returncode": 3
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "e2e",
+      "task": "playwright",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "returncode": 0
+    }
+  ],
+  "sources": {
+    ".local/automation/runs/run-oUebC3O4/results.json": "8e9a7270de1545683a469116e8c80d0fac4570d54ee2e855f798c706d9120b67",
+    ".local/automation/runs/run-oUebC3O4/inputs.json": "a7c671a9c29f1082ebfb63f0322b45a966e30d914f4568dc63231f2e1b557bab",
+    ".local/automation/runs/run-oUebC3O4/inputs-after.json": "a7c671a9c29f1082ebfb63f0322b45a966e30d914f4568dc63231f2e1b557bab",
+    ".local/automation/runs/run-oUebC3O4/06-scripts-shellcheck/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/06-scripts-shellcheck/stderr.log": "9993d7a65985edf7e75efe5be99a530921c3a17355f8cc73559b379ddd2a9c74",
+    ".local/automation/runs/run-oUebC3O4/06-scripts-shellcheck/toolbox-result.json": "33cb8747aaa1496d90659487d2b692f5eb523a85ce51e41a0634dcd395abb61c",
+    ".local/automation/runs/run-oUebC3O4/07-scripts-ruff/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/07-scripts-ruff/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/07-scripts-ruff/toolbox-result.json": "d75d138b3559631b78b0f4a2acdf8c4e825d331a9f5a1ce788f6ef29fb658d87",
+    ".local/automation/runs/run-oUebC3O4/07-scripts-ruff/report.json": "39bcd72badfb02ca01e937cfb477f0d9c366005f2cfb8a5fe249bee2247b0d95",
+    ".local/automation/runs/run-oUebC3O4/08-scripts-tests/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/08-scripts-tests/stderr.log": "8742b9e055ba14731d063d837ce6afbbef6e4bfbc5ef853a7f050ebbc12b5326",
+    ".local/automation/runs/run-oUebC3O4/13-server-deny/stdout.log": "738307e513dcfbf7f3cc0178af0fa13f078b69f9cf7d06ff985ce4a6d2c385b0",
+    ".local/automation/runs/run-oUebC3O4/13-server-deny/stderr.log": "5b1608e7fdd444f1e15bd91432759dcfb5a34c9aa659d23fb8c418f6dd2bb3f2",
+    ".local/automation/runs/run-oUebC3O4/15-server-geiger/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/15-server-geiger/stderr.log": "15bf678e08ed09f6710c35774317971429453dbe7c5c71a5b3f2fac075e08cb5",
+    ".local/automation/runs/run-oUebC3O4/16-server-coverage/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/16-server-coverage/stderr.log": "2319be18c1064b87a6ed89868ca1065ee370a8a83b5c4d623bc77d5c008825ee",
+    ".local/automation/runs/run-oUebC3O4/22-agent-deny/stdout.log": "738307e513dcfbf7f3cc0178af0fa13f078b69f9cf7d06ff985ce4a6d2c385b0",
+    ".local/automation/runs/run-oUebC3O4/22-agent-deny/stderr.log": "20dcd1f9b74f618bbe8ba837550336ff5b2489ffffea81e13d05772a5c9f6b5e",
+    ".local/automation/runs/run-oUebC3O4/24-agent-geiger/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/24-agent-geiger/stderr.log": "228483861a8acc6279226f346b8a3981967687e1600f7b4da81a1fbc5cee9de0",
+    ".local/automation/runs/run-oUebC3O4/25-agent-coverage/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/25-agent-coverage/stderr.log": "2319be18c1064b87a6ed89868ca1065ee370a8a83b5c4d623bc77d5c008825ee",
+    ".local/automation/runs/run-oUebC3O4/30-frontend-coverage/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/30-frontend-coverage/stderr.log": "e886afe59f19bbd62d56315b0fab492c45b1d92fb2ce9a523f79f18fc0801fd8",
+    ".local/automation/runs/run-oUebC3O4/36-security-trivy/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/36-security-trivy/stderr.log": "ebe73dd2d3debf17f8a11bd9a862b299f2ac0ba7b0ad08ebc02c08d17073dc3e",
+    ".local/automation/runs/run-oUebC3O4/37-security-codeql/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".local/automation/runs/run-oUebC3O4/37-security-codeql/stderr.log": "3f2ffc24ffd67ce612987603356bb73385420b28623b55fedb725fa59071d1fb"
+  }
+}

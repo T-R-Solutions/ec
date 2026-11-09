@@ -1,0 +1,373 @@
+{
+  "schema": 1,
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "security",
+    "scripts"
+  ],
+  "checks": null,
+  "plan": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "argv": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "argv": [
+        "gitleaks",
+        "dir",
+        "--config",
+        "{root}/scripts/automation/rules/gitleaks.toml",
+        "--redact",
+        "--ignore-gitleaks-allow",
+        "--exit-code",
+        "10",
+        "--report-format",
+        "json",
+        "--report-path",
+        "{task}/report.json",
+        "{task}/source"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "argv": [
+        "opengrep",
+        "scan",
+        "--test",
+        "--json",
+        "--strict",
+        "--disable-version-check",
+        "--metrics=off",
+        "{root}/scripts/security/rules/opengrep"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "argv": [
+        "opengrep",
+        "scan",
+        "--config",
+        "{root}/scripts/security/rules/opengrep",
+        "--disable-version-check",
+        "--metrics=off",
+        "--strict",
+        "--no-git-ignore",
+        "--disable-nosem",
+        "--error",
+        "--json",
+        "--output",
+        "{task}/report.json",
+        "{task}/source"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "argv": [
+        "osv-scanner",
+        "scan",
+        "source",
+        "--offline",
+        "--all-packages",
+        "--all-vulns",
+        "--no-call-analysis=rust",
+        "--config",
+        "{root}/scripts/security/rules/osv-scanner.toml",
+        "--format",
+        "json",
+        "--output-file",
+        "{task}/report.json",
+        "--lockfile",
+        "{task}/source/application/agents/Cargo.lock",
+        "--lockfile",
+        "{task}/source/application/server/backend/Cargo.lock",
+        "--lockfile",
+        "{task}/source/application/server/frontend/package-lock.json"
+      ],
+      "cwd": ".",
+      "prerequisites": [
+        "application/agents/Cargo.lock",
+        "application/server/backend/Cargo.lock",
+        "application/server/frontend/package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    }
+  ],
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2677,
+      "stdout_sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2568,
+      "stdout_sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2724,
+      "stdout_sha256": "87158b92c0d5e029024cd667ad152d562a053a0001f50aa663ec8248e9c91825",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2652,
+      "stdout_sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 84.1259,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6aaba4174abc84f4430893ab4c59ae65a4b4592345977c91d6a8ffcac1f0804e"
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.9105,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "be3a23ec4c31489f1697ff1b40540fe6278468e0f0599defeb4f2dcd25893352"
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "blocked",
+      "reason": "ferramenta ausente: gitleaks",
+      "returncode": null
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "blocked",
+      "reason": "ferramenta ausente: opengrep",
+      "returncode": null
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "blocked",
+      "reason": "ferramenta ausente: opengrep",
+      "returncode": null
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "blocked",
+      "reason": "ferramenta ausente: osv-scanner",
+      "returncode": null
+    }
+  ],
+  "inputs_sha256": "7eaa1b8207a0028e6b4548640076e98d2829f479a570ca2c674c0c8b394e34d1",
+  "complete": false,
+  "exit_code": 3,
+  "changed_inputs": []
+}

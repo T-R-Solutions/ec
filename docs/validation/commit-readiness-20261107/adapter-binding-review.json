@@ -1,0 +1,30 @@
+[
+  {
+    "tool": "shellcheck",
+    "image": "sha256:b61e7fd28f10ed4ec49df0748ce3bfa5a67fc6ebea5fbd3ad871368efc09c84b",
+    "version": "0.11.0",
+    "old_adapter_sha256": "829d5aadf02c567a2ddeeaa64e8672081821ac12ba6a1753e30cb3037c20085a",
+    "adapter_sha256": "8e9546e99bbeb7466ea41aa0164fec6a5c660391f33ebca532c7d03f34a80602",
+    "dockerfile_sha256": "22820be95dc32e2d5330caf8df3f60e1d0107cd9dc06b7bc2bfbbc72dca9658d",
+    "payload_sha256": "8c3be12b05d5c177a04c29e3c78ce89ac86f1595681cab149b65b97c4e227198",
+    "previous_recipe": "a2e2b0781be9a5f2520033b97497376f4aae3f7755788cf31b846afdbb17df19",
+    "recipe": "026758bcf0e95caa3868c65130f4362fb937471d044bec885d42a8a7bcdc17e0",
+    "image_reused": true,
+    "image_rebuilt": false,
+    "reason": "Adapter é executado no consumidor e não integra camadas da imagem. Dockerfile e payload idênticos aos artefatos preparados; versão da imagem reconferida offline. Revisão do adapter preserva tratamento de erros; nenhum aviso foi suprimido."
+  },
+  {
+    "tool": "osv-scanner",
+    "image": "sha256:28cc2f84819da6ea032c594a50aaae14bba7e328290a5d44094d112a9c667c1e",
+    "version": "2.7.0",
+    "old_adapter_sha256": "07c63865745d25326da55b7cc744e0c525bc11f22e3052f36bb3c5741c0a5602",
+    "adapter_sha256": "f39f10c4507717d887f4e3a9d72190f06d55ee665c7065e8a4c32528a8e1d0e8",
+    "dockerfile_sha256": "37cb06efdd20183dfdb607613843ae567771faff1a95826a127ad53b7e570201",
+    "payload_sha256": "160c6253e2922e9e0a6a9771c5c4c40a4b3c6090b34a3cdd5e80c96cc2e4218b",
+    "previous_recipe": "640c23e0a31a12ad8166565422ad22dbb52b53544299d8e402b9ae4457d9b85c",
+    "recipe": "854bd9aa62a168c937a26742a117daff82ed9549b1d79ba8a1a33478a8386647",
+    "image_reused": true,
+    "image_rebuilt": false,
+    "reason": "Adapter é executado no consumidor e não integra camadas da imagem. Dockerfile e payload idênticos aos artefatos preparados; versão da imagem reconferida offline. Revisão do adapter preserva tratamento de erros; nenhum aviso foi suprimido."
+  }
+]

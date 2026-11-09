@@ -1,0 +1,29 @@
+test_cancel_observed_after_last_command_never_publishes_approval (test_native.NativeTests.test_cancel_observed_after_last_command_never_publishes_approval) ... ok
+test_cancel_waits_for_executor_cleanup_and_never_approves (test_native.NativeTests.test_cancel_waits_for_executor_cleanup_and_never_approves) ... ok
+test_central_rotation_between_steps_invalidates_gate (test_native.NativeTests.test_central_rotation_between_steps_invalidates_gate) ... ok
+test_codeql_requires_all_targets_and_explicit_rust_environment (test_native.NativeTests.test_codeql_requires_all_targets_and_explicit_rust_environment) ... ok
+test_codeql_unresolved_database_never_reaches_analysis (test_native.NativeTests.test_codeql_unresolved_database_never_reaches_analysis) ... ok
+test_duplicate_json_and_malformed_reports_rejected (test_native.NativeTests.test_duplicate_json_and_malformed_reports_rejected) ... ok
+test_expired_database_and_divergent_identity_rejected (test_native.NativeTests.test_expired_database_and_divergent_identity_rejected) ... ok
+test_expired_trivy_upstream_database_rejected_before_scan (test_native.NativeTests.test_expired_trivy_upstream_database_rejected_before_scan) ... ok
+test_missing_lock_and_empty_component_are_rejected (test_native.NativeTests.test_missing_lock_and_empty_component_are_rejected) ... ok
+test_missing_rust_runtime_still_attempts_frontend_without_partial_approval (test_native.NativeTests.test_missing_rust_runtime_still_attempts_frontend_without_partial_approval) ... ok
+test_native_124_125_130_are_not_infrastructure_by_number (test_native.NativeTests.test_native_124_125_130_are_not_infrastructure_by_number) ... ok
+test_native_gates_reach_executor_without_legacy_contract (test_native.NativeTests.test_native_gates_reach_executor_without_legacy_contract) ... ok
+test_operational_failures_never_approve_and_native_code_is_retained (test_native.NativeTests.test_operational_failures_never_approve_and_native_code_is_retained) ... ok
+test_partial_sast_and_ineffective_rules_rejected (test_native.NativeTests.test_partial_sast_and_ineffective_rules_rejected) ... ok
+test_playwright_rejects_skipped_flaky_empty_or_duplicate_tests (test_native.NativeTests.test_playwright_rejects_skipped_flaky_empty_or_duplicate_tests) ... ok
+test_playwright_rejects_symlink_build_before_copy_or_execution (test_native.NativeTests.test_playwright_rejects_symlink_build_before_copy_or_execution) ... ok
+test_playwright_uses_central_esm_without_host_node_modules (test_native.NativeTests.test_playwright_uses_central_esm_without_host_node_modules) ... ok
+test_sbom_empty_or_missing_lock_and_grype_ignores_rejected (test_native.NativeTests.test_sbom_empty_or_missing_lock_and_grype_ignores_rejected) ... ok
+test_snapshot_is_complete_preserves_modes_and_excludes_local_secrets (test_native.NativeTests.test_snapshot_is_complete_preserves_modes_and_excludes_local_secrets) ... ok
+test_source_mutation_rejects_even_clean_scanner (test_native.NativeTests.test_source_mutation_rejects_even_clean_scanner) ... ok
+test_supervisor_does_not_record_synthetic_secret_in_task_argv (test_native.NativeTests.test_supervisor_does_not_record_synthetic_secret_in_task_argv) ... ok
+test_symlink_sources_rejected (test_native.NativeTests.test_symlink_sources_rejected) ... ok
+test_synthetic_credentials_absent_from_metadata_and_streams (test_native.NativeTests.test_synthetic_credentials_absent_from_metadata_and_streams) ... ok
+test_trivy_trailing_and_legacy_ignore_directives_rejected_before_execution (test_native.NativeTests.test_trivy_trailing_and_legacy_ignore_directives_rejected_before_execution) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 7.254s
+
+OK

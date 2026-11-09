@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "project": "playwright-ui",
+  "root": ".",
+  "profiles": [
+    "web-ui"
+  ],
+  "tools": {
+    "playwright": {
+      "version": "1.56.1",
+      "variant": "chromium",
+      "config": "playwright.config.mjs",
+      "network": "none"
+    }
+  }
+}

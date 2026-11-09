@@ -1,0 +1,966 @@
+{
+  "schema": 1,
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "integration",
+    "e2e",
+    "security",
+    "scripts"
+  ],
+  "plan": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "argv": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [
+        "application/server/backend/Cargo.lock"
+      ],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [
+        "application/server/backend/Cargo.lock"
+      ],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [
+        "application/server/backend/Cargo.lock"
+      ],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-failpoints"
+      ],
+      "cwd": "application/server/backend",
+      "prerequisites": [],
+      "target": ".local/build/ec-server-clean",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [
+        "application/agents/Cargo.lock"
+      ],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [
+        "application/agents/Cargo.lock"
+      ],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [
+        "application/agents/Cargo.lock"
+      ],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-failpoints"
+      ],
+      "cwd": "application/agents",
+      "prerequisites": [],
+      "target": ".local/build/ec-agent-target",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "argv": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "application/server/frontend",
+      "prerequisites": [
+        "application/server/frontend/package-lock.json",
+        "application/server/frontend/node_modules/.package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "argv": [
+        "npm",
+        "run",
+        "test"
+      ],
+      "cwd": "application/server/frontend",
+      "prerequisites": [
+        "application/server/frontend/package-lock.json",
+        "application/server/frontend/node_modules/.package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "application/server/frontend",
+      "prerequisites": [
+        "application/server/frontend/package-lock.json",
+        "application/server/frontend/node_modules/.package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "argv": [
+        "gitleaks",
+        "dir",
+        "--config",
+        "{root}/scripts/automation/rules/gitleaks.toml",
+        "--redact",
+        "--ignore-gitleaks-allow",
+        "--exit-code",
+        "10",
+        "--report-format",
+        "json",
+        "--report-path",
+        "{task}/report.json",
+        "{task}/source"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [
+        "/usr/bin/firefox"
+      ],
+      "target": "",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build"
+      ],
+      "timeout": 900
+    }
+  ],
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2591,
+      "stdout_sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2672,
+      "stdout_sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2721,
+      "stdout_sha256": "87158b92c0d5e029024cd667ad152d562a053a0001f50aa663ec8248e9c91825",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.2733,
+      "stdout_sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 83.0132,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "cc4bf089d64c6fb40403f27d034c4dbc8911f764e3c11b1e20de487e6c307f67"
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 0.7203,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c262df25d0603b72c5d9eb69543ef54294086cd5b440324d51752db821730a69"
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "rustfmt 1.10.0-stable (58cf8f9c35 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/backend",
+      "cause": "",
+      "duration_seconds": 0.0397,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "clippy 0.1.99 (58cf8f9c35 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/backend",
+      "cause": "",
+      "duration_seconds": 0.0804,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ee1d3fffa2022e962e63e0dbe4d35c9c198450a20c29fc09030f635dbb38bfcd"
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/backend",
+      "cause": "",
+      "duration_seconds": 0.1557,
+      "stdout_sha256": "2534ca94ca3293f4958384a0eb2d374e58c8ce73a3eb312d76f1a63a674f468b",
+      "stderr_sha256": "91a737d6d5201215b9cf95b59b88880faa232ec4b00ce9577890072cbca3aaf0"
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-failpoints"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/backend",
+      "cause": "",
+      "duration_seconds": 0.0427,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a13905646e2aed93ec6ea9ed6ac91490a4e01f91af0215c3965279a910612149"
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "rustfmt 1.10.0-stable (58cf8f9c35 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/agents",
+      "cause": "",
+      "duration_seconds": 0.034,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "clippy 0.1.99 (58cf8f9c35 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/agents",
+      "cause": "",
+      "duration_seconds": 0.0493,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a13905646e2aed93ec6ea9ed6ac91490a4e01f91af0215c3965279a910612149"
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/agents",
+      "cause": "",
+      "duration_seconds": 0.1011,
+      "stdout_sha256": "4afa3c07fe8b332714d96aa9f2d859809a8478ffbbf70a45d38514e4b758b0d8",
+      "stderr_sha256": "41bfe8a6556f3aa6abed7542da648400a3b6b5a8a15723f9ff094a0c7b5b0071"
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)",
+        "component": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+      },
+      "argv": [
+        "rustup",
+        "run",
+        "1.99.1",
+        "cargo",
+        "build",
+        "--workspace",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-failpoints"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/agents",
+      "cause": "",
+      "duration_seconds": 0.022,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6d77f64dfc8c5325b90fdbe05d8be367bdd578bcccec24f275c5ffee7d03dd6e"
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "node": "26.13.0",
+        "version": "11.20.0"
+      },
+      "argv": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/frontend",
+      "cause": "",
+      "duration_seconds": 1.0629,
+      "stdout_sha256": "cd7512cbdbb587e93db2f25aa3601d10383a820133d0ebe1262ea612468a9252",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "node": "26.13.0",
+        "version": "11.20.0"
+      },
+      "argv": [
+        "npm",
+        "run",
+        "test"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/frontend",
+      "cause": "",
+      "duration_seconds": 0.4261,
+      "stdout_sha256": "739db85f6a6fbab5f76cb7a53dc8406d12e14a69dd61bda6edfc4996de56f4de",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "node": "26.13.0",
+        "version": "11.20.0"
+      },
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec/application/server/frontend",
+      "cause": "",
+      "duration_seconds": 0.8153,
+      "stdout_sha256": "a0f271aadf8027b520c40a3e3d409518f1e3ae4998fbe4a60d20fea4d1cccca3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "blocked",
+      "reason": "ferramenta ausente: gitleaks",
+      "returncode": null
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a",
+        "docker": "29.7.2-ce",
+        "database_image": "sha256:b456ff8dec1f076e170d900bd83bade3add0e1db6f55962487513b162094a9fb"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 1.8125,
+      "stdout_sha256": "ac9d305b008b32d2fdfff260dbeb7f444d53ab8aab5d27b7bbb3d2828973fc7e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a",
+        "docker": "29.7.2-ce",
+        "database_image": "sha256:b456ff8dec1f076e170d900bd83bade3add0e1db6f55962487513b162094a9fb"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 6.0335,
+      "stdout_sha256": "37cac47428f13813c8434c8bb39df75b9ff2c1be3fff56dee1c23e6d563cee30",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a",
+        "docker": "29.7.2-ce",
+        "database_image": "sha256:b456ff8dec1f076e170d900bd83bade3add0e1db6f55962487513b162094a9fb"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 44.5711,
+      "stdout_sha256": "a071bed1a697d766957f14d4f23ab2b46a36505bb67f743514a4bca458e376f2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "tool": {
+        "launcher": "/usr/bin/python3",
+        "launcher_sha256": "e689e339771cc861d83dce26cd333a01af0052dc36db8da947686e3fbd76857a",
+        "docker": "29.7.2-ce",
+        "database_image": "sha256:b456ff8dec1f076e170d900bd83bade3add0e1db6f55962487513b162094a9fb"
+      },
+      "argv": [
+        "/usr/bin/python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "cwd": "/home/rodrigo/Projetos/ec",
+      "cause": "",
+      "duration_seconds": 42.9069,
+      "stdout_sha256": "c3a20a688277e954a7ab32d2336f4bdf3d10bfe435d41f1b08316986d6d670c1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "inputs_sha256": "e3d815d0f01b4c3a838d17e5fde7d5124adc70d6a5b6a59383d0fda9fb460286",
+  "complete": false,
+  "exit_code": 3,
+  "changed_inputs": []
+}

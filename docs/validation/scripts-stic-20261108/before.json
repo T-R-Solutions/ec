@@ -1,0 +1,402 @@
+[
+  {
+    "path": "scripts/README.md",
+    "sha256": "c274bb1ed6ce933cc675c530a841e4e31ab2e15fb460995831b6e4cb3394fdf3",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/LICENSE",
+    "sha256": "b2fa7b84692d6b7d79bc3538f670cb7110ec089ac04b7d5f9aa917713661ecd0",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/check.sh",
+    "sha256": "cb524d37a1112e47330de39da3cdbd35bfec75f7da41c7cff34a6566530be1f4",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/automate.sh",
+    "sha256": "ba050bebc055180a11e8641b68d175e9e6cd8e12a0a608fffdb31a1723fbadcf",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/toolbox.sh",
+    "sha256": "99c7f9ea70f953b76132852e8492eccc89c56d2e0420320e977bee33eeba7c81",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/prepare.sh",
+    "sha256": "1e738509b412d1d5b9a418288845f863c9381b9c7f5bbdeb9b5a54a24ed27371",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/toolbox-local.sh",
+    "sha256": "5c922728aac235b552de93882d5d674a449530b963a21c9ac821b85406c31f26",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/reports/summarize.sh",
+    "sha256": "9bf1721aa95718252e68a47e0bea820fa7badd74bebb9d1183db5b72f456957d",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "sha256": "2e7f6ec44798b6b80afaaabd0b419d8bf6e3ce42a882430e98a59b12fa1753d1",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/tests/test_quality.py",
+    "sha256": "5ef5c0df2687927f235f3aa0005430c70c7fb6ec7cfd76070b9048a5c97bed69",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/README.md",
+    "sha256": "3c1a3ade1653514e3ee74b481f9bc6acd9c1290060f892af4348eb41d2e429b1",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/check.sh",
+    "sha256": "6ca18a5f920b676434749ff25da3a7b483dfc2749525f8c839f0e96f4e12895a",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/security/lib.sh",
+    "sha256": "c741f38c2d75c6b101a385a60d1fe2dba721a00302b751e3ba35f800686edfe7",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/security/record-osv-db.sh",
+    "sha256": "b2a2b55554bd187b956a7affd04ecd957df5fbfd594c7ae4d7596622410b1df9",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/security/test-gitleaks.sh",
+    "sha256": "b0d457ca78351ddf428f4f9cd05c7748e44267b59c6492006bb0213cd27372c0",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/native.sh",
+    "sha256": "a6dc6d52ca207fce30b5775d351e41d292e8924da99ab760e390b3846aa48c22",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/prepare-native.sh",
+    "sha256": "37b1eef90862a73d19e46b22b1a149f0996ff159934c38edd990b60c3b9c2501",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/native-scanners.md",
+    "sha256": "064fcceeb1bee3bd0d1e50220719ed2fdaa4b06d8516129c3b62190fdd4c8d1d",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/toolbox-contract.md",
+    "sha256": "c1090087ac4d21d7d0fb52e4aca5f6c18091dd0011421c5d8b0cede5f9acccb8",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/lib/common.sh",
+    "sha256": "785d69945e5be6011b6bfc2357c7da762265cd3fd4a1a21426f7d47192232879",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/lib/inputs.sh",
+    "sha256": "63cc56a56f0d136b056964bf1dffbb44a77c0b2dffc49c43cf29dffcddda9e0e",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/lib/catalog.sh",
+    "sha256": "327fc0b4d2ec5d07194672e9d1b504008b38cda5b936c2c7b97bfcad5562379d",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/lib/runtime.sh",
+    "sha256": "54536d4b14054f6da05470867ce52ef915a75de0c2ab5263b80d9808edd737ee",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/lib/integration.sh",
+    "sha256": "e043f8de3011d81f8685b93eeb49cb67c07089c638794099c5c42c621b0a8863",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/lib/toolbox.sh",
+    "sha256": "5b2f7200145432dc29345a6645b420d0fa881c26c6ef712514dfa0ede801b76a",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/rust/check.sh",
+    "sha256": "1e91043a01e3833993fe74e4b0b34a2eb46dd455cb5222e401ee7de8dc85390f",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/frontend/check.sh",
+    "sha256": "c50920fe616f778b08fd6822dac0843ce00d359346cf32a29fdf2da3c2df926e",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/frontend/eslint-ratchet.sh",
+    "sha256": "bb24cb699a8ee990dc194b19ffd3cffa92ecfe1ee278b0f83c467f0dfbf8cbfe",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/metrics/check.sh",
+    "sha256": "dd7ad202bb141a1a11f8a92ef438c8dadbf417e9e6682bf03a306c8d824a6647",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/metrics/coverage.sh",
+    "sha256": "8d78b1dc8aef8a28bc73d0576bfce3925d549aac6bd44aba06534499aa28150b",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/osv-scanner.toml",
+    "sha256": "9311d41f8d1ef5fa4514eb78f8ead2a815332c7d4d711f5d9850e712fb11bf61",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/gitleaks.toml",
+    "sha256": "99e136dc342326fa5650248478dd49c4f2d75f05d63fa256dcd193c4446d76de",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/analyzers/check-report.sh",
+    "sha256": "d7820a38f4b46847a454d16a870c92513f5f66a82df55a0d5c1ad5bcb7f4b41a",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/security/analyzers/validate-exceptions.sh",
+    "sha256": "884b78231f5b2aba79f3a792a235e252fb5d4afb506e7a8f2b9dde9eddfe4cb6",
+    "mode": "0o755"
+  },
+  {
+    "path": "scripts/security/analyzers/redact-trivy.jq",
+    "sha256": "2c85b48d15aa09716ae5068c567c7c4f17ae166135bc0560fa474464ce0217fd",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/opengrep/rust.yml",
+    "sha256": "e243f63f5f033f122b52fc4ffecb09e77582351ed2a304e82907c93b2d53e11f",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/opengrep/rust.rs",
+    "sha256": "0f4c26b24f357f1e318a07a4be8787115fc6a884e515bb8360be78ce9d694d14",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/opengrep/typescript.yml",
+    "sha256": "24ea64f748f9951ab9a2ef75a923c85194b90c2e61056bf68c517476646b93a5",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/opengrep/typescript.ts",
+    "sha256": "27989e43e7ef5b6d9748b25925c5673b03c305536059d60c5306cd76726b68b0",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/opengrep/vue.yml",
+    "sha256": "37e6f4dfd4957228aaff6cbff0b2800a341498f2175c2b5267effa25a80797a9",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/security/rules/opengrep/vue.vue",
+    "sha256": "01188f0b7a109773f985cb5dabea3de657ebb5ec93399d7b2ecb09014210dac8",
+    "mode": "0o644"
+  },
+  {
+    "path": "scripts/tests/__pycache__/test_shell.cpython-313.pyc",
+    "sha256": "f648e8ff83a7030cdcafab4fd709e48f38d23cec9688f0f065a99aafa0999242",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/deny.toml",
+    "sha256": "fe868493dd1801b3b6044592a2cda4cba1b11ca7e7af88ef2d3401022b0df65d",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/audit.toml",
+    "sha256": "56980089ca448f15fbe6fc38b9391e36ddd74d3c0577424606f4d4432f37e322",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/trivy.yaml",
+    "sha256": "fd4359c1f59b1f9e649b3cf4fb5cc0d4a8651ce43e6140cd263b917c057205a3",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/codeql.qls",
+    "sha256": "5f1dcc33a715b16a9042380f7a82dc651a4d9ff5f552f192a1df8ef7d3f75333",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/README.md",
+    "sha256": "a81e92713e9b0e56ccdea1d14d57c5285341fad5e8d0ad836fd0313e816b7031",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/cargo-tools.json",
+    "sha256": "9086c892a609213f40d0ea40465682daa05bb10c0e38c97fbc791fda37ba516f",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/coverage.json",
+    "sha256": "152691c311aea4c59accfe1a42f86440761090a8b929118f67ae7c81d257b5a5",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/codeql-rust.qls",
+    "sha256": "3e9f957d5217e3e2ac0ab57d673e54fd3e2e3b44cbc75556bcac0394ba6eb008",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/native-scanners.json",
+    "sha256": "c91a5f0d9b87e130b1ecfa4cd1c2b852d193941914b3e0cded209aa3319efb20",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/trivy-toolbox.yaml",
+    "sha256": "2749e6fcc4e09c2fa5ecf45fd2763a0cd7528b36c679c32b63489ea0389539fc",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/bandit.yaml",
+    "sha256": "e44ab7f88322aa0748e87930a3dcf1bd891b740f9150ca33537537570c2afd29",
+    "mode": "0o644"
+  },
+  {
+    "path": "config/quality/grype.yaml",
+    "sha256": "536f815aaee6b5dc6e87f76a3483d55e39718a32bab2f61e37e1925a78bb31d7",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/skills-analysis.md",
+    "sha256": "efdcb38918a80be78b83e70b3fa00a04653c219e0d3eb6a3bdffc84cffc02a42",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/skill-installation.md",
+    "sha256": "54c7be90e3c93bed815180f2e55e986a4186977c5550114da48f803a76456967",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/testing.md",
+    "sha256": "9f356e2c37bbafb406b19ac3b2a5181ecbc3d0d7c4ebb028963711c4a1f3ca3f",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/contributing.md",
+    "sha256": "76587545a150adfdd0648eb117c6bc89a863cc50a1d62369720d87293190c3d7",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/first-functional-journey.md",
+    "sha256": "137f8641a8ba286aa812266bc1ee8d1431362055dfb529b27d2bf78c7f56ae26",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/publication.md",
+    "sha256": "e391fb2d0c85f842e793e80212ea7304255771500dac6288a89ec6c79d862970",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/orchestration.md",
+    "sha256": "5f2ddcc522311e5d3da00692625661cccc7cadda8c0fcc5b4715ff344cf97597",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/agent.md",
+    "sha256": "6aaadb4e61be04f75626486a55075b486bcf2e2f18c1d811d8be9886494921e6",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/frontend.md",
+    "sha256": "3b9d88826df65af6a6dec61656c8e0af596b1cfbc09160a9453212345247441e",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/task-verification.md",
+    "sha256": "439e6dc5fab74ab2296dafae3c6bde43473301d820f30e08165de6c586fc5b84",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/scripts-inventory.md",
+    "sha256": "9fd26846cdf5e46913d6c0472393e0b3f71c39b0e05fdb96eb24307aad8965d9",
+    "mode": "0o644"
+  },
+  {
+    "path": "docs/development/verification-tools.md",
+    "sha256": "0158906aa0d562113006562e1cbd11cfc433120defd133767294f2fe40f19a66",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/spec.md",
+    "sha256": "eab46d540aa0fa32203797051c4bb156da5953e992202482d6737fa43dfa418c",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/plan.md",
+    "sha256": "5cf9b0d4f30c64d826fc55c1d420352b31f531ca8aa3811a858570b54dcb14cb",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/tasks.md",
+    "sha256": "9e8eb1c5a79f689bc8f145b8f6e67b95e8887b05583c71a724a5320dbc864170",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/traceability.json",
+    "sha256": "13369d2c7f6619be37a77e8b92b9e88ea32acbc09a00be21aebd442755bc5a61",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/converge.md",
+    "sha256": "175c96338366d698818d24256602381f9fcb716f346879e49eb7011dd7be3d70",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/evidence.json",
+    "sha256": "678998c30abe9aad616c30b0c2d2c6c2c2897e62303bfe891cc70c697bd9842e",
+    "mode": "0o644"
+  },
+  {
+    "path": "sdd/features/scripts-verification/toolbox-completion-plan.md",
+    "sha256": "0108e8c37d0eaa08c7b08be124653cf47a78c2f1ed86719b695dc799748e031d",
+    "mode": "0o644"
+  },
+  {
+    "path": "toolbox.json",
+    "sha256": "f784823f7898ee35755f34714b76d4c8239ce3b4d2f8fb497def427505b7c218",
+    "mode": "0o600"
+  },
+  {
+    "path": "toolbox.images.lock.json",
+    "sha256": "32b03422396d2c1dc6447a31789ee28229299ca06ce62fe77a67c86ede205b3f",
+    "mode": "0o600"
+  },
+  {
+    "path": "ruff.toml",
+    "sha256": "5441969f2c4712eea3b7783f9a5eddb5010cd2cca9c2247bae9610dd989cd046",
+    "mode": "0o644"
+  },
+  {
+    "path": ".shellcheckrc",
+    "sha256": "f09b0bb5d8e256c380055b4b00ee6e758df5c6b3a0afe6eff0b2d64dda29df3f",
+    "mode": "0o644"
+  },
+  {
+    "path": "playwright.config.mjs",
+    "sha256": "f3a82ffb74cd1f085a990117e8d68d57163ae505a6ba196b35d72096335b38d3",
+    "mode": "0o644"
+  },
+  {
+    "path": "tools/toolbox_consumer/bridge.py",
+    "sha256": "2a866db77574ae69bc5388d403b0d21e15062222173290e919e18ac04b03e91a",
+    "mode": "0o644"
+  },
+  {
+    "path": ".gitignore",
+    "sha256": "ab98463b3172e842a8432a7631b90b8e11c25c960911f60be7b482b4f5065b3c",
+    "mode": "0o644"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      "."
+    ],
+    "exit_code": 0,
+    "log": "sdd-final.log"
+  },
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      ".",
+      "--require-approved",
+      "--require-fresh"
+    ],
+    "exit_code": 1,
+    "log": "acceptance-final.log"
+  }
+]

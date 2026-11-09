@@ -1,0 +1,112 @@
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-agent-app = 0.1.0'
+ ├ ec-agent-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-app#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-agent-app"
+  │         ━━━━━━━━━━━━
+  │
+  ├ ec-agent-app v0.1.0 (*)
+
+error[unlicensed]: ec-agent-app = 0.1.0 is unlicensed
+ ├ ec-agent-app v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-agent-control = 0.1.0'
+ ├ ec-agent-control v0.1.0
+   └── ec-agent-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-control#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-agent-control"
+  │         ━━━━━━━━━━━━━━━━
+  │
+  ├ ec-agent-control v0.1.0 (*)
+
+error[unlicensed]: ec-agent-control = 0.1.0 is unlicensed
+ ├ ec-agent-control v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-agent-execution = 0.1.0'
+ ├ ec-agent-execution v0.1.0
+   └── ec-agent-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-execution#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-agent-execution"
+  │         ━━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-agent-execution v0.1.0 (*)
+
+error[unlicensed]: ec-agent-execution = 0.1.0 is unlicensed
+ ├ ec-agent-execution v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-agent-reporting = 0.1.0'
+ ├ ec-agent-reporting v0.1.0
+   ├── ec-agent-app v0.1.0
+   └── ec-agent-execution v0.1.0
+       └── ec-agent-app v0.1.0 (*)
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-reporting#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-agent-reporting"
+  │         ━━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-agent-reporting v0.1.0 (*)
+
+error[unlicensed]: ec-agent-reporting = 0.1.0 is unlicensed
+ ├ ec-agent-reporting v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-agent-workspace = 0.1.0'
+ ├ ec-agent-workspace v0.1.0
+   └── ec-agent-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-workspace#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-agent-workspace"
+  │         ━━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-agent-workspace v0.1.0 (*)
+
+error[unlicensed]: ec-agent-workspace = 0.1.0 is unlicensed
+ ├ ec-agent-workspace v0.1.0 (*)
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:32
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                ━━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:48
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                ━━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:94
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                                                              ━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:64
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                                ━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:71
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                                       ━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:86
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                                                      ━━━━ unmatched license allowance
+

@@ -1,0 +1,10 @@
+{
+  "method": "Nova revisão de todas as entradas alteradas contra autoridades, ADR-001/002 e manifests atuais; auditor require-installed/preflight reais e 34 testes reexecutados após corrigir a cópia de scripts na view de recuperação.",
+  "result": "PASS: fontes e 65 pacotes não alterados; dois SKILL.md sincronizados e perfil confere; políticas referenciadas; HTTP/PostgreSQL e YAML preservados, sem gRPC/SQLite adotados. Remoções históricas não reexecutadas.",
+  "logs": [
+    "governance-recheck.log"
+  ],
+  "limitations": [
+    "Não certifica eficácia das skills, runtime ou segurança universal. Sem novos testes de corte de energia/escritor hostil."
+  ]
+}

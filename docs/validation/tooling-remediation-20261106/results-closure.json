@@ -1,0 +1,368 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "docs",
+    "scripts"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "0.11.0",
+        "image": "sha256:b61e7fd28f10ed4ec49df0748ce3bfa5a67fc6ebea5fbd3ad871368efc09c84b",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-b77ea996c237488289edd8b94f031e5b",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-ajzm1IER/06-scripts-shellcheck/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/shellcheck/volume/projects/ec/runs/20261107T121034.553599Z-27dd2010f196:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "sha256:b61e7fd28f10ed4ec49df0748ce3bfa5a67fc6ebea5fbd3ad871368efc09c84b",
+          "--format=json1",
+          "--rcfile",
+          "/src/.shellcheckrc",
+          "--",
+          "scripts/automate.sh",
+          "scripts/check.sh",
+          "scripts/frontend/check.sh",
+          "scripts/frontend/eslint-ratchet.sh",
+          "scripts/lib/catalog.sh",
+          "scripts/lib/common.sh",
+          "scripts/lib/inputs.sh",
+          "scripts/lib/integration.sh",
+          "scripts/lib/runtime.sh",
+          "scripts/lib/toolbox.sh",
+          "scripts/metrics/check.sh",
+          "scripts/prepare.sh",
+          "scripts/reports/summarize.sh",
+          "scripts/rust/check.sh",
+          "scripts/security/analyzers/check-report.sh",
+          "scripts/security/analyzers/validate-exceptions.sh",
+          "scripts/security/check.sh",
+          "scripts/security/lib.sh",
+          "scripts/security/record-osv-db.sh",
+          "scripts/security/test-gitleaks.sh",
+          "scripts/toolbox.sh"
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/shellcheck/volume/projects/ec/runs/20261107T121034.553599Z-27dd2010f196",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "0.11.13",
+        "image": "sha256:c58a4ea5be1d2b8a43c8afa326db1a7c411c40d880bc03596ff00a8b808dc00c",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-e44b19db2bff48cfa8da1aa5c6e05816",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-ajzm1IER/07-scripts-ruff/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/ruff/volume/projects/ec/runs/20261107T121039.499081Z-e7faf20372be:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "sha256:c58a4ea5be1d2b8a43c8afa326db1a7c411c40d880bc03596ff00a8b808dc00c",
+          "check",
+          "--no-fix",
+          "--no-cache",
+          "--output-format=json",
+          "--config",
+          "/src/ruff.toml",
+          "--",
+          "scripts/tests",
+          "tools",
+          "sdd/tools",
+          "application/integration/tests"
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/ruff/volume/projects/ec/runs/20261107T121039.499081Z-e7faf20372be",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "6f0a827d3c8df4c1ba780fcdb1aa6c43be444ce396f26e892856c9462f84ccd4",
+  "complete": true,
+  "exit_code": 0,
+  "changed_inputs": []
+}

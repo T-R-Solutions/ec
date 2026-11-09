@@ -1,0 +1,206 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "docs",
+    "scripts"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "367d7534a047fd7cf49ab69ccc31ab74619e598a3af22da382f91f7a4cfe0588",
+  "complete": true,
+  "exit_code": 0,
+  "changed_inputs": []
+}

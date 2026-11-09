@@ -1,0 +1,25 @@
+{
+  "method": "Leitura dos manifests tools/*/tool.json; n\u00e3o representa ativa\u00e7\u00e3o.",
+  "tools": [
+    "bandit",
+    "codeql",
+    "gitleaks",
+    "grype",
+    "opengrep",
+    "osv-scanner",
+    "playwright",
+    "ruff",
+    "shellcheck",
+    "syft",
+    "trivy",
+    "yara-x"
+  ],
+  "absent": [
+    "cargo-audit",
+    "cargo-deny",
+    "cargo-machete",
+    "cargo-geiger",
+    "cargo-llvm-cov",
+    "rustsec"
+  ]
+}

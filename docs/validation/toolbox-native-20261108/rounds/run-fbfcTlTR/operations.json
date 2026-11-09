@@ -1,0 +1,184 @@
+{
+  "final_command": [
+    "bash",
+    "scripts/automate.sh",
+    "run"
+  ],
+  "toolbox_bin": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+  "final_run": ".local/automation/runs/run-fbfcTlTR",
+  "final_exit_code": 2,
+  "task_counts": {
+    "passed": 24,
+    "blocked": 12,
+    "error": 7
+  },
+  "changed_inputs": [],
+  "optional_command": [
+    "bash",
+    "scripts/automate.sh",
+    "run",
+    "--surface",
+    "security",
+    "--check",
+    "grype",
+    "--check",
+    "bandit",
+    "--check",
+    "syft",
+    "--check",
+    "yara-x"
+  ],
+  "optional_run": ".local/automation/runs/run-wK23fIYy",
+  "optional_exit_code": 3,
+  "native_calls": [
+    {
+      "task": "06-scripts-shellcheck",
+      "step": "00-shellcheck",
+      "tool": "shellcheck",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-06-scripts-shellcheck-00-shellcheck.json"
+    },
+    {
+      "task": "07-scripts-ruff",
+      "step": "00-ruff",
+      "tool": "ruff",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-07-scripts-ruff-00-ruff.json"
+    },
+    {
+      "task": "31-security-secrets-rules",
+      "step": "00-gitleaks",
+      "tool": "gitleaks",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-31-security-secrets-rules-00-gitleaks.json"
+    },
+    {
+      "task": "33-security-sast-rules",
+      "step": "00-opengrep",
+      "tool": "opengrep",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-33-security-sast-rules-00-opengrep.json"
+    },
+    {
+      "task": "35-security-dependencies",
+      "step": "00-osv-scanner",
+      "tool": "osv-scanner",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-35-security-dependencies-00-osv-scanner.json"
+    },
+    {
+      "task": "36-security-trivy",
+      "step": "00-trivy",
+      "tool": "trivy",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-36-security-trivy-00-trivy.json"
+    },
+    {
+      "task": "37-security-codeql",
+      "step": "00-codeql",
+      "tool": "codeql",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-37-security-codeql-00-codeql.json"
+    },
+    {
+      "task": "41-e2e-playwright",
+      "step": "00-playwright",
+      "tool": "playwright",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-41-e2e-playwright-00-playwright.json"
+    },
+    {
+      "task": "05-security-grype",
+      "step": "00-grype",
+      "tool": "grype",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-05-security-grype-00-grype.json"
+    },
+    {
+      "task": "06-security-bandit",
+      "step": "00-bandit",
+      "tool": "bandit",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-06-security-bandit-00-bandit.json"
+    },
+    {
+      "task": "07-security-syft",
+      "step": "00-syft",
+      "tool": "syft",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-07-security-syft-00-syft.json"
+    },
+    {
+      "task": "08-security-yara-x",
+      "step": "00-yara-x",
+      "tool": "yara-x",
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-08-security-yara-x-00-yara-x.json"
+    }
+  ],
+  "limits": [
+    "Diagnósticos nativos em resolve_active; nenhum processo de scanner/browser central executado.",
+    "Primeira rodada sob sandbox falhou antes do diagnóstico; demais rodadas autorizadas fora dele.",
+    "Sem download, preparo/ativação, commits, tags, publicação ou alteração de permissões."
+  ]
+}

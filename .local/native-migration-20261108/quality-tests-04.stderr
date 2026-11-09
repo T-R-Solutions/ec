@@ -1,0 +1,25 @@
+test_codeql_rejects_partial_diagnostics_suppressions_and_empty_suite (test_quality.QualityTests.test_codeql_rejects_partial_diagnostics_suppressions_and_empty_suite) ... ok
+test_codeql_zero_exit_with_results_is_findings (test_quality.QualityTests.test_codeql_zero_exit_with_results_is_findings) ... ok
+test_coverage_invalid_duplicate_empty_and_missing_reports_fail (test_quality.QualityTests.test_coverage_invalid_duplicate_empty_and_missing_reports_fail) ... ok
+test_coverage_inventory_rejects_omitted_unexercised_file (test_quality.QualityTests.test_coverage_inventory_rejects_omitted_unexercised_file) ... ok
+test_coverage_never_reuses_previous_report (test_quality.QualityTests.test_coverage_never_reuses_previous_report) ... ok
+test_coverage_rejects_weakened_policy_and_input_mutation (test_quality.QualityTests.test_coverage_rejects_weakened_policy_and_input_mutation) ... ok
+test_coverage_threshold_has_no_rounding_or_cross_component_average (test_quality.QualityTests.test_coverage_threshold_has_no_rounding_or_cross_component_average) ... ok
+test_default_and_selected_catalog_keep_new_checks_once (test_quality.QualityTests.test_default_and_selected_catalog_keep_new_checks_once) ... ok
+test_frontend_producer_cleanup_cannot_erase_acceptance_evidence (test_quality.QualityTests.test_frontend_producer_cleanup_cannot_erase_acceptance_evidence) ... FAIL
+test_trivy_redaction_preserves_count_without_secret_values (test_quality.QualityTests.test_trivy_redaction_preserves_count_without_secret_values) ... ok
+test_trivy_requires_all_lockfiles_and_counts_all_finding_types (test_quality.QualityTests.test_trivy_requires_all_lockfiles_and_counts_all_finding_types) ... ok
+
+======================================================================
+FAIL: test_frontend_producer_cleanup_cannot_erase_acceptance_evidence (test_quality.QualityTests.test_frontend_producer_cleanup_cannot_erase_acceptance_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/scripts/tests/test_quality.py", line 151, in test_frontend_producer_cleanup_cannot_erase_acceptance_evidence
+    self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : b'error: invent\xc3\xa1rio de cobertura vazio\n'
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.900s
+
+FAILED (failures=1)

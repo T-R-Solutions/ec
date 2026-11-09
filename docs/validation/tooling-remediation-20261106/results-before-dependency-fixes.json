@@ -1,0 +1,1474 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "agent",
+    "docs",
+    "e2e",
+    "frontend",
+    "integration",
+    "scripts",
+    "security",
+    "server"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "machete",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "machete"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "deny",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "deny"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "audit",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "audit"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "machete",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "machete"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "deny",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "deny"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "audit",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "audit"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "typecheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "depends": [
+        "security:secrets-rules"
+      ],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "playwright",
+      "cwd": ".",
+      "depends": [
+        "frontend:build"
+      ],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "playwright"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "0.11.0",
+        "image": "sha256:b61e7fd28f10ed4ec49df0748ce3bfa5a67fc6ebea5fbd3ad871368efc09c84b",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-63906f4e7ef44e90a988d61fc07d61f8",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/06-scripts-shellcheck/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/shellcheck/volume/projects/ec/runs/20261107T001241.101473Z-8999626ff4f1:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "sha256:b61e7fd28f10ed4ec49df0748ce3bfa5a67fc6ebea5fbd3ad871368efc09c84b",
+          "--format=json1",
+          "--rcfile",
+          "/src/.shellcheckrc",
+          "--",
+          "scripts/automate.sh",
+          "scripts/check.sh",
+          "scripts/frontend/check.sh",
+          "scripts/frontend/eslint-ratchet.sh",
+          "scripts/lib/catalog.sh",
+          "scripts/lib/common.sh",
+          "scripts/lib/inputs.sh",
+          "scripts/lib/integration.sh",
+          "scripts/lib/runtime.sh",
+          "scripts/lib/toolbox.sh",
+          "scripts/metrics/check.sh",
+          "scripts/prepare.sh",
+          "scripts/reports/summarize.sh",
+          "scripts/rust/check.sh",
+          "scripts/security/analyzers/check-report.sh",
+          "scripts/security/analyzers/validate-exceptions.sh",
+          "scripts/security/check.sh",
+          "scripts/security/lib.sh",
+          "scripts/security/record-osv-db.sh",
+          "scripts/security/test-gitleaks.sh",
+          "scripts/toolbox.sh"
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/shellcheck/volume/projects/ec/runs/20261107T001241.101473Z-8999626ff4f1",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "0.11.13",
+        "image": "sha256:c58a4ea5be1d2b8a43c8afa326db1a7c411c40d880bc03596ff00a8b808dc00c",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-c7013b310f144b52975a713214adf8f1",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/07-scripts-ruff/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/ruff/volume/projects/ec/runs/20261107T001246.177604Z-5364398ea698:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "sha256:c58a4ea5be1d2b8a43c8afa326db1a7c411c40d880bc03596ff00a8b808dc00c",
+          "check",
+          "--no-fix",
+          "--no-cache",
+          "--output-format=json",
+          "--config",
+          "/src/ruff.toml",
+          "--",
+          "scripts/tests",
+          "tools",
+          "sdd/tools",
+          "application/integration/tests"
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/ruff/volume/projects/ec/runs/20261107T001246.177604Z-5364398ea698",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "machete",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "machete"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-machete",
+        "launcher_sha256": "3e548ddbbd1bff8cfad77dddf71ff382a99d19bbff1a16a1905f33010a742c18",
+        "version": "0.9.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "deny",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 4,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "deny"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-deny",
+        "launcher_sha256": "f0f044feade2054507a76e3a222afbfb0bd17198ce34fb72a15f1963d65b832f",
+        "version": "cargo-deny 0.20.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "audit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "audit"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-audit",
+        "launcher_sha256": "1cc9768f7dcbda4c406530476c7c49037984ef47b4fe0d4a584700469d56ac36",
+        "version": "cargo-audit-audit 0.22.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "machete",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "machete"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-machete",
+        "launcher_sha256": "3e548ddbbd1bff8cfad77dddf71ff382a99d19bbff1a16a1905f33010a742c18",
+        "version": "0.9.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "deny",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 4,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "deny"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-deny",
+        "launcher_sha256": "f0f044feade2054507a76e3a222afbfb0bd17198ce34fb72a15f1963d65b832f",
+        "version": "cargo-deny 0.20.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "audit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "audit"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-audit",
+        "launcher_sha256": "1cc9768f7dcbda4c406530476c7c49037984ef47b4fe0d4a584700469d56ac36",
+        "version": "cargo-audit-audit 0.22.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "typecheck"
+      ],
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "test"
+      ],
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "build"
+      ],
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "8.24.3",
+        "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-f302928977d5459ca735bcf8aa83309a",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/26-security-secrets-rules/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261107T001306.833446Z-9edb48b7ed7c:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "GIT_CONFIG_COUNT=1",
+          "--env",
+          "GIT_CONFIG_KEY_0=safe.directory",
+          "--env",
+          "GIT_CONFIG_VALUE_0=/src",
+          "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "dir",
+          "--exit-code=42",
+          "--redact=100",
+          "--report-format=json",
+          "--report-path=/out/native.json",
+          "--config",
+          "/src/scripts/security/rules/gitleaks.toml",
+          "--",
+          "."
+        ],
+        "tool_exit_code": 42,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261107T001306.833446Z-9edb48b7ed7c",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "8.24.3",
+        "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-c81f7364d7044e1faec22e612e57db37",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/27-security-secrets/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261107T001310.539462Z-22c0e996bce2:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "GIT_CONFIG_COUNT=1",
+          "--env",
+          "GIT_CONFIG_KEY_0=safe.directory",
+          "--env",
+          "GIT_CONFIG_VALUE_0=/src",
+          "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "dir",
+          "--exit-code=42",
+          "--redact=100",
+          "--report-format=json",
+          "--report-path=/out/native.json",
+          "--config",
+          "/src/scripts/security/rules/gitleaks.toml",
+          "--",
+          "."
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261107T001310.539462Z-22c0e996bce2",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "1.33.1",
+        "image": "sha256:86d824636b0f328b5b19c15e33445118c65e4caabf6d2055e10d89a40968f54c",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-ffa9c88c20fa47cdb90cca3805f0f056",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/28-security-sast-rules/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/opengrep/volume/projects/ec/runs/20261107T001314.346665Z-6f3313e260d3:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "OPENGREP_ENABLE_VERSION_CHECK=0",
+          "--env",
+          "SEMGREP_ENABLE_VERSION_CHECK=0",
+          "--env",
+          "SEMGREP_SEND_METRICS=off",
+          "--env",
+          "SEMGREP_SETTINGS_FILE=/tmp/settings.yml",
+          "--env",
+          "XDG_CACHE_HOME=/opt/opengrep-cache",
+          "--env",
+          "XDG_CONFIG_HOME=/tmp",
+          "sha256:86d824636b0f328b5b19c15e33445118c65e4caabf6d2055e10d89a40968f54c",
+          "scan",
+          "--json",
+          "--strict",
+          "--disable-version-check",
+          "--test",
+          "/src/scripts/security/rules/opengrep"
+        ],
+        "tool_exit_code": 2,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/opengrep/volume/projects/ec/runs/20261107T001314.346665Z-6f3313e260d3",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      }
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "1.33.1",
+        "image": "sha256:86d824636b0f328b5b19c15e33445118c65e4caabf6d2055e10d89a40968f54c",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-9168e9ef406f42a18fce07c73e5c1f3b",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/29-security-sast/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/opengrep/volume/projects/ec/runs/20261107T001316.521597Z-3f00e6af1746:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "OPENGREP_ENABLE_VERSION_CHECK=0",
+          "--env",
+          "SEMGREP_ENABLE_VERSION_CHECK=0",
+          "--env",
+          "SEMGREP_SEND_METRICS=off",
+          "--env",
+          "SEMGREP_SETTINGS_FILE=/tmp/settings.yml",
+          "--env",
+          "XDG_CACHE_HOME=/opt/opengrep-cache",
+          "--env",
+          "XDG_CONFIG_HOME=/tmp",
+          "sha256:86d824636b0f328b5b19c15e33445118c65e4caabf6d2055e10d89a40968f54c",
+          "scan",
+          "--json",
+          "--strict",
+          "--disable-version-check",
+          "--config",
+          "/src/scripts/security/rules/opengrep",
+          "--no-git-ignore",
+          "--disable-nosem",
+          "--error",
+          "/src/application/agents",
+          "/src/application/server/backend",
+          "/src/application/server/frontend"
+        ],
+        "tool_exit_code": 1,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/opengrep/volume/projects/ec/runs/20261107T001316.521597Z-3f00e6af1746",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      }
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "2.7.0",
+        "image": "sha256:28cc2f84819da6ea032c594a50aaae14bba7e328290a5d44094d112a9c667c1e",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-993078de58d94158bbe8956ca239af1e",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/30-security-dependencies/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/osv-scanner/volume/projects/ec/runs/20261107T001318.398433Z-185def09dc96:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/osv-scanner/volume/databases/2.7.0/278f1a92df9e920ee1ca5b0d49830a68bceea7b2a20026dd76137c46663a4323:/db:ro,Z",
+          "--env",
+          "OSV_SCALIBR_LOCAL_DB_CACHE_DIRECTORY=/out/database",
+          "--env",
+          "OSV_SCANNER_LOCAL_DB_CACHE_DIRECTORY=/out/database",
+          "sha256:28cc2f84819da6ea032c594a50aaae14bba7e328290a5d44094d112a9c667c1e",
+          "scan",
+          "source",
+          "--offline",
+          "--all-packages",
+          "--all-vulns",
+          "--no-call-analysis=rust",
+          "--config",
+          "/src/scripts/security/rules/osv-scanner.toml",
+          "--format",
+          "json",
+          "--lockfile",
+          "/src/application/agents/Cargo.lock",
+          "--lockfile",
+          "/src/application/server/backend/Cargo.lock",
+          "--lockfile",
+          "/src/application/server/frontend/package-lock.json"
+        ],
+        "tool_exit_code": 1,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/osv-scanner/volume/projects/ec/runs/20261107T001318.398433Z-185def09dc96",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 15
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "e2e",
+      "task": "playwright",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "playwright"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "1.56.1",
+        "image": "sha256:c9cc05cbd1bc8cd772db071f809cb41b5b9ea76fe549190cb93879c0ffe88af0",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-4123ab87ede5487683fd90a83f9b3386",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-uA4M3D3z/34-e2e-playwright/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/playwright/volume/projects/ec/runs/20261107T001419.592035Z-463acd697e83:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "PLAYWRIGHT_HTML_OPEN=never",
+          "--env",
+          "PLAYWRIGHT_HTML_OUTPUT_DIR=/out/html",
+          "--env",
+          "PLAYWRIGHT_JSON_OUTPUT_FILE=/out/native.json",
+          "--env",
+          "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1",
+          "--env",
+          "TOOLBOX_VARIANT=chromium",
+          "sha256:c9cc05cbd1bc8cd772db071f809cb41b5b9ea76fe549190cb93879c0ffe88af0",
+          "test",
+          "--config",
+          "/out/work/playwright.config.mjs"
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/playwright/volume/projects/ec/runs/20261107T001419.592035Z-463acd697e83",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "58dde1d54f68c0b6ab54222e6ed1f84cff4c34405273f3c5f3acefdef5644a60",
+  "complete": false,
+  "exit_code": 2,
+  "changed_inputs": []
+}

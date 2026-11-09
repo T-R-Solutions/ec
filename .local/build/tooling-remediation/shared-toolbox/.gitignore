@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.local/
+*.lock.local.json
+tools/*/volume/**
+!tools/*/volume/.gitkeep

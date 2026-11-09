@@ -1,0 +1,17 @@
+[
+  {
+    "target": "server",
+    "state": "blocked",
+    "reason": "CodeQL Rust requer EC_CODEQL_RUSTUP_HOME preparado para Linux/amd64"
+  },
+  {
+    "target": "agent",
+    "state": "blocked",
+    "reason": "CodeQL Rust requer EC_CODEQL_RUSTUP_HOME preparado para Linux/amd64"
+  },
+  {
+    "target": "frontend",
+    "state": "blocked",
+    "reason": "infraestrutura Toolbox indisponível; consultar diagnóstico"
+  }
+]

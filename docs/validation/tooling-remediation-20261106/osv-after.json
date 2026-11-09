@@ -1,0 +1,2520 @@
+{
+  "results": [
+    {
+      "source": {
+        "path": "/src/application/agents/Cargo.lock",
+        "type": "lockfile"
+      },
+      "packages": [
+        {
+          "package": {
+            "name": "block-buffer",
+            "version": "0.10.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/block-buffer@0.10.4"
+          }
+        },
+        {
+          "package": {
+            "name": "cfg-if",
+            "version": "1.0.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/cfg-if@1.0.5"
+          }
+        },
+        {
+          "package": {
+            "name": "cpufeatures",
+            "version": "0.2.17",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/cpufeatures@0.2.17"
+          }
+        },
+        {
+          "package": {
+            "name": "crypto-common",
+            "version": "0.1.7",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/crypto-common@0.1.7"
+          }
+        },
+        {
+          "package": {
+            "name": "digest",
+            "version": "0.10.7",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/digest@0.10.7"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-agent-app",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-agent-app@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-agent-control",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-agent-control@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-agent-execution",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-agent-execution@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-agent-reporting",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-agent-reporting@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-agent-workspace",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-agent-workspace@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "generic-array",
+            "version": "0.14.7",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/generic-array@0.14.7"
+          }
+        },
+        {
+          "package": {
+            "name": "itoa",
+            "version": "1.0.18",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/itoa@1.0.18"
+          }
+        },
+        {
+          "package": {
+            "name": "libc",
+            "version": "0.2.191",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/libc@0.2.191"
+          }
+        },
+        {
+          "package": {
+            "name": "memchr",
+            "version": "2.8.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/memchr@2.8.3"
+          }
+        },
+        {
+          "package": {
+            "name": "proc-macro2",
+            "version": "1.0.107",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/proc-macro2@1.0.107"
+          }
+        },
+        {
+          "package": {
+            "name": "quote",
+            "version": "1.0.47",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/quote@1.0.47"
+          }
+        },
+        {
+          "package": {
+            "name": "ryu",
+            "version": "1.0.23",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ryu@1.0.23"
+          }
+        },
+        {
+          "package": {
+            "name": "serde",
+            "version": "1.0.229",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde@1.0.229"
+          }
+        },
+        {
+          "package": {
+            "name": "serde_core",
+            "version": "1.0.229",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde_core@1.0.229"
+          }
+        },
+        {
+          "package": {
+            "name": "serde_derive",
+            "version": "1.0.229",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde_derive@1.0.229"
+          }
+        },
+        {
+          "package": {
+            "name": "serde_json",
+            "version": "1.0.145",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde_json@1.0.145"
+          }
+        },
+        {
+          "package": {
+            "name": "sha2",
+            "version": "0.10.9",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/sha2@0.10.9"
+          }
+        },
+        {
+          "package": {
+            "name": "syn",
+            "version": "3.0.9",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/syn@3.0.9"
+          }
+        },
+        {
+          "package": {
+            "name": "typenum",
+            "version": "1.20.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/typenum@1.20.1"
+          }
+        },
+        {
+          "package": {
+            "name": "unicode-ident",
+            "version": "1.0.27",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/unicode-ident@1.0.27"
+          }
+        },
+        {
+          "package": {
+            "name": "version_check",
+            "version": "0.9.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/version_check@0.9.5"
+          }
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "/src/application/server/backend/Cargo.lock",
+        "type": "lockfile"
+      },
+      "packages": [
+        {
+          "package": {
+            "name": "arraydeque",
+            "version": "0.5.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/arraydeque@0.5.1"
+          }
+        },
+        {
+          "package": {
+            "name": "ascii",
+            "version": "1.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ascii@1.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "async-trait",
+            "version": "0.1.92",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/async-trait@0.1.92"
+          }
+        },
+        {
+          "package": {
+            "name": "base64",
+            "version": "0.22.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/base64@0.22.1"
+          }
+        },
+        {
+          "package": {
+            "name": "bitflags",
+            "version": "2.13.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/bitflags@2.13.2"
+          }
+        },
+        {
+          "package": {
+            "name": "block-buffer",
+            "version": "0.10.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/block-buffer@0.10.4"
+          }
+        },
+        {
+          "package": {
+            "name": "block-buffer",
+            "version": "0.12.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/block-buffer@0.12.1"
+          }
+        },
+        {
+          "package": {
+            "name": "bumpalo",
+            "version": "3.20.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/bumpalo@3.20.3"
+          }
+        },
+        {
+          "package": {
+            "name": "byteorder",
+            "version": "1.5.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/byteorder@1.5.0"
+          }
+        },
+        {
+          "package": {
+            "name": "bytes",
+            "version": "1.12.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/bytes@1.12.1"
+          }
+        },
+        {
+          "package": {
+            "name": "cfg-if",
+            "version": "1.0.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/cfg-if@1.0.5"
+          }
+        },
+        {
+          "package": {
+            "name": "chacha20",
+            "version": "0.10.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/chacha20@0.10.2"
+          }
+        },
+        {
+          "package": {
+            "name": "chunked_transfer",
+            "version": "1.5.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/chunked_transfer@1.5.0"
+          }
+        },
+        {
+          "package": {
+            "name": "cmov",
+            "version": "0.5.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/cmov@0.5.4"
+          }
+        },
+        {
+          "package": {
+            "name": "const-oid",
+            "version": "0.10.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/const-oid@0.10.2"
+          }
+        },
+        {
+          "package": {
+            "name": "cpufeatures",
+            "version": "0.2.17",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/cpufeatures@0.2.17"
+          }
+        },
+        {
+          "package": {
+            "name": "cpufeatures",
+            "version": "0.3.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/cpufeatures@0.3.1"
+          }
+        },
+        {
+          "package": {
+            "name": "crypto-common",
+            "version": "0.1.7",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/crypto-common@0.1.7"
+          }
+        },
+        {
+          "package": {
+            "name": "crypto-common",
+            "version": "0.2.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/crypto-common@0.2.2"
+          }
+        },
+        {
+          "package": {
+            "name": "ctutils",
+            "version": "0.4.8",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ctutils@0.4.8"
+          }
+        },
+        {
+          "package": {
+            "name": "digest",
+            "version": "0.10.7",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/digest@0.10.7"
+          }
+        },
+        {
+          "package": {
+            "name": "digest",
+            "version": "0.11.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/digest@0.11.3"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-server-access",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-server-access@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-server-app",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-server-app@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-server-configuration",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-server-configuration@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-server-orchestration",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-server-orchestration@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-server-projects",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-server-projects@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "ec-server-results",
+            "version": "0.1.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ec-server-results@0.1.0"
+          }
+        },
+        {
+          "package": {
+            "name": "fallible-iterator",
+            "version": "0.2.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/fallible-iterator@0.2.0"
+          }
+        },
+        {
+          "package": {
+            "name": "foldhash",
+            "version": "0.2.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/foldhash@0.2.0"
+          }
+        },
+        {
+          "package": {
+            "name": "futures-channel",
+            "version": "0.3.34",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/futures-channel@0.3.34"
+          }
+        },
+        {
+          "package": {
+            "name": "futures-core",
+            "version": "0.3.34",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/futures-core@0.3.34"
+          }
+        },
+        {
+          "package": {
+            "name": "futures-sink",
+            "version": "0.3.34",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/futures-sink@0.3.34"
+          }
+        },
+        {
+          "package": {
+            "name": "futures-task",
+            "version": "0.3.34",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/futures-task@0.3.34"
+          }
+        },
+        {
+          "package": {
+            "name": "futures-util",
+            "version": "0.3.34",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/futures-util@0.3.34"
+          }
+        },
+        {
+          "package": {
+            "name": "generic-array",
+            "version": "0.14.7",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/generic-array@0.14.7"
+          }
+        },
+        {
+          "package": {
+            "name": "getrandom",
+            "version": "0.4.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/getrandom@0.4.3"
+          }
+        },
+        {
+          "package": {
+            "name": "hashbrown",
+            "version": "0.17.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/hashbrown@0.17.1"
+          }
+        },
+        {
+          "package": {
+            "name": "hashlink",
+            "version": "0.12.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/hashlink@0.12.2"
+          }
+        },
+        {
+          "package": {
+            "name": "hmac",
+            "version": "0.13.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/hmac@0.13.0"
+          }
+        },
+        {
+          "package": {
+            "name": "httpdate",
+            "version": "1.0.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/httpdate@1.0.3"
+          }
+        },
+        {
+          "package": {
+            "name": "hybrid-array",
+            "version": "0.4.15",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/hybrid-array@0.4.15"
+          }
+        },
+        {
+          "package": {
+            "name": "itoa",
+            "version": "1.0.18",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/itoa@1.0.18"
+          }
+        },
+        {
+          "package": {
+            "name": "js-sys",
+            "version": "0.3.107",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/js-sys@0.3.107"
+          }
+        },
+        {
+          "package": {
+            "name": "libc",
+            "version": "0.2.191",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/libc@0.2.191"
+          }
+        },
+        {
+          "package": {
+            "name": "libredox",
+            "version": "0.1.25",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/libredox@0.1.25"
+          }
+        },
+        {
+          "package": {
+            "name": "lock_api",
+            "version": "0.4.14",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/lock_api@0.4.14"
+          }
+        },
+        {
+          "package": {
+            "name": "log",
+            "version": "0.4.35",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/log@0.4.35"
+          }
+        },
+        {
+          "package": {
+            "name": "md-5",
+            "version": "0.11.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/md-5@0.11.0"
+          }
+        },
+        {
+          "package": {
+            "name": "memchr",
+            "version": "2.8.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/memchr@2.8.3"
+          }
+        },
+        {
+          "package": {
+            "name": "mio",
+            "version": "1.2.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/mio@1.2.4"
+          }
+        },
+        {
+          "package": {
+            "name": "objc2-core-foundation",
+            "version": "0.3.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/objc2-core-foundation@0.3.2"
+          }
+        },
+        {
+          "package": {
+            "name": "objc2-system-configuration",
+            "version": "0.3.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/objc2-system-configuration@0.3.2"
+          }
+        },
+        {
+          "package": {
+            "name": "parking_lot",
+            "version": "0.12.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/parking_lot@0.12.5"
+          }
+        },
+        {
+          "package": {
+            "name": "parking_lot_core",
+            "version": "0.9.12",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/parking_lot_core@0.9.12"
+          }
+        },
+        {
+          "package": {
+            "name": "percent-encoding",
+            "version": "2.3.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/percent-encoding@2.3.2"
+          }
+        },
+        {
+          "package": {
+            "name": "phf",
+            "version": "0.13.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/phf@0.13.1"
+          }
+        },
+        {
+          "package": {
+            "name": "phf_shared",
+            "version": "0.13.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/phf_shared@0.13.1"
+          }
+        },
+        {
+          "package": {
+            "name": "pin-project-lite",
+            "version": "0.2.17",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/pin-project-lite@0.2.17"
+          }
+        },
+        {
+          "package": {
+            "name": "postgres",
+            "version": "0.19.12",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/postgres@0.19.12"
+          }
+        },
+        {
+          "package": {
+            "name": "postgres-protocol",
+            "version": "0.6.12",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/postgres-protocol@0.6.12"
+          }
+        },
+        {
+          "package": {
+            "name": "postgres-types",
+            "version": "0.2.14",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/postgres-types@0.2.14"
+          }
+        },
+        {
+          "package": {
+            "name": "proc-macro2",
+            "version": "1.0.107",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/proc-macro2@1.0.107"
+          }
+        },
+        {
+          "package": {
+            "name": "quote",
+            "version": "1.0.47",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/quote@1.0.47"
+          }
+        },
+        {
+          "package": {
+            "name": "r-efi",
+            "version": "6.0.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/r-efi@6.0.0"
+          }
+        },
+        {
+          "package": {
+            "name": "rand",
+            "version": "0.10.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/rand@0.10.3"
+          }
+        },
+        {
+          "package": {
+            "name": "rand_core",
+            "version": "0.10.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/rand_core@0.10.1"
+          }
+        },
+        {
+          "package": {
+            "name": "redox_syscall",
+            "version": "0.5.18",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/redox_syscall@0.5.18"
+          }
+        },
+        {
+          "package": {
+            "name": "rustversion",
+            "version": "1.0.23",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/rustversion@1.0.23"
+          }
+        },
+        {
+          "package": {
+            "name": "ryu",
+            "version": "1.0.23",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/ryu@1.0.23"
+          }
+        },
+        {
+          "package": {
+            "name": "scopeguard",
+            "version": "1.2.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/scopeguard@1.2.0"
+          }
+        },
+        {
+          "package": {
+            "name": "serde",
+            "version": "1.0.229",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde@1.0.229"
+          }
+        },
+        {
+          "package": {
+            "name": "serde_core",
+            "version": "1.0.229",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde_core@1.0.229"
+          }
+        },
+        {
+          "package": {
+            "name": "serde_derive",
+            "version": "1.0.229",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde_derive@1.0.229"
+          }
+        },
+        {
+          "package": {
+            "name": "serde_json",
+            "version": "1.0.145",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/serde_json@1.0.145"
+          }
+        },
+        {
+          "package": {
+            "name": "sha2",
+            "version": "0.10.9",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/sha2@0.10.9"
+          }
+        },
+        {
+          "package": {
+            "name": "sha2",
+            "version": "0.11.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/sha2@0.11.1"
+          }
+        },
+        {
+          "package": {
+            "name": "siphasher",
+            "version": "1.0.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/siphasher@1.0.4"
+          }
+        },
+        {
+          "package": {
+            "name": "slab",
+            "version": "0.4.12",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/slab@0.4.12"
+          }
+        },
+        {
+          "package": {
+            "name": "smallvec",
+            "version": "1.16.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/smallvec@1.16.4"
+          }
+        },
+        {
+          "package": {
+            "name": "socket2",
+            "version": "0.6.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/socket2@0.6.5"
+          }
+        },
+        {
+          "package": {
+            "name": "stringprep",
+            "version": "0.1.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/stringprep@0.1.5"
+          }
+        },
+        {
+          "package": {
+            "name": "syn",
+            "version": "3.0.9",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/syn@3.0.9"
+          }
+        },
+        {
+          "package": {
+            "name": "tiny_http",
+            "version": "0.12.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/tiny_http@0.12.0"
+          }
+        },
+        {
+          "package": {
+            "name": "tinyvec",
+            "version": "1.13.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/tinyvec@1.13.3"
+          }
+        },
+        {
+          "package": {
+            "name": "tokio",
+            "version": "1.54.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/tokio@1.54.1"
+          }
+        },
+        {
+          "package": {
+            "name": "tokio-postgres",
+            "version": "0.7.18",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/tokio-postgres@0.7.18"
+          }
+        },
+        {
+          "package": {
+            "name": "tokio-util",
+            "version": "0.7.20",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/tokio-util@0.7.20"
+          }
+        },
+        {
+          "package": {
+            "name": "typenum",
+            "version": "1.20.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/typenum@1.20.1"
+          }
+        },
+        {
+          "package": {
+            "name": "unicode-bidi",
+            "version": "0.3.18",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/unicode-bidi@0.3.18"
+          }
+        },
+        {
+          "package": {
+            "name": "unicode-ident",
+            "version": "1.0.27",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/unicode-ident@1.0.27"
+          }
+        },
+        {
+          "package": {
+            "name": "unicode-normalization",
+            "version": "0.1.26",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/unicode-normalization@0.1.26"
+          }
+        },
+        {
+          "package": {
+            "name": "unicode-properties",
+            "version": "0.1.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/unicode-properties@0.1.5"
+          }
+        },
+        {
+          "package": {
+            "name": "version_check",
+            "version": "0.9.5",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/version_check@0.9.5"
+          }
+        },
+        {
+          "package": {
+            "name": "wasi",
+            "version": "0.11.1+wasi-snapshot-preview1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasi@0.11.1%2Bwasi-snapshot-preview1"
+          }
+        },
+        {
+          "package": {
+            "name": "wasi",
+            "version": "0.14.7+wasi-0.2.4",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasi@0.14.7%2Bwasi-0.2.4"
+          }
+        },
+        {
+          "package": {
+            "name": "wasip2",
+            "version": "1.0.4+wasi-0.2.12",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasip2@1.0.4%2Bwasi-0.2.12"
+          }
+        },
+        {
+          "package": {
+            "name": "wasite",
+            "version": "1.0.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasite@1.0.2"
+          }
+        },
+        {
+          "package": {
+            "name": "wasm-bindgen",
+            "version": "0.2.130",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasm-bindgen@0.2.130"
+          }
+        },
+        {
+          "package": {
+            "name": "wasm-bindgen-macro",
+            "version": "0.2.130",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasm-bindgen-macro@0.2.130"
+          }
+        },
+        {
+          "package": {
+            "name": "wasm-bindgen-macro-support",
+            "version": "0.2.130",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasm-bindgen-macro-support@0.2.130"
+          }
+        },
+        {
+          "package": {
+            "name": "wasm-bindgen-shared",
+            "version": "0.2.130",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wasm-bindgen-shared@0.2.130"
+          }
+        },
+        {
+          "package": {
+            "name": "web-sys",
+            "version": "0.3.107",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/web-sys@0.3.107"
+          }
+        },
+        {
+          "package": {
+            "name": "whoami",
+            "version": "2.1.3",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/whoami@2.1.3"
+          }
+        },
+        {
+          "package": {
+            "name": "windows-link",
+            "version": "0.2.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/windows-link@0.2.1"
+          }
+        },
+        {
+          "package": {
+            "name": "windows-sys",
+            "version": "0.61.2",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/windows-sys@0.61.2"
+          }
+        },
+        {
+          "package": {
+            "name": "wit-bindgen",
+            "version": "0.57.1",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/wit-bindgen@0.57.1"
+          }
+        },
+        {
+          "package": {
+            "name": "yaml-rust2",
+            "version": "0.13.0",
+            "ecosystem": "crates.io",
+            "purl": "pkg:cargo/yaml-rust2@0.13.0"
+          }
+        }
+      ]
+    },
+    {
+      "source": {
+        "path": "/src/application/server/frontend/package-lock.json",
+        "type": "lockfile"
+      },
+      "packages": [
+        {
+          "package": {
+            "name": "@babel/helper-string-parser",
+            "version": "7.29.13",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40babel/helper-string-parser@7.29.13?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@babel/helper-validator-identifier",
+            "version": "7.29.7",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40babel/helper-validator-identifier@7.29.7?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@babel/parser",
+            "version": "7.29.13",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40babel/parser@7.29.13?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@babel/types",
+            "version": "7.29.11",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40babel/types@7.29.11?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@esbuild/aix-ppc64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/aix-ppc64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/android-arm",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/android-arm@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/android-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/android-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/android-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/android-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/darwin-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/darwin-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/darwin-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/darwin-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/freebsd-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/freebsd-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/freebsd-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/freebsd-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-arm",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-arm@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-ia32",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-ia32@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-loong64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-loong64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-mips64el",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-mips64el@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-ppc64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-ppc64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-riscv64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-riscv64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-s390x",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-s390x@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/linux-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/linux-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/netbsd-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/netbsd-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/netbsd-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/netbsd-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/openbsd-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/openbsd-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/openbsd-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/openbsd-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/openharmony-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/openharmony-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/sunos-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/sunos-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/win32-arm64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/win32-arm64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/win32-ia32",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/win32-ia32@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@esbuild/win32-x64",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40esbuild/win32-x64@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@jridgewell/sourcemap-codec",
+            "version": "1.6.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@rolldown/pluginutils",
+            "version": "1.0.0-rc.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rolldown/pluginutils@1.0.0-rc.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-android-arm-eabi",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-android-arm-eabi@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-android-arm64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-android-arm64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-android-x64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-android-x64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-darwin-arm64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-darwin-arm64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-darwin-x64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-darwin-x64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-freebsd-arm64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-freebsd-arm64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-freebsd-x64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-freebsd-x64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-arm-gnueabihf",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-arm-gnueabihf@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-arm-musleabihf",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-arm-musleabihf@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-arm64-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-arm64-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-arm64-musl",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-arm64-musl@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-loong64-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-loong64-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-loong64-musl",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-loong64-musl@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-ppc64-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-ppc64-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-ppc64-musl",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-ppc64-musl@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-riscv64-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-riscv64-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-riscv64-musl",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-riscv64-musl@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-s390x-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-s390x-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-x64-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-x64-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-linux-x64-musl",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-linux-x64-musl@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-openbsd-x64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-openbsd-x64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-openharmony-arm64",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-openharmony-arm64@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-win32-arm64-msvc",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-win32-arm64-msvc@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-win32-ia32-msvc",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-win32-ia32-msvc@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-win32-x64-gnu",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-win32-x64-gnu@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@rollup/rollup-win32-x64-msvc",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40rollup/rollup-win32-x64-msvc@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "@standard-schema/spec",
+            "version": "1.1.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40standard-schema/spec@1.1.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@types/chai",
+            "version": "5.2.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40types/chai@5.2.3?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@types/deep-eql",
+            "version": "4.0.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40types/deep-eql@4.0.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@types/estree",
+            "version": "1.0.10",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40types/estree@1.0.10?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@types/node",
+            "version": "24.10.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40types/node@24.10.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitejs/plugin-vue",
+            "version": "6.0.4",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitejs/plugin-vue@6.0.4?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/expect",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/expect@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/mocker",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/mocker@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/pretty-format",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/pretty-format@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/runner",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/runner@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/snapshot",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/snapshot@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/spy",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/spy@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vitest/utils",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vitest/utils@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@volar/language-core",
+            "version": "2.4.28",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40volar/language-core@2.4.28?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@volar/source-map",
+            "version": "2.4.28",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40volar/source-map@2.4.28?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@volar/typescript",
+            "version": "2.4.28",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40volar/typescript@2.4.28?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vue/compiler-core",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/compiler-core@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/compiler-dom",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/compiler-dom@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/compiler-sfc",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/compiler-sfc@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/compiler-ssr",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/compiler-ssr@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/devtools-api",
+            "version": "8.2.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/devtools-api@8.2.1?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/devtools-kit",
+            "version": "8.2.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/devtools-kit@8.2.1?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/devtools-shared",
+            "version": "8.2.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/devtools-shared@8.2.1?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/language-core",
+            "version": "3.2.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/language-core@3.2.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "@vue/reactivity",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/reactivity@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/runtime-core",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/runtime-core@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/runtime-dom",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/runtime-dom@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/server-renderer",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/server-renderer@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "@vue/shared",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/%40vue/shared@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "alien-signals",
+            "version": "3.2.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/alien-signals@3.2.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "assertion-error",
+            "version": "2.0.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/assertion-error@2.0.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "birpc",
+            "version": "2.9.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/birpc@2.9.0?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "chai",
+            "version": "6.3.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/chai@6.3.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "convert-source-map",
+            "version": "2.0.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/convert-source-map@2.0.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "csstype",
+            "version": "3.2.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/csstype@3.2.3?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "entities",
+            "version": "7.0.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/entities@7.0.1?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "es-module-lexer",
+            "version": "2.3.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/es-module-lexer@2.3.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "esbuild",
+            "version": "0.28.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/esbuild@0.28.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "estree-walker",
+            "version": "2.0.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/estree-walker@2.0.2?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "estree-walker",
+            "version": "3.0.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/estree-walker@3.0.3?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "expect-type",
+            "version": "1.4.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/expect-type@1.4.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "fdir",
+            "version": "6.5.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fdir@6.5.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "fsevents",
+            "version": "2.3.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fsevents@2.3.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "fsevents",
+            "version": "2.3.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fsevents@2.3.3?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "hookable",
+            "version": "5.5.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/hookable@5.5.3?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "magic-string",
+            "version": "0.30.21",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/magic-string@0.30.21?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "muggle-string",
+            "version": "0.4.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/muggle-string@0.4.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "nanoid",
+            "version": "3.3.20",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/nanoid@3.3.20?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "nostics",
+            "version": "1.3.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/nostics@1.3.0?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "obug",
+            "version": "2.2.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/obug@2.2.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "path-browserify",
+            "version": "1.0.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/path-browserify@1.0.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "pathe",
+            "version": "2.0.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/pathe@2.0.3?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "perfect-debounce",
+            "version": "2.1.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/perfect-debounce@2.1.0?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "picocolors",
+            "version": "1.1.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/picocolors@1.1.1?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "picomatch",
+            "version": "4.0.7",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/picomatch@4.0.7?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "pinia",
+            "version": "4.1.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/pinia@4.1.0?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "postcss",
+            "version": "8.5.32",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/postcss@8.5.32?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "rollup",
+            "version": "4.67.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/rollup@4.67.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "siginfo",
+            "version": "2.0.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/siginfo@2.0.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "source-map-js",
+            "version": "1.2.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/source-map-js@1.2.2?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "stackback",
+            "version": "0.0.2",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/stackback@0.0.2?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "std-env",
+            "version": "4.3.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/std-env@4.3.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "tinybench",
+            "version": "2.9.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/tinybench@2.9.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "tinyexec",
+            "version": "1.3.1",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/tinyexec@1.3.1?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "tinyglobby",
+            "version": "0.2.17",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/tinyglobby@0.2.17?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "tinyrainbow",
+            "version": "3.2.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/tinyrainbow@3.2.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "typescript",
+            "version": "5.9.3",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/typescript@5.9.3?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev",
+            "optional"
+          ]
+        },
+        {
+          "package": {
+            "name": "undici-types",
+            "version": "7.16.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/undici-types@7.16.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "vite",
+            "version": "7.3.7",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/vite@7.3.7?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "vitest",
+            "version": "4.1.12",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/vitest@4.1.12?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "vscode-uri",
+            "version": "3.2.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/vscode-uri@3.2.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "vue",
+            "version": "3.5.45",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/vue@3.5.45?source=PUBLIC_REGISTRY"
+          }
+        },
+        {
+          "package": {
+            "name": "vue-tsc",
+            "version": "3.2.5",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/vue-tsc@3.2.5?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        },
+        {
+          "package": {
+            "name": "why-is-node-running",
+            "version": "2.3.0",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/why-is-node-running@2.3.0?source=PUBLIC_REGISTRY"
+          },
+          "dependency_groups": [
+            "dev"
+          ]
+        }
+      ]
+    }
+  ],
+  "experimental_config": {
+    "licenses": {
+      "summary": false,
+      "allowlist": null
+    }
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "python3",
+      "tools/governance/validate.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python3",
+      "tools/governance/validate.py",
+      "--require-installed"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python3",
+      "tools/governance/install_skills.py",
+      "--check"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python3",
+      "sdd/tools/validate.py",
+      "--root",
+      "."
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/governance/tests",
+      "-v"
+    ],
+    "exit": 0
+  }
+]

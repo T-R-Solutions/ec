@@ -1,0 +1,533 @@
+{
+  "groups": {
+    "G01": {
+      "purpose": "Preservar diretório inicialmente vazio para versionamento.",
+      "reason": "Função estrutural superada por código regular no mesmo diretório.",
+      "evidence": [
+        "ADR-002 e docs/architecture/application-layout.md: marcadores de diretórios sem código.",
+        "Manifests Cargo com membros explícitos; Vite/Vitest por extensões e src/**/*.test.ts.",
+        "Buscas por .gitkeep: árvore documental e manifests históricos; nenhum leitor operacional encontrado."
+      ],
+      "consumers": "Documentação da árvore e snapshots históricos; estes são preservados sem renovar hashes.",
+      "effect": "Diretório continua presente com código; nenhum alvo de compilação/teste retirado."
+    },
+    "G02": {
+      "purpose": "Bytecode CPython 3.13 gerado por importação dos módulos/testes.",
+      "reason": "Cache derivado, dispensável e regenerável a partir das fontes mantidas.",
+      "evidence": [
+        "Fonte .py correspondente presente para cada .pyc; lista canônica por arquivo.",
+        "catalog.sh: python3 e unittest discover em .py; imports dos harnesses por sys.path.",
+        "inputs.sh exclui __pycache__; runtime.sh usa PYTHONDONTWRITEBYTECODE=1.",
+        ".gitignore ignora __pycache__/ e *.py[cod]; nenhum sourceless loader encontrado nas fontes ativas."
+      ],
+      "consumers": "Importador CPython pode usar cache; fontes são autoridade. Não são logs/resultados de testes.",
+      "effect": "Importações futuras podem recompilar; não modifica módulos, testes ou evidências de execução."
+    },
+    "G03": {
+      "purpose": "Consulta temporária de instalação de Gitleaks/Opengrep/OSV no PATH.",
+      "reason": "Guia operacional substituído pela integração nativa central e pelos guias canônicos.",
+      "evidence": [
+        "erase.md aponta para automate.py e scripts/security/ removidos.",
+        "spec.md de scripts-verification declara consulta temporária sem consumidor operacional.",
+        "scripts-inventory.md proíbe dependência operacional desse guia.",
+        "Wrapper toolbox.sh e native_gates.py usam exec central; guias canônicos descrevem preparo externo, bases, ambientes e bloqueios."
+      ],
+      "consumers": "Somente menções textuais históricas na spec/inventário e no próprio guia; nenhuma execução/importação/empacotamento encontrada.",
+      "effect": "Retirada da entrada obsoleta da raiz; bytes também arquivados em docs/validation/cleanup-20261109/retired/erase.md."
+    }
+  },
+  "files": [
+    {
+      "path": "scripts/tests/__pycache__/test_consumer.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "scripts/tests/test_consumer.py"
+      ],
+      "mode": 420,
+      "size": 8635,
+      "mtime_ns": 1794186819058076717,
+      "device": 66307,
+      "inode": 2684714512,
+      "nlink": 1,
+      "sha256": "99b38c5501d795b045380ad087c53cace110a5712c1c2a05f2bcb34dd379aa2f",
+      "backup": ".local/cleanup-20261109/previous/scripts/tests/__pycache__/test_consumer.cpython-313.pyc"
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_native.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "scripts/tests/test_native.py"
+      ],
+      "mode": 420,
+      "size": 41626,
+      "mtime_ns": 1794186819076435812,
+      "device": 66307,
+      "inode": 2698644096,
+      "nlink": 1,
+      "sha256": "6d86cc8a63767638b985099a2e8f3e57f157a4f199cae428086e4fab8c4cdda5",
+      "backup": ".local/cleanup-20261109/previous/scripts/tests/__pycache__/test_native.cpython-313.pyc"
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_quality.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "scripts/tests/test_quality.py"
+      ],
+      "mode": 420,
+      "size": 20421,
+      "mtime_ns": 1794186819100377308,
+      "device": 66307,
+      "inode": 2698644097,
+      "nlink": 1,
+      "sha256": "d7df421a8d44fbeb8f5bc57c63a0fbf7ba1bd99eb8d2050efbdee5047b1677e2",
+      "backup": ".local/cleanup-20261109/previous/scripts/tests/__pycache__/test_quality.cpython-313.pyc"
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_shell.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "scripts/tests/test_shell.py"
+      ],
+      "mode": 420,
+      "size": 57111,
+      "mtime_ns": 1794194125344040209,
+      "device": 66307,
+      "inode": 2701093326,
+      "nlink": 1,
+      "sha256": "85ba31586cc2e6677f6de90057e40566798858ab4f258a56ec704cd0c158f435",
+      "backup": ".local/cleanup-20261109/previous/scripts/tests/__pycache__/test_shell.cpython-313.pyc"
+    },
+    {
+      "path": "tools/governance/__pycache__/install_skills.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "tools/governance/install_skills.py"
+      ],
+      "mode": 420,
+      "size": 14344,
+      "mtime_ns": 1793926871266395749,
+      "device": 66307,
+      "inode": 2552509516,
+      "nlink": 1,
+      "sha256": "0e0f2985e4627cb4f66aaab7d3f46e1e5e52d36170c8a5d80e9c3121894c5baf",
+      "backup": ".local/cleanup-20261109/previous/tools/governance/__pycache__/install_skills.cpython-313.pyc"
+    },
+    {
+      "path": "tools/governance/__pycache__/validate.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "tools/governance/validate.py"
+      ],
+      "mode": 420,
+      "size": 15164,
+      "mtime_ns": 1793811641098577466,
+      "device": 66307,
+      "inode": 2552607221,
+      "nlink": 1,
+      "sha256": "47fced264568a6baeb602a20c0d565975bb8085700258b247824377d3e0ac4e4",
+      "backup": ".local/cleanup-20261109/previous/tools/governance/__pycache__/validate.cpython-313.pyc"
+    },
+    {
+      "path": "tools/governance/tests/__pycache__/test_governance.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "tools/governance/tests/test_governance.py"
+      ],
+      "mode": 420,
+      "size": 37906,
+      "mtime_ns": 1794003068077668573,
+      "device": 66307,
+      "inode": 2687948274,
+      "nlink": 1,
+      "sha256": "e43b2fccf438e8d31cf0dd3b068ea1de1cd861e05b5174df4c1b6b504c3e8ad4",
+      "backup": ".local/cleanup-20261109/previous/tools/governance/tests/__pycache__/test_governance.cpython-313.pyc"
+    },
+    {
+      "path": "tools/quality/__pycache__/native_gates.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "tools/quality/native_gates.py"
+      ],
+      "mode": 420,
+      "size": 61772,
+      "mtime_ns": 1794193002789799993,
+      "device": 66307,
+      "inode": 2422107352,
+      "nlink": 1,
+      "sha256": "c50d0128400cb96c2f2f01947ff2edc09ade3ad11c519234743e4ba123bd886d",
+      "backup": ".local/cleanup-20261109/previous/tools/quality/__pycache__/native_gates.cpython-313.pyc"
+    },
+    {
+      "path": "sdd/tools/__pycache__/validate.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "sdd/tools/validate.py"
+      ],
+      "mode": 420,
+      "size": 32770,
+      "mtime_ns": 1793802125536157258,
+      "device": 66307,
+      "inode": 2498282,
+      "nlink": 1,
+      "sha256": "02ece83ab09cc14d34a6bfaa99c1e7c628281f7235f44dd992044454fd57606e",
+      "backup": ".local/cleanup-20261109/previous/sdd/tools/__pycache__/validate.cpython-313.pyc"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/agents/crates/ec-agent-app/src/main.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845487572313,
+      "device": 66307,
+      "inode": 1076614485,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/agents/crates/ec-agent-app/src/.gitkeep"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/agents/crates/ec-agent-control/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845486869883,
+      "device": 66307,
+      "inode": 2685343028,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/agents/crates/ec-agent-control/src/.gitkeep"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/agents/crates/ec-agent-execution/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845487247763,
+      "device": 66307,
+      "inode": 268780810,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/agents/crates/ec-agent-execution/src/.gitkeep"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/agents/crates/ec-agent-reporting/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845487415613,
+      "device": 66307,
+      "inode": 673301968,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/agents/crates/ec-agent-reporting/src/.gitkeep"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/agents/crates/ec-agent-workspace/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845487073373,
+      "device": 66307,
+      "inode": 3087023013,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/agents/crates/ec-agent-workspace/src/.gitkeep"
+    },
+    {
+      "path": "application/integration/tests/e2e/__pycache__/frontend_firefox.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "mode": 420,
+      "size": 33826,
+      "mtime_ns": 1794003068062542673,
+      "device": 66307,
+      "inode": 1226587797,
+      "nlink": 1,
+      "sha256": "6ee5a728b112a5b4eae8833e2860b0a105812783a001d139a8eed99e51697fa1",
+      "backup": ".local/cleanup-20261109/previous/application/integration/tests/e2e/__pycache__/frontend_firefox.cpython-313.pyc"
+    },
+    {
+      "path": "application/integration/tests/integration/__pycache__/agent_http.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "mode": 420,
+      "size": 25788,
+      "mtime_ns": 1794003068065023956,
+      "device": 66307,
+      "inode": 1476594196,
+      "nlink": 1,
+      "sha256": "f547193d209fef65347e747dbaf12637b80333acda3f04ae506c8447ee0535ec",
+      "backup": ".local/cleanup-20261109/previous/application/integration/tests/integration/__pycache__/agent_http.cpython-313.pyc"
+    },
+    {
+      "path": "application/integration/tests/integration/__pycache__/orchestration_http.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "mode": 420,
+      "size": 33383,
+      "mtime_ns": 1794003068068393330,
+      "device": 66307,
+      "inode": 1476589017,
+      "nlink": 1,
+      "sha256": "0ddbfcc6b8f9ce70a2dc92488d3e8ad24a9346a89595d57a85a12394bd436580",
+      "backup": ".local/cleanup-20261109/previous/application/integration/tests/integration/__pycache__/orchestration_http.cpython-313.pyc"
+    },
+    {
+      "path": "application/integration/tests/integration/__pycache__/publication_http.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "mode": 420,
+      "size": 20186,
+      "mtime_ns": 1794186834338801729,
+      "device": 66307,
+      "inode": 1481758374,
+      "nlink": 1,
+      "sha256": "b9ff28ff5eb8c3eda445f66cab22acc0c2f302944cbab80ebcaaf5e81b3e24fb",
+      "backup": ".local/cleanup-20261109/previous/application/integration/tests/integration/__pycache__/publication_http.cpython-313.pyc"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-access/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845487841954,
+      "device": 66307,
+      "inode": 1889937708,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-access/src/.gitkeep"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-app/src/main.rs",
+        "application/server/backend/crates/ec-server-app/src/service.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845488946535,
+      "device": 66307,
+      "inode": 1888527769,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-app/src/.gitkeep"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/tests/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-app/tests/validation.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845488946535,
+      "device": 66307,
+      "inode": 2013302051,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-app/tests/.gitkeep"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-configuration/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845487987554,
+      "device": 66307,
+      "inode": 2284579070,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-configuration/src/.gitkeep"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-orchestration/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845488258554,
+      "device": 66307,
+      "inode": 3087027907,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-orchestration/src/.gitkeep"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-projects/src/lib.rs",
+        "application/server/backend/crates/ec-server-projects/src/publication.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845488120644,
+      "device": 66307,
+      "inode": 2685343030,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-projects/src/.gitkeep"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/backend/crates/ec-server-results/src/lib.rs"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845488392214,
+      "device": 66307,
+      "inode": 269217808,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/backend/crates/ec-server-results/src/.gitkeep"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/frontend/src/domains/access/src/index.ts"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845489908906,
+      "device": 66307,
+      "inode": 1888527775,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/frontend/src/domains/access/src/.gitkeep"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/frontend/src/domains/configuration/src/Editor.vue",
+        "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
+        "application/server/frontend/src/domains/configuration/src/drafts.ts",
+        "application/server/frontend/src/domains/configuration/src/index.ts",
+        "application/server/frontend/src/domains/configuration/src/model.test.ts",
+        "application/server/frontend/src/domains/configuration/src/model.ts"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845489129405,
+      "device": 66307,
+      "inode": 2685343032,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/frontend/src/domains/configuration/src/.gitkeep"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/frontend/src/domains/infrastructure/src/index.ts"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845489783836,
+      "device": 66307,
+      "inode": 1476700875,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/frontend/src/domains/infrastructure/src/.gitkeep"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/frontend/src/domains/projects/src/index.ts"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845489265465,
+      "device": 66307,
+      "inode": 3087027909,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/frontend/src/domains/projects/src/.gitkeep"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/src/.gitkeep",
+      "group": "G01",
+      "canonical": [
+        "application/server/frontend/src/domains/runs/src/Runs.vue",
+        "application/server/frontend/src/domains/runs/src/bytes.test.ts",
+        "application/server/frontend/src/domains/runs/src/bytes.ts",
+        "application/server/frontend/src/domains/runs/src/index.ts"
+      ],
+      "mode": 420,
+      "size": 0,
+      "mtime_ns": 1793801845489530745,
+      "device": 66307,
+      "inode": 673301972,
+      "nlink": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backup": ".local/cleanup-20261109/previous/application/server/frontend/src/domains/runs/src/.gitkeep"
+    },
+    {
+      "path": "application/server/frontend/tests/e2e/__pycache__/firefox_driver.cpython-313.pyc",
+      "group": "G02",
+      "canonical": [
+        "application/server/frontend/tests/e2e/firefox_driver.py"
+      ],
+      "mode": 420,
+      "size": 5086,
+      "mtime_ns": 1793913533661590363,
+      "device": 66307,
+      "inode": 806139931,
+      "nlink": 1,
+      "sha256": "a63452fe92580f3cd1003c33c978ee3d76e41cd926ef43420fd1c924c8043b71",
+      "backup": ".local/cleanup-20261109/previous/application/server/frontend/tests/e2e/__pycache__/firefox_driver.cpython-313.pyc"
+    },
+    {
+      "path": "erase.md",
+      "group": "G03",
+      "canonical": [
+        "docs/development/verification-tools.md",
+        "scripts/README.md",
+        "docs/development/task-verification.md"
+      ],
+      "mode": 420,
+      "size": 5627,
+      "mtime_ns": 1793931145023808630,
+      "device": 66307,
+      "inode": 541743884,
+      "nlink": 1,
+      "sha256": "17372acc8994ed5786d59c5a305ff635ed30ceafb00e469dcd688a9862f212ae",
+      "backup": ".local/cleanup-20261109/previous/erase.md"
+    }
+  ]
+}

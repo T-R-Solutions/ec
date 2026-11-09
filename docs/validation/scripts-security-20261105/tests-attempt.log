@@ -1,0 +1,47 @@
+test_cancellation_prevents_command (test_automation.AutomationTests.test_cancellation_prevents_command) ... ok
+test_changed_input_prevents_success (test_automation.AutomationTests.test_changed_input_prevents_success) ... ok
+test_failure_preserves_bytes_and_exit_and_continues (test_automation.AutomationTests.test_failure_preserves_bytes_and_exit_and_continues) ... ok
+test_lock_conflict_prevents_command (test_automation.AutomationTests.test_lock_conflict_prevents_command) ... ok
+test_log_overflow_is_failure (test_automation.AutomationTests.test_log_overflow_is_failure) ... ok
+test_missing_and_findings_never_approve (test_automation.AutomationTests.test_missing_and_findings_never_approve) ... ok
+test_missing_tool_and_dependency_are_blocked (test_automation.AutomationTests.test_missing_tool_and_dependency_are_blocked) ... ok
+test_other_cwd_spaced_root_and_no_erase (test_automation.AutomationTests.test_other_cwd_spaced_root_and_no_erase) ... ok
+test_plan_routes_actual_workspaces_npm_and_harnesses (test_automation.AutomationTests.test_plan_routes_actual_workspaces_npm_and_harnesses) ... ok
+test_preflight_distinguishes_listener_from_time_wait (test_automation.AutomationTests.test_preflight_distinguishes_listener_from_time_wait) ... ERROR
+test_root_boundaries (test_automation.AutomationTests.test_root_boundaries) ... ok
+test_runs_are_private_and_prior_logs_survive (test_automation.AutomationTests.test_runs_are_private_and_prior_logs_survive) ... ok
+test_scan_ignores_symlink_directory_only_by_failing (test_automation.AutomationTests.test_scan_ignores_symlink_directory_only_by_failing) ... ok
+test_security_findings_exit_remains_findings (test_automation.AutomationTests.test_security_findings_exit_remains_findings) ... ok
+test_security_report_failure_is_not_a_pass (test_automation.AutomationTests.test_security_report_failure_is_not_a_pass) ... ok
+test_timeout_preserves_partial_output (test_automation.AutomationTests.test_timeout_preserves_partial_output) ... ok
+test_database_missing_incomplete_corrupt_and_symlink (test_security.SecurityTests.test_database_missing_incomplete_corrupt_and_symlink) ... ok
+test_database_record_keeps_previous_observation (test_security.SecurityTests.test_database_record_keeps_previous_observation) ... ok
+test_duplicate_json_and_nan_are_rejected (test_security.SecurityTests.test_duplicate_json_and_nan_are_rejected) ... ok
+test_osv_all_three_sources_and_packages_are_required (test_security.SecurityTests.test_osv_all_three_sources_and_packages_are_required) ... ok
+test_osv_runner_invokes_snapshot_and_preserves_raw_findings (test_security.SecurityTests.test_osv_runner_invokes_snapshot_and_preserves_raw_findings) ... ok
+test_osv_vulnerability_and_exit_are_checked_together (test_security.SecurityTests.test_osv_vulnerability_and_exit_are_checked_together) ... ok
+test_plan_retains_all_security_checks_and_explicit_offline_locks (test_security.SecurityTests.test_plan_retains_all_security_checks_and_explicit_offline_locks) ... ok
+test_sast_errors_skips_missing_files_and_inconsistent_exit_fail (test_security.SecurityTests.test_sast_errors_skips_missing_files_and_inconsistent_exit_fail) ... ok
+test_sast_finding_blocks_even_without_suppression_policy (test_security.SecurityTests.test_sast_finding_blocks_even_without_suppression_policy) ... ok
+test_sast_scanned_complete_and_zero_is_pass (test_security.SecurityTests.test_sast_scanned_complete_and_zero_is_pass) ... ok
+test_selective_check_does_not_hide_rule_tests_or_governance (test_security.SecurityTests.test_selective_check_does_not_hide_rule_tests_or_governance) ... ok
+test_snapshot_only_rust_ts_vue_and_explicit_lockfiles (test_security.SecurityTests.test_snapshot_only_rust_ts_vue_and_explicit_lockfiles) ... ok
+test_versions_reject_prerelease_and_unexpected_outputs (test_security.SecurityTests.test_versions_reject_prerelease_and_unexpected_outputs) ... ok
+test_wrappers_forward_correct_check_and_exit_from_other_cwd (test_security.SecurityTests.test_wrappers_forward_correct_check_and_exit_from_other_cwd) ... ok
+
+======================================================================
+ERROR: test_preflight_distinguishes_listener_from_time_wait (test_automation.AutomationTests.test_preflight_distinguishes_listener_from_time_wait)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/scripts/tests/test_automation.py", line 147, in test_preflight_distinguishes_listener_from_time_wait
+    with socket.socket() as listener:
+         ~~~~~~~~~~~~~^^
+  File "/usr/lib64/python3.13/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.662s
+
+FAILED (errors=1)

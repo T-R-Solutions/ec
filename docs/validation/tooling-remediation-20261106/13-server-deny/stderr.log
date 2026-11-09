@@ -1,0 +1,373 @@
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-server-access = 0.1.0'
+ ├ ec-server-access v0.1.0
+   ├── ec-server-app v0.1.0
+   ├── ec-server-orchestration v0.1.0
+   │   ├── ec-server-app v0.1.0 (*)
+   │   └── ec-server-results v0.1.0
+   │       └── ec-server-app v0.1.0 (*)
+   └── ec-server-results v0.1.0 (*)
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-access#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-server-access"
+  │         ━━━━━━━━━━━━━━━━
+  │
+  ├ ec-server-access v0.1.0 (*)
+
+error[unlicensed]: ec-server-access = 0.1.0 is unlicensed
+ ├ ec-server-access v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-server-app = 0.1.0'
+ ├ ec-server-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-app#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-server-app"
+  │         ━━━━━━━━━━━━━
+  │
+  ├ ec-server-app v0.1.0 (*)
+
+error[unlicensed]: ec-server-app = 0.1.0 is unlicensed
+ ├ ec-server-app v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-server-configuration = 0.1.0'
+ ├ ec-server-configuration v0.1.0
+   └── ec-server-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-configuration#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-server-configuration"
+  │         ━━━━━━━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-server-configuration v0.1.0 (*)
+
+error[unlicensed]: ec-server-configuration = 0.1.0 is unlicensed
+ ├ ec-server-configuration v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-server-orchestration = 0.1.0'
+ ├ ec-server-orchestration v0.1.0
+   ├── ec-server-app v0.1.0
+   └── ec-server-results v0.1.0
+       └── ec-server-app v0.1.0 (*)
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-orchestration#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-server-orchestration"
+  │         ━━━━━━━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-server-orchestration v0.1.0 (*)
+
+error[unlicensed]: ec-server-orchestration = 0.1.0 is unlicensed
+ ├ ec-server-orchestration v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-server-projects = 0.1.0'
+ ├ ec-server-projects v0.1.0
+   └── ec-server-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-projects#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-server-projects"
+  │         ━━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-server-projects v0.1.0 (*)
+
+error[unlicensed]: ec-server-projects = 0.1.0 is unlicensed
+ ├ ec-server-projects v0.1.0 (*)
+
+warning[no-license-field]: license expression was not specified in manifest for crate 'ec-server-results = 0.1.0'
+ ├ ec-server-results v0.1.0
+   └── ec-server-app v0.1.0
+
+warning[unlicensed]: a valid license expression could not be retrieved for the crate
+  ┌─ path+file:///home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-results#0.1.0-synthesized.toml:2:9
+  │
+2 │ name = "ec-server-results"
+  │         ━━━━━━━━━━━━━━━━━
+  │
+  ├ ec-server-results v0.1.0 (*)
+
+error[unlicensed]: ec-server-results = 0.1.0 is unlicensed
+ ├ ec-server-results v0.1.0 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'block-buffer'
+  ┌─ /home/rodrigo/Projetos/ec/application/server/backend/Cargo.lock:6:1
+  │  
+6 │ ╭ block-buffer 0.10.4 registry+https://github.com/rust-lang/crates.io-index
+7 │ │ block-buffer 0.12.1 registry+https://github.com/rust-lang/crates.io-index
+  │ ╰─────────────────────────────────────────────────────────────────────────┘ lock entries
+  │  
+  ├ block-buffer v0.10.4
+    └── digest v0.10.7
+        └── sha2 v0.10.9
+            ├── ec-server-access v0.1.0
+            │   ├── ec-server-app v0.1.0
+            │   ├── ec-server-orchestration v0.1.0
+            │   │   ├── ec-server-app v0.1.0 (*)
+            │   │   └── ec-server-results v0.1.0
+            │   │       └── ec-server-app v0.1.0 (*)
+            │   └── ec-server-results v0.1.0 (*)
+            └── ec-server-projects v0.1.0
+                └── ec-server-app v0.1.0 (*)
+  ├ block-buffer v0.12.1
+    └── digest v0.11.3
+        ├── hmac v0.13.0
+        │   └── postgres-protocol v0.6.12
+        │       ├── postgres-types v0.2.14
+        │       │   └── tokio-postgres v0.7.18
+        │       │       └── postgres v0.19.12
+        │       │           ├── ec-server-access v0.1.0
+        │       │           │   ├── ec-server-app v0.1.0
+        │       │           │   ├── ec-server-orchestration v0.1.0
+        │       │           │   │   ├── ec-server-app v0.1.0 (*)
+        │       │           │   │   └── ec-server-results v0.1.0
+        │       │           │   │       └── ec-server-app v0.1.0 (*)
+        │       │           │   └── ec-server-results v0.1.0 (*)
+        │       │           ├── ec-server-app v0.1.0 (*)
+        │       │           ├── ec-server-orchestration v0.1.0 (*)
+        │       │           ├── ec-server-projects v0.1.0
+        │       │           │   └── ec-server-app v0.1.0 (*)
+        │       │           └── ec-server-results v0.1.0 (*)
+        │       └── tokio-postgres v0.7.18 (*)
+        ├── md-5 v0.11.0
+        │   └── postgres-protocol v0.6.12 (*)
+        └── sha2 v0.11.1
+            └── postgres-protocol v0.6.12 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'cpufeatures'
+   ┌─ /home/rodrigo/Projetos/ec/application/server/backend/Cargo.lock:16:1
+   │  
+16 │ ╭ cpufeatures 0.2.17 registry+https://github.com/rust-lang/crates.io-index
+17 │ │ cpufeatures 0.3.1 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰───────────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ cpufeatures v0.2.17
+     └── sha2 v0.10.9
+         ├── ec-server-access v0.1.0
+         │   ├── ec-server-app v0.1.0
+         │   ├── ec-server-orchestration v0.1.0
+         │   │   ├── ec-server-app v0.1.0 (*)
+         │   │   └── ec-server-results v0.1.0
+         │   │       └── ec-server-app v0.1.0 (*)
+         │   └── ec-server-results v0.1.0 (*)
+         └── ec-server-projects v0.1.0
+             └── ec-server-app v0.1.0 (*)
+   ├ cpufeatures v0.3.1
+     ├── chacha20 v0.10.2
+     │   └── rand v0.10.3
+     │       ├── postgres-protocol v0.6.12
+     │       │   ├── postgres-types v0.2.14
+     │       │   │   └── tokio-postgres v0.7.18
+     │       │   │       └── postgres v0.19.12
+     │       │   │           ├── ec-server-access v0.1.0
+     │       │   │           │   ├── ec-server-app v0.1.0
+     │       │   │           │   ├── ec-server-orchestration v0.1.0
+     │       │   │           │   │   ├── ec-server-app v0.1.0 (*)
+     │       │   │           │   │   └── ec-server-results v0.1.0
+     │       │   │           │   │       └── ec-server-app v0.1.0 (*)
+     │       │   │           │   └── ec-server-results v0.1.0 (*)
+     │       │   │           ├── ec-server-app v0.1.0 (*)
+     │       │   │           ├── ec-server-orchestration v0.1.0 (*)
+     │       │   │           ├── ec-server-projects v0.1.0
+     │       │   │           │   └── ec-server-app v0.1.0 (*)
+     │       │   │           └── ec-server-results v0.1.0 (*)
+     │       │   └── tokio-postgres v0.7.18 (*)
+     │       └── tokio-postgres v0.7.18 (*)
+     └── sha2 v0.11.1
+         └── postgres-protocol v0.6.12 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'crypto-common'
+   ┌─ /home/rodrigo/Projetos/ec/application/server/backend/Cargo.lock:18:1
+   │  
+18 │ ╭ crypto-common 0.1.7 registry+https://github.com/rust-lang/crates.io-index
+19 │ │ crypto-common 0.2.2 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰─────────────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ crypto-common v0.1.7
+     └── digest v0.10.7
+         └── sha2 v0.10.9
+             ├── ec-server-access v0.1.0
+             │   ├── ec-server-app v0.1.0
+             │   ├── ec-server-orchestration v0.1.0
+             │   │   ├── ec-server-app v0.1.0 (*)
+             │   │   └── ec-server-results v0.1.0
+             │   │       └── ec-server-app v0.1.0 (*)
+             │   └── ec-server-results v0.1.0 (*)
+             └── ec-server-projects v0.1.0
+                 └── ec-server-app v0.1.0 (*)
+   ├ crypto-common v0.2.2
+     └── digest v0.11.3
+         ├── hmac v0.13.0
+         │   └── postgres-protocol v0.6.12
+         │       ├── postgres-types v0.2.14
+         │       │   └── tokio-postgres v0.7.18
+         │       │       └── postgres v0.19.12
+         │       │           ├── ec-server-access v0.1.0
+         │       │           │   ├── ec-server-app v0.1.0
+         │       │           │   ├── ec-server-orchestration v0.1.0
+         │       │           │   │   ├── ec-server-app v0.1.0 (*)
+         │       │           │   │   └── ec-server-results v0.1.0
+         │       │           │   │       └── ec-server-app v0.1.0 (*)
+         │       │           │   └── ec-server-results v0.1.0 (*)
+         │       │           ├── ec-server-app v0.1.0 (*)
+         │       │           ├── ec-server-orchestration v0.1.0 (*)
+         │       │           ├── ec-server-projects v0.1.0
+         │       │           │   └── ec-server-app v0.1.0 (*)
+         │       │           └── ec-server-results v0.1.0 (*)
+         │       └── tokio-postgres v0.7.18 (*)
+         ├── md-5 v0.11.0
+         │   └── postgres-protocol v0.6.12 (*)
+         └── sha2 v0.11.1
+             └── postgres-protocol v0.6.12 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'digest'
+   ┌─ /home/rodrigo/Projetos/ec/application/server/backend/Cargo.lock:21:1
+   │  
+21 │ ╭ digest 0.10.7 registry+https://github.com/rust-lang/crates.io-index
+22 │ │ digest 0.11.3 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰───────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ digest v0.10.7
+     └── sha2 v0.10.9
+         ├── ec-server-access v0.1.0
+         │   ├── ec-server-app v0.1.0
+         │   ├── ec-server-orchestration v0.1.0
+         │   │   ├── ec-server-app v0.1.0 (*)
+         │   │   └── ec-server-results v0.1.0
+         │   │       └── ec-server-app v0.1.0 (*)
+         │   └── ec-server-results v0.1.0 (*)
+         └── ec-server-projects v0.1.0
+             └── ec-server-app v0.1.0 (*)
+   ├ digest v0.11.3
+     ├── hmac v0.13.0
+     │   └── postgres-protocol v0.6.12
+     │       ├── postgres-types v0.2.14
+     │       │   └── tokio-postgres v0.7.18
+     │       │       └── postgres v0.19.12
+     │       │           ├── ec-server-access v0.1.0
+     │       │           │   ├── ec-server-app v0.1.0
+     │       │           │   ├── ec-server-orchestration v0.1.0
+     │       │           │   │   ├── ec-server-app v0.1.0 (*)
+     │       │           │   │   └── ec-server-results v0.1.0
+     │       │           │   │       └── ec-server-app v0.1.0 (*)
+     │       │           │   └── ec-server-results v0.1.0 (*)
+     │       │           ├── ec-server-app v0.1.0 (*)
+     │       │           ├── ec-server-orchestration v0.1.0 (*)
+     │       │           ├── ec-server-projects v0.1.0
+     │       │           │   └── ec-server-app v0.1.0 (*)
+     │       │           └── ec-server-results v0.1.0 (*)
+     │       └── tokio-postgres v0.7.18 (*)
+     ├── md-5 v0.11.0
+     │   └── postgres-protocol v0.6.12 (*)
+     └── sha2 v0.11.1
+         └── postgres-protocol v0.6.12 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'sha2'
+   ┌─ /home/rodrigo/Projetos/ec/application/server/backend/Cargo.lock:74:1
+   │  
+74 │ ╭ sha2 0.10.9 registry+https://github.com/rust-lang/crates.io-index
+75 │ │ sha2 0.11.1 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰─────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ sha2 v0.10.9
+     ├── ec-server-access v0.1.0
+     │   ├── ec-server-app v0.1.0
+     │   ├── ec-server-orchestration v0.1.0
+     │   │   ├── ec-server-app v0.1.0 (*)
+     │   │   └── ec-server-results v0.1.0
+     │   │       └── ec-server-app v0.1.0 (*)
+     │   └── ec-server-results v0.1.0 (*)
+     └── ec-server-projects v0.1.0
+         └── ec-server-app v0.1.0 (*)
+   ├ sha2 v0.11.1
+     └── postgres-protocol v0.6.12
+         ├── postgres-types v0.2.14
+         │   └── tokio-postgres v0.7.18
+         │       └── postgres v0.19.12
+         │           ├── ec-server-access v0.1.0
+         │           │   ├── ec-server-app v0.1.0
+         │           │   ├── ec-server-orchestration v0.1.0
+         │           │   │   ├── ec-server-app v0.1.0 (*)
+         │           │   │   └── ec-server-results v0.1.0
+         │           │   │       └── ec-server-app v0.1.0 (*)
+         │           │   └── ec-server-results v0.1.0 (*)
+         │           ├── ec-server-app v0.1.0 (*)
+         │           ├── ec-server-orchestration v0.1.0 (*)
+         │           ├── ec-server-projects v0.1.0
+         │           │   └── ec-server-app v0.1.0 (*)
+         │           └── ec-server-results v0.1.0 (*)
+         └── tokio-postgres v0.7.18 (*)
+
+warning[duplicate]: found 2 duplicate entries for crate 'wasi'
+   ┌─ /home/rodrigo/Projetos/ec/application/server/backend/Cargo.lock:93:1
+   │  
+93 │ ╭ wasi 0.11.1+wasi-snapshot-preview1 registry+https://github.com/rust-lang/crates.io-index
+94 │ │ wasi 0.14.7+wasi-0.2.4 registry+https://github.com/rust-lang/crates.io-index
+   │ ╰────────────────────────────────────────────────────────────────────────────┘ lock entries
+   │  
+   ├ wasi v0.11.1+wasi-snapshot-preview1
+     └── mio v1.2.4
+         └── tokio v1.54.1
+             ├── postgres v0.19.12
+             │   ├── ec-server-access v0.1.0
+             │   │   ├── ec-server-app v0.1.0
+             │   │   ├── ec-server-orchestration v0.1.0
+             │   │   │   ├── ec-server-app v0.1.0 (*)
+             │   │   │   └── ec-server-results v0.1.0
+             │   │   │       └── ec-server-app v0.1.0 (*)
+             │   │   └── ec-server-results v0.1.0 (*)
+             │   ├── ec-server-app v0.1.0 (*)
+             │   ├── ec-server-orchestration v0.1.0 (*)
+             │   ├── ec-server-projects v0.1.0
+             │   │   └── ec-server-app v0.1.0 (*)
+             │   └── ec-server-results v0.1.0 (*)
+             ├── tokio-postgres v0.7.18
+             │   └── postgres v0.19.12 (*)
+             └── tokio-util v0.7.20
+                 └── tokio-postgres v0.7.18 (*)
+   ├ wasi v0.14.7+wasi-0.2.4
+     └── wasite v1.0.2
+         └── whoami v2.1.3
+             └── tokio-postgres v0.7.18
+                 └── postgres v0.19.12
+                     ├── ec-server-access v0.1.0
+                     │   ├── ec-server-app v0.1.0
+                     │   ├── ec-server-orchestration v0.1.0
+                     │   │   ├── ec-server-app v0.1.0 (*)
+                     │   │   └── ec-server-results v0.1.0
+                     │   │       └── ec-server-app v0.1.0 (*)
+                     │   └── ec-server-results v0.1.0 (*)
+                     ├── ec-server-app v0.1.0 (*)
+                     ├── ec-server-orchestration v0.1.0 (*)
+                     ├── ec-server-projects v0.1.0
+                     │   └── ec-server-app v0.1.0 (*)
+                     └── ec-server-results v0.1.0 (*)
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:32
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                ━━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:48
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                ━━━━━━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:94
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                                                              ━━━━━━━ unmatched license allowance
+
+warning[license-not-encountered]: license was not encountered
+   ┌─ /home/rodrigo/Projetos/ec/config/quality/deny.toml:15:64
+   │
+15 │ allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+   │                                                                ━━━ unmatched license allowance
+

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/e2e/frontend_firefox.py", line 296, in <module>
+    main()
+    ~~~~^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/e2e/frontend_firefox.py", line 109, in main
+    browser=Firefox()
+  File "/home/rodrigo/Projetos/ec/application/server/frontend/tests/e2e/firefox_driver.py", line 15, in __init__
+    self.socket = socket.create_connection(('127.0.0.1', port), timeout=15)
+                  ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.13/socket.py", line 868, in create_connection
+    raise exceptions[0]
+  File "/usr/lib64/python3.13/socket.py", line 853, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 111] Connection refused

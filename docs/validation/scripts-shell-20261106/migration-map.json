@@ -1,0 +1,31 @@
+{
+  "source": "scripts_erase",
+  "operation": "Capacidades refatoradas/consolidadas; não cópia byte a byte de wrappers vazios.",
+  "mapping": {
+    "rust/commands/machete.sh": "scripts/rust/check.sh",
+    "rust/commands/deny.sh": "scripts/rust/check.sh",
+    "rust/commands/geiger.sh": "scripts/rust/check.sh",
+    "rust/commands/audit.sh": "scripts/rust/check.sh",
+    "rust/commands/coverage.sh": "scripts/rust/check.sh",
+    "rust/commands/fmt.sh": "scripts/rust/check.sh",
+    "rust/commands/clippy.sh": "scripts/rust/check.sh",
+    "rust/commands/test.sh": "scripts/rust/check.sh",
+    "frontend/commands/coverage.sh": "scripts/frontend/check.sh",
+    "frontend/commands/build-budget.sh": "scripts/frontend/check.sh",
+    "frontend/commands/performance.sh": "scripts/frontend/check.sh",
+    "frontend/commands/lint.sh": "scripts/frontend/check.sh",
+    "frontend/commands/build.sh": "scripts/frontend/check.sh",
+    "frontend/commands/test.sh": "scripts/frontend/check.sh",
+    "frontend/commands/typecheck.sh": "scripts/frontend/check.sh",
+    "frontend/dev.sh": "scripts/frontend/check.sh",
+    "frontend/setup.sh": "scripts/frontend/check.sh",
+    "automation/metrics.py": "scripts/metrics/check.sh",
+    "automation/reports.py": "scripts/security/analyzers/check-report.sh",
+    "security/analyzers/check-report.py": "scripts/security/analyzers/check-report.sh",
+    "security/analyzers/validate-exceptions.py": "scripts/security/analyzers/validate-exceptions.sh",
+    "security/commands/trivy.sh": "scripts/security/check.sh",
+    "security/commands/codeql-js-ts.sh": "scripts/security/check.sh",
+    "frontend/analyzers/eslint-ratchet.ts": "scripts/frontend/eslint-ratchet.sh",
+    "reports/summarize.py": "scripts/reports/summarize.sh"
+  }
+}

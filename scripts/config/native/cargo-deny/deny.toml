@@ -1,0 +1,72 @@
+# Política Ec: todas as features; nenhuma exceção de advisory ou origem.
+[graph]
+all-features = true
+
+[advisories]
+db-urls = ["https://github.com/RustSec/advisory-db"]
+yanked = "deny"
+unmaintained = "all"
+unsound = "all"
+maximum-db-staleness = "P7D"
+ignore = []
+
+[licenses]
+confidence-threshold = 0.95
+allow = ["MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unicode-3.0", "Zlib", "CC0-1.0"]
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+highlight = "all"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []
+
+# Licença dos crates próprios Ec confirmada pelo usuário; dependências mantêm a política existente.
+
+[[licenses.exceptions]]
+name = "ec-agent-app"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-agent-control"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-agent-execution"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-agent-reporting"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-agent-workspace"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-server-access"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-server-app"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-server-configuration"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-server-orchestration"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-server-projects"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
+name = "ec-server-results"
+allow = ["GPL-3.0-only"]

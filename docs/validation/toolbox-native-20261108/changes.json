@@ -1,0 +1,332 @@
+[
+  {
+    "path": "README.md",
+    "baseline_available": true,
+    "before_sha256": "5de36040e03b560aa29e287838403a47fe246a440d315cbd79e0f350b016b966",
+    "after_sha256": "2591652e0e075d332e46bd43f4084a5b1c04eef4c12f8381c6815c03eaea25c0",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "docs/development/scripts-inventory.md",
+    "baseline_available": true,
+    "before_sha256": "f22f43e879eab03297707a10c2a9b43b4b08b216e828dcc681acf2c2eb66542b",
+    "after_sha256": "e23c1918188b41b74e30c3990d473f1bfb9d84fd696d3f4bdd1a2d50e4c7c453",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "docs/development/verification-tools.md",
+    "baseline_available": true,
+    "before_sha256": "1a71127b177cbfcf31645f85a4015cbda2e010f826d85649e58f7d5fed5b3763",
+    "after_sha256": "d712067f9df2f8684cf86114fb7692c117e4448a3f213b3d1abe673beed93214",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/README.md",
+    "baseline_available": true,
+    "before_sha256": "bb17c5b59f9f3bbb720a0b4048beb439bde9a716e3d993b177b9204eac31ad6a",
+    "after_sha256": "956b73e3c482854833da755a0485c2a4abc390bc7944dc69cc86d8e47f183823",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/automate.sh",
+    "baseline_available": true,
+    "before_sha256": "49e18c0881588d90a185189d7acc1570eb413c8eda9a32754f2e9513490b9618",
+    "after_sha256": "6e37053ce2bc2a9e02916949a96e884893ff6155f362afaf849d753f1c4e0e09",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "scripts/config/integration.json",
+    "baseline_available": true,
+    "before_sha256": "224f054e26e3f5f463b5fe4f645302e2511be69c07ed39a2b894d911a5350cc0",
+    "after_sha256": null,
+    "before_mode": 420,
+    "after_mode": null
+  },
+  {
+    "path": "scripts/config/native/bandit/bandit.yaml",
+    "baseline_available": true,
+    "before_sha256": "074314985229da257963050bf91acb7caf039174668a5120baadc3fc2be990e4",
+    "after_sha256": "46db533fc31aca8cd1ad9e52485e5b0c424986ca2379d9a073503535765f7762",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/config/native/grype/grype.yaml",
+    "baseline_available": true,
+    "before_sha256": "272e693007156b03ad656635fdecb60ea6891d4f9ade8b6628b8ed27edf86c80",
+    "after_sha256": "99686fbc6039505cf3a2e4c213639dd407a4a83add1020785f7667367ffb1ee3",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/config/native/playwright/playwright.config.mjs",
+    "baseline_available": true,
+    "before_sha256": "f209f509cd4fb62208736c35a8b91957c5028516e436ac660acce8bc51bca8f9",
+    "after_sha256": "e1abec0c8e19fcae846158dbd5e6041d8e4923e98fa873149e751d12ff5e977d",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/config/native/ruff/ruff.toml",
+    "baseline_available": true,
+    "before_sha256": "3bf25c02a4972557fc1e098829ad748b5285188ea02bac073872a9da931d6dc7",
+    "after_sha256": "ec78c81a8cc1e4b94fe189498864e683a36a35220fbf18042372b02c7e589629",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/config/native/trivy/trivy.yaml",
+    "baseline_available": true,
+    "before_sha256": "6b207886a2f2b539ffdab62cd4f5b5137e5546de5e05ab8f83cc4da8f7a7be5f",
+    "after_sha256": "68442c60137f3d67171ec8ea085b801872f32b7b2d5717bbf34b7f44e04e3ab9",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/config/toolbox.images.lock.json",
+    "baseline_available": true,
+    "before_sha256": "32b03422396d2c1dc6447a31789ee28229299ca06ce62fe77a67c86ede205b3f",
+    "after_sha256": null,
+    "before_mode": 384,
+    "after_mode": null
+  },
+  {
+    "path": "scripts/config/toolbox.json",
+    "baseline_available": true,
+    "before_sha256": "7a98fcc987c9ac94afcec7208eaff71a39f9e2a9f1cadbb5ee9be902318846bc",
+    "after_sha256": null,
+    "before_mode": 384,
+    "after_mode": null
+  },
+  {
+    "path": "scripts/rules/codeql/codeql-rust.qls",
+    "baseline_available": true,
+    "before_sha256": "3e9f957d5217e3e2ac0ab57d673e54fd3e2e3b44cbc75556bcac0394ba6eb008",
+    "after_sha256": "430be0b6b634a521a95eaf1f134c2e3af37795ff3222b87e80937a7fa1769a02",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/rules/codeql/codeql.qls",
+    "baseline_available": true,
+    "before_sha256": "5f1dcc33a715b16a9042380f7a82dc651a4d9ff5f552f192a1df8ef7d3f75333",
+    "after_sha256": "3b2f57a6c56c5bbd7a9b8847951da252a509c6d0ad15646a3b0ff0a983433a0c",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/stacks/ec/catalog.sh",
+    "baseline_available": true,
+    "before_sha256": "ba8308694d0ecc058567b6359642adbb5a51aa22ae768e986c3dd90bd6d3ea19",
+    "after_sha256": "be395b3f07e69bcaccd898c823d1c0fb0a969a8d4d73fc77cf7bcf6be846d483",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "scripts/stacks/ec/inputs.sh",
+    "baseline_available": true,
+    "before_sha256": "a41bb5c1c7b33f8344e3ca2d42ba2be71d8a64facaf745dcb809457ea477e18f",
+    "after_sha256": "0a3304831d5cc371f0cfa2c36cb8b2aa5ff6b553c8737e1f8947be172e26f939",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "scripts/stacks/ec/metrics/coverage.sh",
+    "baseline_available": true,
+    "before_sha256": "c0752201e5d8e46b0ca68fca93f5af4bfe2244ca1de6fd49d6e4d706c29d0979",
+    "after_sha256": "edbfb888fdc78e44cbfa8aaf238c4b036a7d3a676ac9cb7c0efc75057b5628dd",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/stacks/ec/runtime.sh",
+    "baseline_available": true,
+    "before_sha256": "f616ee4f31e258f9c590ff698b3150c4072d69f49d3dd31757feb009a5ca666c",
+    "after_sha256": "e8a57d677e8d2670fa19a6e6d5fe844325ca75d359f438f3b6442b210d18e671",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "scripts/stacks/ec/scanner-gate.sh",
+    "baseline_available": true,
+    "before_sha256": "e0462f8f0c2e3ad4308fe2440034fc8c9c8060d7e69e1b5ada2e428dda55c811",
+    "after_sha256": "67d5694658d43c5eee5c323a9b9a84f8edeb221ed1daa503fd950fffe56bb1b7",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/stacks/ec/security/check-report.sh",
+    "baseline_available": true,
+    "before_sha256": "db515d914b5d89e2e94ebfb6d54398863d110bbe242626240c31e8a390816675",
+    "after_sha256": "83dd2cdab47c19f1aadd9b59da10c098a62263ffdf93538986c65015ef7e9db4",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "scripts/stacks/frontend/check.sh",
+    "baseline_available": true,
+    "before_sha256": "7cdc8d43d580c11111a79ff8971aae3b5874e7a7652062ca0b74fea738b290fa",
+    "after_sha256": "361e589a11b1415711f517c62025b0721abcf6d7b47a118e085d38abcc199ca2",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "scripts/tests/test_consumer.py",
+    "baseline_available": true,
+    "before_sha256": "7384557c3b25d885c6268b491d5d28ff67be090f7a4c030e781b0595ebe68d6f",
+    "after_sha256": "91f592fd7153229154bf355c49a55ba954e0ca6cafdd983c67ec3d9afb5a9764",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/tests/test_quality.py",
+    "baseline_available": true,
+    "before_sha256": "b4bbfa07798f09b44578e564586efec604faaec5ad6fd9a61c25566b820b4292",
+    "after_sha256": "ef6b45443be560260e77101f7b615f9303580c508fb3f9e38835eaf5d47eb95f",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/tests/test_shell.py",
+    "baseline_available": true,
+    "before_sha256": "ea2f5afa6c58d094199f179c03612ac6e28df9742685edbe80886162a710dda4",
+    "after_sha256": "31ba94fe42567af968651d87def5ad95f6b2690ef347b0254c2f8533a4695fdd",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/toolbox.sh",
+    "baseline_available": true,
+    "before_sha256": "e90c7ea418e6f9fbe71157c9c5157945ffe205f77ba33572bbc89ed8890b946e",
+    "after_sha256": "de43006956f7e528429f286ef9b8411e32a200c01e94d0604049d03ce626a96e",
+    "before_mode": 493,
+    "after_mode": 493
+  },
+  {
+    "path": "sdd/features/scripts-verification/converge.md",
+    "baseline_available": true,
+    "before_sha256": "ad65d7015014dab207226cc20778069b1bd01d4cefadc8127021351359c1bfdc",
+    "after_sha256": "c6b07788390bb439dbdb1be4751a9a077d87750e566ea8c1dd49ceea2e9afac7",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/features/scripts-verification/evidence.json",
+    "baseline_available": true,
+    "before_sha256": "3702b5b392db60a76dec9e844f7652ca7970aa5bf286b72b2da386d7afa18c60",
+    "after_sha256": "9265bda9637324a0b24525186e0d07a4d23de040dd1ec32cb6edd1d10076ac9e",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/features/scripts-verification/plan.md",
+    "baseline_available": true,
+    "before_sha256": "8d888afb26846f24fa16716763f4437590be9cca4e8097a2f21748a8266c23ad",
+    "after_sha256": "d29b94620bad8aea5f5e0c05fd1c37dd7a04c3dcf07e7e202208b0edf7da54b1",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/features/scripts-verification/spec.md",
+    "baseline_available": true,
+    "before_sha256": "189f9f6aacf388906a6dc3800f20c5a5869eb7633fef94ea21ffb819f1854c11",
+    "after_sha256": "2b86a6ca570e8146f971b54bfb57c692cb47919ff64eff5df68b7a1ef642a2e7",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/features/scripts-verification/tasks.md",
+    "baseline_available": true,
+    "before_sha256": "ab5b8422eedafb31a58d5180711b590b876a1d0238219e4ba26140746aab9bec",
+    "after_sha256": "cbc0b110ffef5bf3ac09ee8e2e3dc2449ac27fa87b74960f1245e1706fe90dae",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/features/scripts-verification/toolbox-completion-plan.md",
+    "baseline_available": true,
+    "before_sha256": "fbccd3aa61db65a0f014117d167a9c34e756f8f18831efa0d71f4681b07763b5",
+    "after_sha256": "6865d9c24c3b4a244874b581e7358334f0dd77db3315e87f6a0e19bfc570cad8",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/features/scripts-verification/traceability.json",
+    "baseline_available": true,
+    "before_sha256": "6b8f163a2e61f650178d5053fa1cb203e237cf0eda2a1c3e7efaf0a619e36e41",
+    "after_sha256": "d548f21d6123c8a7782b505c4f44dbb2934ebe45e89347e0cc5bebe243e91f70",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "sdd/project.md",
+    "baseline_available": true,
+    "before_sha256": "266f5d1ae749684755b94d57ccf01850080b9d4d00638daba35920f458a747b3",
+    "after_sha256": "f85cdfa3e76389a6bc04981611ba9825ac6a1a7ccb489b2905bf91957ed094a5",
+    "before_mode": 420,
+    "after_mode": 420
+  },
+  {
+    "path": "tools/quality/native_gates.py",
+    "new_file": true,
+    "before_sha256": null,
+    "after_sha256": "9c686976de50c1d3de8e2bf5603757fe4424d19979b92d991b38ddee47fa4fa8",
+    "before_mode": null,
+    "after_mode": 420
+  },
+  {
+    "path": "scripts/tests/test_native.py",
+    "new_file": true,
+    "before_sha256": null,
+    "after_sha256": "8c471d03a7e284e9cac869c45e11b84f97071c3cf545a8167043161e26df844d",
+    "before_mode": null,
+    "after_mode": 420
+  },
+  {
+    "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+    "baseline_available": false,
+    "after_sha256": "b3c8a3f8a364d08766e01638fc586fdd25c8bcdb534474c4f57aa0b14eced671",
+    "after_mode": 420,
+    "method": "Alteração pontual em arquivo preexistente lido na tarefa; não consta do primeiro ZIP."
+  },
+  {
+    "path": "application/integration/tests/README.md",
+    "baseline_available": false,
+    "after_sha256": "cf367e557856b01a54d8e2169ac2852b504b8c367706e96d13182b1d45c525f0",
+    "after_mode": 420,
+    "method": "Alteração pontual em arquivo preexistente lido na tarefa; não consta do primeiro ZIP."
+  },
+  {
+    "path": "docs/development/task-verification.md",
+    "baseline_available": false,
+    "after_sha256": "5fb23d9db40bb35821d0a5c95bb2ad173fcfbb5d073a837100a80694b18df905",
+    "after_mode": 420,
+    "method": "Alteração pontual em arquivo preexistente lido na tarefa; não consta do primeiro ZIP."
+  },
+  {
+    "path": "docs/development/testing.md",
+    "baseline_available": false,
+    "after_sha256": "90d59a6a6228c746a36a227f83eac0689f037e3f68533724c8a8004bb82c2947",
+    "after_mode": 420,
+    "method": "Alteração pontual em arquivo preexistente lido na tarefa; não consta do primeiro ZIP."
+  },
+  {
+    "path": "docs/README.md",
+    "baseline_available": false,
+    "after_sha256": "bce503f639b94ad6b3dfdad60251331bba961e82a590314339696ac40231f2ae",
+    "after_mode": 420,
+    "method": "Alteração pontual em arquivo preexistente lido na tarefa; não consta do primeiro ZIP."
+  },
+  {
+    "path": "sdd/README.md",
+    "baseline_available": false,
+    "after_sha256": "ddcb5ed2b54a438b0b939bf8b34069d34ae03d9f205c61506692f45be3db0125",
+    "after_mode": 420,
+    "method": "Alteração pontual em arquivo preexistente lido na tarefa; não consta do primeiro ZIP."
+  }
+]

@@ -1,0 +1,381 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "scripts",
+    "security"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "depends": [
+        "security:secrets-rules"
+      ],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "blocked",
+      "reason": "dependências não aprovadas",
+      "returncode": null,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 2,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "e7abda871b5823539ffa0fa99c59c4ff196a42bc0d29589d99380727a1522535",
+  "complete": false,
+  "exit_code": 2,
+  "changed_inputs": []
+}

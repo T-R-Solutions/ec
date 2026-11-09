@@ -1,0 +1,8 @@
+# Alvo selecionado pelo Ec; snapshot central observado no diagnóstico do executor.
+# Nenhuma exceção de vulnerabilidade ou atualização durante o scan.
+ignore: []
+check-for-app-update: false
+db:
+  auto-update: false
+  validate-age: true
+  max-allowed-built-age: 24h

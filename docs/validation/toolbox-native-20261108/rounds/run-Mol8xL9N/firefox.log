@@ -1,0 +1,11 @@
+*** You are running in headless mode.
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: RSLoader: 
+  Failed to retrieve recipes from Remote Settings
+  Message: Error: Could not sync nimbus-desktop-experiments: get-exception
+  Stack:
+    RemoteSettingsSyncError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1562:5
+getRecipesFromCollection@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:816:13
+
+1794166162983	RemoteAgent	WARN	PollPromise timed out after 5000 ms
+1794166162983	Marionette	FATAL	Marionette server failed to start: Error: Could not bind to port 58282(chrome://remote/content/marionette/server.sys.mjs:90:17) JS Stack trace: setAcceptConnections@server.sys.mjs:90:17

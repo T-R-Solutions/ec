@@ -1,0 +1,186 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "security"
+  ],
+  "checks": null,
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "argv": [
+        "/usr/bin/python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "argv": [
+        "/usr/bin/python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "argv": [
+        "gitleaks",
+        "dir",
+        "--config",
+        "{root}/scripts/automation/rules/gitleaks.toml",
+        "--redact",
+        "--ignore-gitleaks-allow",
+        "--exit-code",
+        "10",
+        "--report-format",
+        "json",
+        "--report-path",
+        "{task}/report.json",
+        "{task}/source"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "argv": [
+        "opengrep",
+        "scan",
+        "--test",
+        "--json",
+        "--strict",
+        "--disable-version-check",
+        "--metrics=off",
+        "{root}/scripts/security/rules/opengrep"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "argv": [
+        "opengrep",
+        "scan",
+        "--config",
+        "{root}/scripts/security/rules/opengrep",
+        "--disable-version-check",
+        "--metrics=off",
+        "--strict",
+        "--no-git-ignore",
+        "--disable-nosem",
+        "--error",
+        "--json",
+        "--output",
+        "{task}/report.json",
+        "{task}/source"
+      ],
+      "cwd": ".",
+      "prerequisites": [],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "argv": [
+        "osv-scanner",
+        "scan",
+        "source",
+        "--offline",
+        "--all-packages",
+        "--all-vulns",
+        "--no-call-analysis=rust",
+        "--config",
+        "{root}/scripts/security/rules/osv-scanner.toml",
+        "--format",
+        "json",
+        "--output-file",
+        "{task}/report.json",
+        "--lockfile",
+        "{task}/source/application/agents/Cargo.lock",
+        "--lockfile",
+        "{task}/source/application/server/backend/Cargo.lock",
+        "--lockfile",
+        "{task}/source/application/server/frontend/package-lock.json"
+      ],
+      "cwd": ".",
+      "prerequisites": [
+        "application/agents/Cargo.lock",
+        "application/server/backend/Cargo.lock",
+        "application/server/frontend/package-lock.json"
+      ],
+      "target": "",
+      "depends": [],
+      "timeout": 900
+    }
+  ],
+  "executed": false
+}

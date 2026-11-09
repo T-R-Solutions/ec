@@ -1,0 +1,110 @@
+{
+  "authorization": "Pedido explícito de 2026-11-08 para excluir ferramentas baixadas dos scripts dentro do Ec.",
+  "items": [
+    {
+      "path": ".local/tools/bin",
+      "files": 2,
+      "bytes": 14887680,
+      "removed": true
+    },
+    {
+      "path": ".local/build/tooling-remediation/downloads",
+      "files": 9,
+      "bytes": 22254423,
+      "removed": true
+    },
+    {
+      "path": ".local/security/codeql/bundle",
+      "files": 35045,
+      "bytes": 1319391980,
+      "removed": true
+    },
+    {
+      "path": ".local/security/downloads/codeql-bundle-linux64.tar.gz",
+      "files": 1,
+      "bytes": 695275440,
+      "removed": true
+    },
+    {
+      "path": ".local/security/rustsec",
+      "files": 1470,
+      "bytes": 2810091,
+      "removed": true
+    },
+    {
+      "path": ".local/build/ec-cargo-home/advisory-dbs",
+      "files": 1469,
+      "bytes": 2809849,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/osv-scanner/volume/databases/2.7.0/278f1a92df9e920ee1ca5b0d49830a68bceea7b2a20026dd76137c46663a4323/osv-scanner",
+      "files": 2,
+      "bytes": 223851418,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/osv-scanner/volume/databases/2.7.0/278f1a92df9e920ee1ca5b0d49830a68bceea7b2a20026dd76137c46663a4323/osv-scalibr",
+      "files": 2,
+      "bytes": 223851418,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/gitleaks/volume/images/8.24.3/1bd92411f20adbd18f2fe592fd8daaf7c196601856301c7050e474759b8b6f58/context/payload/tool.tar",
+      "files": 1,
+      "bytes": 5796002,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/opengrep/volume/images/1.33.1/f44f63894b9bd91b9d5dbc2a6524fea97cba1fe339ebc6e83b21189b184b14ac/context/payload/tool",
+      "files": 1,
+      "bytes": 46517648,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/osv-scanner/volume/images/2.7.0/640c23e0a31a12ad8166565422ad22dbb52b53544299d8e402b9ae4457d9b85c/context/payload/tool",
+      "files": 1,
+      "bytes": 57725088,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/osv-scanner/volume/images/2.7.0/854bd9aa62a168c937a26742a117daff82ed9549b1d79ba8a1a33478a8386647/context/payload/tool",
+      "files": 1,
+      "bytes": 57725088,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/playwright/volume/images/1.56.1/4ed9f760ed8e7562f19df562e7095175ee4dd5a7e1eb228f3b58a39310058a5f/context/payload/node.tar.xz",
+      "files": 1,
+      "bytes": 30737976,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/ruff/volume/images/0.11.13/774a0549dc7c03693aeb542ff25c01a940794d4eef271774ec0219368c2e4087/context/payload/tool.tar",
+      "files": 1,
+      "bytes": 11566746,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/shellcheck/volume/images/0.11.0/026758bcf0e95caa3868c65130f4362fb937471d044bec885d42a8a7bcdc17e0/context/payload/tool.tar",
+      "files": 1,
+      "bytes": 2559196,
+      "removed": true
+    },
+    {
+      "path": ".local/toolbox/tools/shellcheck/volume/images/0.11.0/a2e2b0781be9a5f2520033b97497376f4aae3f7755788cf31b846afdbb17df19/context/payload/tool.tar",
+      "files": 1,
+      "bytes": 2559196,
+      "removed": true
+    }
+  ],
+  "total_bytes": 2720319239,
+  "preserved": [
+    "relatórios, recibos e índices históricos",
+    "fontes e dependências da aplicação",
+    "skills e baseline de recuperação",
+    "ferramentas globais e plataforma externa",
+    "locks de imagens, sem renovação de hashes"
+  ],
+  "restore": "Não há cópia dos downloads no Ec; restauração exige aquisição explícita na infraestrutura externa. Recibos não são backup."
+}

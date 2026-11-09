@@ -1,0 +1,28 @@
+# Regras locais Ec: interpretação dinâmica e sinks HTML no cliente HTTP/browser.
+rules:
+  - id: ec.typescript.dynamic-eval
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Evitar interpretar texto como código; revisar a autoridade da entrada.
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+  - id: ec.typescript.raw-html
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Revisar sanitização de HTML; logs e saída de jobs devem ser apresentados como texto.
+    pattern-either:
+      - pattern: $NODE.innerHTML = $VALUE
+      - pattern: $NODE.outerHTML = $VALUE
+      - pattern: $NODE.insertAdjacentHTML(...)
+  - id: ec.typescript.persistent-token
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: O bearer do Ec deve permanecer em memória; revisar persistência de tokens no storage do navegador.
+    pattern-either:
+      - pattern: localStorage.setItem('token', ...)
+      - pattern: localStorage.setItem('accessToken', ...)
+      - pattern: localStorage.setItem('refreshToken', ...)
+      - pattern: sessionStorage.setItem('token', ...)
+      - pattern: sessionStorage.setItem('accessToken', ...)
+      - pattern: sessionStorage.setItem('refreshToken', ...)

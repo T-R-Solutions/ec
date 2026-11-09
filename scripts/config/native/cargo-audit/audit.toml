@@ -1,0 +1,16 @@
+[advisories]
+ignore = []
+informational_warnings = ["unmaintained", "unsound"]
+
+[database]
+fetch = false
+stale = false
+
+[output]
+deny = ["warnings"]
+format = "json"
+quiet = false
+
+[yanked]
+enabled = true
+update_index = false

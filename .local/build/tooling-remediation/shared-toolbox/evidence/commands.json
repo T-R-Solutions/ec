@@ -1,0 +1,110 @@
+{
+  "at": "2026-11-06T14:25:31.798593+00:00",
+  "commands": [
+    {
+      "name": "unit-tests",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 0,
+      "stdout": "unit-tests.stdout",
+      "stderr": "unit-tests.stderr"
+    },
+    {
+      "name": "doctor",
+      "argv": [
+        "bin/toolbox",
+        "doctor"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 2,
+      "stdout": "doctor.stdout",
+      "stderr": "doctor.stderr"
+    },
+    {
+      "name": "validate",
+      "argv": [
+        "bin/toolbox",
+        "validate",
+        "--config",
+        "examples/consumer-a/toolbox.json"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 0,
+      "stdout": "validate.stdout",
+      "stderr": "validate.stderr"
+    },
+    {
+      "name": "plan",
+      "argv": [
+        "bin/toolbox",
+        "plan",
+        "--config",
+        "examples/consumer-a/toolbox.json"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 0,
+      "stdout": "plan.stdout",
+      "stderr": "plan.stderr"
+    },
+    {
+      "name": "unresolved-base",
+      "argv": [
+        "bin/toolbox",
+        "--state",
+        "/home/rodrigo/Projetos/dev_audit/shared-toolbox/.local/validation-state",
+        "prepare",
+        "--config",
+        "examples/consumer-a/toolbox.json"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 2,
+      "stdout": "unresolved-base.stdout",
+      "stderr": "unresolved-base.stderr"
+    },
+    {
+      "name": "acceptance",
+      "argv": [
+        "python3",
+        "tests/acceptance.py",
+        "--state",
+        "/home/rodrigo/Projetos/dev_audit/shared-toolbox/.local/validation-state"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 2,
+      "stdout": "acceptance.stdout",
+      "stderr": "acceptance.stderr"
+    },
+    {
+      "name": "base-resolution",
+      "argv": [
+        "bin/toolbox",
+        "lock-base"
+      ],
+      "cwd": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+      "exit_code": 2,
+      "stdout": "base-resolution.stdout",
+      "stderr": "base-resolution.stderr"
+    },
+    {
+      "name": "network",
+      "argv": [
+        "curl",
+        "-I",
+        "--max-time",
+        "10",
+        "https://raw.githubusercontent.com/gitleaks/gitleaks/v8.24.3/README.md"
+      ],
+      "exit_code": 6,
+      "stdout": "network.stdout",
+      "stderr": "network.stderr"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "name": "server",
+      "source": "application/server/backend",
+      "language": "rust",
+      "suite": "scripts/rules/codeql/codeql-rust.qls"
+    },
+    {
+      "name": "agent",
+      "source": "application/agents",
+      "language": "rust",
+      "suite": "scripts/rules/codeql/codeql-rust.qls"
+    },
+    {
+      "name": "frontend",
+      "source": "application/server/frontend",
+      "language": "javascript-typescript",
+      "suite": "scripts/rules/codeql/codeql.qls"
+    }
+  ]
+}

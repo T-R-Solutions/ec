@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "project": "ec",
+  "root": "../..",
+  "tools": {
+    "ruff": {
+      "version": "0.11.13",
+      "paths": [
+        "scripts/tests",
+        "tools",
+        "sdd/tools",
+        "application/integration/tests"
+      ],
+      "config": "scripts/config/native/ruff/ruff.toml",
+      "network": "none"
+    },
+    "shellcheck": {
+      "version": "0.11.0",
+      "paths": [
+        "scripts/automate.sh",
+        "scripts/check.sh",
+        "scripts/stacks/ec/catalog.sh",
+        "scripts/stacks/ec/common.sh",
+        "scripts/stacks/ec/inputs.sh",
+        "scripts/stacks/ec/integration.sh",
+        "scripts/stacks/ec/metrics/check.sh",
+        "scripts/stacks/ec/metrics/coverage.sh",
+        "scripts/stacks/ec/reports/summarize.sh",
+        "scripts/stacks/ec/runtime.sh",
+        "scripts/stacks/ec/scanner-gate.sh",
+        "scripts/stacks/ec/security/check-report.sh",
+        "scripts/stacks/ec/security/validate-exceptions.sh",
+        "scripts/stacks/frontend/check.sh",
+        "scripts/stacks/frontend/eslint-ratchet.sh",
+        "scripts/stacks/rust/check.sh",
+        "scripts/toolbox.sh"
+      ],
+      "config": "scripts/config/native/shellcheck/shellcheckrc",
+      "network": "none"
+    },
+    "gitleaks": {
+      "version": "8.24.3",
+      "mode": "files",
+      "paths": [
+        "."
+      ],
+      "config": "scripts/config/native/gitleaks/gitleaks.toml",
+      "network": "none"
+    },
+    "playwright": {
+      "version": "1.56.1",
+      "variant": "chromium",
+      "config": "scripts/config/native/playwright/playwright.config.mjs",
+      "network": "none"
+    },
+    "opengrep": {
+      "version": "1.33.1",
+      "paths": [
+        "application/agents",
+        "application/server/backend",
+        "application/server/frontend"
+      ],
+      "config": "scripts/rules/opengrep",
+      "network": "none"
+    },
+    "osv-scanner": {
+      "version": "2.7.0",
+      "paths": [
+        "application/agents/Cargo.lock",
+        "application/server/backend/Cargo.lock",
+        "application/server/frontend/package-lock.json"
+      ],
+      "config": "scripts/config/native/osv-scanner/osv-scanner.toml",
+      "network": "none",
+      "max_database_age_hours": 24,
+      "database": "278f1a92df9e920ee1ca5b0d49830a68bceea7b2a20026dd76137c46663a4323"
+    },
+    "trivy": {
+      "version": "0.76.2",
+      "paths": [
+        "application"
+      ],
+      "config": "scripts/config/native/trivy/trivy.yaml",
+      "network": "none",
+      "max_database_age_hours": 24
+    },
+    "grype": {
+      "version": "0.119.0",
+      "paths": [
+        "application"
+      ],
+      "config": "scripts/config/native/grype/grype.yaml",
+      "max_database_age_hours": 24,
+      "network": "none"
+    },
+    "bandit": {
+      "version": "1.8.3",
+      "paths": [
+        "scripts/tests",
+        "tools",
+        "sdd/tools",
+        "application/integration/tests"
+      ],
+      "config": "scripts/config/native/bandit/bandit.yaml",
+      "network": "none"
+    },
+    "syft": {
+      "version": "1.23.1",
+      "paths": [
+        "application"
+      ],
+      "network": "none"
+    },
+    "yara-x": {
+      "version": "1.0.0",
+      "paths": [
+        "application"
+      ],
+      "network": "none"
+    }
+  }
+}

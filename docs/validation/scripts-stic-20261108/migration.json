@@ -1,0 +1,73 @@
+{
+  "moves": {
+    "scripts/lib/common.sh": "scripts/stacks/ec/common.sh",
+    "scripts/lib/catalog.sh": "scripts/stacks/ec/catalog.sh",
+    "scripts/lib/inputs.sh": "scripts/stacks/ec/inputs.sh",
+    "scripts/lib/runtime.sh": "scripts/stacks/ec/runtime.sh",
+    "scripts/lib/integration.sh": "scripts/stacks/ec/integration.sh",
+    "scripts/rust/check.sh": "scripts/stacks/rust/check.sh",
+    "scripts/frontend/check.sh": "scripts/stacks/frontend/check.sh",
+    "scripts/frontend/eslint-ratchet.sh": "scripts/stacks/frontend/eslint-ratchet.sh",
+    "scripts/metrics/check.sh": "scripts/stacks/ec/metrics/check.sh",
+    "scripts/metrics/coverage.sh": "scripts/stacks/ec/metrics/coverage.sh",
+    "scripts/reports/summarize.sh": "scripts/stacks/ec/reports/summarize.sh",
+    "scripts/security/analyzers/check-report.sh": "scripts/stacks/ec/security/check-report.sh",
+    "scripts/security/analyzers/validate-exceptions.sh": "scripts/stacks/ec/security/validate-exceptions.sh",
+    "scripts/security/analyzers/redact-trivy.jq": "scripts/stacks/ec/security/redact-trivy.jq",
+    "scripts/security/rules/opengrep": "scripts/rules/opengrep",
+    "scripts/security/rules/gitleaks.toml": "scripts/config/native/gitleaks/gitleaks.toml",
+    "scripts/security/rules/osv-scanner.toml": "scripts/config/native/osv-scanner/osv-scanner.toml",
+    "config/quality/deny.toml": "scripts/config/native/cargo-deny/deny.toml",
+    "config/quality/audit.toml": "scripts/config/native/cargo-audit/audit.toml",
+    "config/quality/coverage.json": "scripts/stacks/ec/coverage.json",
+    "config/quality/grype.yaml": "scripts/config/native/grype/grype.yaml",
+    "config/quality/bandit.yaml": "scripts/config/native/bandit/bandit.yaml",
+    "config/quality/trivy-toolbox.yaml": "scripts/config/native/trivy/trivy.yaml",
+    "config/quality/codeql.qls": "scripts/rules/codeql/codeql.qls",
+    "config/quality/codeql-rust.qls": "scripts/rules/codeql/codeql-rust.qls",
+    "ruff.toml": "scripts/config/native/ruff/ruff.toml",
+    ".shellcheckrc": "scripts/config/native/shellcheck/shellcheckrc",
+    "playwright.config.mjs": "scripts/config/native/playwright/playwright.config.mjs",
+    "toolbox.json": "scripts/config/toolbox.json",
+    "toolbox.images.lock.json": "scripts/config/toolbox.images.lock.json"
+  },
+  "removed": [
+    "scripts/lib/toolbox.sh",
+    "scripts/toolbox-local.sh",
+    "scripts/prepare.sh",
+    "scripts/security/check.sh",
+    "scripts/security/native.sh",
+    "scripts/security/prepare-native.sh",
+    "scripts/security/lib.sh",
+    "scripts/security/record-osv-db.sh",
+    "scripts/security/test-gitleaks.sh",
+    "scripts/security/README.md",
+    "scripts/security/native-scanners.md",
+    "scripts/security/toolbox-contract.md",
+    "config/quality/native-scanners.json",
+    "config/quality/cargo-tools.json",
+    "config/quality/trivy.yaml",
+    "config/quality/README.md",
+    "tools/toolbox_consumer/bridge.py"
+  ],
+  "wrapper_source": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/templates/consumer/scripts/toolbox.sh",
+  "wrapper_sha256": "e90c7ea418e6f9fbe71157c9c5157945ffe205f77ba33572bbc89ed8890b946e",
+  "skill": ".codex/skills/software-delivery/SKILL.md",
+  "skill_sha256": "b0166f50c4532b55cae5ac7e4cde24c35767d56e7db142ea7001402fdd2b94a0",
+  "scripts_executed": false,
+  "authorities": [
+    {
+      "path": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/docs/doc.md",
+      "sha256": "21ffa3c2d5d940d921a7fc14a0c0b3be605f3e35a62b822409ad0f4f32230f69"
+    },
+    {
+      "path": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/docs/consumer-migration-20261108.md",
+      "sha256": "c6abba52da0ca7de3761ebddab213a426418f9c4cf9479a9faaea0e3d1e785e8"
+    },
+    {
+      "path": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/toolbox/consumer.py",
+      "sha256": "51514d92a6f0b0b66c58e16357dcdd0cc8963b64e96925c2fcaeb9e008514749"
+    }
+  ],
+  "bridge_version": 1
+}

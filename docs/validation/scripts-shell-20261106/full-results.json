@@ -1,0 +1,747 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "agent",
+    "docs",
+    "e2e",
+    "frontend",
+    "integration",
+    "scripts",
+    "security",
+    "server"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "cwd": "application/server/backend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "cwd": "application/agents",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "typecheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "test"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "cwd": "application/server/frontend",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "build"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "cwd": ".",
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build"
+      ],
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "fmt"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "clippy"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "test"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/rust/check.sh",
+        "harness-build"
+      ],
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "5be191e8c70a5007074254cb74d78dbfdd25cd5a61c27de7b8e5410122ec24f4",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "typecheck"
+      ],
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "test"
+      ],
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/frontend/check.sh",
+        "build"
+      ],
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "error",
+      "reason": "comando falhou; consultar stderr.log/stdout.log",
+      "returncode": 1,
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_firefox.py"
+      ],
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "df5958033f1db4a394d3688ebc9e7cbe17d93b8dfad36f55640d1bb812a422a1",
+  "complete": false,
+  "exit_code": 2,
+  "changed_inputs": []
+}

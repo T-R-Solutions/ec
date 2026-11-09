@@ -1,0 +1,252 @@
+{
+  "date": "2026-11-09T16:01:39.376189+00:00",
+  "method": "Comparação de arquivos preexistentes por SHA-256/link, tamanho, modo, uid/gid e mtime; não executa código de produto ou testes.",
+  "counts": {
+    "modified": 15,
+    "unchanged": 209549,
+    "removed": 32
+  },
+  "protected_unchanged": {
+    ".codex": 596,
+    ".git": 3819,
+    ".local preexistente": 201257,
+    "docs/validation": 631,
+    "pesquisa histórica": 818
+  },
+  "changes": [
+    {
+      "path": ".gitignore",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "erase.md",
+      "action": "removed"
+    },
+    {
+      "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stderr.pipe",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": false
+    },
+    {
+      "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stdout.pipe",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": false
+    },
+    {
+      "path": "application/README.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "application/agents/README.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "application/agents/crates/ec-agent-app/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/integration/tests/e2e/__pycache__/frontend_firefox.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "application/integration/tests/integration/__pycache__/agent_http.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "application/integration/tests/integration/__pycache__/orchestration_http.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "application/integration/tests/integration/__pycache__/publication_http.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-access/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/tests/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-configuration/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-orchestration/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-projects/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/frontend/src/domains/infrastructure/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/frontend/src/domains/projects/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/src/.gitkeep",
+      "action": "removed"
+    },
+    {
+      "path": "application/server/frontend/tests/e2e/__pycache__/firefox_driver.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "docs/README.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "docs/architecture/application-layout.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "docs/architecture/application-overview.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "docs/development/scripts-inventory.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "docs/development/testing.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "docs/development/verification-tools.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "scripts/README.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_consumer.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_native.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_quality.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "scripts/tests/__pycache__/test_shell.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "sdd/features/scripts-verification/converge.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "sdd/features/scripts-verification/plan.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "sdd/features/scripts-verification/tasks.md",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": true
+    },
+    {
+      "path": "sdd/tools/__pycache__/validate.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "tools/governance/__pycache__/install_skills.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "tools/governance/__pycache__/validate.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "tools/governance/tests/__pycache__/test_governance.cpython-313.pyc",
+      "action": "removed"
+    },
+    {
+      "path": "tools/quality/__pycache__/native_gates.cpython-313.pyc",
+      "action": "removed"
+    }
+  ],
+  "unexpected": [
+    {
+      "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stderr.pipe",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": false
+    },
+    {
+      "path": ".local/automation/runs/run-TdsIKMPf/04-docs-governance-tests/stdout.pipe",
+      "action": "modified",
+      "bytes_changed": true,
+      "metadata_changed": false
+    }
+  ],
+  "errors": [],
+  "backup_errors": []
+}

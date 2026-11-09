@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "project": "playwright-api",
+  "root": ".",
+  "profiles": [
+    "web-api"
+  ],
+  "tools": {
+    "playwright": {
+      "version": "1.56.1",
+      "variant": "api",
+      "config": "playwright.config.mjs",
+      "network": "none"
+    }
+  }
+}

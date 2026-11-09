@@ -1,0 +1,28 @@
+test_aggregation_never_approves_nonexecution (test_core.CoreTests.test_aggregation_never_approves_nonexecution) ... ok
+test_atomic_writes_under_contention (test_core.CoreTests.test_atomic_writes_under_contention) ... ok
+test_concurrent_run_ids_are_unique (test_core.CoreTests.test_concurrent_run_ids_are_unique) ... ok
+test_config_examples (test_core.CoreTests.test_config_examples) ... ok
+test_gitleaks_does_not_treat_generic_exit_one_as_finding (test_core.CoreTests.test_gitleaks_does_not_treat_generic_exit_one_as_finding) ... ok
+test_invalid_types_and_paths (test_core.CoreTests.test_invalid_types_and_paths) ... ok
+test_mount_contract_and_paths_with_spaces (test_core.CoreTests.test_mount_contract_and_paths_with_spaces) ... ok
+test_native_reports_separate_findings_and_errors (test_core.CoreTests.test_native_reports_separate_findings_and_errors) ... ok
+test_omission_requires_reason (test_core.CoreTests.test_omission_requires_reason) ... ok
+test_playwright_no_tests_and_config_errors_never_pass (test_core.CoreTests.test_playwright_no_tests_and_config_errors_never_pass) ... ok
+test_private_selinux_mount_preserves_isolation (test_core.CoreTests.test_private_selinux_mount_preserves_isolation) ... ok
+test_profiles_never_choose_versions_implicitly (test_core.CoreTests.test_profiles_never_choose_versions_implicitly) ... ok
+test_prune_keeps_other_projects_and_incomplete_runs (test_core.CoreTests.test_prune_keeps_other_projects_and_incomplete_runs) ... ok
+test_real_cli_missing_image_persists_result_and_preserves_sources (test_core.CoreTests.test_real_cli_missing_image_persists_result_and_preserves_sources) ... ok
+test_recipe_identity_ignores_bytecode_and_documentation (test_core.CoreTests.test_recipe_identity_ignores_bytecode_and_documentation) ... ok
+test_reject_volume_inside_consumer_sources (test_core.CoreTests.test_reject_volume_inside_consumer_sources) ... ok
+test_tool_data_is_scoped_to_its_volume (test_core.CoreTests.test_tool_data_is_scoped_to_its_volume) ... ok
+test_unknown_and_duplicate_fields (test_core.CoreTests.test_unknown_and_duplicate_fields) ... ok
+test_download_rejects_substitution_and_missing_digest (test_security_adapters.SecurityAdapters.test_download_rejects_substitution_and_missing_digest) ... ok
+test_offline_invocations (test_security_adapters.SecurityAdapters.test_offline_invocations) ... ok
+test_opengrep_rejects_errors_skips_and_exit_mismatch (test_security_adapters.SecurityAdapters.test_opengrep_rejects_errors_skips_and_exit_mismatch) ... ok
+test_opengrep_test_requires_positive_oracle (test_security_adapters.SecurityAdapters.test_opengrep_test_requires_positive_oracle) ... ok
+test_osv_requires_inventory_and_consistent_exit (test_security_adapters.SecurityAdapters.test_osv_requires_inventory_and_consistent_exit) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.031s
+
+OK

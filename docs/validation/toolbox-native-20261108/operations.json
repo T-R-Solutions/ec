@@ -1,0 +1,302 @@
+{
+  "final_command": [
+    "env",
+    "TOOLBOX_BIN=/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+    "EC_CODEQL_RUSTUP_HOME=/home/rodrigo/.rustup",
+    "EC_CODEQL_CARGO_HOME=/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home",
+    "EC_CODEQL_CARGO_BIN=/home/rodrigo/.cargo/bin",
+    "bash",
+    "scripts/automate.sh",
+    "run"
+  ],
+  "toolbox_bin": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+  "final_run": ".local/automation/runs/run-13bf8eQO",
+  "final_exit_code": 2,
+  "task_counts": {
+    "passed": 24,
+    "blocked": 12,
+    "error": 7
+  },
+  "changed_inputs": [],
+  "optional_command": [
+    "bash",
+    "scripts/automate.sh",
+    "run",
+    "--surface",
+    "security",
+    "--check",
+    "grype",
+    "--check",
+    "bandit",
+    "--check",
+    "syft",
+    "--check",
+    "yara-x"
+  ],
+  "optional_run": ".local/automation/runs/run-wK23fIYy",
+  "optional_exit_code": 3,
+  "native_calls": [
+    {
+      "task": "06-scripts-shellcheck",
+      "step": "00-shellcheck",
+      "tool": "shellcheck",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-06-scripts-shellcheck-00-shellcheck.json"
+    },
+    {
+      "task": "07-scripts-ruff",
+      "step": "00-ruff",
+      "tool": "ruff",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-07-scripts-ruff-00-ruff.json"
+    },
+    {
+      "task": "31-security-secrets-rules",
+      "step": "00-gitleaks",
+      "tool": "gitleaks",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-31-security-secrets-rules-00-gitleaks.json"
+    },
+    {
+      "task": "33-security-sast-rules",
+      "step": "00-opengrep",
+      "tool": "opengrep",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-33-security-sast-rules-00-opengrep.json"
+    },
+    {
+      "task": "35-security-dependencies",
+      "step": "00-osv-scanner",
+      "tool": "osv-scanner",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-35-security-dependencies-00-osv-scanner.json"
+    },
+    {
+      "task": "36-security-trivy",
+      "step": "00-trivy",
+      "tool": "trivy",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-36-security-trivy-00-trivy.json"
+    },
+    {
+      "task": "37-security-codeql",
+      "step": "00-codeql",
+      "tool": "codeql",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-37-security-codeql-00-codeql.json"
+    },
+    {
+      "task": "37-security-codeql",
+      "step": "01-codeql",
+      "tool": "codeql",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-37-security-codeql-01-codeql.json"
+    },
+    {
+      "task": "37-security-codeql",
+      "step": "02-codeql",
+      "tool": "codeql",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-37-security-codeql-02-codeql.json"
+    },
+    {
+      "task": "41-e2e-playwright",
+      "step": "00-playwright",
+      "tool": "playwright",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/full-41-e2e-playwright-00-playwright.json"
+    },
+    {
+      "task": "05-security-grype",
+      "step": "00-grype",
+      "tool": "grype",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-05-security-grype-00-grype.json"
+    },
+    {
+      "task": "06-security-bandit",
+      "step": "00-bandit",
+      "tool": "bandit",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-06-security-bandit-00-bandit.json"
+    },
+    {
+      "task": "07-security-syft",
+      "step": "00-syft",
+      "tool": "syft",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-07-security-syft-00-syft.json"
+    },
+    {
+      "task": "08-security-yara-x",
+      "step": "00-yara-x",
+      "tool": "yara-x",
+      "returncode": 125,
+      "outcome": "infrastructure",
+      "phase": "resolve_active",
+      "native_exit_code": null,
+      "image": null,
+      "version": null,
+      "database": null,
+      "artifact": "native-diagnostics/optional-08-security-yara-x-00-yara-x.json"
+    }
+  ],
+  "limits": [
+    "Diagnósticos nativos em resolve_active; nenhum processo de scanner/browser central executado.",
+    "Primeira rodada sob sandbox falhou antes do diagnóstico; demais rodadas autorizadas fora dele.",
+    "Sem download, preparo/ativação, commits, tags, publicação ou alteração de permissões."
+  ],
+  "cancelled": false,
+  "previous_runs": [
+    {
+      "run": "run-xgoOMqmH",
+      "reason": "restrições do sandbox"
+    },
+    {
+      "run": "run-wOfegdyY",
+      "reason": "isolamento de teste e coleta de cobertura corrigidos"
+    },
+    {
+      "run": "run-vPVNoXMt",
+      "reason": "73 testes e Firefox passaram"
+    },
+    {
+      "run": "run-fbfcTlTR",
+      "reason": "77 testes; revisão posterior de supressões"
+    },
+    {
+      "run": "run-1Hst573Z",
+      "reason": "78 testes; revisão posterior do fechamento de cancelamento"
+    },
+    {
+      "run": "run-Mol8xL9N",
+      "reason": "79 testes; Firefox falhou no bind Marionette58282"
+    },
+    {
+      "run": "run-zOrKuWph",
+      "reason": "80 testes e Firefox passaram; rodada seguinte forneceu explicitamente o runtime Rust/Cargo existente ao CodeQL."
+    }
+  ],
+  "publication_checks": [
+    {
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--features",
+        "sdd/features",
+        "--require-fresh"
+      ],
+      "returncode": 0,
+      "artifact": "sdd-fresh.stdout"
+    },
+    {
+      "command": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        ".",
+        "--features",
+        "sdd/features",
+        "--require-approved",
+        "--require-fresh"
+      ],
+      "returncode": 1,
+      "artifact": "sdd-acceptance.stderr",
+      "interpretation": "Rejeição esperada: aceite integral não obtido."
+    },
+    {
+      "command": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "returncode": 0,
+      "artifact": "governance-publication.stdout"
+    }
+  ],
+  "publication_first_attempt": {
+    "features_argument": "sdd/features/scripts-verification",
+    "limitation": "--features recebe o diretório pai das features; a primeira chamada não selecionou a feature. Não é prova de frescor/aceite. Execução corrigida abaixo.",
+    "artifacts": "publication-first-attempt/"
+  },
+  "codeql_rust_inputs": "codeql-rust-inputs.json"
+}

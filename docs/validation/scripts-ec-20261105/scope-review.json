@@ -1,0 +1,13 @@
+{
+  "original_files": 92,
+  "removed": 82,
+  "preserved_original_bytes": true,
+  "unchanged_other_skill_entries": 65,
+  "source_files_and_bundle_unchanged": true,
+  "scope": "Arquivos removidos limitados a scripts; sem remoção de relatórios históricos. Campos source_files e arquivo de fontes preservados; somente dois SKILL.md instalados e dois na recuperação alterados.",
+  "checks": "Inspeção de todas as referências vigentes e imports; caminhos retirados só em inventário/backup. Política central referenciada por AGENTS, README, guias, SDD/templates e pontes/skills delivery/testing.",
+  "limitations": [
+    "Gitleaks ausente: sem aceite completo da verificação.",
+    "Sem certificação de eficácia das skills ou abrangência universal de scanners."
+  ]
+}

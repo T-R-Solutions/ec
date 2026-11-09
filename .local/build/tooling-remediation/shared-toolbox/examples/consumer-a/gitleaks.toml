@@ -1,0 +1,5 @@
+title = "Consumer-owned controlled fixture rule"
+[[rules]]
+id = "fixture-marker"
+description = "Synthetic acceptance marker, not a credential"
+regex = '''CONTROLLED_TOOLBOX_MARKER'''

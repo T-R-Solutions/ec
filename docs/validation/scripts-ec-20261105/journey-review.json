@@ -1,0 +1,9 @@
+{
+  "method": "Reexecução real de fmt/clippy/test, vue-tsc/Vitest/build, publication_http, orchestration_http, agent_http e Firefox; inspeção da única mudança do harness (destino de artefatos) e da nota frontend.",
+  "result": "Todos os comandos de stack e os quatro harnesses passaram. Critérios de segredos por referência (AC-01) e aceite completo/rejeições T007 (AC-07) continuam UNVERIFIED; não foram substituídos por estes ensaios.",
+  "artifact": "stack-results.json",
+  "limitations": [
+    "Mesmos limites de Linux/Git local confiável e UI inicial; não há isolamento nem implantação remota demonstrada.",
+    "Scanner ausente é lacuna da verificação de fontes, sem alterar contratos da jornada."
+  ]
+}

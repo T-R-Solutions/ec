@@ -1,0 +1,136 @@
+{
+    "config_missing_tests": [],
+    "config_missing_fixtests": [],
+    "config_with_errors": [],
+    "results": {
+        "/src/scripts/security/rules/opengrep/rust.yml": {
+            "checks": {
+                "ec.rust.uninitialized-value": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/rust.rs": {
+                            "expected_lines": [
+                                3
+                            ],
+                            "reported_lines": [
+                                3
+                            ]
+                        }
+                    },
+                    "errors": []
+                },
+                "ec.rust.weak-hash": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/rust.rs": {
+                            "expected_lines": [
+                                17
+                            ],
+                            "reported_lines": [
+                                17
+                            ]
+                        }
+                    },
+                    "errors": []
+                },
+                "ec.rust.dynamic-postgres-query": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/rust.rs": {
+                            "expected_lines": [
+                                11
+                            ],
+                            "reported_lines": [
+                                11
+                            ]
+                        }
+                    },
+                    "errors": []
+                }
+            }
+        },
+        "/src/scripts/security/rules/opengrep/typescript.yml": {
+            "checks": {
+                "ec.typescript.persistent-token": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/typescript.ts": {
+                            "expected_lines": [
+                                17,
+                                19
+                            ],
+                            "reported_lines": [
+                                17,
+                                19
+                            ]
+                        }
+                    },
+                    "errors": []
+                },
+                "ec.typescript.dynamic-eval": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/typescript.ts": {
+                            "expected_lines": [
+                                3,
+                                5
+                            ],
+                            "reported_lines": [
+                                3,
+                                5
+                            ]
+                        }
+                    },
+                    "errors": []
+                },
+                "ec.typescript.raw-html": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/typescript.ts": {
+                            "expected_lines": [
+                                7
+                            ],
+                            "reported_lines": [
+                                7
+                            ]
+                        }
+                    },
+                    "errors": []
+                }
+            }
+        },
+        "/src/scripts/security/rules/opengrep/vue.yml": {
+            "checks": {
+                "ec.vue.dynamic-eval": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/vue.vue": {
+                            "expected_lines": [
+                                4
+                            ],
+                            "reported_lines": [
+                                4
+                            ]
+                        }
+                    },
+                    "errors": []
+                },
+                "ec.vue.raw-html": {
+                    "passed": true,
+                    "matches": {
+                        "/src/scripts/security/rules/opengrep/vue.vue": {
+                            "expected_lines": [
+                                10
+                            ],
+                            "reported_lines": [
+                                10
+                            ]
+                        }
+                    },
+                    "errors": []
+                }
+            }
+        }
+    },
+    "fixtest_results": {}
+}

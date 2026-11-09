@@ -1,0 +1,11 @@
+PASS migration banco v2 -> v3
+PASS publicação nova não altera SHA, checkout real, streams, artefato e recibo SQL/HTTP; viewer e negação cross-project
+PASS nonzero, timeout e descendente terminado, preparação negada sem running, drenagem simultânea >32MiB truncada em 16MiB e symlink rejeitado
+PASS cancelamento observado em running, SIGTERM/escalonamento e descendente sem execução
+PASS Agent real recupera respostas perdidas reserva/log/artefato/resultado sem reexecutar script
+PASS reconexão Agent e restart real Server preservam sessão, execução e entrega
+PASS cancelamento em preparação, heartbeat independente e ausência de script
+PASS perda lease termina trabalho real; retry exclusivo Server limitado a duas tentativas
+PASS queda/restart real Agent, exclusão por flock herdado, sessão nova e histórico sem autoridade antiga
+PASS resposta perdida log, replay, conflito, lacuna, bytes UTF-8 inválidos, staging incompleto/corrompido/excedido e autenticação separada
+PASS artefato e resultado após resposta perdida, consulta/replay e restart Server; oráculos SQL sem duplicação

@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-09T18:44:41.748373+00:00",
+  "method": "Inspeção de conteúdo/consumidores e comparação de hashes; sem execução de testes ou scripts Ec.",
+  "scripts_file_count": 45,
+  "unchanged_scripts_files": [
+    "scripts/LICENSE",
+    "scripts/automate.sh",
+    "scripts/check.sh",
+    "scripts/config/native/bandit/bandit.yaml",
+    "scripts/config/native/cargo-audit/audit.toml",
+    "scripts/config/native/cargo-deny/deny.toml",
+    "scripts/config/native/codeql/projects.json",
+    "scripts/config/native/gitleaks/gitleaks.toml",
+    "scripts/config/native/grype/grype.yaml",
+    "scripts/config/native/osv-scanner/osv-scanner.toml",
+    "scripts/config/native/playwright/playwright.config.mjs",
+    "scripts/config/native/ruff/ruff.toml",
+    "scripts/config/native/shellcheck/shellcheckrc",
+    "scripts/config/native/trivy/trivy.yaml",
+    "scripts/rules/codeql/codeql-rust.qls",
+    "scripts/rules/codeql/codeql.qls",
+    "scripts/rules/opengrep/rust.rs",
+    "scripts/rules/opengrep/rust.yml",
+    "scripts/rules/opengrep/typescript.ts",
+    "scripts/rules/opengrep/typescript.yml",
+    "scripts/rules/opengrep/vue.vue",
+    "scripts/rules/opengrep/vue.yml",
+    "scripts/rules/yara-x/ec.yar",
+    "scripts/stacks/ec/catalog.sh",
+    "scripts/stacks/ec/common.sh",
+    "scripts/stacks/ec/coverage.json",
+    "scripts/stacks/ec/inputs.sh",
+    "scripts/stacks/ec/integration.sh",
+    "scripts/stacks/ec/metrics/check.sh",
+    "scripts/stacks/ec/metrics/coverage.sh",
+    "scripts/stacks/ec/reports/summarize.sh",
+    "scripts/stacks/ec/runtime.sh",
+    "scripts/stacks/ec/scanner-gate.sh",
+    "scripts/stacks/ec/security/check-report.sh",
+    "scripts/stacks/ec/security/redact-trivy.jq",
+    "scripts/stacks/ec/security/validate-exceptions.sh",
+    "scripts/stacks/frontend/check.sh",
+    "scripts/stacks/frontend/eslint-ratchet.sh",
+    "scripts/stacks/rust/check.sh",
+    "scripts/tests/test_consumer.py",
+    "scripts/tests/test_native.py",
+    "scripts/tests/test_quality.py",
+    "scripts/tests/test_shell.py",
+    "scripts/toolbox.sh"
+  ],
+  "unexpected_scripts_changes": [],
+  "whole_files_removed": [],
+  "readme_lines_before": 181,
+  "readme_lines_after": 130,
+  "changes": [
+    {
+      "path": "scripts/README.md",
+      "before_sha256": "90e9602309f200164057ee6b953c12ee3d84654f481022f003b9987bad6fcd30",
+      "after_sha256": "edf02055a309f070a2f3b6737601317e39eadbf98b7e7f538472463719c5ed32",
+      "backup": ".local/scripts-cleanup-20261109/previous/scripts/README.md"
+    },
+    {
+      "path": ".gitignore",
+      "before_sha256": "4d5e4ebe1b0ec511656d0f9d9e5231d7bf926bad0abc1a460d596e9f0d482b3a",
+      "after_sha256": "b3775d8a19d412eb0d68d22c74fb8103cc5b0b4c434cc93d722914f322e431d0",
+      "backup": ".local/scripts-cleanup-20261109/previous/.gitignore"
+    },
+    {
+      "path": "docs/development/scripts-inventory.md",
+      "before_sha256": "48705cf8ab6f532288091f9e97f9ae1944d09d7c888f288b10d76dcfeb5e1172",
+      "after_sha256": "28aaea2240d720454815a5ce008159f305690a57a6b6a4470d44707d68905a32",
+      "backup": ".local/scripts-cleanup-20261109/previous/docs/development/scripts-inventory.md"
+    },
+    {
+      "path": "sdd/features/scripts-verification/tasks.md",
+      "before_sha256": "ef18484c67b1cf18392d519e986dbbded1947cf087ec56d3ed84b65e5a1e3fe3",
+      "after_sha256": "a259ad7a21bdcc786b6d3f44e691ae11c07368fb687bd4acde8f30d7943c625e",
+      "backup": ".local/scripts-cleanup-20261109/previous/sdd/features/scripts-verification/tasks.md"
+    },
+    {
+      "path": "sdd/features/scripts-verification/converge.md",
+      "before_sha256": "d3e4140bc47cdc2e5631fa18dbbc2654f79cc57a9f0e543b223eff6371488eb7",
+      "after_sha256": "1713f49efbadd58e953012ad55ab71907fc410dc781c2cb300b926a63cdba552",
+      "backup": ".local/scripts-cleanup-20261109/previous/sdd/features/scripts-verification/converge.md"
+    }
+  ],
+  "tests_executed": false,
+  "rendering_executed": false
+}

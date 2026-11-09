@@ -1,0 +1,537 @@
+{
+  "root": "/home/rodrigo/Projetos/ec",
+  "surfaces": [
+    "docs",
+    "scripts",
+    "security"
+  ],
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "depends": [
+        "security:secrets-rules"
+      ],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "timeout": 900
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "depends": [],
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "timeout": 900
+    }
+  ],
+  "executed": true,
+  "schema": 1,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/check.sh"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "shellcheck"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/toolbox.sh",
+        "ruff"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "0.11.13",
+        "image": "sha256:c58a4ea5be1d2b8a43c8afa326db1a7c411c40d880bc03596ff00a8b808dc00c",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-5521fd31f85e4e1fa7940780b5bf9d09",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-tvrlWJgN/07-scripts-ruff/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/ruff/volume/projects/ec/runs/20261106T215419.148020Z-122560c45509:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "sha256:c58a4ea5be1d2b8a43c8afa326db1a7c411c40d880bc03596ff00a8b808dc00c",
+          "check",
+          "--no-fix",
+          "--no-cache",
+          "--output-format=json",
+          "--config",
+          "/src/ruff.toml",
+          "--",
+          "scripts/tests",
+          "tools",
+          "sdd/tools",
+          "application/integration/tests"
+        ],
+        "tool_exit_code": 1,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/ruff/volume/projects/ec/runs/20261106T215419.148020Z-122560c45509",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 102
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/test-gitleaks.sh"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "8.24.3",
+        "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-1b087161127b445aa8b78b1bc4f6e77c",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-tvrlWJgN/09-security-secrets-rules/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261106T215432.172497Z-62bd5efd9855:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "GIT_CONFIG_COUNT=1",
+          "--env",
+          "GIT_CONFIG_KEY_0=safe.directory",
+          "--env",
+          "GIT_CONFIG_VALUE_0=/src",
+          "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "dir",
+          "--exit-code=42",
+          "--redact=100",
+          "--report-format=json",
+          "--report-path=/out/native.json",
+          "--config",
+          "/src/scripts/security/rules/gitleaks.toml",
+          "--",
+          "."
+        ],
+        "tool_exit_code": 42,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261106T215432.172497Z-62bd5efd9855",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "secrets"
+      ],
+      "cwd": ".",
+      "tool": {
+        "version": "8.24.3",
+        "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+        "command": [
+          "docker",
+          "run",
+          "--pull=never",
+          "--name",
+          "toolbox-4073d88ed16040448e9aa6e58f616cc0",
+          "--init",
+          "--read-only",
+          "--user",
+          "1000:1000",
+          "--cap-drop=ALL",
+          "--security-opt=no-new-privileges:true",
+          "--network",
+          "none",
+          "--tmpfs",
+          "/tmp:rw,nosuid,nodev,mode=1777",
+          "--shm-size=256m",
+          "--volume",
+          "/home/rodrigo/Projetos/ec/.local/automation/runs/run-tvrlWJgN/10-security-secrets/source:/src:ro,Z",
+          "--volume",
+          "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261106T215435.765831Z-c04a72e073e8:/out:rw,Z",
+          "--workdir",
+          "/src",
+          "--env",
+          "HOME=/tmp/home",
+          "--env",
+          "XDG_CACHE_HOME=/tmp/cache",
+          "--env",
+          "GIT_CONFIG_COUNT=1",
+          "--env",
+          "GIT_CONFIG_KEY_0=safe.directory",
+          "--env",
+          "GIT_CONFIG_VALUE_0=/src",
+          "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "dir",
+          "--exit-code=42",
+          "--redact=100",
+          "--report-format=json",
+          "--report-path=/out/native.json",
+          "--config",
+          "/src/scripts/security/rules/gitleaks.toml",
+          "--",
+          "."
+        ],
+        "tool_exit_code": 0,
+        "output": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/tools/gitleaks/volume/projects/ec/runs/20261106T215435.765831Z-c04a72e073e8",
+        "launcher": "/home/rodrigo/Projetos/dev_audit/shared-toolbox/bin/toolbox",
+        "launcher_sha256": "e83a4cbcb43f6d5fa81c7ec3cee8ae5beae6099c6b88a9e7e7b558bd486f332a"
+      },
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast-rules"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "sast"
+      ],
+      "cwd": "."
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "blocked",
+      "reason": "pré-requisito ausente; consultar stderr.log",
+      "returncode": 3,
+      "argv": [
+        "bash",
+        "/home/rodrigo/Projetos/ec/scripts/security/check.sh",
+        "dependencies"
+      ],
+      "cwd": "."
+    }
+  ],
+  "inputs_sha256": "ff10376bccd5873d637c064b12f7e3355546484079f2c6bfb8c8b75cddb4e756",
+  "complete": false,
+  "exit_code": 3,
+  "changed_inputs": []
+}
