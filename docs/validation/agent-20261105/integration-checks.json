@@ -1,0 +1,14 @@
+[
+  {
+    "command": "python3 application/integration/tests/integration/publication_http.py",
+    "exit_code": 0
+  },
+  {
+    "command": "python3 application/integration/tests/integration/orchestration_http.py",
+    "exit_code": 0
+  },
+  {
+    "command": "python3 application/integration/tests/integration/agent_http.py",
+    "exit_code": 0
+  }
+]

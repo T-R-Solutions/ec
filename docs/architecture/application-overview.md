@@ -1,3 +1,12 @@
+> Estado observado em 09/11/2026: existem incrementos executáveis do Server,
+> Agent e frontend. Os guias de [publicação](../development/publication.md),
+> [orquestração](../development/orchestration.md), [Agent](../development/agent.md)
+> e [frontend](../development/frontend.md) delimitam esses incrementos. A descrição
+> datada abaixo é uma baseline de funcionalidades/arquitetura alvo. A
+> [estrutura observada](application-layout.md) distingue código e diretórios ainda
+> vazios; marcadores de diretórios já preenchidos foram retirados na
+> [limpeza](../validation/cleanup-20261109/report.md), sem remover domínios previstos.
+
 # Visão funcional e técnica do Ec
 
 Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.

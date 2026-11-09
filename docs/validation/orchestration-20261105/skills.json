@@ -1,0 +1,50 @@
+{
+  "skills": [
+    {
+      "name": "cicd-scheduler",
+      "path": ".codex/skills/cicd-scheduler/SKILL.md",
+      "sha256": "1f4b793380998c8a8a64a58e1587e2ee3a6363880e63c0b54dab1a4228e14fb4",
+      "bridge": "sdd/chain/cicd-scheduler.md",
+      "bridge_version": 1,
+      "bridge_sha256": "861d423333627cd50ba12a8ed3f72fa09e038f78ec58698dd095e5e984615f38",
+      "contribution": "Primária: reserva atômica, perda de autoridade, retry limitado e recuperação; REQ-04/D-04/R-04/T004/AC-04."
+    },
+    {
+      "name": "database-engineering",
+      "path": ".codex/skills/database-engineering/SKILL.md",
+      "sha256": "7e1a29e4043ad60785660e677d8c9dd6ef50c69017d1b8aacdcae63e9ac9a9d3",
+      "bridge": "sdd/chain/database-engineering.md",
+      "bridge_version": 1,
+      "bridge_sha256": "75d44776cf48f4ed58deae72d779720b181ddf2116fb7fb03f76e16fc1e427a6",
+      "contribution": "Auxiliar: migration v1→v2, constraints, lock PostgreSQL e oráculos SQL independentes."
+    },
+    {
+      "name": "application-security",
+      "path": ".codex/skills/application-security/SKILL.md",
+      "sha256": "0d992c0538df30bd5e0c6be689990184ec51671225809eac0f01759cc08257c4",
+      "bridge": "sdd/chain/application-security.md",
+      "bridge_version": 1,
+      "bridge_sha256": "2661be6ea1b14febe95da6186f5c19de1b7aa7d203eee40bc803bd4ea7d940fd",
+      "contribution": "Auxiliar: usuário/Agent separados, credencial e sessão reais, autorização e negações sem efeitos."
+    },
+    {
+      "name": "ec-agent-control-protocol",
+      "path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
+      "sha256": "34ad20d94bec1006d92718ecde9976e1326ef4dc65854b0b9fc0d716d2a4136f",
+      "bridge": "sdd/chain/ec-agent-control-protocol.md",
+      "bridge_version": 1,
+      "bridge_sha256": "6132f92441f45f5bde9cdb1c9c28955a17390d8e6bc35887058f2f4d975530b3",
+      "contribution": "Auxiliar: sessão substituível, fence/lease, transições, reconexão e recibos duráveis."
+    },
+    {
+      "name": "rust",
+      "path": ".codex/skills/rust/SKILL.md",
+      "sha256": "da7b9ada8326b2d2cb4288ac6f67864c7b9defb833641470904c6fe9221d8891",
+      "bridge": "sdd/chain/rust.md",
+      "bridge_version": 1,
+      "bridge_sha256": "be4c0dcf14542912e8112c574a172361f7825508c0acdc903a67419126ea62ed",
+      "contribution": "Auxiliar: workspace/ownership, transações/Drop, cfg de failpoints, compilação/tests/lint no toolchain vigente."
+    }
+  ],
+  "delegation": false
+}

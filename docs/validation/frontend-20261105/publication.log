@@ -1,0 +1,12 @@
+PASS migration reproduzível e reaplicação sem efeito
+PASS sessões ausente/inválida/expirada/revogada, viewer e projeto invisível; SQL sem efeitos
+PASS YAML/schema/segredos não suportados/referências/limites/envelope; SQL sem efeitos
+PASS publicação autorizada, bytes exatos, SHA-256 e projeção derivados
+PASS imutabilidade SQL, conflito de base/payload e replay após reinício
+PASS duas publicações comprovadamente aguardando lock; uma aceita, uma 409; revisão antiga intacta
+PASS falha depois de inserts antes de commit, rollback e reinício sem estado parcial
+PASS término abrupto do Server antes de commit; PostgreSQL reverte e reinício não encontra recibo
+PASS commit com recibo de sucesso suprimido, reinício e recuperação por consulta/replay
+PASS replay exige autorização vigente e logout revoga sessão sem efeitos de publicação
+PASS tokens só em arquivos 0600; banco guarda hashes; nenhum token emitido nas evidências
+PostgreSQL 18.4 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit

@@ -1,0 +1,15 @@
+PASS migration 001 com dados -> 002, reaplicação, sessões/grants preservados
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 371, in <module>
+    main()
+    ~~~~^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 137, in main
+    h.cli('provision-agent', name, project, str(path))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/publication_http.py", line 30, in cli
+    subprocess.run([str(BIN), *args], env=ENV, check=True, capture_output=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.13/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/rodrigo/Projetos/ec/.local/build/ec-server-clean/debug/ec-server-app', 'provision-agent', 'linux-a', 'ec', '/home/rodrigo/Projetos/ec/.local/build/ec-orchestration-3sq9b3_f/linux-a']' returned non-zero exit status 2.

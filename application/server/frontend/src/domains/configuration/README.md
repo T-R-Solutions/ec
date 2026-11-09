@@ -1,3 +1,5 @@
+Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+
 # configuration — Edição e publicação de configuração
 
 **Estado:** módulo planejado; somente documentação e diretórios `src/` e `tests/`, sem código ou testes executáveis.

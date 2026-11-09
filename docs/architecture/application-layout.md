@@ -1,3 +1,25 @@
+## Estrutura observada em 09/11/2026
+
+Há workspaces Cargo em `application/agents/` (cinco membros) e
+`application/server/backend/` (seis membros), com Cargo.lock/rust-toolchain.toml;
+frontend Vue/TypeScript/Pinia em `application/server/frontend/`, com package.json,
+package-lock, Vite/Vitest e código. Os guias de [publicação](../development/publication.md),
+[orquestração](../development/orchestration.md), [Agent](../development/agent.md) e
+[frontend](../development/frontend.md) delimitam implementação e pendências.
+
+`.gitkeep` continua nos diretórios vazios previstos pela ADR-002, incluindo
+delivery/extensions/operations e testes ainda sem arquivos. Os 17 marcadores em
+diretórios com código foram retirados: cinco src do Agent, seis src e o tests do
+ec-server-app no backend e cinco src de domínios frontend. Diretórios, fontes,
+manifests e interfaces permanecem. [Inventário por caminho e recuperação](../validation/cleanup-20261109/report.md).
+
+## Baseline documental de 03–05/11/2026
+
+O texto e a árvore a seguir preservam a organização inicial. Seus marcadores e
+manifests indicados como futuros não são um inventário do checkout atual.
+
+Atualização T005 em 2026-11-05: Agent Rust real, workspace com cinco crates, logs e artefatos PostgreSQL/HTTP implementados. [Operação e limites](../development/agent.md). Baselines documentais abaixo são preservadas historicamente; frontend e segredos por referência permanecem pendentes.
+
 # Organização da aplicação Ec
 
 Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.

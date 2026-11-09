@@ -18,8 +18,8 @@
     "tasks": [
       "T002"
     ],
-    "implementation": "sdd/features/first-functional-journey/spec.md",
-    "oracle": "sdd/features/first-functional-journey/tasks.md"
+    "implementation": "application/server/backend/crates/ec-server-projects/src/publication.rs",
+    "oracle": "application/integration/tests/integration/publication_http.py"
   },
   {
     "acceptance": "AC-03",
@@ -29,8 +29,8 @@
     "tasks": [
       "T003"
     ],
-    "implementation": "sdd/features/first-functional-journey/spec.md",
-    "oracle": "sdd/features/first-functional-journey/tasks.md"
+    "implementation": "application/server/backend/crates/ec-server-access/src/lib.rs",
+    "oracle": "application/integration/tests/integration/publication_http.py"
   },
   {
     "acceptance": "AC-04",
@@ -40,8 +40,8 @@
     "tasks": [
       "T004"
     ],
-    "implementation": "sdd/features/first-functional-journey/spec.md",
-    "oracle": "sdd/features/first-functional-journey/tasks.md"
+    "implementation": "application/server/backend/crates/ec-server-orchestration/src/lib.rs",
+    "oracle": "application/integration/tests/integration/orchestration_http.py"
   },
   {
     "acceptance": "AC-05",
@@ -51,8 +51,8 @@
     "tasks": [
       "T005"
     ],
-    "implementation": "sdd/features/first-functional-journey/spec.md",
-    "oracle": "sdd/features/first-functional-journey/tasks.md"
+    "implementation": "application/agents/crates/ec-agent-app/src/main.rs",
+    "oracle": "application/integration/tests/integration/agent_http.py"
   },
   {
     "acceptance": "AC-06",
@@ -62,8 +62,8 @@
     "tasks": [
       "T006"
     ],
-    "implementation": "sdd/features/first-functional-journey/spec.md",
-    "oracle": "sdd/features/first-functional-journey/tasks.md"
+    "implementation": "application/server/frontend/src/domains/configuration/src/Editor.vue",
+    "oracle": "application/integration/tests/e2e/frontend_firefox.py"
   },
   {
     "acceptance": "AC-07",
@@ -71,6 +71,7 @@
     "decision": "D-04",
     "risk": "R-04",
     "tasks": [
+      "T004",
       "T007"
     ],
     "implementation": "sdd/features/first-functional-journey/spec.md",

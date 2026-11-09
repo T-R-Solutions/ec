@@ -1,0 +1,17 @@
+PASS migration 001 com dados -> 002, reaplicação, sessões/grants preservados
+PASS revisão/hash/SHA fixos após nova publicação, replay concorrente e conflito sem duplicação
+PASS autenticação, papéis, separação Agent/usuário, capabilities, revogação: nenhum efeito negado
+PASS conexões concorrentes: mesmo trabalho/diferentes slots e mesmo slot/dois trabalhos, oráculos SQL
+PASS heartbeat válido, fence rejeitado, transições, reinício real preserva lease e reserva
+PASS recibo de resultado/replay exato, payload divergente e terminal protegido
+PASS expiração real/restart, heartbeat tardio não ressuscita, retry apenas perda, máximo duas tentativas
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 371, in <module>
+    main()
+    ~~~~^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 250, in main
+    run = new(outcome)
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 152, in new
+    assert status == 200, receipt
+           ^^^^^^^^^^^^^
+AssertionError: {'code': 'request_id', 'message': 'request_id', 'requestId': '05238ea30a0e3d44b62e47d19e683ada47a9db280d6abf6f109270a0c0c3805b'}

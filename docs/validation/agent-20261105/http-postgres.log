@@ -1,0 +1,6 @@
+PASS migration banco v2 -> v3
+PASS publicação nova não altera SHA, checkout real, streams, artefato e recibo SQL/HTTP; viewer e negação cross-project
+PASS nonzero, timeout e descendente terminado, preparação negada sem running, drenagem simultânea >32MiB truncada em 16MiB e symlink rejeitado
+PASS cancelamento observado em running, SIGTERM/escalonamento e descendente sem execução
+PASS resposta perdida log, replay, conflito, lacuna, bytes UTF-8 inválidos, staging incompleto/corrompido/excedido e autenticação separada
+PASS artefato e resultado após resposta perdida, consulta/replay e restart Server; oráculos SQL sem duplicação

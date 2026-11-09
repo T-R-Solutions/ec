@@ -1,0 +1,11 @@
+[package]
+name = "ec-server-orchestration"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+postgres = "=0.19.12"
+serde_json = "=1.0.145"
+ec-server-access = { path = "../ec-server-access", version = "=0.1.0" }

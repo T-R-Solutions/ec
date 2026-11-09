@@ -1,8 +1,14 @@
 # Aplicação Ec
 
-Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../docs/development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.
+Estado documental consolidado em 2026-11-07: há workspaces Rust executáveis do
+Server e Agent e frontend Vue 3/TypeScript/Pinia com manifests, locks e testes.
+Os guias de [publicação](../docs/development/publication.md),
+[orquestração](../docs/development/orchestration.md), [Agent](../docs/development/agent.md)
+e [frontend](../docs/development/frontend.md) delimitam incrementos e pendências.
+O aceite agregado de produto e o isolamento de workloads hostis não estão demonstrados.
 
-Estrutura documental dos dois monólitos modulares Rust e do frontend Vue 3/TypeScript/Pinia. **Não há código de produto, manifests ou testes executáveis nesta árvore.** Os READMEs definem responsabilidades planejadas e os arquivos `.gitkeep` preservam diretórios vazios.
+Os READMEs de domínio podem preservar baselines históricas. A presença de um
+módulo não comprova a implementação completa de suas responsabilidades.
 
 | Entrada | Conteúdo previsto |
 | --- | --- |
@@ -14,9 +20,9 @@ Estrutura documental dos dois monólitos modulares Rust e do frontend Vue 3/Type
 
 ## Mapa de responsabilidades
 
-[![Onde encontrar cada componente? Mapa de diretórios existentes: Agent, Server e testes entre componentes ficam em application/. A árvore contém documentação e marcadores, sem código de produto.](../docs/assets/diagrams/application-map.svg)](../docs/assets/diagrams/application-map.svg)
+[![Onde encontrar cada componente? Mapa inicial de diretórios: Agent, Server e testes entre componentes ficam em application/. A figura preserva a baseline da organização; o estado executável vigente está nos guias acima.](../docs/assets/diagrams/application-map.svg)](../docs/assets/diagrams/application-map.svg)
 
-Mapa de diretórios existentes: Agent, Server e testes entre componentes ficam em application/. A árvore contém documentação e marcadores, sem código de produto.
+Mapa inicial de diretórios: Agent, Server e testes entre componentes ficam em application/. A figura preserva a baseline da organização; o estado executável vigente está nos guias acima.
 
 [Ampliar figura](../docs/assets/diagrams/application-map.svg) · [Fonte Mermaid](../docs/assets/diagrams/application-map.mmd)
 
@@ -26,6 +32,18 @@ Comece pelo componente e depois pelo README do domínio responsável. Consulte a
 
 Unitários ficarão no `src/` correspondente; integração e ponta a ponta, em `tests/` fora do `src/` do módulo. A [política de testes](../docs/development/testing.md) distingue os escopos locais, entre crates, entre domínios frontend e entre componentes.
 
-Não há comando Cargo/npm a executar. As verificações disponíveis estão no [guia de contribuição](../docs/development/contributing.md). Ao iniciar código, documente manifests, pré-requisitos e comandos realmente verificados e atualize o [estado do projeto](../sdd/project.md).
+Os comandos Cargo/npm reais estão nos guias dos componentes. A
+[política de verificação](../docs/development/task-verification.md) controla o
+acionamento da suíte. Scanners têm configuração do consumidor no
+[contrato Toolbox/Ec](../scripts/README.md); a integração nativa substituiu STIC.
+Os gates dependem de ferramentas/bases/runtimes preparados externamente; esta
+limpeza não executou nem homologou a suíte. O [inventário](../docs/development/scripts-inventory.md)
+registra os consumidores atuais.
+O `.gitignore` distingue fontes/locks/regras de caches e resultados privados.
 
 [Projeto](../README.md) · [Decisão da estrutura](../docs/decisions/ADR-002-application-layout.md)
+
+Na [limpeza de 09/11/2026](../docs/validation/cleanup-20261109/report.md), foram
+retirados somente caches Python derivados e marcadores de diretórios já
+preenchidos. Marcadores dos diretórios vazios previstos, migrations, fixtures,
+fontes, manifests, locks e históricos permanecem.

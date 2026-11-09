@@ -1,0 +1,67 @@
+{
+  "result": "PASS",
+  "crates": [
+    {
+      "crate": "ec-agent-app",
+      "dependencies": [
+        "ec-agent-control",
+        "ec-agent-execution",
+        "ec-agent-reporting",
+        "ec-agent-workspace"
+      ]
+    },
+    {
+      "crate": "ec-agent-control",
+      "dependencies": []
+    },
+    {
+      "crate": "ec-agent-execution",
+      "dependencies": [
+        "ec-agent-reporting"
+      ]
+    },
+    {
+      "crate": "ec-agent-reporting",
+      "dependencies": []
+    },
+    {
+      "crate": "ec-agent-workspace",
+      "dependencies": []
+    },
+    {
+      "crate": "ec-server-access",
+      "dependencies": []
+    },
+    {
+      "crate": "ec-server-app",
+      "dependencies": [
+        "ec-server-access",
+        "ec-server-configuration",
+        "ec-server-orchestration",
+        "ec-server-projects",
+        "ec-server-results"
+      ]
+    },
+    {
+      "crate": "ec-server-configuration",
+      "dependencies": []
+    },
+    {
+      "crate": "ec-server-orchestration",
+      "dependencies": [
+        "ec-server-access"
+      ]
+    },
+    {
+      "crate": "ec-server-projects",
+      "dependencies": []
+    },
+    {
+      "crate": "ec-server-results",
+      "dependencies": [
+        "ec-server-access",
+        "ec-server-orchestration"
+      ]
+    }
+  ]
+}

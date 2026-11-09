@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import { projectPath, type Api } from '../../../shared/api'
+import { logText, verifiedArtifact } from './bytes'
+interface Attempt {attemptId:number;ordinal:number;agentId:string;state:string;resultReceipt?:{output?:{lastSequence:number;truncated:boolean;artifactError:string|null;signal:number|null}}}
+interface Run {runId:number;revisionId:number;configHash:string;commit:string;state:string;cancelRequested:boolean;attempts:Attempt[];result:unknown}
+interface Output {logs:{sequence:number;stream:string;data:string}[];upload:null|{size:number;sha256:string;receipt:unknown};parts:{sequence:number;data:string}[]}
+const props=defineProps<{api:Api;project:string;canWrite:boolean}>()
+const logPage=ref(0);const runs=ref<Run[]>([]);const selected=ref(0);const output=ref<Record<number,Output>>({});const message=ref('Carregando…');const cancelMessage=ref('');let alive=true;let generation=0;let controller:AbortController|undefined;let timer:ReturnType<typeof setTimeout>
+async function refresh() {
+ const n=++generation;controller?.abort();controller=new AbortController();const signal=controller.signal
+ try {
+  const r=await props.api<{runs:Run[]}>(projectPath(props.project)+'/runs',undefined,signal)
+  if(!alive||n!==generation)return
+  runs.value=r.runs
+  const run=r.runs.find(r=>r.runId===selected.value);const next:Record<number,Output>={}
+  if(run)for(const a of run.attempts)next[a.attemptId]=await props.api<Output>(projectPath(props.project)+`/runs/${run.runId}/attempts/${a.attemptId}/output`,undefined,signal)
+  if(alive&&n===generation){output.value=next;message.value='Atualizado pelo Server'}
+ } catch(e){if(alive&&!signal.aborted)message.value='Desconectado ou consulta recusada; dados possivelmente desatualizados. '+String(e)}
+ finally {if(alive&&n===generation)timer=setTimeout(refresh,2000)}
+}
+function select(id:number){logPage.value=0;selected.value=id;output.value={};clearTimeout(timer);void refresh()}
+async function cancel(id:number){cancelMessage.value='Pedido de cancelamento enviado; aguardando persistência';try{const r=await props.api<{effective:boolean;state:string;cancelRequested?:boolean}>(projectPath(props.project)+`/runs/${id}/cancel`,{});cancelMessage.value=r.effective?(r.state==='cancelled'?'Cancelamento confirmado':'Intenção persistida; aguardando confirmação terminal'):'Sem efeito: execução já terminal';clearTimeout(timer);await refresh()}catch(e){cancelMessage.value='Resultado incerto; consulte execução antes de repetir. '+String(e)}}
+async function download(run:Run,a:Attempt){try{const o=await props.api<Output>(projectPath(props.project)+`/runs/${run.runId}/attempts/${a.attemptId}/output`);if(!o.upload?.receipt)throw new Error('Artefato ainda não publicado');const bytes=await verifiedArtifact(o.parts,o.upload.size,o.upload.sha256);const url=URL.createObjectURL(new Blob([bytes],{type:'application/octet-stream'}));const link=document.createElement('a');link.href=url;link.download=`ec-run-${run.runId}-attempt-${a.attemptId}.bin`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);message.value='Download verificado: tamanho e SHA-256'}catch(e){message.value=String(e)}}
+onMounted(refresh);onUnmounted(()=>{alive=false;generation++;controller?.abort();clearTimeout(timer)})
+</script>
+<template><section><h2>Execuções</h2><p role="status">{{message}}</p><p role="status">{{cancelMessage}}</p><p v-if="!runs.length">Nenhuma execução observada.</p>
+<article v-for="run in runs" :key="run.runId"><h3><button @click="select(run.runId)">Execução #{{run.runId}} · {{run.state}}</button></h3><p>Revisão usada {{run.revisionId}} · Hash {{run.configHash}} · Commit {{run.commit}}</p><p v-if="run.cancelRequested">Intenção de cancelamento persistida{{run.state==='cancelled'?' · confirmação terminal':''}}</p><button :disabled="!canWrite" @click="cancel(run.runId)">Cancelar #{{run.runId}}</button>
+<template v-if="selected===run.runId"><pre>{{run.result}}</pre><section v-for="a in run.attempts" :key="a.attemptId"><h4>Tentativa {{a.ordinal}} (#{{a.attemptId}}) · {{a.agentId}} · {{a.state}}</h4><pre>Completude e causas reportadas: {{a.resultReceipt || 'Sem confirmação de completude'}}</pre>
+<template v-if="output[a.attemptId]"><p v-if="a.resultReceipt?.output">Completude conhecida: {{output[a.attemptId].logs.length===a.resultReceipt.output.lastSequence?'sequência recebida':'saída incompleta'}} · Truncado: {{a.resultReceipt.output.truncated?'sim':'não'}}</p><p v-else>Completude desconhecida; nenhuma confirmação final de saída.</p><p v-if="a.resultReceipt?.output?.artifactError" role="status">Processo e saída são independentes. artifactError: {{a.resultReceipt.output.artifactError}}</p><p>Logs coletados após término; ordem de coleta sem causalidade entre streams.</p><p v-if="!output[a.attemptId].logs.length">Sem logs recebidos; não implica falha.</p><div v-for="log in output[a.attemptId].logs.slice(logPage*50,(logPage+1)*50)" :key="log.sequence"><strong>{{log.sequence}} · {{log.stream}}</strong><pre>{{logText(log.data)}}</pre></div><p>Logs {{logPage*50+1}}–{{Math.min((logPage+1)*50,output[a.attemptId].logs.length)}} de {{output[a.attemptId].logs.length}}</p><button :disabled="logPage===0" @click="logPage--">Logs anteriores</button><button :disabled="(logPage+1)*50>=output[a.attemptId].logs.length" @click="logPage++">Próximos logs</button><p>Artefato: {{output[a.attemptId].upload?.receipt?'publicado íntegro no Server':output[a.attemptId].upload?'staging, incompleto':'ausente'}}</p><button :disabled="!output[a.attemptId].upload?.receipt" @click="download(run,a)">Baixar artefato verificado</button></template></section></template></article></section></template>

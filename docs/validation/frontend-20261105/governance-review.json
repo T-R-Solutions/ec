@@ -1,0 +1,18 @@
+{
+  "method": "Reobservação de governança após T006: require-installed PASS, install_skills --check ALREADY_INSTALLED, 34 unitários OK. Revisão das entradas alteradas: atualização precede baseline histórica; preserva autoridades, tecnologias e limites.",
+  "changed_inputs": [
+    "application/integration/tests/e2e/README.md",
+    "application/server/frontend/README.md",
+    "application/server/frontend/src/app/README.md",
+    "application/server/frontend/src/domains/access/README.md",
+    "application/server/frontend/src/domains/configuration/README.md",
+    "application/server/frontend/src/domains/infrastructure/README.md",
+    "application/server/frontend/src/domains/projects/README.md",
+    "application/server/frontend/src/domains/runs/README.md",
+    "application/server/frontend/src/shared/README.md",
+    "application/server/frontend/tests/e2e/README.md",
+    "sdd/features/governance-adoption/converge.md"
+  ],
+  "unchanged_inputs": 1598,
+  "limits": "Governança estrutural não aprova produto; a instalação permaneceu íntegra, sem modificação ou nova instalação de skills."
+}

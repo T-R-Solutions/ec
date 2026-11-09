@@ -1,0 +1,13 @@
+PASS migration 001 com dados -> 002, reaplicação, revisões/ponteiros/recibos/sessões/grants preservados
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 391, in <module>
+    main()
+    ~~~~^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 147, in main
+    sa = session()
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 146, in session
+    return ok('POST', AGENT + '/session', credentials[name], dict(protocolVersion=1, platform='linux', slots=1), failure)
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/orchestration_http.py", line 22, in ok
+    assert status == 200, (method, path, status, value)
+           ^^^^^^^^^^^^^
+AssertionError: ('POST', '/agent/session', 401, {'code': 'agent_credential', 'message': 'agent_credential', 'requestId': '41997f83920c5da996cd8d065abd7a86a28b21bc5ddc91d2cf5729dc32c2ba0f'})

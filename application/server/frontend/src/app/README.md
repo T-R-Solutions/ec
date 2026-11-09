@@ -1,3 +1,5 @@
+Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+
 # Composição da interface
 
 **Estado:** estrutura documental; sem componentes, stores ou testes implementados.

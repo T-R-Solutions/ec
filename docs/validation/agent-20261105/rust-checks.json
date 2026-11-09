@@ -1,0 +1,42 @@
+[
+  {
+    "command": "cargo +1.99.1 test --manifest-path application/agents/Cargo.toml --locked --offline",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 clippy --manifest-path application/agents/Cargo.toml --locked --offline --all-targets --all-features -- -D warnings",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 fmt --manifest-path application/agents/Cargo.toml --all -- --check",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline --features test-failpoints",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 test --manifest-path application/server/backend/Cargo.toml --locked --offline",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 clippy --manifest-path application/server/backend/Cargo.toml --locked --offline --all-targets --all-features -- -D warnings",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 fmt --manifest-path application/server/backend/Cargo.toml --all -- --check",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline",
+    "exit_code": 0
+  },
+  {
+    "command": "cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints",
+    "exit_code": 0
+  }
+]

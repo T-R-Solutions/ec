@@ -1,0 +1,122 @@
+{
+  "commands": [
+    {
+      "command": "python3 application/integration/tests/integration/orchestration_http.py",
+      "exit_code": 0,
+      "scope": "T004 PostgreSQL/HTTP/processos reais",
+      "artifact": "docs/validation/orchestration-20261105/http-postgres.log",
+      "sha256": "37cac47428f13813c8434c8bb39df75b9ff2c1be3fff56dee1c23e6d563cee30"
+    },
+    {
+      "command": "python3 application/integration/tests/integration/publication_http.py",
+      "exit_code": 0,
+      "scope": "Regressão T002/T003",
+      "artifact": "docs/validation/orchestration-20261105/publication-regression.log",
+      "sha256": "ac9d305b008b32d2fdfff260dbeb7f444d53ab8aab5d27b7bbb3d2828973fc7e"
+    },
+    {
+      "command": "cargo +1.99.1 test --manifest-path application/server/backend/Cargo.toml --locked --offline",
+      "exit_code": 0,
+      "scope": "Nove testes Rust",
+      "artifact": "docs/validation/orchestration-20261105/rust-tests.log",
+      "sha256": "48e2f4ee87c751d6741be30deb5390bd06f65b809e259aa6fb5b7b7a0107a387"
+    },
+    {
+      "command": "cargo +1.99.1 clippy --manifest-path application/server/backend/Cargo.toml --locked --offline --all-targets --all-features -- -D warnings",
+      "exit_code": 0,
+      "scope": "Lint todos os targets/features",
+      "artifact": "docs/validation/orchestration-20261105/clippy.log",
+      "sha256": "09e37cfe71ee1225fd945a43de1319e5bfea390832180193bbaee91666765dda"
+    },
+    {
+      "command": "cargo +1.99.1 fmt --manifest-path application/server/backend/Cargo.toml --all -- --check",
+      "exit_code": 0,
+      "scope": "Formatação",
+      "artifact": "docs/validation/orchestration-20261105/fmt.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "python3 tools/governance/validate.py",
+      "exit_code": 0,
+      "scope": "Estrutura/links/catálogo, reexecutado após reobservação",
+      "artifact": "docs/validation/orchestration-20261105/governance-final.log",
+      "sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de"
+    },
+    {
+      "command": "python3 tools/governance/validate.py --require-installed",
+      "exit_code": 0,
+      "scope": "67 skills efetivas/596 arquivos",
+      "artifact": "docs/validation/orchestration-20261105/installed.log",
+      "sha256": "3c870624a7ab7038b46fd8ffd0791116fdca93b45891cb8c1bb294afaa6950de"
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/governance/tests -v",
+      "exit_code": 0,
+      "scope": "34 testes de governança",
+      "artifact": "docs/validation/orchestration-20261105/governance-unit.log",
+      "sha256": "445d4448f1349effdeba36ed66d5fee29f433d6db9433456ade3ee3f2b9c322d"
+    },
+    {
+      "command": "python3 tools/governance/install_skills.py --check",
+      "exit_code": 0,
+      "scope": "ALREADY_INSTALLED, sem --apply",
+      "artifact": "docs/validation/orchestration-20261105/preflight.log",
+      "sha256": "87158b92c0d5e029024cd667ad152d562a053a0001f50aa663ec8248e9c91825"
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --structure-only",
+      "exit_code": 0,
+      "scope": "Estrutura das duas features",
+      "artifact": "docs/validation/orchestration-20261105/sdd-structure.log",
+      "sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d"
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root .",
+      "exit_code": 0,
+      "scope": "Bindings das duas features",
+      "artifact": "docs/validation/orchestration-20261105/sdd.log",
+      "sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d"
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --require-fresh",
+      "exit_code": 0,
+      "scope": "Schema 2/freshness das duas features",
+      "artifact": "docs/validation/orchestration-20261105/sdd-fresh.log",
+      "sha256": "e3314be15951fd074cdc514fae6b45bb291358d5abd40e794e3c877182efde2d"
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --require-approved --require-fresh",
+      "exit_code": 1,
+      "scope": "Falha esperada EXCLUSIVAMENTE AC-01/05/06/07 da jornada",
+      "artifact": "docs/validation/orchestration-20261105/sdd-acceptance.log",
+      "sha256": "1ad5bbeaea4380c67cdf3d25f75d4ef49be31102d66e65ee5efba869edae9ab7"
+    },
+    {
+      "command": "cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline",
+      "exit_code": 0,
+      "scope": "Build operacional sem test-failpoints",
+      "artifact": "docs/validation/orchestration-20261105/production-build.log",
+      "sha256": "a5f4c585ee974ca44916ac30a98bbc189e067a7e0a6bc6d2e8d6bc525be724af"
+    },
+    {
+      "command": "Inspeção dos bytes do executável normal e revisão de cfg em service.rs",
+      "exit_code": 0,
+      "scope": "Ausência de markers/header/env dos hooks",
+      "artifact": "docs/validation/orchestration-20261105/production-failpoints.log",
+      "sha256": "a3db690c957d7d50381ea4d75dc0d1c0d7106d83497ead29c3205f3d62fbbc94"
+    }
+  ],
+  "acceptance": {
+    "AC-01": "UNVERIFIED",
+    "AC-02": "APPROVED",
+    "AC-03": "APPROVED",
+    "AC-04": "APPROVED",
+    "AC-05": "UNVERIFIED",
+    "AC-06": "UNVERIFIED",
+    "AC-07": "UNVERIFIED"
+  },
+  "limitations": [
+    "AC-07 tem somente contribuição parcial de T004; sem Agent, artefatos, frontend ou jornada completa.",
+    "Histórico de falhas e reobservações preservado; checks estruturais não aprovam produto."
+  ]
+}

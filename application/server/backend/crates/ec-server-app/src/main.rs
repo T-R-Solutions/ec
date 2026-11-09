@@ -1,6 +1,33 @@
-//! Local validation entrypoint. HTTP server is not implemented yet.
+mod service;
 use std::{io::Read, process::ExitCode};
 fn main() -> ExitCode {
+    if !matches!(
+        std::env::args().nth(1).as_deref(),
+        Some(
+            "validate-yaml"
+                | "migrate"
+                | "provision"
+                | "revoke"
+                | "admit-repository"
+                | "provision-agent"
+                | "revoke-agent"
+                | "serve"
+        )
+    ) {
+        eprintln!(
+            "Uso: validate-yaml | migrate | provision | revoke | admit-repository | provision-agent | revoke-agent | serve"
+        );
+        return ExitCode::from(2);
+    }
+    if std::env::args().nth(1).as_deref() != Some("validate-yaml") {
+        return match service::run() {
+            Ok(()) => ExitCode::SUCCESS,
+            Err(_) => {
+                eprintln!("Falha de operação; consulte configuração e contrato local");
+                ExitCode::from(1)
+            }
+        };
+    }
     let args: Vec<_> = std::env::args_os().skip(1).collect();
     if args.len() != 1 || args[0] != "validate-yaml" {
         eprintln!("Uso: ec-server-app validate-yaml < recurso.yaml");

@@ -1,10 +1,17 @@
 # Backend do Ec Server
 
-Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../../../docs/development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.
+Atualização T004 em 2026-11-05: parsing/schema, publicação PostgreSQL, sessões/autorização HTTP e fila/tentativas do Server estão implementados e exercitados. [Estado operacional, comandos e limites](../../../docs/development/orchestration.md). Os incrementos posteriores de Agent, logs/artefatos e frontend estão descritos
+nos guias vigentes de [Agent](../../../docs/development/agent.md) e
+[frontend](../../../docs/development/frontend.md); a indicação anterior de ausência
+dessas implementações foi superada nesses escopos. As descrições de ausência de implementação abaixo preservam a baseline documental e são superadas por esta atualização somente nesses incrementos. Governança não constitui aceite da jornada completa.
 
 **Local:** `application/server/backend/`, relativo à raiz. Caminhos abreviados neste documento são locais ao componente ou módulo citado.
 
-Monólito modular Rust planejado. Os diretórios abaixo materializam a divisão documental; código, manifests e testes de produto ainda não existem.
+Monólito modular Rust com workspace, manifests/lock e testes de produto.
+A divisão abaixo organiza responsabilidades; os guias delimitam o que está
+implementado em cada incremento. Verificações seguem a
+[política comum](../../../docs/development/task-verification.md) e o
+[contrato Toolbox/Ec](../../../scripts/README.md).
 
 ## Mapa de responsabilidades
 

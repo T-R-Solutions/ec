@@ -1,0 +1,16 @@
+[package]
+name = "ec-agent-app"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+[dependencies]
+serde_json = "=1.0.145"
+libc = "=0.2.191"
+ec-agent-control = { path = "../ec-agent-control", version = "=0.1.0" }
+ec-agent-workspace = { path = "../ec-agent-workspace", version = "=0.1.0" }
+ec-agent-execution = { path = "../ec-agent-execution", version = "=0.1.0" }
+ec-agent-reporting = { path = "../ec-agent-reporting", version = "=0.1.0" }
+
+[features]
+test-failpoints = ["ec-agent-control/test-failpoints"]

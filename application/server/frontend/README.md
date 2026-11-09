@@ -1,8 +1,15 @@
+Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../docs/development/frontend.md). A baseline abaixo é histórica.
+
 # Frontend do Ec
 
 **Local:** `application/server/frontend/`, relativo à raiz. Caminhos abreviados neste documento são locais ao componente ou módulo citado.
 
-Aplicação planejada em Vue 3 + TypeScript + Pinia. Estado atual: estrutura e documentação, sem páginas implementadas, `package.json`, runner de testes ou build. Nenhuma biblioteca adicional foi selecionada.
+Aplicação Vue 3 + TypeScript + Pinia com fontes, `package.json`, lock npm e
+comandos de typecheck/test/build. O [guia frontend](../../../docs/development/frontend.md)
+descreve as jornadas implementadas e limitações. Verificação e scanners seguem a
+[política comum](../../../docs/development/task-verification.md) e o
+[contrato Toolbox/Ec](../../../scripts/README.md); não instalar
+ferramentas ou alterar a Toolbox como efeito de execução dos testes.
 
 ## Mapa de responsabilidades
 

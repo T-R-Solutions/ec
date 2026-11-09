@@ -1,0 +1,84 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 3 tests
+test supported_resource_round_trip_preserves_all_fields ... ok
+test process_reports_only_local_validation ... ok
+test rejected_inputs_and_usage_have_failure_status ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 4 tests
+test tests::duplicate_resolved_keys_rejected ... ok
+test tests::round_trip_preserves_semantics_and_script_punctuation ... ok
+test tests::dangerous_or_lossy_constructions_rejected ... ok
+test tests::bounds_and_diagnostics ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+test tests::accepts_complete_resource ... ok
+test tests::rejects_unknown_missing_secrets_and_invalid_references ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling ec-server-results v0.1.0 (/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-results)
+   Compiling ec-server-app v0.1.0 (/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.28s
+     Running unittests src/lib.rs (.local/build/ec-server-clean/debug/deps/ec_server_access-9d23363680dd5d00)
+     Running unittests src/main.rs (.local/build/ec-server-clean/debug/deps/ec_server_app-6bd9041f24af2f12)
+     Running tests/validation.rs (.local/build/ec-server-clean/debug/deps/validation-f32ab9e6352b211c)
+     Running unittests src/lib.rs (.local/build/ec-server-clean/debug/deps/ec_server_configuration-dc8ee824aa2fd59c)
+     Running unittests src/lib.rs (.local/build/ec-server-clean/debug/deps/ec_server_orchestration-ea22cc4523fe0925)
+     Running unittests src/lib.rs (.local/build/ec-server-clean/debug/deps/ec_server_projects-77b8691106a80c8e)
+     Running unittests src/lib.rs (.local/build/ec-server-clean/debug/deps/ec_server_results-de4f7b32e3d45904)
+   Doc-tests ec_server_access
+   Doc-tests ec_server_configuration
+   Doc-tests ec_server_orchestration
+   Doc-tests ec_server_projects
+   Doc-tests ec_server_results

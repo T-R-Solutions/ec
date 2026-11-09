@@ -1,6 +1,6 @@
 # ec-server-orchestration — Execuções e infraestrutura
 
-**Estado:** módulo planejado; somente documentação e diretórios `src/` e `tests/`, sem código ou testes executáveis.
+**Estado T004:** fila, tentativas, leases/fencing, cancelamento e sessão Agent implementados em `src/lib.rs`, integrados pelo ec-server-app. [Operação e reprodução](../../../../../docs/development/orchestration.md). O restante deste mapa preserva responsabilidades e propostas anteriores; pools avançados e Agent real continuam pendentes.
 
 ## Mapa de responsabilidades
 

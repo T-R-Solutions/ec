@@ -1,0 +1,26 @@
+{
+  "platform": "Linux x86_64",
+  "rust": "1.99.1",
+  "edition": 2024,
+  "postgresql": "18.4 x86_64-pc-linux-musl, Alpine gcc 15.2.0",
+  "container": "ec-publication-test",
+  "image": "itapiraco/postgis:18-3.6-alpine",
+  "image_id": "sha256:b456ff8dec1f076e170d900bd83bade3add0e1db6f55962487513b162094a9fb",
+  "host_binding": "127.0.0.1:55439 -> 5432/tcp",
+  "remaining_ec_publication_databases": [],
+  "database_cleanup_observation": "docker exec ec-publication-test psql -U postgres -d postgres -At: vers\u00e3o 18.4, port 5432 e SELECT datname LIKE ec_publication_% sem linhas ap\u00f3s os ensaios",
+  "binaries": {
+    "agent": {
+      "test_build_path": ".local/build/ec-agent-target/debug/ec-agent-app",
+      "sha256": "a47f3be6d14c3c34b0cc14001b5d290d2cdb618236b756fcb9e72feaab63b74e",
+      "feature": "test-failpoints",
+      "operational_hook_check": "agent-production-hooks.log"
+    },
+    "server": {
+      "test_build_path": ".local/build/ec-server-clean/debug/ec-server-app",
+      "sha256": "331385a102fc68770c3fcfdbb10bd30160f5c926aa5d75e0d6672b1b58e7b7c2",
+      "feature": "test-failpoints",
+      "operational_hook_check": "server-production-hooks.log"
+    }
+  }
+}

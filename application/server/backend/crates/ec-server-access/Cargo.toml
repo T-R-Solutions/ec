@@ -1,0 +1,9 @@
+[package]
+name = "ec-server-access"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+[dependencies]
+postgres = "=0.19.12"
+sha2 = "=0.10.9"

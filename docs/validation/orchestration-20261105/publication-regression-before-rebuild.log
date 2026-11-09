@@ -1,0 +1,14 @@
+PASS migration reproduzível e reaplicação sem efeito
+PASS sessões ausente/inválida/expirada/revogada, viewer e projeto invisível; SQL sem efeitos
+PASS YAML/schema/segredos não suportados/referências/limites/envelope; SQL sem efeitos
+PASS publicação autorizada, bytes exatos, SHA-256 e projeção derivados
+PASS imutabilidade SQL, conflito de base/payload e replay após reinício
+PASS duas publicações comprovadamente aguardando lock; uma aceita, uma 409; revisão antiga intacta
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/publication_http.py", line 211, in <module>
+    main()
+    ~~~~^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/publication_http.py", line 171, in main
+    assert call('POST', path, tokens['alice'], payload('rollback', 2), 'before-commit')[0] == 500
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

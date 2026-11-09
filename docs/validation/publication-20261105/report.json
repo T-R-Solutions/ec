@@ -1,0 +1,41 @@
+{
+  "environment": {
+    "python": "3.13.16",
+    "platform": "Linux-7.3.1-1-default-x86_64-with-glibc2.44",
+    "rust": "1.99.1",
+    "postgres": "18.4",
+    "image": "itapiraco/postgis:18-3.6-alpine",
+    "image_id": "sha256:b456ff8dec1f076e170d900bd83bade3add0e1db6f55962487513b162094a9fb",
+    "database": "UUID database per run, created/dropped by harness; loopback 55439; trust only disposable local fixture"
+  },
+  "results": {
+    "HTTP_PostgreSQL": "PASS; eleven assertion groups plus version; exit 0",
+    "Rust": "PASS; nine tests; --locked --offline",
+    "Clippy": "PASS; all-targets all-features -D warnings",
+    "governance": "PASS",
+    "governance_tests": "PASS; 34 tests"
+  },
+  "commands": [
+    "cargo +1.99.1 test --manifest-path application/server/backend/Cargo.toml --locked --offline",
+    "cargo +1.99.1 clippy --manifest-path application/server/backend/Cargo.toml --locked --offline --all-targets --all-features -- -D warnings",
+    "cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints",
+    "python3 application/integration/tests/integration/publication_http.py",
+    "python3 tools/governance/validate.py",
+    "python3 sdd/tools/validate.py --root .",
+    "python3 -m unittest discover -s tools/governance/tests -v"
+  ],
+  "initial_failures_corrected": [
+    "Migration include path corrected after compiler diagnostic.",
+    "CLI unknown-command exit code restored to 2 after existing regression test.",
+    "Local image bootstrap required restart after optional application-role init script failed; engine ready 18.4 afterward.",
+    "Fixture project changed from example to ec after 422 demonstrated project reference validation.",
+    "Initial SDD scan correctly rejected old content bindings; historical evidence retained in previous.zip, new observations bound separately."
+  ],
+  "limits": [
+    "Loopback only; no remote TLS deployment or IdP chosen.",
+    "Repository/commit admitted from real local Git; registry is authoritative snapshot, not checkout availability guarantee.",
+    "No secret-reference support; unknown fields rejected; arbitrary script secret detection not claimed.",
+    "Server crashes and response loss tested; PostgreSQL disk failure/failover not tested.",
+    "No Agent, execution, queue, fencing or frontend acceptance."
+  ]
+}

@@ -1,0 +1,11 @@
+[package]
+name = "ec-agent-control"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+[dependencies]
+serde_json = "=1.0.145"
+
+[features]
+test-failpoints = []

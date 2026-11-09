@@ -1,0 +1,14 @@
+{
+  "method": "Revisão semântica final: spec/plan/tasks/traceability e implementação pública confrontados com assertions executadas nos oráculos atuais. Registro de conclusão documental posterior aos testes não altera contratos executáveis.",
+  "trace": "REQ-06 → D-06/R-06 → T006 → frontend/service.rs → Firefox/Vitest/regressões → AC-06",
+  "results": [
+    "AC-06 demonstrado no recorte real por Firefox do sistema",
+    "AC-02/03/04/05 reobservados por regressões atuais, sem reutilizar hashes dos resultados T005",
+    "AC-01 e AC-07 continuam UNVERIFIED; aceite agregado não aprovado"
+  ],
+  "limits": [
+    "Sem conformance integral WCAG/leitor de tela",
+    "Memória de rascunho não sobrevive a reload/expiração",
+    "Somente Linux confiável, loopback e Git admitido"
+  ]
+}

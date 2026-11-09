@@ -1,0 +1,170 @@
+[
+  {
+    "name": "firefox",
+    "command": [
+      "python3",
+      "application/integration/tests/e2e/frontend_firefox.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "typecheck",
+    "command": [
+      "npm",
+      "--prefix",
+      "application/server/frontend",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "unit",
+    "command": [
+      "npm",
+      "--prefix",
+      "application/server/frontend",
+      "test"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "build",
+    "command": [
+      "npm",
+      "--prefix",
+      "application/server/frontend",
+      "run",
+      "build"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "rust-test",
+    "command": [
+      "cargo",
+      "+1.99.1",
+      "test",
+      "--manifest-path",
+      "application/server/backend/Cargo.toml",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "rust-clippy",
+    "command": [
+      "cargo",
+      "+1.99.1",
+      "clippy",
+      "--manifest-path",
+      "application/server/backend/Cargo.toml",
+      "--locked",
+      "--offline",
+      "--all-targets",
+      "--all-features",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "rust-fmt",
+    "command": [
+      "cargo",
+      "+1.99.1",
+      "fmt",
+      "--manifest-path",
+      "application/server/backend/Cargo.toml",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "server-build",
+    "command": [
+      "cargo",
+      "+1.99.1",
+      "build",
+      "--manifest-path",
+      "application/server/backend/Cargo.toml",
+      "--locked",
+      "--offline",
+      "--features",
+      "test-failpoints"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "publication",
+    "command": [
+      "python3",
+      "application/integration/tests/integration/publication_http.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "orchestration",
+    "command": [
+      "python3",
+      "application/integration/tests/integration/orchestration_http.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "agent",
+    "command": [
+      "python3",
+      "application/integration/tests/integration/agent_http.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "final-firefox",
+    "command": [
+      "python3",
+      "application/integration/tests/e2e/frontend_firefox.py"
+    ],
+    "exit_code": 0,
+    "reason": "Reobserva\u00e7\u00e3o ap\u00f3s ajuste de contraste e medi\u00e7\u00e3o dos viewports efetivos; logs substitu\u00eddos pelo resultado atual."
+  },
+  {
+    "name": "final-typecheck",
+    "command": [
+      "npm",
+      "--prefix",
+      "application/server/frontend",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "reason": "Reobserva\u00e7\u00e3o ap\u00f3s ajuste de contraste e medi\u00e7\u00e3o dos viewports efetivos; logs substitu\u00eddos pelo resultado atual."
+  },
+  {
+    "name": "final-unit",
+    "command": [
+      "npm",
+      "--prefix",
+      "application/server/frontend",
+      "test"
+    ],
+    "exit_code": 0,
+    "reason": "Reobserva\u00e7\u00e3o ap\u00f3s ajuste de contraste e medi\u00e7\u00e3o dos viewports efetivos; logs substitu\u00eddos pelo resultado atual."
+  },
+  {
+    "name": "final-build",
+    "command": [
+      "npm",
+      "--prefix",
+      "application/server/frontend",
+      "run",
+      "build"
+    ],
+    "exit_code": 0,
+    "reason": "Reobserva\u00e7\u00e3o ap\u00f3s ajuste de contraste e medi\u00e7\u00e3o dos viewports efetivos; logs substitu\u00eddos pelo resultado atual."
+  }
+]

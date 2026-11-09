@@ -1,0 +1,52 @@
+{
+  "scope": "Reobservação de governança após mudanças documentais T004; não é aceite de produto.",
+  "previous_input_drift": [
+    "application/server/backend/README.md",
+    "application/server/backend/crates/ec-server-orchestration/README.md",
+    "docs/architecture/context.md",
+    "sdd/features/governance-adoption/converge.md",
+    "sdd/features/governance-adoption/tasks.md",
+    "sdd/project.md"
+  ],
+  "criteria": {
+    "AC-01": "Auditor padrão e --require-installed PASS: 67 selecionadas, seis condicionais, quatro excluídas, 596 arquivos, hashes e bundle conferidos; nenhum pacote/perfil alterado por T004.",
+    "AC-02": "Inspeção dos quatro documentos alterados contra autoridades/ADR e código/evidência atual: Rust/Vue/TS, YAML, PostgreSQL/HTTP preservados; gRPC/SQLite não adotados. Fontes importadas permanecem verificadas pelo auditor.",
+    "AC-03": "Auditor e SDD --structure-only reexecutados; links, pontes e metadados válidos; nenhuma skill/ponte instalada por inferência. Correção explícita da invocação --features conforme help real.",
+    "AC-04": "34 testes de governança reexecutados em cópias isoladas, incluindo controles negativos, recuperação e concorrência; PASS.",
+    "AC-05": "Auditor --require-installed PASS e install_skills.py --check ALREADY_INSTALLED; sem execução de --apply nem alterações no destino protegido.",
+    "AC-06": "Auditor atual confere bundle e ausência das entradas antigas; 34 testes passam. Remoções históricas não foram reexecutadas; registros de limpeza intactos. Edição atual é T004 do produto mais documentos/evidências afetados.",
+    "AC-07": "Suite de 34 testes reexecuta interrupções, recuperação de journal, rejeição de conflitos e locks em processos reais/cooperantes Linux. Nenhum mecanismo do instalador foi alterado."
+  },
+  "commands": [
+    {
+      "command": "python3 tools/governance/validate.py",
+      "artifact": "docs/validation/orchestration-20261105/governance.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/governance/validate.py --require-installed",
+      "artifact": "docs/validation/orchestration-20261105/installed.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/governance/install_skills.py --check",
+      "artifact": "docs/validation/orchestration-20261105/preflight.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/governance/tests -v",
+      "artifact": "docs/validation/orchestration-20261105/governance-unit.log",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 sdd/tools/validate.py --root . --structure-only",
+      "artifact": "docs/validation/orchestration-20261105/sdd-structure.log",
+      "exit_code": 0
+    }
+  ],
+  "limits": [
+    "Inspeção documental/estrutural e testes em fixtures, sem aprovação de eficácia de skills ou jornada de produto.",
+    "Sem corte de energia, filesystem de rede ou escritor hostil; mesmos limites da evidência anterior de recuperação.",
+    "Atualizações de hash representam observação nova identificada por novo ID; versão anterior preservada em governance-previous.zip."
+  ]
+}

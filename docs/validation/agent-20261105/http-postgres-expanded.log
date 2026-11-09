@@ -1,0 +1,14 @@
+PASS migration banco v2 -> v3
+PASS publicação nova não altera SHA, checkout real, streams, artefato e recibo SQL/HTTP; viewer e negação cross-project
+PASS nonzero, timeout e descendente terminado, preparação negada sem running, drenagem simultânea >32MiB truncada em 16MiB e symlink rejeitado
+PASS cancelamento observado em running, SIGTERM/escalonamento e descendente sem execução
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/agent_http.py", line 270, in <module>
+    main()
+    ~~~~^^
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/agent_http.py", line 140, in main
+    a = finish(p, run, 'succeeded')
+  File "/home/rodrigo/Projetos/ec/application/integration/tests/integration/agent_http.py", line 80, in finish
+    assert p.returncode == 0, errors
+           ^^^^^^^^^^^^^^^^^
+AssertionError: b'Agent interrompido; examine journal e autoridade no Server\n'

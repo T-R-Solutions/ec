@@ -1,0 +1,8 @@
+[workspace]
+members = ["crates/ec-agent-control", "crates/ec-agent-workspace", "crates/ec-agent-execution", "crates/ec-agent-reporting", "crates/ec-agent-app"]
+resolver = "3"
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "GPL-3.0-only"

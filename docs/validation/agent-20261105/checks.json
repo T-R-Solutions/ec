@@ -1,0 +1,47 @@
+[
+  {
+    "command": "python3 sdd/tools/validate.py --root .",
+    "exit_code": 0,
+    "artifact": "sdd.log"
+  },
+  {
+    "command": "python3 sdd/tools/validate.py --root . --require-fresh",
+    "exit_code": 0,
+    "artifact": "sdd-raw-fresh.log"
+  },
+  {
+    "command": "python3 sdd/tools/validate.py --root . --require-approved --require-fresh",
+    "exit_code": 1,
+    "artifact": "sdd-raw-approved.log"
+  },
+  {
+    "command": "python3 sdd/tools/validate.py --root . --features sdd/features --require-fresh",
+    "exit_code": 0,
+    "artifact": "sdd-fresh.log"
+  },
+  {
+    "command": "python3 sdd/tools/validate.py --root . --features sdd/features --require-approved --require-fresh",
+    "exit_code": 1,
+    "artifact": "sdd-approved.log"
+  },
+  {
+    "command": "python3 tools/governance/validate.py",
+    "exit_code": 0,
+    "artifact": "governance.log"
+  },
+  {
+    "command": "python3 tools/governance/validate.py --require-installed",
+    "exit_code": 0,
+    "artifact": "installed.log"
+  },
+  {
+    "command": "python3 -m unittest discover -s tools/governance/tests -v",
+    "exit_code": 0,
+    "artifact": "governance-unit.log"
+  },
+  {
+    "command": "python3 tools/governance/install_skills.py --check",
+    "exit_code": 0,
+    "artifact": "preflight.log"
+  }
+]

@@ -1,0 +1,16 @@
+PASS migration 001 com dados -> 002, reaplicação, sessões/grants preservados
+PASS revisão/hash/SHA fixos após nova publicação, replay concorrente e conflito sem duplicação
+PASS autenticação, papéis, separação Agent/usuário, capabilities, revogação: nenhum efeito negado
+PASS conexões concorrentes: mesmo trabalho/diferentes slots e mesmo slot/dois trabalhos, oráculos SQL
+PASS heartbeat válido, fence rejeitado, transições, reinício real preserva lease e reserva
+PASS recibo de resultado/replay exato, payload divergente e terminal protegido
+PASS expiração real/restart, heartbeat tardio não ressuscita, retry apenas perda, máximo duas tentativas
+PASS falha de script, timeout e preparação sem retry automático
+PASS sessão nova invalida anterior, sessão expirada, reconexão consulta histórico/recibos
+PASS corridas cancelamento/conclusão nas duas ordens observadas bloqueadas, cancelamento em fila/assigned e recuperação da intenção
+PASS lease vencido rejeitado sem depender de nova reserva; referência temporal após espera no lock
+PASS rollback/queda antes do commit, resposta perdida depois do commit e reinícios reais com replay
+PASS recibos de reserva/resultado após resposta perdida e reinício; todos os oráculos SQL
+PostgreSQL 18.4 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+read committed
+on

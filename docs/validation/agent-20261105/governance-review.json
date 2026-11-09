@@ -1,0 +1,36 @@
+{
+  "scope": "Reobservação T005 de governança e documentos afetados, sem promover eficácia das skills ou jornada completa.",
+  "changed_inputs": [
+    "application/agents/README.md",
+    "application/agents/crates/ec-agent-app/README.md",
+    "application/agents/crates/ec-agent-control/README.md",
+    "application/agents/crates/ec-agent-execution/README.md",
+    "application/agents/crates/ec-agent-reporting/README.md",
+    "application/agents/crates/ec-agent-workspace/README.md",
+    "application/server/backend/crates/ec-server-results/README.md",
+    "docs/architecture/application-layout.md",
+    "docs/architecture/context.md",
+    "docs/development/testing.md",
+    "sdd/project.md"
+  ],
+  "criteria": {
+    "AC-01": "Auditor padrão/installed confere catálogo, 67 selecionadas e 596 arquivos, hashes e bundle. Nenhuma skill alterada.",
+    "AC-02": "Inspeção dos documentos alterados contra normas/ADR: Rust, Vue/TS, YAML, PostgreSQL e HTTP preservados; stack proposta não introduzida; grafo novo conferido e dependência preexistente de hash corrigida.",
+    "AC-03": "Links/rotas/pontes conferidos pelos validadores e leitura; SDD completo aplicado à feature. Sem instalação ou uso de skill presumidos.",
+    "AC-04": "34 testes reais de governança reexecutados em fixtures isoladas, com controles negativos, locks e recuperação.",
+    "AC-05": "Auditor require-installed e install_skills --check conferem instalação efetiva íntegra. Sem apply.",
+    "AC-06": "Auditor e testes verificam bundle e ausência de entradas removidas; limpeza histórica não foi repetida e evidências originais permanecem.",
+    "AC-07": "34 testes reobservam recuperação/conflitos do instalador; sem alteração do mecanismo, sem prova de power loss ou escritor hostil."
+  },
+  "artifacts": [
+    "governance.log",
+    "installed.log",
+    "preflight.log",
+    "governance-unit.log",
+    "dependency-graph.json"
+  ],
+  "limits": [
+    "Inspeção documental e testes de governança não aprovam o produto.",
+    "Limites históricos de recuperação em filesystem local cooperante preservados."
+  ]
+}

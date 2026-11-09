@@ -1,0 +1,59 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test tests::disk_write_failure_is_explicit_and_does_not_replace_accepted_chunk ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test tests::real_files_reject_escape_nonregular_missing_and_oversize ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling ec-agent-execution v0.1.0 (/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-execution)
+   Compiling ec-agent-app v0.1.0 (/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running unittests src/main.rs (.local/build/ec-agent-target/debug/deps/ec_agent_app-0119725821d6d5ae)
+     Running unittests src/lib.rs (.local/build/ec-agent-target/debug/deps/ec_agent_control-0954a992744fb9ac)
+     Running unittests src/lib.rs (.local/build/ec-agent-target/debug/deps/ec_agent_execution-5890b6750906558c)
+     Running unittests src/lib.rs (.local/build/ec-agent-target/debug/deps/ec_agent_reporting-9f9ebaa28a55c2a8)
+     Running unittests src/lib.rs (.local/build/ec-agent-target/debug/deps/ec_agent_workspace-2570613367721d5b)
+   Doc-tests ec_agent_control
+   Doc-tests ec_agent_execution
+   Doc-tests ec_agent_reporting
+   Doc-tests ec_agent_workspace

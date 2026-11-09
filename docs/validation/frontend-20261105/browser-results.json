@@ -1,0 +1,48 @@
+{
+  "browser": "Mozilla Firefox 158.0.1",
+  "results": [
+    "Contratos de descoberta, sessão, agentes e validação viewer sem persistência; rejeições parser/schema e limites",
+    "Firefox: Visual/Formulário/YAML, preservação de comentário, escolha explícita de perdas, round-trip pelo Server e publicação inválida bloqueada",
+    "Firefox + Agent real: publicação, submissão, snapshot, logs stdout/stderr com bytes inválidos e controles, artefato baixado comparado aos bytes Git",
+    "Firefox: perda de resposta injetada depois do commit HTTP real; recuperação pelo mesmo requestId sem nova publicação",
+    "Conflito no browser preserva rascunho, resolução explícita e revisão usada imutável; resposta perdida e replay HTTP real (fora da UI)",
+    "Firefox: cancelamento queued confirmado; desconexão explícita e reconexão por polling sem inventar transição",
+    "Firefox: cancelamento de processo running distingue intenção e confirmação; logs reais truncados e artifactError sem download",
+    "Firefox: tema escuro/mobile sem overflow, foco skip link, viewer desabilitado e HTTP 403 sem publicação; sessão revogada remove dados privados"
+  ],
+  "viewports": {
+    "configuration-light.png": {
+      "width": 1440,
+      "height": 964,
+      "dpr": 1
+    },
+    "visual-light.png": {
+      "width": 1440,
+      "height": 964,
+      "dpr": 1
+    },
+    "run-real-firefox.png": {
+      "width": 1440,
+      "height": 964,
+      "dpr": 1
+    },
+    "configuration-dark-mobile.png": {
+      "width": 292,
+      "height": 442,
+      "dpr": 1.7142857142857142
+    }
+  },
+  "oracles": {
+    "yamlSha256": "fec3c75c8953497439175390c245407d7974c143e975d679afef3333f5848b8f",
+    "runId": 1,
+    "revisionId": 1,
+    "commit": "d0510c1826e31726d2c9ce869829e11ab6c977c2",
+    "artifactSha256": "9bf7bce160cddfcf643727372f434ddc425810f561c086c14c0da39be2c2c77b",
+    "artifactSize": 16
+  },
+  "limitations": [
+    "Interação de campos usa eventos DOM via Marionette; cliques nativos WebDriver. Sem leitor de tela.",
+    "Falhas de transporte injetadas no fetch do Firefox; respostas de domínio e persistência são reais.",
+    "Sem teste com leitor de tela ou certificação WCAG completa; foco/teclado e reflow observados neste Firefox."
+  ]
+}

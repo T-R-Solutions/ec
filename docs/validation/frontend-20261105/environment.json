@@ -1,0 +1,49 @@
+{
+  "platform": "Linux-7.3.1-1-default-x86_64-with-glibc2.44",
+  "python": "3.13.16",
+  "node": "v26.13.0",
+  "npm": "11.20.0",
+  "dependencies": {
+    "name": "ec-frontend",
+    "private": true,
+    "version": "0.1.0",
+    "type": "module",
+    "engines": {
+      "node": ">=22.12"
+    },
+    "scripts": {
+      "dev": "vite --host 127.0.0.1",
+      "typecheck": "vue-tsc --noEmit",
+      "build": "vite build",
+      "test": "vitest run",
+      "test:e2e": "python3 ../../integration/tests/e2e/frontend_firefox.py"
+    },
+    "dependencies": {
+      "vue": "3.5.45",
+      "pinia": "4.1.0"
+    },
+    "devDependencies": {
+      "vite": "7.3.1",
+      "@vitejs/plugin-vue": "6.0.4",
+      "typescript": "5.9.3",
+      "vue-tsc": "3.2.5",
+      "vitest": "4.0.18",
+      "@types/node": "24.10.1"
+    }
+  },
+  "browser": "/usr/bin/firefox; versão efetiva no browser-results.json",
+  "scope": "loopback Linux confiável; banco UUID descartável ec-publication-test, HTTP 58139, Vite 5173, Marionette 58282",
+  "postgresql": "PostgreSQL 18.4 on x86_64-pc-linux-musl, gcc Alpine 15.2.0, 64-bit (SELECT version() observado no container dedicado)",
+  "binaries": {
+    "server": {
+      "path": ".local/build/ec-server-clean/debug/ec-server-app",
+      "sha256": "072da85eca1038d81feaf32669842dc870cb91f584e395b07a78be8978b6c532",
+      "feature": "test-failpoints; somente ensaios controlados"
+    },
+    "agent": {
+      "path": ".local/build/ec-agent-target/debug/ec-agent-app",
+      "sha256": "a47f3be6d14c3c34b0cc14001b5d290d2cdb618236b756fcb9e72feaab63b74e",
+      "feature": "test-failpoints; somente ensaios controlados"
+    }
+  }
+}

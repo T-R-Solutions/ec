@@ -1,3 +1,5 @@
+Atualização T006: ensaio integrado real em `application/integration/tests/e2e/frontend_firefox.py`; cliente Marionette reutilizável em `application/server/frontend/tests/e2e/firefox_driver.py`. Use Firefox do sistema e execute harnesses em sequência. [Operação](../../../../docs/development/frontend.md).
+
 # Ponta a ponta da plataforma
 
 Estado: diretório reservado; não há cenários executáveis.

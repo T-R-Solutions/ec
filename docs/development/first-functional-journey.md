@@ -1,3 +1,7 @@
+Atualização T004 de 05/11/2026: [fila durável, tentativas e protocolo Server autenticado](orchestration.md) implementados e exercitados. Agent e frontend continuam pendentes.
+
+Atualização posterior de 05/11/2026: [publicação persistente e HTTP autenticado](publication.md) implementados e exercitados. O registro abaixo preserva o incremento inicial e seus comandos históricos.
+
 # Executar o incremento inicial
 
 Estado em 2026-11-05: validação local executável de um recurso projeto/pipeline, sem publicação, Server HTTP, banco, Agent ou frontend funcional. A [feature](../../sdd/features/first-functional-journey/spec.md) mantém o contrato e o aceite pendente da jornada completa. Este comando não executa o script do YAML.

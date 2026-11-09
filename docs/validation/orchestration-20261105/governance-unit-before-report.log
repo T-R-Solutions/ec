@@ -1,0 +1,450 @@
+test_acceptance_parser_does_not_promote_mentions (test_governance.GovernanceTests.test_acceptance_parser_does_not_promote_mentions) ... ok
+test_changed_original_resource_is_rejected (test_governance.GovernanceTests.test_changed_original_resource_is_rejected) ... ok
+test_concurrent_installer_is_rejected_and_lock_released (test_governance.GovernanceTests.test_concurrent_installer_is_rejected_and_lock_released) ... FAIL
+test_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile) ... FAIL
+test_curated_sources_work_without_retired_packages (test_governance.GovernanceTests.test_curated_sources_work_without_retired_packages) ... FAIL
+test_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected) ... FAIL
+test_duplicate_json_key_is_rejected (test_governance.GovernanceTests.test_duplicate_json_key_is_rejected) ... ok
+test_escaping_and_symlink_paths_are_rejected (test_governance.GovernanceTests.test_escaping_and_symlink_paths_are_rejected) ... ok
+test_evidence_hash_change_is_not_silently_accepted (test_governance.GovernanceTests.test_evidence_hash_change_is_not_silently_accepted) ... ok
+test_excluded_skill_bridge_is_rejected (test_governance.GovernanceTests.test_excluded_skill_bridge_is_rejected) ... ok
+test_install_success_and_idempotent_repeat (test_governance.GovernanceTests.test_install_success_and_idempotent_repeat) ... ERROR
+test_interrupted_package_copy_can_resume (test_governance.GovernanceTests.test_interrupted_package_copy_can_resume) ... ERROR
+test_journal_commit_interruption_and_missing_journal (test_governance.GovernanceTests.test_journal_commit_interruption_and_missing_journal) ... ERROR
+test_journal_tampering_is_rejected (test_governance.GovernanceTests.test_journal_tampering_is_rejected) ... ERROR
+test_local_link_drift_is_detected_even_with_rehashed_skill (test_governance.GovernanceTests.test_local_link_drift_is_detected_even_with_rehashed_skill) ... ok
+test_missing_bridge_is_rejected (test_governance.GovernanceTests.test_missing_bridge_is_rejected) ... ok
+test_missing_original_resource_is_rejected (test_governance.GovernanceTests.test_missing_original_resource_is_rejected) ... ok
+test_missing_resource_is_rejected (test_governance.GovernanceTests.test_missing_resource_is_rejected) ... ok
+test_missing_source_archive_is_rejected (test_governance.GovernanceTests.test_missing_source_archive_is_rejected) ... ok
+test_missing_source_bundle_declaration_is_rejected (test_governance.GovernanceTests.test_missing_source_bundle_declaration_is_rejected) ... ok
+test_modified_skill_is_rejected (test_governance.GovernanceTests.test_modified_skill_is_rejected) ... ok
+test_preparation_passes_but_is_not_installation (test_governance.GovernanceTests.test_preparation_passes_but_is_not_installation) ... FAIL
+test_process_death_after_bridge_commit_can_resume (test_governance.GovernanceTests.test_process_death_after_bridge_commit_can_resume) ... Traceback (most recent call last):
+  File "<string>", line 12, in <module>
+    install_skills.install(Path(sys.argv[2]), True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-_mujii8p/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+FAIL
+test_process_death_during_copy_preserves_orphan_and_resumes (test_governance.GovernanceTests.test_process_death_during_copy_preserves_orphan_and_resumes) ... Traceback (most recent call last):
+  File "<string>", line 11, in <module>
+    install_skills.install(Path(sys.argv[2]), True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-h5ffvpsl/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+FAIL
+test_profile_conflict_preserves_external_content (test_governance.GovernanceTests.test_profile_conflict_preserves_external_content) ... ERROR
+test_readonly_error_preserves_metadata (test_governance.GovernanceTests.test_readonly_error_preserves_metadata) ... ERROR
+test_recovery_reaudits_baseline (test_governance.GovernanceTests.test_recovery_reaudits_baseline) ... ERROR
+test_recovery_rejects_changed_package (test_governance.GovernanceTests.test_recovery_rejects_changed_package) ... ERROR
+test_recovery_rejects_external_metadata_without_overwrite (test_governance.GovernanceTests.test_recovery_rejects_external_metadata_without_overwrite) ... ERROR
+test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) ... 
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=0, after=False) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=0, after=True) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=1, after=False) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=1, after=True) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=33, after=False) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=33, after=True) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=66, after=False) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=66, after=True) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=67, after=False) ... ERROR
+  test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=67, after=True) ... ERROR
+test_schema_one_cannot_claim_freshness (test_governance.GovernanceTests.test_schema_one_cannot_claim_freshness) ... ok
+test_sdd_links_may_reach_authority_but_not_escape_root (test_governance.GovernanceTests.test_sdd_links_may_reach_authority_but_not_escape_root) ... ok
+test_source_bundle_path_escape_is_rejected (test_governance.GovernanceTests.test_source_bundle_path_escape_is_rejected) ... ok
+test_unrelated_destination_is_preserved (test_governance.GovernanceTests.test_unrelated_destination_is_preserved) ... FAIL
+
+======================================================================
+ERROR: test_install_success_and_idempotent_repeat (test_governance.GovernanceTests.test_install_success_and_idempotent_repeat)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 87, in test_install_success_and_idempotent_repeat
+    result=install_skills.install(self.root,True)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-izj46poi/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_interrupted_package_copy_can_resume (test_governance.GovernanceTests.test_interrupted_package_copy_can_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 157, in test_interrupted_package_copy_can_resume
+    with self.assertRaises(OSError):install_skills.install(self.root,True)
+                                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-05b6hq72/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_journal_commit_interruption_and_missing_journal (test_governance.GovernanceTests.test_journal_commit_interruption_and_missing_journal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 282, in test_journal_commit_interruption_and_missing_journal
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-fllgulez/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_journal_tampering_is_rejected (test_governance.GovernanceTests.test_journal_tampering_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 228, in test_journal_tampering_is_rejected
+    self.interrupt_metadata()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-oi32s7vm/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_profile_conflict_preserves_external_content (test_governance.GovernanceTests.test_profile_conflict_preserves_external_content)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 290, in test_profile_conflict_preserves_external_content
+    self.interrupt_metadata(67)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-9v_2van4/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_readonly_error_preserves_metadata (test_governance.GovernanceTests.test_readonly_error_preserves_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 110, in test_readonly_error_preserves_metadata
+    with self.assertRaises(OSError):install_skills.install(self.root,True)
+                                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-r99p7832/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_recovery_reaudits_baseline (test_governance.GovernanceTests.test_recovery_reaudits_baseline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 220, in test_recovery_reaudits_baseline
+    self.interrupt_metadata()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-s_gi0al6/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_recovery_rejects_changed_package (test_governance.GovernanceTests.test_recovery_rejects_changed_package)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 212, in test_recovery_rejects_changed_package
+    self.interrupt_metadata()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-8gtv9dju/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_recovery_rejects_external_metadata_without_overwrite (test_governance.GovernanceTests.test_recovery_rejects_external_metadata_without_overwrite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 204, in test_recovery_rejects_external_metadata_without_overwrite
+    path = self.interrupt_metadata()
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-pdky0jgk/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=0, after=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-npllzsyq/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=0, after=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-tyr0s2c7/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=1, after=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-09293x7z/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=1, after=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-kvtj5rio/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=33, after=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-qh2iat6l/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=33, after=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-62rqiwf7/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=66, after=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-hmafriri/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=66, after=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-azn1m9h8/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=67, after=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-6a61f2_1/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+ERROR: test_resume_between_bridges_and_around_profile_commit (test_governance.GovernanceTests.test_resume_between_bridges_and_around_profile_commit) (index=67, after=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 190, in test_resume_between_bridges_and_around_profile_commit
+    case.interrupt_metadata(index, after)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 177, in interrupt_metadata
+    install_skills.install(self.root, True)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 98, in install
+    return _install(root, apply)
+  File "/home/rodrigo/Projetos/ec/tools/governance/install_skills.py", line 131, in _install
+    raise ValueError('Catalog audit failed: ' + '; '.join(result['errors']))
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-dhvczupd/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+======================================================================
+FAIL: test_concurrent_installer_is_rejected_and_lock_released (test_governance.GovernanceTests.test_concurrent_installer_is_rejected_and_lock_released)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 249, in test_concurrent_installer_is_rejected_and_lock_released
+    self.assertEqual(self.audit()['status'], 'PASS')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS
+
+
+======================================================================
+FAIL: test_conflict_preserves_destination_and_profile (test_governance.GovernanceTests.test_conflict_preserves_destination_and_profile)
+----------------------------------------------------------------------
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-xj3_mo1x/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 97, in test_conflict_preserves_destination_and_profile
+    with self.assertRaisesRegex(ValueError,'Conflicting destination'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Conflicting destination" does not match "Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-xj3_mo1x/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md"
+
+======================================================================
+FAIL: test_curated_sources_work_without_retired_packages (test_governance.GovernanceTests.test_curated_sources_work_without_retired_packages)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 349, in test_curated_sources_work_without_retired_packages
+    self.assertEqual(self.audit()['status'], 'PASS')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS
+
+
+======================================================================
+FAIL: test_destination_symlink_is_rejected (test_governance.GovernanceTests.test_destination_symlink_is_rejected)
+----------------------------------------------------------------------
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-g90v4plq/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 117, in test_destination_symlink_is_rejected
+    with self.assertRaisesRegex(ValueError,'Symlink'):install_skills.install(self.root,True)
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Symlink" does not match "Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-g90v4plq/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md"
+
+======================================================================
+FAIL: test_preparation_passes_but_is_not_installation (test_governance.GovernanceTests.test_preparation_passes_but_is_not_installation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 56, in test_preparation_passes_but_is_not_installation
+    self.assertEqual(self.audit()['status'],'PASS')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS
+
+
+======================================================================
+FAIL: test_process_death_after_bridge_commit_can_resume (test_governance.GovernanceTests.test_process_death_after_bridge_commit_can_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 269, in test_process_death_after_bridge_commit_can_resume
+    self.assertEqual(result.returncode, 71)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 71
+
+======================================================================
+FAIL: test_process_death_during_copy_preserves_orphan_and_resumes (test_governance.GovernanceTests.test_process_death_during_copy_preserves_orphan_and_resumes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 313, in test_process_death_during_copy_preserves_orphan_and_resumes
+    self.assertEqual(result.returncode, 72)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 72
+
+======================================================================
+FAIL: test_unrelated_destination_is_preserved (test_governance.GovernanceTests.test_unrelated_destination_is_preserved)
+----------------------------------------------------------------------
+ValueError: Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-7gtq2nj0/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rodrigo/Projetos/ec/tools/governance/tests/test_governance.py", line 143, in test_unrelated_destination_is_preserved
+    with self.assertRaisesRegex(ValueError,'unrelated'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "unrelated" does not match "Catalog audit failed: Nonportable or missing link: /tmp/ec-governance-test-7gtq2nj0/docs/development/orchestration.md: ../validation/orchestration-20261105/report.md"
+
+----------------------------------------------------------------------
+Ran 34 tests in 11.860s
+
+FAILED (failures=8, errors=19)

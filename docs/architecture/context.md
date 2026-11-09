@@ -1,6 +1,16 @@
+Atualização consolidada de 2026-11-05: manifests, lockfiles e toolchains reais nos workspaces
+`application/agents` e `application/server/backend`; frontend npm Vue/TS/Pinia em
+`application/server/frontend`. Os incrementos e limites vigentes estão nos guias de
+publicação, orquestração, Agent e frontend em docs/development. Descrições anteriores
+de ausência de código abaixo são baseline histórica, superada somente nos incrementos
+implementados. Encerramento de tarefas segue docs/development/task-verification.md;
+não inventar comandos nem inferir funcionalidade pela existência de diretórios.
+
+Atualização T005 em 2026-11-05: Agent Rust real, workspace com cinco crates, logs e artefatos PostgreSQL/HTTP implementados. [Operação e limites](../development/agent.md). Baselines documentais abaixo são preservadas historicamente; frontend e segredos por referência permanecem pendentes.
+
 # Contexto arquitetural do Ec
 
-Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.
+Atualização T004 em 2026-11-05: parsing/schema, publicação PostgreSQL, sessões/autorização HTTP e fila/tentativas do Server estão implementados e exercitados. [Estado operacional, comandos e limites](../development/orchestration.md). Agent real, logs/artefatos e frontend continuam pendentes. As descrições de ausência de implementação abaixo preservam a baseline documental e são superadas por esta atualização somente nesses incrementos. Governança não constitui aceite da jornada completa.
 
 ## Leitura visual
 
