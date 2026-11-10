@@ -3,6 +3,8 @@ use ec_server_access::hash;
 use ec_server_orchestration::{self as control, Failure, Owner};
 use postgres::Transaction;
 use serde_json::{Value, json};
+#[cfg(test)]
+mod contracts_tests;
 fn db(_: postgres::Error) -> Failure {
     (500, "database")
 }

@@ -1,0 +1,99 @@
+{
+  "server": {
+    "tool": {
+      "launcher": "/home/rodrigo/Projetos/ec/.local/automation/runs/run-iNYFOPoN/15-server-geiger/geiger-tool/debug/cargo-geiger",
+      "launcher_sha256": "10dd16b9a416464579145827994fc8fb2e97891b40164760409a9a28d6dff6d1",
+      "version": "cargo-geiger 0.14.0",
+      "local_patch": "Ec dep-info 1",
+      "source_manifest": "/home/rodrigo/Projetos/ec/tools/quality/vendor/cargo-geiger/Cargo.toml",
+      "worker_stack_bytes": 16777216
+    },
+    "manifests": [
+      "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-results/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-access/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-orchestration/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-configuration/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-projects/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-app/Cargo.toml"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "build_exit": 0,
+    "tests_exit": 0,
+    "logs": {
+      "geiger-build-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-tests-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-0.txt": "fa35cd02c233fb5c1dbbe44e3bf0e3c4124d64edeb4d95ddd1b63c50e9d4b1d9",
+      "geiger-0.stderr.log": "4434ee32d1aa833daca98d156398fd04034c65a189f271e81d91e0582b527ba3",
+      "geiger-0-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-1.txt": "81ca4e77187908409b7bd5ab8c2e56bdc0591d1512ef69bb3a9eae5fd35f26d4",
+      "geiger-1.stderr.log": "9993006723e6554057ff78fe5666c6014ed506d7bbbddc6346ee99cbb6b8cd25",
+      "geiger-1-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-2.txt": "431dbd6020c38a30140e2447fa13e13eb9259cdeac4242f38f462f0414fcc665",
+      "geiger-2.stderr.log": "ef3e8ddacbe894f2a39e0e80843c68d8ac0dcda18280f8cbca01ca1ce38987f7",
+      "geiger-2-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-3.txt": "6d94402575c40640805fe99c95c2de8c0a6b13fc48da7c69374047fb813325d2",
+      "geiger-3.stderr.log": "99f6361f1e2b273a30d2c949d21b4c2c35ac5dbe2e80e01b6c8734288897fc96",
+      "geiger-3-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-4.txt": "b94afae8b6557c3f666f35d98e28d3effb346adf40be23ec4e8fcca29c0e9214",
+      "geiger-4.stderr.log": "394dff3a399fab81b5e812f22256f09f1e8013be6081309efd2304c8464c11bc",
+      "geiger-4-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-5.txt": "1afc842c2ae88ed61051050ea88faf968b214722c6aa42f80fb820c83081c171",
+      "geiger-5.stderr.log": "966500311b1ff88b6231964556124931d449b2ca79f020752b32d88f20e68ec1",
+      "geiger-5-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  },
+  "agent": {
+    "tool": {
+      "launcher": "/home/rodrigo/Projetos/ec/.local/automation/runs/run-iNYFOPoN/24-agent-geiger/geiger-tool/debug/cargo-geiger",
+      "launcher_sha256": "709ff82c0eca7f5b024c7d09e9c58e40d0989cb72eeb4aed6b8330f2f3e3f7ad",
+      "version": "cargo-geiger 0.14.0",
+      "local_patch": "Ec dep-info 1",
+      "source_manifest": "/home/rodrigo/Projetos/ec/tools/quality/vendor/cargo-geiger/Cargo.toml",
+      "worker_stack_bytes": 16777216
+    },
+    "manifests": [
+      "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-control/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-workspace/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-execution/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-reporting/Cargo.toml",
+      "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-app/Cargo.toml"
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "build_exit": 0,
+    "tests_exit": 0,
+    "logs": {
+      "geiger-build-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-tests-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-0.txt": "2c12e4529a5409b68586eb879aa133fc93471d36ded355d307335ac2547c6917",
+      "geiger-0.stderr.log": "709fde79665e0ee172096da82421d0cac758e751db4aa00edc585f983ff3344d",
+      "geiger-0-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-1.txt": "102d6af2f929547ba2c6025bd5db157b3d46452f5f3dd0d0ce17f15780bb488f",
+      "geiger-1.stderr.log": "0b0a35c308c2969d634a90c50b0db670fa648caa9ed286708604d85f479d5b1d",
+      "geiger-1-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-2.txt": "7dbafbd33dfe2a4508da6daa28f9d39ac698cc1da1b1cf07e924331e42d5dae9",
+      "geiger-2.stderr.log": "af42c44d8ac22367e54edba381f10e51662bc6b53de76fab7ef17e478721243d",
+      "geiger-2-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-3.txt": "b2ce0fe3f4582fec46b476508851d018f62e78c9bcf5dfe73f53fe27231df822",
+      "geiger-3.stderr.log": "4076846096a5f5cafb90f4fa2864de8addd4b9760384b115006462ef0c81cd02",
+      "geiger-3-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "geiger-4.txt": "904a443f790b070a609325916a8f23da106cfbb2c539243e9e70d5c9603b478f",
+      "geiger-4.stderr.log": "1d726478b0f9273c338d41b706a9423749c38283c788bb4454bdb25eb804900a",
+      "geiger-4-exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  }
+}

@@ -4,6 +4,7 @@ export default defineConfig({
   plugins: [vue()],
   server: { proxy: { '/api': 'http://127.0.0.1:58139' } },
   test: {
+    environment: './test-support/environment.ts',
     include: ['src/**/*.test.ts'],
     coverage: {
       provider: 'v8',

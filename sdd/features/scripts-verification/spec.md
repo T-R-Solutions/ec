@@ -140,3 +140,13 @@ de execução da migração anterior não se estende a esta tarefa.
 
 - REQ-27: alinhar ambiente selecionado, proveniência pública de bases e Checks Bundle Trivy ao guia central, sem imports internos, pins, downloads ou administração da plataforma.
 - AC-27 → REQ-27: TOOLBOX_STATE e seleções Docker alcançam a CLI sem transporte integral do ambiente; OSV/Trivy exigem snapshot/fontes/hashes/menor timestamp upstream <=24h no diagnóstico, sem prepared_at/recibo externo; Trivy exige bundle externo compatível, mount ro e rede none, sem troca entre etapas. Testes negativos e suíte autorizada devem demonstrar rejeição das inconsistências; inspeção não equivale a aceite executado.
+
+## Correção dos cinco bloqueios — 09/11/2026
+
+- REQ-28: corrigir a descoberta Geiger do build sem remover entradas, editar caches, trocar o motor ou aceitar fontes Rust não examinadas; preservar locked/offline/all-features, todos os membros, código nativo e interrupção na primeira falha.
+- AC-28 → REQ-28: dados incorporados são demonstrados pelos consumidores; Rust gerado entra nos contadores do Geiger com proprietário único; entrada desconhecida, proprietário ambíguo e parsing inválido não aprovam. Os dois gates completos passam em execução autorizada, inclusive os membros antes não alcançados.
+- REQ-29: cumprir REQ-10 por testes úteis e coleta atual das jornadas reais, preservando denominador, limiar e isolamento dos perfis; não alegar cobertura por inspeção.
+- AC-29 → REQ-29: Server, Agent e frontend atingem >=80% de linhas individualmente na métrica canônica, com testes de comportamento/rejeição; falha de qualquer produtor impede aprovação e toda a suíte passa quando autorizada.
+
+Este pedido não inclui commit nem execução de verificação. Os critérios novos e
+os critérios anteriores afetados permanecem UNVERIFIED até evidência executada.

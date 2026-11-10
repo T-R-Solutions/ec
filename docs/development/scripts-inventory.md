@@ -22,6 +22,9 @@ o texto anterior completo permanece arquivado no registro dessa revisão.
 | `scripts/stacks/ec/integration.sh` | Preflight inserido pelo runtime nos harnesses HTTP/Firefox; serviços e portas existentes, sem preparo implícito |
 | `scripts/stacks/ec/scanner-gate.sh` | Encaminha um check para `tools/quality/native_gates.py`; este usa a CLI pública toolbox exec |
 | `scripts/stacks/rust/check.sh` | Despacho Cargo nos dois workspaces; toolchain literal, plugins e políticas explícitos; cobertura carrega metrics/coverage |
+| `tools/quality/geiger_diagnostics.py` | Chamado pelo check Rust após erro Geiger; Python operacional fora de scripts, preserva referências/hashes dos streams e explica caminhos, finalidade e retenção, sem abrir os arquivos dos avisos ou alterar o resultado do gate |
+| `tools/quality/vendor/cargo-geiger/` | Mesmo Geiger 0.14.0 com correção local de descoberta, fontes/lock/licenças e hashes upstream preservados; build offline privado, dados incorporados identificados e Rust gerado contado pelo motor original |
+| `tools/quality/collect_runtime_coverage.py` | Coleta os perfis das jornadas reais com binário atual instrumentado; preflight existente e targets exclusivos; falha de build/harness impede a geração aprovada do LCOV |
 | `scripts/stacks/frontend/check.sh` | Despacho npm pelo package.json/lock, inclusive opções adicionais explícitas; coverage carrega biblioteca própria |
 | `scripts/stacks/ec/metrics/coverage.sh`, `coverage.json`, `metrics/check.sh` | Geração/inventário/avaliação LCOV e limiar de linhas >=80%; check também fornece budget/performance opcionais |
 | `scripts/stacks/ec/security/check-report.sh` | Parser usado por native_gates.parse para Gitleaks, Opengrep, OSV, SARIF e Trivy; não é scanner duplicado |
@@ -34,6 +37,8 @@ o texto anterior completo permanece arquivado no registro dessa revisão.
 | `scripts/rules/codeql/*.qls` | Suites distintas Rust e JS/TS; projetos explícitos em config/native/codeql/projects.json; não são duplicatas |
 | `scripts/rules/yara-x/ec.yar` | Sentinela EICAR opcional, com fixtures positivas/negativas geradas pelo gate; não é catálogo universal de malware |
 | `scripts/tests/test_consumer.py`, `test_native.py`, `test_quality.py`, `test_shell.py` | Descobertos por unittest no catálogo; contratos de wrapper, execução nativa, qualidade e shell; simulações não homologam ferramentas reais |
+| `scripts/tests/test_geiger_diagnostics.py` | Descoberto pelo mesmo unittest; casos de retenção de dependências/gerados, caminhos desconhecidos, bytes inválidos, mensagens não reconhecidas e conteúdo tratado como dados; resultados e limites no relatório do diagnóstico Geiger |
+| `scripts/tests/test_runtime_coverage.py` | Contratos do show-env como dados, alvos instrumentados, harnesses e propagação de erro; fixtures não comprovam integração ou cobertura real |
 | `scripts/README.md`, `scripts/LICENSE` | Contrato operacional e licença MIT do componente importado; licença raiz GPL tem papel diferente |
 
 O runner mantém governança obrigatória em `tools/governance/` e `sdd/tools/`.

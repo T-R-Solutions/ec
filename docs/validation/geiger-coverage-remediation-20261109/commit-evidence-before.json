@@ -1,0 +1,216 @@
+{
+  "schema_version": 2,
+  "environment": "09/11/2026: correção Geiger e coleta de cobertura implementadas e inspecionadas, sem executar build/testes/scanners/suíte. Última execução histórica consultada: run-BvlgAwX0, 38 tarefas aprovadas e cinco erros, exit 2. Estado anterior deste arquivo preservado em docs/validation/geiger-coverage-remediation-20261109/previous-evidence.json.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "AC-01 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-02",
+      "criterion": "AC-02 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-03",
+      "criterion": "AC-03 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-04",
+      "criterion": "AC-04 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Integração e contratos de Opengrep/OSV conforme spec.md; eficácia real em AC-04.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-06",
+      "criterion": "AC-06 conforme migração shell em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-07",
+      "criterion": "AC-07 conforme spec.md; integração/configuração e falhas fechadas observadas; execução completa permanece em AC-04.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-08",
+      "criterion": "AC-08 conforme spec.md; integração/configuração e falhas fechadas observadas; execução completa permanece em AC-04.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-09",
+      "criterion": "Catálogo padrão e Geiger conforme AC-09.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Inputs alterados em T040–T042; nenhuma nova execução autorizada. Os dois gates Geiger e os três percentuais de cobertura dos inputs atuais permanecem UNVERIFIED. Histórico run-BvlgAwX0 preservado."
+    },
+    {
+      "id": "AC-10",
+      "criterion": "Cobertura de linhas >=80% por componente conforme AC-10.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Inputs alterados em T040–T042; nenhuma nova execução autorizada. Os dois gates Geiger e os três percentuais de cobertura dos inputs atuais permanecem UNVERIFIED. Histórico run-BvlgAwX0 preservado."
+    },
+    {
+      "id": "AC-11",
+      "criterion": "Trivy/CodeQL sem rede, integridade e rejeições conforme AC-11.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-12",
+      "criterion": "Responsabilidades, configurações, preparo e rejeições conforme REQ-12/AC-12 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-13",
+      "criterion": "Fronteira de escrita do consumidor conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-14",
+      "criterion": "YARA-X local conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-15",
+      "criterion": "Imagens e bases reais conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-16",
+      "criterion": "Suíte padrão completa conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-17",
+      "criterion": "Migração Trivy com paridade conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-18",
+      "criterion": "Aceite observado da conclusão conforme spec.md e toolbox-completion-plan.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-19",
+      "criterion": "Adequação STIC e limpeza conforme REQ-19.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-20",
+      "criterion": "AC-20 conforme REQ-20 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-21",
+      "criterion": "AC-21 conforme REQ-21 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-22",
+      "criterion": "AC-22 conforme REQ-22 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-23",
+      "criterion": "AC-23 conforme REQ-23 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-24",
+      "criterion": "AC-24 conforme REQ-24 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-25",
+      "criterion": "AC-25 conforme REQ-25 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-26",
+      "criterion": "AC-26 conforme REQ-26 em spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-27",
+      "criterion": "Adequação ao contrato central conforme REQ-27.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Aceite integral não demonstrado: última suíte completa run-fXAXAo40 terminou com exit 2. Resultados e observações históricas preservados em docs/validation/commit-verification-20261109. Não renovar aceite por inspeção ou pelos sucessos parciais."
+    },
+    {
+      "id": "AC-28",
+      "criterion": "Descoberta Geiger íntegra e dois workspaces aprovados conforme REQ-28.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Implementação e testes escritos/inspecionados. Build, testes e suíte não executados conforme a política e o pedido atual."
+    },
+    {
+      "id": "AC-29",
+      "criterion": "Cobertura de linhas >=80% individual e suíte aprovada conforme REQ-29.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Implementação e testes escritos/inspecionados. Build, testes e suíte não executados conforme a política e o pedido atual."
+    }
+  ],
+  "evidence": [],
+  "limitations": [
+    "Critérios operacionais permanecem UNVERIFIED até novas observações suficientes.",
+    "As entradas de evidência históricas foram arquivadas com seus bindings e hashes originais, inclusive arquivos retirados pelas limpezas. Não descrevem os inputs atuais.",
+    "RustSec local existente foi reutilizado sem downloads; Audit passou e Deny agora reprova por licenças ausentes nos crates próprios. CodeQL passou com runtime existente. Permanecem Geiger, cobertura e OSV vencido; atualização OSV e decisão de licença pendentes. Sem commits.",
+    "T040–T042: novos testes, fork local do mesmo Geiger e coleta das jornadas ainda não executados; não há evidência atual de 80% ou gates aprovados. Os relatos anteriores preservam suas datas e resultados históricos."
+  ]
+}

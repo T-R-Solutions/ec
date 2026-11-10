@@ -403,20 +403,38 @@ printf '%s\n' "$@" | jq -R . | jq -s .
         manifests = [str(self.root / 'crates' / name / 'Cargo.toml') for name in ('app', 'independent')]
         metadata = {'workspace_members': ['app', 'independent'], 'packages': [
             {'id': name, 'manifest_path': path} for name, path in zip(('app', 'independent'), manifests)
-        ]}
+        ], 'target_directory': str(self.root / 'target')}
         self.write_json('metadata.json', metadata)
         self.fake_tool('cargo-geiger', 'exit 0\n')
         self.fake_tool('rustup', '''
 if [[ ${*: -1} == --version ]]; then echo 'fixture 1.0.0'; exit 0; fi
+if [[ $4 == build ]]; then
+    printf '%s\\n' "$@" | jq -R . | jq -s . > "$EC_ROOT/build-invocation.json"
+    while [[ $# -gt 0 && $1 != --target-dir ]]; do shift; done
+    shift
+    mkdir -p "$1/debug"
+    cp "$EC_ROOT/bin/cargo-geiger" "$1/debug/cargo-geiger"
+    exit 0
+fi
+if [[ $4 == test ]]; then exit 0; fi
 if [[ $4 == metadata ]]; then cat "$EC_ROOT/metadata.json"; exit 0; fi
 [[ $4 == geiger ]] || exit 9
+[[ ${RUST_MIN_STACK:-} == 16777216 ]] || exit 29
 printf '%s\\n' "$@" | jq -R . | jq -s . >> "$EC_ROOT/invocations.json"
-[[ ${*: -1} != *independent/Cargo.toml || ! -f $EC_ROOT/fail-second ]] || exit 17
+if [[ ${*: -1} == *independent/Cargo.toml && -f $EC_ROOT/fail-second ]]; then
+    echo "WARNING: Dependency file was never scanned: $EC_ROOT/target/debug/build/serde_core-fixture/out/private.rs" >&2
+    exit 17
+fi
 [[ ! -f $EC_ROOT/empty-report ]] || exit 0
 echo 'unsafe inventory fixture'
 ''')
         result = self.shell('stacks/rust/check.sh', 'geiger')
         self.assertEqual(result.returncode, 0, result.stderr)
+        build = json.loads((self.root / 'build-invocation.json').read_text())
+        self.assertIn('--locked', build)
+        self.assertIn('--offline', build)
+        self.assertIn(str(ROOT / 'tools/quality/vendor/cargo-geiger/Cargo.toml'), build)
+        self.assertIn(str(self.root / 'task/geiger-tool'), build)
         decoder = json.JSONDecoder()
         calls = (self.root / 'invocations.json').read_text()
         for manifest in manifests:
@@ -432,6 +450,16 @@ echo 'unsafe inventory fixture'
         self.assertEqual(result.returncode, 2, result.stderr)
         self.assertEqual((self.root / 'task/geiger-0-exit.txt').read_text(), '0\n')
         self.assertEqual((self.root / 'task/geiger-1-exit.txt').read_text(), '17\n')
+        diagnostic = json.loads((self.root / 'task/geiger-1-diagnostic.json').read_text())
+        self.assertEqual(diagnostic['native_exit_code'], 17)
+        self.assertEqual(diagnostic['manifest'], manifests[1])
+        self.assertEqual(diagnostic['files'][0]['kind'], 'generated_rust')
+        self.assertFalse(diagnostic['files'][0]['removal_as_fix'])
+        raw_stderr = (self.root / 'task/geiger-1.stderr.log').read_bytes()
+        self.assertEqual(raw_stderr.count(b'WARNING: Dependency file was never scanned:'), 1)
+        self.assertEqual(result.stderr.count(raw_stderr), 1)
+        self.assertIn('Pode remover para corrigir?'.encode(), result.stderr)
+        self.assertIn(b'nenhum arquivo ser', result.stderr)
         (self.root / 'fail-second').unlink()
         (self.root / 'empty-report').touch()
         result = self.shell('stacks/rust/check.sh', 'geiger')

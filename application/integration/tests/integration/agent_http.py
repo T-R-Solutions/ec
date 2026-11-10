@@ -11,7 +11,7 @@ import time
 import publication_http as h
 import orchestration_http as o
 
-AGENT = h.ROOT / '.local/build/ec-agent-target/debug/ec-agent-app'
+AGENT = Path(os.environ.get('EC_COVERAGE_AGENT_BIN', h.ROOT / '.local/build/ec-agent-target/debug/ec-agent-app'))
 
 
 def wait(predicate, timeout=35):

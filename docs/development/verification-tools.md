@@ -139,3 +139,60 @@ ficam no mount rw /ec-codeql por tarefa. Nenhum gate pede --maintenance.
 O README central de 09/11 registra 12 ferramentas ativas. Essa observação da
 plataforma não foi repetida no Ec e não qualifica CodeQL Rust, todos os modos
 IaC ou os gates deste produto. [Relatório desta adequação](../validation/toolbox-alignment-20261109/report.md).
+
+## Diagnósticos Geiger
+
+O gate passou a compilar uma cópia versionada do mesmo Geiger 0.14.0 com
+[correção na descoberta dep-info](../../tools/quality/vendor/cargo-geiger/EC-PATCH.md).
+Não usa atualização ou instalação global. O build lê o Cargo home já preparado
+do operador (padrão `$HOME/.cargo`, override `EC_GEIGER_BUILD_CARGO_HOME`), com
+locked/offline; dependências ausentes bloqueiam sem baixar. O scan do produto
+continua usando o Cargo home Ec. Toolchain, todos os membros, all-features,
+logs/códigos e interrupção na primeira falha permanecem.
+
+Cobertura Rust inclui os harnesses HTTP reais na geração atual. Além do
+cargo-llvm-cov e llvm-tools, exige os pré-requisitos de integração já documentados.
+O coletor compila os dois componentes em targets privados e conserva os perfis
+somente da medição selecionada. Isso pode custar mais compilação; a duração real
+e os percentuais posteriores ainda não foram observados. Não há novo download
+autorizado nesta correção.
+
+O check Rust percorre os membros concretos dos dois workspaces. Em caso de erro,
+o resumo identifica o manifest, o código nativo, os caminhos não examinados e
+uma orientação por arquivo. A finalidade é uma classificação conservadora pelo
+caminho e aviso; o helper não lê o conteúdo mencionado nem comprova desuso.
+
+| Arquivo apontado | Finalidade e orientação de remoção |
+| --- | --- |
+| `CARGO_HOME/registry/src/REGISTRO/PACOTE/README.md` | Documentação de dependência registrada como entrada do build. Pode ser consumida por `include_str!`; preservar o cache e investigar o consumidor. Nos 14 READMEs da execução observada, esse consumo foi confirmado estaticamente. |
+| `TARGET/debug/build/UNIDADE/out/*.rs` ou equivalente release | Código gerado por build script. Preservar durante a execução. Uma limpeza de build pode regenerá-lo, mas não corrige a análise incompleta; não editar a saída nem apagá-la para obter aprovação. |
+| Fonte `.rs` no workspace | Preservar; estar entre as entradas não examinadas não comprova obsolescência. |
+| Caminho desconhecido, inválido ou fora dos padrões | Removibilidade indeterminada. Preservar até investigar origem e consumidores. |
+
+Na sétima rodada, `serde_core` gerou `out/private.rs` nos targets Server e Agent.
+O gerador `build.rs` grava esse arquivo e `src/crate_root.rs` o inclui com
+`include!(concat!(env!("OUT_DIR"), "/private.rs"))`. Os READMEs são incluídos
+pelos respectivos `src/lib.rs`; não são duplicatas dispensáveis de documentação.
+Os [caminhos completos e consumidores observados](../validation/geiger-diagnostics-20261109/report.md)
+foram registrados sem alterar os logs antigos.
+
+Por membro, `geiger-N.txt` conserva stdout, `geiger-N.stderr.log` conserva stderr
+e `geiger-N-exit.txt` conserva o código nativo. O stderr é reproduzido na saída
+da tarefa ao término desse membro. Em falha nativa, `geiger-N-diagnostic.json`
+adiciona caminhos, linhas do stderr, hashes dos dois logs e limites do resumo.
+Mensagens desconhecidas ficam nos logs; ausência de caminho reconhecido não é
+sucesso. Se o helper falhar, os logs e a reprovação do gate permanecem.
+
+O Geiger continua encerrando o gate no primeiro membro com erro; os seguintes
+não são examinados nessa tarefa. A lista não comprova cobertura do workspace
+inteiro nem identifica vulnerabilidades por si só. Nenhuma remoção, limpeza de
+cache, supressão de avisos ou alteração de critérios é feita por esse diagnóstico.
+
+Após o download explicitamente autorizado de dependências mais recentes
+compatíveis, o cache privado preparado fica em `.local/build/ec-geiger-cargo-home`.
+Selecione-o por `EC_GEIGER_BUILD_CARGO_HOME`; locks de aplicação permanecem.
+O scanner usa `RUST_MIN_STACK=16777216` somente em seu processo para as threads
+Rayon da compilação debug, após stack overflow observado com a pilha padrão.
+O tamanho é registrado no tool.json; ulimit e configurações do host não mudam.
+As rodadas e limitações estão no
+[registro de correção](../validation/geiger-coverage-remediation-20261109/report.md).

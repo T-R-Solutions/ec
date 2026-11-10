@@ -14,7 +14,7 @@ import re
 import uuid
 
 ROOT = Path(__file__).resolve().parents[4]
-BIN = ROOT / '.local/build/ec-server-clean/debug/ec-server-app'
+BIN = Path(os.environ.get('EC_COVERAGE_SERVER_BIN', ROOT / '.local/build/ec-server-clean/debug/ec-server-app'))
 DATABASE = 'ec_publication_' + uuid.uuid4().hex
 ENV = dict(os.environ, EC_DATABASE_URL='host=127.0.0.1 port=55439 user=postgres dbname=' + DATABASE, EC_PORT='58139')
 BASE = 'http://127.0.0.1:58139/api/v1'
@@ -70,7 +70,7 @@ def snapshot():
 
 
 def start():
-    process = subprocess.Popen([str(BIN), 'serve'], env=ENV, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)  # noqa: S603 — Server compilado em caminho fixo; subcomandos e argumentos dos testes locais, sem shell.
+    process = subprocess.Popen([str(BIN), 'serve'], env=ENV, stdin=subprocess.PIPE if ENV.get('EC_TEST_GRACEFUL_STOP') == '1' else None, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)  # noqa: S603 — Server compilado selecionado pelo coletor local ou caminho padrão; argv sem shell.
     for _ in range(100):
         if process.poll() is not None:
             raise AssertionError('server exited')
@@ -83,9 +83,16 @@ def start():
 
 
 def stop(process):
-    process.terminate()
+    graceful = ENV.get('EC_TEST_GRACEFUL_STOP') == '1' and process.poll() is None
+    if graceful:
+        process.stdin.close()
+        process.stdin = None
+    else:
+        process.terminate()
     _, stderr = process.communicate(timeout=10)
     assert not stderr, stderr.decode()
+    if graceful:
+        assert process.returncode == 0, process.returncode
 
 
 def main():

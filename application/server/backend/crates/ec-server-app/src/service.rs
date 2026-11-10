@@ -10,6 +10,9 @@ use std::{
 };
 use tiny_http::{Header, Request, Response, Server};
 type AnyError = Box<dyn std::error::Error + Send + Sync>;
+#[cfg(test)]
+#[path = "service_tests.rs"]
+mod tests;
 fn connect() -> Result<Client, postgres::Error> {
     Client::connect(&std::env::var("EC_DATABASE_URL").unwrap_or_default(), NoTls)
 }
@@ -160,6 +163,17 @@ fn serve() -> Result<(), AnyError> {
         .unwrap_or("8080".into())
         .parse::<u16>()?;
     let server = Arc::new(Server::http(("127.0.0.1", port))?);
+    let stopping = Arc::new(std::sync::atomic::AtomicBool::new(false));
+    // Only the local test build accepts EOF on its private stdin as shutdown.
+    // Returning normally flushes LLVM profiles; no HTTP shutdown route is added.
+    #[cfg(feature = "test-failpoints")]
+    if std::env::var("EC_TEST_GRACEFUL_STOP").as_deref() == Ok("1") {
+        let stopping = stopping.clone();
+        std::thread::spawn(move || {
+            let _ = std::io::stdin().read(&mut [0]);
+            stopping.store(true, std::sync::atomic::Ordering::SeqCst);
+        });
+    }
     // No in-memory queue: startup and periodic reconciliation use the same database guard.
     reconcile_once().map_err(|_| "Reconciliação inicial falhou")?;
     #[cfg(feature = "test-failpoints")]
@@ -179,8 +193,14 @@ fn serve() -> Result<(), AnyError> {
     let mut workers = Vec::new();
     for _ in 0..4 {
         let server = server.clone();
+        let stopping = stopping.clone();
         workers.push(std::thread::spawn(move || {
-            for mut request in server.incoming_requests() {
+            while !stopping.load(std::sync::atomic::Ordering::SeqCst) {
+                let mut request = match server.recv_timeout(std::time::Duration::from_millis(100)) {
+                    Ok(Some(request)) => request,
+                    Ok(None) => continue,
+                    Err(_) => break,
+                };
                 let rid = random().unwrap_or_else(|_| "unavailable".into());
                 let (status, value) = match handle(&mut request) {
                     Ok(value) => (200, value),

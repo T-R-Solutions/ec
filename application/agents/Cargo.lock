@@ -71,6 +71,7 @@ version = "0.1.0"
 dependencies = [
  "ec-agent-reporting",
  "libc",
+ "serde_json",
 ]
 
 [[package]]

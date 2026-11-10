@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "manifest": "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-control/Cargo.toml",
+  "native_exit_code": 1,
+  "raw": {
+    "stdout": {
+      "path": "/home/rodrigo/Projetos/ec/.local/automation/runs/run-8ca5QvB9/24-agent-geiger/geiger-0.txt",
+      "bytes": 862,
+      "sha256": "2c12e4529a5409b68586eb879aa133fc93471d36ded355d307335ac2547c6917"
+    },
+    "stderr": {
+      "path": "/home/rodrigo/Projetos/ec/.local/automation/runs/run-8ca5QvB9/24-agent-geiger/geiger-0.stderr.log",
+      "bytes": 5248,
+      "sha256": "bb961e1425d6946b0042101f29c4dcc0d1a9541dce3815b409660c7ba4d99670"
+    }
+  },
+  "files": [
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-agent-target/debug/build/serde_core-d6749a4dd20f1f45/out/private.rs",
+      "stderr_line": 44,
+      "kind": "generated_rust",
+      "owner": "serde_core-d6749a4dd20f1f45",
+      "purpose": "C\u00f3digo Rust na sa\u00edda OUT_DIR de um build script, usado pelo build mas n\u00e3o examinado pelo Geiger.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover durante a execu\u00e7\u00e3o nem para corrigir o gate. \u00c9 sa\u00edda regener\u00e1vel: uma limpeza de build exige recompila\u00e7\u00e3o e pode recriar o mesmo arquivo e o mesmo aviso; n\u00e3o resolve a lacuna da an\u00e1lise.",
+      "next_step": "Investigar o gerador e incluir sua sa\u00edda na an\u00e1lise; n\u00e3o editar o arquivo gerado nem ocultar o aviso."
+    }
+  ],
+  "scope": "Avisos reconhecidos deste membro; n\u00e3o \u00e9 invent\u00e1rio completo do workspace.",
+  "basis": "Caminhos e avisos nativos; o helper n\u00e3o abre os arquivos mencionados nem prova que existam ou possam ser exclu\u00eddos.",
+  "fallback": "Mensagens n\u00e3o reconhecidas, inclusive erros de compila\u00e7\u00e3o, permanecem nos logs brutos; aus\u00eancia de caminhos extra\u00eddos n\u00e3o significa sucesso."
+}

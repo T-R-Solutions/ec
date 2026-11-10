@@ -22,7 +22,7 @@ case $check in
     test) set -- test --workspace --locked --offline;;
     harness-build) set -- build --workspace --locked --offline --features test-failpoints;;
     machete) need cargo-machete; set -- machete;;
-    geiger) need cargo-geiger; set -- geiger --locked --offline;;
+    geiger) set -- geiger --locked --offline;;
     deny)
         need cargo-deny
         policy=$ROOT/scripts/config/native/cargo-deny/deny.toml
@@ -52,9 +52,33 @@ case $check in
         coverage_begin
         # Target exclusivo: nunca reutilizar instrumentação nos builds dos harnesses.
         export CARGO_TARGET_DIR="$COVERAGE_DIR/target"
-        set -- llvm-cov --workspace --all-targets --all-features --locked --offline --lcov --output-path "$COVERAGE_DIR/coverage.lcov";;
+        export CARGO_LLVM_COV_TARGET_DIR="$CARGO_TARGET_DIR"
+        set -- llvm-cov --workspace --all-targets --all-features --locked --offline --no-report;;
     *) fail "check Rust desconhecido: $check";;
 esac
+if [[ $check == geiger ]]; then
+    # Mesma versão/motor Geiger; correção local auditável da descoberta dep-info.
+    # Build isolado, sem instalação global, atualização ou escrita no registro.
+    geiger_stage=${EC_TASK_DIR:-$(mktemp -d)}
+    geiger_target=$geiger_stage/geiger-tool
+    build_rc=0
+    CARGO_HOME=${EC_GEIGER_BUILD_CARGO_HOME:-$HOME/.cargo} \
+        rustup run "$channel" cargo build --locked --offline \
+        --manifest-path "$CODE/tools/quality/vendor/cargo-geiger/Cargo.toml" \
+        --target-dir "$geiger_target" --bin cargo-geiger || build_rc=$?
+    printf '%s\n' "$build_rc" > "$geiger_stage/geiger-build-exit.txt"
+    (( build_rc == 0 )) || blocked 'build offline do Geiger corrigido indisponível'
+    [[ -x $geiger_target/debug/cargo-geiger ]] || blocked 'build Geiger não produziu executável'
+    test_rc=0
+    CARGO_HOME=${EC_GEIGER_BUILD_CARGO_HOME:-$HOME/.cargo} \
+        rustup run "$channel" cargo test --locked --offline --lib \
+        --manifest-path "$CODE/tools/quality/vendor/cargo-geiger/Cargo.toml" \
+        --target-dir "$geiger_target" scan::supplemental::tests || test_rc=$?
+    printf '%s\n' "$test_rc" > "$geiger_stage/geiger-tests-exit.txt"
+    (( test_rc == 0 )) || fail 'regressões da descoberta Geiger falharam'
+    # Cargo só respeita a prioridade PATH se cargo-home/bin já estiver na lista.
+    export PATH="$geiger_target/debug:${CARGO_HOME:-$HOME/.cargo}/bin:$PATH"
+fi
 case $check in
     machete|geiger|deny|audit|coverage)
         plugin=$check
@@ -62,11 +86,26 @@ case $check in
         plugin_version=$(rustup run "$channel" cargo "$plugin" --version) || blocked "não foi possível identificar cargo-$plugin"
         record_tool "cargo-$plugin" "$plugin_version";;
 esac
+if [[ $check == geiger && -n ${EC_TASK_DIR:-} ]]; then
+    jq --arg patch 'Ec dep-info 1' --arg source "$CODE/tools/quality/vendor/cargo-geiger/Cargo.toml" \
+        '.+{local_patch:$patch,source_manifest:$source,worker_stack_bytes:16777216}' "$EC_TASK_DIR/tool.json" | \
+        atomic_json "$EC_TASK_DIR/tool.json"
+fi
 if [[ $check == coverage ]]; then
     rc=0
     rustup run "$channel" cargo "$@" || rc=$?
     printf '%s\n' "$rc" > "$EC_TASK_DIR/producer-exit.txt"
     (( rc == 0 )) || fail 'geração de cobertura Rust falhou; relatório não aprovado'
+    case $PWD in
+        */application/server/backend) component=server;;
+        */application/agents) component=agent;;
+        *) fail 'workspace de cobertura desconhecido';;
+    esac
+    runtime_rc=0
+    python3 "$CODE/tools/quality/collect_runtime_coverage.py" --channel "$channel" --component "$component" || runtime_rc=$?
+    printf '%s\n' "$runtime_rc" > "$EC_TASK_DIR/runtime-producer-exit.txt"
+    (( runtime_rc == 0 )) || fail 'jornada real de cobertura falhou; relatório não aprovado'
+    rustup run "$channel" cargo llvm-cov report --locked --offline --lcov --output-path "$COVERAGE_DIR/coverage.lcov" || fail 'relatório LLVM agregado falhou'
     coverage_finish
     exit $?
 fi
@@ -74,7 +113,8 @@ if [[ $check == geiger ]]; then
     # Geiger 0.14 exige pacote concreto mesmo quando o workspace é virtual.
     # Percorrer todos os membros também cobre crates fora da árvore do binário.
     need jq
-    stage=${EC_TASK_DIR:-$(mktemp -d)}
+    need python3
+    stage=$geiger_stage
     rustup run "$channel" cargo metadata --locked --offline --all-features --format-version 1 --no-deps > "$stage/workspace.json"
     members=$(jq -ce '. as $workspace | [.workspace_members[] as $id | .packages[] | select(.id==$id) | .manifest_path] |
         if length>0 and length==($workspace.workspace_members|length) and all(.[]; type=="string" and endswith("/Cargo.toml")) then . else error("membros inválidos") end' "$stage/workspace.json") || fail 'metadata Geiger sem membros completos'
@@ -82,13 +122,26 @@ if [[ $check == geiger ]]; then
     index=0
     while IFS= read -r -d '' manifest; do
         rc=0
-        rustup run "$channel" cargo "$@" --all-features --manifest-path "$manifest" > "$stage/geiger-$index.txt" || rc=$?
+        # Parsing recursivo em build debug excedeu a pilha padrão das threads Rayon.
+        # Ajuste restrito ao scanner; nenhum ulimit ou configuração do host muda.
+        RUST_MIN_STACK=16777216 rustup run "$channel" cargo "$@" --all-features --manifest-path "$manifest" \
+            > "$stage/geiger-$index.txt" 2> "$stage/geiger-$index.stderr.log" || rc=$?
         printf '%s\n' "$rc" > "$stage/geiger-$index-exit.txt"
+        cat "$stage/geiger-$index.stderr.log" >&2
         printf 'manifest: %s\n' "$manifest" >> "$stage/geiger.txt"
         cat "$stage/geiger-$index.txt" >> "$stage/geiger.txt"
         cat "$stage/geiger-$index.txt"
         printf '%s\n' "$rc" > "$stage/geiger-exit.txt"
-        (( rc == 0 )) || fail "inventário Geiger falhou: $manifest"
+        if (( rc != 0 )); then
+            target_directory=$(jq -r '.target_directory | if type=="string" then . else "" end' "$stage/workspace.json") || target_directory=''
+            python3 "$CODE/tools/quality/geiger_diagnostics.py" \
+                --manifest "$manifest" --native-exit-code "$rc" \
+                --stdout "$stage/geiger-$index.txt" --stderr "$stage/geiger-$index.stderr.log" \
+                --cargo-home "${CARGO_HOME:-$HOME/.cargo}" --target-directory "$target_directory" \
+                --workspace-root "$PWD" --output "$stage/geiger-$index-diagnostic.json" || \
+                printf 'aviso: diagnóstico complementar indisponível; consulte os logs brutos em %s\n' "$stage" >&2
+            fail "inventário Geiger falhou: $manifest; saída nativa=$rc; logs e diagnóstico em $stage/geiger-$index*; nenhum arquivo será removido automaticamente"
+        fi
         [[ -s $stage/geiger-$index.txt ]] || fail "inventário Geiger vazio: $manifest"
         index=$((index + 1))
     done < <(jq -j '.[]+"\u0000"' <<< "$members")

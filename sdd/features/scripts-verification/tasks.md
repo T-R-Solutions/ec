@@ -108,3 +108,40 @@ resultados históricos continuam preservados, sem atualizar hashes antigos.
   Os 44 arquivos operacionais/de suporte foram preservados após inspeção de
   consumidores, source/imports e descoberta. Sem testes, scripts ou commits.
   [Decisões, inventário e recuperação](../../../docs/validation/scripts-cleanup-20261109/report.md).
+
+## Diagnóstico Geiger — 09/11/2026
+
+- T039 [REQ-09/AC-09]: acrescentar explicação por arquivo à falha Geiger, com
+  retenção dos streams brutos e código nativo, indicação de consumidores e
+  ausência de autorização de remoção. Helper, integração e guias inspecionados;
+  casos de regressão escritos e não executados. Nenhum critério promovido a PASS.
+  [Observações e limites](../../../docs/validation/geiger-diagnostics-20261109/report.md).
+
+Após novo pedido de commit com escolha sim, T039 foi exercitada em
+run-8ca5QvB9: oito casos novos e o contrato shell passaram, mas a regra de
+layout reprovou a localização do helper. Ele foi movido para tools/quality,
+preservando a regra e as asserções. Reexecução integral pendente; sem commit
+ou aceite, com os cinco erros operacionais anteriores ainda presentes.
+
+Reexecução posterior de T039 em run-BvlgAwX0: 95 testes de automação aprovados,
+incluindo os oito casos novos, contrato shell e layout corrigido. A suíte
+integral terminou com 38 aprovações e cinco erros (Geiger e cobertura).
+Diagnóstico exercitado; aceite integral permanece UNVERIFIED e nenhum novo
+commit foi criado. Resultados e logs acrescentados ao relatório de T039.
+
+## Correção dos cinco bloqueios — 09/11/2026
+
+- T040 [REQ-28, D-23/R-23]: implementada e inspecionada a correção Geiger em
+  tools/quality/vendor/cargo-geiger, com build offline privado e regressões
+  específicas. Diagnóstico complementar existente preservado. Build, testes e
+  inventários reais dos dois workspaces ainda não executados.
+- T041 [REQ-29, D-24/R-24]: implementada e inspecionada a coleta dos harnesses
+  reais antes do LCOV, alvos instrumentados/companheiros privados, preflight,
+  propagação de falhas e término normal do Server de teste por stdin privada.
+- T042 [REQ-29, D-25/R-25]: escritos testes de transporte/heartbeat, processos,
+  checkout, spool, envelopes/chunks e componentes/estado Vue; contratos Python
+  do coletor e fixture shell Geiger atualizados. Não executados.
+- T043 [AC-28/29, AC-09/10]: pendente. Após pedido explícito de commit e escolha
+  sim, executar somente a suíte integral canônica, corrigir falhas reveladas e
+  repetir a suíte integral até critérios comprovados. Não inferir 80% ou sucesso
+  Geiger dos inputs atuais. Downloads exigem autorização específica.

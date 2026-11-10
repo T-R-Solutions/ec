@@ -21,7 +21,7 @@ class GovernanceTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
         for path in ['.local/skill-installation/skills','config/governance','sdd','docs','tools/governance',
-                     'application','scripts']:
+                     'application','scripts','tools/quality']:
             shutil.copytree(ROOT/path,self.root/path,ignore=shutil.ignore_patterns('__pycache__'))
         # Source bundles are copied with config/governance; retired inputs are unnecessary.
         for name in ['AGENTS.md','README.md','LICENSE']:

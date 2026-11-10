@@ -109,7 +109,7 @@ def _install(root, apply=False):
         # Audit the recorded pre-install view without mutating live metadata.
         with tempfile.TemporaryDirectory(prefix='ec-install-audit-') as temp:
             view = Path(temp)
-            for name in ['config/governance', 'sdd', 'docs', 'tools/governance', 'application', 'scripts',
+            for name in ['config/governance', 'sdd', 'docs', 'tools/governance', 'tools/quality', 'application', 'scripts',
                          '.local/skill-installation/skills', 'reverse_engineering_teamcity']:
                 # Research is only needed for README link targets; avoid copying its index.
                 if name == 'reverse_engineering_teamcity':

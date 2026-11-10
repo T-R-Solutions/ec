@@ -338,3 +338,50 @@ parcial ou divergente, bundle ausente/escrita e identidades misturadas.
 Primária software-delivery, ponte 1, pacote .codex/skills/software-delivery/SKILL.md,
 SHA-256 b0166f50c4532b55cae5ac7e4cde24c35767d56e7db142ea7001402fdd2b94a0.
 [Plano, fontes, alterações e limites](../../../docs/validation/toolbox-alignment-20261109/plan.md).
+
+## Cinco bloqueios Geiger/cobertura — 09/11/2026, rota completa
+
+REQ-09/10/28/29 → D-23/D-24/D-25, R-23/R-24/R-25 → T040–T043.
+O pedido vigente permite correções e inspeções, sem executar verificações ou
+criar commits. As autorizações históricas de outras tarefas não são reutilizadas.
+
+D-23 / R-23: copiar o mesmo Geiger 0.14.0 já disponível e corrigir sua descoberta
+dep-info em fontes versionadas, com licenças, lock e inventário de hashes upstream.
+Build/testes específicos offline em target privado, sem instalação global. A AST
+identifica dados incorporados; grupos dep-info atribuem fontes Rust geradas a um
+único pacote e o motor original fornece os contadores. Não remover arquivos nem
+filtrar stderr/exit. Alternativas rejeitadas: dispensar warnings, ignorar extensões
+indiscriminadamente, modificar o registro Cargo ou usar outro scanner. Risco:
+parser/atribuição incompletos; desconhecidos, ambiguidades e parsing falham.
+
+D-24 / R-24: os harnesses HTTP/PG existentes têm asserções de negócio e exercitam
+superfícies sem testes Cargo. Coletá-los antes do relatório, com binários do run
+instrumentados e companheiros em targets privados; nenhum relatório histórico
+entra na medição. Manter fontes completas e mínimo de 80%, sem exclusões novas.
+Encerramento por EOF em stdin privada existe somente com test-failpoints e flag
+explícita, para saída normal do Server e gravação dos perfis. O preflight de
+integração e os deadlines existentes permanecem; falhas não produzem aprovação.
+Alternativa de repetir somente testes Cargo deixaria a mesma lacuna de coleta.
+
+D-25 / R-25: acrescentar testes Rust de contratos e testes Vue/Pinia de estado,
+eventos e ciclo de vida, com oráculos de rejeição, bytes, replay e autoridade.
+Sem biblioteca DOM instalada e sem autorização de downloads, usar renderer Vue
+de teste e explicitar o compiler-dom já presente como devDependency. Isso não
+comprova DOM, foco ou navegador; os harnesses existentes continuam obrigatórios.
+
+Skills lidas/aplicadas, pontes versão 1, sem delegação:
+
+- Primária `.codex/skills/software-testing/SKILL.md`, SHA-256
+  `67fb6565d48fbad42b6c58f48caeaf16c76bcb448f518fe835d2ab480564d6a8`:
+  particionamento dos comportamentos, oráculos e distinção cobertura/aceite.
+- Auxiliar `.codex/skills/rust/SKILL.md`, SHA-256
+  `a2926aaeee5df8492c86acd31b09df7ba3c33545b146e635506962f053759b12`:
+  toolchain/locks, parser de fontes e composição dos testes Rust.
+- Auxiliar `.codex/skills/frontend-testing/SKILL.md`, SHA-256
+  `67b711a02c687c87d153c6037ca872d30be3900c0b0a582b86f2d2716daaca06`:
+  testes de sessão/componentes, debounce, polling e descarte de respostas.
+- Auxiliar `.codex/skills/tool-output-engineering/SKILL.md`, SHA-256
+  `90108fc6932bb514bbaaf320117d3727358d3c98afd4130f70a6c21e328d3ad6`:
+  logs brutos/códigos nativos e show-env interpretado como dados, sem shell.
+
+[Inspeção e limitações](../../../docs/validation/geiger-coverage-remediation-20261109/report.md).

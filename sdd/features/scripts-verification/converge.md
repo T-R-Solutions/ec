@@ -139,3 +139,52 @@ T038 conclui a retirada documental justificada no
 Os arquivos operacionais mantêm os mesmos bytes; conteúdo histórico foi
 preservado fora do guia corrente. Nenhum critério operacional foi renovado;
 AC-27 continua UNVERIFIED, sem execução de testes ou scripts de verificação.
+
+## Diagnóstico Geiger — 09/11/2026
+
+T039 preserva o inventário e a reprovação de REQ-09/AC-09, adicionando explicações
+por caminho e referências aos logs brutos. O helper não transforma aviso em
+autorização de exclusão; membros seguintes continuam não examinados após falha.
+Os consumidores dos READMEs e do private.rs foram inspecionados estaticamente.
+Regressões escritas, não executadas; AC-09 e demais critérios continuam
+UNVERIFIED. [Evidências e limitações](../../../docs/validation/geiger-diagnostics-20261109/report.md).
+
+Após novo pedido de commit e escolha sim, a execução run-8ca5QvB9 revelou um
+problema de localização do helper; ele foi movido para tools/quality sem
+enfraquecer a regra. A reexecução integral run-BvlgAwX0 aprovou os 95 testes de
+automação e produziu os diagnósticos reais, mas manteve dois erros Geiger e
+três de cobertura. AC-09 e demais critérios continuam UNVERIFIED; nenhum novo
+commit foi criado. Os resultados das duas rodadas e os logs anteriores foram
+preservados no relatório de T039.
+
+## Correção Geiger/cobertura — 09/11/2026, sem execução
+
+REQ-28 → D-23/R-23 → T040: correção no mesmo motor Geiger, classificação de dados
+por consumidor e inclusão de fontes geradas por dep-info. REQ-29 → D-24/D-25,
+R-24/R-25 → T041/T042: coleta das jornadas instrumentadas e novos testes úteis.
+Fontes, decisões e hashes em
+[relatório e observações](../../../docs/validation/geiger-coverage-remediation-20261109/report.md).
+
+AC-09/10/28/29: UNVERIFIED nos inputs atuais. A última execução histórica
+run-BvlgAwX0 permanece com cinco erros; não foi reclassificada ou sobrescrita.
+Não houve build, execução de testes/scanners, scripts de verificação, automate.sh,
+download, staging, commit ou push nesta tarefa. Rustfmt foi usado somente para
+editar a formatação de arquivos Rust; isso não é evidência de compilação.
+T043 depende da execução autorizada pela política vigente. Os demais critérios
+anteriores permanecem sem promoção de estado por esta alteração.
+
+## Convergência executada após pedido de commits — 09/11/2026
+
+As pendências de execução T040–T043 descritas acima foram superadas por
+run-iNYFOPoN: 43 tarefas aprovadas, exit 0, inputs estáveis e sem cancelamento.
+T043 concluída. AC-09/10/28/29 APPROVED com observações e bindings novos em
+evidence.json; critérios restantes mantêm seus estados, sem aprovação inferida.
+Geiger completo nos seis membros Server e cinco Agent; cobertura Server 92,60%,
+Agent 91,25% e frontend 97,32%. Segurança, HTTP, Playwright e Firefox passaram.
+As três rodadas anteriores deste pedido reprovaram e estão preservadas no
+[relatório](../../../docs/validation/geiger-coverage-remediation-20261109/report.md).
+A autorização específica para baixar dependências mais recentes foi respeitada;
+foram selecionadas as versões compatíveis com o manifesto/MSRV do Geiger, com
+455 archives conferidos. Nenhum lock de aplicação foi atualizado por esse preparo.
+Somente registros documentais foram ajustados após a suíte; sem alteração
+funcional posterior ou execução de checks avulsos.

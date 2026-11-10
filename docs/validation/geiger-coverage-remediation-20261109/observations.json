@@ -1,0 +1,577 @@
+{
+  "date": "2026-11-09",
+  "method": "Inspeção de fontes, manifestos, AST projetada, chamadas e logs históricos; leitura LCOV/JSON e SHA-256. Nenhum build/teste/scanner/script de verificação executado. Rustfmt usado somente como edição.",
+  "current_acceptance": "UNVERIFIED",
+  "historical_inputs": [
+    {
+      "path": "docs/validation/geiger-diagnostics-20261109/report.md",
+      "bytes": 10853,
+      "sha256": "8c03b342b17a80206bd9766fc6ead02963bab2d09c9dd6abc40031838c1d24e1"
+    },
+    {
+      "path": "docs/validation/geiger-diagnostics-20261109/verification-results.json",
+      "bytes": 30719,
+      "sha256": "fe0f5b07584cc33ed65b1f1f9ae31ef6da6cec7ebf581095b2843e7551503052"
+    },
+    {
+      "path": "docs/validation/geiger-diagnostics-20261109/server-geiger-diagnostic.json",
+      "bytes": 13733,
+      "sha256": "73e8b98e4f43f65349799f115fc30f0b57355c7fcdbb553d8663b8a87a0fab50"
+    },
+    {
+      "path": "docs/validation/geiger-diagnostics-20261109/agent-geiger-diagnostic.json",
+      "bytes": 1892,
+      "sha256": "d879fe9185072a88b50339f97c9670f40617b7b24a12d7c638fdb7b89392f5a0"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/15-server-geiger/geiger-0.txt",
+      "bytes": 14828,
+      "sha256": "fa35cd02c233fb5c1dbbe44e3bf0e3c4124d64edeb4d95ddd1b63c50e9d4b1d9"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/15-server-geiger/geiger-0.stderr.log",
+      "bytes": 39439,
+      "sha256": "00c7752ccaf062fb4cba70e525eb13bfee955935cc034227e70fe94cc4744a7b"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/15-server-geiger/geiger-0-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/24-agent-geiger/geiger-0.txt",
+      "bytes": 862,
+      "sha256": "2c12e4529a5409b68586eb879aa133fc93471d36ded355d307335ac2547c6917"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/24-agent-geiger/geiger-0.stderr.log",
+      "bytes": 5248,
+      "sha256": "a7c3cb852fd28f890cf94d7c62eccaa808eb3d170ebe4afddc47d513f947616a"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/24-agent-geiger/geiger-0-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/16-server-coverage/coverage-8Qp9q2jj/coverage.lcov",
+      "bytes": 46042,
+      "sha256": "9c9bdf673b64ec8fa23a8d58655ec059293958ef54a26de5a119e88501d8cc1f"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/16-server-coverage/coverage.json",
+      "bytes": 185,
+      "sha256": "517f7287dd69ca31530f9bc837077bc35aef2681a824097d71d55887b4c39c95"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/25-agent-coverage/coverage-IE64IYH4/coverage.lcov",
+      "bytes": 12939,
+      "sha256": "863e723b575e56aa803656a09874079584dcdcd3aadd65fbaad98e5dc0e34b56"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/25-agent-coverage/coverage.json",
+      "bytes": 183,
+      "sha256": "8fa3c69a5b488c99fe6a0b53b8c78b828ba113dca5add8b364eb0756550d8443"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/30-frontend-coverage/coverage-A2JiXFxV/coverage.lcov",
+      "bytes": 7242,
+      "sha256": "eb3d1e51f2c862b7e2b5b52240acbf6ce9e1eb936a2a032b2c1eff364b7c84de"
+    },
+    {
+      "path": ".local/automation/runs/run-BvlgAwX0/30-frontend-coverage/coverage.json",
+      "bytes": 183,
+      "sha256": "a6bec366c868e6909c902af2de8e9167cc6fe62e6749b1e08f7989c6a3f46b34"
+    }
+  ],
+  "historical_coverage": [
+    {
+      "task": "16-server-coverage",
+      "historical_metrics": {
+        "metrics": {
+          "lines": {
+            "covered": 332,
+            "total": 1540,
+            "actual": 21.558441558441558,
+            "minimum": 80,
+            "passed": false
+          }
+        },
+        "passed": false
+      },
+      "files": [
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-access/src/lib.rs",
+          "lines": 23,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-app/src/main.rs",
+          "lines": 42,
+          "covered": 29
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-app/src/service.rs",
+          "lines": 551,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-configuration/src/lib.rs",
+          "lines": 149,
+          "covered": 144
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-orchestration/src/lib.rs",
+          "lines": 309,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-projects/src/lib.rs",
+          "lines": 146,
+          "covered": 145
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-projects/src/publication.rs",
+          "lines": 76,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-results/src/lib.rs",
+          "lines": 188,
+          "covered": 0
+        }
+      ]
+    },
+    {
+      "task": "25-agent-coverage",
+      "historical_metrics": {
+        "metrics": {
+          "lines": {
+            "covered": 111,
+            "total": 686,
+            "actual": 16.18075801749271,
+            "minimum": 80,
+            "passed": false
+          }
+        },
+        "passed": false
+      },
+      "files": [
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-app/src/main.rs",
+          "lines": 308,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-control/src/lib.rs",
+          "lines": 74,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-execution/src/lib.rs",
+          "lines": 69,
+          "covered": 0
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-reporting/src/lib.rs",
+          "lines": 70,
+          "covered": 52
+        },
+        {
+          "source": "/home/rodrigo/Projetos/ec/application/agents/crates/ec-agent-workspace/src/lib.rs",
+          "lines": 133,
+          "covered": 57
+        }
+      ]
+    },
+    {
+      "task": "30-frontend-coverage",
+      "historical_metrics": {
+        "metrics": {
+          "lines": {
+            "covered": 17,
+            "total": 115,
+            "actual": 14.782608695652174,
+            "minimum": 80,
+            "passed": false
+          }
+        },
+        "passed": false
+      },
+      "files": [
+        {
+          "source": "src/app/App.vue",
+          "lines": 9,
+          "covered": 0
+        },
+        {
+          "source": "src/app/main.ts",
+          "lines": 1,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/access/src/index.ts",
+          "lines": 11,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/configuration/src/Editor.vue",
+          "lines": 50,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/configuration/src/drafts.ts",
+          "lines": 5,
+          "covered": 5
+        },
+        {
+          "source": "src/domains/configuration/src/index.ts",
+          "lines": 0,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/configuration/src/model.ts",
+          "lines": 3,
+          "covered": 3
+        },
+        {
+          "source": "src/domains/infrastructure/src/index.ts",
+          "lines": 0,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/projects/src/index.ts",
+          "lines": 0,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/runs/src/Runs.vue",
+          "lines": 20,
+          "covered": 0
+        },
+        {
+          "source": "src/domains/runs/src/bytes.ts",
+          "lines": 9,
+          "covered": 9
+        },
+        {
+          "source": "src/domains/runs/src/index.ts",
+          "lines": 0,
+          "covered": 0
+        },
+        {
+          "source": "src/shared/api.ts",
+          "lines": 7,
+          "covered": 0
+        }
+      ]
+    }
+  ],
+  "selected_skills": [
+    {
+      "path": ".codex/skills/software-testing/SKILL.md",
+      "bytes": 7967,
+      "sha256": "67fb6565d48fbad42b6c58f48caeaf16c76bcb448f518fe835d2ab480564d6a8"
+    },
+    {
+      "path": ".codex/skills/rust/SKILL.md",
+      "bytes": 8072,
+      "sha256": "a2926aaeee5df8492c86acd31b09df7ba3c33545b146e635506962f053759b12"
+    },
+    {
+      "path": ".codex/skills/frontend-testing/SKILL.md",
+      "bytes": 3860,
+      "sha256": "67b711a02c687c87d153c6037ca872d30be3900c0b0a582b86f2d2716daaca06"
+    },
+    {
+      "path": ".codex/skills/tool-output-engineering/SKILL.md",
+      "bytes": 6322,
+      "sha256": "90108fc6932bb514bbaaf320117d3727358d3c98afd4130f70a6c21e328d3ad6"
+    }
+  ],
+  "source_snapshots": [
+    {
+      "path": "scripts/stacks/rust/check.sh",
+      "bytes": 9024,
+      "sha256": "d3ac1fb899ef61465cf1f6973c7e3e7a17cdc2a5bdbd316177581976b32631fb"
+    },
+    {
+      "path": "scripts/stacks/ec/runtime.sh",
+      "bytes": 10370,
+      "sha256": "f6c41b3c179e221927d6d070ffa4c8bf01ec509af243a4e4ea13a0f7dc0931ee"
+    },
+    {
+      "path": "scripts/tests/test_shell.py",
+      "bytes": 35279,
+      "sha256": "c5dd9eb5d381e405038359be54fa003b8fd37022df0c8d38cddedb7b53c29551"
+    },
+    {
+      "path": "scripts/tests/test_runtime_coverage.py",
+      "bytes": 5089,
+      "sha256": "7be8c2bb230ac553f06ce35ccc6dbaf74de59d03f65e252ba70dae3aa752d0fa"
+    },
+    {
+      "path": "tools/quality/collect_runtime_coverage.py",
+      "bytes": 4560,
+      "sha256": "6329a637612be3addaacd12448bbdfab9c1c7edf8ffb703d7098c65e9b937679"
+    },
+    {
+      "path": "tools/quality/geiger_diagnostics.py",
+      "bytes": 7824,
+      "sha256": "1459d5202d2e7f4374b59e6151906148b8082cbeff628b6050e6424c6cd4d70c"
+    },
+    {
+      "path": "scripts/tests/test_geiger_diagnostics.py",
+      "bytes": 5852,
+      "sha256": "22ee727dfd627f1732ba619ed8c48561cfeb4a1fbb1189b19e8b9251b685a830"
+    },
+    {
+      "path": "scripts/stacks/ec/metrics/coverage.sh",
+      "bytes": 2653,
+      "sha256": "edbfb888fdc78e44cbfa8aaf238c4b036a7d3a676ac9cb7c0efc75057b5628dd"
+    },
+    {
+      "path": "scripts/stacks/ec/coverage.json",
+      "bytes": 59,
+      "sha256": "152691c311aea4c59accfe1a42f86440761090a8b929118f67ae7c81d257b5a5"
+    },
+    {
+      "path": "application/integration/tests/integration/publication_http.py",
+      "bytes": 14699,
+      "sha256": "67d913b0d455879aab1a980d6358916a75917dccb3637e1ad18cd26308c217a0"
+    },
+    {
+      "path": "application/integration/tests/integration/agent_http.py",
+      "bytes": 18889,
+      "sha256": "73ccc016baac18b9f0265aa22876b3a52c5ba4383af576d9c95213636790590f"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/src/service.rs",
+      "bytes": 26205,
+      "sha256": "059fc3d6ecf1d6c29a3cbae3cd66697912fef3e79ff399bbc690ae8526b882b6"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-app/src/service_tests.rs",
+      "bytes": 1087,
+      "sha256": "cfb57577d51a7a73bd46e44c86fd942ee2664c7ec22b37a90c47dbe350360ae0"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/src/lib.rs",
+      "bytes": 8448,
+      "sha256": "260609419c899ca556ac77b7c17b3bacb4d689306fe785e1bb46d7d58195c061"
+    },
+    {
+      "path": "application/server/backend/crates/ec-server-results/src/contracts_tests.rs",
+      "bytes": 1093,
+      "sha256": "78dab50875208c48a6d592e6bef8faa0bc3b2b968bc29b05d30be52ca483c4af"
+    },
+    {
+      "path": "application/agents/Cargo.lock",
+      "bytes": 5355,
+      "sha256": "94e9b3750b25a59e4c9be1cbb59d0bfb7ee81c1ed71518cd49aee55721ff9dd1"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+      "bytes": 291,
+      "sha256": "2d155f07cf63775709e33d974fbd488ac038bdab6beccc6b325869f86854a727"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-control/tests/transport.rs",
+      "bytes": 4326,
+      "sha256": "012440e7e151835871ceb1fc867cf419411e817a8eb53ab518247766c621d6ab"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-execution/tests/process.rs",
+      "bytes": 3244,
+      "sha256": "d2e21d0835a35747164105f999555fc3ec199f3e4d7af81ef78de85a5e0cb35c"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-workspace/tests/checkout.rs",
+      "bytes": 2957,
+      "sha256": "e33aae414fc08835c0eec1f88e028bff5b71f482f75126ce45008901b0d9f6c6"
+    },
+    {
+      "path": "application/agents/crates/ec-agent-reporting/tests/spool.rs",
+      "bytes": 2215,
+      "sha256": "5500903654ff6c8e7a43ce5833b80a95fc32e89b431f1389f06c779b9e7642a1"
+    },
+    {
+      "path": "application/server/frontend/package.json",
+      "bytes": 756,
+      "sha256": "9eafd3986a837677469cdafbe22f13e82c4cabc98467c4745ab4c1d93bd44ca7"
+    },
+    {
+      "path": "application/server/frontend/package-lock.json",
+      "bytes": 73266,
+      "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364"
+    },
+    {
+      "path": "application/server/frontend/test-support/renderer.ts",
+      "bytes": 4769,
+      "sha256": "553ac6c26def9acf17f30469b3d2bd5dc5e023041b3fb762be5a7f8687538ab9"
+    },
+    {
+      "path": "application/server/frontend/src/shared/api.test.ts",
+      "bytes": 1716,
+      "sha256": "e86e66ddee32b0f89351660dbd5b86c5d09bacaa332b79887eb3236dae00471d"
+    },
+    {
+      "path": "application/server/frontend/src/domains/access/src/session.test.ts",
+      "bytes": 1875,
+      "sha256": "5db94c6b31ed34fbb11e33bcccc6badfb70da468488d926f260d0c7865a87440"
+    },
+    {
+      "path": "application/server/frontend/src/domains/configuration/src/Editor.test.ts",
+      "bytes": 7869,
+      "sha256": "a8386abf1fa7a4647aeb0d3f23c7e00d65b5ae97ee0a44b918f28a64352aa858"
+    },
+    {
+      "path": "application/server/frontend/src/domains/runs/src/Runs.test.ts",
+      "bytes": 5963,
+      "sha256": "c33aed4e64526dcfd7166f79419582960a38b2c0170d73ead77e59b9aaac22ca"
+    },
+    {
+      "path": "application/server/frontend/src/app/App.test.ts",
+      "bytes": 3221,
+      "sha256": "f1ad1de64c1e229ea3436e6c293489fea5e49f215e7fc1a5f987ff77e5468dd9"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 11367,
+      "sha256": "f1d8642e95566e8b3e73d1464f016d7023ead345000b44036423d043d84b1e02"
+    },
+    {
+      "path": "docs/development/verification-tools.md",
+      "bytes": 12785,
+      "sha256": "85cfc9466523455337c2ca6a7ebbd761bfad0daab49ffd1e5c1e9a5e1b44706a"
+    },
+    {
+      "path": "docs/development/scripts-inventory.md",
+      "bytes": 22477,
+      "sha256": "6e9cf520e42badec6e18e5b02ea9339b359a5e4b611e98df4fa3f9770b1f48ae"
+    },
+    {
+      "path": "docs/development/frontend.md",
+      "bytes": 7543,
+      "sha256": "ec800d02cca929555e8f5bb788da8a1d5725f5ece2a75d3f118f82c20ebee083"
+    },
+    {
+      "path": "sdd/features/scripts-verification/spec.md",
+      "bytes": 15870,
+      "sha256": "483da83506219bd2aa8740992be0ca16cf80f6fd54ae03c14e310a7e460adbeb"
+    },
+    {
+      "path": "sdd/features/scripts-verification/plan.md",
+      "bytes": 26632,
+      "sha256": "32526c24b07c68e77a8682b88ea564c475e07932f9ad545510b305ed2b114f3f"
+    },
+    {
+      "path": "sdd/features/scripts-verification/tasks.md",
+      "bytes": 11913,
+      "sha256": "6ae2e517ee6307fd16dfb1fb9b4e86b10aa66d287931005ae2c7846cbd1fc1b6"
+    },
+    {
+      "path": "sdd/features/scripts-verification/converge.md",
+      "bytes": 10744,
+      "sha256": "adcdfe6b4f1445374e468428839bb6a6e3c00af022df1d37136db672e3c1f77a"
+    },
+    {
+      "path": "sdd/features/scripts-verification/traceability.json",
+      "bytes": 8214,
+      "sha256": "77d7687b9254280615667e9f8dafd82e7dad27e409fac054ad3555f198262d8b"
+    },
+    {
+      "path": "sdd/features/scripts-verification/evidence.json",
+      "bytes": 14036,
+      "sha256": "da785f3c39392cdaf609a7d6c0ec436c7a8be103727e4be0b9d936c2a38da1fb"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/Cargo.toml",
+      "bytes": 2904,
+      "sha256": "c17a9a43d174a6e3f90a62f6f6db757675905df553c88d6ba69e9cdefc19aed4"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/Cargo.lock",
+      "bytes": 114548,
+      "sha256": "d292cae282011d9990466602effc11c798b70cb6314d5e928af35b6b86f66aa8"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/src/scan.rs",
+      "bytes": 17608,
+      "sha256": "8796d942c7f37b7441e17ee688f255b1636d187e2e855e8fdd0423ff151fc9d0"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/src/scan/default.rs",
+      "bytes": 6710,
+      "sha256": "a0634d86fa6ca31d65fbf8de0ec84dcc42f6f5a1a5370b89242e9ee679192af4"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/src/scan/rs_file.rs",
+      "bytes": 14473,
+      "sha256": "4f133af29e51f20ee80e31c6ea9957f189d6a8cf3ca3380014b7c4a7286a910f"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/src/scan/supplemental.rs",
+      "bytes": 10130,
+      "sha256": "aea6dc2161f4f34bde0d7537f4a2cf66a334a8aad66e9eeda86b01d2d05aa805"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/upstream-files.json",
+      "bytes": 8644,
+      "sha256": "6413720631053530369112fc127d8da40459c0da37976c40368b5db9f07008b2"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/ec-dep-info.patch",
+      "bytes": 13807,
+      "sha256": "55e8176062d17a9cde7e3416c6dbf61db43a9a8f1440af9d96c06af02a8db02b"
+    },
+    {
+      "path": "tools/quality/vendor/cargo-geiger/EC-PATCH.md",
+      "bytes": 1803,
+      "sha256": "7c2b57bb4ad61022aeb3a4fb4583dee6a3ad7e726654615752f48f746a8e2b19"
+    },
+    {
+      "path": "docs/validation/geiger-coverage-remediation-20261109/report.md",
+      "bytes": 10311,
+      "sha256": "7b7c24c810076ddddd7c4c7fc956188ade3e08e524c2a655554cdfc46e3bea0d"
+    },
+    {
+      "path": "docs/validation/geiger-coverage-remediation-20261109/offline-cache-inspection.json",
+      "bytes": 2835,
+      "sha256": "42232398e7604934db9d98e542332f97aa1df5af20237d993797309a9b63504e"
+    },
+    {
+      "path": "docs/validation/geiger-coverage-remediation-20261109/previous-evidence.json",
+      "bytes": 13164,
+      "sha256": "ff5ff3fda6847402735b1b4dd8e69570b29b6bca15893c2ad76d0e9c6cc74fa4"
+    }
+  ],
+  "geiger_upstream": {
+    "version": "0.14.0",
+    "path": "/home/rodrigo/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cargo-geiger-0.14.0",
+    "modified_files": [
+      "Cargo.toml",
+      "Cargo.lock",
+      "src/scan.rs",
+      "src/scan/default.rs",
+      "src/scan/rs_file.rs",
+      "src/scan/supplemental.rs"
+    ],
+    "package_original_hashes": "tools/quality/vendor/cargo-geiger/upstream-files.json"
+  },
+  "executions": {
+    "build": false,
+    "tests": false,
+    "scanners": false,
+    "verification_scripts": false,
+    "automate": false,
+    "downloads": false,
+    "commit": false
+  },
+  "limitations": [
+    "Os hashes observados identificam estes bytes, não comprovam compilação ou execução.",
+    "As três coberturas novas e os dois gates Geiger permanecem sem execução.",
+    "Dependências ausentes do scanner requerem preparo explicitamente autorizado; não houve download.",
+    "Os arquivos de app/helpers anteriores não foram apagados; a cópia upstream tem nova implementação local explicitada."
+  ]
+}

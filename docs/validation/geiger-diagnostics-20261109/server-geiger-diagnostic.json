@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "manifest": "/home/rodrigo/Projetos/ec/application/server/backend/crates/ec-server-results/Cargo.toml",
+  "native_exit_code": 1,
+  "raw": {
+    "stdout": {
+      "path": "/home/rodrigo/Projetos/ec/.local/automation/runs/run-BvlgAwX0/15-server-geiger/geiger-0.txt",
+      "bytes": 14828,
+      "sha256": "fa35cd02c233fb5c1dbbe44e3bf0e3c4124d64edeb4d95ddd1b63c50e9d4b1d9"
+    },
+    "stderr": {
+      "path": "/home/rodrigo/Projetos/ec/.local/automation/runs/run-BvlgAwX0/15-server-geiger/geiger-0.stderr.log",
+      "bytes": 39439,
+      "sha256": "00c7752ccaf062fb4cba70e525eb13bfee955935cc034227e70fe94cc4744a7b"
+    }
+  },
+  "files": [
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.4/README.md",
+      "stderr_line": 308,
+      "kind": "dependency_documentation",
+      "owner": "siphasher-1.0.4",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/crypto-common-0.2.2/README.md",
+      "stderr_line": 309,
+      "kind": "dependency_documentation",
+      "owner": "crypto-common-0.2.2",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/getrandom-0.4.3/README.md",
+      "stderr_line": 310,
+      "kind": "dependency_documentation",
+      "owner": "getrandom-0.4.3",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/hybrid-array-0.4.15/README.md",
+      "stderr_line": 311,
+      "kind": "dependency_documentation",
+      "owner": "hybrid-array-0.4.15",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/rand_core-0.10.1/README.md",
+      "stderr_line": 312,
+      "kind": "dependency_documentation",
+      "owner": "rand_core-0.10.1",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/md-5-0.11.0/README.md",
+      "stderr_line": 313,
+      "kind": "dependency_documentation",
+      "owner": "md-5-0.11.0",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-server-clean/debug/build/serde_core-d6749a4dd20f1f45/out/private.rs",
+      "stderr_line": 314,
+      "kind": "generated_rust",
+      "owner": "serde_core-d6749a4dd20f1f45",
+      "purpose": "C\u00f3digo Rust na sa\u00edda OUT_DIR de um build script, usado pelo build mas n\u00e3o examinado pelo Geiger.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover durante a execu\u00e7\u00e3o nem para corrigir o gate. \u00c9 sa\u00edda regener\u00e1vel: uma limpeza de build exige recompila\u00e7\u00e3o e pode recriar o mesmo arquivo e o mesmo aviso; n\u00e3o resolve a lacuna da an\u00e1lise.",
+      "next_step": "Investigar o gerador e incluir sua sa\u00edda na an\u00e1lise; n\u00e3o editar o arquivo gerado nem ocultar o aviso."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/sha2-0.11.1/README.md",
+      "stderr_line": 315,
+      "kind": "dependency_documentation",
+      "owner": "sha2-0.11.1",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/cpufeatures-0.3.1/README.md",
+      "stderr_line": 316,
+      "kind": "dependency_documentation",
+      "owner": "cpufeatures-0.3.1",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/hmac-0.13.0/README.md",
+      "stderr_line": 317,
+      "kind": "dependency_documentation",
+      "owner": "hmac-0.13.0",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/cmov-0.5.4/README.md",
+      "stderr_line": 318,
+      "kind": "dependency_documentation",
+      "owner": "cmov-0.5.4",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.10.2/README.md",
+      "stderr_line": 319,
+      "kind": "dependency_documentation",
+      "owner": "const-oid-0.10.2",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/ctutils-0.4.8/README.md",
+      "stderr_line": 320,
+      "kind": "dependency_documentation",
+      "owner": "ctutils-0.4.8",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/chacha20-0.10.2/README.md",
+      "stderr_line": 321,
+      "kind": "dependency_documentation",
+      "owner": "chacha20-0.10.2",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    },
+    {
+      "path": "/home/rodrigo/Projetos/ec/.local/build/ec-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/digest-0.11.3/README.md",
+      "stderr_line": 322,
+      "kind": "dependency_documentation",
+      "owner": "digest-0.11.3",
+      "purpose": "Documenta\u00e7\u00e3o de depend\u00eancia registrada pelo Geiger como entrada do build; pode ser inclu\u00edda por include_str! em atributos doc.",
+      "removal_as_fix": false,
+      "removal": "N\u00e3o remover do cache Cargo. O aviso indica consumo pelo build, n\u00e3o desuso; a remo\u00e7\u00e3o pode quebrar a compila\u00e7\u00e3o ou a documenta\u00e7\u00e3o da depend\u00eancia.",
+      "next_step": "Investigar a classifica\u00e7\u00e3o de entradas n\u00e3o Rust pelo Geiger; manter o arquivo e conferir seu consumidor antes de alterar a integra\u00e7\u00e3o."
+    }
+  ],
+  "scope": "Avisos reconhecidos deste membro; n\u00e3o \u00e9 invent\u00e1rio completo do workspace.",
+  "basis": "Caminhos e avisos nativos; o helper n\u00e3o abre os arquivos mencionados nem prova que existam ou possam ser exclu\u00eddos.",
+  "fallback": "Mensagens n\u00e3o reconhecidas, inclusive erros de compila\u00e7\u00e3o, permanecem nos logs brutos; aus\u00eancia de caminhos extra\u00eddos n\u00e3o significa sucesso."
+}

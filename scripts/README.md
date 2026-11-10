@@ -81,6 +81,37 @@ Gitleaks e Opengrep exigem aprovação dos respectivos testes de regras antes do
 
 ## Seleção, exceções e relatórios
 
+O gate Geiger usa a fonte 0.14.0 com a
+[correção Ec de descoberta](../tools/quality/vendor/cargo-geiger/EC-PATCH.md),
+compilada locked/offline em target privado, sem instalação global ou download.
+Inclusões literais de documentação são identificadas pela AST dos consumidores;
+fontes Rust geradas entram nos contadores do mesmo motor Geiger, atribuídas por
+dep-info. Entradas desconhecidas, atribuição ambígua e parsing inválido falham.
+O inventário de arquivos usados pelo build é mantido. Versão e hash do executável
+ficam no recibo da tarefa, e fontes/lock/licenças estão versionados. Regressões
+específicas da correção são executadas dentro desse gate quando a suíte é autorizada.
+
+A cobertura Rust coleta testes Cargo e jornadas reais existentes nos mesmos
+perfis LLVM do run antes de gerar o LCOV. Isso exige também o PostgreSQL dedicado,
+Git e porta HTTP livre, conforme o preflight de integração. Binários instrumentados
+e companheiros têm targets privados; Server encerra normalmente por stdin privada
+somente no build de teste para gravar os perfis. Não altera o inventário de produção
+nem o mínimo de 80%. [Coletor](../tools/quality/collect_runtime_coverage.py) e
+[estado da correção](../docs/validation/geiger-coverage-remediation-20261109/report.md).
+
+Falhas Cargo Geiger recebem um diagnóstico complementar por membro: caminho de
+cada arquivo não examinado, finalidade provável, orientação de preservação e
+próximo passo. `geiger-N.txt` e `geiger-N.stderr.log` preservam stdout/stderr;
+o stderr é reproduzido após o término do comando daquele membro.
+`geiger-N-exit.txt` mantém o código nativo e `geiger-N-diagnostic.json` registra
+avisos reconhecidos, linhas, hashes e limites da classificação. O helper
+[tools/quality/geiger_diagnostics.py](../tools/quality/geiger_diagnostics.py) não executa o conteúdo dos avisos nem abre
+os arquivos mencionados. Caminhos desconhecidos permanecem indeterminados.
+Erros sem caminho reconhecido remetem aos logs, sem serem convertidos em sucesso.
+O gate continua reprovando e para no primeiro membro com erro; a lista de avisos
+não comprova análise de todos os membros. Veja [como interpretar os arquivos
+Geiger](../docs/development/verification-tools.md#diagnósticos-geiger).
+
 [inputs.sh](stacks/ec/inputs.sh) define raízes ativas: application, scripts, tools,
 sdd, config e docs/development, mais AGENTS.md/README.md. Não seleciona pesquisa
 histórica, docs/validation, .git, .local, .aws, .codex, .agents, node_modules,

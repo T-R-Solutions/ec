@@ -40,6 +40,15 @@ T007 deve reutilizar a fixture, sem substituir seu próprio harness completo/rej
 
 ## Retenção de novas observações
 
+Os novos testes próximos de Editor, Runs, App, cliente HTTP e sessão exercitam
+estado, eventos, rejeições, pedidos incertos e descarte de respostas tardias.
+Usam Vue/Pinia reais e um renderer de teste em `frontend/test-support/renderer.ts`;
+respostas HTTP são simuladas. O parser `@vue/compiler-dom` 3.5.45, já presente
+transitivamente, foi explicitado como dependência de desenvolvimento para os
+fragmentos estáticos desse renderer, sem baixar pacotes. Não substituem DOM real,
+layout, teclado ou os harnesses de navegador. A descoberta Vitest e o inventário
+de produção permanecem. [Implementação e limites atuais](../validation/geiger-coverage-remediation-20261109/report.md).
+
 O harness agora usa EC_E2E_ARTIFACT_DIR quando informado ou cria diretório temporário
 exclusivo; não grava novamente em docs/validation/frontend-20261105. Pelo runner,
 imagens e browser-results.json ficam no run privado. Copiar somente resultados

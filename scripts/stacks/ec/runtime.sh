@@ -83,7 +83,7 @@ run_plan() {
             clean_env+=("EC_TASK_TIMEOUT=$TASK_TIMEOUT")
             local selected
             # Seleções do operador alcançam a CLI; não passam implicitamente ao container.
-            for selected in TOOLBOX_STATE TOOLBOX_SELINUX_LABEL DOCKER_HOST DOCKER_CONTEXT DOCKER_CONFIG DOCKER_TLS_VERIFY DOCKER_CERT_PATH EC_CODEQL_RUSTUP_HOME EC_CODEQL_CARGO_HOME EC_CODEQL_CARGO_BIN; do
+            for selected in TOOLBOX_STATE TOOLBOX_SELINUX_LABEL DOCKER_HOST DOCKER_CONTEXT DOCKER_CONFIG DOCKER_TLS_VERIFY DOCKER_CERT_PATH EC_CODEQL_RUSTUP_HOME EC_CODEQL_CARGO_HOME EC_CODEQL_CARGO_BIN EC_GEIGER_BUILD_CARGO_HOME; do
                 [[ ! ${!selected+x} ]] || clean_env+=("$selected=${!selected}")
             done
             [[ -z ${EC_RUSTSEC_DB:-} ]] || clean_env+=("EC_RUSTSEC_DB=$EC_RUSTSEC_DB")
