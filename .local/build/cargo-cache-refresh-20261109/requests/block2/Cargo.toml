@@ -1,0 +1,9 @@
+[workspace]
+
+[package]
+name = "ec-cache-request"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+requested = { package = "block2", version = "=0.6.2", default-features = false }

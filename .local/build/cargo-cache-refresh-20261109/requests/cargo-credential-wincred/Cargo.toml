@@ -1,0 +1,9 @@
+[workspace]
+
+[package]
+name = "ec-cache-request"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+requested = { package = "cargo-credential-wincred", version = "=0.4.25", default-features = false }

@@ -1,0 +1,9 @@
+[workspace]
+
+[package]
+name = "ec-cache-request"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+requested = { package = "security-framework-sys", version = "=2.17.0", default-features = false }

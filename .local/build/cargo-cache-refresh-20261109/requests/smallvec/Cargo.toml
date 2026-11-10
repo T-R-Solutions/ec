@@ -1,0 +1,9 @@
+[workspace]
+
+[package]
+name = "ec-cache-request"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+requested = { package = "smallvec", version = "=1.16.5", default-features = false }

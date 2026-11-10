@@ -1,0 +1,9 @@
+[workspace]
+
+[package]
+name = "ec-cache-request"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+requested = { package = "defmt-parser", version = "=1.1.0", default-features = false }
