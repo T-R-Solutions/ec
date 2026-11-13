@@ -1,9 +1,0 @@
-[workspace]
-
-[package]
-name = "ec-cache-request"
-version = "0.0.0"
-edition = "2024"
-
-[dependencies]
-requested = { package = "normpath", version = "=1.5.2", default-features = false }

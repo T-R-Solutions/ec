@@ -1,0 +1,95 @@
+{
+  "id": "E02",
+  "kind": "inspection",
+  "command_or_method": "Leitura de código, inventário du e manutenção autorizada com locks; não executar verificadores.",
+  "observed_result": "Somente logs de duas datas em .local; 3544 logs migrados e 83 backups removidos. Runner e regressões implementados, não executados.",
+  "artifact": "docs/validation/local-state-20261111/report.md",
+  "sha256": "7c71a57298e471d87d83c4008865031a8e062d30a76a378dcc61484c73818858",
+  "inputs": [
+    {
+      "path": "scripts/local-state.py",
+      "sha256": "a5562c1147ce9c544e59207b4ee0bde8282b20e64cc831e1e354dd5978eca565",
+      "role": "other"
+    },
+    {
+      "path": "scripts/stacks/ec/runtime.sh",
+      "sha256": "c9c17406f93b7f57638d804c143d4cb580555e87e1dd5953cb6d64b52b6bba41",
+      "role": "other"
+    },
+    {
+      "path": "scripts/stacks/ec/common.sh",
+      "sha256": "61380f35d960c5bf72d9457677f9e6bfc0a934e5a86569df53e9e5f71141bb80",
+      "role": "other"
+    },
+    {
+      "path": "scripts/tests/test_local_state.py",
+      "sha256": "e39a1a57420debfc9ddabd7b1436e168b830e9bbc6bb68246719079143e3b68a",
+      "role": "other"
+    },
+    {
+      "path": "docs/development/local-state.md",
+      "sha256": "18f4b078ed78146e2b2f336f44644fed91149fcd44f7e458557b7484fe2b6da1",
+      "role": "other"
+    },
+    {
+      "path": "sdd/features/local-state/spec.md",
+      "sha256": "a3daf16a1afa0b5d72a1e3043370db9751d51aa66cdfbeb3c01904a97079e011",
+      "role": "other"
+    },
+    {
+      "path": "sdd/features/local-state/plan.md",
+      "sha256": "6dba41086224f880ed830ef35df9717bceeb1d5040e7a8ed91bf965c8aa4d6fc",
+      "role": "other"
+    },
+    {
+      "path": "sdd/features/local-state/tasks.md",
+      "sha256": "ff0537a1a8d6059c397eb7e0efbfc5a76363c56d6dff65e5a4a6c1797e664b2c",
+      "role": "other"
+    },
+    {
+      "path": "application/server/frontend/vite.config.ts",
+      "role": "other",
+      "sha256": "048d8ebf8809909acc58449b2b53705f6381435632df6164f18a3a232a83f4a9"
+    },
+    {
+      "path": "tools/quality/native_gates.py",
+      "role": "other",
+      "sha256": "5b00174b53eb22cb60a23becc829798e83fd3a9ffc8bb67f925fadbcdc96b1c7"
+    },
+    {
+      "path": "scripts/tests/test_shell.py",
+      "role": "other",
+      "sha256": "95e4232687890518bb2d5e0c2ada3e5f0df26745d9a6f8e402d0b93aa2d76e3b"
+    },
+    {
+      "path": "scripts/tests/test_native.py",
+      "role": "other",
+      "sha256": "0431ddfee0bfd118d47fba10becce4798d849bf5e037e76d1b4e97421d8d3a5a"
+    },
+    {
+      "path": "tools/governance/tests/test_governance.py",
+      "role": "other",
+      "sha256": "ca3b7525c70088fd0e601cfa9e0c466b25ada91f82124106493ce0cb78c081a6"
+    },
+    {
+      "path": "application/integration/tests/integration/publication_http.py",
+      "role": "other",
+      "sha256": "a629d38bb7b15310a9b3dcc1943f24cc7b669e47c7e19de67c37143ce1badd42"
+    },
+    {
+      "path": "application/integration/tests/integration/agent_http.py",
+      "role": "other",
+      "sha256": "c74cf83afd7f7f44a1a687d09e321d5ac01ce8c23ee70ff922055093663945ac"
+    },
+    {
+      "path": "application/integration/tests/e2e/frontend_firefox.py",
+      "role": "other",
+      "sha256": "91a18cba816b72d31aae25db2abbb9680c4bbfa759d8f52e71a7645468d5433e"
+    },
+    {
+      "path": "sdd/features/local-state/traceability.json",
+      "role": "other",
+      "sha256": "3158d1e323e6c7f0b099ac678ff321547b5ca049cf88b97079e177625fe2108c"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "areas": {
+    "application": {
+      "files": 142,
+      "logical_bytes_excluding_dependencies": 459899
+    },
+    "scripts": {
+      "files": 47,
+      "logical_bytes_excluding_dependencies": 173747
+    },
+    "tools": {
+      "files": 84,
+      "logical_bytes_excluding_dependencies": 533298
+    },
+    "config": {
+      "files": 3,
+      "logical_bytes_excluding_dependencies": 1513003
+    },
+    "docs": {
+      "files": 843,
+      "logical_bytes_excluding_dependencies": 31777545
+    },
+    "sdd": {
+      "files": 99,
+      "logical_bytes_excluding_dependencies": 485132
+    },
+    "reverse_engineering_teamcity": {
+      "files": 817,
+      "logical_bytes_excluding_dependencies": 2287057829
+    },
+    "technical-documentation": {
+      "files": 6,
+      "logical_bytes_excluding_dependencies": 28719
+    },
+    ".codex": {
+      "files": 596,
+      "logical_bytes_excluding_dependencies": 2217658
+    },
+    ".agents": {
+      "files": 0,
+      "logical_bytes_excluding_dependencies": 0
+    },
+    ".aws": {
+      "files": 0,
+      "logical_bytes_excluding_dependencies": 0
+    },
+    ".local": {
+      "files": 488859,
+      "logical_bytes_excluding_dependencies": 23197902142
+    }
+  },
+  "exact_duplicates": {
+    "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2": [
+      "application/server/backend/rust-toolchain.toml",
+      "application/agents/rust-toolchain.toml"
+    ],
+    "798d2032831b96f912f3835e8a4b4ffda3ccbb59bc0339a0d801cfffaefefa58": [
+      "tools/quality/vendor/cargo-geiger/tests/snapshots/integration_tests__test2_package_with_shallow_deps.stderr.snap",
+      "tools/quality/vendor/cargo-geiger/tests/snapshots/integration_tests__test7_package_with_patched_dep.stderr.snap"
+    ],
+    "144b9bc8c9f4a274d83bd4df7da2618b80d21270528de23d52fa66dc7cb5cfa0": [
+      "tools/quality/vendor/cargo-geiger/tests/snapshots/integration_tests__test3_package_with_nested_deps.stderr.snap",
+      "tools/quality/vendor/cargo-geiger/tests/snapshots/integration_tests__test6_cargo_lock_out_of_date.stderr.snap"
+    ],
+    "402e0937580d952cc52dca20e5460087271a2dbd8020c02360900a21cd75abb0": [
+      "tools/quality/vendor/cargo-geiger/tests/snapshots/integration_tests__test4_workspace_with_top_level_package.stderr.snap",
+      "tools/quality/vendor/cargo-geiger/tests/snapshots/integration_tests__test8_package_with_build_rs_no_deps.stderr.snap"
+    ]
+  }
+}

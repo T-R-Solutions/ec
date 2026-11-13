@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "environment": "Linux local em 11/11/2026; manutenção autorizada e inspeção, sem scripts de verificação.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "AC-01 conforme spec.md e relatório",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Declaração dos ACs ajustada à gramática do SDD em 11/11/2026, sem mudar cenários. A observação E02 anterior foi retirada do conjunto ativo; não houve nova execução dos oráculos."
+    },
+    {
+      "id": "AC-02",
+      "criterion": "AC-02 conforme spec.md e relatório",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Declaração dos ACs ajustada à gramática do SDD em 11/11/2026, sem mudar cenários. A observação E02 anterior foi retirada do conjunto ativo; não houve nova execução dos oráculos."
+    },
+    {
+      "id": "AC-03",
+      "criterion": "AC-03 conforme spec.md e relatório",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Declaração dos ACs ajustada à gramática do SDD em 11/11/2026, sem mudar cenários. A observação E02 anterior foi retirada do conjunto ativo; não houve nova execução dos oráculos."
+    },
+    {
+      "id": "AC-04",
+      "criterion": "AC-04 conforme spec.md e relatório",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Declaração dos ACs ajustada à gramática do SDD em 11/11/2026, sem mudar cenários. A observação E02 anterior foi retirada do conjunto ativo; não houve nova execução dos oráculos."
+    }
+  ],
+  "evidence": [],
+  "limitations": [
+    "Runner, retenção automatizada, limpeza de EXIT, testes e validadores não executados.",
+    "O registro de 10/11/2026 permanece no relatório datado, mas suas observações não são evidências ativas do contrato substituído.",
+    "SIGKILL/queda do host podem deixar temporários; não há garantia de recuperação de arquivos sem revisão Git disponível.",
+    "2026-11-11: E02 preservada, com seus hashes originais, em docs/validation/local-state-20261111/observation-E02.json. Registro histórico não aprova os inputs atuais. Correção editorial documentada em docs/validation/governance-cohesion-20261111/report.md."
+  ]
+}

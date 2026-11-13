@@ -1,0 +1,47 @@
+[
+  {
+    "acceptance": "AC-01",
+    "requirement": "REQ-01",
+    "decision": "D-01",
+    "risk": "R-01",
+    "tasks": [
+      "T001"
+    ],
+    "implementation": "docs/validation/local-state-20261111/report.md",
+    "oracle": "docs/validation/local-state-20261111/report.md"
+  },
+  {
+    "acceptance": "AC-02",
+    "requirement": "REQ-02",
+    "decision": "D-02",
+    "risk": "R-02",
+    "tasks": [
+      "T002"
+    ],
+    "implementation": "scripts/stacks/ec/common.sh",
+    "oracle": "docs/validation/local-state-20261111/report.md"
+  },
+  {
+    "acceptance": "AC-03",
+    "requirement": "REQ-03",
+    "decision": "D-03",
+    "risk": "R-03",
+    "tasks": [
+      "T003",
+      "T005"
+    ],
+    "implementation": "scripts/local-state.py",
+    "oracle": "scripts/tests/test_local_state.py"
+  },
+  {
+    "acceptance": "AC-04",
+    "requirement": "REQ-04",
+    "decision": "D-04",
+    "risk": "R-04",
+    "tasks": [
+      "T004"
+    ],
+    "implementation": "docs/development/local-state.md",
+    "oracle": "docs/validation/local-state-20261111/report.md"
+  }
+]
