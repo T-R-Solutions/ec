@@ -3,20 +3,9 @@ name: agent-runtime-engineering
 description: Support CI/CD process supervision, event ordering, cancellation and recovery when the Ec runtime skills need a distinct supervisor question. Use ACP or LLM session adapters only for explicitly scoped AI integrations.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # agent-runtime-engineering
 
@@ -30,7 +19,7 @@ Manage CLI agent lifecycles and communication protocols, resources, sessions, ev
 
 Select: a distinct process-supervision or recovery question supporting the primary Ec CI/CD runtime skills. ACP/LLM adapters are conditional on an explicit AI integration.
 
-Do not select: Do not select for standalone prompts, model comparison or response quality evaluation without effects; use ai-engineering.
+Do not select: standalone prompts, model comparison or response quality evaluation without effects; use ai-engineering.
 
 ## Inputs and gaps
 

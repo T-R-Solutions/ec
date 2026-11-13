@@ -3,20 +3,9 @@ name: workspace-integrity-engineering
 description: Protect multiauthor workspaces through content preconditions, path boundaries, conflict detection and crash recovery. Use for concurrent file edits, watchers and Git worktrees; skip ordinary schema migrations.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # workspace-integrity-engineering
 
@@ -40,13 +29,13 @@ Inspect actual contracts and resources before execution. A missing version requi
 
 ## Operating procedure
 
-1. Inventory authorized roots, existing dirty and untracked files, symlinks, external writers, filesystem and Git availability. Capture a recoverable content baseline for the intended write set; Git status alone does not preserve unstaged or untracked bytes.
+1. Inventory authorized roots, existing dirty and untracked files, symlinks, external writers, filesystem and Git availability. Identifique o conteúdo observado por hash e a recuperação realmente disponível sob a política de retenção do consumidor. Não crie backups quando proibidos; Git status não preserva bytes sem commit.
 
 2. Bind each proposed edit to an observed base hash and destination identity. Compare immediately before commit; a mismatched base becomes a conflict, never a blind overwrite. A merge requires independent verification and retention of both inputs.
 
 3. Constrain path resolution and the actual operation. Reject traversal and escaping symlinks; consider case normalization, mount boundaries and races. Canonicalizing once before opening is not a complete defense against TOCTOU. Use suitable platform primitives or explicitly narrow the threat model.
 
-4. Prepare staging, a journal and recovery points. Distinguish atomic replacement of one path from durability and from a multi-file transaction. Record which writes are committed, uncertain or still staged when a crash interrupts the sequence.
+4. Prepare staging e, quando necessários e permitidos pela retenção, journal e pontos de recuperação. Distinga substituição atômica de um arquivo, durabilidade e transação multi-arquivo. Registre escritas concluídas, incertas ou ainda preparadas após interrupção; ausência de backup limita a recuperação.
 
 5. Treat watcher events as hints. Reconcile from file contents after overflow, rename bursts or restart; invalidate snapshots of changed files and downstream indices. If worktrees are used, inspect shared repository metadata and serialize conflicting Git operations.
 

@@ -1,0 +1,167 @@
+{
+  "source": ".local/analiser/SKILLS-DESIGN-v4.0.0.zip",
+  "sha256": "c974706e84420c72807931b965e536057efde376d66364ff84777e4e275ca3ad",
+  "retained_copy": "config/governance/sources/SKILLS-DESIGN-v4.0.0.zip",
+  "members": {
+    "ox-design-system/.agents/skills/ox-native-handoff/SKILL.md": "4f98f904a90b2046ae7ad91ff81373a9b7ae252e2a2e261a2b673c635951fa2c",
+    "ox-design-system/.agents/skills/ox-visual-qa/SKILL.md": "633db0ce3e735f3f4475bdfabc69a495b84b65996dbfcf59e2704e8148e98e32",
+    "ox-design-system/.agents/skills/ox-polish/SKILL.md": "a55afaf038e0c8eda82036bbe77c0527885616189a2ab3efb6192492e9ea8eb7",
+    "ox-design-system/.agents/skills/ox-layout/SKILL.md": "b165faf613c0cb548c77fc8dc08c83cbb5404c35fc212c728e164fdaf39197e2",
+    "ox-design-system/.agents/skills/ox-critique/SKILL.md": "37347c030fe40c9cbc59b8de29569725ff46039122599ec474c77f9fcbec6fa1",
+    "ox-design-system/.agents/skills/ox-harden/SKILL.md": "a07e12e97c8a4eabe6cc5d8f41e825771692d287b28b15e6cc92cedc811ff1fd",
+    "ox-design-system/.agents/skills/ox-accessibility/SKILL.md": "4b8a0c35347879cb1d4ba649a28f0065b3894742e5f00a22ed828de304ddbd44",
+    "ox-design-system/.agents/skills/ox-design-brief/SKILL.md": "048cbb1e9201618ed080c6f938eebbc58f3ec511018965ef3ee15b461d673c85",
+    "ox-design-system/.agents/skills/ox-chromatic-refinement/SKILL.md": "de48e253c522b0eb2e9e892edc708a446566a12c27d9fa41099fd6244c416a50",
+    "ox-design-system/.agents/skills/ox-typeset-icons/SKILL.md": "1acfc25f0333fad9470f191ff79be29cd7c8b0a806cb2427c37628559cc8e06a",
+    "ox-design-system/.agents/skills/ox-extract-tokens/SKILL.md": "f555b4d4b8c56630544d92dad14a6105119d2358b40154634a95df64153ed777"
+  },
+  "primary_skill": {
+    "path": "/home/rodrigo/.codex/skills/.system/skill-creator/SKILL.md",
+    "sha256": "6656e54755638e8efcf275a472b9672eaa8a9a1b9e59dc210e275b03b59e1e66"
+  },
+  "catalog_selected_count": 67,
+  "catalog_file_count": 599,
+  "method": "Preparação da aplicação com precondições; não é auditoria nem execução de testes.",
+  "writes": [
+    {
+      "path": ".codex/skills/design-system/SKILL.md",
+      "before": "6dd9f14e52dd08f482e77e5e14ac41290648563cd734becac294f7bafe6fce4b",
+      "after": "bc6258c65286dff418983e38b2b355f6402be667cbfa828bdfe131d40b9cd8ae"
+    },
+    {
+      "path": ".local/skill-installation/skills/design-system/SKILL.md",
+      "before": "6dd9f14e52dd08f482e77e5e14ac41290648563cd734becac294f7bafe6fce4b",
+      "after": "bc6258c65286dff418983e38b2b355f6402be667cbfa828bdfe131d40b9cd8ae"
+    },
+    {
+      "path": ".codex/skills/design-system/references/typography-and-finish.md",
+      "before": null,
+      "after": "137f4280f8ffa5283b32225e4affd84e4e6d3945f9d01d302e8b9db8c6df0361"
+    },
+    {
+      "path": ".local/skill-installation/skills/design-system/references/typography-and-finish.md",
+      "before": null,
+      "after": "137f4280f8ffa5283b32225e4affd84e4e6d3945f9d01d302e8b9db8c6df0361"
+    },
+    {
+      "path": ".codex/skills/design-system/references/visual-token-migration.md",
+      "before": null,
+      "after": "f86c054e5898bf7769c49edbc06b8c1cd6d62b021c79c781863b9ba4a90d80ed"
+    },
+    {
+      "path": ".local/skill-installation/skills/design-system/references/visual-token-migration.md",
+      "before": null,
+      "after": "f86c054e5898bf7769c49edbc06b8c1cd6d62b021c79c781863b9ba4a90d80ed"
+    },
+    {
+      "path": ".codex/skills/design-review/SKILL.md",
+      "before": "e3fd16d6dfd727c9c6f52fddbe247f6959a4af6bd0414e5455ba62e5e12afad3",
+      "after": "8d72271910e57b712149460d87d684822e67a8cd41276148418ea2fd3899dc0a"
+    },
+    {
+      "path": ".local/skill-installation/skills/design-review/SKILL.md",
+      "before": "e3fd16d6dfd727c9c6f52fddbe247f6959a4af6bd0414e5455ba62e5e12afad3",
+      "after": "8d72271910e57b712149460d87d684822e67a8cd41276148418ea2fd3899dc0a"
+    },
+    {
+      "path": ".codex/skills/design-review/references/review-method.md",
+      "before": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf",
+      "after": "95092f1c5bb1ac87c3dc6739cd9a5e50b2355c8d1af1fccaf93a839e0ab5d9c2"
+    },
+    {
+      "path": ".local/skill-installation/skills/design-review/references/review-method.md",
+      "before": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf",
+      "after": "95092f1c5bb1ac87c3dc6739cd9a5e50b2355c8d1af1fccaf93a839e0ab5d9c2"
+    },
+    {
+      "path": ".codex/skills/css-layout-engineering/references/responsive-shells-and-overflow.md",
+      "before": "057453dcb5b283494be53f3108447bd6485b66f1f325417605daed7453756453",
+      "after": "6872220a13d140b2891354cfed3f6833376facfd546fea4b3c3b745bd9780efe"
+    },
+    {
+      "path": ".local/skill-installation/skills/css-layout-engineering/references/responsive-shells-and-overflow.md",
+      "before": "057453dcb5b283494be53f3108447bd6485b66f1f325417605daed7453756453",
+      "after": "6872220a13d140b2891354cfed3f6833376facfd546fea4b3c3b745bd9780efe"
+    },
+    {
+      "path": ".codex/skills/frontend-testing/SKILL.md",
+      "before": "67b711a02c687c87d153c6037ca872d30be3900c0b0a582b86f2d2716daaca06",
+      "after": "8f8746e1becd8f721780dc764ced1684f502f07d0ac24dea65b70b9f8fd293e0"
+    },
+    {
+      "path": ".local/skill-installation/skills/frontend-testing/SKILL.md",
+      "before": "67b711a02c687c87d153c6037ca872d30be3900c0b0a582b86f2d2716daaca06",
+      "after": "8f8746e1becd8f721780dc764ced1684f502f07d0ac24dea65b70b9f8fd293e0"
+    },
+    {
+      "path": ".codex/skills/frontend-testing/references/visual-capture-evidence.md",
+      "before": null,
+      "after": "5788987e3dcba1e0f28fde0af82ce887451f75159c90807a30fc66db862b0f2b"
+    },
+    {
+      "path": ".local/skill-installation/skills/frontend-testing/references/visual-capture-evidence.md",
+      "before": null,
+      "after": "5788987e3dcba1e0f28fde0af82ce887451f75159c90807a30fc66db862b0f2b"
+    },
+    {
+      "path": "config/governance/sources/SKILLS-DESIGN-v4.0.0.zip",
+      "before": null,
+      "after": "c974706e84420c72807931b965e536057efde376d66364ff84777e4e275ca3ad"
+    },
+    {
+      "path": "config/governance/profile.json",
+      "before": "2bd811b32c67a40e5cce9a052b9b5423647df622b57f77fa837e98814f72afd8",
+      "after": "c77ce8e1f0d193d73c73fd90a44e0751dce0e6473be84b50476e807f71893101"
+    },
+    {
+      "path": "AGENTS.md",
+      "before": "e7cc2bfbee65a77fdc47b7fecdb95cb1eec0ca8edf6ed12188a115cf2ca1c407",
+      "after": "56756978445b5ee3408f89a74e47a5ec0e41968a484c94b43ee8238387537c59"
+    },
+    {
+      "path": "docs/development/frontend-design-skills.md",
+      "before": null,
+      "after": "18b557dacadc0faf36e715f6e583f7c878da20696b6eb37542538387ff41d402"
+    },
+    {
+      "path": "docs/development/frontend.md",
+      "before": "dab3a6fbcdbaca4d81587fb7c52d1282d21f096a6745a2bf00738269b191dc3a",
+      "after": "07a7491c8a5d3894f9a27407ee0cbb4e2bd7c8b762c4b5541ccf7397ed04d35b"
+    },
+    {
+      "path": "docs/development/skill-installation.md",
+      "before": "54c7be90e3c93bed815180f2e55e986a4186977c5550114da48f803a76456967",
+      "after": "297be53c7479aa5cd7a623ebac4432c204695dbb2994668ad3ac9f5069813286"
+    },
+    {
+      "path": "docs/README.md",
+      "before": "68796a892d4116b372eb308c1521a44495a0558e4d899291d5fca7b9f9f63db4",
+      "after": "a11adda70b10839f7ae924b362dafda370bbc160ef129b4f97723beeb623fcce"
+    },
+    {
+      "path": "sdd/project.md",
+      "before": "4597d45676d43a12c6d7e0caad4923cc11b478c0d1b0b403bb8ddd06de54d3ae",
+      "after": "6d9667612f7e605967b7eadc9905c01d760976eaf506e8e3705b4953df1ed8fa"
+    },
+    {
+      "path": "sdd/features/governance-adoption/plan.md",
+      "before": "55e77c15a0441b8a4cd637b494bbf606e889f3ffc7464e8674ce08ee35dcfc80",
+      "after": "b23c4b1e94ef60113446f77556570620f03d71cac11f6eccb16515bfa7fb48a5"
+    },
+    {
+      "path": "sdd/features/governance-adoption/tasks.md",
+      "before": "57779a693528d8ee94c96ec6b3c0ac7206b00fffc0e279475317df52af248c56",
+      "after": "7f656c27dbcc9bcb79b202ef308a25d3237c22e06008be59dd24353fa1fcab9c"
+    },
+    {
+      "path": "sdd/features/governance-adoption/converge.md",
+      "before": "0b8e5e1f66347c99541bbe6e98cd201cf937197d260dd63bbfc0ff255aa46559",
+      "after": "cfcb5eecb917a2d553b7910dbcb03ef465a8125d57ae8148a77e7680f19c4d43"
+    },
+    {
+      "path": "sdd/features/governance-adoption/evidence.json",
+      "before": "77bd663439f9be92856752d882b60c0e845cebc4e1fe91be6acac849245add74",
+      "after": "6bf9df6bc2eca5686e659edd013b39307fb2eef7b7d4b67b9dd74397605ff33a"
+    }
+  ]
+}

@@ -22,3 +22,12 @@ gRPC/Protobuf/SQLite e números de escala permanecem propostas. Não modificar o
 O pedido posterior de limpeza substitui a retenção integral dos ZIPs de entrada. Preservar em `config/governance/sources/skills-inputs.zip` os bytes originais das 71 candidatas, pontes e métodos SDD importados e os contextos usados na adaptação. Remover `skills_to_use/` após conferir essa preservação e os consumidores. O material de produto, evidências e ativos exclusivos do Ox não faz parte da integração Ec.
 
 O perfil schema 2 distingue `source_archives` vigentes de `retired_source_archives` históricos; `source_bundle` identifica o arquivo compacto. O auditor continua exigindo o hash do contêiner e passa a comparar cada recurso original com `source_files`. O schema 1 anterior continua legível. Manter o baseline `.local/skill-installation/skills/`, a pesquisa TeamCity e os registros de validação; hashes de ZIPs retirados não permitem reconstruir seu conteúdo descartado.
+
+## Revisão de retenção — 2026-11-11
+
+O pedido explícito de eliminar backups substitui a obrigação anterior de manter
+`.local/skill-installation/skills/`. A instalação vigente e seus hashes permanecem
+em `.codex/skills/` e no perfil. Os testes constroem a preparação somente em
+fixtures temporárias a partir do catálogo instalado. Bundles são fontes originais
+vinculadas por hash, não backups de instalações. Recuperação usa histórico
+Git/GitHub disponível, sem recriar cópias permanentes.

@@ -2,7 +2,10 @@
 
 ## Contexto
 
-O usuário solicita análise exaustiva dos pacotes em skills_to_use e documentos docs, seleção/migração para .codex/skills e adaptação de SDD/AGENTS, seguida de validação. A captura de Ox é referência de organização, sem impor sua stack ou estado.
+O pedido inicial abrangeu os pacotes fornecidos e documentos docs, seleção/migração
+para .codex/skills e adaptação de SDD/AGENTS, seguida de validação. A captura de Ox
+é referência de organização, sem impor sua stack ou estado. A manutenção atual
+inclui coesão entre essas configurações, sem alterar a seleção ou aprovar eficácia.
 
 ## Requisitos e aceitação
 
@@ -19,7 +22,12 @@ O usuário solicita análise exaustiva dos pacotes em skills_to_use e documentos
 
 ## Limites
 
-Sem execução de produto, alteração das cinco fontes documentais originais, publicação ou mudança de permissão. A exclusão dos ZIPs integrais, fora do escopo inicial, foi autorizada no pedido posterior de limpeza e é limitada por REQ-06. EROFS mantém AC-05 UNVERIFIED, não reduz o requisito. Acesso pela UI é uma observação distinta da instalação filesystem.
+Sem execução de produto, alteração das cinco fontes documentais originais, publicação
+ou mudança de permissão. A exclusão dos ZIPs integrais foi autorizada no pedido
+posterior de limpeza e é limitada por REQ-06. Uma restrição de escrita não reduz o
+critério AC-05. Acesso pela UI é distinto da instalação filesystem. Retenção e recuperação
+seguem a revisão de 11/11/2026 da [ADR-001](../../../docs/decisions/ADR-001-skills-sdd-adoption.md);
+menções históricas à baseline não exigem uma cópia permanente.
 
 ## Limpeza posterior à instalação — 2026-11-03
 
@@ -28,5 +36,5 @@ Sem execução de produto, alteração das cinco fontes documentais originais, p
 
 ## Recuperação do instalador — 2026-11-05
 
-- REQ-07: retomar instalação interrompida, preservando conteúdo alheio, baseline e auditoria estrita.
-- AC-07 → REQ-07: interrupções na cópia, entre pontes e antes/depois do perfil convergem por retry; conflitos de metadados, pacotes, baseline e journal são rejeitados; instaladores concorrentes não escrevem simultaneamente e morte do processo libera o lock.
+- REQ-07: retomar instalação interrompida, preservando conteúdo alheio, fonte de preparação autorizada e auditoria estrita.
+- AC-07 → REQ-07: interrupções na cópia, entre pontes e antes/depois do perfil convergem por retry; conflitos de metadados, pacotes, preparação e journal são rejeitados; instaladores concorrentes não escrevem simultaneamente e morte do processo libera o lock. Preparação de testes usa fixtures temporárias, conforme a política de retenção.

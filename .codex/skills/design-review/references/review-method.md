@@ -41,3 +41,33 @@ Illustrative before/after, not executed: Before: “Like” silently publishes a
 **Action/context:** For a material choice, explain the problem, the user effect and why the recommended option fits better than viable alternatives. Link the rationale to the actual artifact and decision status. **Evidence:** Greever chapters 1 and 6, PDF 35–46 and 153–171; chapters 4 and 9, PDF 117–129 and 205–216. **Rationale:** reviewers need a checkable argument and a record of what remains unresolved. **Exceptions/costs:** a one-line explanation may suffice for a routine correction; extra mockups and meetings are justified only when they can resolve uncertainty. **Validate:** check the evidence and commitments, retain material objections and separately verify the product change. Agreement is not a usability test.
 
 Use [decision communication](decision-communication.md) for preparation, clarification, objections and follow-up. Its safeguards explicitly qualify persuasive techniques in the source; they do not replace task observation or accessibility checks.
+
+## Crítica visual com condições controladas
+
+Para avaliar uma mudança visual, estabeleça primeiro qual decisão a observação
+pode alterar. Um brief curto pode conter tarefa, problema observado, hipótese,
+limites de escopo, consumidor e condições de comparação. Não exija uma nova peça
+formal se esses dados já estiverem no pedido ou registro da tarefa.
+
+Faça duas leituras complementares da mesma jornada: primeiro tarefa, hierarquia,
+localização e consequência; depois papéis de cor/forma, densidade, contornos,
+foco e truncamento. Isso ajuda a distinguir uma necessidade de espaço ou
+orientação de uma preferência cromática. Corrija primeiro o problema que impede
+ou induz a ação; acabamento não compensa uma confirmação indevida.
+
+Para cada achado material, vincule região/componente e fixture à observação,
+impacto, causa provável, mudança mínima e risco de regressão. Use a severidade
+adotada pelo projeto; na ausência dela, descreva se o problema impede a tarefa,
+induz uma consequência incorreta ou acrescenta fricção. Não invente frequência,
+pontuação estética ou gravidade a partir apenas da preferência do revisor.
+
+Compare baseline e candidato com o mesmo conteúdo, estado, viewport/zoom, tema
+e densidade. Uma captura estática não demonstra recuperação nem compreensão do
+usuário. Se as condições não forem equivalentes, registre o que ainda pode ser
+observado e evite atribuir a diferença à mudança investigada. Após a correção,
+reobserve os achados afetados sem substituir silenciosamente os registros de
+falha. Uma correção direta e delimitada não exige alternativas artificiais,
+reunião ou permissão já concedida.
+
+Síntese adaptada de ox-design-brief e ox-critique, pacote SKILLS-DESIGN-v4.0.0.
+O pacote original não é requisito de execução desta referência.

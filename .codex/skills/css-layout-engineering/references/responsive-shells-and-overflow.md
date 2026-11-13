@@ -34,3 +34,25 @@ Keep primary actions on screen and test for long project names, long commit hash
 - Truncating long IDs without a discoverable way to recover full text can violate requirements.
 
 Evidence: compare bounding boxes, root scrollWidth, internal scrollWidth and critical visibility. A screenshot at one width is insufficient. See [browser oracles](browser-verification-and-oracles.md) and [accessibility](layout-accessibility-and-zoom.md).
+
+## Prioridade geométrica e densidade
+
+Quando painéis competem por espaço, identifique a região principal da tarefa e
+qual informação cada região auxiliar precisa conservar. Registre mínimos,
+máximos e condições de recolhimento a partir do conteúdo real; dimensões de um
+protótipo são hipóteses, não constraints comprovadas no consumidor.
+
+Antes de reduzir fontes, procure cabeçalhos duplicados, wrappers e espaçamentos
+que comprimem a área útil. Compare normal/compacto mantendo os mesmos dados e
+controles críticos; reduzir densidade visual não autoriza omitir erros, estados,
+rótulos ou o controle de reabertura. Considere uma região recolhida aceitável
+somente quando sua informação e ação continuam recuperáveis.
+
+Observe abrir/recolher e, quando houver, redimensionar o inspector: o conteúdo
+principal pode cruzar uma restrição interna sem alterar a janela. Registre região,
+limite atingido, rolagem intencional e controle que recupera o painel. Não acrescente
+redimensionamento ou drag apenas porque existe no protótipo; teclado, foco e
+alternativas precisam corresponder ao comportamento implementado.
+
+Síntese adaptada de ox-layout, pacote SKILLS-DESIGN-v4.0.0, sem medidas fixas,
+convenções nativas ou matriz obrigatória de monitores.

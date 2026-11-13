@@ -3,20 +3,9 @@ name: software-testing
 description: Plan, implement, or review risk-based software tests; diagnose weak or flaky suites and preserve behavior during changes. Use for test strategy, case design, test doubles, or meaningful regression coverage, rather than unrelated edits or a requirement to add tests to every change.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # Software Testing
 
@@ -61,8 +50,6 @@ instrumentation, corpus and reproducible failures. Neither is required for routi
 Complete the requested tests and inspect their results; fix failures caused by the change within scope. Summarize the behavior protected and commands/results. Explain risk and scope choices only when they affect acceptance; a focused regression needs no suite inventory. Identify blocked or skipped checks, remaining gaps, and any intentional contract change. Report coverage or timing only when measured and include its scope. Keep proposed checks separate from completed validation.
 
 The shared research record (historical library source: `system/research/testing-progress.json`; not required at runtime) tracks source reading and limitations; it is provenance, not required operational context. The coverage matrix (historical library source: `system/research/testing-coverage.json`; not required at runtime) distinguishes textual analysis, selected visual inspection, source defects, and unexecuted examples.
-
-Other named skills are optional specialist suggestions. Use them only when available and needed for a specific unresolved question; their absence does not prevent using this skill. Report any expertise or verification gap without claiming a handoff occurred.
 
 ## Adjacent responsibilities
 

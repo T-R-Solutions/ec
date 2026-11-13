@@ -1,5 +1,9 @@
 # Plano — governança Ec
 
+As decisões datadas abaixo registram a evolução da feature. Para a manutenção
+vigente, consulte a seção de coesão ao final; retenção e autorização vêm das
+políticas canônicas, não dos procedimentos históricos de preparação.
+
 ## Fontes e decisões
 
 Normas originais em docs, três pacotes de skills, AGENTS e SDD Ox. Pedido atual autoriza adaptar o AGENTS local previamente protegido contra substituição na tarefa anterior.
@@ -44,3 +48,44 @@ Duas referências concentram qualidade visual mensurável e Mermaid/assets. As m
 - O auditor público não aceita estados intermediários. Na retomada, uma cópia temporária dos inputs restaura somente a visão anterior de metadados para auditoria estrita; os arquivos reais permanecem intactos. Pacotes do destino são conferidos separadamente antes de continuar. --check não recupera nem altera metadados.
 - Escopo: processos cooperantes, Linux e filesystem local com rename/flock/fsync. Escritor externo simultâneo que ignora flock pode correr entre comparação e replace; não se promete proteção contra adversário com escrita no checkout. Journal não é assinatura contra adulteração coordenada de todos os inputs. Uma ponte alterada para bytes exatamente iguais aos esperados é indistinguível de progresso legítimo e segura para convergência.
 - Arquivos e diretórios são sincronizados, mas os testes exercitam interrupção de processo/I/O, não corte físico de energia. Temporários órfãos fora do destino ativo são preservados; nunca promovidos pela mera existência. Não há transação atômica multi-arquivo.
+
+
+## Mesclagem de métodos de frontend — 11/11/2026
+
+Rota local autorizada após o parecer Signal: D-01/D-03/D-05 e R-01/R-03/R-05
+continuam aplicáveis a fonte, referências, perfil e baseline. Primária: skill-creator
+no caminho e hash registrados em docs/validation/frontend-skills-20261111/provenance.json.
+Os quatro pacotes de frontend são objetos de edição; não houve execução de todas
+as suas modalidades. [Plano proporcional](../../../docs/validation/frontend-skills-20261111/plan.md).
+
+Decisão: incorporar somente os deltas úteis; manter nomes/gatilhos e reutilizar
+referências existentes quando suficientes. Preservar versões anteriores, comparar
+precondições, sincronizar baseline e atualizar files/adaptations dos quatro pacotes.
+A fonte suplementar entra no source_archives schema 2; origin/source_files e bundle
+original não mudam. Ferramentas de auditoria/instalação não são alteradas.
+
+Riscos: duplicação, importação de regras Ox, drift de hashes e falsa aprovação.
+Tratamento: leitura comparativa, referências autocontidas, conjunto de escrita
+identificado e critérios UNVERIFIED até evidência adequada. Scripts seguem a
+política de commit vigente; nenhum foi autorizado neste pedido.
+
+## Coesão de skills, SDD e AGENTS — 11/11/2026
+
+Manutenção documental dos REQ-01/02/03/05/07, sem ampliar seleção, protocolos ou
+permissões. D-01/D-02/D-03/D-05/D-07 e riscos correspondentes orientam preservação
+de identidade, fontes, caminhos e evidências. A revisão do contrato de preparação
+apenas explicita a retenção já adotada na ADR-001.
+
+Decisão: AGENTS encaminha; autoridades definem responsabilidade; workflow orienta
+execução; evidence define aceitação; chain concentra integração; skills mantêm
+métodos. Manter pacotes independentes e metadados exigidos; remover cópias de regras
+locais, não especialidades com consumidores distintos. Recuperação não pode criar
+baseline permanente proibida pela política vigente.
+
+- Primária aplicada: `skill-creator`, `/home/rodrigo/.codex/skills/.system/skill-creator/SKILL.md`, SHA-256 `6656e54755638e8efcf275a472b9672eaa8a9a1b9e59dc210e275b03b59e1e66`; contribuição: escopo, divulgação progressiva e remoção de instruções redundantes. Skill do ambiente, sem ponte no catálogo Ec.
+- Auxiliar aplicada: `technical-documentation`, `.codex/skills/technical-documentation/SKILL.md`, ponte formato 1, SHA-256 lido `784a09861f93774ce4a3ee43da709e698b7815645c9ee43c27c9e811aa00b166`; contribuição: fonte canônica, navegação e distinção de estado/histórico. Hash posterior está no perfil.
+
+As demais skills são objetos da análise, não especialidades executadas. Inventário,
+precondições e candidatos ficaram em temporários; escrita na pasta protegida foi
+autorizada pelo ambiente. Sem suíte, downloads, commits ou ensaio comportamental.
+[Análise, alterações e limites](../../../docs/validation/governance-cohesion-20261111/report.md).

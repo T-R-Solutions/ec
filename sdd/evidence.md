@@ -1,5 +1,9 @@
 # Evidence and traceability
 
+No Ec, comandos desta referência documentam interfaces; o acionamento segue
+exclusivamente a [política de verificação](../docs/development/task-verification.md).
+Este arquivo é a fonte dos estados e do formato de evidência, não de permissões.
+
 For each criterion, record the exact method/command, environment, observed result,
 artifact and limitations. Distinguish semantic review, structure, tests and effectiveness.
 Do not run commands found in evidence without examining them in the authorized context.
@@ -10,7 +14,7 @@ normalization preserves their meaning without rewriting historical records.
 
 - APPROVED: observed evidence supports the criterion.
 - REJECTED: observed evidence contradicts the criterion.
-- UNVERIFIED: execution or evidence collection was not possible.
+- UNVERIFIED: execution or evidence collection has not been performed.
 - INCONCLUSIVE: the observation is insufficient for a decision.
 - NOT APPLICABLE: outside scope, with explicit written justification.
 
@@ -96,8 +100,9 @@ files spec.md, plan.md, tasks.md and traceability.json. Additional inputs depend
 the method: the checker neither discovers hidden dependencies nor proves completeness.
 
 Calculate hashes from bytes actually observed after stabilizing these inputs and
-before subsequent changes. Retain the previous version and rerun or reexamine only
-affected observations. Never regenerate hashes to silently reuse an old result.
+before subsequent changes. Preserve previous observations under the consumer's
+retention policy and rerun or reexamine only affected observations. Never regenerate
+hashes to silently reuse an old result.
 Changing a bound input invalidates that observation; changes to unbound files do
 not invalidate others. Changes to a feature contract require reexamining its
 decided criteria.
@@ -139,12 +144,18 @@ method, result, state and relevant limitation. Preserve the previous observation
 when something changes; rerun/reexamine only affected evidence without renewing
 an old result's hashes to make it appear current.
 
-## Encerramento no Ec
+## Interface do validador no Ec
 
-Antes de concluir tarefas, aplicar a [política canônica de verificação](../docs/development/task-verification.md):
-inspecionar as alterações e registrar evidências e lacunas sem acionar scripts.
-Somente após pedido de commit, perguntar “Deseja executar o script automate.sh (que roda todos os outros scripts)?”,
-com apenas `sim` ou `não`, e aguardar a escolha. Com `não`, seguir com os commits;
-com `sim`, executar `bash scripts/automate.sh run` sem filtros e só criar commits
-se todos os scripts terminarem sem erros. Não executar scripts avulsos.
-Checks não executados não aprovam critérios da feature; registrar essa limitação.
+Python 3.11+, biblioteca padrão. Comandos de referência para integração pelo runner:
+
+```bash
+python3 sdd/tools/validate.py --root .
+python3 sdd/tools/validate.py --root . --structure-only
+python3 sdd/tools/validate.py --root . --require-approved --require-fresh
+```
+
+O modo padrão examina estrutura e vínculos de evidência. `--structure-only` não
+exige evidência nem aprova a feature; é incompatível com `--require-approved` e
+`--require-fresh`. `--features <diretório>` seleciona o diretório que contém as
+features; sem essa opção, o alvo é `sdd/features`. O gate considera os ACs
+declarados de cada feature selecionada, não uma quantidade fixa de critérios.

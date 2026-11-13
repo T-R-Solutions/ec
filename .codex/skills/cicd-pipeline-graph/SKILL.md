@@ -3,20 +3,9 @@ name: cicd-pipeline-graph
 description: Implement or review CI/CD dependency-graph validation, cycle diagnostics, deterministic ordering and readiness. Skip canvas interactions, resource scheduling and execution.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # CI/CD Pipeline Graph Engineering
 
@@ -55,12 +44,9 @@ requirements for this task.
 
 ## Completion and limits
 
-Complete the requested change or diagnosis and the checks that support its claims. Report the
-affected contract, observed results, actual versions/commands and material gaps. Keep structural
-review, simulated cases, real integration and production evidence distinct. Imported research and
-execution records are historical context, not results of the current task.
+Registre contrato afetado, inputs, método, resultado e lacunas; distinga inspeção,
+simulação e integração real. Registros importados não são resultados atuais.
 
-This folder works without SDD or other skills. Consult an available specialist only for a concrete
-unresolved question; its absence is a gap only when essential to acceptance. Use the project's
-existing record for a bounded change. This method grants no external access, publication or
-destructive-action authority.
+Aplique apenas os passos pertinentes, usando o registro existente do projeto.
+A skill funciona sem SDD; consulte auxiliares disponíveis somente para questões
+distintas ainda não resolvidas. O método não amplia a autorização da tarefa.

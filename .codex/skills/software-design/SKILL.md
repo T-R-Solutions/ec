@@ -3,20 +3,9 @@ name: software-design
 description: Implement, refactor, or review code by examining responsibilities, cohesion, coupling, interfaces, information hiding, and maintenance costs. Use for concrete code-level design decisions and behavior-preserving changes. Do not use for cosmetic edits alone or to choose system architecture without architectural requirements.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # Software Design
 
@@ -54,8 +43,6 @@ algorithm work does not require a separate architecture or performance engagemen
 ## Completion and report
 
 Describe the concrete responsibility or contract improved, the alternatives considered when material, and the maintenance cost accepted. Report behavior preserved or intentionally changed, affected callers, checks actually run, and remaining uncertainty. Distinguish illustrative examples from executed code and local validation from production evidence. Avoid claiming universal superiority or unmeasured speedups.
-
-Other named skills are optional specialist suggestions. Use them only when available and needed for a specific unresolved question; their absence does not prevent using this skill. Report any expertise or verification gap without claiming a handoff occurred.
 
 ## Adjacent responsibilities
 

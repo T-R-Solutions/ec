@@ -1,0 +1,1391 @@
+{
+  "date": "2026-11-11",
+  "method": "Identificação de conteúdo durante edição e inspeção; nenhum verificador executado.",
+  "files": [
+    {
+      "path": ".codex/skills/agent-runtime-engineering/SKILL.md",
+      "before_sha256": "10adea5189fbba5df2c2bb52ed436d105e2be6f220173ea2c9cba520236e639e",
+      "after_sha256": "8beb9cac9c0264383a5682b5e15d09aac86dce964a7ab571590ccc73c4af933c",
+      "before_lines": 88,
+      "after_lines": 77
+    },
+    {
+      "path": ".codex/skills/ai-engineering/SKILL.md",
+      "before_sha256": "4c5f073a45db112bbb5975826466d5d55bbb24bbede2ffdc7dc30353d8c00025",
+      "after_sha256": "60163a92b58d11c13e1f8da1616160ff385a86e726a610336c5d7093a3051502",
+      "before_lines": 87,
+      "after_lines": 76
+    },
+    {
+      "path": ".codex/skills/api-testing/SKILL.md",
+      "before_sha256": "afe31651315d353bf17ec5ab01a1c271edc2f9e6cf4549a9c06b0b15b6665be9",
+      "after_sha256": "77cb20fee1804109fec012cd8aac0749e432c47a3b7fea61993549ae68fc06a5",
+      "before_lines": 75,
+      "after_lines": 62
+    },
+    {
+      "path": ".codex/skills/application-security/SKILL.md",
+      "before_sha256": "322ad2397adeceb69bcb2215d2ee589512a11cfb2ed0d2bb17cce10c801ce3ac",
+      "after_sha256": "3cc0f13461e849cf31e43db95ba3cbcf004881f0b7ade8e7f3dd7cd03d5f884f",
+      "before_lines": 76,
+      "after_lines": 63
+    },
+    {
+      "path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
+      "before_sha256": "7440223cd19f2b0d33da5070a6a19e045e7c00241d5d4746fedf73ef3a194a4c",
+      "after_sha256": "569696eab8348b370ab2f73d7ffc688d9fc88483419f8179c3bf84789e2866c0",
+      "before_lines": 83,
+      "after_lines": 72
+    },
+    {
+      "path": ".codex/skills/cicd-agent-runtime/SKILL.md",
+      "before_sha256": "92f9e02501ed8c1df0435447694f20ae7fa75ec74a67b09a6d5861b749c1f877",
+      "after_sha256": "94aa06f5c05fff22e15348e5587d72654624f19dead5a507036eff5cb4064276",
+      "before_lines": 66,
+      "after_lines": 52
+    },
+    {
+      "path": ".codex/skills/cicd-agent-runtime/references/implementation-details.md",
+      "before_sha256": "a7b91c4d64f7d53cd37de1f5da8155a3a6d3f7a1c6427080f3e8ebe7d0805643",
+      "after_sha256": "95ca3e246c2177e97fbb784566a6ab9637961061d98709a2322f61a6d2040eda",
+      "before_lines": 46,
+      "after_lines": 41
+    },
+    {
+      "path": ".codex/skills/cicd-artifacts-and-retention/SKILL.md",
+      "before_sha256": "057b9ad9bcf3a93b5b8c4a5d5a5cde6af03d381ba400e18880adc342737522ce",
+      "after_sha256": "b11016ade6da418f094cfcb253607c49a7d22c4bd536b59639f15807f1568f8f",
+      "before_lines": 63,
+      "after_lines": 49
+    },
+    {
+      "path": ".codex/skills/cicd-artifacts-and-retention/references/implementation-details.md",
+      "before_sha256": "d561bf7836154071490ebf0f30d3444f013302e52e827f65f183cfe6e067cdbd",
+      "after_sha256": "cebd8ab1bec241c6bc0ff9360519662ca3d51e893ac2334e6dd1c0a3b06b42bc",
+      "before_lines": 51,
+      "after_lines": 46
+    },
+    {
+      "path": ".codex/skills/cicd-build-cache/SKILL.md",
+      "before_sha256": "905be4b0fae6485af37d41bb97570c6e94fa9f7730f2b5fd30e3254beaa2137a",
+      "after_sha256": "30b9f9ea55e338a999017758ae3b44537376a9377bbfdf17ddf797b562ddadd7",
+      "before_lines": 63,
+      "after_lines": 49
+    },
+    {
+      "path": ".codex/skills/cicd-build-cache/references/implementation-details.md",
+      "before_sha256": "b768d0c587bd9ff8793c39197bcf815a2d82e6953e0b698b84599bf7b5d46476",
+      "after_sha256": "0450b8c81169049372038ff0330a69f301f85f782802833cc8a2b161548fde22",
+      "before_lines": 53,
+      "after_lines": 48
+    },
+    {
+      "path": ".codex/skills/cicd-execution-runtime/SKILL.md",
+      "before_sha256": "6fb9a2df29c15a3753a8bd123c1d010ec33444f155f8beba4cf1299ce1fc6e64",
+      "after_sha256": "0feb8990e630c6d915960dc383cfdcaa7875415b2086e4f92c93604f3a476ab0",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/cicd-execution-runtime/references/implementation-details.md",
+      "before_sha256": "90051a7284f486e2e6e4137237c2f94f14f66208ebac8876279af4201d583ff7",
+      "after_sha256": "1f9a0f1e568af18a36dc274611129ec4996a818205a86b5940cca69379e585a8",
+      "before_lines": 49,
+      "after_lines": 44
+    },
+    {
+      "path": ".codex/skills/cicd-logs-and-test-results/SKILL.md",
+      "before_sha256": "8b21254792d33c3b31de19ec7d254ea8c8d5c1c04e014516544469ae2f0797b7",
+      "after_sha256": "684ca8ffd5399496b2b5625bc8052ace3b815c01269fd3b3bb0047b6b64a82d1",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/cicd-logs-and-test-results/references/implementation-details.md",
+      "before_sha256": "c1c0b8536c6ec939e9d2aaa1dcdf0a47ba2703cdffb0fe4a32de5e7adf03ce5b",
+      "after_sha256": "1ac0c6b3eff0c6d90bd52f9f11675277f9f0c4d03ce8306d50c4fbfbf0573ac5",
+      "before_lines": 50,
+      "after_lines": 45
+    },
+    {
+      "path": ".codex/skills/cicd-pipeline-graph/SKILL.md",
+      "before_sha256": "f4cd1a79504aba325db206eaf86a534ae589ef3fbce6639f0abdb197a5caef3d",
+      "after_sha256": "e336b793f72e4d3588a1890350f62904263329d3013acd2ec7198023b53a9a8a",
+      "before_lines": 66,
+      "after_lines": 52
+    },
+    {
+      "path": ".codex/skills/cicd-pipeline-graph/references/implementation-details.md",
+      "before_sha256": "4dd11a4362456b5145823c9a0c06bb72baebc6e74afe6f34893b3aedae75362e",
+      "after_sha256": "77cda052e194e52e97ffb808e222bdb5395d9230727d9634bc2ec1baf39a8fc8",
+      "before_lines": 126,
+      "after_lines": 121
+    },
+    {
+      "path": ".codex/skills/cicd-release-and-deployment/SKILL.md",
+      "before_sha256": "2ca30d8e118e439dd5508a355b7c8133ffaa18a11f59b66611083749762e202f",
+      "after_sha256": "c6f8c278b9994bb0c50c248de1fa16a28800240a590ca6cf800c2173189c988e",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/cicd-release-and-deployment/references/implementation-details.md",
+      "before_sha256": "aea66f4f540f9a9b962742da405733208648d5d8958ea84d1f26b52749277af9",
+      "after_sha256": "8580f77a79bed2931bc48acf9708c61e2703906f567acce8593d2f56643ae8fc",
+      "before_lines": 78,
+      "after_lines": 73
+    },
+    {
+      "path": ".codex/skills/cicd-scheduler/SKILL.md",
+      "before_sha256": "da9ca9c826614cf97363fc736db0563a2f19ada17a76654384a80918d32f7f8d",
+      "after_sha256": "4f4004ac16da839873d714a398b952b544a3355547e6a5e65d3ec6d5a6e37102",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/cicd-scheduler/references/implementation-details.md",
+      "before_sha256": "11e94bb54227bca06a77b97dc94d1d4f629a896d4627c89c61547c601859c0fd",
+      "after_sha256": "f8d0f3ff1a9db78d1ed32888cf88ee47560237a784f4c4c41a106e8eb5e0600e",
+      "before_lines": 52,
+      "after_lines": 47
+    },
+    {
+      "path": ".codex/skills/cicd-vcs-event-processing/SKILL.md",
+      "before_sha256": "4f23e409f02ed156ab781e71d320f906da5adcadf352c2644004e72ba5ae2e30",
+      "after_sha256": "bd5796e79390ddc01ce0f087d81300240473b88647d2566575892fb2af9bc458",
+      "before_lines": 63,
+      "after_lines": 49
+    },
+    {
+      "path": ".codex/skills/cicd-vcs-event-processing/references/implementation-details.md",
+      "before_sha256": "90a60fd88db9167f1346502362dec0270ec8510464d43433e779a01920f0ffcd",
+      "after_sha256": "8fcad4ef2ff824aab58b83d1c13d92d244231783488b94460d59bc0df4c14dfc",
+      "before_lines": 52,
+      "after_lines": 47
+    },
+    {
+      "path": ".codex/skills/cli-engineering/SKILL.md",
+      "before_sha256": "1d1e7d70435a6469bfb9981227ecf0774c723cb4aec2f0ca498078ba568a54b8",
+      "after_sha256": "75ce12875adc3ee4c23910408c87a5475eb8b4d63d0445f23885f1e7391719c4",
+      "before_lines": 66,
+      "after_lines": 52
+    },
+    {
+      "path": ".codex/skills/cli-engineering/references/implementation-details.md",
+      "before_sha256": "da2e34e42ee71f06d0a25e1e9e06ddfbe10da342e5909e675671010035607195",
+      "after_sha256": "53938d8a427c5c48c68224777a05f71e289116df94edc0a2f87f9e366a5a9f89",
+      "before_lines": 99,
+      "after_lines": 94
+    },
+    {
+      "path": ".codex/skills/commit-governance/SKILL.md",
+      "before_sha256": "86befaae4ff6c59c0b5b9469bb80ba96a1dceac725b0acadfecef2058c2df3d3",
+      "after_sha256": "4fe04e16268d9bef7121809d47702be31622376616de5bcc8dcd7138426687ef",
+      "before_lines": 40,
+      "after_lines": 29
+    },
+    {
+      "path": ".codex/skills/css-layout-engineering/SKILL.md",
+      "before_sha256": "bd347380b7b3c3485c4cd90c4517e56515790d70a4fc9e8394505b53850f9326",
+      "after_sha256": "44033d98b09a7980a454a54f570a900041e17884a4be505b9163b51e628f8d8e",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/css-layout-engineering/references/implementation-details.md",
+      "before_sha256": "1fc83849bac8dc4579f3a2447be97c2130da3e578ee012e2bcb0262c88efdfa2",
+      "after_sha256": "a7a9b75245c6ef8471af4c95f520fb6b7ea86cb1800ff5a838c0732c9de1029c",
+      "before_lines": 90,
+      "after_lines": 85
+    },
+    {
+      "path": ".codex/skills/database-engineering/SKILL.md",
+      "before_sha256": "ee47d3ca83fe54b563217beccbf18bf1e97776e0828d4e1c62494a201cb73f1e",
+      "after_sha256": "5171345167439a323c6e6f27353e3596a513b01e08fcacf8565b4dba0b165f6a",
+      "before_lines": 67,
+      "after_lines": 56
+    },
+    {
+      "path": ".codex/skills/design-review/SKILL.md",
+      "before_sha256": "8d72271910e57b712149460d87d684822e67a8cd41276148418ea2fd3899dc0a",
+      "after_sha256": "9734f3c4bf14fa29efcbbe44100cefd4883c862195af8b292aeb723300e5f85f",
+      "before_lines": 57,
+      "after_lines": 46
+    },
+    {
+      "path": ".codex/skills/design-system/SKILL.md",
+      "before_sha256": "bc6258c65286dff418983e38b2b355f6402be667cbfa828bdfe131d40b9cd8ae",
+      "after_sha256": "df68c2652f2b04b04bd67094d977dccc816fb3cfb1815df04ae90ed087c82e80",
+      "before_lines": 59,
+      "after_lines": 48
+    },
+    {
+      "path": ".codex/skills/distributed-systems/SKILL.md",
+      "before_sha256": "24787e6c0873010f75b83a70fbef79c9248b7e22e4fe1eb0d7179222a3f10ef6",
+      "after_sha256": "827a7b4146154e074143d0872c3673d09a227d9eeb12c71de2ce75266e12c410",
+      "before_lines": 69,
+      "after_lines": 56
+    },
+    {
+      "path": ".codex/skills/domain-modeling/SKILL.md",
+      "before_sha256": "ec0b8b59a4588fc6272f1d3f01fa878d8c4a22b74ab0d8410baaf86c3572a773",
+      "after_sha256": "178e80079b117248bc168c21c76853cdc4f7033ed880c1c13e401fca1120a444",
+      "before_lines": 61,
+      "after_lines": 48
+    },
+    {
+      "path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
+      "before_sha256": "0df014960ef34e662282bdf8e5a9235ea98bea306db19f780e1a8262d521a127",
+      "after_sha256": "ad9f170d635ebd5fe102d082929a6aad505fb5a15fffc73fe8029e223fade551",
+      "before_lines": 72,
+      "after_lines": 58
+    },
+    {
+      "path": ".codex/skills/ec-agent-control-protocol/references/implementation-details.md",
+      "before_sha256": "1810571553097298ffbbf119b7c95723e6409f1cfc7e572624583306276812ee",
+      "after_sha256": "0a828bbc352e3c95c2c02fcbe1e3aa64f414f813b987fed3157fe3a56e9a356a",
+      "before_lines": 84,
+      "after_lines": 79
+    },
+    {
+      "path": ".codex/skills/ec-agent-pool-console/SKILL.md",
+      "before_sha256": "4c6b7b87f038d3dd15d6fcee466fa47540c5e924546a641a12528c778b9a7085",
+      "after_sha256": "e30cf1fc1d29fd3ff03ecef9ed5e5ab24379c0117591bc2493fcf5e3cccec1fa",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/ec-agent-pool-console/references/implementation-details.md",
+      "before_sha256": "4c16a4466cd4d6a92023cbde7d7fa0ffa95ba1788f3ab9356aa64070cf8921e2",
+      "after_sha256": "20e80221dbed9f477aa0721df21f7e886df68522423158afba5781992d66f01e",
+      "before_lines": 64,
+      "after_lines": 59
+    },
+    {
+      "path": ".codex/skills/ec-configuration-publication/SKILL.md",
+      "before_sha256": "7bee10951acba7802dd88769f1725d5045f27bf86ca162af536a04545e28f835",
+      "after_sha256": "2404c9a8ea8be537b7f0e0cc2b4cbdcf5a0b5450800f4589240080f353f1c9d5",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/ec-configuration-publication/references/implementation-details.md",
+      "before_sha256": "1e3352ba6e2faf0e12d3ad008ea35b7d9f7fe2fbe73d3aca7a3079775d83b0a6",
+      "after_sha256": "4bedd6e8f9140c12235022eb4b41d2941a61a1cff824ddd2001cf79b7743ccd4",
+      "before_lines": 80,
+      "after_lines": 75
+    },
+    {
+      "path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
+      "before_sha256": "1bb1ac8ee0bd93149555aecf84626d87e443ec251803deac15eeecbdfc514560",
+      "after_sha256": "44b6061cfd834d8511e2f4f5ea606f5c7297b1f791d273303b17a08ffba7be6b",
+      "before_lines": 65,
+      "after_lines": 51
+    },
+    {
+      "path": ".codex/skills/ec-declarative-resource-schemas/references/implementation-details.md",
+      "before_sha256": "c08b2c96de82b3bd1f41e0028a6d9ff30289d7e498f4df5cd156a060a752808f",
+      "after_sha256": "07d46f44787c39822b685ab36080af1f1a21773cd6b7792b6908f3eef7d80d77",
+      "before_lines": 58,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/ec-effective-permissions/SKILL.md",
+      "before_sha256": "28d79b76dde865c60bb4fd861884a5a622bd144eda4e1ec95131ea02bd8ffa98",
+      "after_sha256": "cf3b803fddce72ad1d16465c61b592c4038b78f0fcdd5efc37ca3cd8a17e758a",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/ec-effective-permissions/references/implementation-details.md",
+      "before_sha256": "596d9cb95471cdab45b9093bcf34c3bf913547b7f2e3c262b4eb28bbea10982a",
+      "after_sha256": "363e30402956f977a2b508f09e810a338a249a86f8c42a6a32672a6350c45345",
+      "before_lines": 81,
+      "after_lines": 76
+    },
+    {
+      "path": ".codex/skills/ec-environments-and-approvals/SKILL.md",
+      "before_sha256": "229e07b6fa1ca14bed54def6b0f27940a4794355b3fad78fefc0a17a7e2ff2a2",
+      "after_sha256": "a45d798db610321b8fc97332c1a3867f444dddb3cde50de142b6da699d8b0dba",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/ec-environments-and-approvals/references/implementation-details.md",
+      "before_sha256": "d0c43885c0af2fb09f0d5ab3373cd7c9f6bf9dec6c76b451371fff32acf202c7",
+      "after_sha256": "0b61e1cc7f20cfdfb95fded933f1e927f40da2002cb191014a5374d7357b5f12",
+      "before_lines": 77,
+      "after_lines": 72
+    },
+    {
+      "path": ".codex/skills/ec-integrations-and-webhooks/SKILL.md",
+      "before_sha256": "d804ff7de1ef9c93ad82f09eeff4853d15c28e60a1b441645d954aec2e73a106",
+      "after_sha256": "46b3f500ca823478de3bead4afc9ae20a8f24ec6f2855b4bf5a8637b60f4aadc",
+      "before_lines": 69,
+      "after_lines": 55
+    },
+    {
+      "path": ".codex/skills/ec-integrations-and-webhooks/references/implementation-details.md",
+      "before_sha256": "9ddf0123c2f496e96276d76fe4c6b8a6e6c12a923a722c1f6e9515f2374af0a3",
+      "after_sha256": "352e05b94ad709ff7d53377b111da8d16c59c73f8e78f1f633e055569e8924f3",
+      "before_lines": 84,
+      "after_lines": 79
+    },
+    {
+      "path": ".codex/skills/ec-operations-and-administration-console/SKILL.md",
+      "before_sha256": "031ea055a9aac07659084d0766deae83b72de9b37ddb81050bb99eed09c1190e",
+      "after_sha256": "b6dbc0b3c90c97ebe1aacae394c82dd58c61dee5315a28042aad009d80037019",
+      "before_lines": 69,
+      "after_lines": 55
+    },
+    {
+      "path": ".codex/skills/ec-operations-and-administration-console/references/implementation-details.md",
+      "before_sha256": "ac435f60946235a972223a0f425aa6787cfbc69b00c68faa630b9ef18300e12b",
+      "after_sha256": "e91672306a9f97e47c73ab0d0975e9325b32d60b8f8a4eb7e8fb8d285bc88d41",
+      "before_lines": 88,
+      "after_lines": 83
+    },
+    {
+      "path": ".codex/skills/ec-people-and-access-administration/SKILL.md",
+      "before_sha256": "ea0c1a0c70a36f20f3b20e82345aa7654df27ea0c803a3a0c3cdca75a79009ea",
+      "after_sha256": "6e7b1003f710e64c2c20519dc6fbce1ef69bd07e5aed84cff3d5bbc23981c369",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/ec-people-and-access-administration/references/implementation-details.md",
+      "before_sha256": "40a47dc348f0b817d121d9b483d2d631742b4157ebf37a9e064b570abec4411e",
+      "after_sha256": "6faadc9301f7de6aad3a3bf2d2542742590cbc03c3d12442c4648f98c95eeed1",
+      "before_lines": 88,
+      "after_lines": 83
+    },
+    {
+      "path": ".codex/skills/ec-pipeline-authoring-workspace/SKILL.md",
+      "before_sha256": "82ac60330de144daeadeec595a7b1719cd16f178dea9c41872423cea9deff950",
+      "after_sha256": "4f115909f8e40e993c5e0c1847e1aaa51d79884f7ccb0b9e4c53f341aecaf983",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/ec-pipeline-authoring-workspace/references/implementation-details.md",
+      "before_sha256": "0b8d391efc6390c7391d4f7be3f0c873b7c24c05c66d302e98d3113474d6ab02",
+      "after_sha256": "ee278134b99b54b83035d7845ba09c468420f4d9527a23ee5a15587d0e619625",
+      "before_lines": 83,
+      "after_lines": 78
+    },
+    {
+      "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
+      "before_sha256": "7434cf724a9840f0fa336b41b07e7e1f3c4f3a14925f006d349349ab6a91aec4",
+      "after_sha256": "2f305094d01d2a85d63bc22242a5a9989f27235ec1b4685cc82870ecc9110cf0",
+      "before_lines": 69,
+      "after_lines": 55
+    },
+    {
+      "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/implementation-details.md",
+      "before_sha256": "297703b36c6ca22463d79eb33265f291752561cbaa53a0e732c5156adc48023e",
+      "after_sha256": "bcb36a3080c690c83a0cacf41ef4b6c68c867aaa1b7fe2b55cfc85c11d4feff7",
+      "before_lines": 81,
+      "after_lines": 76
+    },
+    {
+      "path": ".codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
+      "before_sha256": "ce14b8e64eac6f40c8371ba2f72539e85418ca0127b818dcaf5f9dc6a8b14073",
+      "after_sha256": "692efe1ce8721ffce7ae92adbcf354e84877e7f2c8fc7b57781c75b0d7f3ef7b",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/implementation-details.md",
+      "before_sha256": "16d58249f7bdb753f1c53b658c568ff3f88c2e08cebb4a2e2e272326989e986e",
+      "after_sha256": "805ca0179c615248d3fbbcca93fb59323afa2e9e91612738a2e15f6d2ff13d76",
+      "before_lines": 75,
+      "after_lines": 70
+    },
+    {
+      "path": ".codex/skills/ec-product-contract-test-harness/SKILL.md",
+      "before_sha256": "1f149935873c34cde3b4ce612ea4ee806adcdb824e70b7499473b318b1349e83",
+      "after_sha256": "39e581133218ce5cf1334aab5ef8873a137096e326bfb45b3dd064a95ac5e908",
+      "before_lines": 74,
+      "after_lines": 60
+    },
+    {
+      "path": ".codex/skills/ec-product-contract-test-harness/references/implementation-details.md",
+      "before_sha256": "a3396b7fa28cb939bca2625454729ae4a1c8a88b8e5c003060753d9e9456bcfa",
+      "after_sha256": "e422ac9571e5f9d56691c4a4ce97a0a7d2e921ddc1ffb16ecfb12e4865d43320",
+      "before_lines": 87,
+      "after_lines": 82
+    },
+    {
+      "path": ".codex/skills/ec-project-hierarchy-management/SKILL.md",
+      "before_sha256": "3e9d41f56d83c39d45977873a2fc8653ae2071339ca2eda221fca6f30fdfc964",
+      "after_sha256": "077707a26abb27f3376086cdc1b57ba5f843e6b4ab065709d4a120e652302135",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/ec-project-hierarchy-management/references/implementation-details.md",
+      "before_sha256": "294f69a81bb7374cb0d91d545301359c6590ceb9a00aed5607363899df56c2b7",
+      "after_sha256": "8f108b06799072633e2a7679bed1b57a7752475b7947479581b206dcac5d38e2",
+      "before_lines": 82,
+      "after_lines": 77
+    },
+    {
+      "path": ".codex/skills/ec-run-execution-operations/SKILL.md",
+      "before_sha256": "9f3a7f0e1765fdb13c9f397933ecf0312f65d06c0aca09a6ea84a9413a0edfb6",
+      "after_sha256": "2ae3ccbc3b38528ce049f29478698d5ce1263bb7ed7609ec5a0166abf2d9ea31",
+      "before_lines": 69,
+      "after_lines": 55
+    },
+    {
+      "path": ".codex/skills/ec-run-execution-operations/references/implementation-details.md",
+      "before_sha256": "f25b9c7f6acd1c7f50f6558b957104ef0a012335d4a6f451b04720091462d2d5",
+      "after_sha256": "8c6016eb07603cb670720e937eed6a70f9d2a1084affbb3cf4e85a12fdf71ea3",
+      "before_lines": 91,
+      "after_lines": 86
+    },
+    {
+      "path": ".codex/skills/ec-semantic-configuration-projections/SKILL.md",
+      "before_sha256": "feab83bc0c928eedbc72ec9756e4fa620e1a3f3e3d2eeb6826b9bf2299dc7a27",
+      "after_sha256": "3328985ff9d64190535bb6d610d9e8115127d287f66fa4d5215f2c3630cb3b7d",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/ec-semantic-configuration-projections/references/implementation-details.md",
+      "before_sha256": "abcb1fe38bff33f27df0b93e9c16ccf8ecc202a9cf813b0c6c9998c0edf206b9",
+      "after_sha256": "abd9d23c4c7d847c1e490172b62832256ccf2d610d1b1e88dc3677d17810f780",
+      "before_lines": 68,
+      "after_lines": 63
+    },
+    {
+      "path": ".codex/skills/engineering-productivity/SKILL.md",
+      "before_sha256": "5625e6b3ea26f0f5287117b4b4e02553d7ac86f6568a4ce2745c9b8f85c4881a",
+      "after_sha256": "32551c78f9351f17efe7e61f6f870b7b3a4df51768686554ea0b4ad69878e740",
+      "before_lines": 91,
+      "after_lines": 80
+    },
+    {
+      "path": ".codex/skills/frontend-form-engineering/SKILL.md",
+      "before_sha256": "e98119d5a72abc3f9076480b5fca6fdbf062caa18ef68d0f566ff8b9d3e556c0",
+      "after_sha256": "15f0692409322fc1bf119b85b032d554a7fd163297974439ac87842c1887481e",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/frontend-form-engineering/references/implementation-details.md",
+      "before_sha256": "f7305952f30ec04d30317537cf3e7382e1ae5fa5a07a2535790969590d4561e4",
+      "after_sha256": "6b9b4628ee9dee215a3ecc5c1babd66e938a888b3b7b7ee51561c487ab3a146e",
+      "before_lines": 122,
+      "after_lines": 117
+    },
+    {
+      "path": ".codex/skills/frontend-routing/SKILL.md",
+      "before_sha256": "438e7bbdb2b292044ddb4da3eb2863204ddde574ebae4bf59b7852def8b0a630",
+      "after_sha256": "21c519152d17306c5ba716390c1527263ce8da2845792faf188df34cdee534be",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/frontend-routing/references/implementation-details.md",
+      "before_sha256": "d047bd7129083f1fb0623747d882188b5159301d106968ac3a64541e499d869a",
+      "after_sha256": "5b52f2f184470f49423f26a325972ec54800d5a23641f3f7a883e8970002a3f1",
+      "before_lines": 82,
+      "after_lines": 77
+    },
+    {
+      "path": ".codex/skills/frontend-state-and-cache/SKILL.md",
+      "before_sha256": "78446cac4678d869f3f572771dee3206ccff87a191797a4d22f9a3eb30365892",
+      "after_sha256": "1aee4e54a94e624fa13569f2da31aee943d3a90b5144bb736e082e7cc813be74",
+      "before_lines": 65,
+      "after_lines": 51
+    },
+    {
+      "path": ".codex/skills/frontend-state-and-cache/references/implementation-details.md",
+      "before_sha256": "e6dca22f26d5fa3c1eef62d0dde76f1b9dafe07762b49af060ce91d68fc3d637",
+      "after_sha256": "cd2ce1ff3bc162e72df18d2c1335d894e84248a9aa735490bb255e4f869bb93e",
+      "before_lines": 111,
+      "after_lines": 106
+    },
+    {
+      "path": ".codex/skills/frontend-testing/SKILL.md",
+      "before_sha256": "8f8746e1becd8f721780dc764ced1684f502f07d0ac24dea65b70b9f8fd293e0",
+      "after_sha256": "5bdbd988f566bacc18de0b81b6de8baedbcd7ac9ef0de8f05a42fdb9299a4a69",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/frontend-testing/references/implementation-details.md",
+      "before_sha256": "0ce03f46bb22a11cb902acc55289a15c6970e2fb4376559eb5db6f0d87c06c6f",
+      "after_sha256": "86d5126cf7b3d3f47f9692c75fa564c9cc8a58a4cd4797124805b7aa8c4d9603",
+      "before_lines": 93,
+      "after_lines": 88
+    },
+    {
+      "path": ".codex/skills/http-api-contracts/SKILL.md",
+      "before_sha256": "b2ccbfeb3f796a66daf0bf0f5d29bdfa3739c6cf06855ced3e91f956e17342fd",
+      "after_sha256": "e700f72b975890dbc3f8873415147d06d0c85f8a6743f9b5dac1a9bc19cd43b4",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/http-api-contracts/references/implementation-details.md",
+      "before_sha256": "fe9db5a0493a4e79c1b8c051fa977c2db79cdfaacfe38c6cf208683ca3d322f4",
+      "after_sha256": "814c1ece3302c1d5e48662e77a2f282467eacf5d8aa59473fc15dbada7cea425",
+      "before_lines": 113,
+      "after_lines": 108
+    },
+    {
+      "path": ".codex/skills/identity-federation/SKILL.md",
+      "before_sha256": "a064ab0d18c2c6d38fe54201388c9645ff5d342d931b37c66ced48e7a1c37568",
+      "after_sha256": "c8b9ac58002fe42f57dcebb7f290224949998ac9a7ea6967afee83e35eb4a0a1",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/identity-federation/references/implementation-details.md",
+      "before_sha256": "85adafe3c53c390a4802472b331f84700c1b8ae2abd8c71191b8a01335148fcb",
+      "after_sha256": "fcc85bb4ab678113ec1d8ebc0a5b8c1781c61bc1bc795fa4b80a576ab51811d4",
+      "before_lines": 112,
+      "after_lines": 107
+    },
+    {
+      "path": ".codex/skills/information-architecture/SKILL.md",
+      "before_sha256": "6c3f70948c88ba5ebbea9c3aba535e87987be02a1f8da51a70aec0621f6af38e",
+      "after_sha256": "39e3f401d918ae261aa19d0acf13baa7f5b2c813b795e3da56a41045b5815ca2",
+      "before_lines": 66,
+      "after_lines": 52
+    },
+    {
+      "path": ".codex/skills/information-architecture/references/implementation-details.md",
+      "before_sha256": "e2be98cf857ab3ffc2d5ed67df39a61811ec826bcb2ffbd9530d8e5f273bb972",
+      "after_sha256": "edd5622dce228ca5feffe8b366abf72e33e0fe20dcb2c11e7bf2633697c7f44f",
+      "before_lines": 113,
+      "after_lines": 108
+    },
+    {
+      "path": ".codex/skills/internationalization/SKILL.md",
+      "before_sha256": "756b44b55a94cd946b7dfac7621c64666be55bb0f6e12d1c573a1e41e05432a3",
+      "after_sha256": "450f12056a3ba84d2984dabb61664ed9e3db49344926550def0f2b6deaa7ef73",
+      "before_lines": 66,
+      "after_lines": 52
+    },
+    {
+      "path": ".codex/skills/internationalization/references/implementation-details.md",
+      "before_sha256": "0840ec552e6a2aeb0f85c6ea84d210b6deadd9e1a20a4ed0ce35ed509b779979",
+      "after_sha256": "f7929b6f43e3efb7be4445ae1e856a084e597237b3e46ae137becc472e5f7637",
+      "before_lines": 114,
+      "after_lines": 109
+    },
+    {
+      "path": ".codex/skills/observability-and-diagnostics/SKILL.md",
+      "before_sha256": "7cfb2ae7a0d61d658ea24de84bde7cba172bd3323876460b577a0568ab641e7b",
+      "after_sha256": "196dc48f5a13977f2ccebf5b2bf21ea6f842b088e8e9f757e8ee22654341f566",
+      "before_lines": 61,
+      "after_lines": 50
+    },
+    {
+      "path": ".codex/skills/performance-engineering/SKILL.md",
+      "before_sha256": "85112b6f30dd7567168593a18693f5515a1710c41293e93768cd42eaffb7a495",
+      "after_sha256": "ff5ccae78315b5c52eb55e52e51daecb37113ef6f4d4676ec43807246896e486",
+      "before_lines": 75,
+      "after_lines": 62
+    },
+    {
+      "path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
+      "before_sha256": "dac7110108df6715642ab3cba8d16f85ef02110abcf49a138bf37fa6ec67f28c",
+      "after_sha256": "474c97347cb02da0c1f567d29c9cabbf15981fa6c0fa0fb4ebf219373ad78edb",
+      "before_lines": 85,
+      "after_lines": 74
+    },
+    {
+      "path": ".codex/skills/prompt/SKILL.md",
+      "before_sha256": "ac4b7e6971a10528e932d0a8c15b00eaf0a04b8acc09bf26e60330af32e027d6",
+      "after_sha256": "a1cea8b35f0c4ef6327c41d7a3980bbc2e1a9cd2df428ad34ad9091855e3e990",
+      "before_lines": 94,
+      "after_lines": 83
+    },
+    {
+      "path": ".codex/skills/property-based-testing/SKILL.md",
+      "before_sha256": "35910e18cf30dcf0e7aec605980d164e481cfb8b8c1e1e056018ef8d77cf05c8",
+      "after_sha256": "c4374498321ae2ab3de21e1fe8b1d9c1752fc32bfb7057755643129240966cc7",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/property-based-testing/references/implementation-details.md",
+      "before_sha256": "41679f365bfe0c91f1aad5a8c1b93d761ee84363380250c98b779c665a117480",
+      "after_sha256": "ccd96c7dfc966564f5d276a699849918ecd637ad662683216ce486413f9b0359",
+      "before_lines": 100,
+      "after_lines": 95
+    },
+    {
+      "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
+      "before_sha256": "f6376d52d5cd250f10a9c7fa94abecbd78cf968fcd438672b173be5d5a4f037b",
+      "after_sha256": "095fe5cf9cac008d1fdb95b3d6edbd7a2075141353ba4f10ac9f9ad6ec385879",
+      "before_lines": 82,
+      "after_lines": 71
+    },
+    {
+      "path": ".codex/skills/reliability-engineering/SKILL.md",
+      "before_sha256": "48327f537ac512177015cc1f9c690bd5d457379f788b66756c52fb9fed24db32",
+      "after_sha256": "2a11ccdde1550cabe314918a135ad8c2140449b58ab1d73a417eb56ffb39d9aa",
+      "before_lines": 80,
+      "after_lines": 67
+    },
+    {
+      "path": ".codex/skills/rust/SKILL.md",
+      "before_sha256": "a2926aaeee5df8492c86acd31b09df7ba3c33545b146e635506962f053759b12",
+      "after_sha256": "d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a",
+      "before_lines": 77,
+      "after_lines": 66
+    },
+    {
+      "path": ".codex/skills/software-architecture/SKILL.md",
+      "before_sha256": "eeee62544926d66e07e860b2d3dd7d5610355da1a692a472c48e06e67ab6a38e",
+      "after_sha256": "0c1ba63835245b8e1cb155375b49790474f271fae299cdaf8aca1f0317f82925",
+      "before_lines": 69,
+      "after_lines": 56
+    },
+    {
+      "path": ".codex/skills/software-delivery/SKILL.md",
+      "before_sha256": "b0166f50c4532b55cae5ac7e4cde24c35767d56e7db142ea7001402fdd2b94a0",
+      "after_sha256": "c7b5a1b1dc347bf6fe7b6a0d4b40fdf5f64dedbbe75e58543fe670445645fb98",
+      "before_lines": 56,
+      "after_lines": 45
+    },
+    {
+      "path": ".codex/skills/software-design/SKILL.md",
+      "before_sha256": "0c9c262d893476999857858f12dba2b789dbd522294d5b19c1ed99831a7aaddc",
+      "after_sha256": "576df4157d5f4d72065c05cd96462e373e9406f3c3894bd79c60ca41fe3b9eff",
+      "before_lines": 63,
+      "after_lines": 50
+    },
+    {
+      "path": ".codex/skills/software-evolution/SKILL.md",
+      "before_sha256": "5fb16064473e4eda082a337262452499749647598c08f47ebbb315692eff5f32",
+      "after_sha256": "baef344475e0818541b9e5a14aa05bd61944caa17f6279aacbc993d577cf0436",
+      "before_lines": 61,
+      "after_lines": 50
+    },
+    {
+      "path": ".codex/skills/software-testing/SKILL.md",
+      "before_sha256": "67fb6565d48fbad42b6c58f48caeaf16c76bcb448f518fe835d2ab480564d6a8",
+      "after_sha256": "047c71403f89a029b1ec797536169b90a3cd82e3d3c943f46dc7c3dc513cf3ba",
+      "before_lines": 70,
+      "after_lines": 57
+    },
+    {
+      "path": ".codex/skills/technical-documentation/SKILL.md",
+      "before_sha256": "784a09861f93774ce4a3ee43da709e698b7815645c9ee43c27c9e811aa00b166",
+      "after_sha256": "60c83c5c34472fcfb0c3c6ede11253ecb14f0eb2e1ea550de3fede94db68ccf7",
+      "before_lines": 114,
+      "after_lines": 103
+    },
+    {
+      "path": ".codex/skills/tool-output-engineering/SKILL.md",
+      "before_sha256": "90108fc6932bb514bbaaf320117d3727358d3c98afd4130f70a6c21e328d3ad6",
+      "after_sha256": "7a90694410e0313a1993b4ed5eeeab85d9ad6f089322ef9f95879d53c47af26e",
+      "before_lines": 83,
+      "after_lines": 72
+    },
+    {
+      "path": ".codex/skills/typescript-engineering/SKILL.md",
+      "before_sha256": "b6afe9655fe95de4a60f7fad6718e864622e87e9c75d864a531fc407b2b93080",
+      "after_sha256": "82186b54c4c1a113f1ef53728a658199c4551001d41a2986fc6938502692418f",
+      "before_lines": 68,
+      "after_lines": 54
+    },
+    {
+      "path": ".codex/skills/typescript-engineering/references/implementation-details.md",
+      "before_sha256": "10d57a2ab746076d82e81f848c50a2b529c7b2de3b2bd8d80c038a16aa7f940b",
+      "after_sha256": "2e4d731cf1a367569699ab0c11577f516046abc6425c5329c36bdfecd2ce79b4",
+      "before_lines": 89,
+      "after_lines": 84
+    },
+    {
+      "path": ".codex/skills/vue3-engineering/SKILL.md",
+      "before_sha256": "0ce1578a719c4d0494f4236b61b01298ae434fa414778539617468f5b3226741",
+      "after_sha256": "4a8a4602db93e0380421e194c865d055795334052c15d7924085edc18c4825f2",
+      "before_lines": 66,
+      "after_lines": 52
+    },
+    {
+      "path": ".codex/skills/vue3-engineering/references/implementation-details.md",
+      "before_sha256": "a4390a2ee3cf89939f263e337e50164156922aab7ac1c11357785bf7f87ace71",
+      "after_sha256": "0823a4c2c17f6c5ee69b0ddc509fef841e28083e8e5a4bd160f7f167f0623585",
+      "before_lines": 85,
+      "after_lines": 80
+    },
+    {
+      "path": ".codex/skills/web-accessibility/SKILL.md",
+      "before_sha256": "ec37b58550bd7fa0fc04013a050e5088d7eb2a0a85c5d7b557eeb526a0fb1ab7",
+      "after_sha256": "46f66fa6135a4389cd0508bdc13648d7ce881d0d53bb4c73b0c7faba414a5d37",
+      "before_lines": 67,
+      "after_lines": 53
+    },
+    {
+      "path": ".codex/skills/web-accessibility/references/implementation-details.md",
+      "before_sha256": "8e0fa44ad09e6b1f35e66f03ecbe6359a9a892d433f82e92a9930b70bef67bd2",
+      "after_sha256": "afe0da0514e735587a1ea33d2c3b4bcd55d617f6e3a59e6929ebdaa07ef7c2ad",
+      "before_lines": 119,
+      "after_lines": 114
+    },
+    {
+      "path": ".codex/skills/web-realtime-streaming/SKILL.md",
+      "before_sha256": "86dc2dc5f639e59cbb3e3bb0a25fc0216576366bc1d3bf662b25a9e3e5571f55",
+      "after_sha256": "9bd902038f52ceecb002d67c46fdaf9b4815848cd9cd85c6b7ccb44197e187c4",
+      "before_lines": 69,
+      "after_lines": 55
+    },
+    {
+      "path": ".codex/skills/web-realtime-streaming/references/implementation-details.md",
+      "before_sha256": "c8ad37d11eb91ccd772709db8deb1f3e1b72acd6ac59bd5fd7ee72906756c3ea",
+      "after_sha256": "74bb80ec7949b04cd8142ed93b337179de0bd33efde1dc08dd72a47a10a4168c",
+      "before_lines": 97,
+      "after_lines": 92
+    },
+    {
+      "path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
+      "before_sha256": "bcc2b63eef177063847e7a95a433fe95bef59cccf622ff2963a55d9d4d0e9d01",
+      "after_sha256": "427f183b8508d642f6ffdda383e9cc7b36bc95ca03a14d29d73f4be8f762cb8d",
+      "before_lines": 88,
+      "after_lines": 77
+    },
+    {
+      "path": ".codex/skills/workspace-integrity-engineering/references/git-worktrees-and-conflicts.md",
+      "before_sha256": "775bc0fc1519f1e7365d20835538b9cabaf65f8373c75b01959df40a68b46358",
+      "after_sha256": "cd85ac8a420e2ed6265d2c2087bb2cb368ea83869b6c526afd6f9381867322f0",
+      "before_lines": 7,
+      "after_lines": 7
+    },
+    {
+      "path": "AGENTS.md",
+      "before_sha256": "af17ea4019a9e5b88c0612967610c59cfbf99068b5c7da7738d7086c5027e13a",
+      "after_sha256": "d9c406bcee16500f2b99e5914d9dd3991a9db2c546846d7a907685cca6cffd99"
+    },
+    {
+      "path": "config/governance/profile.json",
+      "before_sha256": null,
+      "after_sha256": "6affbf8ab8a68e535adbf32bc462b2df903959eb90f206cddd16e10268e0db8b",
+      "note": "Identidade posterior; hash anterior não coletado para este caminho ou arquivo novo."
+    },
+    {
+      "path": "docs/architecture/context.md",
+      "before_sha256": "d9aaa5f441fc9359fa7a3d31ba38808188a0f5f7394d6044d52d32d2d06b7608",
+      "after_sha256": "e4bf02726654af43d9e87f4b98e19db6d89c8889fb76e94c4d8f7d04c668fd3b"
+    },
+    {
+      "path": "docs/constitution.md",
+      "before_sha256": "ce19c39d84fcd67bbc0961ff9abf89414a8980b7a03adc235a9e789d18532e31",
+      "after_sha256": "af167c91aacccc3dec0088a5aa8fed50851ebc5dbf70b78850b805ab3fd73ceb"
+    },
+    {
+      "path": "docs/development/skills-analysis.md",
+      "before_sha256": null,
+      "after_sha256": "41ec5e25b63f6cef0cff0783aff912f72153d95483f351d26aef4aa20e46b234",
+      "note": "Identidade posterior; hash anterior não coletado para este caminho ou arquivo novo."
+    },
+    {
+      "path": "docs/development/task-verification.md",
+      "before_sha256": "a3d72fe3f6fbafb9e5e15b4dcdd436b28df1ceddccbd1c7b9ae59702891d74b3",
+      "after_sha256": "8cd6db7e0d13803ef392aa2a3755a2361fde44dae24fdeb6e9c20e106c60ed59"
+    },
+    {
+      "path": "docs/validation/governance-cohesion-20261111/report.md",
+      "before_sha256": null,
+      "after_sha256": "90929a9a6203abc550792991e5d7a02a50ee99db78d52acbf51515fdfce82c63",
+      "note": "Identidade posterior; hash anterior não coletado para este caminho ou arquivo novo."
+    },
+    {
+      "path": "docs/validation/local-state-20261111/observation-E02.json",
+      "before_sha256": null,
+      "after_sha256": "6edc34d594d7afe1f0b86f19b4c695f2eb376c8e468cbffcb4d3fd5ac8ecea96",
+      "note": "Identidade posterior; hash anterior não coletado para este caminho ou arquivo novo."
+    },
+    {
+      "path": "sdd/README.md",
+      "before_sha256": "ddcb5ed2b54a438b0b939bf8b34069d34ae03d9f205c61506692f45be3db0125",
+      "after_sha256": "5c440e8ed99ad6433d101e4c9275e19753b26e0f080995f6725185dac37855bf"
+    },
+    {
+      "path": "sdd/chain/README.md",
+      "before_sha256": "23a427fe52d96d2f55888f4897820426312c1c47f9b823741ca6d750dcc4d022",
+      "after_sha256": "c8baa6544d1e73897497883ead26585f0f330db1a0a29f8cd5d6c951a562959d"
+    },
+    {
+      "path": "sdd/chain/agent-runtime-engineering.md",
+      "before_sha256": "73a6dee53238443a8638e96d51bffbf576d87e7240cd3ae16486a0d04204011f",
+      "after_sha256": "4e5a5c273dd01973ed5bd6124d031f63031695604171ef4b2370f918bc119879",
+      "before_lines": 43,
+      "after_lines": 21
+    },
+    {
+      "path": "sdd/chain/ai-engineering.md",
+      "before_sha256": "8ac6b74521665788b141cdfb843ca96c60020c3256249cdd7cc25728e2a696fe",
+      "after_sha256": "fa6f40381a813637b5bb62b07623d46e1509259e1eb7ed73d7879860d797e693",
+      "before_lines": 58,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/api-testing.md",
+      "before_sha256": "8f272533d02fcf22b14be876291618218426a71878b0bcb65e4346fb79c8d3b7",
+      "after_sha256": "72a3e9cc10c882ba936175a8a4e0a518c4873a598d0e8548097552433e0584de",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/application-security.md",
+      "before_sha256": "2661be6ea1b14febe95da6186f5c19de1b7aa7d203eee40bc803bd4ea7d940fd",
+      "after_sha256": "b56bacd53b8e7153b70578f1422a961d76d9f936092c0e95532ce1ba5421d796",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/autonomous-verification-engineering.md",
+      "before_sha256": "7c0cb483af8f8f824463514e35ef91b8568332e0c162bd2a1f58d983bb8c8c06",
+      "after_sha256": "def85f5b603eeac41b071c740d0d3d3a95497b2a9da9efd42985058d3e57bd0a",
+      "before_lines": 43,
+      "after_lines": 21
+    },
+    {
+      "path": "sdd/chain/cicd-agent-runtime.md",
+      "before_sha256": "0d5bd2d46e7401cf4b3dd8fd86e88a6bb653d602a6e30291f86d06304082552f",
+      "after_sha256": "10332e0d13f15001c9dfa05309c010694e5cb299a95d8439ed97212c44437861",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-artifacts-and-retention.md",
+      "before_sha256": "7065c04de6e1ab2834735b147cdef09ca18343be282281f9498cf994f27edce0",
+      "after_sha256": "9d81b4aa8072f3415cdad7a9aa93b788fd9ec6a5e6de933b07d5d34b43b82044",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-build-cache.md",
+      "before_sha256": "f381de715cb778bf9d3e8b353fbabf191e1848c860e499c5478b2c5b3983b88b",
+      "after_sha256": "e8bb04271154762771cc709e16173c1bcc4c42d5c4b448c72458b871fb292f18",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-execution-runtime.md",
+      "before_sha256": "28cf309c9acc82ce0206c6f417537cbadf2d780bce43ea7fc2dbc36fba40151b",
+      "after_sha256": "fe1938e666eecd4776e3972eec7a4abe90e79e0c12f7d8fa59299a81c883c820",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-logs-and-test-results.md",
+      "before_sha256": "9e1f06028633c12d7410dbd6466d948e009994b5a0ad7416813a3fed5d274077",
+      "after_sha256": "72e8d2d0fbf6f9b8b4223283d74b91a9423b742773e1ab850a1a924acd066c57",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-pipeline-graph.md",
+      "before_sha256": "c38c00014282fd93a903763325dcf679c7cf0e6c4a3cdf79fdfcc55affa9ebdf",
+      "after_sha256": "4b3cb9b2c15d521474d7cb80c27f4ae49b1452aec6c298a6210683641db80c17",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-release-and-deployment.md",
+      "before_sha256": "c90a80c3ca85ed724ec26f96a18dedd85856902ec7c86e6b27f7551326d2745e",
+      "after_sha256": "f87de4f4b7e98af5a633f7ec98dc02d586d4774ac50dd416b5b9c8bfce6913fb",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-scheduler.md",
+      "before_sha256": "861d423333627cd50ba12a8ed3f72fa09e038f78ec58698dd095e5e984615f38",
+      "after_sha256": "86f01737f9e467a0e5567fca2bb9440698c4002b1dcdacaa50267357e0160812",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cicd-vcs-event-processing.md",
+      "before_sha256": "308f0b3426a06b7e4a6921850fea28af744eb77bb1d02c5fc8044d63d25b61e4",
+      "after_sha256": "acc4d11ff866092b6e52d161ae0f455f488e7fdaf3509f52e0445a60091b936e",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/cli-engineering.md",
+      "before_sha256": "c64f0e525b203b029bbee5d1cf83f07b0c1a3c0ed878c5a87ebd032247dc5de6",
+      "after_sha256": "e691c061cd12d45a326cf2e3c9f1a7602b3e07c0a01372d3be28539aa74cf9e8",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/commit-governance.md",
+      "before_sha256": "67c234fb4e273bc0874301417e800d73b31cf3b61c5246bf607703ed4db80e8d",
+      "after_sha256": "e37e3635a479296df3f179ad0646aab1f1a0f267406c7c85f20bc637fb2b43e1",
+      "before_lines": 32,
+      "after_lines": 13
+    },
+    {
+      "path": "sdd/chain/css-layout-engineering.md",
+      "before_sha256": "c4e457a789b5b92ddd033e7d9368ad47e1c43310299b21e9cd08a8386c2fc9da",
+      "after_sha256": "49556c536850a94261da562df81be600decd569b79f0a0c485dc84f9fefd1cae",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/database-engineering.md",
+      "before_sha256": "75d44776cf48f4ed58deae72d779720b181ddf2116fb7fb03f76e16fc1e427a6",
+      "after_sha256": "8b4281be262754946b7f52859cb055508b1687b7650d858b286601afb75f1077",
+      "before_lines": 49,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/design-review.md",
+      "before_sha256": "d9d02dde44fc032a642422ef89baeaea839daf1a116a98caa2b191e4635a3ddb",
+      "after_sha256": "505c7559f2c1d58335fcc85fd18e1ad1421b149ea7e9dc8b0de24677d5986ec3",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/design-system.md",
+      "before_sha256": "e5e01202bb32f9247bc886aae7b72f5e73712cec76cbaf43deb27ca6c5990d96",
+      "after_sha256": "f20d77d96b8a6e00253920227833823f5519e3c698d113711ef285b2460dd76b",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/distributed-systems.md",
+      "before_sha256": "eafe4a555b3425ba6550f391c09ad91cc6a4e867011a664347041b0b4f7410b6",
+      "after_sha256": "fc58660b6b3a5b6e4eef7c0fd75a31bd2abfc7d30efaaac0920d16fec7622c7d",
+      "before_lines": 60,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/domain-modeling.md",
+      "before_sha256": "32a3333d79e24d0aab74e00c5594636854172e538f52f7504f63d1b5ccb85378",
+      "after_sha256": "bc06ad44bf5af63152d35143017cdf6186ebe474c8c91f1e7007a31802872887",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/ec-agent-control-protocol.md",
+      "before_sha256": "6132f92441f45f5bde9cdb1c9c28955a17390d8e6bc35887058f2f4d975530b3",
+      "after_sha256": "9fde8f9cb6b4c86163c7916283ee6a12972e75eea52598b6e11004b9091e1f9e",
+      "before_lines": 61,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-agent-pool-console.md",
+      "before_sha256": "2a1043115c73e491ca5a68e879af2731a89122441bab3ff441c1c305e5bcb661",
+      "after_sha256": "baccd3492874557fe64602f1e56905aadc4bfa1304130220e550703dff6a1256",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-configuration-publication.md",
+      "before_sha256": "8f6d879cd233f8b9eb79dd154ee8a09a77f49c6759d29c23bf511d1aec5f8e70",
+      "after_sha256": "44be368dedb54bc5e19a05d5a08319ce609cf980af3f0d9f13b86a4747203337",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-declarative-resource-schemas.md",
+      "before_sha256": "5da3711f8631814e48bd6bf987e13c3b098eb1dc46c2d11e55b270425a28dc93",
+      "after_sha256": "0ac1536474ac99c2babeb6a6c050468526a769a0174aaee1d83f6f0467c51d28",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-effective-permissions.md",
+      "before_sha256": "94384c02372d2ac95bd7c23951904e1f6804ebd68597496a633d1c6d3000d53b",
+      "after_sha256": "faaa4fe15f53c24bd770dbd41d2976150ad1c12c7cac80752d1a22aa5d3d5f49",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-environments-and-approvals.md",
+      "before_sha256": "0c6b7041a1af3f30a47e8152f33508cdb0cabfbe0ecce399f7ed72487bbb3ad1",
+      "after_sha256": "2815967e43424e259170505dee7074e4509d8792409b2cb7cad8869be98c4a83",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-integrations-and-webhooks.md",
+      "before_sha256": "1b6e3e57ecc5a8c469f3fd64624fff78bf66b6cf6d6a269531a0d0a90099c91d",
+      "after_sha256": "4708c0be28bb1ab7f2aa4930a8958a7936fdd25d6f309f5343dee3df420a2ec5",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-operations-and-administration-console.md",
+      "before_sha256": "060a995912ea57ffdbfa4cbe9c6ac4e15739966a864bd924b3f5603b4ba5da6e",
+      "after_sha256": "5bf2193760c288c726f1a6cae4e5e0c60ff9d255af48a2b20718b5dbe5f2c0fe",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-people-and-access-administration.md",
+      "before_sha256": "0a73412dae13f454a9e4d98ac46273b81eaee1b8b77808e2f3ad7984ffc50945",
+      "after_sha256": "72cba42978bd02b6c46ea9e8a2953a3c9fe4aef034749f3c2e8d6e4effff7087",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-pipeline-authoring-workspace.md",
+      "before_sha256": "b7968aa91cd36d7a4ee8909b9c8ed1f89d85123f117894544c85331f4e7587d5",
+      "after_sha256": "3a7921507985a0b884719a8715f39eeacdc8dd02dca6f081b216df3a9b95aa13",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-plugin-isolation-and-lifecycle.md",
+      "before_sha256": "82609a8f70da778f6d44949d85df689eb948338a79a27a3390a4c2ca23fd98b0",
+      "after_sha256": "afd7a11f3a693ff8c57cddd291c03a69118a1464d4692a565f46624bd5c012a6",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-plugin-manifests-and-compatibility.md",
+      "before_sha256": "3f4ee2cf6e08ef64ec029cf81f3ee52a62860d5c14ab5192ff77bf9281b755a7",
+      "after_sha256": "0aee235a522e29df626def1299853fcd8b503c7ee1ab3e459fb6d9e502a8dba9",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-product-contract-test-harness.md",
+      "before_sha256": "5806605fd816f545b92872f63d1ad1af37c50c11ed09e41e559c5bd82f6e0653",
+      "after_sha256": "eeccd6162f10715f1839efac14ee1fbc86921b4bda22ead51567f0714dc64fea",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-project-hierarchy-management.md",
+      "before_sha256": "c8b37adb009aedc348fb24498505e0833d2f6ac9231109dc76e8cd37a8693660",
+      "after_sha256": "779bb3c3cb61de59b0041493437281a4933abca26ab3c3827d74c4271365c307",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-run-execution-operations.md",
+      "before_sha256": "9ecd077f00564a53c427900571f46f43a21056001417eafa9b8d76267ba6aceb",
+      "after_sha256": "cbe3aba10180047a94f26307f2b584b01cb21c855ab480e1c2f3eacadf31fd03",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/ec-semantic-configuration-projections.md",
+      "before_sha256": "fcd189d92bb475d8b238b1a224e80ff27f5530a3d0749b35eea8fb8f4f014d82",
+      "after_sha256": "1634ff42856469c70c13e19b48b8fdb6030cf8b031ee9c08e42f30e93275da4a",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/engineering-productivity.md",
+      "before_sha256": "acee0f885b3bc3ba4d189bb15727219a8a1f11961dbbee2634ec7ac9d813dfb8",
+      "after_sha256": "996a6096ff300d30a4edf4a3df68f02edc69147bbd448b7358ea82ebd1aef814",
+      "before_lines": 51,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/frontend-form-engineering.md",
+      "before_sha256": "45812b6b1302a6175d281f2d7d9a37ef4c2f753a6b66eca086b53b827536c60a",
+      "after_sha256": "b13eaf5376e29396c6b3d9cb2aa0942d65db68a911756c2e5f903ebde9a55c81",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/frontend-routing.md",
+      "before_sha256": "19bcf4985a07cecc1b56cae1820ddc56264b3c782e2d36df97583d6644e0e9d7",
+      "after_sha256": "9b57d1a4c8bf14d0299b57abcdeb15805e846e50a88d323bd9eaaeb2b879f6d2",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/frontend-state-and-cache.md",
+      "before_sha256": "8c14cc3591988af0b995177cc364170e68542d65a5520dd941c9bbcf0c2b9b82",
+      "after_sha256": "5c3034e75638f3c7b8008a9c1e665cc19b24c300e1e0c63a2effbdc828ec3fd1",
+      "before_lines": 61,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/frontend-testing.md",
+      "before_sha256": "f593a8ca011fba4d6e7b9f167ebb81acef8ba130647a96fe40ff348f2bb4fca7",
+      "after_sha256": "99e89fe792da4666e607c5c0ff7056feab0e6384e365296bc62cb5d39d9c69e0",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/http-api-contracts.md",
+      "before_sha256": "90bc7a42ba70e6bf11c0a7c8e46cf8051f6eca125c1b8b0bb20c1e127f13c4b9",
+      "after_sha256": "3013f002c72818810b2ddd271d0b1a4bd33bc244a530c06b901f8c52f7ffa3a4",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/identity-federation.md",
+      "before_sha256": "1d17c3a12d9f1271c7a990acd57e3ad6570c9a11aeeb42e87e7d7c13f3cd1c1b",
+      "after_sha256": "f89bb02dbf2cfcffe17b55a679b5c532b8bad9a9087333cacf4c876f6d1ed0b0",
+      "before_lines": 61,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/information-architecture.md",
+      "before_sha256": "a2e55010499a2039f72d313a8b873b390fbf25bb39ed5486626ecb5ed9f8e383",
+      "after_sha256": "14023f2a533ff4acc1c7feb8452395e67f722ba88a1c5d2b7d918af31a5af69c",
+      "before_lines": 61,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/internationalization.md",
+      "before_sha256": "4c6cca0392a6f8d1a94a050afd9d133662d838c99a3de55130ae83b815e4162a",
+      "after_sha256": "76981b9dc96d12f0395cb0b8e63966356e8c36334dfac37ef418ab13d298f814",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/observability-and-diagnostics.md",
+      "before_sha256": "3fcea0ceb5726315b857c835652177d5582e7009c48a2e2e844145cd48c2aa85",
+      "after_sha256": "2031002c67991aa56e5ce8565fad8efcb0694cf7cd5b9842b46dd9555f9b2548",
+      "before_lines": 48,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/performance-engineering.md",
+      "before_sha256": "3c21beb1945cd0ac67ceeeffea39b470d4a644a7b4cb9a695474038f37ea86bb",
+      "after_sha256": "a3c1a1ce37400d5867af628cec92bb6d3b2eeffb25db2e08e1a797823952af86",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/plugin-protocol-engineering.md",
+      "before_sha256": "1c8264038f32ea4bfd3a2f20cff2b1eca5ab632972dac3b0453462ec80b885ea",
+      "after_sha256": "3dbdcdd146343cd52542248aa917735329c177a8479c916520b46a31d398ad4a",
+      "before_lines": 43,
+      "after_lines": 21
+    },
+    {
+      "path": "sdd/chain/prompt.md",
+      "before_sha256": "b95ac5d423153c6d5bf2443bf4477b62986df269d7239371fe88efebaa78b9b0",
+      "after_sha256": "df7d7b6b907b6cf1e0c2f8305dd90f843258439a74b28114e674ff6e832276f3",
+      "before_lines": 60,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/property-based-testing.md",
+      "before_sha256": "73ff8635bf423ed230a7659cb9a09dd9af7476b47e6d0f493c8a4e9ca2c5d793",
+      "after_sha256": "96210ece46b87d3b0ca3183925e14f45be0250721063289874276b29e80667c1",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/readme-lifecycle-engineering.md",
+      "before_sha256": "4de7623f7f951232954247f404feeeea10e09806c328a7dbbbed28c2458aa9bd",
+      "after_sha256": "1f8ca5a794947326abb0deee2ad87f98e1322f0249f365d62e95b63ecbff93f0",
+      "before_lines": 53,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/reliability-engineering.md",
+      "before_sha256": "77a50e40657d3f652321ae4c4cf2e4d6a958f886168566904ca1af23e3e6206a",
+      "after_sha256": "265fb311bec040374a069275f1b405f0c76e8c234f79a5beab15893189453762",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/rust.md",
+      "before_sha256": "be4c0dcf14542912e8112c574a172361f7825508c0acdc903a67419126ea62ed",
+      "after_sha256": "6cba451374034102eaf0fbe05526b38c85e025aeaae60c000f2ef15ec90cd2df",
+      "before_lines": 57,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/software-architecture.md",
+      "before_sha256": "f733a53334b6937755b9efbcf05fcfda927cecdda28a782252bf4b299b9f5548",
+      "after_sha256": "5aa259bd30ac635fdcb680fa1fcd12ba80e49c5bb60811e265476e42654b93b1",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/software-delivery.md",
+      "before_sha256": "0da9369c34e3a373c640ad6febdea8a6eb6675c7ce9bc43189d68e74cba39e9c",
+      "after_sha256": "e0128a73d09fdc83708c7757cf1976ce95d606b89febfadf80b5a9431a6ebe17",
+      "before_lines": 58,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/software-design.md",
+      "before_sha256": "9f7a80aa731f882a1d0ba71c4fb85aae1bca7a9b1ef55ab104a1546e1fe16a1f",
+      "after_sha256": "572f3929b9630fa5af1416dfced79965aba524cb0f2a3cc8550eb872c7c06764",
+      "before_lines": 56,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/software-evolution.md",
+      "before_sha256": "84dd8f0d83dd7dcfdd1d3b2a75697a44cbb3498c2c584057451e3eba2cc628d5",
+      "after_sha256": "b1de95f039426c861316637a9b7807317a3f72b739e9d223a69d164e30aafd2f",
+      "before_lines": 48,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/software-testing.md",
+      "before_sha256": "e580f29de5ba4d88e0b6e495e00fe4262d4657c3183c0bf318ce62905e6a0502",
+      "after_sha256": "12806b253209e977d224f42bacc2701c48428ec72cf1eae5089e211df958444e",
+      "before_lines": 66,
+      "after_lines": 20
+    },
+    {
+      "path": "sdd/chain/technical-documentation.md",
+      "before_sha256": "b4d246e029cb69a40744d1b1fd57565292248021a584442a98fd111b919186ea",
+      "after_sha256": "d759cea51b7ef31a33b6de99b142761e869482523760a6fd6acb3cff8469f47e",
+      "before_lines": 52,
+      "after_lines": 19
+    },
+    {
+      "path": "sdd/chain/tool-output-engineering.md",
+      "before_sha256": "ab5f98c2981e5dc4dc66f21cc3b561d5333346085f8520d29deaf87b41300915",
+      "after_sha256": "1572d4815e84baebcb55c9b0ab7077d73586d3cccae6cb2aba00202b8abaacfa",
+      "before_lines": 43,
+      "after_lines": 21
+    },
+    {
+      "path": "sdd/chain/typescript-engineering.md",
+      "before_sha256": "a9a9667eaaab036b09f08ad538b8bd40ebfb599e64ae5c331b26a583ee3a29e1",
+      "after_sha256": "5e8ca3919e5ce7196ff8f899cba8b43caff3d0d2aef3def0c4ffc350513871e0",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/vue3-engineering.md",
+      "before_sha256": "b16d4992edde53f2f67daefd5316fb0cd4995770852d7d01054ccfb7d3b69224",
+      "after_sha256": "14f6b10a3575587d70161220b01c45739e4657af312cb8359763c3e3de774df1",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/web-accessibility.md",
+      "before_sha256": "992b3dda85e1b31b83bbf6a70e486297e1cf18ddcfc45dec86dde518151901f0",
+      "after_sha256": "85121c514266261095a2fd90188b4750a653346d8e187339921ffb9199c79d90",
+      "before_lines": 61,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/web-realtime-streaming.md",
+      "before_sha256": "ae0273cd4249b1cdd6663d3a448f4316354b7f4e121ee5814b7404a9b64ad5ae",
+      "after_sha256": "4980db76c3cba5b3ba26b0487948342f43c2c049d2395b5c63065a047ab84ae2",
+      "before_lines": 60,
+      "after_lines": 10
+    },
+    {
+      "path": "sdd/chain/workspace-integrity-engineering.md",
+      "before_sha256": "2896c455dbdc7b8320ef251883639a1d311e95f3462488c7100ee41131b1df76",
+      "after_sha256": "fc7b67662f734200f686dde80b36628fbfdc2722acbe908904a82318903e8eb7",
+      "before_lines": 43,
+      "after_lines": 21
+    },
+    {
+      "path": "sdd/evidence.md",
+      "before_sha256": "62ed38377efbe95c1ad21b91d2fe4acf92d0640de17a1a738fea58e8ed42d9b6",
+      "after_sha256": "be049276f60b5fa0d4ff80bb6b6d2bdcc6ea1a9dc35259a566aea7e40b845442"
+    },
+    {
+      "path": "sdd/features/first-functional-journey/converge.md",
+      "before_sha256": "5301fbaa70db1a0d0136a1c608dfd4ac5fcf767599519fc4798cca66f0723b75",
+      "after_sha256": "af225375e029dd0753f947e08affd5363b2fd9b4eaf16bf19e002818e32ec439"
+    },
+    {
+      "path": "sdd/features/governance-adoption/converge.md",
+      "before_sha256": "cfcb5eecb917a2d553b7910dbcb03ef465a8125d57ae8148a77e7680f19c4d43",
+      "after_sha256": "a962ac37eadec43751ffb81de58921efdd650564cfee4e8271c9a22880ac03b9"
+    },
+    {
+      "path": "sdd/features/governance-adoption/evidence.json",
+      "before_sha256": "8a4582ba556e66b44877cd738f3e6b734d85ed5b7864285bc02b6fbb4d6e67b5",
+      "after_sha256": "81660ed53d0ebeb61ad8998837b31efc966719c3ee73580a9077da30cc0a4af6"
+    },
+    {
+      "path": "sdd/features/governance-adoption/plan.md",
+      "before_sha256": "b23c4b1e94ef60113446f77556570620f03d71cac11f6eccb16515bfa7fb48a5",
+      "after_sha256": "03e852675fa20820daace558c939ef3b93756c4c9a28ab8b1fcdbbb44236a02f"
+    },
+    {
+      "path": "sdd/features/governance-adoption/spec.md",
+      "before_sha256": "f2c568e9a582dd2e9a3c23e595bedbe4470e7e202efcc1d5d65a8de4d5298d9a",
+      "after_sha256": "3b2c0726ba9b76fa939d73dc265daa48254cb71dc911140c0241bec7c6c7d8dd"
+    },
+    {
+      "path": "sdd/features/governance-adoption/tasks.md",
+      "before_sha256": "7f656c27dbcc9bcb79b202ef308a25d3237c22e06008be59dd24353fa1fcab9c",
+      "after_sha256": "2acc7801d18734e653eba87e85c47f35fb813e49f6b0a04ee3fedbecbcfd02e5"
+    },
+    {
+      "path": "sdd/features/local-state/evidence.json",
+      "before_sha256": "0d0faa233152863ce584c79ddbc807ed0318b3e2c67edca335039a12ba0f73c9",
+      "after_sha256": "44d7da5cc6e1b6148ebd97487b255b1a43b6a85ce83fc555410c01448ab0f570"
+    },
+    {
+      "path": "sdd/features/local-state/spec.md",
+      "before_sha256": "a3daf16a1afa0b5d72a1e3043370db9751d51aa66cdfbeb3c01904a97079e011",
+      "after_sha256": "8c108a8c6c4c71428a1772368ba20867e6b545e4f3c68a78d63eb7e70f44d391"
+    },
+    {
+      "path": "sdd/features/local-state/tasks.md",
+      "before_sha256": "ff0537a1a8d6059c397eb7e0efbfc5a76363c56d6dff65e5a4a6c1797e664b2c",
+      "after_sha256": "37072a30fc7199970a9f2ea6194cb59c4d242fdacc16701916fd8c79b974c7f4"
+    },
+    {
+      "path": "sdd/features/scripts-verification/converge.md",
+      "before_sha256": "51b60eba83f2d806c3e743c762b4fff571c24ff1986c47cb415d11f1b604a002",
+      "after_sha256": "c117265c5dde236489de1a1f794e239921ccfee753087b8e3e194f77ccd7d505"
+    },
+    {
+      "path": "sdd/project.md",
+      "before_sha256": "dfab4ec87746435721d02a00313ec72a37328c135989d87fb022aed1a049cf52",
+      "after_sha256": "c607fb79f4d5cfded65a6edc91c46baf46a731e72f7623db9fe139f0cdd9183a"
+    },
+    {
+      "path": "sdd/templates/README.md",
+      "before_sha256": "9a51c26ad0e86551b88fe534bbc17fbdee2c833297fad026b73ac153ab82fd60",
+      "after_sha256": "4348ce635444f920841f76f884ebc83152788d9e98768b7ac787054919f5498a"
+    },
+    {
+      "path": "sdd/templates/checklist.md",
+      "before_sha256": "a660321fc8669b4b96d8bd0ccdfe077c88cdbbcac2b2417309a170d2c87bc58e",
+      "after_sha256": "62dcff26c6b6a0711edcaa2cdd52b49e076b1ddfebacb26f53139621f60ef213"
+    },
+    {
+      "path": "sdd/templates/converge.md",
+      "before_sha256": "17008b261b2897586b9108280fa36c3c58103194f248b690d9728e731e5bb383",
+      "after_sha256": "f5a4930bbbf33f34d0d1879424f811c9d5790c42466effcaa49220416b2cf222"
+    },
+    {
+      "path": "sdd/templates/plan.md",
+      "before_sha256": "b871b0674c054a7b4b6cb9aa3030d8fd74c764dc0f3b869eb001f608088dcb71",
+      "after_sha256": "71b9f13329c23f366d7e16925f7a0105382f109acd18721ea3d669613357dc88"
+    },
+    {
+      "path": "sdd/templates/spec.md",
+      "before_sha256": "2ef528f28c10746850c576d97b63dc46a1150012b34a43d4e41f67b274026701",
+      "after_sha256": "935e06d5e9dadd4bea29668c6997955b63e0efd4e6c07165dc6750ed518c1134"
+    },
+    {
+      "path": "sdd/templates/tasks.md",
+      "before_sha256": "cd0f522991c33ff2a0b0c5e923d4f9e60920f29bc70020312deac8e71ea3026e",
+      "after_sha256": "3cd9baa5ca511367e46d19a0c6d669a306ad1f947eef2040486b8f429e3f3c25"
+    },
+    {
+      "path": "sdd/workflow.md",
+      "before_sha256": "44aecdd1c0faf8e86134f6578289097c0cae7f4c092686971ea5ab6310ee1d91",
+      "after_sha256": "cfe25843749b5f828a82a103bfc5e77641960ff685bc662b0aa78b3b4cdf4a49"
+    },
+    {
+      "path": "tools/governance/README.md",
+      "before_sha256": null,
+      "after_sha256": "251ea0ad53c328a0ad6b5b40303714cafd5421ddaae2bd1cbffa3468afc43e78",
+      "note": "Identidade posterior; hash anterior não coletado para este caminho ou arquivo novo."
+    }
+  ],
+  "limits": [
+    "Hashes não provam adequação semântica nem eficácia.",
+    "Não contém cópias de conteúdo ou aprovação dos critérios SDD.",
+    "O próprio changes.json não participa de seu conjunto de hashes."
+  ]
+}

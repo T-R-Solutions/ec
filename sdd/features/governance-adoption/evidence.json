@@ -1,55 +1,55 @@
 {
   "schema_version": 2,
-  "environment": "Inspeção local em 2026-11-07 dos logs run-oUebC3O4 e correções; nenhum script executado neste pedido.",
+  "environment": "Inspeção local em 2026-11-07 dos logs run-oUebC3O4 e correções; nenhum script executado neste pedido. Manutenção editorial em 2026-11-11: mesclagem seletiva de quatro skills, sem execução de scripts de verificação. Revisão de coesão em 2026-11-11: leitura, comparação e edição de skills/SDD/AGENTS, sem scripts de verificação.",
   "requirements": [
     {
       "id": "AC-01",
-      "criterion": "AC-01 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-01 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     },
     {
       "id": "AC-02",
-      "criterion": "AC-02 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-02 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     },
     {
       "id": "AC-03",
-      "criterion": "AC-03 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-03 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     },
     {
       "id": "AC-04",
-      "criterion": "AC-04 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-04 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     },
     {
       "id": "AC-05",
-      "criterion": "AC-05 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-05 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     },
     {
       "id": "AC-06",
-      "criterion": "AC-06 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-06 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     },
     {
       "id": "AC-07",
-      "criterion": "AC-07 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
+      "criterion": "AC-07 conforme spec.md vigente.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Pacotes, metadados e documentação revisados em 11/11/2026; inspeção editorial não substitui os oráculos do critério. Auditoria, preflight, testes e eficácia não executados nesta manutenção."
     }
   ],
   "evidence": [],
@@ -61,6 +61,9 @@
     "Observações anteriores preservadas em docs/validation/tooling-remediation-20261106/previous-evidence.zip; nenhuma evidência histórica foi renovada.",
     "Observações anteriores E-REMEDIATION-20261107-GOVERNANCE-ADOPTION preservadas em docs/validation/default-quality-20261107/previous.zip ou previous-related-evidence.zip. Não reutilizar aprovação histórica nos inputs atuais.",
     "Inspeção do run-oUebC3O4 e correções em docs/validation/automation-run-oUebC3O4-20261107/report.md; histórico anterior preservado em previous.zip/previous-related-evidence.zip. Sem renovação de aprovações históricas ou execução atual.",
-    "Observações anteriores arquivadas integralmente em docs/validation/commit-readiness-20261107/governance-adoption-previous-evidence.json após drift observado no run-Oc8k3QwU; hashes não renovados e critérios não aprovados por esta manutenção."
+    "Observações anteriores arquivadas integralmente em docs/validation/commit-readiness-20261107/governance-adoption-previous-evidence.json após drift observado no run-Oc8k3QwU; hashes não renovados e critérios não aprovados por esta manutenção.",
+    "2026-11-11: pacotes, perfil, baseline e documentos alterados pela mesclagem frontend. Inspeção delimitada em docs/validation/frontend-skills-20261111/report.md; previous.zip preserva o estado anterior. Sem auditoria, preflight, validador SDD, testes ou ensaio de eficácia; critérios permanecem UNVERIFIED.",
+    "2026-11-11: política de .local alterada para somente logs de duas datas; baseline e backups previous/before foram removidos. Referências históricas a esses arquivos não indicam disponibilidade atual. Runner/harnesses/fixtures alterados sem suíte; registro em docs/validation/local-state-20261111/report.md.",
+    "2026-11-11: revisão de coesão registrada em docs/validation/governance-cohesion-20261111/report.md. Hashes de catálogo atualizados para os bytes editados; nenhuma evidência histórica renovada e nenhum critério promovido."
   ]
 }

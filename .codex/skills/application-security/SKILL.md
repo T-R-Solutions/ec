@@ -3,20 +3,9 @@ name: application-security
 description: Implement or assess application security boundaries and controls, investigate vulnerabilities, or model concrete threats. Use for security decisions involving identity, permissions, untrusted data, secrets, dependencies, or configuration; their mere presence in ordinary code does not require a specialized review.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # Application Security
 
@@ -67,8 +56,6 @@ Research provenance is available in source coverage (historical library source: 
 ## Additional investigation references
 
 Consult only when relevant: [access-control-matrix](references/imported/api-testing/access-control-matrix.md); [evaluation-and-trust](references/imported/prompt/evaluation-and-trust.md); [resource-lifecycle](references/imported/reliability-engineering/resource-lifecycle.md).
-
-Other named skills are optional specialist suggestions. Use them only when available and needed for a specific unresolved question; their absence does not prevent using this skill. Report any expertise or verification gap without claiming a handoff occurred.
 
 ## Adjacent responsibilities
 

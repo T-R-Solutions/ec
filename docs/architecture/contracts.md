@@ -144,7 +144,7 @@ WCAG 2.2 AA é critério de referência, incluindo teclado, foco, semântica, co
 Os formatos e ferramentas abaixo já existem, mas não implementam os contratos de produto descritos acima:
 
 - [Perfil](../../config/governance/profile.json) e [auditor](../../tools/governance/validate.py): catálogo, origens, seleção, caminhos e hashes; `--require-installed` exige instalação real íntegra. A [ADR-001](../decisions/ADR-001-skills-sdd-adoption.md) delimita adoção/retenção.
-- [Instalador](../../tools/governance/install_skills.py): `--check` é leitura; conflitos e destinos alheios são rejeitados; a baseline de recuperação é preservada. A [documentação de instalação](../development/skill-installation.md) mantém o procedimento.
+- [Instalador](../../tools/governance/install_skills.py): `--check` é leitura; conflitos e destinos alheios são rejeitados; a instalação vigente não depende de baseline duplicada. A [documentação de instalação](../development/skill-installation.md) mantém o procedimento.
 - [Evidências SDD](../../sdd/evidence.md): schema 2 vincula observação aos hashes dos inputs. Estados `APPROVED`, `REJECTED`, `UNVERIFIED`, `INCONCLUSIVE` e `NOT APPLICABLE` têm significado próprio; ausência de evidência não implica aprovação.
 - [Validador](../../sdd/tools/validate.py): estrutura, aceite e freshness são verificações distintas. Aprovação dos seis critérios de governança não aprova runtime, eficácia das skills ou adequação dos oráculos.
 

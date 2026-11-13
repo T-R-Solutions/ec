@@ -1,10 +1,5 @@
 # Detailed decisions and failure cases
 
-Read only for a decision needing more detail than the entry point. Apply the relevant steps to the
-actual task; the sections are not a mandatory artifact or test checklist. Use existing project
-contracts in their actual format. File names such as spec.md, plan.md or tasks.md are examples, not
-required dependencies. Other skills are optional expertise, never enforcement mechanisms.
-
 Product rules, stack choices and authority locations must be verified in the Ec consumer. Examples
 do not establish deployed capabilities or override its current contract.
 

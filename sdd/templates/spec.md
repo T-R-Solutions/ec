@@ -1,23 +1,23 @@
-# Specification: [feature]
+# Especificação: [feature]
 
-## Context and scenarios
+## Contexto e cenários
 
-Actor, precondition, action, result and rejected transitions. Preserved contracts.
+Atores, precondições, ações, resultados, rejeições e contratos preservados.
 
-## Requirements and acceptance
+## Requisitos e aceitação
 
-- REQ-01: observable behavior or invariant.
-- AC-01 → REQ-01: scenario, independent oracle and expected result.
+- REQ-01: comportamento ou invariante observável.
+- AC-01 → REQ-01: cenário, oráculo independente e resultado esperado.
 
-Each normative AC occupies a declarative line like the one above. Prose references
-do not declare criteria; use fenced blocks or HTML comments for non-normative
-examples. Check the grammar in [evidence.md](../evidence.md).
+Cada AC normativo deve ocupar uma linha declarativa como a anterior. Menções
+na prosa não declaram critérios. Exemplos não normativos pertencem a blocos
+cercados de código ou comentários HTML; gramática em `sdd/evidence.md`.
 
-## Relevant risks and limits
+## Riscos e limites
 
-Trust boundaries, resources, concurrency, compatibility or accessibility only when
-relevant. Units, workload and responsible party for any target.
+Fronteiras de confiança, recursos, concorrência, compatibilidade e acessibilidade
+conforme a mudança. Metas devem identificar unidades, carga e fonte da exigência.
 
-## Open questions
+## Questões abertas
 
-Material assumptions and ambiguities; do not confuse them with approved requirements.
+Hipóteses e ambiguidades materiais, distintas dos requisitos aprovados.

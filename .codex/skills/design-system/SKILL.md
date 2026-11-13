@@ -3,20 +3,9 @@ name: design-system
 description: Create or evolve shared UI tokens, components, variants, states, and usage contracts. Use when implementing reusable interfaces, resolving component inconsistency, or maintaining a design system. Do not use for unrelated backend work or a purely aesthetic opinion; use design-review for evidence-based journey evaluation.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # Design System
 
@@ -36,6 +25,13 @@ This skill owns reusable interface contracts and their evolution. A one-off scre
 4. **Implement semantics and interaction together.** Prefer appropriate native controls; maintain accessible names, keyboard operation, focus transitions and announcements. A style token or ARIA role does not supply behavior. Use [accessibility verification](references/accessibility.md) when changing interaction or presentation.
 5. **Evolve proportionally.** Use role-based tokens and explicit variants where they reduce meaningful duplication. Identify affected consumers; document migration and deprecation for breaking changes. Avoid a new framework, taxonomy or publishing pipeline without a concrete maintenance need.
 6. **Verify in context.** Exercise representative consumers with realistic long/short, missing, translated and erroneous content. Check responsive layouts, interaction and recovery. Run existing relevant checks; record checks unavailable in this environment.
+
+## Referências sob demanda
+
+- Ao migrar tokens/overrides ou estados incertos, consulte
+  [migração visual e rastreabilidade](references/visual-token-migration.md).
+- Para fontes, ícones, clipping e acabamento de componentes, consulte
+  [espécimes e acabamento](references/typography-and-finish.md).
 
 ## Decision constraints
 

@@ -1,12 +1,17 @@
 # Análise de skills, SDD, AGENTS e normas do Ec
 
+Este documento preserva a análise de seleção de origem. Caminhos, inventário e
+hashes ativos pertencem ao [perfil](../../config/governance/profile.json).
+A [revisão de coesão de 11/11/2026](../validation/governance-cohesion-20261111/report.md)
+registra a manutenção posterior, sem repetir a matriz de seleção abaixo.
+
 Data: 2026-11-03. Escopo: pacotes fornecidos e arquivos locais; sem execução de serviços, consulta de credenciais ou certificação do produto.
 
 ## Resultado e método
 
 Inventário: 40 skills Ec + 30 Ox + 1 README = 71 candidatas. Seleção: 67 (40 Ec, 20 Ox gerais, 6 Ox condicionais, 1 README); quatro exclusões. A recomendação anterior de 66 não incluía o pacote adicional README. Não há duplicação de nomes.
 Foram examinados os escopos e procedimentos de entrada, pontes, metadados, organização e conflitos com os cinco documentos originais. Recursos internos receberam inventário integral, hashing e checagem de links; referências relacionadas às adaptações foram examinadas. Isso não é uma releitura/verificação independente de todos os livros, padrões e URLs citados em cada referência.
-O perfil em `config/governance/profile.json` registra cada arquivo original e preparado por SHA-256. Os recursos originais das 71 candidatas são preservados no bundle `config/governance/sources/skills-inputs.zip`; os ZIPs integrais de entrada foram retirados conforme a revisão de retenção do ADR-001. A instalação inicial continha 594 arquivos; após a refatoração de `technical-documentation` em 2026-11-04, são 596 arquivos em `.codex/skills/`, com hashes conferidos; `.local/skill-installation/skills/` mantém a preparação para recuperação.
+O perfil em `config/governance/profile.json` registra cada arquivo original e preparado por SHA-256. Os recursos originais das 71 candidatas são preservados no bundle `config/governance/sources/skills-inputs.zip`; os ZIPs integrais de entrada foram retirados conforme a revisão de retenção do ADR-001. A instalação inicial continha 594 arquivos; após a refatoração de `technical-documentation` em 2026-11-04, são 596 arquivos em `.codex/skills/`, com hashes conferidos; a preparação duplicada foi removida em 11/11/2026; recuperação depende de Git/GitHub.
 
 ## Documentos de entrada, precedência e consequências
 

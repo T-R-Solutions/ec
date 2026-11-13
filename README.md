@@ -89,8 +89,10 @@ ambiente, proveniência de bases e Checks Bundle, sem execução da suíte.
 | `config/governance/` | Catálogo, hashes e fontes preservadas |
 | [reverse_engineering_teamcity/](reverse_engineering_teamcity/README.md) | Pesquisa histórica e protótipo de referência |
 
-As **67 skills selecionadas** estão instaladas em `.codex/skills/`; a baseline de recuperação fica em `.local/skill-installation/skills/`. Consulte o [procedimento de instalação](docs/development/skill-installation.md) para integridade e recuperação e a [ADR-002](docs/decisions/ADR-002-application-layout.md) para a organização documental.
+As **67 skills selecionadas** estão instaladas em `.codex/skills/`; não há baseline duplicada; recuperação usa histórico Git/GitHub. Consulte o [procedimento de instalação](docs/development/skill-installation.md) para integridade e recuperação e a [ADR-002](docs/decisions/ADR-002-application-layout.md) para a organização documental.
 
 O produto completo ainda exige contratos e capacidades além dos incrementos descritos nos guias; isolamento de workloads não confiáveis, segredos por referência e implantação remota não estão demonstrados. O código próprio do Ec usa [GPL-3.0-only](LICENSE), conforme a [declaração de licenciamento](docs/development/licensing.md). Não há canal de suporte de produto definido por esta integração.
 
 As figuras descrevem o planejamento. Cada uma possui acesso à imagem ampliada e à fonte editável. O [registro da revisão visual](docs/validation/documentation-enterprise-20261104/report.md) documenta renderização, verificações e manutenção dos assets.
+
+Consulte [organização e retenção do estado local](docs/development/local-state.md) para logs por ferramenta e retenção de somente duas datas em `.local/`.

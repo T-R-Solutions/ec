@@ -1,10 +1,10 @@
-# Requirements review — optional
+# Revisão de requisitos — opcional
 
-- [ ] Behavior, actors and rejected transitions are clear.
-- [ ] Criteria have verifiable scenarios and oracles.
-- [ ] Decisions and requirements have an identifiable authority.
-- [ ] Risks and checks are proportionate to context.
-- [ ] If bridges were selected, their reason and availability were verified.
+- [ ] Atores, comportamentos e transições rejeitadas estão claros.
+- [ ] Critérios têm cenários verificáveis e oráculos justificados.
+- [ ] Requisitos e decisões têm autoridade identificável.
+- [ ] Riscos e verificações são proporcionais ao contexto.
+- [ ] Skills selecionadas têm razão, contribuição e disponibilidade registradas.
 
-Who reviewed this, and with what limits? This checklist assesses documents,
-not product execution.
+Registre quem revisou e quais limites encontrou. Este checklist avalia documentos;
+não comprova execução do produto.

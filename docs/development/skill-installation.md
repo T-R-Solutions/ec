@@ -1,62 +1,34 @@
-# Instalação das skills preparadas
+# Catálogo de skills e recuperação
 
-As 67 skills (596 arquivos) estão instaladas em `.codex/skills/`. Em 2026-11-03, a execução autorizada do instalador fora do sandbox concluiu a migração de perfil e pontes. A preparação foi preservada para recuperação. Não foram alteradas permissões, montagens ou criados symlinks. Novas instalações continuam sujeitas às permissões reais do ambiente.
+As 67 skills estão instaladas em `.codex/skills/` (599 arquivos na revisão de
+11/11/2026). O perfil `config/governance/profile.json` registra os hashes vigentes;
+as pontes SDD apontam para a instalação real. Não existe mais baseline duplicada
+em `.local/skill-installation/skills/`, nem ZIP de versões anteriores.
 
-Da raiz, com Python 3.11+:
+Recuperação deve usar uma revisão disponível no Git/GitHub, preservando mudanças
+alheias e conferindo perfil, pontes e arquivos correspondentes. Git não comprova
+que conteúdo sem commit esteja publicado. Não renovar hashes para ocultar
+alterações inesperadas. Fontes originais permanecem nos bundles declarados em
+`source_archives`/`source_bundle`; não substituem a revisão adaptada da instalação.
 
-```bash
-python3 tools/governance/install_skills.py --check
-python3 tools/governance/install_skills.py --apply
-python3 tools/governance/validate.py --require-installed
-python3 sdd/tools/validate.py --root .
-```
+O auditor verifica `.codex/skills/` quando o perfil está `installed`; não depende
+da antiga baseline. O instalador reconhece uma instalação íntegra como
+`ALREADY_INSTALLED`. Seu modo legado `prepared` e recuperação por journal existem
+para cenários isolados; não são instrução para recriar preparação neste checkout.
+Os testes constroem suas fixtures temporárias a partir do catálogo instalado,
+removendo-as ao encerrar. Journal transacional de uma instalação interrompida
+não deve ser confundido com backup periódico ou apagado para contornar conflito.
 
-`--check` valida conteúdo e conflitos sem escrever e sem garantir permissão. `--apply` tenta instalar os 67 diretórios completos, confere hashes e atualiza perfil/pontes. Se destino existir diferente ou houver entradas alheias, recusa sobrescrever. Uma cópia interrompida antes da migração das pontes pode ser retomada: somente pacotes completos e idênticos são aceitos. A preparação é mantida como baseline; as fontes pertinentes originais estão no bundle `config/governance/sources/skills-inputs.zip`.
+A auditoria e os testes integram a suíte, acionada somente conforme
+[task-verification.md](task-verification.md). Nenhuma alteração de documentação
+comprova eficácia da skill, descoberta pela interface ou auditoria aprovada.
+Novas instalações continuam sujeitas às permissões reais do ambiente.
 
-Não há transação atômica entre todas as pontes e perfil: interrupção durante essa migração exige inspecionar/restaurar os metadados a partir da preparação e comparar conteúdos antes de retomar. Não apagar pacotes ou sobrescrever mudanças recentes para “corrigir” o estado.
-
-Depois da instalação, reexaminar AGENTS, README, sdd/project, sdd/README e ADR para atualizar o estado observado; reexecutar verificações e coletar novas evidências da feature. Não renovar hashes de evidências antigas. A interface pode precisar recarregar a descoberta; validar isso separadamente, sem alegar que um teste de cópia certifica descoberta.
-
-## Leitura visual
-
-[![O que cada cópia do pacote representa? Fontes originais, baseline de recuperação e instalação têm funções distintas. Preflight e auditoria verificam conteúdo; não demonstram eficácia da skill nem descoberta pela interface.](../assets/diagrams/skills-lifecycle.svg)](../assets/diagrams/skills-lifecycle.svg)
-
-Fontes originais, baseline de recuperação e instalação têm funções distintas. Preflight e auditoria verificam conteúdo; não demonstram eficácia da skill nem descoberta pela interface.
-
-[Ampliar figura](../assets/diagrams/skills-lifecycle.svg) · [Fonte Mermaid](../assets/diagrams/skills-lifecycle.mmd)
-
-## Retenção após a limpeza
-
-`skills_to_use/` deixou de ser pré-requisito. O perfil identifica o bundle vigente e os hashes dos ZIPs retirados. Para auditar fontes, execute `python3 -B tools/governance/validate.py --require-installed`: o auditor verifica também os recursos originais das 71 candidatas. Os testes copiam esse bundle e continuam usando o baseline de preparação para exercitar instalação e recuperação.
-
-Os scripts de auditoria em `docs/validation/skills-adoption/` são registros das sessões anteriores; dependem dos pacotes integrais daquele momento e não são o procedimento corrente. Consulte o [relatório de limpeza](../validation/workspace-cleanup-20261103/report.md) para o inventário, limites e verificações novas.
-
-## Manutenção de technical-documentation — 2026-11-04
-
-A refatoração solicitada acrescenta orientações Mermaid e duas referências visuais. O catálogo passa de 594 para 596 arquivos, mantendo as 67 skills. Pacote instalado e baseline de recuperação passam a ter o mesmo conteúdo revisado; a versão anterior está no backup da [revisão](../validation/documentation-skill-20261104/report.md), e os recursos originais permanecem no bundle. O perfil atualiza somente a descrição, adaptações e hashes de `files` desta skill, sem alterar `source_files`. Essa manutenção local não é instalação automática nem comprova eficácia ou descoberta pela interface.
-
-## Retomada após interrupção
-
-No Linux, executar novamente `python3 tools/governance/install_skills.py --apply`. O journal em `config/governance/install-journal.json` vincula cada ponte/perfil aos bytes anteriores e esperados. Não apague nem edite esse registro para contornar conflito. `--check` examina a possibilidade de retomada sem realizar escritas. A auditoria comum permanece estrita e pode falhar enquanto a migração estiver incompleta.
-
-Execuções cooperantes usam `config/governance/install.lock` com flock não bloqueante; a segunda é rejeitada. O inode do lock permanece, mas a morte do processo libera a exclusão. Um conflito exige comparar conteúdo atual, journal e baseline e preservar a edição externa antes de qualquer resolução manual; não recalcular hashes para aceitá-la. Journal inválido/ausente não autoriza recuperar metadados divergentes.
-
-A baseline permanece intacta. Temporários órfãos `.ec-install-*` e `.ec-metadata-*` não são instalação confirmada e não são removidos automaticamente: podem conter dados de diagnóstico. A garantia é retomada entre operações individuais em filesystem local Linux, não atomicidade de vários arquivos nem proteção contra escritor hostil concorrente.
-
-## Manutenção do encerramento — 2026-11-05
-
-Somente software-delivery e software-testing receberam uma referência textual ao
-procedimento canônico `docs/development/task-verification.md`, relativo à raiz Ec.
-Os pacotes permanecem portáveis: não há link Markdown escapando da pasta da skill.
-A revisão preserva propósito, referências internas e versão anterior em
-`docs/validation/scripts-ec-20261105/previous.zip`. Foram sincronizados apenas seus
-SKILL.md entre instalação e baseline, com precondições de hash e autorização real
-do ambiente; o perfil atualiza `files` e `adaptations` desses dois pacotes.
-`source_files`, bundle e os demais 65 pacotes permanecem intactos.
-
-Em manutenção futura: ler/revisar o pacote real, preservar a versão anterior e
-comparar precondições antes de escrever; sincronizar somente pacotes alterados e
-revisar metadados/hashes. Não usar o instalador sem overwrite como mecanismo de
-atualização forçada. Reexecutar auditor, preflight, testes e reobservar evidências
-vinculadas. Seguir a [política de encerramento](task-verification.md); não renovar
-hashes apenas para aceitar divergências ou reutilizar observações antigas.
+A mesclagem seletiva de SKILLS-DESIGN-v4.0.0 atualizou `design-system`,
+`design-review`, `css-layout-engineering` e `frontend-testing`, sem criar novas
+identidades. O ZIP canônico está em
+`config/governance/sources/SKILLS-DESIGN-v4.0.0.zip`; a cópia em `.local` foi
+removida. `source_files` conserva a origem, `files` descreve o conteúdo atual e
+`adaptations` aponta a análise. Consulte o
+[guia de métodos](frontend-design-skills.md) e a
+[política de retenção](local-state.md).

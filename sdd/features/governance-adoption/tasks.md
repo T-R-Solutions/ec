@@ -1,5 +1,8 @@
 # Tarefas — adoção de governança
 
+As marcações abaixo registram entregas históricas. O aceite atual está em
+[evidence.json](evidence.json); manutenção posterior exige reobservação.
+
 - [x] T001 [REQ-01, AC-01, D-01, R-01]: inventariar 71 candidatas, selecionar 67, preservar fontes e recursos, adaptar escopos/metadados.
 - [x] T002 [REQ-02, AC-02, D-02, R-02]: revisar cinco documentos; adaptar AGENTS, constituição, arquitetura, análise e ADR.
 - [x] T003 [REQ-03, AC-03, D-03, R-03]: configurar pontes reais e SDD portátil; validar links e metadados.
@@ -14,15 +17,18 @@ A organização inicial da aplicação atualiza README, contexto e navegação s
 
 ## Correção de caminhos — 2026-11-04
 
-A instrução do usuário move Agent e Server para `application/agents/` e `application/server/`. Contratos e critérios de governança permanecem vigentes. A [reobservação](../../../docs/validation/application-layout-20261104/report.md) preserva a evidência anterior, confere links e estrutura e reexecuta os controles com a fixture ajustada.
+Resultado histórico registrado na [convergência](converge.md); esta seção
+identifica a manutenção das tarefas, sem repetir a observação.
 
 ## Testes entre componentes sob application — 2026-11-04
 
-Os testes antes reservados na raiz passam a `application/integration/tests/`, com integração e ponta a ponta separados. A fixture passa a copiar apenas `application/`. A [nova observação](../../../docs/validation/application-integration-tests-20261104/report.md) preserva a evidência anterior e reexamina os mesmos critérios de governança, sem aceitar runtime.
+Resultado histórico registrado na [convergência](converge.md); esta seção
+identifica a manutenção das tarefas, sem repetir a observação.
 
 ## Auditoria consolidada dos caminhos — 2026-11-04
 
-A [auditoria atual](../../../docs/validation/application-path-audit-20261104/report.md) confere todos os arquivos da aplicação, links vigentes, caminhos literais, exemplos e referências históricas após as duas movimentações. As entradas distinguem caminhos da raiz e locais. Os critérios de governança são reobservados sem alterar seu escopo.
+Resultado histórico registrado na [convergência](converge.md); esta seção
+identifica a manutenção das tarefas, sem repetir a observação.
 
 ## Análise funcional e de contratos — 2026-11-04
 
@@ -30,7 +36,8 @@ A [revisão documental](../../../docs/validation/application-analysis-20261104/r
 
 ## Refatoração visual da skill documental — 2026-11-04
 
-A [revisão](../../../docs/validation/documentation-skill-20261104/report.md) registra a refatoração solicitada de `technical-documentation`: Mermaid, recursos visuais profissionais e critérios mensuráveis. T001/T003/T005 recebem pacote, perfil, ponte e baseline revisados; a observação dos seis critérios é reexaminada com fontes originais preservadas, testes existentes e gates atuais. Aprovação estrutural não certifica qualidade de futuras documentações, renderização ou eficácia da skill.
+Resultado histórico registrado na [convergência](converge.md); esta seção
+identifica a manutenção das tarefas, sem repetir a observação.
 
 ## Recuperação do instalador
 
@@ -39,4 +46,27 @@ A [revisão](../../../docs/validation/documentation-skill-20261104/report.md) re
 
 ## Reobservação após T004 do produto — 2026-11-05
 
-T004 de first-functional-journey atualizou quatro documentos vinculados a esta evidência: contexto do projeto/arquitetura e READMEs do backend/orquestração. A revisão preserva autoridades, dependências e propostas; reconhece apenas implementação e evidência efetivamente observadas. AC-01 a AC-07 desta feature continuam restritos à governança, com nova execução do auditor, preflight e 34 testes em cópias isoladas. Registros anteriores preservados em docs/validation/orchestration-20261105/governance-previous.zip; comandos, comparação de inputs e limites em governance-checks.json na mesma validação. Nenhuma remoção histórica ou instalação foi reatribuída; aceite de produto é independente.
+Resultado histórico registrado na [convergência](converge.md); esta seção
+identifica a manutenção das tarefas, sem repetir a observação.
+
+## Mesclagem seletiva de design — 11/11/2026
+
+T001/T002/T003/T005 recebem manutenção de conteúdo e metadados:
+
+- Análise e plano: comparar as 11 fontes com referências atuais, registrar deltas e redundâncias.
+- Implementação: atualizar quatro pacotes, baseline e perfil com versão anterior preservada.
+- Documentação: atualizar AGENTS.md, seleção de métodos, estado e convergência.
+- Verificação pendente: auditor, preflight, validador SDD e testes pelo fluxo autorizado.
+
+As três primeiras atividades estão implementadas e inspecionadas; isso não marca
+novamente os gates históricos como aprovados. AC-01 a AC-07 permanecem UNVERIFIED.
+[Arquivos, origem e limites](../../../docs/validation/frontend-skills-20261111/report.md).
+
+## Coesão — 11/11/2026
+
+T001/T002/T003/T005 recebem revisão das 67 skills, referências, pontes, AGENTS,
+contexto, templates e perfil. T007 recebe alinhamento da preparação temporária
+à retenção vigente. Conteúdo editado e inspecionado; verificadores e ensaios de
+eficácia não executados. AC-01 a AC-07 continuam UNVERIFIED.
+
+[Resultado e condição de retomada](../../../docs/validation/governance-cohesion-20261111/report.md).

@@ -3,20 +3,9 @@ name: plugin-protocol-engineering
 description: Design and verify versioned host-plugin protocols, capability negotiation and lifecycle failure boundaries. Use for plugin hosts or compatibility changes; skip clients of an unchanged SDK.
 ---
 
-## Acionamento de scripts no Ec
-
-Neste checkout, esta regra prevalece sobre recomendações de execução desta skill e
-suas referências. Scripts de verificação só podem ser acionados após pedido explícito
-de commit. Pergunte exatamente: “Deseja executar o script automate.sh (que roda todos os outros scripts)?”
-Ofereça somente `sim` e `não`, sem resposta automática; aguarde a escolha.
-Com `não`, prossiga normalmente com os commits solicitados, sem executar scripts.
-Com `sim`, execute da raiz `bash scripts/automate.sh run`, sem filtros, e só crie
-os commits após todos os scripts da suíte terminarem sem erros. Falha, interrupção,
-ferramenta ausente ou execução incompleta bloqueiam os commits nessa opção.
-Não execute scripts avulsos nem os acione automaticamente durante implementação,
-revisão ou encerramento. Inspeção manual continua permitida; checks não executados
-permanecem explicitamente não verificados. Detalhes: `docs/development/task-verification.md`
-(caminho relativo à raiz Ec). Em outros projetos, siga a política do consumidor.
+No Ec, siga `docs/development/task-verification.md` para acionar checks e
+`docs/development/local-state.md` para arquivos de trabalho (caminhos desde a
+raiz). Em outros consumidores, siga as políticas locais.
 
 # plugin-protocol-engineering
 
@@ -26,7 +15,7 @@ Design and verify versioned protocols for plugins isolated from the host, includ
 
 Select: New protocol/plugin host, capability manifest, IPC, vN/vN+1 compatibility, safe installation/uninstallation.
 
-Do not select: Do not select for a lint plugin that only uses an established SDK; use Rust and API Testing in that case. Do not turn this skill into an automatic recommendation for Wasm, gRPC or Dylib.
+Do not select: a lint plugin that only uses an established SDK; use Rust and API Testing in that case. Do not turn this skill into an automatic recommendation for Wasm, gRPC or Dylib.
 
 ## Inputs and gaps
 

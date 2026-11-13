@@ -1,3 +1,11 @@
+# Convergência — governança Ec
+
+Estado atual: AC-01 a AC-07 UNVERIFIED, conforme [evidence.json](evidence.json).
+A [revisão de coesão](../../../docs/validation/governance-cohesion-20261111/report.md)
+alterou pacotes, metadados e documentação sem executar verificadores. As seções
+datadas seguintes preservam observações históricas, não aprovações atuais.
+Backups nelas mencionados foram removidos pela política de retenção de 11/11/2026.
+
 ## Revisão dos scripts após análise do run-oUebC3O4 — 2026-11-07
 
 Os scripts vinculados à inspeção anterior foram corrigidos; nenhum script foi
@@ -13,7 +21,7 @@ nesse diretório. As observações abaixo são históricas.
 > autorizada; nenhum resultado antigo foi reaproveitado como aprovação atual.
 > [Registro e preservação](../../../docs/validation/default-quality-20261107/report.md).
 
-# Convergência — governança Ec após limpeza
+## Observação da limpeza — 03/11/2026
 
 Data: 2026-11-03. Nova observação após retirada das entradas dispensáveis; não reutiliza os hashes de aceitação anterior.
 
@@ -26,11 +34,11 @@ Data: 2026-11-03. Nova observação após retirada das entradas dispensáveis; n
 | AC-05 / REQ-05 / D-05 / R-05 / T005 | APPROVED | Auditoria real --require-installed e preflight passam; instalação e baseline intactos. |
 | AC-06 / REQ-06 / D-06 / R-06 / T006 | APPROVED | 16 arquivos removidos após preservação; inventário completo e comparação de hashes dos arquivos mantidos; verificações sem skills_to_use. |
 
-Consultar [relatório de limpeza](../../../docs/validation/workspace-cleanup-20261103/report.md), [checks](../../../docs/validation/workspace-cleanup-20261103/checks.json) e [evidence.json](evidence.json). Os registros substituídos estão em [previous.zip](../../../docs/validation/workspace-cleanup-20261103/previous.zip). Eficácia das skills, descoberta na UI e runtime Ec não foram verificados. O material descartado de produto Ox não é recuperável pelo hash dos ZIPs antigos.
+Consultar [relatório de limpeza](../../../docs/validation/workspace-cleanup-20261103/report.md), [checks](../../../docs/validation/workspace-cleanup-20261103/checks.json) e [evidence.json](evidence.json). Os registros substituídos estão em `../../../docs/validation/workspace-cleanup-20261103/previous.zip` (cópia posteriormente removida). Eficácia das skills, descoberta na UI e runtime Ec não foram verificados. O material descartado de produto Ox não é recuperável pelo hash dos ZIPs antigos.
 
 ## Reobservação após estrutura da aplicação — 2026-11-03
 
-Os estados da tabela acima descrevem a observação da limpeza. A [validação atual](../../../docs/validation/application-layout-20261103/report.md) registra a revisão dos contratos, verificações reexecutadas e comparação dos inputs após a documentação da aplicação. A evidência anterior foi preservada em [previous.zip](../../../docs/validation/application-layout-20261103/previous.zip); evidence.json passa a apontar para a observação atual. Nenhuma remoção histórica foi reexecutada. Os seis critérios continuam limitados à governança; runtime não foi implementado ou aceito.
+Os estados da tabela acima descrevem a observação da limpeza. A [validação atual](../../../docs/validation/application-layout-20261103/report.md) registra a revisão dos contratos, verificações reexecutadas e comparação dos inputs após a documentação da aplicação. A evidência anterior foi preservada em `../../../docs/validation/application-layout-20261103/previous.zip` (cópia posteriormente removida); evidence.json passa a apontar para a observação atual. Nenhuma remoção histórica foi reexecutada. Os seis critérios continuam limitados à governança; runtime não foi implementado ou aceito.
 
 ## Correção de caminhos — 2026-11-04
 
@@ -46,7 +54,7 @@ A [auditoria atual](../../../docs/validation/application-path-audit-20261104/rep
 
 ## Análise funcional e de contratos — 2026-11-04
 
-A [nova observação](../../../docs/validation/application-analysis-20261104/report.md) examina as entradas ampliadas contra as autoridades e o conteúdo real do checkout. O registro anterior foi preservado em [previous.zip](../../../docs/validation/application-analysis-20261104/previous.zip). Os seis critérios continuam restritos à governança: inventário/instalação, contratos documentais, estrutura/links, testes de rejeição e preservação dos registros de limpeza. O relatório distingue essa reobservação de runtime, renderização e eficácia das skills, que permanecem não verificados.
+A [nova observação](../../../docs/validation/application-analysis-20261104/report.md) examina as entradas ampliadas contra as autoridades e o conteúdo real do checkout. O registro anterior foi preservado em `../../../docs/validation/application-analysis-20261104/previous.zip` (cópia posteriormente removida). Os seis critérios continuam restritos à governança: inventário/instalação, contratos documentais, estrutura/links, testes de rejeição e preservação dos registros de limpeza. O relatório distingue essa reobservação de runtime, renderização e eficácia das skills, que permanecem não verificados.
 
 ## Refatoração visual da skill documental — 2026-11-04
 
@@ -90,3 +98,30 @@ e OSV reintegrados, documentação de pré-requisitos e contratos revisados; 32 
 de automação e 34 de governança passam. Instalação de skills/bundle não alterada;
 aceite de scans reais permanece bloqueado por CLIs/bases ausentes. Fontes/evidências
 anteriores preservadas no backup da revisão, sem redução dos critérios.
+
+
+## Manutenção das skills de frontend — 11/11/2026
+
+[Registro atual](../../../docs/validation/frontend-skills-20261111/report.md):
+mesclagem autorizada em quatro skills, sincronização da baseline e perfil,
+fonte suplementar e referências sob demanda. AGENTS.md e documentação atualizados.
+As observações históricas acima preservam seus inputs e limites; não aprovam
+esta manutenção. O backup previous.zip contém a evidência anterior sem renovação.
+
+| Critérios | Alteração / observação | Estado atual |
+| --- | --- | --- |
+| AC-01, AC-03, AC-05 | Pacotes, referências e metadados inspecionados; auditor/preflight não executados | UNVERIFIED |
+| AC-02 | Instruções e documentação atualizadas; sem aceite automatizado | UNVERIFIED |
+| AC-04, AC-06, AC-07 | Nenhuma reexecução dos respectivos oráculos; limites anteriores preservados | UNVERIFIED |
+
+A eficácia comportamental das skills não foi ensaiada. Retomar verificações
+somente no fluxo autorizado; tratar quaisquer divergências pela origem, sem
+renovar hashes de uma observação antiga para fazê-la parecer atual.
+
+
+## Correção de declaração ambígua — 11/11/2026
+
+O log docs:sdd de run-orZMYUEe rejeitou uma referência em prosa iniciada por
+AC-05. A frase foi reescrita com “critério AC-05” na continuação, preservando a
+declaração normativa e seu requisito. Inspeção do parser e da spec; nenhum
+validador executado ou critério promovido. O estado atual continua UNVERIFIED.
