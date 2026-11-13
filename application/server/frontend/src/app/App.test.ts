@@ -67,3 +67,23 @@ test('login recusado não apresenta uma sessão nem conserva o token no campo', 
   expect(root.text).toContain('Entrar com sessão provisionada')
   expect(all(root, 'input').find(n => n.props.type === 'password')?.value).toBe('')
 })
+
+test('demonstração sem sessão preserva proposta entre áreas e não chama API', async () => {
+  const { root, fetch } = setup()
+  await event(button(root, 'Explorar demonstração'), 'click')
+  await event(button(root, 'Pessoas e acesso'), 'click')
+  await event(button(root, 'Editar proposta local'), 'click')
+  const team = all(root, 'input').find(n => n.value === 'Revisores')!
+  await input(team, 'Revisores locais')
+  await event(all(root, 'form')[0], 'submit')
+  expect(root.text).toContain('Revisores locais')
+  expect(root.text).toContain('Proposta · não efetiva')
+  await event(button(root, 'Reter proposta nesta aba'), 'click')
+  await event(button(root, 'Projetos'), 'click')
+  await event(button(root, 'Pessoas e acesso'), 'click')
+  const retained = all(root, 'input').filter(n => n.value === 'Revisores locais')
+  expect(retained).toHaveLength(1)
+  expect(retained[0].props.readonly).toBe(true)
+  expect(root.text).toContain('Não publicada nem aplicada')
+  expect(fetch).not.toHaveBeenCalled()
+})

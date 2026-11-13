@@ -9,6 +9,8 @@ export class Node {
   props: Record<string, any> = {}
   listeners: Record<string, ((event: any) => unknown)[]> = {}
   value: any = ''
+  focused = false
+  focus() { this.focused = true } // Registra intenção; não prova foco no navegador.
   selected = false
   multiple = false
   selectedIndex = -1

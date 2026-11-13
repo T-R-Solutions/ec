@@ -1,21 +1,34 @@
 // @vitest-environment node
 import { test, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
-const css=readFileSync(new URL('./style.css',import.meta.url),'utf8')
-function luminance(hex:string) {
- if(hex.length===4)hex='#'+hex.slice(1).split('').map(v=>v+v).join('')
- const channels=hex.slice(1).match(/../g)!.map(v=>parseInt(v,16)/255).map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4)
- return channels[0]*0.2126+channels[1]*0.7152+channels[2]*0.0722
+const css = readFileSync(new URL('../shared/ui/tokens.css', import.meta.url), 'utf8')
+function roles(selector: string, base: Record<string,string> = {}) {
+  const block = css.split(selector)[1].split('}')[0]
+  return { ...base, ...Object.fromEntries([...block.matchAll(/(--[\w-]+):\s*([^;]+);/g)].map(m => [m[1],m[2].trim()])) }
 }
-function ratio(a:string,b:string){const x=luminance(a),y=luminance(b);return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05)}
-for(const [name,selector] of [['claro',':root{'],['escuro',':root[data-theme=dark]{']]) {
- test(`contraste WCAG dos tokens ativos ${name}: texto 4.5 e limite/foco 3`,()=>{
-  const block=css.split(selector)[1].split('}')[0]
-  const get=(key:string)=>block.match(new RegExp(`(?:^|;)${key}:(#[a-f0-9]{3,6})`))![1]
-  for(const background of [get('background'),get('--panel')]){
-   expect(ratio(get('color'),background)).toBeGreaterThanOrEqual(4.5)
-   expect(ratio(get('--accent'),background)).toBeGreaterThanOrEqual(4.5)
-   expect(ratio(get('--border'),background)).toBeGreaterThanOrEqual(3)
-  }
- })
+function resolve(tokens: Record<string,string>, key: string): string {
+  const value = tokens[key]
+  if (!value) throw new Error('Token ausente: ' + key)
+  const ref = value.match(/^var\((--[\w-]+)\)$/)
+  return ref ? resolve(tokens, ref[1]) : value
+}
+function luminance(hex: string) {
+  const c = hex.slice(1).match(/../g)!.map(v=>parseInt(v,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4)
+  return c[0]*.2126+c[1]*.7152+c[2]*.0722
+}
+function ratio(a: string,b: string) { const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05) }
+const light = roles(':root {')
+for (const [name,tokens] of [['claro',light],['escuro',roles(':root[data-theme=dark] {',light)]] as const) {
+  test(`pares semânticos ${name}; não substitui contraste renderizado`, () => {
+    const contrast = (a: string,b: string) => ratio(resolve(tokens,a),resolve(tokens,b))
+    for (const surface of ['--ec-surface','--ec-canvas','--ec-nav']) {
+      expect(contrast('--ec-text',surface)).toBeGreaterThanOrEqual(4.5)
+      expect(contrast('--ec-muted',surface)).toBeGreaterThanOrEqual(4.5)
+      expect(contrast('--ec-action',surface)).toBeGreaterThanOrEqual(4.5)
+      expect(contrast('--ec-outline',surface)).toBeGreaterThanOrEqual(3)
+      expect(contrast('--ec-focus',surface)).toBeGreaterThanOrEqual(3)
+    }
+    expect(contrast('--ec-on-action','--ec-action')).toBeGreaterThanOrEqual(4.5)
+    for (const state of ['success','warning','danger']) expect(contrast(`--ec-${state}`,`--ec-${state}-bg`)).toBeGreaterThanOrEqual(4.5)
+  })
 }

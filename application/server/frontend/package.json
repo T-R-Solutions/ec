@@ -12,7 +12,7 @@
     "build": "vite build",
     "test": "vitest run",
     "coverage": "vitest run --coverage.enabled",
-    "test:e2e": "python3 ../../integration/tests/e2e/frontend_firefox.py"
+    "test:e2e": "bash ../../../scripts/automate.sh run --surface e2e"
   },
   "dependencies": {
     "pinia": "4.1.0",

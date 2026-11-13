@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, computed, toRefs, onUnmounted } from 'vue'
+import InspectorPanel from '../../../shared/ui/InspectorPanel.vue'
+import StateNotice from '../../../shared/ui/StateNotice.vue'
 import type { Api } from '../../../shared/api'
 import { projectPath, ApiError } from '../../../shared/api'
 import { useDrafts } from './drafts'
@@ -53,21 +55,21 @@ void refresh().then(()=>{selectedRevision.value=published.value}).catch(e=>messa
 </script>
 <template>
 <section aria-labelledby="config-title"><h2 id="config-title">Configuração do pipeline</h2>
-<p>Proposta: rascunho · Base {{base}} · Publicada {{published}} · Efetiva {{effective}}</p>
+<p class="technical">Proposta: rascunho · Base {{base}} · Publicada {{published}} · Efetiva {{effective}}</p><StateNotice v-if="!canWrite" title="Acesso de leitura">Você pode preparar um rascunho e validar. Publicar e executar exigem permissão de escrita no projeto.</StateNotice>
 <button @click="loadPublished" :disabled="!!pending">Carregar publicada (substitui rascunho)</button>
 <nav aria-label="Apresentações"><button v-for="tab in ['Visual','Formulário','YAML']" :key="tab" :aria-pressed="mode===tab" @click="mode=tab">{{tab}}</button></nav>
 <p role="status">{{validating?'Validando no parser do Server…':valid?'Semântica válida; referências verificadas na publicação.':'Projeções mostram o último modelo válido, não o texto YAML atual.'}}</p>
 <pre v-if="validation?.diagnostic" role="alert">{{validation.diagnostic}}</pre>
 <label v-if="mode==='YAML'">YAML canônico<textarea v-model="yaml" rows="18" spellcheck="false" :readonly="!!pending" /></label>
-<template v-else>
-<div v-if="mode==='Visual'" class="pipeline"><strong>{{model?.project || project}} / {{model?.pipeline || 'pipeline'}}</strong><span aria-hidden="true">↓</span><strong>1 · Executar script Linux → coletar artefato</strong><p>Uma etapa · {{model?.timeoutSeconds}} segundos · {{model?.artifact}}</p></div>
-<div class="fields" v-if="model"><label v-for="field in fields" :key="field">{{field}}<textarea v-if="field==='script'" :value="model[field]" @change="edit(field,($event.target as HTMLTextAreaElement).value)" :disabled="!valid || !!pending" /><input v-else :value="model[field]" @change="edit(field,($event.target as HTMLInputElement).value)" :disabled="!valid || !!pending" /></label></div>
-</template>
+<div v-else :class="mode==='Visual'?'workspace editor-workspace':'form-workspace'">
+<div v-if="mode==='Visual'" class="pipeline"><p class="eyebrow">ProjectPipeline · ec/v1alpha1</p><strong>{{model?.project || project}} / {{model?.pipeline || 'pipeline'}}</strong><span aria-hidden="true">↓</span><strong>1 · Executar script Linux → coletar artefato</strong><p>Uma etapa · {{model?.timeoutSeconds}} segundos · {{model?.artifact}}</p></div>
+<component :is="mode==='Visual'?InspectorPanel:'div'" title="Propriedades da etapa"><div class="fields" v-if="model"><label v-for="field in fields" :key="field">{{field}}<textarea v-if="field==='script'" :value="model[field]" @change="edit(field,($event.target as HTMLTextAreaElement).value)" :disabled="!valid || !!pending" /><input v-else :value="model[field]" @change="edit(field,($event.target as HTMLInputElement).value)" :disabled="!valid || !!pending" /></label></div><p v-else>Propriedades disponíveis após validação do YAML no Server.</p></component>
+</div>
 <section v-if="proposed" aria-label="Revisão da alteração textual"><h3>Confirmar substituição textual</h3><p>Comentários e apresentação podem ser perdidos. A equivalência semântica não preserva os bytes SHA-256.</p><div class="diff"><pre>Antes
 {{yaml}}</pre><pre>Depois
 {{proposed}}</pre></div><button @click="yaml=proposed;proposed=''">Aplicar alteração</button><button @click="proposed=''">Preservar texto atual</button></section>
 <details><summary>Diferenças: publicada / rascunho</summary><div class="diff"><pre>{{publishedYaml || 'Nenhuma revisão publicada'}}</pre><pre>{{yaml}}</pre></div></details>
-<button :disabled="!canWrite || !valid || !!pending || conflict || !!proposed" @click="publish">Publicar rascunho</button>
+<button class="primary" :disabled="!canWrite || !valid || !!pending || conflict || !!proposed" @click="publish">Publicar rascunho</button>
 <button v-if="conflict" @click="resolveBase">Comparar e adotar base atual</button>
 <label>Revisão para executar<input type="number" min="1" v-model.number="selectedRevision" /></label><button :disabled="!canWrite || selectedRevision<1 || !!pending" @click="submit">Submeter revisão escolhida</button>
 <div v-if="pending"><p>Pedido preservado: {{pending.body.requestId}}</p><button :disabled="busy" @click="recover">Consultar recibo</button><button :disabled="busy" @click="send">Repetir mesmo pedido</button></div>

@@ -29,10 +29,10 @@ Logs são chunks hex por tentativa, decodificados com substituição de UTF-8 in
 npm --prefix application/server/frontend run typecheck
 npm --prefix application/server/frontend test
 npm --prefix application/server/frontend run build
-python3 application/integration/tests/e2e/frontend_firefox.py
+bash scripts/automate.sh run --surface e2e
 ```
 
-O último comando usa **`/usr/bin/firefox` do sistema**, Marionette em perfil temporário, sem baixar navegador. O perfil temporário habilita MOZ_REMOTE_ALLOW_SYSTEM_ACCESS apenas para ajustar zoom de reflow via Marionette; não usa nem modifica o perfil pessoal. Exige container dedicado `ec-publication-test` em 55439, binários em `.local/build/ec-server-clean/debug/` e `.local/build/ec-agent-target/debug/`, compilados conforme os guias. Cria banco UUID, Git, sessões e raízes Agent temporários; remove banco em finally. Usa portas 5173, 58139 e 58282. Nunca execute em paralelo com publication_http.py, orchestration_http.py ou agent_http.py. Os comandos usam Docker e criação de processos/browser, sujeitos às permissões reais do ambiente.
+O último comando usa **`/usr/bin/firefox` do sistema**, Marionette em perfil temporário, sem baixar navegador. O perfil temporário habilita MOZ_REMOTE_ALLOW_SYSTEM_ACCESS apenas para ajustar zoom de reflow via Marionette; não usa nem modifica o perfil pessoal. Exige container dedicado `ec-publication-test` em 55439, binários em `application/server/backend/target/debug/` e `application/agents/target/debug/`, compilados conforme os guias. Cria banco UUID, Git, sessões e raízes Agent temporários; remove banco em finally. Usa portas 5173, 58139 e 58282. Nunca execute em paralelo com publication_http.py, orchestration_http.py ou agent_http.py. Os comandos usam Docker e criação de processos/browser, sujeitos às permissões reais do ambiente.
 
 O cliente Marionette fica em `frontend/tests/e2e/`; a jornada entre componentes fica em `application/integration/tests/e2e/`. Campos são preenchidos por eventos DOM, cliques e Tab usam WebDriver nativo. Falhas de transporte deliberadas no fetch são identificadas; respostas de domínio e persistência são reais. Testes unitários verificam integridade/corrupção de artefato, bytes de logs, serialização e reatividade/isolação dos rascunhos. Ver [evidências](../validation/frontend-20261105/report.md).
 
@@ -53,3 +53,28 @@ O harness agora usa EC_E2E_ARTIFACT_DIR quando informado ou cria diretório temp
 exclusivo; não grava novamente em docs/validation/frontend-20261105. Pelo runner,
 imagens e browser-results.json ficam no run privado. Copiar somente resultados
 revisados para um novo registro oficial. Seguir [verificação de tarefas](task-verification.md).
+
+## Evolução visual Signal — 11/11/2026
+
+O shell agora organiza nove áreas, tema claro/escuro candidato e densidade
+normal/compacta. Galeria de componentes e demonstrações locais estão acessíveis
+sem sessão, separadas da operação. O editor real de uma etapa, publicação,
+execuções/saída e agentes mantêm seus contratos. Não há implementação implícita
+de backend para as áreas demonstrativas.
+
+[Contrato visual e componentes](../../application/server/frontend/DESIGN.md) e
+[inventário, decisões, evidências e limites](../validation/frontend-signal-20261111/report.md).
+Scripts de verificação não foram executados nesta evolução.
+
+
+## Métodos das skills — 11/11/2026
+
+Quatro skills existentes receberam orientações selecionadas do pacote de design:
+migração de tokens/estados, tipografia, crítica, painéis/densidade e evidência de
+captura. Consulte [seleção e aplicação](frontend-design-skills.md). Esta manutenção
+atualiza métodos de trabalho; não revalida as capturas ou jornadas anteriores.
+
+A consolidação de 11/11/2026 substituiu Marionette pela jornada compartilhada
+`frontend_browser.py`: browser e servidor do build executam na Toolbox/Docker.
+Resultados anteriores permanecem históricos; a migração ainda requer execução
+autorizada. [Configuração e preparo](verification-tools.md).

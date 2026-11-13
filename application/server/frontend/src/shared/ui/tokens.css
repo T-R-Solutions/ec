@@ -1,0 +1,35 @@
+/* Ec / Signal, DESIGN.md rev. 1.0. Neutros e Dark: candidatos implementados,
+   ainda sem aceite visual/contraste. IBM Plex depende de instalação local. */
+:root {
+  --p-shell: #243C59; --p-deep: #182535; --p-blue: #28679F; --p-blue-strong: #205483;
+  --p-selection: #E8F2FD; --p-ink: #263548; --p-white: #FFFFFF;
+  --p-green: #226B50; --p-amber: #80521D; --p-red: #A53848;
+  --p-nav: #F2F4F6; --p-canvas: #F7F8FA; --p-tool: #E8ECEF; --p-outline: #7A8798;
+  --ec-shell: var(--p-shell); --ec-shell-deep: var(--p-deep); --ec-on-shell: #F6FAFE;
+  --ec-action: var(--p-blue); --ec-action-strong: var(--p-blue-strong); --ec-on-action: #FFFFFF;
+  --ec-selected: var(--p-selection); --ec-text: var(--p-ink); --ec-muted: #52657C;
+  --ec-surface: var(--p-white); --ec-canvas: var(--p-canvas); --ec-nav: var(--p-nav); --ec-tool: var(--p-tool);
+  --ec-border: #CBD8E6; --ec-outline: var(--p-outline); --ec-focus: var(--p-blue);
+  --ec-success: var(--p-green); --ec-success-bg: #EDF6F0;
+  --ec-warning: var(--p-amber); --ec-warning-bg: #FFF4E3;
+  --ec-danger: var(--p-red); --ec-danger-bg: #FCEEF1;
+  --ec-execution: #216C73; --ec-dependency: #5D5E9F; --ec-impact: #985F40;
+  --ec-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --ec-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --ec-space-1: .25rem; --ec-space-2: .5rem; --ec-space-3: .75rem; --ec-space-4: 1rem; --ec-space-6: 1.5rem;
+  --ec-radius: .25rem; --ec-line: 1px; --ec-focus-width: 3px;
+  --ec-overlay-shadow: 0 6px 24px #18253526; --ec-motion: 120ms;
+  --ec-row: .75rem; --ec-panel: 1.5rem; --ec-control: 2.5rem;
+  color-scheme: light;
+}
+:root[data-theme=dark] {
+  --ec-text: #F6FAFE; --ec-muted: #A9B8C9; --ec-surface: #171F2B;
+  --ec-canvas: #10151E; --ec-nav: #121923; --ec-tool: #202C3C;
+  --ec-border: #344151; --ec-outline: #A9B8C9; --ec-action: #8BB5FF;
+  --ec-action-strong: #B1D0F0; --ec-on-action: #182535; --ec-selected: #1D304C; --ec-focus: #8BB5FF;
+  --ec-success: #69D0A5; --ec-success-bg: #183B30; --ec-warning: #FFC46A; --ec-warning-bg: #392E20;
+  --ec-danger: #FF91A1; --ec-danger-bg: #3E2631; --ec-execution: #8FD2D2; --ec-dependency: #B4B4EE; --ec-impact: #E4B695;
+  color-scheme: dark;
+}
+:root[data-density=compact] { --ec-row: .4rem; --ec-panel: 1rem; --ec-control: 2rem; }
+@media (prefers-reduced-motion: reduce) { :root { --ec-motion: 0ms; } }

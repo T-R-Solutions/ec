@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, sep, extname } from 'node:path';
 
+const automation = JSON.parse(await readFile(new URL('../../../../../scripts/config/automation.json', import.meta.url), 'utf8'));
 const root = fileURLToPath(new URL('../../dist/', import.meta.url));
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml' };
 createServer(async (request, response) => {
@@ -21,4 +22,4 @@ createServer(async (request, response) => {
   } catch {
     response.writeHead(404).end();
   }
-}).listen(4173, '127.0.0.1');
+}).listen(automation.browser.playwright.port, '127.0.0.1');

@@ -1,6 +1,6 @@
 import { test, expect } from '/opt/pw/node_modules/@playwright/test/index.mjs';
 
-test('sessão rejeitada não libera navegação nem persiste a credencial', async ({ page }) => {
+test('sessão rejeitada não libera contexto privado nem persiste a credencial', async ({ page }) => {
   const requests = [];
   await page.route('**/api/v1/**', async route => {
     requests.push(new URL(route.request().url()).pathname);
@@ -11,7 +11,9 @@ test('sessão rejeitada não libera navegação nem persiste a credencial', asyn
   await page.getByRole('button', { name: 'Verificar sessão' }).click();
   await expect(page.getByRole('status')).toContainText('401');
   await expect(page.getByLabel('Token de sessão')).toHaveValue('');
-  await expect(page.getByRole('navigation')).toHaveCount(0);
+  await expect(page.getByRole('navigation', { name: 'Contexto do projeto' })).toHaveCount(0);
+  await expect(page.getByLabel('Projeto acessível')).toHaveCount(0);
+  await expect(page.getByRole('navigation', { name: 'Navegação principal' })).toBeVisible();
   expect(requests).toEqual(['/api/v1/session']);
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
 });
@@ -44,5 +46,7 @@ test('identidade da API é texto; sair remove o acesso e recarregar exige sessã
   expect(revoked).toBe(true);
   await page.reload();
   await expect(page.getByLabel('Token de sessão')).toBeVisible();
-  await expect(page.getByRole('navigation')).toHaveCount(0);
+  await expect(page.getByRole('navigation', { name: 'Contexto do projeto' })).toHaveCount(0);
+  await expect(page.getByLabel('Projeto acessível')).toHaveCount(0);
+  await expect(page.getByRole('navigation', { name: 'Navegação principal' })).toBeVisible();
 });
