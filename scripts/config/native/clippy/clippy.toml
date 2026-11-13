@@ -1,0 +1,5 @@
+# Dependências transitivas de PostgreSQL/sha2 e rand/getrandom usam gerações
+# incompatíveis entre si. Não forçar uma atualização de API para deduplicá-las.
+# Novos nomes continuam reprovando multiple_crate_versions; Deny mantém o
+# inventário completo e Audit/OSV verificam as vulnerabilidades de cada versão.
+allowed-duplicate-crates = ["block-buffer", "cpufeatures", "crypto-common", "digest", "sha2", "wasi"]

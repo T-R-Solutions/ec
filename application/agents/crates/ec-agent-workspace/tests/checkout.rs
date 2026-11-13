@@ -90,7 +90,7 @@ fn checkout_uses_admitted_snapshot_and_preserves_the_source() {
     );
     assert!(!source.join("checkout").exists());
     for (id, allowed, commit) in [
-        (2, vec![], sha.clone()),
+        (2, vec![], sha),
         (3, vec![source.clone()], "A".repeat(40)),
         (4, vec![source.clone()], "0".repeat(39)),
     ] {

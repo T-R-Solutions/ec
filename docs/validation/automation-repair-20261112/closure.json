@@ -1,0 +1,56 @@
+{
+  "run": "run-3ZfLm5vp",
+  "command": "bash scripts/automate.sh run --surface docs",
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    }
+  ],
+  "exit": {
+    "exit_code": 0,
+    "finished_at": "2026-11-12T12:06:02.616031-03:00",
+    "cleanup_error": null,
+    "intermediate_artifacts": "discarded"
+  },
+  "changed_inputs": [],
+  "updated_lockfiles": [],
+  "inputs_sha256": "457872820b3f78b12684f83ea8b39b32a22474eebe79378e1442a9685e8ff78a",
+  "scope": "Auditoria dos registros de fechamento; execução completa anterior preservada em run-3BXITHOD.json."
+}

@@ -7,19 +7,35 @@ use std::{
     path::{Path, PathBuf},
 };
 pub const LIMIT: usize = 16 * 1024 * 1024;
+#[must_use]
 pub fn hash(b: &[u8]) -> String {
     format!("{:x}", Sha256::digest(b))
 }
+#[must_use]
 pub fn hex(b: &[u8]) -> String {
-    b.iter().map(|b| format!("{b:02x}")).collect()
+    const DIGITS: &[u8; 16] = b"0123456789abcdef";
+    let mut out = String::with_capacity(b.len() * 2);
+    for byte in b {
+        out.push(char::from(DIGITS[usize::from(byte >> 4)]));
+        out.push(char::from(DIGITS[usize::from(byte & 0xf)]));
+    }
+    out
 }
+/// Persiste JSON por rename e sincroniza o diretório pai.
+///
+/// # Errors
+/// Retorna erro de caminho inválido ou de criação, escrita, rename e sincronização.
 pub fn persist(p: &Path, v: &Value) -> io::Result<()> {
+    let parent = p
+        .parent()
+        .filter(|p| !p.as_os_str().is_empty())
+        .ok_or_else(|| io::Error::new(io::ErrorKind::InvalidInput, "parent_directory"))?;
     let tmp = p.with_extension("tmp");
     let mut f = OpenOptions::new().write(true).create_new(true).open(&tmp)?;
     f.write_all(v.to_string().as_bytes())?;
     f.sync_all()?;
     fs::rename(&tmp, p)?;
-    File::open(p.parent().unwrap())?.sync_all()
+    File::open(parent)?.sync_all()
 }
 pub struct Spool {
     pub dir: PathBuf,
@@ -29,6 +45,10 @@ pub struct Spool {
     pub failed: bool,
 }
 impl Spool {
+    /// Cria um spool novo, sem reutilizar um diretório existente.
+    ///
+    /// # Errors
+    /// Retorna erro se a criação do diretório falhar.
     pub fn new(dir: PathBuf) -> io::Result<Self> {
         fs::create_dir(&dir)?;
         Ok(Self {
@@ -56,6 +76,9 @@ impl Spool {
 
 /// Replay only a persisted payload; the adapter distinguishes transient transport
 /// failure (None) from a rejection. No retry of process execution belongs here.
+///
+/// # Errors
+/// Retorna erro do emissor, perda de autoridade ou expiração do prazo de entrega.
 pub fn deliver(
     mut send: impl FnMut() -> io::Result<Option<Value>>,
     lost: impl Fn() -> bool,
@@ -68,7 +91,7 @@ pub fn deliver(
         match send()? {
             Some(v) => return Ok(v),
             None if std::time::Instant::now() < deadline => {
-                std::thread::sleep(std::time::Duration::from_millis(200))
+                std::thread::sleep(std::time::Duration::from_millis(200));
             }
             None => return Err(io::Error::other("delivery_unconfirmed")),
         }
@@ -78,6 +101,18 @@ pub fn deliver(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn persist_rejects_missing_parent_before_writing() {
+        for path in ["", "journal.json"] {
+            let error = persist(Path::new(path), &json!({})).unwrap_err();
+            assert_eq!(error.kind(), io::ErrorKind::InvalidInput);
+        }
+    }
+    #[test]
+    fn hex_encodes_every_byte_without_loss() {
+        assert_eq!(hex(&[0, 1, 15, 16, 127, 128, 255]), "00010f107f80ff");
+        assert_eq!(hex(&[]), "");
+    }
     #[test]
     fn disk_write_failure_is_explicit_and_does_not_replace_accepted_chunk() {
         let dir = std::env::temp_dir().join(format!(

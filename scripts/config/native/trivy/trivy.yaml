@@ -4,6 +4,7 @@ list-all-pkgs: true
 pkg:
   include-dev-deps: true
 scan:
+  detection-priority: comprehensive
   scanners:
     - vuln
     - misconfig

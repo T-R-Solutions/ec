@@ -19,13 +19,13 @@ fn invoke(args: &[&str], input: &[u8]) -> std::process::Output {
 #[test]
 fn process_reports_only_local_validation() {
     let output = invoke(&["validate-yaml"], YAML.as_bytes());
-    assert!(output.status.success(), "{:?}", output);
+    assert!(output.status.success(), "{output:?}");
     assert!(
         String::from_utf8(output.stdout)
             .unwrap()
             .contains("VALIDATED_LOCAL")
     );
-    assert!(output.stderr.is_empty());
+    assert_eq!(output.stderr, [] as [u8; 0]);
 }
 
 #[test]
@@ -37,7 +37,7 @@ fn rejected_inputs_and_usage_have_failure_status() {
     ] {
         let output = invoke(&["validate-yaml"], input.as_bytes());
         assert_eq!(output.status.code(), Some(1));
-        assert!(output.stdout.is_empty());
+        assert_eq!(output.stdout, [] as [u8; 0]);
         assert!(!String::from_utf8_lossy(&output.stderr).contains("never-print-this-value"));
     }
     assert_eq!(invoke(&[], b"").status.code(), Some(2));

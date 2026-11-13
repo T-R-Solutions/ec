@@ -11,8 +11,8 @@ Pré-requisitos observados: Linux x86_64, Rust/Cargo 1.99.1 instalados via rustu
 Da raiz do checkout, comandos executados:
 
 ```bash
-export CARGO_HOME="$PWD/.local/build/ec-cargo-home"
-export CARGO_TARGET_DIR="$PWD/.local/build/ec-server-clean"
+export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
+export CARGO_TARGET_DIR="$PWD/application/server/backend/target"
 cargo +1.99.1 fetch --manifest-path application/server/backend/Cargo.toml --locked
 cargo +1.99.1 test --manifest-path application/server/backend/Cargo.toml --locked --offline
 cargo +1.99.1 run --manifest-path application/server/backend/Cargo.toml --locked --offline -p ec-server-app -- validate-yaml < application/integration/tests/fixtures/project-pipeline.yaml

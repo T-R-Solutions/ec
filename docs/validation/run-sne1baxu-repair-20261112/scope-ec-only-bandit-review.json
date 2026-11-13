@@ -1,0 +1,29 @@
+{
+  "method": "Revisão contextual das 20 ocorrências afetadas pela retirada de código. Não renovar aprovação por hash automaticamente; AST e contextos atuais conferidos. Aprovação depende da reexecução nativa.",
+  "observations": [
+    {
+      "source": "scripts/tests/test_automation_config.py",
+      "sha256": "7223b4eb52badf17327d656ba41573b68b788ed9d27348a6f5be26ff2e24dd38",
+      "reviewed": 3,
+      "context": "Chamadas locais em argv, import subprocess, fixture de bind rejeitado e ausência de raiz opcional revisados novamente. Sem shell=True; parâmetros não viram código. Única alteração posterior ao scan: remoção de import sys sem uso no teste, com conferência AST das posições atuais."
+    },
+    {
+      "source": "scripts/tests/test_native.py",
+      "sha256": "f687ed9dc1ae1791c4f0fae0045765a6542455cc8f753b2ee4a2d2fc85b127ea",
+      "reviewed": 8,
+      "context": "Chamadas locais em argv, import subprocess, fixture de bind rejeitado e ausência de raiz opcional revisados novamente. Sem shell=True; parâmetros não viram código. Única alteração posterior ao scan: remoção de import sys sem uso no teste, com conferência AST das posições atuais."
+    },
+    {
+      "source": "tools/quality/automation_config.py",
+      "sha256": "5d92a2fc3324005be06f7bc00bcaf1c12d4fd69c7a2e13135c85e02e4d0e6bd8",
+      "reviewed": 3,
+      "context": "Chamadas locais em argv, import subprocess, fixture de bind rejeitado e ausência de raiz opcional revisados novamente. Sem shell=True; parâmetros não viram código. Única alteração posterior ao scan: remoção de import sys sem uso no teste, com conferência AST das posições atuais."
+    },
+    {
+      "source": "tools/quality/native_gates.py",
+      "sha256": "393fe5d993469dc20c5c3f0793b36d89217d258c49c92bbaa87e84d9b2059f87",
+      "reviewed": 6,
+      "context": "Chamadas locais em argv, import subprocess, fixture de bind rejeitado e ausência de raiz opcional revisados novamente. Sem shell=True; parâmetros não viram código. Única alteração posterior ao scan: remoção de import sys sem uso no teste, com conferência AST das posições atuais."
+    }
+  ]
+}

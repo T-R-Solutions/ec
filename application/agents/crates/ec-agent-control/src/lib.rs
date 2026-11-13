@@ -17,8 +17,12 @@ pub enum Error {
     Envelope,
 }
 impl Client {
+    /// Envia uma chamada HTTP ao Server configurado.
+    ///
+    /// # Errors
+    /// Retorna falha de transporte, rejeição HTTP ou envelope inválido.
     pub fn call(&self, method: &str, path: &str, body: Option<&Value>) -> Result<Value, Error> {
-        let bytes = body.map(|v| v.to_string()).unwrap_or_default();
+        let bytes = body.map(ToString::to_string).unwrap_or_default();
         let mut s = TcpStream::connect_timeout(&self.address, Duration::from_secs(2))
             .map_err(|_| Error::Transport)?;
         s.set_read_timeout(Some(Duration::from_secs(3)))
@@ -29,7 +33,7 @@ impl Client {
         let injected = {
             static USED: std::sync::Mutex<Vec<String>> = std::sync::Mutex::new(Vec::new());
             let action = path.rsplit('/').next().unwrap_or_default();
-            let mut used = USED.lock().unwrap();
+            let mut used = USED.lock().map_err(|_| Error::Transport)?;
             if std::env::var("EC_AGENT_TEST_DROP")
                 .unwrap_or_default()
                 .split(',')

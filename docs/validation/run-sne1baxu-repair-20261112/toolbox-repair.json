@@ -1,0 +1,1480 @@
+{
+  "external_root": "/home/rodrigo/Projetos/dev_audit/shared-toolbox",
+  "method": "Imagens candidatas qualificadas com fixtures reais antes de ativação; histórico preservado. Os hashes initial_repair_sources identificam a etapa anterior à correção WORKDIR, que tem observação própria em browser_workdir_followup.",
+  "platform": {
+    "base_digest": "sha256:a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2",
+    "base_tag": "debian:trixie-slim",
+    "note": "Reparação de segurança autorizada: snapshot atualizado, fontes Debian updates/security geradas pela preparação e upgrade dos pacotes da base antes da instalação.",
+    "platform": "linux/amd64",
+    "resolved_at": "2026-11-06T18:52:21.498016+00:00",
+    "snapshot": "20261112T000000Z"
+  },
+  "versions": {
+    "bandit": "1.9.4",
+    "codeql": "2.27.4",
+    "gitleaks": "8.30.1",
+    "grype": "0.121.3",
+    "opengrep": "1.33.1",
+    "osv-scanner": "2.7.1",
+    "playwright": "1.65.0",
+    "ruff": "0.11.13",
+    "shellcheck": "0.11.0",
+    "syft": "1.57.1",
+    "trivy": "0.76.2",
+    "yara-x": "1.0.0"
+  },
+  "qualification_rounds": [
+    {
+      "round": "observations.json",
+      "observations": [
+        {
+          "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "qualified": true,
+          "revision": "a60c2bb75e8dda7739a97a027458045b6963d39aa00019459bf426e3f409932e",
+          "state": "qualified",
+          "tool": "ruff",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "qualified": true,
+          "revision": "553a306ad671acc2e2f11d7394aee55ae579928062be40fb4520b1d02b2c2fe5",
+          "state": "qualified",
+          "tool": "shellcheck",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "qualified": true,
+          "revision": "991764b17a628d3ca9958911ef5d5edcb17ae030bb90fa96af0a560fd877e6c9",
+          "state": "qualified",
+          "tool": "bandit",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "qualified": true,
+          "revision": "728ec367fb3e7dd776c517ee07bb081941248c825c0f176a0bc1df852a3d5e17",
+          "state": "qualified",
+          "tool": "gitleaks",
+          "variant": "native"
+        },
+        {
+          "error": "preparation failed",
+          "state": "error",
+          "tool": "opengrep",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:b172fc167c2b6c53155fa0d2fd4a41a2f7c4e67a39c4c0b71e2ac066111455e2",
+          "qualified": true,
+          "revision": "2e96b3b491a10e37ec48113c6b61399f5d2190565c9f46d3e0a7477b235b2f29",
+          "state": "qualified",
+          "tool": "syft",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "qualified": true,
+          "revision": "2ec8803da101bb784f6686fb6446f66a68e658e5ab0a1fb0005c63f410135280",
+          "state": "qualified",
+          "tool": "yara-x",
+          "variant": "native"
+        },
+        {
+          "error": "Trivy external Checks Bundle is absent, invalid or incompatible with the active image; run central prepare-checks --tool trivy",
+          "state": "error",
+          "tool": "trivy",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:ae22b263bf4d8a540ec270cb65aee0219631d1b41a0e3cbb171050208b666919",
+          "qualified": true,
+          "revision": "0f33a43cb4686080ba5497cf1b3bd24494fb76eccb325a04bd1bc820c7a5a225",
+          "state": "qualified",
+          "tool": "grype",
+          "variant": "native"
+        },
+        {
+          "error": "candidate exit mismatch: 0",
+          "state": "error",
+          "tool": "osv-scanner",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:67d6f5212934323c552fa602dddb812802daeaf95aaffd4257547c1cdcb5c013",
+          "qualified": true,
+          "revision": "6552ddcd4ae6707029d80a598ed92fdfd011b6ea8e5ae9c9982defd5781971d4",
+          "state": "qualified",
+          "tool": "codeql",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:e5a457e2bb2fdc971ae27f5f6b6c3532dabca25b19fd15731dfe1da95e6f45e7",
+          "qualified": true,
+          "revision": "c72c72c7641dee975b5f9518e61fe62bc923226f57612018d3bf757398a1b552",
+          "state": "qualified",
+          "tool": "playwright",
+          "variant": "chromium"
+        },
+        {
+          "image": "sha256:003685704fc47891bc21b70fbb95ae3794963d9efe046ace1e90eaf770f56f9e",
+          "qualified": true,
+          "revision": "7ec4ad8fe88be29864dfc0b4ec336e07d9fea8fe9c03c46921d066a4e10a1541",
+          "state": "qualified",
+          "tool": "playwright",
+          "variant": "firefox"
+        }
+      ]
+    },
+    {
+      "round": "retry-observations.json",
+      "observations": [
+        {
+          "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "qualified": true,
+          "revision": "88feb4bf1a79d270f81476f9df2b2d9f5a601b00d763329d0389a1f9c2e672af",
+          "state": "qualified",
+          "tool": "opengrep",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "qualified": true,
+          "revision": "e4ce0022ff9d7d478e251396702dbc8eb8a5e5240c4e0d0f8833bfdad59ae89f",
+          "state": "qualified",
+          "tool": "trivy",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "qualified": true,
+          "revision": "cda09eae084d5829e509641b4d5c961a9a3c355fc46b253ca8d21b6df5a37da2",
+          "state": "qualified",
+          "tool": "osv-scanner",
+          "variant": "native"
+        }
+      ]
+    },
+    {
+      "round": "coverage-observations.json",
+      "observations": [
+        {
+          "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "qualified": true,
+          "revision": "0413acb3eaadef71ba05bbdd8427e16153d4352cefcb4a94a977f40dd57c088b",
+          "state": "qualified",
+          "tool": "osv-scanner",
+          "variant": "native"
+        }
+      ]
+    },
+    {
+      "round": "release-observations.json",
+      "observations": [
+        {
+          "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "qualified": true,
+          "revision": "93975d2512eb03fa3fabaef229845ea738e9f90c58408ec7596c89e35e2bf5f0",
+          "state": "qualified",
+          "tool": "syft",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "qualified": true,
+          "revision": "8a22acf617afbc43a0dfc2980c376d715cd3060cb5e55d9babac4782289c85a0",
+          "state": "qualified",
+          "tool": "grype",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "qualified": true,
+          "revision": "e8b6fca736e46b045574e2247c8db32a410bcccf4ca8c008a121e2a6aa919149",
+          "state": "qualified",
+          "tool": "codeql",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "qualified": true,
+          "revision": "0ce62e3cd2fc3bd657b632b797825bdd76eb5aee6298bd697c2ba79193c0135c",
+          "state": "qualified",
+          "tool": "playwright",
+          "variant": "chromium"
+        },
+        {
+          "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "qualified": true,
+          "revision": "ad04dfa1ca3d92e57ef1d1b8768cae878a4e31764c856bab0f31806892b8bcf0",
+          "state": "qualified",
+          "tool": "playwright",
+          "variant": "firefox"
+        }
+      ]
+    },
+    {
+      "round": "followup-observations.json",
+      "observations": [
+        {
+          "image": "sha256:4017dbc3a35b7687b748de5444823dad6339f09e6e7fb8c8b84a6b8f351bae8c",
+          "qualified": true,
+          "revision": "045a9d5d6ecf2aaf6fe156c933821329140edf29603d277d561cc9f48ad23b17",
+          "state": "qualified",
+          "tool": "bandit",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:45aeb5e533bff96ba43d08f615ba90ca3cf5f430afdb9fc883bf1e9fc5583f80",
+          "qualified": true,
+          "revision": "8a5ab3a7aca0f5ca9ec8c6bf8fc0c0d27487cef8a3d56d32aa8343d26bff452f",
+          "state": "qualified",
+          "tool": "gitleaks",
+          "variant": "native"
+        },
+        {
+          "image": "sha256:11b6f38831c9e374bbbe679917e7401a484bd4fbaec28c3d7bff57268c566146",
+          "qualified": true,
+          "revision": "5b98bdf3fac4c00b816a1e4e12e58dee741a8d0d9eaa83cba20b54e82006382c",
+          "state": "qualified",
+          "tool": "osv-scanner",
+          "variant": "native"
+        }
+      ]
+    }
+  ],
+  "latest_qualified": [
+    {
+      "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+      "qualified": true,
+      "revision": "a60c2bb75e8dda7739a97a027458045b6963d39aa00019459bf426e3f409932e",
+      "state": "qualified",
+      "tool": "ruff",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+      "qualified": true,
+      "revision": "553a306ad671acc2e2f11d7394aee55ae579928062be40fb4520b1d02b2c2fe5",
+      "state": "qualified",
+      "tool": "shellcheck",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:4017dbc3a35b7687b748de5444823dad6339f09e6e7fb8c8b84a6b8f351bae8c",
+      "qualified": true,
+      "revision": "045a9d5d6ecf2aaf6fe156c933821329140edf29603d277d561cc9f48ad23b17",
+      "state": "qualified",
+      "tool": "bandit",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:45aeb5e533bff96ba43d08f615ba90ca3cf5f430afdb9fc883bf1e9fc5583f80",
+      "qualified": true,
+      "revision": "8a5ab3a7aca0f5ca9ec8c6bf8fc0c0d27487cef8a3d56d32aa8343d26bff452f",
+      "state": "qualified",
+      "tool": "gitleaks",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+      "qualified": true,
+      "revision": "88feb4bf1a79d270f81476f9df2b2d9f5a601b00d763329d0389a1f9c2e672af",
+      "state": "qualified",
+      "tool": "opengrep",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+      "qualified": true,
+      "revision": "93975d2512eb03fa3fabaef229845ea738e9f90c58408ec7596c89e35e2bf5f0",
+      "state": "qualified",
+      "tool": "syft",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+      "qualified": true,
+      "revision": "2ec8803da101bb784f6686fb6446f66a68e658e5ab0a1fb0005c63f410135280",
+      "state": "qualified",
+      "tool": "yara-x",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+      "qualified": true,
+      "revision": "e4ce0022ff9d7d478e251396702dbc8eb8a5e5240c4e0d0f8833bfdad59ae89f",
+      "state": "qualified",
+      "tool": "trivy",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+      "qualified": true,
+      "revision": "8a22acf617afbc43a0dfc2980c376d715cd3060cb5e55d9babac4782289c85a0",
+      "state": "qualified",
+      "tool": "grype",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:11b6f38831c9e374bbbe679917e7401a484bd4fbaec28c3d7bff57268c566146",
+      "qualified": true,
+      "revision": "5b98bdf3fac4c00b816a1e4e12e58dee741a8d0d9eaa83cba20b54e82006382c",
+      "state": "qualified",
+      "tool": "osv-scanner",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+      "qualified": true,
+      "revision": "e8b6fca736e46b045574e2247c8db32a410bcccf4ca8c008a121e2a6aa919149",
+      "state": "qualified",
+      "tool": "codeql",
+      "variant": "native"
+    },
+    {
+      "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+      "qualified": true,
+      "revision": "0ce62e3cd2fc3bd657b632b797825bdd76eb5aee6298bd697c2ba79193c0135c",
+      "state": "qualified",
+      "tool": "playwright",
+      "variant": "chromium"
+    },
+    {
+      "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+      "qualified": true,
+      "revision": "ad04dfa1ca3d92e57ef1d1b8768cae878a4e31764c856bab0f31806892b8bcf0",
+      "state": "qualified",
+      "tool": "playwright",
+      "variant": "firefox"
+    }
+  ],
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+    "count": 88,
+    "result": "OK",
+    "log": ".local/logs/2026-11-13/repair-toolbox-tests-final.stderr.log"
+  },
+  "limitations": [
+    "Qualificação operacional não equivale à eliminação de vulnerabilidades da imagem.",
+    "As identidades efetivamente consumidas no Ec serão registradas no último run completo."
+  ],
+  "private_logs": [
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--cleanup.stdout.log",
+      "sha256": "338959432ce5f8f60b3676459309d14a1bb97ee31274966a79c6a525d7f7789b"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--create.stdout.log",
+      "sha256": "4f442f41841b5e7b413360c4789da326419d98ba3f15b7f4a92191024a5ed2dc"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--native.stderr.log",
+      "sha256": "82545cad2075b66a954c9474dbda750b66caab3ffdde9e60d9ac5ddac75fc25d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--native.stdout.log",
+      "sha256": "16e8f3fff4200e4ee10206a96813b287ad2cf7c7fd7ddc02e19445b27e819074"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native--prepare.stdout.log",
+      "sha256": "3c9c8b1a57c1230d10b30f9b6697b0f2432bcbb1e5b44f19e28826f068dc2459"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--cleanup.stdout.log",
+      "sha256": "962ae6fcf089aa565c8aa545a934c2287ceb2a8b5fa7c8b0531889e98d18da02"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--create.stdout.log",
+      "sha256": "7e3ecfa8a13f5954ab890e8df8f3d2cd3775be28eccc7c88443740d10e5375af"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--native.stderr.log",
+      "sha256": "82545cad2075b66a954c9474dbda750b66caab3ffdde9e60d9ac5ddac75fc25d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--native.stdout.log",
+      "sha256": "f07596f984d348d1c52026115d2c1e33b97caa2aa9a51b9e49acc2e2e2017d41"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-bandit-native-followup--prepare.stdout.log",
+      "sha256": "8147a18df596d8e18be2ce6a40019c4a0d2d6f0bd8cd0882ae28934b70441e3a"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--cleanup.stdout.log",
+      "sha256": "2b561ee58ed6209225fe54440a9227b5e210b04322bbff6be7b0599d40443368"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--create.stdout.log",
+      "sha256": "67d3e15811633e95ce69ddca1215dd1fcfd58217dde3dc3c51d358cd65b675c0"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--native.stderr.log",
+      "sha256": "c999b23b6227b937e688c2a5ae95dcf21d0d0fde6c2ce6e5ffdac277770bbfea"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--native.stdout.log",
+      "sha256": "549da7b2b19a34e0a0a8bed928de366f05edb0e3bd4d27158e97f9ffbf4d6e00"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--prepare.stdout.log",
+      "sha256": "8031c3c61b3ada256dda8dd5702c5ba1acc341cb467b4b6e5f03c8d9fab9431d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--qualification--database--log--database-create-20261113.013810.881.log",
+      "sha256": "1b74abca405a7c2a3fa32f054bd2b30300833a625edea4db2df26cbe62012d4e"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native--qualification--database--log--dataset-import-20261113.013812.483.log",
+      "sha256": "83080878589afa0e3d6d0ee3d9ba41061a78dd09b5ecb7e1081362cab5531217"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--cleanup.stdout.log",
+      "sha256": "9ab63131dbd648dfa86bfe7eb84676fd591f21def6868064ebdb7a3b2212c1f2"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--create.stdout.log",
+      "sha256": "ec16733c0b4f3a2c6261339b2e7e244f42f5bf6d41a5f2841a46dbe732c1f94c"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--native.stderr.log",
+      "sha256": "c343d2fea80d51810c271e8299cd360adae1dd59c6d25f7f3e82d7284d2fc4b7"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--native.stdout.log",
+      "sha256": "a8081df6a79b6a3e451f9c95aa1d16237e1e5ad692a10917a77e34cd291798f5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--prepare.stdout.log",
+      "sha256": "0581b46f611e3c98f40e73c701c744aa64d91934729ca65ae20be53bfa5ec1e1"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--qualification--database--log--database-create-20261113.015107.662.log",
+      "sha256": "d1aaf0c430c569e0a60d6c37e5b81b9d40193abfe65d9d1bae550ad074f75750"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-codeql-native-release--qualification--database--log--dataset-import-20261113.015109.361.log",
+      "sha256": "272b5aa118bd671be89a5ed5c49460c45acc797d5e08b369e2e2ad1a9bff6bce"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--cleanup.stdout.log",
+      "sha256": "bf358d65f92c2ff362672b8a9b961febc041fdde95a6b586c108b16cf3624e0d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--create.stdout.log",
+      "sha256": "4c386be007e9de4c6a50abb45c29c83e7ab0039a5c8fa0958a59e4af87c47635"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--native.stderr.log",
+      "sha256": "811c28aa44df30aa908d66652c9e3c10c3183793bf6e4fbce48c9b57e4602068"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--native.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native--prepare.stdout.log",
+      "sha256": "32a366433c4d415d69c1fbd064b0fb06b5c46a57b70d9175a08817ab48cb5f9a"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--cleanup.stdout.log",
+      "sha256": "31f3de366cf03a7534f82cb9e21d22e3ce17eee571b3ff3540bf43928e96bed1"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--create.stdout.log",
+      "sha256": "aa797b7cbe9e0ff9c1d4a6e049d41bdc5353116cc5a2ebd8926ac342280110f7"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--native.stderr.log",
+      "sha256": "4b6778e35e19ac7464e886fd80a4f4cdae00b3dea89607f018046c329d96ab12"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--native.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-gitleaks-native-followup--prepare.stdout.log",
+      "sha256": "3aca2629826563aa03a17b8ceb26dfde30b4304149bee19a4f99652a4b950704"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-db.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-db.stdout.log",
+      "sha256": "f25ad67e05789af8f348efe8819d961c13ed328b3234b11f2d1012b6acdec058"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--cleanup.stdout.log",
+      "sha256": "e8a28fc46bf75c5ab2064cf34cabb56d9cb25286eb047e901e9e48bbfcbd5853"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--create.stdout.log",
+      "sha256": "e4859391867b75749825d702b8290902041ac1f8e505b37c05f0a19ab81ce022"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--native.stderr.log",
+      "sha256": "8a9bd4734ade0890c4003c16adc5450932a35a8b059e3421af32de93c07a806f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--native.stdout.log",
+      "sha256": "981dd0cf7533e9fdcd391009d4fcf4ea1400242efdbe5bca77d7e7fb463f78d8"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native--prepare.stdout.log",
+      "sha256": "128a730bee87d5c678739a12bcb69f6f8fe1b2e996d66c64aee4c41057fafcd8"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--cleanup.stdout.log",
+      "sha256": "dd7dc0d3570d9f81ce45a25b178a4d4f796dd9d77d7c88769831574dbf765589"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--create.stdout.log",
+      "sha256": "2a6dfa8e44557da411d6482ea8d7efc31fc5a7715be2b38c48e2a07340bf22f4"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--native.stderr.log",
+      "sha256": "998ba09ea23efb7a70a904c0f02f6e74ae5a3baa43768903231e643b7e517690"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--native.stdout.log",
+      "sha256": "9ecd824fdc6ef944c57d6defe425108a5bc533a718de41bc9396bb59138b3ed1"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-grype-native-release--prepare.stdout.log",
+      "sha256": "99c48ce78fa784425eba94bf5256b8c532c9e05485ba5c0fb1348725e8508ce0"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native--prepare.stderr.log",
+      "sha256": "3d6b407b844391d854486883ba1a8a3a220904d6f4d35bb21401fdf33556c3e2"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native--prepare.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--cleanup.stdout.log",
+      "sha256": "218f0907952b980679a266c35721190f7f4263e86397ce101cb7c0066823e10d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--create.stdout.log",
+      "sha256": "4f898fd367fd7374bb6cbb722f6ad339da7dce098fa2197a69d5dbb2315c4064"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--native.stderr.log",
+      "sha256": "735859f37e3b7d2828130e16e38d539f0eecc97408948409971f2b3d0071a8c5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--native.stdout.log",
+      "sha256": "a2002450c20b68db0e8b2116cebdcdd454977fcfa84c4bbecebdd12652af76d4"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-opengrep-native-retry--prepare.stdout.log",
+      "sha256": "c22cbf028b9d35dadeedebb40fc62605b7baf0431c10bf7dc9281f4b96d8c41f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-followup-db.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-followup-db.stdout.log",
+      "sha256": "bab85fb39c933bf8dcc5dd4904fc65da4a10a1acb891a80dd32cee4a609d58ef"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--cleanup.stdout.log",
+      "sha256": "35686cfca7b85155aa47e8083be881342e4cf559a63f77c632ee76e967a46a59"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--create.stdout.log",
+      "sha256": "87982cfac7c2ae6ae272f600051909ee1aa4cc8e5dcebda2792d47bb04599197"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--native.stderr.log",
+      "sha256": "40fcc9adf7567018f072e421d371d99e278f13afb001a423fd81543c30889f7f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--native.stdout.log",
+      "sha256": "54345d5194d238b6017d0f3181f392109ce35023cc6b4bdfa8c134943dcb578e"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native--prepare.stdout.log",
+      "sha256": "d4571bf5f8e572173601bec9a2e3ee0b38c24c747d888cf0c718821f15261092"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--cleanup.stdout.log",
+      "sha256": "571f40e44063a2d924388502bf3a31c7db02b9820902b3f751a84c22514853e0"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--create.stdout.log",
+      "sha256": "cbb68546138fc982518bf666c32d26f96968646dd4096dae8ff6fda983a42a09"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--native.stderr.log",
+      "sha256": "e444d5b86f65d191b3942f65300f47e939d1c8743fcf8c909adebab89360c137"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--native.stdout.log",
+      "sha256": "2fcf53b2a4b717eb7a00cd7909f7e8694c0808ad67433e7e1151b38dbd2c68c5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-coverage--prepare.stdout.log",
+      "sha256": "718217827ac3370e75f2461fea15dd4a31eb5d2ab1f6b8838b13c5de54494ad3"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--cleanup.stdout.log",
+      "sha256": "1c4c10e192adba1f22d39f62410eda4010a33f4a603a9df3bcbe945cab1f70ff"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--create.stdout.log",
+      "sha256": "e4ef02deebb22a8336a2b108ea9ab1652cbe16e093f9dd5774a716eaa0be6fc8"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--native.stderr.log",
+      "sha256": "dcf4b7adab2f5e0dfbe66089d640fb79d5a9cd62f3385ee76fa2880b8cb0957d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--native.stdout.log",
+      "sha256": "05f1723c32a4a94bf7de9dd65c2c271dd0ca297d8a22bdda74d529565a7fbaa6"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-followup--prepare.stdout.log",
+      "sha256": "abff20ebcde64fc4eb114419eb8c8992f386db99e2b59ed2e1f6ce603752af06"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--cleanup.stdout.log",
+      "sha256": "552e1f7bfdb528df4de5aa931825c262eb78d5f2288f70aa6566cca35d262b5d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--create.stdout.log",
+      "sha256": "6e574f963e9b05464e19b5d1e0b4504d9b6b97f5487f3cd1f3a26266d9fc0ff4"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--native.stderr.log",
+      "sha256": "d14c1546b3a202f191d6bfbef3d092408a5ca5d9603a0843f50de006e0996878"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--native.stdout.log",
+      "sha256": "54345d5194d238b6017d0f3181f392109ce35023cc6b4bdfa8c134943dcb578e"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-osv-scanner-native-retry--prepare.stdout.log",
+      "sha256": "bbe2473f25fd54628f0918f707f39e425b8e7fbee99dac2348727e12cd04927e"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--cleanup.stdout.log",
+      "sha256": "a07f73fddfe0a11777885e6147a712ed5b4752ff04fdc2dc2154cf174eb82a14"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--create.stdout.log",
+      "sha256": "358686cb732c3249d8a30551534c26650097b5fec162de84815ee539e4c1cba5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--native.stdout.log",
+      "sha256": "453a6032f344e50739c67df08d754bffb88ce9ec843f7d463d67f04e2313747d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium--prepare.stdout.log",
+      "sha256": "c558398cf356024c1ecaa904416a6f22dbeb094796653fc59a1a8729d2c52900"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--cleanup.stdout.log",
+      "sha256": "89519ddc49b59b3cd24e30d584d940c17f5c6f0e586be51f62e5991470cadc2f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--create.stdout.log",
+      "sha256": "6d98f643218a94f6b604378234f744dd94bfe5ff6ae2df7192ae2b9ec456aa4b"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--native.stdout.log",
+      "sha256": "451919ec8f493252dee225d9acbe86c3592c55005a953b4f10352eedfa88c52a"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-chromium-release--prepare.stdout.log",
+      "sha256": "649a9512366f5876d1989535009689b380c1438c3458a5053b1076eb91eb6c81"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--cleanup.stdout.log",
+      "sha256": "ea6b1c0090da40a670ec71d113d8798a7ed5f130f3b6bd5b22b6eb11f054d7f3"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--create.stdout.log",
+      "sha256": "41fbbbb2db2c0ed51be384ce183b5e737e2a14d03ffde053c2308732571188be"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--native.stdout.log",
+      "sha256": "7d4fc0fe324bc59db8b3e06ca7c2ab668544b0c9539f17dd11f3602fed773154"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox--prepare.stdout.log",
+      "sha256": "3a0eae7aabffdccccc7036745790f96d4283ea85438c334b011383d4302dacc0"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--cleanup.stdout.log",
+      "sha256": "33260581e0e6b3f9c6e08ff80e427e638a70bb8a7b57858e6ca615be4b462269"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--create.stdout.log",
+      "sha256": "7ae90cf63ee294eea090bd7248055083b385619d95c086f258ca639303e09627"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--native.stdout.log",
+      "sha256": "b7315db321123a6ee514275d55f09d175780ae3cae31c3cfbcacc5f5ce2878b1"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-playwright-firefox-release--prepare.stdout.log",
+      "sha256": "5db6ba1b20c7498f608a56c85f3cfdf6a0eb59d7b257d7774ef5f1ec24bb7297"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--cleanup.stdout.log",
+      "sha256": "35e01d63dbf9a856f02bea0d592c15652c0d46c11335c6eddf200b1a051c92dc"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--create.stdout.log",
+      "sha256": "ee516448871af2975177d26c731f261bb5923a5e8418e6d00b9b625572b80369"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--native.stdout.log",
+      "sha256": "3b5d7cd8dba42f56814e1d020535cc6dfe8e537a0607f4e965537c8ebff6c005"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-ruff-native--prepare.stdout.log",
+      "sha256": "384e71e8a3aa4bf661416e1f9c72a9b8c3f42e038c03238c3ee1cfe6477ff80d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--cleanup.stdout.log",
+      "sha256": "de6fad6476f18a1df8ae1e2cc55c7681978c0cd1f0f3d816f40f098f921e5944"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--create.stdout.log",
+      "sha256": "3b3968fcb19dc4789974edb2113d367bd25309f58bf584d8eeab80e4d6c6e853"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--native.stdout.log",
+      "sha256": "ffd6b638d35876e1a221bc45186706b3a1d24c10efa0f528191bbc7c2ddbbde9"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-shellcheck-native--prepare.stdout.log",
+      "sha256": "6a8f94c8483c82db65828150777448080f2e06de179cf5d5653a009d1940694f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--cleanup.stdout.log",
+      "sha256": "4ad0a7b9cd9ea540827acdef45ec78ee47d6dd64dca943cd3851175f395e8931"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--create.stdout.log",
+      "sha256": "bac47556c42cc2863d18834cf618c1429681a90ab7240d3f41a4d2ec35af83c2"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--native.stderr.log",
+      "sha256": "d099d170723bfedbe19305be6d7c33f292791663a2291826925ae43c74ba9fdc"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--native.stdout.log",
+      "sha256": "eb8d9d64a6b88aed9fbb4552b93dde79cd6a71f1641ee1a9ba52527b55f21844"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native--prepare.stdout.log",
+      "sha256": "075d1affd7b3a990cf2256395327a38784e3c0f81125edd9b2cfbc17e89fa077"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--cleanup.stdout.log",
+      "sha256": "52ad7dbed7e94a469faa7639a3079b51e5c427ebe9c0fe9d961dcf2e7b753be7"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--create.stdout.log",
+      "sha256": "27519a3d0fb837d1aa52467c37ad03b587aa392e85da030ff9e990fda5271208"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--native.stderr.log",
+      "sha256": "d099d170723bfedbe19305be6d7c33f292791663a2291826925ae43c74ba9fdc"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--native.stdout.log",
+      "sha256": "dba488d7c957392893489e07f08bbc2f097db164e26adf5bb0a99b157435b221"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-syft-native-release--prepare.stdout.log",
+      "sha256": "41ca0f44fcdef583564c47d934f46ace1a0bd6a86ddde204490df08fb919ae2d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-checks.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-checks.stdout.log",
+      "sha256": "6f55b17510194b3832d3dbef6a0d69cae9ce059125f1c3cf988ce5eadc1ada81"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native--prepare.stdout.log",
+      "sha256": "2ad5088b8c96c7075d30a345f9c696d149f151b74a749c1f02af2673c6ce59d5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--cleanup.stdout.log",
+      "sha256": "1355e9dc4645b0061c0d93f550565a0ebdcd67b9825d3a5defe2c1f51a1f5120"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--create.stdout.log",
+      "sha256": "57eee1630add45ee9def1fc7ce63eaf61c6a0f341194c831e9d96c74853e2278"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--native.stderr.log",
+      "sha256": "3072dbcc32355d4f358e3b842dfc9a043b24c4151bfb2e007ff576691201dae5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--native.stdout.log",
+      "sha256": "caf5e7acff71330318b937705566b5a46f992e5734dc68b19f76cd1351adb045"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-trivy-native-retry--prepare.stdout.log",
+      "sha256": "8a70e070898cf957a4866a1c05ac2b0fcf8073176362151f5b9d6de80af8dc44"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--cleanup.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--cleanup.stdout.log",
+      "sha256": "4c4f5fc3a4c433dcec9a57b63abbeef99cf6aecc381af90a1948500ecaceafc8"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--create.stdout.log",
+      "sha256": "e9cd84a18ed9f26303b1403de42fbdcab9cd9988d9950a207ce2d729a7eecd77"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--native.stdout.log",
+      "sha256": "36ff6288eface14092b36a614f1fa54a8d814983a598b9488a8e6f6f4bbb5ebc"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--prepare.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-yara-x-native--prepare.stdout.log",
+      "sha256": "d7fb2d09dcf73dcea5a6a28f32205836478f6f3b1cd6a1ebc2d32009e4fc09fb"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-toolbox-tests-final.stderr.log",
+      "sha256": "3b03902ad2257bbb53862262b37e90f8d3cb94a4cc06c8ded25915e4cb9d26ff"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-profile-bugs.py.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-profile-bugs.py.stdout.log",
+      "sha256": "92b7c18ad4c1adb793ff4f35fab6cdd8c7628f4719630b4941a0be0462e39818"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-profile-conventions.py.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-profile-conventions.py.stdout.log",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-profile-unsafe.py.stderr.log",
+      "sha256": "9cf06f62d3fc400039641f94ccfb9adef7cf7f2bb89fa9417543cc311decf5e5"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-profile-unsafe.py.stdout.log",
+      "sha256": "748cde5c4d75a2800294e21536abc3617c41399a9dfcb2c1b36710c3aea25376"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-ruff-stdout.log",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-shellcheck-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-shellcheck-stdout.log",
+      "sha256": "aae1b299044091d29d83b1dc51c8de8739405a6055b6a4a360c132b973ec9c83"
+    }
+  ],
+  "official_references": [
+    {
+      "tool": "Debian",
+      "version": "13 trixie",
+      "url": "https://packages.debian.org/trixie/build-essential",
+      "section": "Dependencies",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "build-essential fornece gcc/g++, libc6-dev e make para compilar/linkar build scripts e proc-macros no runtime CodeQL."
+    },
+    {
+      "tool": "platform",
+      "version": "Debian trixie; Dockerfile current",
+      "url": "https://www.debian.org/security/",
+      "section": "Keeping your Debian System secure",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Incluir o canal de atualizações de segurança na preparação; apt verifica assinaturas Debian."
+    },
+    {
+      "tool": "platform",
+      "version": "Debian trixie; Dockerfile current",
+      "url": "https://snapshot.debian.org/",
+      "section": "Archives: debian and debian-security",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Gerar três entradas APT a partir do snapshot e suite canônicos, sem segunda política declarativa."
+    },
+    {
+      "tool": "platform",
+      "version": "Debian trixie; Dockerfile current",
+      "url": "https://docs.docker.com/reference/dockerfile/#user",
+      "section": "USER",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Usuário padrão não root nas receitas; executor continua selecionando explicitamente o UID/GID do operador."
+    },
+    {
+      "tool": "codeql",
+      "version": "2.27.4",
+      "url": "https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.27.4",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Atualização candidata de segurança; checksums oficiais no preparo e qualificação real antes de ativação. Não presume eliminação de todas as vulnerabilidades embarcadas."
+    },
+    {
+      "tool": "grype",
+      "version": "0.121.3",
+      "url": "https://github.com/anchore/grype/releases/tag/v0.121.3",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Atualização candidata de segurança; checksums oficiais no preparo e qualificação real antes de ativação. Não presume eliminação de todas as vulnerabilidades embarcadas."
+    },
+    {
+      "tool": "syft",
+      "version": "1.57.1",
+      "url": "https://github.com/anchore/syft/releases/tag/v1.57.1",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Atualização candidata de segurança; checksums oficiais no preparo e qualificação real antes de ativação. Não presume eliminação de todas as vulnerabilidades embarcadas."
+    },
+    {
+      "tool": "playwright",
+      "version": "1.65.0",
+      "url": "https://github.com/microsoft/playwright/releases/tag/v1.65.0",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Atualização candidata de segurança; checksums oficiais no preparo e qualificação real antes de ativação. Não presume eliminação de todas as vulnerabilidades embarcadas."
+    },
+    {
+      "tool": "node",
+      "version": "22.23.5",
+      "url": "https://nodejs.org/dist/index.json",
+      "section": "Node 22 LTS security release",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Release marcada security no índice oficial, na mesma linha 22 LTS."
+    },
+    {
+      "tool": "bandit",
+      "version": "1.9.4",
+      "url": "https://github.com/PyCQA/bandit/releases/tag/1.9.4",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Candidata para corrigir dependências embarcadas e defeitos do extrator. Qualificação e checksum oficial necessários; não presume scan limpo."
+    },
+    {
+      "tool": "gitleaks",
+      "version": "8.30.1",
+      "url": "https://github.com/gitleaks/gitleaks/releases/tag/v8.30.1",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Candidata para corrigir dependências embarcadas e defeitos do extrator. Qualificação e checksum oficial necessários; não presume scan limpo."
+    },
+    {
+      "tool": "osv-scanner",
+      "version": "2.7.1",
+      "url": "https://github.com/google/osv-scanner/releases/tag/v2.7.1",
+      "section": "Release notes and official assets",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Candidata para corrigir dependências embarcadas e defeitos do extrator. Qualificação e checksum oficial necessários; não presume scan limpo."
+    },
+    {
+      "tool": "bandit-wheel:bandit",
+      "version": "1.9.4",
+      "url": "https://pypi.org/pypi/bandit/1.9.4/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    },
+    {
+      "tool": "bandit-wheel:PyYAML",
+      "version": "6.0.3",
+      "url": "https://pypi.org/pypi/PyYAML/6.0.3/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    },
+    {
+      "tool": "bandit-wheel:stevedore",
+      "version": "5.10.0",
+      "url": "https://pypi.org/pypi/stevedore/5.10.0/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    },
+    {
+      "tool": "bandit-wheel:rich",
+      "version": "15.0.0",
+      "url": "https://pypi.org/pypi/rich/15.0.0/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    },
+    {
+      "tool": "bandit-wheel:markdown-it-py",
+      "version": "4.3.0",
+      "url": "https://pypi.org/pypi/markdown-it-py/4.3.0/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    },
+    {
+      "tool": "bandit-wheel:mdurl",
+      "version": "0.1.2",
+      "url": "https://pypi.org/pypi/mdurl/0.1.2/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    },
+    {
+      "tool": "bandit-wheel:Pygments",
+      "version": "2.21.0",
+      "url": "https://pypi.org/pypi/Pygments/2.21.0/json",
+      "section": "requires_dist, requires_python, wheel SHA256",
+      "consulted_at": "2026-11-12",
+      "status": "read",
+      "supports": "Wheel para Python 3.13/linux-amd64, hash oficial e fechamento do conjunto validado por pip check, sem extras opcionais."
+    }
+  ],
+  "browser_workdir_followup": {
+    "observations": [
+      {
+        "image": "sha256:561b32ead256e280b0ae56a7f746507e8f67353eeff73316ff565e1337b702c9",
+        "qualified": true,
+        "revision": "a0cf6c7c910dbd9762f6a395e563b54b33b4ae09a021409ec75624e25a27834a",
+        "state": "qualified",
+        "tool": "playwright",
+        "variant": "chromium"
+      },
+      {
+        "image": "sha256:fc836e0920ef6f1c2eddb26e3307cda9322a675f00d0d6265f86dd57a96607a2",
+        "qualified": true,
+        "revision": "88bfdc381396abaace7c35a8293514566873e59c1f715018971ddec16ff44584",
+        "state": "qualified",
+        "tool": "playwright",
+        "variant": "firefox"
+      }
+    ],
+    "method": "Receita única usa WORKDIR em vez de RUN cd; as duas variantes foram reconstruídas e qualificadas por interação real. Chromium ativado após run-ZPA4aciU; registro Firefox atualizado pelo preparo, observado separadamente. 88 testes da Toolbox repetidos e aprovados após alteração da receita.",
+    "recipe_sha256": "dcc2aa9ca4f975e5572c9a012f815a7278867d7ae6dabe19081a7869d044fb2f",
+    "validation": "run-NSqpobP8: 13 tarefas aprovadas, três scans de imagens com achados, zero erros/bloqueios. Chromium/Firefox reais passaram; DS-0013 ausente nos 13 relatórios finais. Fontes Ec sem achados. Recibos conservam digests próprios.",
+    "private_logs": [
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-cleanup.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-cleanup.stdout.log",
+        "sha256": "ab03462757c48eed7ed341bf233fbaacc3eed6e90d6e4da31fdd89267f74f145"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-native.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-native.stdout.log",
+        "sha256": "e2791cc109da90f2ce69e258351689d512a393eb6682bad0ebcff421dcb8c3af"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-create.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-create.stdout.log",
+        "sha256": "9c432e488513ee556a773ca03b10fe5a290d0bda96cf7feb7b4f924db66dcaa8"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-prepare.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-firefox-followup-prepare.stdout.log",
+        "sha256": "80cb2643dd37e9a0165ae1951677a0022c88adf9620a5cac9c242b1ceab158bb"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-cleanup.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-cleanup.stdout.log",
+        "sha256": "caa59f2f948c25b0de0c2d16f1264377b153de1a880b198087603f6eb6ca82be"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-native.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-native.stdout.log",
+        "sha256": "b850d6dbb642a390ed9552362b2ba67d471ad9536f62dfb243be98b32ce42b58"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-create.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-create.stdout.log",
+        "sha256": "76bb578d460a34abffcbf02366ee52c27cc00289ace74af3a72b5d66977b7cb9"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-prepare.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": ".local/logs/2026-11-13/repair-toolbox-workdir-playwright-chromium-followup-prepare.stdout.log",
+        "sha256": "01fc908c501256e47ad1cfad19890b0dba69c138e4295e54e3989e752780625d"
+      }
+    ]
+  },
+  "initial_repair_sources": {
+    "toolbox.json": "f207ad785164f8fee1db3b2a26ebe3de0e7ee93a919d6650783a732ce4710776",
+    "toolbox/prepare.py": "4a9468224c65b0caeae9416d8d4325050d233f5c4af02f05a578446c5aa95c96",
+    "toolbox/native.py": "5858ae8777061a8059883fda87309d46d1344940e9134284336069d5f77809ea",
+    "tools/bandit/Dockerfile": "4f0842724a190f2aade9025c63feb917bfb2372d5ccaf4a0e73f5015524e260a",
+    "tools/codeql/Dockerfile": "128b0342adc018d2b46797e4c488ef38c95e6104d48ed5c036dae9983b565102",
+    "tools/gitleaks/Dockerfile": "67c3a41404ec483a464cfcba7380944258aee5fea9281892bf6207717e59ac5f",
+    "tools/grype/Dockerfile": "9b6fd7b928218aef076b0948a1fccf591d5b3a511ed5e39e776a2a735741385f",
+    "tools/opengrep/Dockerfile": "bf223565907fd7fc684ce236008a3eaf022eb457f33aebc262caf15f26386632",
+    "tools/osv-scanner/Dockerfile": "fce71f7669c0e4ba3e4e55286981698844c321eb179012332109686e771495a8",
+    "tools/playwright/Dockerfile": "442f3324cb888b1543f0159919b64b12041502bde27b16a20667a14120d49a0c",
+    "tools/ruff/Dockerfile": "4edfdd2b7f8f43001d8c458756fd19f7a3088e2a4acf3cdd99ff9c277963d80b",
+    "tools/shellcheck/Dockerfile": "0cf5ecac7f143c358d8757fd4655a526d88b9b67b46e11a6014ad18ff4a286c0",
+    "tools/syft/Dockerfile": "11891d3de55abac52f53ea0582fe13b7df07a31d9bcd4ca0d3a5115dd010236b",
+    "tools/trivy/Dockerfile": "8d566c250b6ed2a8067bf8fbb5d78b1dfecf0012dd43468f3856491b2adbcf26",
+    "tools/yara-x/Dockerfile": "5c528edbb09124125d3dd17a82196736936801be3ca8a125bbd094c6a84b8b44"
+  }
+}

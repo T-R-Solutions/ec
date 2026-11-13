@@ -1,0 +1,90 @@
+{
+  "reason": "Observações históricas substituídas pela reparação autorizada do run-SNe1BAXu; hashes originais preservados, sem aprovação de bytes atuais.",
+  "evidence": [
+    {
+      "id": "E-COVERAGE-FULL-20261112",
+      "kind": "test",
+      "command_or_method": "bash scripts/automate.sh run --scope complete",
+      "observed_result": "54 resultados: 43 passed, nove findings, dois errors Clippy; exit 2, sem drift/locks alterados, cleanup concluído. 177 testes aprovados; não houve aprovação de segurança.",
+      "artifact": "docs/validation/security-coverage-20261112/run-cHRcsFAw.json",
+      "sha256": "ab7cd36b75d76b8bdb20a56d6feea5bfce37d5cf9b1c86fe879dc2500646b052",
+      "inputs": [
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "417b09774408fcf80cfdee1a72f78b21c2f0c84e7ad8994368e5286196e64c52",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/quality/container_inputs.py",
+          "sha256": "962d50a53f63dc3b28249aeee7b1d96e9c781c00e1a11023ce47d9f8bc231c45",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/quality/secret_history.py",
+          "sha256": "dbb93b2cb2dfbe0881d812dec97a3920f7c554a3c7a482007f021a7f7a4fd271",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/quality/yara_scan.py",
+          "sha256": "35ea349eab77c36e60023bcc4c4b0274101df72be0e219a7fd14e8197e6fb2c2",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/quality/syft_inventory.py",
+          "sha256": "1cc911a58043bd7535c0013fef9c9f0c0e2138a043506a0805bd04dba17d4540",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/native/syft/syft.yaml",
+          "sha256": "36e98d77405ba7346e51a4215371ae311cc3a77a6572d8b58c084d5bc5e18c00",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "50df157b825f3844d77653ad9895c1f578ca89d11567d2323fec31746e5e29ee",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/rust/check.sh",
+          "sha256": "883ac9756bb7725d6d8ba7fc148c56afe378c1490d605a5b85888677a7a310c9",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "8163ac66465072eba8cfa0e3d1e871d8304383bb55e8282906bea344eb5ec2f9",
+          "role": "oracle"
+        }
+      ]
+    },
+    {
+      "id": "E-COVERAGE-FOCAL-20261112",
+      "kind": "test",
+      "command_or_method": "bash scripts/automate.sh run --check tests",
+      "observed_result": "Seis tarefas e 177 testes aprovados, exit 0, sem drift/locks alterados, cleanup concluído. Validação focal da remoção de seletor inativo e equivalência de seleção; não é nova análise real de vulnerabilidades.",
+      "artifact": "docs/validation/security-coverage-20261112/closure.json",
+      "sha256": "12100b7c27f98e8e5530b5888c3ac7c697ef5dec7cbeef5b7640a895b5fddf51",
+      "inputs": [
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "289a994c6186ee42d50088ca3a36fd939cf51dcdcf7964feadaa5bfe7fb95941",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "fc1c5fb9bac074f328161aa8b41dee546dffefc78890fd9191838e19db3a34fd",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/tests/test_security_scope.py",
+          "sha256": "fe3c6ecd3fe6f9126985b5d2648240d1e68cb8ac554d0140d3e982266a0a1ffd",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "e55971425f5a0309310e461e231f10cbfbeb9c44d4b358a6eb5a32af4ddea391",
+          "role": "oracle"
+        }
+      ]
+    }
+  ]
+}

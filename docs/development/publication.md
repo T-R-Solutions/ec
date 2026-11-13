@@ -5,8 +5,8 @@ Implementado e demonstrado em 05/11/2026: PostgreSQL como autoridade única de c
 Pré-requisitos: Rust 1.99.1, Git, PostgreSQL 18 (observado 18.4), Python 3.13 para harness e Docker para o banco descartável. Dependências diretas exatas nos manifests, transitivas/checksums em Cargo.lock. postgres 0.19.12, tiny_http 0.12.0, serde_json 1.0.145, sha2 0.10.9. Cache/target ficam no checkout.
 
 ```bash
-export CARGO_HOME="$PWD/.local/build/ec-cargo-home"
-export CARGO_TARGET_DIR="$PWD/.local/build/ec-server-clean"
+export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
+export CARGO_TARGET_DIR="$PWD/application/server/backend/target"
 cargo +1.99.1 fetch --manifest-path application/server/backend/Cargo.toml --locked
 cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline
 ```
@@ -15,10 +15,10 @@ Para banco PostgreSQL vazio de desenvolvimento já criado, defina EC_DATABASE_UR
 
 ```bash
 export EC_DATABASE_URL='host=127.0.0.1 port=55439 user=postgres dbname=ec_publication'
-.local/build/ec-server-clean/debug/ec-server-app migrate
-.local/build/ec-server-clean/debug/ec-server-app provision alice ec admin .local/build/alice.session local
-.local/build/ec-server-clean/debug/ec-server-app admit-repository ec /caminho/canonico/git SHA_COMPLETO_REAL
-.local/build/ec-server-clean/debug/ec-server-app serve
+application/server/backend/target/debug/ec-server-app migrate
+application/server/backend/target/debug/ec-server-app provision alice ec admin /caminho/privado/ec/alice.session local
+application/server/backend/target/debug/ec-server-app admit-repository ec /caminho/canonico/git SHA_COMPLETO_REAL
+application/server/backend/target/debug/ec-server-app serve
 ```
 
 Migration usa transação e lock advisory; reaplicação verifica versões 1 e 2 (fila T004 aditiva). Rollback do código não remove dados; para resetar teste crie outro banco descartável. `provision` aceita viewer/operator/admin e exige arquivo novo: gera 32 bytes aleatórios do SO, grava token hex uma vez em modo 0600 e hash no banco com expiração em 8h. Acesso ao comando/banco é privilégio administrativo local. `revoke alice` revoga todas as sessões da identidade. DELETE /api/v1/session revoga só a sessão usada. Não existe concessão de papel por header HTTP ou por YAML. Em caso de falha de provisionamento, use um novo arquivo ao tentar novamente; arquivo escrito antes de commit não prova sessão válida.
@@ -41,17 +41,17 @@ Exemplo de cliente que mantém token fora de argv/stdout, após adaptar fixture 
 import json
 from pathlib import Path
 from urllib.request import Request, urlopen
-token = Path('.local/build/alice.session').read_text()
+token = Path('/caminho/privado/ec/alice.session').read_text()
 headers = {'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'}
 body = json.dumps({'requestId': 'pedido-1', 'baseRevision': 0,
-                   'yaml': Path('.local/build/project.yaml').read_text()}).encode()
+                   'yaml': Path('/caminho/privado/ec/project.yaml').read_text()}).encode()
 with urlopen(Request('http://127.0.0.1:8080/api/v1/projects/ec/publications',
                      data=body, headers=headers, method='POST')) as response:
     receipt = json.load(response)
 with urlopen(Request('http://127.0.0.1:8080/api/v1/projects/ec/revisions/' + str(receipt['revision']),
                      headers=headers)) as response:
     revision = json.load(response)
-assert revision['yaml'].encode() == Path('.local/build/project.yaml').read_bytes()
+assert revision['yaml'].encode() == Path('/caminho/privado/ec/project.yaml').read_bytes()
 ```
 
 ## Reproduzir a evidência

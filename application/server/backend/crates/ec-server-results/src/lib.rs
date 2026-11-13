@@ -10,7 +10,7 @@ fn db(_: postgres::Error) -> Failure {
 }
 fn decode(v: &Value) -> Result<Vec<u8>, Failure> {
     let s = v.as_str().ok_or((400, "hex"))?;
-    if s.len() > 131072 || !s.len().is_multiple_of(2) {
+    if s.len() > 131_072 || !s.len().is_multiple_of(2) {
         return Err((413, "chunk_limit"));
     }
     s.as_bytes()
@@ -22,197 +22,255 @@ fn decode(v: &Value) -> Result<Vec<u8>, Failure> {
         .collect()
 }
 fn hex(b: &[u8]) -> String {
-    b.iter().map(|b| format!("{b:02x}")).collect()
+    use std::fmt::Write;
+    let mut out = String::with_capacity(b.len() * 2);
+    for byte in b {
+        let _ = write!(out, "{byte:02x}");
+    }
+    out
 }
-fn seq(p: &Value) -> Result<i64, Failure> {
-    p["sequence"]
+fn seq(payload: &Value) -> Result<i64, Failure> {
+    payload["sequence"]
         .as_i64()
         .filter(|s| *s > 0)
         .ok_or((400, "sequence"))
 }
-fn parse(s: String) -> Result<Value, Failure> {
-    serde_json::from_str(&s).map_err(|_| (500, "stored_json"))
+fn parse(s: &str) -> Result<Value, Failure> {
+    serde_json::from_str(s).map_err(|_| (500, "stored_json"))
 }
-pub fn read(t: &mut Transaction<'_>, id: i64) -> Result<Value, Failure> {
-    let logs=t.query("SELECT sequence,stream,data,receipt FROM output_logs WHERE attempt_id=$1 ORDER BY sequence", &[&id]).map_err(db)?.into_iter().map(|r|json!({"sequence":r.get::<_,i64>(0),"stream":r.get::<_,String>(1),"data":hex(&r.get::<_,Vec<u8>>(2)),"receipt":parse(r.get(3)).ok()})).collect::<Vec<_>>();
-    let upload=t.query_opt("SELECT size,sha256,receipt FROM output_uploads WHERE attempt_id=$1", &[&id]).map_err(db)?.map(|r|json!({"size":r.get::<_,i64>(0),"sha256":r.get::<_,String>(1),"receipt":r.get::<_,Option<String>>(2).and_then(|s|parse(s).ok())}));
-    let parts = t
+/// Recupera logs, staging e recibo de artefato da tentativa.
+///
+/// # Errors
+/// Retorna falha de banco, envelope, autoridade ou conflito de integridade/estado.
+pub fn read(transaction: &mut Transaction<'_>, id: i64) -> Result<Value, Failure> {
+    let logs=transaction.query("SELECT sequence,stream,data,receipt FROM output_logs WHERE attempt_id=$1 ORDER BY sequence", &[&id]).map_err(db)?.into_iter().map(|row|json!({"sequence":row.get::<_,i64>(0),"stream":row.get::<_,String>(1),"data":hex(&row.get::<_,Vec<u8>>(2)),"receipt":parse(row.get(3)).ok()})).collect::<Vec<_>>();
+    let upload=transaction.query_opt("SELECT size,sha256,receipt FROM output_uploads WHERE attempt_id=$1", &[&id]).map_err(db)?.map(|row|json!({"size":row.get::<_,i64>(0),"sha256":row.get::<_,String>(1),"receipt":row.get::<_,Option<String>>(2).as_deref().and_then(|s|parse(s).ok())}));
+    let parts = transaction
         .query(
             "SELECT sequence,data FROM output_parts WHERE attempt_id=$1 ORDER BY sequence",
             &[&id],
         )
         .map_err(db)?
         .into_iter()
-        .map(|r| json!({"sequence":r.get::<_,i64>(0),"data":hex(&r.get::<_,Vec<u8>>(1))}))
+        .map(|row| json!({"sequence":row.get::<_,i64>(0),"data":hex(&row.get::<_,Vec<u8>>(1))}))
         .collect::<Vec<_>>();
     // Partial data is staging, explicitly distinct from a published artifact.
     Ok(json!({"logs":logs,"upload":upload,"parts":parts}))
 }
+/// Persiste saída idempotente sob a autoridade atual da tentativa.
+///
+/// # Errors
+/// Retorna falha de banco, envelope, autoridade ou conflito de integridade/estado.
 pub fn mutate(
-    t: &mut Transaction<'_>,
-    o: &Owner,
+    transaction: &mut Transaction<'_>,
+    owner: &Owner,
     id: i64,
     action: &str,
-    p: &Value,
+    payload: &Value,
 ) -> Result<Value, Failure> {
-    let fence = p["fence"].as_i64().ok_or((400, "fence"))?;
-    control::output_authority(t, o, id, fence, false)?;
-    if action == "finish" {
-        let a = control::owned_attempt(t, o, id)?;
-        if !a["resultReceipt"].is_null() {
-            return control::mutate(t, o, id, "result", p);
-        }
-        control::output_authority(t, o, id, fence, true)?;
-        let last: i64 = t
-            .query_one(
-                "SELECT COALESCE(max(sequence),0) FROM output_logs WHERE attempt_id=$1",
-                &[&id],
-            )
-            .map_err(db)?
-            .get(0);
-        if p["output"]["lastSequence"] != last || !p["output"]["truncated"].is_boolean() {
-            return Err((409, "logs_incomplete"));
-        }
-        if p["output"]["artifactError"].is_null()
-            && t.query_opt(
+    let fence = payload["fence"].as_i64().ok_or((400, "fence"))?;
+    control::output_authority(transaction, owner, id, fence, false)?;
+    match action {
+        "finish" => finish(transaction, owner, id, payload, fence),
+        "logs" | "artifact-chunk" => chunk(transaction, owner, id, action, payload, fence),
+        "artifact-start" => artifact_start(transaction, owner, id, payload, fence),
+        "artifact-finish" => artifact_finish(transaction, owner, id, fence),
+        _ => Err((400, "route")),
+    }
+}
+
+fn finish(
+    transaction: &mut Transaction<'_>,
+    owner: &Owner,
+    id: i64,
+    payload: &Value,
+    fence: i64,
+) -> Result<Value, Failure> {
+    let a = control::owned_attempt(transaction, owner, id)?;
+    if !a["resultReceipt"].is_null() {
+        return control::mutate(transaction, owner, id, "result", payload);
+    }
+    control::output_authority(transaction, owner, id, fence, true)?;
+    let last: i64 = transaction
+        .query_one(
+            "SELECT COALESCE(max(sequence),0) FROM output_logs WHERE attempt_id=$1",
+            &[&id],
+        )
+        .map_err(db)?
+        .get(0);
+    if payload["output"]["lastSequence"] != last || !payload["output"]["truncated"].is_boolean() {
+        return Err((409, "logs_incomplete"));
+    }
+    if payload["output"]["artifactError"].is_null()
+        && transaction
+            .query_opt(
                 "SELECT attempt_id FROM output_uploads WHERE attempt_id=$1 AND receipt IS NOT NULL",
                 &[&id],
             )
             .map_err(db)?
             .is_none()
+    {
+        return Err((409, "artifact_incomplete"));
+    }
+    control::mutate(transaction, owner, id, "result", payload)
+}
+
+fn chunk(
+    transaction: &mut Transaction<'_>,
+    owner: &Owner,
+    id: i64,
+    action: &str,
+    payload: &Value,
+    fence: i64,
+) -> Result<Value, Failure> {
+    let sequence = seq(payload)?;
+    let data = decode(&payload["data"])?;
+    if data.is_empty() || sequence > 2048 {
+        return Err((413, "chunk_count_or_empty"));
+    }
+    let existing_chunk_query = if action == "logs" {
+        "SELECT data,stream FROM output_logs WHERE attempt_id=$1 AND sequence=$2"
+    } else {
+        "SELECT data FROM output_parts WHERE attempt_id=$1 AND sequence=$2"
+    };
+    if let Some(row) = transaction
+        .query_opt(existing_chunk_query, &[&id, &sequence])
+        .map_err(db)?
+    {
+        if row.get::<_, Vec<u8>>(0) != data
+            || (action == "logs" && payload["stream"] != row.get::<_, String>(1))
         {
-            return Err((409, "artifact_incomplete"));
+            return Err((409, "chunk_conflict"));
         }
-        return control::mutate(t, o, id, "result", p);
+        return Ok(json!({"sequence":sequence,"bytes":data.len()}));
     }
-    if action == "logs" || action == "artifact-chunk" {
-        let n = seq(p)?;
-        let data = decode(&p["data"])?;
-        if data.is_empty() || n > 2048 {
-            return Err((413, "chunk_count_or_empty"));
-        }
-        let existing_chunk_query = if action == "logs" {
-            "SELECT data,stream FROM output_logs WHERE attempt_id=$1 AND sequence=$2"
-        } else {
-            "SELECT data FROM output_parts WHERE attempt_id=$1 AND sequence=$2"
-        };
-        if let Some(r) = t.query_opt(existing_chunk_query, &[&id, &n]).map_err(db)? {
-            if r.get::<_, Vec<u8>>(0) != data
-                || (action == "logs" && p["stream"] != r.get::<_, String>(1))
-            {
-                return Err((409, "chunk_conflict"));
-            }
-            return Ok(json!({"sequence":n,"bytes":data.len()}));
-        }
-        control::output_authority(t, o, id, fence, true)?;
-        let totals_query = if action == "logs" {
-            "SELECT COALESCE(max(sequence),0),COALESCE(sum(octet_length(data)),0)::bigint FROM output_logs WHERE attempt_id=$1"
-        } else {
-            "SELECT COALESCE(max(sequence),0),COALESCE(sum(octet_length(data)),0)::bigint FROM output_parts WHERE attempt_id=$1"
-        };
-        let r = t.query_one(totals_query, &[&id]).map_err(db)?;
-        if n != r.get::<_, i64>(0) + 1 {
-            return Err((409, "sequence_gap"));
-        }
-        let total = r.get::<_, i64>(1) + data.len() as i64;
-        if total > 16777216 {
-            return Err((413, "output_limit"));
-        }
-        let receipt = json!({"sequence":n,"bytes":data.len()});
-        if action == "logs" {
-            let stream = p["stream"]
-                .as_str()
-                .filter(|s| ["stdout", "stderr"].contains(s))
-                .ok_or((400, "stream"))?;
-            t.execute(
-                "INSERT INTO output_logs VALUES($1,$2,$3,$4,$5)",
-                &[&id, &n, &stream, &data, &receipt.to_string()],
-            )
-            .map_err(db)?;
-        } else {
-            let u = t
-                .query_opt(
-                    "SELECT size,receipt FROM output_uploads WHERE attempt_id=$1",
-                    &[&id],
-                )
-                .map_err(db)?
-                .ok_or((409, "upload_missing"))?;
-            if total > u.get::<_, i64>(0) || u.get::<_, Option<String>>(1).is_some() {
-                return Err((409, "upload_closed"));
-            }
-            t.execute(
-                "INSERT INTO output_parts VALUES($1,$2,$3)",
-                &[&id, &n, &data],
-            )
-            .map_err(db)?;
-        }
-        return Ok(receipt);
+    control::output_authority(transaction, owner, id, fence, true)?;
+    let totals_query = if action == "logs" {
+        "SELECT COALESCE(max(sequence),0),COALESCE(sum(octet_length(data)),0)::bigint FROM output_logs WHERE attempt_id=$1"
+    } else {
+        "SELECT COALESCE(max(sequence),0),COALESCE(sum(octet_length(data)),0)::bigint FROM output_parts WHERE attempt_id=$1"
+    };
+    let row = transaction.query_one(totals_query, &[&id]).map_err(db)?;
+    if sequence != row.get::<_, i64>(0) + 1 {
+        return Err((409, "sequence_gap"));
     }
-    if action == "artifact-start" {
-        let size = p["size"]
-            .as_i64()
-            .filter(|s| (0..=16777216).contains(s))
-            .ok_or((413, "artifact_limit"))?;
-        let sha = p["sha256"]
+    let total =
+        row.get::<_, i64>(1) + i64::try_from(data.len()).map_err(|_| (413, "output_limit"))?;
+    if total > 16_777_216 {
+        return Err((413, "output_limit"));
+    }
+    let receipt = json!({"sequence":sequence,"bytes":data.len()});
+    if action == "logs" {
+        let stream = payload["stream"]
             .as_str()
-            .filter(|s| {
-                s.len() == 64
-                    && s.bytes()
-                        .all(|b| b.is_ascii_hexdigit() && !b.is_ascii_uppercase())
-            })
-            .ok_or((400, "sha256"))?;
-        if let Some(r) = t
-            .query_opt(
-                "SELECT size,sha256 FROM output_uploads WHERE attempt_id=$1",
-                &[&id],
-            )
-            .map_err(db)?
-        {
-            if r.get::<_, i64>(0) != size || r.get::<_, String>(1) != sha {
-                return Err((409, "upload_conflict"));
-            }
-        } else {
-            control::output_authority(t, o, id, fence, true)?;
-            t.execute(
-                "INSERT INTO output_uploads(attempt_id,size,sha256) VALUES($1,$2,$3)",
-                &[&id, &size, &sha],
+            .filter(|s| ["stdout", "stderr"].contains(s))
+            .ok_or((400, "stream"))?;
+        transaction
+            .execute(
+                "INSERT INTO output_logs VALUES($1,$2,$3,$4,$5)",
+                &[&id, &sequence, &stream, &data, &receipt.to_string()],
             )
             .map_err(db)?;
-        }
-        return Ok(json!({"size":size,"sha256":sha}));
-    }
-    if action == "artifact-finish" {
-        let u = t
+    } else {
+        let upload = transaction
             .query_opt(
-                "SELECT size,sha256,receipt FROM output_uploads WHERE attempt_id=$1",
+                "SELECT size,receipt FROM output_uploads WHERE attempt_id=$1",
                 &[&id],
             )
             .map_err(db)?
             .ok_or((409, "upload_missing"))?;
-        if let Some(s) = u.get::<_, Option<String>>(2) {
-            return parse(s);
+        if total > upload.get::<_, i64>(0) || upload.get::<_, Option<String>>(1).is_some() {
+            return Err((409, "upload_closed"));
         }
-        control::output_authority(t, o, id, fence, true)?;
-        let mut bytes = Vec::new();
-        for r in t
-            .query(
-                "SELECT data FROM output_parts WHERE attempt_id=$1 ORDER BY sequence",
-                &[&id],
+        transaction
+            .execute(
+                "INSERT INTO output_parts VALUES($1,$2,$3)",
+                &[&id, &sequence, &data],
             )
-            .map_err(db)?
-        {
-            bytes.extend(r.get::<_, Vec<u8>>(0));
+            .map_err(db)?;
+    }
+    Ok(receipt)
+}
+
+fn artifact_start(
+    transaction: &mut Transaction<'_>,
+    owner: &Owner,
+    id: i64,
+    payload: &Value,
+    fence: i64,
+) -> Result<Value, Failure> {
+    let size = payload["size"]
+        .as_i64()
+        .filter(|s| (0..=16_777_216).contains(s))
+        .ok_or((413, "artifact_limit"))?;
+    let sha = payload["sha256"]
+        .as_str()
+        .filter(|s| {
+            s.len() == 64
+                && s.bytes()
+                    .all(|b| b.is_ascii_hexdigit() && !b.is_ascii_uppercase())
+        })
+        .ok_or((400, "sha256"))?;
+    if let Some(row) = transaction
+        .query_opt(
+            "SELECT size,sha256 FROM output_uploads WHERE attempt_id=$1",
+            &[&id],
+        )
+        .map_err(db)?
+    {
+        if row.get::<_, i64>(0) != size || row.get::<_, String>(1) != sha {
+            return Err((409, "upload_conflict"));
         }
-        if bytes.len() as i64 != u.get::<_, i64>(0) || hash(&bytes) != u.get::<_, String>(1) {
-            return Err((409, "artifact_integrity"));
-        }
-        let receipt = json!({"attemptId":id,"size":bytes.len(),"sha256":hash(&bytes)});
-        t.execute(
+    } else {
+        control::output_authority(transaction, owner, id, fence, true)?;
+        transaction
+            .execute(
+                "INSERT INTO output_uploads(attempt_id,size,sha256) VALUES($1,$2,$3)",
+                &[&id, &size, &sha],
+            )
+            .map_err(db)?;
+    }
+    Ok(json!({"size":size,"sha256":sha}))
+}
+
+fn artifact_finish(
+    transaction: &mut Transaction<'_>,
+    owner: &Owner,
+    id: i64,
+    fence: i64,
+) -> Result<Value, Failure> {
+    let upload = transaction
+        .query_opt(
+            "SELECT size,sha256,receipt FROM output_uploads WHERE attempt_id=$1",
+            &[&id],
+        )
+        .map_err(db)?
+        .ok_or((409, "upload_missing"))?;
+    if let Some(s) = upload.get::<_, Option<String>>(2) {
+        return parse(&s);
+    }
+    control::output_authority(transaction, owner, id, fence, true)?;
+    let mut bytes = Vec::new();
+    for row in transaction
+        .query(
+            "SELECT data FROM output_parts WHERE attempt_id=$1 ORDER BY sequence",
+            &[&id],
+        )
+        .map_err(db)?
+    {
+        bytes.extend(row.get::<_, Vec<u8>>(0));
+    }
+    if i64::try_from(bytes.len()).map_err(|_| (413, "artifact_limit"))? != upload.get::<_, i64>(0)
+        || hash(&bytes) != upload.get::<_, String>(1)
+    {
+        return Err((409, "artifact_integrity"));
+    }
+    let receipt = json!({"attemptId":id,"size":bytes.len(),"sha256":hash(&bytes)});
+    transaction
+        .execute(
             "UPDATE output_uploads SET receipt=$2 WHERE attempt_id=$1",
             &[&id, &receipt.to_string()],
         )
         .map_err(db)?;
-        return Ok(receipt);
-    }
-    Err((400, "route"))
+    Ok(receipt)
 }

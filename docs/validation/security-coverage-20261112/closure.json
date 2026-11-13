@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "run": "run-Ur88v3HT",
+  "command": "bash scripts/automate.sh run --check tests",
+  "exit_code": 0,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "returncode": 0
+    }
+  ],
+  "script_tests": 177,
+  "changed_inputs": [],
+  "updated_lockfiles": [],
+  "cleanup": {
+    "exit_code": 0,
+    "finished_at": "2026-11-12T18:09:22.937138-03:00",
+    "cleanup_error": null,
+    "intermediate_artifacts": "discarded"
+  },
+  "scope": "Governança e regressões da limpeza de seletor inativo; não é nova execução dos scanners reais."
+}

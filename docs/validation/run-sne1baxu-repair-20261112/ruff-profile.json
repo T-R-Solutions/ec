@@ -1,0 +1,36 @@
+{
+  "ruff_policy_sha256": "f91a58d39ef173b026b1c1b0f846a96f76a1ba055bcda70e4e722dc189e7745e",
+  "bandit_policy_sha256": "dc1410a867725149a3de33bd95ce6f76ec04347309d5203055c7000e453491f4",
+  "observations": [
+    {
+      "fixture": "conventions.py",
+      "tool": "ruff",
+      "exit": 0,
+      "codes": [],
+      "source_sha256": "5b2577747d1614a47531ecc25e70cdb879c086a07c8ccee07dae156d0cf89c60"
+    },
+    {
+      "fixture": "bugs.py",
+      "tool": "ruff",
+      "exit": 1,
+      "codes": [
+        "B023",
+        "F401",
+        "F821"
+      ],
+      "source_sha256": "8c02b5cc0e50cc9f68ef0c1582e97c1cf60defc4e7d5b5d2dc1f3c2284391d35"
+    },
+    {
+      "fixture": "unsafe.py",
+      "tool": "bandit",
+      "exit": 1,
+      "codes": [
+        "B404",
+        "B602",
+        "B607"
+      ],
+      "source_sha256": "713a9c94c847d6ddaff6e5f8120bd85d535ece9b5474e76833389f93110f3796"
+    }
+  ],
+  "method": "Scans nativos das fixtures estáticas; não executar subprocess de unsafe.py. Perfil aceita unittest/CLI e rejeita undefined name/noqa, import morto e callback com captura tardia; Bandit rejeita shell=True."
+}

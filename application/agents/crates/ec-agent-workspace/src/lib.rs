@@ -32,6 +32,7 @@ fn git(args: &[&str], stop: &impl Fn() -> bool) -> io::Result<()> {
         .process_group(0)
         .spawn()?;
     let start = Instant::now();
+    let pid = i32::try_from(child.id()).map_err(|_| io::Error::other("process_id"))?;
     loop {
         if let Some(s) = child.try_wait()? {
             return if s.success() {
@@ -43,7 +44,7 @@ fn git(args: &[&str], stop: &impl Fn() -> bool) -> io::Result<()> {
         if stop() || start.elapsed() > Duration::from_secs(30) {
             // SAFETY: own live child process group, negative id selects group; no pointers.
             unsafe {
-                libc::kill(-(child.id() as i32), libc::SIGKILL);
+                libc::kill(-pid, libc::SIGKILL);
             }
             child.wait()?;
             return Err(io::Error::other("preparation_stopped"));
@@ -51,6 +52,10 @@ fn git(args: &[&str], stop: &impl Fn() -> bool) -> io::Result<()> {
         thread::sleep(Duration::from_millis(20));
     }
 }
+/// Prepara checkout isolado de um repositório local previamente admitido.
+///
+/// # Errors
+/// Retorna erro de admissão, filesystem, Git, cancelamento ou prazo excedido.
 pub fn prepare(
     root: &Path,
     id: i64,
@@ -72,7 +77,7 @@ pub fn prepare(
     let dir = root.join(format!("attempt-{id}"));
     fs::create_dir(&dir)?;
     let checkout = dir.join("checkout");
-    let dest = checkout.to_str().ok_or(io::Error::other("path"))?;
+    let dest = checkout.to_str().ok_or_else(|| io::Error::other("path"))?;
     git(
         &[
             "clone",
@@ -93,6 +98,10 @@ pub fn prepare(
     }
     Ok(checkout)
 }
+/// Lê um artefato regular interno ao checkout, sem seguir symlinks.
+///
+/// # Errors
+/// Retorna erro para caminho inválido, link, tipo/tamanho proibido ou falha de leitura.
 pub fn artifact(root: &Path, name: &str) -> io::Result<Vec<u8>> {
     let path = Path::new(name);
     if path
@@ -113,11 +122,11 @@ pub fn artifact(root: &Path, name: &str) -> io::Result<Vec<u8>> {
         .custom_flags(libc::O_NOFOLLOW | libc::O_NONBLOCK)
         .open(p)?;
     let before = f.metadata()?;
-    if !before.is_file() || before.len() > 16777216 {
+    if !before.is_file() || before.len() > 16_777_216 {
         return Err(io::Error::other("artifact_type_or_limit"));
     }
     let mut b = Vec::new();
-    (&mut f).take(16777217).read_to_end(&mut b)?;
+    (&mut f).take(16_777_217).read_to_end(&mut b)?;
     let after = f.metadata()?;
     if b.len() as u64 != before.len()
         || before.len() != after.len()
@@ -155,7 +164,7 @@ mod tests {
         fs::create_dir(root.join("directory")).unwrap();
         assert!(artifact(&root, "directory").is_err());
         let large = fs::File::create(root.join("large")).unwrap();
-        large.set_len(16777217).unwrap();
+        large.set_len(16_777_217).unwrap();
         assert!(artifact(&root, "large").is_err());
         fs::remove_dir_all(root).unwrap();
     }

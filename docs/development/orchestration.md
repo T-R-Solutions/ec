@@ -5,13 +5,13 @@ T004 implementa no Server submissão de revisão publicada, fila PostgreSQL, res
 Use a preparação e o provisionamento de usuários/repositórios de [publicação](publication.md). Mesmos Rust 1.99.1/edition 2024, PostgreSQL 18.4, postgres 0.19.12, tiny_http 0.12.0 e serde_json 1.0.145. Nenhuma biblioteca externa nova. Da raiz:
 
 ```bash
-export CARGO_HOME="$PWD/.local/build/ec-cargo-home"
-export CARGO_TARGET_DIR="$PWD/.local/build/ec-server-clean"
+export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
+export CARGO_TARGET_DIR="$PWD/application/server/backend/target"
 cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline
 # EC_DATABASE_URL aponta para seu banco local de desenvolvimento.
-.local/build/ec-server-clean/debug/ec-server-app migrate
-.local/build/ec-server-clean/debug/ec-server-app provision-agent linux-a ec .local/build/linux-a.credential
-.local/build/ec-server-clean/debug/ec-server-app serve
+application/server/backend/target/debug/ec-server-app migrate
+application/server/backend/target/debug/ec-server-app provision-agent linux-a ec /caminho/privado/ec/linux-a.credential
+application/server/backend/target/debug/ec-server-app serve
 ```
 
 Migration 002 é aditiva e transacional; o comando aplica 001 e 002 sob o lock de migração. Banco v1 conserva revisões, recibos, ponteiros, sessões e grants. Não execute o binário novo sobre banco v1 antes de migrar. Rollback de código não remove os dados; binário antigo não entende fila/tentativas e não deve operar a entrega T004. Não há promessa de rollout misto. Backup/restauração e administração SQL são responsabilidade do operador confiável.
@@ -41,7 +41,7 @@ Para submeter por cliente Python, mantendo token fora de argv:
 import json
 from pathlib import Path
 from urllib.request import Request, urlopen
-headers = {'Authorization': 'Bearer ' + Path('.local/build/alice.session').read_text(),
+headers = {'Authorization': 'Bearer ' + Path('/caminho/privado/ec/alice.session').read_text(),
            'Content-Type': 'application/json'}
 body = json.dumps({'requestId': 'execucao-1', 'revisionId': 1}).encode()
 with urlopen(Request('http://127.0.0.1:8080/api/v1/projects/ec/runs',

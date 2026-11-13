@@ -1,39 +1,55 @@
-# Geiger 0.14.0 — reconciliação de entradas do build
+# Geiger — correção de descoberta instalada no host
 
-Cópia das fontes já disponíveis localmente do pacote crates.io cargo-geiger
-0.14.0, sem download. Licenças upstream MIT/Apache-2.0 preservadas. O inventário
-`upstream-files.json` guarda os SHA-256 anteriores às alterações. Não se trata
-de outro scanner: permanecem o parser, os contadores, o grafo e os gates Geiger.
+O runner usa exclusivamente o `cargo-geiger` instalado, selecionado pelo ambiente
+canônico. Não há compilação, instalação, fallback ou executável privado durante
+os gates. A fonte deste diretório serve ao preparo explícito da instalação; não
+é uma segunda configuração de automação. `Cargo.toml.orig` e
+`upstream-files.json` preservam a proveniência importada, sem uso no build atual.
 
-O upstream compara todos os arquivos do dep-info com `.rs` encontrados nas
-árvores dos pacotes. Isso classifica documentação de `include_str!` como fonte
-não examinada e deixa código de OUT_DIR fora dos contadores. A correção:
+## Correção
 
-- guarda grupos de dependências por arquivo `.d`;
-- reconhece somente inclusões literais de dados pela AST dos consumidores;
-- conserva entradas desconhecidas como avisos nativos e erros;
-- examina fontes Rust adicionais com o mesmo motor `geiger`, atribuindo-as
-  ao único pacote com fontes no mesmo grupo dep-info;
-- falha em atribuição ausente/ambígua ou erro de parsing, sem resultados parciais;
-- inclui as métricas adicionais no inventário, sem mudar a regra de unsafe.
+O Geiger upstream 0.14.0 confronta os arquivos do dep-info com a busca de `.rs`
+nas árvores dos pacotes. Isso acusa documentação incorporada como não examinada
+e deixa código gerado fora dos contadores. O patch mantém motor, contadores,
+grafo e política de unsafe, acrescentando:
 
-O gate compila esta fonte com Cargo locked/offline em target privado e usa esse
-binário pelo PATH somente na tarefa. O cache de build da ferramenta pode ser
-indicado por `EC_GEIGER_BUILD_CARGO_HOME`; por padrão usa o Cargo home global
-já preparado. Nenhuma instalação/download ocorre implicitamente. Dependências
-ausentes bloqueiam. A identidade da fonte integra os inputs do run; a identidade
-do executável/versão integra o recibo tool.json.
+- Grupos de dependências por arquivo `.d` para atribuir fontes ao pacote consumidor.
+- Reconhecimento de inclusões literais de dados pela AST, sem dispensar pelo nome/extensão.
+- Análise de Rust gerado pelo próprio motor `geiger`, com proprietário único.
+- Rejeição de entrada desconhecida, atribuição ambígua e parsing inválido.
 
-Regressões em `src/scan/supplemental.rs` cobrem documentação, código unsafe
-gerado, extensão não Rust e entrada desconhecida. Sua execução deve ocorrer
-somente na suíte autorizada. Implementação e build permanecem UNVERIFIED até lá.
+As regressões de `src/scan/supplemental.rs` cobrem documentação, código unsafe
+gerado, includes de extensão diferente, consumidores ambíguos e dados desconhecidos.
+O histórico da implementação e de execuções anteriores está no
+[relatório de 09/11](../../../../docs/validation/geiger-coverage-remediation-20261109/report.md).
+Essas execuções não aprovam a resolução atual de dependências.
 
-## Atualização autorizada de dependências — 09/11/2026
+## Preparo de 11/11/2026
 
-Após pedido explícito para baixar as versões mais recentes, Cargo atualizou o
-lock para as versões mais recentes compatíveis com o manifesto e Rust 1.97.
-O pacote continua sendo Geiger 0.14.0 com motor geiger 0.5.0. `upstream-files.json`
-preserva a baseline anterior ao patch e não é um inventário dos bytes atuais.
-O cache privado `.local/build/ec-geiger-cargo-home` foi preparado por cargo fetch
-com lock, separadamente da suíte offline e sem atualizar locks de aplicação.
-[Versões, hashes e recibo](../../../../docs/validation/geiger-coverage-remediation-20261109/geiger-dependencies.json).
+O run-xK3jrVOn voltou a expor a limitação da versão upstream instalada. O pedido
+de correção produziu e instalou offline `0.14.0+ec.1`, com autorização específica
+para substituir o plugin em `~/.cargo`. O sufixo identifica a alteração local,
+sem pin de versão nos scripts. Foram preservadas as licenças MIT/Apache-2.0 e
+as mudanças anteriores das fontes; arquivos do registro Cargo não foram editados.
+
+Build e instalação usaram o toolchain ativo e os crates já preparados. O target
+temporário fica em `/tmp` somente durante o preparo. Cargo registra a instalação;
+os logs privados guardam hashes das fontes, lock resolvido e executável. O
+[relatório deste reparo](../../../../docs/validation/automation-run-xK3jrVOn-20261111/report.md)
+distingue compilação, instalação e validação pendente.
+
+A suíte, os scans e as regressões não foram executados neste reparo. Uma futura
+reinstalação upstream pode remover o patch; a identidade registrada pelo gate
+permite reconhecer a mudança. Não tratar ausência de warnings como prova de
+segurança ou compilação como comprovação do inventário completo.
+
+
+## Associação resolvida — 12/11/2026
+
+O patch 0.14.0+ec.2 percorre `resolve.nodes.deps` do Cargo, preservando a
+identidade resolvida. A busca antiga escolhia uma versão pela faixa declarada
+inclusive para dependências opcionais inativas; isso produzia 593 tentativas
+sem associação no run-IR9jPgS9. A ausência de nó/associação ativa agora retorna
+erro, em vez de virar uma aresta descartada com exit zero. Features, target e
+política de unsafe permanecem os do scan existente. Regressões novas exercitam
+versão não resolvida, declaração opcional, rename e perda de nó ativo.

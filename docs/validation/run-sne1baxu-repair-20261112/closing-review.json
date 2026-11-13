@@ -1,0 +1,26 @@
+{
+  "method": "Inspeção final dos documentos SDD e comparação por conteúdo com as fontes observadas na suíte. Mudanças pós-run limitadas ao fechamento documental; execuções anteriores preservam suas identidades.",
+  "full_run": "run-ZPA4aciU",
+  "focused_run": "run-NSqpobP8",
+  "unchanged_runtime_inputs": 353,
+  "unexpected_changes": [],
+  "documentation_changes": [
+    "sdd/features/scripts-verification/converge.md",
+    "sdd/features/scripts-verification/evidence.json",
+    "sdd/features/scripts-verification/tasks.md",
+    "sdd/features/scripts-verification/traceability.json"
+  ],
+  "current_contract": {
+    "sdd/features/scripts-verification/spec.md": "c083a85876700002052be33486a44543d5e52dc1fc4a80c6bee45ce07ddc3b4a",
+    "sdd/features/scripts-verification/plan.md": "f3c5d6741a20fe9e917cfba246007f002b7c1a37acd9b2a125fe84950cac5871",
+    "sdd/features/scripts-verification/tasks.md": "5a2a80e77c056f0e849eecccfc997a955dd9154e7466c390fce117964434c34f",
+    "sdd/features/scripts-verification/traceability.json": "52624d06fb4b92d51c4ea96e99e3d9e0035aefaf6a2ce2e7638c77f4787c6a3f"
+  },
+  "aggregate": "REJECTED",
+  "remaining": [
+    "security:trivy",
+    "security:grype",
+    "security:syft"
+  ],
+  "documentation_validation": "Executar o check SDD pelo runner após escrever estes registros; não declarado aprovado neste recibo."
+}

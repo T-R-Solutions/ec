@@ -1,5 +1,24 @@
 # Tarefas — scripts Ec
 
+## Escopo somente Ec — 13/11/2026
+
+- [x] T069 [AC-41/42, D-33/R-33]: remover auditoria de imagens Toolbox, configuração obsoleta e código sem consumidor; manter verificações Ec.
+- [x] T070 [AC-41/42, D-33/R-33]: executar regressões e scans reais Ec; registrar resultados atuais e fechamento documental.
+
+## Reparação do run-SNe1BAXu — 12/11/2026
+
+- [x] T066 [AC-36–42, D-32/R-32]: analisar relatórios nativos, registrar causas,
+  corrigir qualidade e tratamento de erros, manter configurações centralizadas e
+  remover somente configuração incorreta/sem consumidor comprovado.
+- [x] T067 [AC-36–42, D-32/R-32; depende T066]: testar rejeições e casos válidos,
+  revalidar gates reais e escopo completo; registrar resultados, pendências
+  externas e limites sem promover evidências históricas.
+
+- T068 [AC-38, D-32/R-32]: cancelada pela instrução de 13/11/2026 que retira auditoria da Toolbox do Ec. Os achados anteriores permanecem históricos; não foram corrigidos nem aceitos como risco por esta mudança.
+
+- [x] T045 [REQ-30/AC-30, D-26/R-26]: implementar descoberta local do ambiente, integração comum a todos os escopos, proteção contra source, diagnóstico RustSec e documentação. Casos de regressão escritos; inspeção de fontes/diff realizada, sem execução.
+- [ ] T046 [AC-30, D-26/R-26]: executar os contratos e a suíte pelo fluxo autorizado; observar descoberta, overrides, isolamento, encerramento, todos os escopos e recursos reais. Instalações/bases ausentes continuam bloqueando os gates dependentes.
+
 - [x] T015 [REQ-04/09/10/11, AC-04/09/10/11, D-13, R-13]: analisar run-oUebC3O4; corrigir execução Geiger por membro, fixtures e justificativas Ruff, normalizar rejeição LCOV e preparar regressões; inspecionar diferenças e preservar originais. Implementação concluída; testes novos/alterados não executados.
 - [ ] T016 [AC-04/09/10/11, D-13, R-13]: preparar ShellCheck com adapter revisado, cargo-llvm-cov/llvm-tools-preview, provider V8 e scanners/bases/bancos; aguardar autorização específica de downloads e decisão sobre licença dos crates/elegibilidade CodeQL. Depois retomar T014 pelo fluxo canônico, sem substituir suíte completa por checks avulsos.
 
@@ -145,3 +164,61 @@ commit foi criado. Resultados e logs acrescentados ao relatório de T039.
   sim, executar somente a suíte integral canônica, corrigir falhas reveladas e
   repetir a suíte integral até critérios comprovados. Não inferir 80% ou sucesso
   Geiger dos inputs atuais. Downloads exigem autorização específica.
+
+- T044: caminhos comuns e retenção dos intermediários implementados; mudanças e inspeções em `docs/validation/local-state-20261110/report.md`. Execução dos contratos novos e integração completa pendentes; observar a política canônica, sem scripts avulsos.
+
+
+## Diagnóstico do run-orZMYUEe e resolução mutável — 11/11/2026
+
+- T047 [REQ-31/AC-31, D-27/R-27]: retirar flags locked e pin exato do Geiger;
+  registrar locks alterados sem aprovar versões mistas; ajustar contratos e
+  documentação. Remover imports Python fora de indentação e reconciliar SDD
+  atual sem renovar hashes históricos. Implementado e inspecionado.
+- T048 [AC-31, AC-09/10/28/29]: executar contratos e suíte pelo fluxo autorizado,
+  observar atualizações reais de lock, rejeição de drift não relacionado e
+  reexecução estável. Pendente; testes escritos não equivalem a aprovação.
+
+- T049 [REQ-32/AC-32, D-28/R-28]: padrões efêmeros, descoberta do RustSec/
+  toolchain, resolução atual de crates, manutenção Trivy e correção do store
+  demonstrativo. Implementados; regressões escritas e inspeção de fontes.
+- T050 [AC-32]: executar contratos/scan/suíte autorizados e confirmar expiração,
+  manutenção parcial, isolamento do chamador e jornada Vue. Pendente.
+
+- T051 [REQ-33, D-29/R-29]: configuração única, carregador validado, plano e consumidores; eliminar listas/caminhos/políticas duplicados. Implementado e inspecionado; execução pendente.
+- T052 [REQ-34, D-29/R-29]: Cargo instalado, preparo por recurso, bases e ciclo de vida do PostgreSQL; ambiente efêmero e diagnóstico de ausência. Implementado e inspecionado; execução pendente.
+- T053 [REQ-35, D-29/R-29]: retenção dos relatórios, correção dos contratos de testes e documentação canônica. Implementado e inspecionado; execução pendente.
+- T054 [AC-33/34/35]: inspeção de todos os consumidores, regressões e suíte completa pelo fluxo autorizado; registrar resultados reais e lacunas. Pendente, sem aceite antecipado.
+
+
+## Reparação do run-xK3jrVOn — 11/11/2026
+
+- T055 [AC-24/28/33/34/35]: ler/confrontar todos os logs, corrigir ShellCheck,
+  fixture Ruff, testes de catálogo/diagnóstico, proxy e guarda de asserts;
+  retirar permissões Deny sem uso e preparar o plugin Geiger instalado.
+  Implementada/inspecionada; build/instalação do plugin concluídos offline.
+- T056 [AC-24/28/33/34/35]: decidir triagem Bandit e executar regressões/gates
+  pelo fluxo autorizado sobre os inputs corrigidos. Pendente; a suíte antiga
+  não valida os bytes novos. Firefox excluído das correções por instrução vigente.
+
+
+## Reparação autorizada de 12/11/2026
+
+- T057 [AC-36, D-30/R-30]: reparar validação SARIF, runtime CodeQL e preservar erros completos; regressões de severidade/extração. Implementada; três alvos reais aprovados, validação completa concluída em T060.
+- T058 [AC-37, D-30/R-30]: usar grafo resolvido no Geiger, testar casos ambíguos/inativos e validar instalação/gates reais. Implementada; 192 testes e probe Server aprovados, validação completa concluída em T060.
+- T059 [AC-38, D-30/R-30]: triagem Bandit por conteúdo e ocorrência na configuração única, regressões e documentação. Implementada; 375 revisadas/zero pendentes no scan real, validação completa concluída em T060.
+- T060 [AC-36/37/38, D-30/R-30]: executar suíte completa com complementares; corrigir e repetir até inputs estáveis e exit final zero. Concluída no run completo registrado abaixo.
+
+Fechamento T057–T060: concluídas em 12/11/2026; `run-3BXITHOD` aprovou as 54 tarefas, sem drift/locks alterados, com limpeza concluída. Evidência histórica em `docs/validation/automation-repair-20261112/run-3BXITHOD.json`; não aprova a ampliação posterior.
+
+
+## Ampliação da cobertura — 12/11/2026
+
+- T061 [AC-39/42, D-31/R-31]: referências oficiais por versão consultadas; políticas existentes ampliadas, configuração antiga substituída e seletor inativo retirado. Implementada/qualificada; sem redução para recuperar verde.
+- T062 [AC-40, D-31/R-31]: dotenv e histórico Git redigido, identidade e rejeições de histórico insuficiente/mutável. Testes e execução real concluídos; 49 ocorrências mantidas para triagem.
+- T063 [AC-39, D-31/R-31]: download autorizado e catálogos de quatro mantenedores importados com licença/revisão/hashes. 231 regras Opengrep declaradas, oito locais testadas e 754 arquivos YARA externos compilados; sem promessa de positivo por assinatura.
+- T064 [AC-41, D-31/R-31]: 13 imagens Toolbox/Firefox resolvidas pela CLI pública, cadeia de identidade comprovada e scans concluídos sem socket. SBOM com 283 pacotes e dependências dos três locks integralmente comprovadas. Ocorrências permanecem pendentes, sem aprovação de segurança.
+- T065 [AC-42, D-31/R-31]: executada suíte completa run-cHRcsFAw: 43 passed/nove findings/dois errors Clippy, exit 2, sem drift/locks alterados, cleanup ok. Limpeza posterior de seletor inativo validada no run-Ur88v3HT: seis tarefas e 177 testes aprovados, exit 0, cleanup ok. Fechamento documental separado; não renova bindings da execução completa.
+
+Entrega de configuração/qualificação concluída; aprovação operacional reprovada
+pelos achados e Clippy. Critérios operacionais permanecem UNVERIFIED, sem
+commit/publicação. Resultados e limites em docs/validation/security-coverage-20261112.

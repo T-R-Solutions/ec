@@ -55,6 +55,7 @@ fn captures_both_streams_and_preserves_exit_failure() {
             serde_json::from_slice::<Value>(&fs::read(s.dir.join(n.to_string())).unwrap()).unwrap()
         })
         .collect::<Vec<_>>();
+    drop(s);
     records.sort_by_key(|v| v["stream"].as_str().unwrap().to_owned());
     assert_eq!(records[0]["stream"], "stderr");
     assert_eq!(records[0]["data"], "657272");
@@ -72,9 +73,11 @@ fn large_output_is_chunked_without_loss_and_success_is_explicit() {
     let s = spool.lock().unwrap();
     assert_eq!(s.bytes, 70000);
     assert_eq!(s.sequence, 3);
+    let dir = s.dir.clone();
+    drop(s);
     for (n, size) in [(1, 32768), (2, 32768), (3, 4464)] {
         let record: Value =
-            serde_json::from_slice(&fs::read(s.dir.join(n.to_string())).unwrap()).unwrap();
+            serde_json::from_slice(&fs::read(dir.join(n.to_string())).unwrap()).unwrap();
         assert_eq!(record["data"].as_str().unwrap(), "00".repeat(size));
     }
 }

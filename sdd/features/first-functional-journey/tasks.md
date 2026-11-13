@@ -15,3 +15,11 @@ Entrega T004: contrato na spec antes de código; migration aditiva após 001; co
 A: consolidar fundamentos, ambientes reproduzíveis e decisões ainda pendentes; B: concluir núcleo seguro e o marco desta feature. C: completar edição e gestão, hierarquia, usuários/equipes e políticas. D: ampliar DAGs, triggers, templates, testes e entregas. E: plugins, operação e escala mediante medições e controles demonstrados. Nenhuma fase é declarada concluída.
 
 T005 implementa workspace Agent, migration 003, results, rotas de saída, journal/spool, supervisão e harness Agent real. Condição de aceite: ensaio final Agent/Server/PostgreSQL, regressões T002–T004 e checks documentados. Recursos com credenciais externas, UI e jornada completa continuam T001/T006/T007 pendentes.
+
+## Apresentação Signal — 11/11/2026
+
+Evolução local da superfície T006: shell/nove áreas, tokens, componentes, inspector
+do editor e apresentação das execuções. Sessão, rascunhos, recibos e integridade
+mantêm contratos existentes. Novas áreas sem API são demonstrações isoladas.
+As evidências históricas T006 não validam esta apresentação; typecheck, suíte e
+integração não foram reexecutados. [Registro atual](../../../docs/validation/frontend-signal-20261111/report.md).

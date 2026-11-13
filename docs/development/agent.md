@@ -4,13 +4,15 @@ O Agent Rust executa somente jobs Linux confiáveis, de repositórios Git locais
 
 ## Compilar e executar
 
-Da raiz do checkout, Rust 1.99.1, edição 2024, dependências diretas exatas e lockfiles:
+Da raiz do checkout, Rust 1.99.1, edição 2024, dependências diretas com faixas
+compatíveis e lockfiles atualizáveis durante o desenvolvimento. Consulte a
+[política de atualização](verification-tools.md#dependências-rust-em-desenvolvimento).
 
 ```bash
-export CARGO_HOME="$PWD/.local/build/ec-cargo-home"
-export CARGO_TARGET_DIR="$PWD/.local/build/ec-agent-target"
+export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
+export CARGO_TARGET_DIR="$PWD/application/agents/target"
 cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline
-.local/build/ec-agent-target/debug/ec-agent-app /caminho/privado/agent.json
+application/agents/target/debug/ec-agent-app /caminho/privado/agent.json
 ```
 
 Crie uma raiz privada 0700 e configuração local JSON 0600; use `address` (127.0.0.1:porta), `root` (raiz canônica), `credentialFile` (arquivo 0600 produzido por `ec-server-app provision-agent NOME PROJETO ARQUIVO`), `repositories` (lista de caminhos canônicos admitidos) e `once` (true para um trabalho). Não passe token em argv, YAML ou ambiente do script. Configuração de bootstrap não é configuração declarativa de pipeline. O Server precisa de `migrate` até v3 e `serve`, conforme publication.md e orchestration.md. Fonte Git indisponível no Agent produz preparation_failed, mesmo cadastrada no Server.
@@ -42,8 +44,8 @@ Server guarda staging, bytes e metadados no mesmo PostgreSQL. Não há janela en
 Use somente ec-publication-test em 127.0.0.1:55439, PostgreSQL 18.4. Cada harness cria banco UUID e o remove em finally. Não execute harnesses simultaneamente: usam a mesma porta HTTP 58139. Imagem/digest efetivos e resultados em docs/validation/agent-20261105/.
 
 ```bash
-CARGO_TARGET_DIR="$PWD/.local/build/ec-server-clean" cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints
-CARGO_TARGET_DIR="$PWD/.local/build/ec-agent-target" cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline --features test-failpoints
+CARGO_TARGET_DIR="$PWD/application/server/backend/target" cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints
+CARGO_TARGET_DIR="$PWD/application/agents/target" cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline --features test-failpoints
 python3 application/integration/tests/integration/agent_http.py
 python3 application/integration/tests/integration/orchestration_http.py
 python3 application/integration/tests/integration/publication_http.py

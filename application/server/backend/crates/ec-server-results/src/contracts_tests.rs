@@ -26,6 +26,6 @@ fn sequence_and_persisted_json_are_validated() {
     ] {
         assert_eq!(seq(&value), Err((400, "sequence")));
     }
-    assert_eq!(parse("{\"receipt\":1}".into()), Ok(json!({"receipt":1})));
-    assert_eq!(parse("corrupt".into()), Err((500, "stored_json")));
+    assert_eq!(parse("{\"receipt\":1}"), Ok(json!({"receipt":1})));
+    assert_eq!(parse("corrupt"), Err((500, "stored_json")));
 }

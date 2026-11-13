@@ -34,6 +34,12 @@ Exemplos de comandos nessas fontes descrevem interfaces; não autorizam acioname
 fora deste fluxo. A regra trata de scripts de verificação, sem impedir leitura,
 inspeção manual, edição de arquivos ou operações Git solicitadas.
 
+Ao escolher `sim`, o usuário autoriza as ações necessárias à execução e à resolução
+dos problemas encontrados nessa mesma tarefa, exceto downloads. Não repetir
+confirmações para correções e reexecuções já abrangidas; downloads exigem autorização
+específica e as permissões reais do ambiente continuam aplicáveis. Essa autorização
+não implica publicação ou trabalho externo à tarefa de verificação.
+
 A execução cobre todas as superfícies padrão configuradas no runner. Opções extras
 não incluídas no catálogo padrão não passam a ser executadas por esta instrução.
 O runner resolve a raiz pela própria localização; para caminhos com espaços, use
@@ -48,43 +54,43 @@ Indisponibilidade operacional continua bloqueando e não aprova critérios.
 
 - Governança: auditores, instalação, SDD e seus testes.
 - Automação: sintaxe, testes de contratos, Ruff e ShellCheck centrais obrigatórios.
-- Server/Agent: Cargo fmt, Clippy, testes, machete, deny, audit, geiger e cobertura >=80%, Rust 1.99.1/locked/offline e targets separados.
+- Server/Agent: Cargo check/fmt, Clippy, testes, machete, deny, audit, geiger instalados no host e cobertura >=80%, toolchain Rust ativo/offline e targets separados. Por instrução de 11/11/2026, Cargo.lock pode ser atualizado durante as verificações, sem `--locked`; alterações ficam registradas e exigem reexecução para comprovar a resolução final.
 - Frontend: npm typecheck, test, build e cobertura >=80%, com dependências do lockfile preparadas.
-- Segurança: Gitleaks/Opengrep e eficácia de regras, OSV nos três locks, Trivy vuln/misconfig/secret e CodeQL nos três componentes.
-- Complementares opcionais: Grype, Bandit, Syft e YARA-X. Syft é medição. O antigo trivy-toolbox foi retirado após unificação do gate completo.
-- Integração/E2E: builds com failpoints, harnesses reais, Playwright central com API simulada e jornada Firefox separada.
+- Segurança: Gitleaks na árvore e no histórico Git, Opengrep e eficácia de regras locais, OSV nos três locks, Trivy vuln/misconfig/secret nas fontes e configurações do Ec e CodeQL nos três componentes e na automação Python. Licenças Trivy têm inventário próprio, sem parecer jurídico implícito.
+- Complementares opcionais: Grype, Bandit, Syft e YARA-X. O check Syft exige inventário válido e análise Grype do inventário Ec sem achados. YARA-X usa o catálogo versionado com contexto por arquivo e sentinelas locais. O antigo trivy-toolbox foi retirado após unificação do gate completo.
+- Integração/E2E: builds com failpoints, harnesses reais, Playwright central com API simulada e jornadas reais Chromium e Firefox também pelo Playwright no Docker.
 
 Linux, Bash, jq, coreutils, util-linux e Python stdlib são pré-requisitos de
 supervisão. Ferramentas centrais precisam estar qualificadas/ativas e suas bases
 atuais. Cargo/npm e dependências de aplicação pertencem ao Ec. Os detalhes de
 RustSec, database_metadata OSV/Trivy, Checks Bundle externo Trivy, seleção de
 ambiente/estado, runtime CodeQL Rust, PostgreSQL e Firefox
-estão no [guia de preparação](verification-tools.md). Executar um gate não concede
-autorização para instalar scanner/dependência, atualizar base ou ampliar capacidade
-do host. O guia registra a atualização automática OSV observada na Toolbox externa;
+estão no [guia de preparação](verification-tools.md). Aplicam-se o alcance da escolha
+e a exceção de downloads definidos acima. O guia registra a atualização automática
+OSV observada na Toolbox externa e o preparo Trivy/Grype anterior ao scan;
 esse efeito exige autorização específica ou uma interface que permita impedi-lo.
 
 ## Evidências e limites
 
-Runs privados ficam em `.local/automation/runs/run-*/`, com logs separados,
-hashes de entradas, resultados e classificação Ec. Cada chamada nativa tem
+Logs privados ficam em `.local/logs/AAAA-MM-DD/`, somente nas duas datas mais
+recentes. Saídas brutas e registros estruturados de hashes, resultados, relatórios nativos redigidos quando necessário e
+classificação Ec são logs por execução/ferramenta; artefatos intermediários
+são descartados. Consulte [retenção](local-state.md). Cada chamada nativa tem
 diagnóstico próprio, código original, versão, imagem, base e limpeza observados.
 O supervisor não persiste argv ou valores de credenciais. Relatórios inválidos,
 parciais, suprimidos, cancelados e limpeza falha nunca aprovam. A agregação mantém
 2 (erro) > 3 (bloqueio) > 1 (achados) > 0 (gates aprovados/medições concluídas).
-Medição Syft não constitui parecer de vulnerabilidade.
+A geração Syft isolada não constitui parecer de vulnerabilidade; `security:syft`
+acopla a análise Grype do mesmo SBOM para emitir aprovação de vulnerabilidades.
 
 Inspeções/mocks não aprovam eficácia real. Nenhum resultado histórico foi renovado
-para aparentar uma execução atual. O [registro vigente](../validation/toolbox-native-20261108/report.md)
-identifica comandos executados, resultados e lacunas; a feature SDD mantém seus
-critérios abertos até evidência suficiente.
+para aparentar uma execução atual. A [evidência da feature](../../sdd/features/scripts-verification/evidence.json)
+identifica observações e lacunas vigentes; os relatórios datados preservam os
+resultados de cada execução. Critérios permanecem abertos até evidência suficiente.
 
-## Autorização específica da migração — 08/11/2026
+## Autorizações históricas
 
-O pedido atual autoriza implementação e testes necessários, inclusive
-`bash scripts/automate.sh run` sem filtros, sem vincular a execução a um pedido de
-commit. Substitui exclusivamente essa condição para esta tarefa. A autorização
-não inclui downloads implícitos, commits, tags, publicação, mudanças de permissões
-do host, alterações no Ox ou implementação/configuração/dados operacionais
-centrais. As instruções anteriores de pergunta de commit continuam válidas fora
-desta autorização específica.
+A exceção de execução concedida à migração de 08/11/2026 está registrada na
+[feature de scripts](../../sdd/features/scripts-verification/spec.md).
+Ela não autoriza novas tarefas. Instruções explícitas da sessão vigente prevalecem
+sobre este fluxo, dentro do escopo concedido e das permissões reais do ambiente.

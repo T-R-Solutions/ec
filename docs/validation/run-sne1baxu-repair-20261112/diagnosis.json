@@ -1,0 +1,377 @@
+{
+  "scope": "complete",
+  "complete": false,
+  "exit_code": 2,
+  "changed_inputs": [],
+  "updated_lockfiles": [],
+  "cancelled": false,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 4234,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 13027,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "server-cargo",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "check",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "error",
+      "returncode": 101
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "machete",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "rustsec",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "deny",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "audit",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "geiger",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "agent-cargo",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "postgres",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "coverage",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "check",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "error",
+      "returncode": 101
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "machete",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "deny",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "audit",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "geiger",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "coverage",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "coverage",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 49,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 10,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "trivy",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 8607,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "codeql",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 17,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "grype",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 12300,
+      "native_finding_count": 0,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "bandit",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 50,
+      "native_finding_count": 392,
+      "reviewed_count": 342
+    },
+    {
+      "project": "security",
+      "task": "syft",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 12300,
+      "native_finding_count": 0,
+      "reviewed_count": null
+    },
+    {
+      "project": "security",
+      "task": "yara-x",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "e2e",
+      "task": "playwright",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0,
+      "native_finding_count": null,
+      "reviewed_count": null
+    },
+    {
+      "project": "e2e",
+      "task": "chromium",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "returncode": 0
+    }
+  ],
+  "log_sha256": "76452755a1811bfe03bff14272c9b76dfae56f027c6c00e5678a6f0de1ea6d24"
+}

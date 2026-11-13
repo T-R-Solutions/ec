@@ -1,0 +1,1628 @@
+{
+  "scope": "complete",
+  "complete": false,
+  "exit_code": 1,
+  "changed_inputs": [],
+  "updated_lockfiles": [],
+  "cancelled": false,
+  "finished_at": 1794538101,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "cwd": ".",
+      "finding_count": 3686,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "prepare",
+      "task": "server-cargo",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "check",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "server",
+      "task": "machete",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-machete",
+        "launcher_sha256": "3e548ddbbd1bff8cfad77dddf71ff382a99d19bbff1a16a1905f33010a742c18",
+        "version": "0.9.2"
+      }
+    },
+    {
+      "project": "prepare",
+      "task": "rustsec",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "deny",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-deny",
+        "launcher_sha256": "f0f044feade2054507a76e3a222afbfb0bd17198ce34fb72a15f1963d65b832f",
+        "version": "cargo-deny 0.20.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "audit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-audit",
+        "launcher_sha256": "1cc9768f7dcbda4c406530476c7c49037984ef47b4fe0d4a584700469d56ac36",
+        "version": "cargo-audit-audit 0.22.2"
+      }
+    },
+    {
+      "project": "server",
+      "task": "geiger",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-geiger",
+        "launcher_sha256": "d47253c5cdeb6a2fbb4da048ae17b68d8235f4b93ff1b47f031129206b4084cc",
+        "version": "cargo-geiger 0.14.0+ec.2"
+      }
+    },
+    {
+      "project": "prepare",
+      "task": "agent-cargo",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "prepare",
+      "task": "postgres",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "server",
+      "task": "coverage",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-llvm-cov",
+        "launcher_sha256": "2a36479eb7fa5beb65518d09ed652b04eb9973361e3d4ef2aa1b77f7c81eef48",
+        "version": "cargo-llvm-cov 0.9.1"
+      },
+      "coverage": {
+        "metrics": {
+          "lines": {
+            "covered": 1610,
+            "total": 1729,
+            "actual": 93.11740890688259,
+            "minimum": 80,
+            "passed": true
+          }
+        },
+        "passed": true
+      }
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/backend",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "check",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "machete",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-machete",
+        "launcher_sha256": "3e548ddbbd1bff8cfad77dddf71ff382a99d19bbff1a16a1905f33010a742c18",
+        "version": "0.9.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "deny",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-deny",
+        "launcher_sha256": "f0f044feade2054507a76e3a222afbfb0bd17198ce34fb72a15f1963d65b832f",
+        "version": "cargo-deny 0.20.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "audit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-audit",
+        "launcher_sha256": "1cc9768f7dcbda4c406530476c7c49037984ef47b4fe0d4a584700469d56ac36",
+        "version": "cargo-audit-audit 0.22.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "geiger",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-geiger",
+        "launcher_sha256": "d47253c5cdeb6a2fbb4da048ae17b68d8235f4b93ff1b47f031129206b4084cc",
+        "version": "cargo-geiger 0.14.0+ec.2"
+      }
+    },
+    {
+      "project": "agent",
+      "task": "coverage",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/cargo-llvm-cov",
+        "launcher_sha256": "2a36479eb7fa5beb65518d09ed652b04eb9973361e3d4ef2aa1b77f7c81eef48",
+        "version": "cargo-llvm-cov 0.9.1"
+      },
+      "coverage": {
+        "metrics": {
+          "lines": {
+            "covered": 759,
+            "total": 834,
+            "actual": 91.00719424460432,
+            "minimum": 80,
+            "passed": true
+          }
+        },
+        "passed": true
+      }
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/agents",
+      "tool": {
+        "launcher": "/home/rodrigo/.cargo/bin/rustup",
+        "launcher_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+        "version": "cargo 1.99.1 (5f94df478 2026-08-27)"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      }
+    },
+    {
+      "project": "frontend",
+      "task": "coverage",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "application/server/frontend",
+      "tool": {
+        "launcher": "/home/rodrigo/.config/nvm/versions/node/v26.13.0/bin/npm",
+        "launcher_sha256": "8e5f6f3429f8cdbe693cdc29904e9d5a7b127a494bd15c804bd54c7403bfcbe7",
+        "version": "11.20.0; Node v26.13.0"
+      },
+      "coverage": {
+        "metrics": {
+          "lines": {
+            "covered": 205,
+            "total": 227,
+            "actual": 90.30837004405286,
+            "minimum": 80,
+            "passed": true
+          }
+        },
+        "passed": true
+      }
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": 0,
+      "history_finding_count": 0,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "trivy",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "cwd": ".",
+      "finding_count": 5597,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": 13,
+      "image_results": [
+        {
+          "reference": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "config_digest": "sha256:af3c7ca3b25e1a28ab02676c1629e53674a8632201e85d346d325341d27f2200",
+          "manifest_digest": "sha256:03df5f7a4bb98d8f4383727350a2b705ddf0863ece8e0099f04f592fd88a1540",
+          "archive_sha256": "4a4c35d7c509cdf69f376a6c48d495001402466c942265ff757c3a3376e06037",
+          "bytes": 56953344,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 331,
+          "license_count": 740,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "bandit",
+            "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+            "version": "1.8.3",
+            "revision": "991764b17a628d3ca9958911ef5d5edcb17ae030bb90fa96af0a560fd877e6c9",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "config_digest": "sha256:9a91dada86d337b52e5cac11060a063fe22febe559e6bfc14b2d094ad2463528",
+          "manifest_digest": "sha256:cffa13aefbe6439639150c7093977a0a018fefbb5fa41d114661405106785ae5",
+          "archive_sha256": "09f70f7259371cc76d60cb2ee09d64a40e10eaadaa6545569c8d4e03a56043b5",
+          "bytes": 923011584,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 1885,
+          "license_count": 1463,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "codeql",
+            "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+            "version": "2.27.4",
+            "revision": "e8b6fca736e46b045574e2247c8db32a410bcccf4ca8c008a121e2a6aa919149",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "config_digest": "sha256:083a7363d7a748243b6cf23cc829e00485e1b2e9d04b10a81a938db9851725ff",
+          "manifest_digest": "sha256:e0bc4ab26d35ba3055326e98f378dbf8f4cb6f67ec1c6c5a26a84b6aa94fb4a4",
+          "archive_sha256": "cd72e120bd21433317788dd8537d4eeeeaeab4b022ac95157b15bc865100e069",
+          "bytes": 72885248,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 478,
+          "license_count": 917,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "gitleaks",
+            "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+            "version": "8.24.3",
+            "revision": "728ec367fb3e7dd776c517ee07bb081941248c825c0f176a0bc1df852a3d5e17",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "config_digest": "sha256:d8b7ceede058e8cd0d1bce41d40b0faf0aee5ed2c725c20617b7584cc3f9c8c5",
+          "manifest_digest": "sha256:89b3a4ef1f973d521669bb9904d788b1e68a925abd3d39346f4b34c6daeb2127",
+          "archive_sha256": "111191f6ece27ec215cf06d5f9495506b267f551f8599322ff3bf24da247d4ca",
+          "bytes": 64687104,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 206,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "grype",
+            "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+            "version": "0.121.3",
+            "revision": "8a22acf617afbc43a0dfc2980c376d715cd3060cb5e55d9babac4782289c85a0",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "config_digest": "sha256:913fdc3c22a5ea4f7214eee7d0c6082ecd54c967e287e1a60f902f27311b6fd6",
+          "manifest_digest": "sha256:34cfc968fa2adc30b4977010a420bd5cc2875759de18b2e2a1cadfe12d097ac1",
+          "archive_sha256": "01ba00a6cab5f408ca7a795ad74f836b643a4dbbf97a2e65d078390de2fd7717",
+          "bytes": 142127616,
+          "layers": 7,
+          "state": "findings",
+          "finding_count": 204,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "opengrep",
+            "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+            "version": "1.33.1",
+            "revision": "88feb4bf1a79d270f81476f9df2b2d9f5a601b00d763329d0389a1f9c2e672af",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "config_digest": "sha256:5911a075d5d8725f86adfdf2d930497374ce7a6a9a562b48edffa4d90ee9f890",
+          "manifest_digest": "sha256:a284baec1dd4847249587d32c9af21d567909d9d9f7b7c19400e29ceaa1192f5",
+          "archive_sha256": "febb3c1d3157dcdb0e247f99932ed5f4fa110d0c8c3ed8cc930e84993dfdd38f",
+          "bytes": 53053952,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "osv-scanner",
+            "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+            "version": "2.7.0",
+            "revision": "0413acb3eaadef71ba05bbdd8427e16153d4352cefcb4a94a977f40dd57c088b",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "config_digest": "sha256:0e23ac11a8362f4f031f808b9fb46728dd7d921fa6fdb96803e17470454d6f46",
+          "manifest_digest": "sha256:2acbdf57411224d2ce09abfb10f380d383e947e9d2459f29d4b0d81f8e457063",
+          "archive_sha256": "c34b68cdf38407db8247ad2850af792c051a54dd56359d68cdf53f5300807085",
+          "bytes": 547859456,
+          "layers": 9,
+          "state": "findings",
+          "finding_count": 503,
+          "license_count": 1063,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "playwright",
+            "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+            "version": "1.65.0",
+            "revision": "0ce62e3cd2fc3bd657b632b797825bdd76eb5aee6298bd697c2ba79193c0135c",
+            "variant": "chromium",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "config_digest": "sha256:eaa8db9e46cd1f39ada9ad017101c063c2cfb7386ea5cd93516db7c2013303c8",
+          "manifest_digest": "sha256:651f9e9e295adeeeb363d67aed61f03da742fa187e234d11fd32872004c87eae",
+          "archive_sha256": "df9fab5c2896e088b8c589086fc1e35cd2688f602839818e366e8b8080b7f1f6",
+          "bytes": 43351040,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 204,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "ruff",
+            "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+            "version": "0.11.13",
+            "revision": "a60c2bb75e8dda7739a97a027458045b6963d39aa00019459bf426e3f409932e",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "config_digest": "sha256:c672e8047da2e396c70ec551a1a1eb9d564bd93ca5e817eca686f56f3698b5ab",
+          "manifest_digest": "sha256:3e7cc0b27b5c65814a5905ad634441612c48420be2a90fd3a00fbed323df7af7",
+          "archive_sha256": "3c40925e30045c602e191725d3f245d59e7f134af36d60d527b022aa71ad0c7f",
+          "bytes": 35180544,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 204,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "shellcheck",
+            "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+            "version": "0.11.0",
+            "revision": "553a306ad671acc2e2f11d7394aee55ae579928062be40fb4520b1d02b2c2fe5",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "config_digest": "sha256:fc2247df7fc296d20e53c90604ad4f93cca3a849f8a5c4573d7128088550ba31",
+          "manifest_digest": "sha256:e189720035c8f8a97d5e4478388ab67ad015f471c61821136883f6d4a1fcf204",
+          "archive_sha256": "42e6ce47ec8677d289f49a106d49636878174d71bd4d2acd414dc171f04b7d03",
+          "bytes": 63443968,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 206,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "syft",
+            "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+            "version": "1.57.1",
+            "revision": "93975d2512eb03fa3fabaef229845ea738e9f90c58408ec7596c89e35e2bf5f0",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "config_digest": "sha256:535606f56a6b94d4244c15ba26130c9b5c8d0e80467bcecd1ec607f8b05a7577",
+          "manifest_digest": "sha256:6b2edd0ec84bcdf91a8381010f05014883e1a8bac41ba789ea012615f4b7aa8a",
+          "archive_sha256": "cf79165d4f6bf8b88b008093f879df9175854ab1f53f964748757a342b449804",
+          "bytes": 85660160,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 206,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "trivy",
+            "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+            "version": "0.76.2",
+            "revision": "e4ce0022ff9d7d478e251396702dbc8eb8a5e5240c4e0d0f8833bfdad59ae89f",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "config_digest": "sha256:6c6b94494bed10e3a3df5613fdfee38625f93fc98b51c77d1cb4a94f1d10e699",
+          "manifest_digest": "sha256:cea6a21254b020972558aeca573103abee07dbc89965ff213c60449d1c7e7731",
+          "archive_sha256": "45d665712742bae03109c28189265b246a881f9917cca3a24e2ec2fd855fe7bc",
+          "bytes": 40717824,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 204,
+          "license_count": 600,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "yara-x",
+            "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+            "version": "1.0.0",
+            "revision": "2ec8803da101bb784f6686fb6446f66a68e658e5ab0a1fb0005c63f410135280",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "config_digest": "sha256:6da93d06ff4170413b190f12fed374239b41bc817f1525f3724f37efcfb91bdb",
+          "manifest_digest": "sha256:e310f9e89b134a4e8bdf8def89d0317950b239c3f3dfaa8f49092aa57761496a",
+          "archive_sha256": "34ef1da5d80b45700fa94025613970705045ecb5e117bdbe65a8790d942c11e3",
+          "bytes": 404640768,
+          "layers": 9,
+          "state": "findings",
+          "finding_count": 744,
+          "license_count": 1531,
+          "license_measurement": true,
+          "selection": {
+            "reference": "toolbox:playwright:firefox",
+            "tool": "playwright",
+            "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+            "version": "1.65.0",
+            "revision": "ad04dfa1ca3d92e57ef1d1b8768cae878a4e31764c856bab0f31806892b8bcf0",
+            "variant": "firefox",
+            "docker_verified": false
+          }
+        }
+      ],
+      "license_count": 151,
+      "license_measurement": true
+    },
+    {
+      "project": "security",
+      "task": "codeql",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "grype",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "cwd": ".",
+      "finding_count": 5821,
+      "native_finding_count": 0,
+      "native_suppressed_count": 0,
+      "reviewed_count": null,
+      "artifact_count": 283,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": 13,
+      "image_results": [
+        {
+          "reference": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "config_digest": "sha256:af3c7ca3b25e1a28ab02676c1629e53674a8632201e85d346d325341d27f2200",
+          "manifest_digest": "sha256:03df5f7a4bb98d8f4383727350a2b705ddf0863ece8e0099f04f592fd88a1540",
+          "archive_sha256": "4a4c35d7c509cdf69f376a6c48d495001402466c942265ff757c3a3376e06037",
+          "bytes": 56953344,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 350,
+          "native_finding_count": 350,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "bandit",
+            "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+            "version": "1.8.3",
+            "revision": "991764b17a628d3ca9958911ef5d5edcb17ae030bb90fa96af0a560fd877e6c9",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "config_digest": "sha256:9a91dada86d337b52e5cac11060a063fe22febe559e6bfc14b2d094ad2463528",
+          "manifest_digest": "sha256:cffa13aefbe6439639150c7093977a0a018fefbb5fa41d114661405106785ae5",
+          "archive_sha256": "09f70f7259371cc76d60cb2ee09d64a40e10eaadaa6545569c8d4e03a56043b5",
+          "bytes": 923011584,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 1828,
+          "native_finding_count": 1496,
+          "native_suppressed_count": 332,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "codeql",
+            "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+            "version": "2.27.4",
+            "revision": "e8b6fca736e46b045574e2247c8db32a410bcccf4ca8c008a121e2a6aa919149",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "config_digest": "sha256:083a7363d7a748243b6cf23cc829e00485e1b2e9d04b10a81a938db9851725ff",
+          "manifest_digest": "sha256:e0bc4ab26d35ba3055326e98f378dbf8f4cb6f67ec1c6c5a26a84b6aa94fb4a4",
+          "archive_sha256": "cd72e120bd21433317788dd8537d4eeeeaeab4b022ac95157b15bc865100e069",
+          "bytes": 72885248,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 496,
+          "native_finding_count": 496,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "gitleaks",
+            "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+            "version": "8.24.3",
+            "revision": "728ec367fb3e7dd776c517ee07bb081941248c825c0f176a0bc1df852a3d5e17",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "config_digest": "sha256:d8b7ceede058e8cd0d1bce41d40b0faf0aee5ed2c725c20617b7584cc3f9c8c5",
+          "manifest_digest": "sha256:89b3a4ef1f973d521669bb9904d788b1e68a925abd3d39346f4b34c6daeb2127",
+          "archive_sha256": "111191f6ece27ec215cf06d5f9495506b267f551f8599322ff3bf24da247d4ca",
+          "bytes": 64687104,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 225,
+          "native_finding_count": 225,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "grype",
+            "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+            "version": "0.121.3",
+            "revision": "8a22acf617afbc43a0dfc2980c376d715cd3060cb5e55d9babac4782289c85a0",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "config_digest": "sha256:913fdc3c22a5ea4f7214eee7d0c6082ecd54c967e287e1a60f902f27311b6fd6",
+          "manifest_digest": "sha256:34cfc968fa2adc30b4977010a420bd5cc2875759de18b2e2a1cadfe12d097ac1",
+          "archive_sha256": "01ba00a6cab5f408ca7a795ad74f836b643a4dbbf97a2e65d078390de2fd7717",
+          "bytes": 142127616,
+          "layers": 7,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "opengrep",
+            "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+            "version": "1.33.1",
+            "revision": "88feb4bf1a79d270f81476f9df2b2d9f5a601b00d763329d0389a1f9c2e672af",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "config_digest": "sha256:5911a075d5d8725f86adfdf2d930497374ce7a6a9a562b48edffa4d90ee9f890",
+          "manifest_digest": "sha256:a284baec1dd4847249587d32c9af21d567909d9d9f7b7c19400e29ceaa1192f5",
+          "archive_sha256": "febb3c1d3157dcdb0e247f99932ed5f4fa110d0c8c3ed8cc930e84993dfdd38f",
+          "bytes": 53053952,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 241,
+          "native_finding_count": 241,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "osv-scanner",
+            "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+            "version": "2.7.0",
+            "revision": "0413acb3eaadef71ba05bbdd8427e16153d4352cefcb4a94a977f40dd57c088b",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "config_digest": "sha256:0e23ac11a8362f4f031f808b9fb46728dd7d921fa6fdb96803e17470454d6f46",
+          "manifest_digest": "sha256:2acbdf57411224d2ce09abfb10f380d383e947e9d2459f29d4b0d81f8e457063",
+          "archive_sha256": "c34b68cdf38407db8247ad2850af792c051a54dd56359d68cdf53f5300807085",
+          "bytes": 547859456,
+          "layers": 9,
+          "state": "findings",
+          "finding_count": 536,
+          "native_finding_count": 536,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "playwright",
+            "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+            "version": "1.65.0",
+            "revision": "0ce62e3cd2fc3bd657b632b797825bdd76eb5aee6298bd697c2ba79193c0135c",
+            "variant": "chromium",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "config_digest": "sha256:eaa8db9e46cd1f39ada9ad017101c063c2cfb7386ea5cd93516db7c2013303c8",
+          "manifest_digest": "sha256:651f9e9e295adeeeb363d67aed61f03da742fa187e234d11fd32872004c87eae",
+          "archive_sha256": "df9fab5c2896e088b8c589086fc1e35cd2688f602839818e366e8b8080b7f1f6",
+          "bytes": 43351040,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "ruff",
+            "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+            "version": "0.11.13",
+            "revision": "a60c2bb75e8dda7739a97a027458045b6963d39aa00019459bf426e3f409932e",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "config_digest": "sha256:c672e8047da2e396c70ec551a1a1eb9d564bd93ca5e817eca686f56f3698b5ab",
+          "manifest_digest": "sha256:3e7cc0b27b5c65814a5905ad634441612c48420be2a90fd3a00fbed323df7af7",
+          "archive_sha256": "3c40925e30045c602e191725d3f245d59e7f134af36d60d527b022aa71ad0c7f",
+          "bytes": 35180544,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "shellcheck",
+            "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+            "version": "0.11.0",
+            "revision": "553a306ad671acc2e2f11d7394aee55ae579928062be40fb4520b1d02b2c2fe5",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "config_digest": "sha256:fc2247df7fc296d20e53c90604ad4f93cca3a849f8a5c4573d7128088550ba31",
+          "manifest_digest": "sha256:e189720035c8f8a97d5e4478388ab67ad015f471c61821136883f6d4a1fcf204",
+          "archive_sha256": "42e6ce47ec8677d289f49a106d49636878174d71bd4d2acd414dc171f04b7d03",
+          "bytes": 63443968,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 225,
+          "native_finding_count": 225,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "syft",
+            "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+            "version": "1.57.1",
+            "revision": "93975d2512eb03fa3fabaef229845ea738e9f90c58408ec7596c89e35e2bf5f0",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "config_digest": "sha256:535606f56a6b94d4244c15ba26130c9b5c8d0e80467bcecd1ec607f8b05a7577",
+          "manifest_digest": "sha256:6b2edd0ec84bcdf91a8381010f05014883e1a8bac41ba789ea012615f4b7aa8a",
+          "archive_sha256": "cf79165d4f6bf8b88b008093f879df9175854ab1f53f964748757a342b449804",
+          "bytes": 85660160,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 225,
+          "native_finding_count": 225,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "trivy",
+            "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+            "version": "0.76.2",
+            "revision": "e4ce0022ff9d7d478e251396702dbc8eb8a5e5240c4e0d0f8833bfdad59ae89f",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "config_digest": "sha256:6c6b94494bed10e3a3df5613fdfee38625f93fc98b51c77d1cb4a94f1d10e699",
+          "manifest_digest": "sha256:cea6a21254b020972558aeca573103abee07dbc89965ff213c60449d1c7e7731",
+          "archive_sha256": "45d665712742bae03109c28189265b246a881f9917cca3a24e2ec2fd855fe7bc",
+          "bytes": 40717824,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "yara-x",
+            "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+            "version": "1.0.0",
+            "revision": "2ec8803da101bb784f6686fb6446f66a68e658e5ab0a1fb0005c63f410135280",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "config_digest": "sha256:6da93d06ff4170413b190f12fed374239b41bc817f1525f3724f37efcfb91bdb",
+          "manifest_digest": "sha256:e310f9e89b134a4e8bdf8def89d0317950b239c3f3dfaa8f49092aa57761496a",
+          "archive_sha256": "34ef1da5d80b45700fa94025613970705045ecb5e117bdbe65a8790d942c11e3",
+          "bytes": 404640768,
+          "layers": 9,
+          "state": "findings",
+          "finding_count": 807,
+          "native_finding_count": 807,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:playwright:firefox",
+            "tool": "playwright",
+            "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+            "version": "1.65.0",
+            "revision": "ad04dfa1ca3d92e57ef1d1b8768cae878a4e31764c856bab0f31806892b8bcf0",
+            "variant": "firefox",
+            "docker_verified": false
+          }
+        }
+      ],
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "bandit",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": 392,
+      "native_suppressed_count": null,
+      "reviewed_count": 392,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "syft",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "cwd": ".",
+      "finding_count": 5821,
+      "native_finding_count": 0,
+      "native_suppressed_count": 0,
+      "reviewed_count": null,
+      "artifact_count": 283,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": 13,
+      "image_results": [
+        {
+          "reference": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+          "config_digest": "sha256:af3c7ca3b25e1a28ab02676c1629e53674a8632201e85d346d325341d27f2200",
+          "manifest_digest": "sha256:03df5f7a4bb98d8f4383727350a2b705ddf0863ece8e0099f04f592fd88a1540",
+          "archive_sha256": "4a4c35d7c509cdf69f376a6c48d495001402466c942265ff757c3a3376e06037",
+          "bytes": 56953344,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 350,
+          "native_finding_count": 350,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "bandit",
+            "image": "sha256:a9ab13e6969525632099b2c20a0fc526600294642dc18317ffd012788d24c1fa",
+            "version": "1.8.3",
+            "revision": "991764b17a628d3ca9958911ef5d5edcb17ae030bb90fa96af0a560fd877e6c9",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+          "config_digest": "sha256:9a91dada86d337b52e5cac11060a063fe22febe559e6bfc14b2d094ad2463528",
+          "manifest_digest": "sha256:cffa13aefbe6439639150c7093977a0a018fefbb5fa41d114661405106785ae5",
+          "archive_sha256": "09f70f7259371cc76d60cb2ee09d64a40e10eaadaa6545569c8d4e03a56043b5",
+          "bytes": 923011584,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 1828,
+          "native_finding_count": 1496,
+          "native_suppressed_count": 332,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "codeql",
+            "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+            "version": "2.27.4",
+            "revision": "e8b6fca736e46b045574e2247c8db32a410bcccf4ca8c008a121e2a6aa919149",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+          "config_digest": "sha256:083a7363d7a748243b6cf23cc829e00485e1b2e9d04b10a81a938db9851725ff",
+          "manifest_digest": "sha256:e0bc4ab26d35ba3055326e98f378dbf8f4cb6f67ec1c6c5a26a84b6aa94fb4a4",
+          "archive_sha256": "cd72e120bd21433317788dd8537d4eeeeaeab4b022ac95157b15bc865100e069",
+          "bytes": 72885248,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 496,
+          "native_finding_count": 496,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "gitleaks",
+            "image": "sha256:5899ed137c193d6d4acc767078307590c5509912451347a87c1c08b803e7713a",
+            "version": "8.24.3",
+            "revision": "728ec367fb3e7dd776c517ee07bb081941248c825c0f176a0bc1df852a3d5e17",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+          "config_digest": "sha256:d8b7ceede058e8cd0d1bce41d40b0faf0aee5ed2c725c20617b7584cc3f9c8c5",
+          "manifest_digest": "sha256:89b3a4ef1f973d521669bb9904d788b1e68a925abd3d39346f4b34c6daeb2127",
+          "archive_sha256": "111191f6ece27ec215cf06d5f9495506b267f551f8599322ff3bf24da247d4ca",
+          "bytes": 64687104,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 225,
+          "native_finding_count": 225,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "grype",
+            "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+            "version": "0.121.3",
+            "revision": "8a22acf617afbc43a0dfc2980c376d715cd3060cb5e55d9babac4782289c85a0",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+          "config_digest": "sha256:913fdc3c22a5ea4f7214eee7d0c6082ecd54c967e287e1a60f902f27311b6fd6",
+          "manifest_digest": "sha256:34cfc968fa2adc30b4977010a420bd5cc2875759de18b2e2a1cadfe12d097ac1",
+          "archive_sha256": "01ba00a6cab5f408ca7a795ad74f836b643a4dbbf97a2e65d078390de2fd7717",
+          "bytes": 142127616,
+          "layers": 7,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "opengrep",
+            "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+            "version": "1.33.1",
+            "revision": "88feb4bf1a79d270f81476f9df2b2d9f5a601b00d763329d0389a1f9c2e672af",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+          "config_digest": "sha256:5911a075d5d8725f86adfdf2d930497374ce7a6a9a562b48edffa4d90ee9f890",
+          "manifest_digest": "sha256:a284baec1dd4847249587d32c9af21d567909d9d9f7b7c19400e29ceaa1192f5",
+          "archive_sha256": "febb3c1d3157dcdb0e247f99932ed5f4fa110d0c8c3ed8cc930e84993dfdd38f",
+          "bytes": 53053952,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 241,
+          "native_finding_count": 241,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "osv-scanner",
+            "image": "sha256:5bbb6ec189da4c57d0d4d55c569c5bc98aecaaf421728231eab37eb8b286a18a",
+            "version": "2.7.0",
+            "revision": "0413acb3eaadef71ba05bbdd8427e16153d4352cefcb4a94a977f40dd57c088b",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+          "config_digest": "sha256:0e23ac11a8362f4f031f808b9fb46728dd7d921fa6fdb96803e17470454d6f46",
+          "manifest_digest": "sha256:2acbdf57411224d2ce09abfb10f380d383e947e9d2459f29d4b0d81f8e457063",
+          "archive_sha256": "c34b68cdf38407db8247ad2850af792c051a54dd56359d68cdf53f5300807085",
+          "bytes": 547859456,
+          "layers": 9,
+          "state": "findings",
+          "finding_count": 536,
+          "native_finding_count": 536,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "playwright",
+            "image": "sha256:547cda40cb609582b60fc4ee325b50e0d08df2af9b5b380ad3f0c45573625d98",
+            "version": "1.65.0",
+            "revision": "0ce62e3cd2fc3bd657b632b797825bdd76eb5aee6298bd697c2ba79193c0135c",
+            "variant": "chromium",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+          "config_digest": "sha256:eaa8db9e46cd1f39ada9ad017101c063c2cfb7386ea5cd93516db7c2013303c8",
+          "manifest_digest": "sha256:651f9e9e295adeeeb363d67aed61f03da742fa187e234d11fd32872004c87eae",
+          "archive_sha256": "df9fab5c2896e088b8c589086fc1e35cd2688f602839818e366e8b8080b7f1f6",
+          "bytes": 43351040,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "ruff",
+            "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+            "version": "0.11.13",
+            "revision": "a60c2bb75e8dda7739a97a027458045b6963d39aa00019459bf426e3f409932e",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+          "config_digest": "sha256:c672e8047da2e396c70ec551a1a1eb9d564bd93ca5e817eca686f56f3698b5ab",
+          "manifest_digest": "sha256:3e7cc0b27b5c65814a5905ad634441612c48420be2a90fd3a00fbed323df7af7",
+          "archive_sha256": "3c40925e30045c602e191725d3f245d59e7f134af36d60d527b022aa71ad0c7f",
+          "bytes": 35180544,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "shellcheck",
+            "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+            "version": "0.11.0",
+            "revision": "553a306ad671acc2e2f11d7394aee55ae579928062be40fb4520b1d02b2c2fe5",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+          "config_digest": "sha256:fc2247df7fc296d20e53c90604ad4f93cca3a849f8a5c4573d7128088550ba31",
+          "manifest_digest": "sha256:e189720035c8f8a97d5e4478388ab67ad015f471c61821136883f6d4a1fcf204",
+          "archive_sha256": "42e6ce47ec8677d289f49a106d49636878174d71bd4d2acd414dc171f04b7d03",
+          "bytes": 63443968,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 225,
+          "native_finding_count": 225,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "syft",
+            "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+            "version": "1.57.1",
+            "revision": "93975d2512eb03fa3fabaef229845ea738e9f90c58408ec7596c89e35e2bf5f0",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+          "config_digest": "sha256:535606f56a6b94d4244c15ba26130c9b5c8d0e80467bcecd1ec607f8b05a7577",
+          "manifest_digest": "sha256:6b2edd0ec84bcdf91a8381010f05014883e1a8bac41ba789ea012615f4b7aa8a",
+          "archive_sha256": "cf79165d4f6bf8b88b008093f879df9175854ab1f53f964748757a342b449804",
+          "bytes": 85660160,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 225,
+          "native_finding_count": 225,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "trivy",
+            "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+            "version": "0.76.2",
+            "revision": "e4ce0022ff9d7d478e251396702dbc8eb8a5e5240c4e0d0f8833bfdad59ae89f",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+          "config_digest": "sha256:6c6b94494bed10e3a3df5613fdfee38625f93fc98b51c77d1cb4a94f1d10e699",
+          "manifest_digest": "sha256:cea6a21254b020972558aeca573103abee07dbc89965ff213c60449d1c7e7731",
+          "archive_sha256": "45d665712742bae03109c28189265b246a881f9917cca3a24e2ec2fd855fe7bc",
+          "bytes": 40717824,
+          "layers": 6,
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": 222,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:active",
+            "tool": "yara-x",
+            "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+            "version": "1.0.0",
+            "revision": "2ec8803da101bb784f6686fb6446f66a68e658e5ab0a1fb0005c63f410135280",
+            "variant": "native",
+            "docker_verified": false
+          }
+        },
+        {
+          "reference": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+          "config_digest": "sha256:6da93d06ff4170413b190f12fed374239b41bc817f1525f3724f37efcfb91bdb",
+          "manifest_digest": "sha256:e310f9e89b134a4e8bdf8def89d0317950b239c3f3dfaa8f49092aa57761496a",
+          "archive_sha256": "34ef1da5d80b45700fa94025613970705045ecb5e117bdbe65a8790d942c11e3",
+          "bytes": 404640768,
+          "layers": 9,
+          "state": "findings",
+          "finding_count": 807,
+          "native_finding_count": 807,
+          "native_suppressed_count": 0,
+          "selection": {
+            "reference": "toolbox:playwright:firefox",
+            "tool": "playwright",
+            "image": "sha256:f2f3d94e7c508ea1c50120260b8d43baa691e2c7042514b5283a017dc89d54e6",
+            "version": "1.65.0",
+            "revision": "ad04dfa1ca3d92e57ef1d1b8768cae878a4e31764c856bab0f31806892b8bcf0",
+            "variant": "firefox",
+            "docker_verified": false
+          }
+        }
+      ],
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "security",
+      "task": "yara-x",
+      "state": "findings",
+      "reason": "",
+      "returncode": 1,
+      "cwd": ".",
+      "finding_count": 1,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "e2e",
+      "task": "playwright",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": ".",
+      "finding_count": 0,
+      "native_finding_count": null,
+      "native_suppressed_count": null,
+      "reviewed_count": null,
+      "artifact_count": null,
+      "measurement": null,
+      "tree_finding_count": null,
+      "history_finding_count": null,
+      "image_count": null,
+      "image_results": null,
+      "license_count": null,
+      "license_measurement": null
+    },
+    {
+      "project": "e2e",
+      "task": "chromium",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    }
+  ]
+}

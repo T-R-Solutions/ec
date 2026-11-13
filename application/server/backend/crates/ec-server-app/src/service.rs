@@ -2,6 +2,7 @@ use ec_server_orchestration as orchestration;
 use ec_server_projects::publication::{self, Candidate, Failure};
 use postgres::{Client, NoTls};
 use serde_json::{Value, json};
+use std::fmt::Write as _;
 use std::{
     fs::OpenOptions,
     io::{Read, Write},
@@ -27,7 +28,11 @@ fn name(s: &str) -> bool {
 fn random() -> Result<String, AnyError> {
     let mut b = [0; 32];
     std::fs::File::open("/dev/urandom")?.read_exact(&mut b)?;
-    Ok(b.iter().map(|v| format!("{v:02x}")).collect())
+    let mut output = String::with_capacity(b.len() * 2);
+    for byte in b {
+        let _ = write!(output, "{byte:02x}");
+    }
+    Ok(output)
 }
 /// Administrative commands require trusted local database access; none are HTTP routes.
 pub fn run() -> Result<(), AnyError> {
@@ -160,7 +165,7 @@ fn admit(client: &mut Client, args: &[String]) -> Result<(), AnyError> {
 }
 fn serve() -> Result<(), AnyError> {
     let port = std::env::var("EC_PORT")
-        .unwrap_or("8080".into())
+        .unwrap_or_else(|_| "8080".into())
         .parse::<u16>()?;
     let server = Arc::new(Server::http(("127.0.0.1", port))?);
     let stopping = Arc::new(std::sync::atomic::AtomicBool::new(false));
@@ -191,9 +196,15 @@ fn serve() -> Result<(), AnyError> {
         });
     }
     let mut workers = Vec::new();
+    let content_type = Header::from_bytes("Content-Type", "application/json")
+        .map_err(|()| "Header Content-Type inválido")?;
+    let cache_control = Header::from_bytes("Cache-Control", "no-store")
+        .map_err(|()| "Header Cache-Control inválido")?;
     for _ in 0..4 {
         let server = server.clone();
         let stopping = stopping.clone();
+        let content_type = content_type.clone();
+        let cache_control = cache_control.clone();
         workers.push(std::thread::spawn(move || {
             while !stopping.load(std::sync::atomic::Ordering::SeqCst) {
                 let mut request = match server.recv_timeout(std::time::Duration::from_millis(100)) {
@@ -215,8 +226,8 @@ fn serve() -> Result<(), AnyError> {
                 }
                 let response = Response::from_string(value.to_string())
                     .with_status_code(status)
-                    .with_header(Header::from_bytes("Content-Type", "application/json").unwrap())
-                    .with_header(Header::from_bytes("Cache-Control", "no-store").unwrap());
+                    .with_header(content_type.clone())
+                    .with_header(cache_control.clone());
                 let _ = request.respond(response);
             }
         }));
@@ -226,32 +237,33 @@ fn serve() -> Result<(), AnyError> {
     }
     Ok(())
 }
-fn header(r: &Request, key: &str) -> String {
-    r.headers()
+fn header(request: &Request, key: &str) -> String {
+    request
+        .headers()
         .iter()
         .find(|h| h.field.as_str().as_str().eq_ignore_ascii_case(key))
         .map(|h| h.value.to_string())
         .unwrap_or_default()
 }
-fn handle(r: &mut Request) -> Result<Value, Failure> {
+fn handle(request: &mut Request) -> Result<Value, Failure> {
     let db = |_| (500, "database");
-    let mut c = connect().map_err(db)?;
-    let mut t = c.transaction().map_err(db)?;
-    t.batch_execute("SET LOCAL application_name='ec-http'; SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='10s'")
+    let mut client = connect().map_err(db)?;
+    let mut transaction = client.transaction().map_err(db)?;
+    transaction.batch_execute("SET LOCAL application_name='ec-http'; SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='10s'")
         .map_err(db)?;
-    let auth = header(r, "Authorization");
+    let auth = header(request, "Authorization");
     let token = auth.strip_prefix("Bearer ").ok_or((401, "session"))?;
-    if r.url().starts_with("/api/v1/agent/") {
-        return agent_route(r, t, token);
+    if request.url().starts_with("/api/v1/agent/") {
+        return agent_route(request, transaction, token);
     }
-    let actor = ec_server_access::authenticate(&mut t, token)
+    let actor = ec_server_access::authenticate(&mut transaction, token)
         .map_err(db)?
         .ok_or((401, "session"))?;
-    let url = r.url().to_owned();
-    let p: Vec<_> = url.split('/').collect();
-    let method = r.method().as_str().to_owned();
+    let url = request.url().to_owned();
+    let route: Vec<_> = url.split('/').collect();
+    let method = request.method().as_str().to_owned();
     if url == "/api/v1/session" && method == "GET" {
-        let row = t
+        let row = transaction
             .query_one(
                 "SELECT expires::text FROM sessions WHERE hash=$1",
                 &[&ec_server_access::hash(token.as_bytes())],
@@ -260,105 +272,179 @@ fn handle(r: &mut Request) -> Result<Value, Failure> {
         return Ok(json!({"identity":actor,"expires":row.get::<_,String>(0)}));
     }
     if url == "/api/v1/projects" && method == "GET" {
-        let rows = t.query("SELECT p.name,g.role,p.published,p.effective FROM projects p JOIN grants g ON g.project=p.name WHERE g.identity=$1 ORDER BY p.name", &[&actor]).map_err(db)?;
+        let rows = transaction.query("SELECT p.name,g.role,p.published,p.effective FROM projects p JOIN grants g ON g.project=p.name WHERE g.identity=$1 ORDER BY p.name", &[&actor]).map_err(db)?;
         return Ok(
-            json!({"projects":rows.iter().map(|r|json!({"project":r.get::<_,String>(0),"role":r.get::<_,String>(1),"published":r.get::<_,i64>(2),"effective":r.get::<_,i64>(3)})).collect::<Vec<_>>()}),
+            json!({"projects":rows.iter().map(|request|json!({"project":request.get::<_,String>(0),"role":request.get::<_,String>(1),"published":request.get::<_,i64>(2),"effective":request.get::<_,i64>(3)})).collect::<Vec<_>>()}),
         );
     }
     if url == "/api/v1/session" && method == "DELETE" {
         // Upgrade own session lock; session revocation is serialized with in-flight publication.
-        t.execute(
-            "UPDATE sessions SET revoked=true WHERE hash=$1",
-            &[&ec_server_access::hash(token.as_bytes())],
-        )
-        .map_err(db)?;
-        t.commit().map_err(db)?;
+        transaction
+            .execute(
+                "UPDATE sessions SET revoked=true WHERE hash=$1",
+                &[&ec_server_access::hash(token.as_bytes())],
+            )
+            .map_err(db)?;
+        transaction.commit().map_err(db)?;
         return Ok(json!({"revoked":true}));
     }
-    if p.len() < 5 || p[..4] != ["", "api", "v1", "projects"] || !name(p[4]) {
+    if route.len() < 5 || route[..4] != ["", "api", "v1", "projects"] || !name(route[4]) {
         return Err((400, "route"));
     }
-    let project = p[4];
-    let role = ec_server_access::role(&mut t, project, &actor)
+    let project = route[4];
+    let role = ec_server_access::role(&mut transaction, project, &actor)
         .map_err(db)?
         .ok_or((404, "project"))?;
-    if method == "GET" && p.len() == 6 && p[5] == "agents" {
-        let rows=t.query("SELECT a.name,a.revoked,COALESCE(s.expires>clock_timestamp(),false) AND NOT a.revoked FROM agents a LEFT JOIN agent_sessions s ON s.id=a.current_session WHERE a.project=$1 ORDER BY a.name", &[&project]).map_err(db)?;
-        return Ok(
-            json!({"agents":rows.iter().map(|r|json!({"name":r.get::<_,String>(0),"revoked":r.get::<_,bool>(1),"sessionValid":r.get::<_,bool>(2)})).collect::<Vec<_>>()}),
-        );
+    ProjectRequest {
+        actor: &actor,
+        token,
+        project,
+        role: &role,
+        method: &method,
+        route: &route,
     }
-    if method == "POST" && p.len() == 6 && p[5] == "validation" {
-        let v = body(r)?;
-        envelope(&v, &["yaml"])?;
-        let yaml = v["yaml"].as_str().ok_or((400, "yaml"))?;
-        if yaml.len() > 65536 {
-            return Err((413, "yaml_limit"));
-        }
-        let fields = match ec_server_configuration::parse(yaml) {
-            Ok(f) => f,
-            Err(d) => {
-                return Ok(
-                    json!({"valid":false,"diagnostic":{"code":d.code,"message":d.message,"line":d.line,"column":d.column}}),
-                );
-            }
-        };
-        if let Err(d) = ec_server_projects::ProjectPipeline::validate(&fields) {
+    .handle(request, transaction)
+}
+
+#[derive(Clone, Copy)]
+struct ProjectRequest<'a> {
+    actor: &'a str,
+    token: &'a str,
+    project: &'a str,
+    role: &'a str,
+    method: &'a str,
+    route: &'a [&'a str],
+}
+impl ProjectRequest<'_> {
+    fn handle(
+        self,
+        request: &mut Request,
+        mut transaction: postgres::Transaction<'_>,
+    ) -> Result<Value, Failure> {
+        let db = |_| (500, "database");
+        let Self {
+            actor,
+            token,
+            project,
+            role,
+            method,
+            route,
+            ..
+        } = self;
+        if method == "GET" && route.len() == 6 && route[5] == "agents" {
+            let rows=transaction.query("SELECT a.name,a.revoked,COALESCE(s.expires>clock_timestamp(),false) AND NOT a.revoked FROM agents a LEFT JOIN agent_sessions s ON s.id=a.current_session WHERE a.project=$1 ORDER BY a.name", &[&project]).map_err(db)?;
             return Ok(
-                json!({"valid":false,"diagnostic":{"code":"schema","field":d.field,"message":d.message}}),
+                json!({"agents":rows.iter().map(|request|json!({"name":request.get::<_,String>(0),"revoked":request.get::<_,bool>(1),"sessionValid":request.get::<_,bool>(2)})).collect::<Vec<_>>()}),
             );
         }
-        if fields.get("project").map(String::as_str) != Some(project) {
-            return Ok(
-                json!({"valid":false,"diagnostic":{"code":"project_reference","field":"project","message":"Projeto difere do escopo"}}),
-            );
+        if method == "POST" && route.len() == 6 && route[5] == "validation" {
+            return validate_pipeline(request, project);
         }
-        return Ok(json!({"valid":true,"projection":fields}));
-    }
-    let publishing = method == "POST" || (p.len() == 7 && p[5] == "receipts");
-    if publishing && role == "viewer" {
-        return Err((403, "permission"));
-    }
-    if method == "GET" && p.len() == 10 && p[5] == "runs" && p[7] == "attempts" && p[9] == "output"
-    {
-        orchestration::guard(&mut t)?;
-        if ec_server_access::authenticate(&mut t, token)
-            .map_err(db)?
-            .is_none()
+        let publishing = method == "POST" || (route.len() == 7 && route[5] == "receipts");
+        if publishing && role == "viewer" {
+            return Err((403, "permission"));
+        }
+        if method == "GET"
+            && route.len() == 10
+            && route[5] == "runs"
+            && route[7] == "attempts"
+            && route[9] == "output"
         {
-            return Err((401, "session"));
+            orchestration::guard(&mut transaction)?;
+            if ec_server_access::authenticate(&mut transaction, token)
+                .map_err(db)?
+                .is_none()
+            {
+                return Err((401, "session"));
+            }
+            orchestration::project_attempt(
+                &mut transaction,
+                project,
+                positive(route[6])?,
+                positive(route[8])?,
+            )?;
+            return ec_server_results::read(&mut transaction, positive(route[8])?);
         }
-        orchestration::project_attempt(&mut t, project, positive(p[6])?, positive(p[8])?)?;
-        return ec_server_results::read(&mut t, positive(p[8])?);
+        if route.len() >= 6 && ["runs", "run-receipts"].contains(&route[5]) {
+            return self.runs(request, transaction);
+        }
+        if method == "GET" && route.len() == 5 {
+            let row = transaction
+                .query_one(
+                    "SELECT published,effective FROM projects WHERE name=$1",
+                    &[&project],
+                )
+                .map_err(db)?;
+            return Ok(
+                json!({"project":project,"published":row.get::<_,i64>(0),"effective":row.get::<_,i64>(1)}),
+            );
+        }
+        if method == "GET" && route.len() == 7 && route[5] == "receipts" {
+            return publication::receipt(&mut transaction, project, actor, route[6])
+                .map_err(db)?
+                .ok_or((404, "receipt"));
+        }
+        if method == "GET" && route.len() == 7 && route[5] == "revisions" {
+            let rev = route[6].parse::<i64>().map_err(|_| (400, "revision"))?;
+            let row = transaction
+                .query_opt(
+                    "SELECT yaml,hash,projection FROM revisions WHERE project=$1 AND revision=$2",
+                    &[&project, &rev],
+                )
+                .map_err(db)?
+                .ok_or((404, "revision"))?;
+            let yaml = String::from_utf8(row.get(0)).map_err(|_| (500, "stored_yaml"))?;
+            return Ok(
+                json!({"revision":rev,"yaml":yaml,"sha256":row.get::<_,String>(1),"projection":serde_json::from_str::<Value>(&row.get::<_,String>(2)).map_err(|_|(500,"projection"))?}),
+            );
+        }
+        if method != "POST" || route.len() != 6 || route[5] != "publications" {
+            return Err((400, "route"));
+        }
+        self.publish(request, transaction)
     }
-    if p.len() >= 6 && ["runs", "run-receipts"].contains(&p[5]) {
+    fn runs(
+        self,
+        request: &mut Request,
+        mut transaction: postgres::Transaction<'_>,
+    ) -> Result<Value, Failure> {
+        let db = |_| (500, "database");
+        let Self {
+            actor,
+            token,
+            project,
+            method,
+            route,
+            ..
+        } = self;
         let payload = if method == "POST" {
-            Some(body(r)?)
+            Some(body(request)?)
         } else {
             None
         };
-        orchestration::guard(&mut t)?;
+        orchestration::guard(&mut transaction)?;
         // Recheck expiry after waiting on the orchestration guard.
-        if ec_server_access::authenticate(&mut t, token)
+        if ec_server_access::authenticate(&mut transaction, token)
             .map_err(db)?
             .is_none()
         {
             return Err((401, "session"));
         }
-        let result = if method == "GET" && p.len() == 7 && p[5] == "run-receipts" {
-            orchestration::submission_receipt(&mut t, project, &actor, p[6])?
+        let result = if method == "GET" && route.len() == 7 && route[5] == "run-receipts" {
+            orchestration::submission_receipt(&mut transaction, project, actor, route[6])?
                 .ok_or((404, "receipt"))?
-        } else if method == "GET" && p.len() == 6 && p[5] == "runs" {
-            orchestration::list_runs(&mut t, project)?
-        } else if method == "GET" && p.len() == 7 && p[5] == "runs" {
-            orchestration::get_run(&mut t, project, positive(p[6])?)?
-        } else if method == "POST" && p.len() == 8 && p[5] == "runs" && p[7] == "cancel" {
+        } else if method == "GET" && route.len() == 6 && route[5] == "runs" {
+            orchestration::list_runs(&mut transaction, project)?
+        } else if method == "GET" && route.len() == 7 && route[5] == "runs" {
+            orchestration::get_run(&mut transaction, project, positive(route[6])?)?
+        } else if method == "POST" && route.len() == 8 && route[5] == "runs" && route[7] == "cancel"
+        {
             envelope(payload.as_ref().ok_or((400, "body"))?, &[])?;
-            orchestration::cancel(&mut t, project, positive(p[6])?)?
-        } else if method == "POST" && p.len() == 6 && p[5] == "runs" {
-            let v = payload.as_ref().ok_or((400, "body"))?;
-            envelope(v, &["requestId", "revisionId"])?;
-            let key = v["requestId"]
+            orchestration::cancel(&mut transaction, project, positive(route[6])?)?
+        } else if method == "POST" && route.len() == 6 && route[5] == "runs" {
+            let payload = payload.as_ref().ok_or((400, "body"))?;
+            envelope(payload, &["requestId", "revisionId"])?;
+            let key = payload["requestId"]
                 .as_str()
                 .filter(|s| {
                     !s.is_empty()
@@ -366,24 +452,26 @@ fn handle(r: &mut Request) -> Result<Value, Failure> {
                         && s.bytes().all(|b| b.is_ascii_alphanumeric() || b == b'-')
                 })
                 .ok_or((400, "request_id"))?;
-            let revision = v["revisionId"]
+            let revision = payload["revisionId"]
                 .as_i64()
                 .filter(|n| *n > 0)
                 .ok_or((400, "revision"))?;
-            if let Some(old) = orchestration::submission_receipt(&mut t, project, &actor, key)? {
+            if let Some(old) =
+                orchestration::submission_receipt(&mut transaction, project, actor, key)?
+            {
                 if old["revisionId"] != revision {
                     return Err((409, "request_conflict"));
                 }
                 old
             } else {
-                let snapshot =
-                    publication::snapshot(&mut t, project, revision)?.ok_or((404, "revision"))?;
+                let snapshot = publication::snapshot(&mut transaction, project, revision)?
+                    .ok_or((404, "revision"))?;
                 orchestration::submit(
-                    &mut t,
+                    &mut transaction,
                     project,
-                    &actor,
+                    actor,
                     key,
-                    orchestration::Snapshot {
+                    &orchestration::Snapshot {
                         revision,
                         hash: snapshot.hash,
                         commit: snapshot.commit,
@@ -394,101 +482,75 @@ fn handle(r: &mut Request) -> Result<Value, Failure> {
         } else {
             return Err((400, "route"));
         };
-        before_commit(r)?;
-        t.commit().map_err(db)?;
-        return Ok(result);
+        before_commit(request)?;
+        transaction.commit().map_err(db)?;
+        Ok(result)
     }
-    if method == "GET" && p.len() == 5 {
-        let row = t
+    fn publish(
+        self,
+        request: &mut Request,
+        mut transaction: postgres::Transaction<'_>,
+    ) -> Result<Value, Failure> {
+        let db = |_| (500, "database");
+        let Self {
+            actor,
+            token,
+            project,
+            ..
+        } = self;
+        let payload = body(request)?;
+        if payload.as_object().is_none_or(|o| o.len() != 3) {
+            return Err((400, "envelope"));
+        }
+        let id = payload["requestId"].as_str().ok_or((400, "request_id"))?;
+        if id.is_empty()
+            || id.len() > 64
+            || !id.bytes().all(|b| b.is_ascii_alphanumeric() || b == b'-')
+        {
+            return Err((400, "request_id"));
+        }
+        let base = payload["baseRevision"]
+            .as_i64()
+            .filter(|b| *b >= 0)
+            .ok_or((400, "base"))?;
+        let yaml = payload["yaml"].as_str().ok_or((400, "yaml"))?;
+        if yaml.len() > 65_536 {
+            return Err((413, "yaml_limit"));
+        }
+        transaction
             .query_one(
-                "SELECT published,effective FROM projects WHERE name=$1",
+                "SELECT published FROM projects WHERE name=$1 FOR UPDATE",
                 &[&project],
             )
             .map_err(db)?;
-        return Ok(
-            json!({"project":project,"published":row.get::<_,i64>(0),"effective":row.get::<_,i64>(1)}),
-        );
-    }
-    if method == "GET" && p.len() == 7 && p[5] == "receipts" {
-        return publication::receipt(&mut t, project, &actor, p[6])
+        if ec_server_access::authenticate(&mut transaction, token)
             .map_err(db)?
-            .ok_or((404, "receipt"));
-    }
-    if method == "GET" && p.len() == 7 && p[5] == "revisions" {
-        let rev = p[6].parse::<i64>().map_err(|_| (400, "revision"))?;
-        let row = t
-            .query_opt(
-                "SELECT yaml,hash,projection FROM revisions WHERE project=$1 AND revision=$2",
-                &[&project, &rev],
-            )
-            .map_err(db)?
-            .ok_or((404, "revision"))?;
-        let yaml = String::from_utf8(row.get(0)).map_err(|_| (500, "stored_yaml"))?;
-        return Ok(
-            json!({"revision":rev,"yaml":yaml,"sha256":row.get::<_,String>(1),"projection":serde_json::from_str::<Value>(&row.get::<_,String>(2)).map_err(|_|(500,"projection"))?}),
-        );
-    }
-    if method != "POST" || p.len() != 6 || p[5] != "publications" {
-        return Err((400, "route"));
-    }
-    let mut bytes = Vec::new();
-    r.as_reader()
-        .take(131073)
-        .read_to_end(&mut bytes)
-        .map_err(|_| (400, "body"))?;
-    if bytes.len() > 131072 {
-        return Err((413, "body_limit"));
-    }
-    let v: Value = serde_json::from_slice(&bytes).map_err(|_| (400, "json"))?;
-    if v.as_object().is_none_or(|o| o.len() != 3) {
-        return Err((400, "envelope"));
-    }
-    let id = v["requestId"].as_str().ok_or((400, "request_id"))?;
-    if id.is_empty() || id.len() > 64 || !id.bytes().all(|b| b.is_ascii_alphanumeric() || b == b'-')
-    {
-        return Err((400, "request_id"));
-    }
-    let base = v["baseRevision"]
-        .as_i64()
-        .filter(|b| *b >= 0)
-        .ok_or((400, "base"))?;
-    let yaml = v["yaml"].as_str().ok_or((400, "yaml"))?;
-    if yaml.len() > 65536 {
-        return Err((413, "yaml_limit"));
-    }
-    t.query_one(
-        "SELECT published FROM projects WHERE name=$1 FOR UPDATE",
-        &[&project],
-    )
-    .map_err(db)?;
-    if ec_server_access::authenticate(&mut t, token)
-        .map_err(db)?
-        .is_none()
-    {
-        return Err((401, "session"));
-    }
-    if let Some(old) = publication::receipt(&mut t, project, &actor, id).map_err(db)? {
-        let revision = old["revision"].as_i64().ok_or((500, "receipt"))?;
-        let bytes: Vec<u8> = t
-            .query_one(
-                "SELECT yaml FROM revisions WHERE project=$1 AND revision=$2",
-                &[&project, &revision],
-            )
-            .map_err(db)?
-            .get(0);
-        if old["baseRevision"] != base || bytes != yaml.as_bytes() {
-            return Err((409, "request_conflict"));
+            .is_none()
+        {
+            return Err((401, "session"));
         }
-        t.commit().map_err(db)?;
-        return Ok(old);
-    }
-    let fields = ec_server_configuration::parse(yaml).map_err(|_| (422, "yaml"))?;
-    let model =
-        ec_server_projects::ProjectPipeline::validate(&fields).map_err(|_| (422, "schema"))?;
-    if model.project != project {
-        return Err((422, "project_reference"));
-    }
-    if t.query_opt(
+        if let Some(old) = publication::receipt(&mut transaction, project, actor, id).map_err(db)? {
+            let revision = old["revision"].as_i64().ok_or((500, "receipt"))?;
+            let bytes: Vec<u8> = transaction
+                .query_one(
+                    "SELECT yaml FROM revisions WHERE project=$1 AND revision=$2",
+                    &[&project, &revision],
+                )
+                .map_err(db)?
+                .get(0);
+            if old["baseRevision"] != base || bytes != yaml.as_bytes() {
+                return Err((409, "request_conflict"));
+            }
+            transaction.commit().map_err(db)?;
+            return Ok(old);
+        }
+        let fields = ec_server_configuration::parse(yaml).map_err(|_| (422, "yaml"))?;
+        let model =
+            ec_server_projects::ProjectPipeline::validate(&fields).map_err(|_| (422, "schema"))?;
+        if model.project != project {
+            return Err((422, "project_reference"));
+        }
+        if transaction.query_opt(
         "SELECT path FROM repositories WHERE project=$1 AND path=$2 AND commit_sha=$3 FOR SHARE",
         &[&project, &model.repository, &model.commit],
     )
@@ -497,57 +559,88 @@ fn handle(r: &mut Request) -> Result<Value, Failure> {
     {
         return Err((422, "repository_reference"));
     }
-    let projection = serde_json::to_string(&fields).map_err(|_| (500, "projection"))?;
-    let result = publication::publish(
-        &mut t,
-        Candidate {
-            project,
-            actor: &actor,
-            id,
-            base,
-            yaml,
-            projection: &projection,
-        },
-    )?;
-    #[cfg(feature = "test-failpoints")]
-    if header(r, "X-Ec-Test-Failure") == "before-commit" {
-        return Err((500, "injected_before_commit"));
+        let projection = serde_json::to_string(&fields).map_err(|_| (500, "projection"))?;
+        let result = publication::publish(
+            &mut transaction,
+            Candidate {
+                project,
+                actor,
+                id,
+                base,
+                yaml,
+                projection: &projection,
+            },
+        )?;
+        #[cfg(feature = "test-failpoints")]
+        if header(request, "X-Ec-Test-Failure") == "before-commit" {
+            return Err((500, "injected_before_commit"));
+        }
+        #[cfg(feature = "test-failpoints")]
+        if header(request, "X-Ec-Test-Failure") == "crash-before-commit" {
+            std::process::exit(86);
+        }
+        if ec_server_access::authenticate(&mut transaction, token)
+            .map_err(db)?
+            .is_none()
+        {
+            return Err((401, "session"));
+        }
+        transaction.commit().map_err(db)?;
+        Ok(result)
     }
-    #[cfg(feature = "test-failpoints")]
-    if header(r, "X-Ec-Test-Failure") == "crash-before-commit" {
-        std::process::exit(86);
+}
+
+fn validate_pipeline(request: &mut Request, project: &str) -> Result<Value, Failure> {
+    let payload = body(request)?;
+    envelope(&payload, &["yaml"])?;
+    let yaml = payload["yaml"].as_str().ok_or((400, "yaml"))?;
+    if yaml.len() > 65_536 {
+        return Err((413, "yaml_limit"));
     }
-    if ec_server_access::authenticate(&mut t, token)
-        .map_err(db)?
-        .is_none()
-    {
-        return Err((401, "session"));
+    let fields = match ec_server_configuration::parse(yaml) {
+        Ok(f) => f,
+        Err(d) => {
+            return Ok(
+                json!({"valid":false,"diagnostic":{"code":d.code,"message":d.message,"line":d.line,"column":d.column}}),
+            );
+        }
+    };
+    if let Err(d) = ec_server_projects::ProjectPipeline::validate(&fields) {
+        return Ok(
+            json!({"valid":false,"diagnostic":{"code":"schema","field":d.field,"message":d.message}}),
+        );
     }
-    t.commit().map_err(db)?;
-    Ok(result)
+    if fields.get("project").map(String::as_str) != Some(project) {
+        return Ok(
+            json!({"valid":false,"diagnostic":{"code":"project_reference","field":"project","message":"Projeto difere do escopo"}}),
+        );
+    }
+    Ok(json!({"valid":true,"projection":fields}))
 }
 
 fn positive(s: &str) -> Result<i64, Failure> {
     s.parse::<i64>().ok().filter(|n| *n > 0).ok_or((400, "id"))
 }
-fn envelope(v: &Value, keys: &[&str]) -> Result<(), Failure> {
-    if v.as_object()
+fn envelope(payload: &Value, keys: &[&str]) -> Result<(), Failure> {
+    if payload
+        .as_object()
         .is_none_or(|o| o.len() != keys.len() || keys.iter().any(|k| !o.contains_key(*k)))
     {
         return Err((400, "envelope"));
     }
     Ok(())
 }
-fn body(r: &mut Request) -> Result<Value, Failure> {
-    let limit = if r.url().starts_with("/api/v1/agent/")
-        && (r.url().ends_with("/logs") || r.url().ends_with("/artifact-chunk"))
+fn body(request: &mut Request) -> Result<Value, Failure> {
+    let limit = if request.url().starts_with("/api/v1/agent/")
+        && (request.url().ends_with("/logs") || request.url().ends_with("/artifact-chunk"))
     {
-        140000
+        140_000
     } else {
-        131072
+        131_072
     };
     let mut bytes = Vec::new();
-    r.as_reader()
+    request
+        .as_reader()
         .take(limit + 1)
         .read_to_end(&mut bytes)
         .map_err(|_| (400, "body"))?;
@@ -556,9 +649,11 @@ fn body(r: &mut Request) -> Result<Value, Failure> {
     }
     serde_json::from_slice(&bytes).map_err(|_| (400, "json"))
 }
-fn before_commit(_r: &Request) -> Result<(), Failure> {
+fn before_commit(request: &Request) -> Result<(), Failure> {
+    #[cfg(not(feature = "test-failpoints"))]
+    let _ = request;
     #[cfg(feature = "test-failpoints")]
-    match header(_r, "X-Ec-Test-Failure").as_str() {
+    match header(request, "X-Ec-Test-Failure").as_str() {
         "before-commit" => return Err((500, "injected_before_commit")),
         "crash-before-commit" => std::process::exit(86),
         _ => {}
@@ -566,56 +661,64 @@ fn before_commit(_r: &Request) -> Result<(), Failure> {
     Ok(())
 }
 fn reconcile_once() -> Result<(), Failure> {
-    let mut c = connect().map_err(|_| (500, "database"))?;
-    let mut t = c.transaction().map_err(|_| (500, "database"))?;
-    t.batch_execute("SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='10s'")
+    let mut client = connect().map_err(|_| (500, "database"))?;
+    let mut transaction = client.transaction().map_err(|_| (500, "database"))?;
+    transaction
+        .batch_execute("SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='10s'")
         .map_err(|_| (500, "database"))?;
-    orchestration::guard(&mut t)?;
-    orchestration::reconcile(&mut t)?;
-    t.commit().map_err(|_| (500, "database"))
+    orchestration::guard(&mut transaction)?;
+    orchestration::reconcile(&mut transaction)?;
+    transaction.commit().map_err(|_| (500, "database"))
 }
 fn agent_route(
-    r: &mut Request,
-    mut t: postgres::Transaction<'_>,
+    request: &mut Request,
+    mut transaction: postgres::Transaction<'_>,
     token: &str,
 ) -> Result<Value, Failure> {
-    let payload = if r.method().as_str() == "POST" {
-        Some(body(r)?)
+    let payload = if request.method().as_str() == "POST" {
+        Some(body(request)?)
     } else {
         None
     };
-    orchestration::guard(&mut t)?;
-    let url = r.url().to_owned();
-    let p: Vec<_> = url.split('/').collect();
-    let method = r.method().as_str().to_owned();
+    orchestration::guard(&mut transaction)?;
+    let url = request.url().to_owned();
+    let route: Vec<_> = url.split('/').collect();
+    let method = request.method().as_str().to_owned();
     let result = if method == "POST" && url == "/api/v1/agent/session" {
         // Validate credential before revealing capability diagnostics.
         // Session insertion rolls back if the subsequent envelope is rejected.
         let id = random().map_err(|_| (500, "random"))?;
         let session_token = random().map_err(|_| (500, "random"))?;
-        let result = orchestration::session(&mut t, token, &id, &session_token)?;
-        let v = payload.as_ref().ok_or((400, "body"))?;
-        envelope(v, &["protocolVersion", "platform", "slots"])?;
-        if v["protocolVersion"] != 1 || v["platform"] != "linux" || v["slots"] != 1 {
+        let result = orchestration::session(&mut transaction, token, &id, &session_token)?;
+        let payload = payload.as_ref().ok_or((400, "body"))?;
+        envelope(payload, &["protocolVersion", "platform", "slots"])?;
+        if payload["protocolVersion"] != 1
+            || payload["platform"] != "linux"
+            || payload["slots"] != 1
+        {
             return Err((422, "capabilities"));
         }
         result
     } else {
-        let owner = orchestration::authenticate(&mut t, token)?;
+        let owner = orchestration::authenticate(&mut transaction, token)?;
         if method == "POST" && url == "/api/v1/agent/reserve" {
             envelope(payload.as_ref().ok_or((400, "body"))?, &[])?;
-            orchestration::reserve(&mut t, &owner)?
+            orchestration::reserve(&mut transaction, &owner)?
         } else if method == "GET" && url == "/api/v1/agent/attempts" {
-            orchestration::owned_attempts(&mut t, &owner)?
-        } else if method == "GET" && p.len() == 6 && p[4] == "attempts" {
-            orchestration::owned_attempt(&mut t, &owner, positive(p[5])?)?
-        } else if method == "GET" && p.len() == 7 && p[4] == "attempts" && p[6] == "output" {
-            let id = positive(p[5])?;
-            orchestration::owned_attempt(&mut t, &owner, id)?;
-            ec_server_results::read(&mut t, id)?
+            orchestration::owned_attempts(&mut transaction, &owner)?
+        } else if method == "GET" && route.len() == 6 && route[4] == "attempts" {
+            orchestration::owned_attempt(&mut transaction, &owner, positive(route[5])?)?
+        } else if method == "GET"
+            && route.len() == 7
+            && route[4] == "attempts"
+            && route[6] == "output"
+        {
+            let id = positive(route[5])?;
+            orchestration::owned_attempt(&mut transaction, &owner, id)?;
+            ec_server_results::read(&mut transaction, id)?
         } else if method == "POST"
-            && p.len() == 7
-            && p[4] == "attempts"
+            && route.len() == 7
+            && route[4] == "attempts"
             && [
                 "logs",
                 "artifact-start",
@@ -623,38 +726,50 @@ fn agent_route(
                 "artifact-finish",
                 "finish",
             ]
-            .contains(&p[6])
+            .contains(&route[6])
         {
-            let v = payload.as_ref().ok_or((400, "body"))?;
-            let keys: &[&str] = match p[6] {
+            let payload = payload.as_ref().ok_or((400, "body"))?;
+            let keys: &[&str] = match route[6] {
                 "logs" => &["fence", "sequence", "stream", "data"],
                 "artifact-start" => &["fence", "size", "sha256"],
                 "artifact-chunk" => &["fence", "sequence", "data"],
                 "artifact-finish" => &["fence"],
                 _ => &["fence", "outcome", "exitCode", "output"],
             };
-            envelope(v, keys)?;
-            ec_server_results::mutate(&mut t, &owner, positive(p[5])?, p[6], v)?
+            envelope(payload, keys)?;
+            ec_server_results::mutate(
+                &mut transaction,
+                &owner,
+                positive(route[5])?,
+                route[6],
+                payload,
+            )?
         } else if method == "POST"
-            && p.len() == 7
-            && p[4] == "attempts"
-            && ["heartbeat", "running", "result"].contains(&p[6])
+            && route.len() == 7
+            && route[4] == "attempts"
+            && ["heartbeat", "running", "result"].contains(&route[6])
         {
-            let v = payload.as_ref().ok_or((400, "body"))?;
+            let payload = payload.as_ref().ok_or((400, "body"))?;
             envelope(
-                v,
-                if p[6] == "result" {
+                payload,
+                if route[6] == "result" {
                     &["fence", "outcome", "exitCode"]
                 } else {
                     &["fence"]
                 },
             )?;
-            orchestration::mutate(&mut t, &owner, positive(p[5])?, p[6], v)?
+            orchestration::mutate(
+                &mut transaction,
+                &owner,
+                positive(route[5])?,
+                route[6],
+                payload,
+            )?
         } else {
             return Err((400, "route"));
         }
     };
-    before_commit(r)?;
-    t.commit().map_err(|_| (500, "database"))?;
+    before_commit(request)?;
+    transaction.commit().map_err(|_| (500, "database"))?;
     Ok(result)
 }

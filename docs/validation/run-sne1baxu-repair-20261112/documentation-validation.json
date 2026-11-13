@@ -1,0 +1,50 @@
+{
+  "run": "run-dcCdYjcQ",
+  "command": "bash scripts/automate.sh run --surface docs",
+  "exit_code": 0,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "reason": "",
+      "returncode": 0,
+      "cwd": "."
+    }
+  ],
+  "changed_inputs": [],
+  "raw_result_sha256": "2cad05f4e9a3108a71e8f8f126e62973a30fb6a4ad4b74fec974d4bfd38bde37",
+  "note": "Validação documental posterior ao fechamento; não aprova os scans de imagens que continuam com achados. A tentativa anterior --check sdd foi rejeitada pela CLI antes de executar checks; a seleção correta é --surface docs."
+}

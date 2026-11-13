@@ -1,0 +1,210 @@
+{
+  "method": "Lista explícita de temporários desta reparação, depois do término de todos os runs e da preservação dos logs relevantes. Sem remoção de volumes/imagens/histórico da Toolbox, locks cooperativos ou temporários de outras tarefas.",
+  "removed": [
+    "ec-bandit-current-20261112",
+    "ec-repair-agent-20261112",
+    "ec-repair-server-20261112",
+    "ec-repair-lints",
+    "ec-ruff-format-20261112",
+    "ec-ruff-format-final-20261113",
+    "ec-ruff-profile-20261113",
+    "ec-toolbox-rebuild-20261112",
+    "ec-bandit-current.py",
+    "ec-bandit-pypi-candidates.json",
+    "ec-bandit-reviewed-policy.py",
+    "ec-remove-obsolete-noqa.py",
+    "ec-repair-lints.py",
+    "ec-repair-native-fixes.py",
+    "ec-ruff-profile-qualify.py",
+    "ec-ruff-style-repair.py",
+    "ec-toolbox-activate-followup.py",
+    "ec-toolbox-activate-qualified.py",
+    "ec-toolbox-finalize-policy.py",
+    "ec-toolbox-followup-releases.py",
+    "ec-toolbox-rebuild-qualify.py",
+    "ec-toolbox-releases-20261112.json",
+    "ec-toolbox-remove-obsolete-buildargs.py",
+    "ec-toolbox-security-multistage.py",
+    "ec-toolbox-security-releases.py",
+    "ec-toolbox-security-repair.py",
+    "ec-toolbox-security-tests.py",
+    "ec-toolbox-verify-home.py",
+    "ec-toolbox-playwright-workdir.py",
+    "ec-preserve-repair-evidence.py",
+    "ec-final-repair-receipt.py",
+    "ec-repair-image-findings.py",
+    "ec-close-repair.py",
+    "ec-toolbox-after-updates.stdout.log",
+    "ec-toolbox-after-updates.stderr.log",
+    "ec-toolbox-final-tests.stdout.log",
+    "ec-toolbox-final-tests.stderr.log",
+    "ec-toolbox-followup-tests.stdout.log",
+    "ec-toolbox-followup-tests.stderr.log",
+    "ec-toolbox-security-tests.stdout.log",
+    "ec-toolbox-security-tests.stderr.log",
+    "ec-toolbox-security-tests-final.stdout.log",
+    "ec-toolbox-security-tests-final.stderr.log",
+    "ec-toolbox-security-tests-verified.stdout.log",
+    "ec-toolbox-security-tests-verified.stderr.log",
+    "ec-repair-server-tests.stdout.log",
+    "ec-repair-server-tests.stderr.log",
+    "ec-repair-server-clippy.stdout.log",
+    "ec-repair-server-clippy.stderr.log",
+    "ec-repair-server-clippy2.stdout.log",
+    "ec-repair-server-clippy2.stderr.log",
+    "ec-repair-server-clippy3.stdout.log",
+    "ec-repair-server-clippy3.stderr.log",
+    "ec-repair-server-clippy4.stdout.log",
+    "ec-repair-server-clippy4.stderr.log",
+    "ec-repair-server-clippy5.stdout.log",
+    "ec-repair-server-clippy5.stderr.log",
+    "ec-repair-agent-tests.stdout.log",
+    "ec-repair-agent-tests.stderr.log",
+    "ec-repair-agent-clippy.stdout.log",
+    "ec-repair-agent-clippy.stderr.log",
+    "ec-repair-agent-clippy2.stdout.log",
+    "ec-repair-agent-clippy2.stderr.log",
+    "ec-repair-agent-clippy3.stdout.log",
+    "ec-repair-agent-clippy3.stderr.log",
+    "ec-repair-agent-clippy4.stdout.log",
+    "ec-repair-agent-clippy4.stderr.log"
+  ],
+  "additional_private_logs": [
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-after-updates.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-after-updates.stderr.log",
+      "sha256": "ac6fd34f382562ad1b88282b45f2f166bc1d24641652b5b0670c70856e8b4e7e"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-final-tests.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-final-tests.stderr.log",
+      "sha256": "2501f0518ed0d3060fd0d197b87808be0813ce13ebf1b9f5e5135b4c76d0844f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-followup-tests.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-followup-tests.stderr.log",
+      "sha256": "3b03902ad2257bbb53862262b37e90f8d3cb94a4cc06c8ded25915e4cb9d26ff"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-security-tests.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-security-tests.stderr.log",
+      "sha256": "e1c02ff141e37d336fb464717dd0621f3079b24864e26b0e396b632eacac228b"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-security-tests-final.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-security-tests-final.stderr.log",
+      "sha256": "82a68817f28828f43b12d72edf798712b2adfa439235f78b8836179228b2e888"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-security-tests-verified.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-toolbox-security-tests-verified.stderr.log",
+      "sha256": "7ba66202109fd6be5f2a1ad80f56edf99d3667fa49c8150827ee5e8ac3457072"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-tests.stdout.log",
+      "sha256": "f36495e133b72330c335682d387915f9a08778c62fbdba352b0d12313bd4c672"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-tests.stderr.log",
+      "sha256": "6eb9e23e1b3bf4603a3862a9ece3f88293e1bed04cf0ad8746c2f9a9f891f5b6"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy.stderr.log",
+      "sha256": "fdbea0bd81a3a45c3032e5f6a946647cd36e37b05f3a236a6bc315eaf129d604"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy2.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy2.stderr.log",
+      "sha256": "304213925c7ea3f9e8d179b3d481c5dd94f5a8dc21c6cf3dd00b7ea14fa4d17d"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy3.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy3.stderr.log",
+      "sha256": "026865e41faa2928f7097907700245f888d87e77e89440645993a502117ed9ab"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy4.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy4.stderr.log",
+      "sha256": "e099b5ce7f73a8f7b5a4b3b289e29c8f8600589bc2a268796702b83b1c753b64"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy5.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-server-clippy5.stderr.log",
+      "sha256": "94271408be09b50c2ffdab7fd1f8eda366fcd042b062f8678ad6c108b135cbbd"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-tests.stdout.log",
+      "sha256": "3834896293ccc0f67ca2c75b8210252f2cc88196a050f07d3b2f2986e658095a"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-tests.stderr.log",
+      "sha256": "5a4305f545077a8b91ed73479d6ef3ab001f7a645212bab861f28bfa323a61d6"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy.stderr.log",
+      "sha256": "fda7a6d942bc1d3733ac44b9a7c38d6e6a3d870ae734b7f480264ec05fd0393b"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy2.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy2.stderr.log",
+      "sha256": "5deba2326bc1cb6e8a53cd3d0225d661dbba1282a7c0e9475b6729b322173b4f"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy3.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy3.stderr.log",
+      "sha256": "68ec71fa87be45328d4671a6042fe8d9beb61e21c08512dda713f69a0d69f8cd"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy4.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".local/logs/2026-11-13/repair-host-ec-repair-agent-clippy4.stderr.log",
+      "sha256": "376fbdbd6d434fa4270fa71f5ded2608d6d45e3b14225b088c838ca0b220681d"
+    }
+  ]
+}

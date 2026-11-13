@@ -1,0 +1,7260 @@
+{
+  "run": "run-NSqpobP8",
+  "state": "REJECTED",
+  "source_finding_count": 0,
+  "images": [
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "bandit",
+        "image": "sha256:4017dbc3a35b7687b748de5444823dad6339f09e6e7fb8c8b84a6b8f351bae8c",
+        "version": "1.9.4",
+        "revision": "045a9d5d6ecf2aaf6fe156c933821329140edf29603d277d561cc9f48ad23b17",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-05-trivy.native.json.log",
+        "sha256": "825015556b85965f6d4135c32887f00d4d4cde67af6a8b2276d5ea1d942e4d82"
+      },
+      "vulnerability_occurrences": 329,
+      "fixed_version_reported": 6,
+      "no_fixed_version_reported": 323,
+      "severity": {
+        "LOW": 87,
+        "HIGH": 77,
+        "MEDIUM": 155,
+        "UNKNOWN": 10
+      },
+      "fixable_package_versions": [
+        {
+          "package": "pip",
+          "installed": "25.1.1",
+          "fixed": "25.3"
+        },
+        {
+          "package": "pip",
+          "installed": "25.1.1",
+          "fixed": "26.0"
+        },
+        {
+          "package": "pip",
+          "installed": "25.1.1",
+          "fixed": "26.1"
+        },
+        {
+          "package": "pip",
+          "installed": "25.1.1",
+          "fixed": "26.1.2"
+        },
+        {
+          "package": "pip",
+          "installed": "25.1.1",
+          "fixed": "26.2.0"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libpython3.13-minimal",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "libpython3.13-stdlib",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "python3.13",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "python3.13-minimal",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "python3.13-venv",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libexpat1",
+          "installed": "2.9.0-1~deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "python3-pip-whl",
+          "installed": "25.1.1+dfsg-1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libncursesw6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "python3-setuptools-whl",
+          "installed": "78.1.1-0.1",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-12781",
+        "CVE-2025-15366",
+        "CVE-2025-15367",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-66382",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2025-8869",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-113351",
+        "CVE-2026-114583",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115506",
+        "CVE-2026-115557",
+        "CVE-2026-115819",
+        "CVE-2026-116566",
+        "CVE-2026-117610",
+        "CVE-2026-118370",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-12003",
+        "CVE-2026-12345",
+        "CVE-2026-124317",
+        "CVE-2026-13346",
+        "CVE-2026-15059",
+        "CVE-2026-15308",
+        "CVE-2026-15310",
+        "CVE-2026-15534",
+        "CVE-2026-15806",
+        "CVE-2026-16742",
+        "CVE-2026-1703",
+        "CVE-2026-17084",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18503",
+        "CVE-2026-18508",
+        "CVE-2026-19445",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-19552",
+        "CVE-2026-19553",
+        "CVE-2026-19672",
+        "CVE-2026-23949",
+        "CVE-2026-3184",
+        "CVE-2026-3219",
+        "CVE-2026-3479",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6357",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-7210",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82049",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8643",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-87910",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97399",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "codeql",
+        "image": "sha256:1c840b129a031ce60662c90232233c049687d983759bc8ebc70fbbad45591417",
+        "version": "2.27.4",
+        "revision": "e8b6fca736e46b045574e2247c8db32a410bcccf4ca8c008a121e2a6aa919149",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-07-trivy.native.json.log",
+        "sha256": "5e597f069c91d2b5585321d04ebb927f73f82edec4a57add506e9d413c27fdb3"
+      },
+      "vulnerability_occurrences": 1884,
+      "fixed_version_reported": 239,
+      "no_fixed_version_reported": 1645,
+      "severity": {
+        "LOW": 886,
+        "HIGH": 322,
+        "MEDIUM": 633,
+        "UNKNOWN": 38,
+        "CRITICAL": 5
+      },
+      "fixable_package_versions": [
+        {
+          "package": "@fastify/busboy",
+          "installed": "3.1.1",
+          "fixed": "3.2.1"
+        },
+        {
+          "package": "@fastify/busboy",
+          "installed": "3.1.1",
+          "fixed": "3.2.2"
+        },
+        {
+          "package": "MessagePack",
+          "installed": "3.1.8",
+          "fixed": "2.5.303, 3.1.9"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "10.0.10, 9.0.18, 8.0.29"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "10.0.11, 9.0.19, 8.0.30"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "10.0.13, 11.0.0-rc.2, 9.0.21, 8.0.32"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "10.0.4"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "10.0.6, 9.0.15, 8.0.26"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "8.0.28, 9.0.17, 10.0.9"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "8.0.32, 10.0.13, 11.0.0-rc.2, 9.0.21"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "8.0.32, 10.0.13, 9.0.21, 11.0.0-rc.2"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "8.0.33, 9.0.22, 10.0.14, 11.0.0-rc.3.26522.148"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "8.0.34, 9.0.23, 10.0.15, 11.0.0"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "9.0.14, 10.0.4"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "9.0.21, 11.0.0-rc.2, 10.0.13, 8.0.32"
+        },
+        {
+          "package": "Microsoft.NETCore.App.Runtime.linux-x64",
+          "installed": "10.0.0",
+          "fixed": "9.0.21, 8.0.32, 10.0.13, 11.0.0-rc.2"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "1.1.18, 2.1.4, 3.0.6, 5.0.9"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "2.0.2, 1.1.12, 3.0.1, 4.0.1"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "5.0.10, 3.0.7, 2.1.5, 1.1.19"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "5.0.11, 3.0.8, 2.1.6, 1.1.20"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "5.0.12, 3.0.9, 2.1.7, 1.1.21"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "5.0.5, 3.0.2, 2.0.3, 1.1.13"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "5.0.7, 1.1.16, 2.1.2"
+        },
+        {
+          "package": "brace-expansion",
+          "installed": "2.0.1",
+          "fixed": "5.0.8, 3.0.3, 2.1.3, 1.1.17"
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "installed": "1.3.16",
+          "fixed": "1.5.25"
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "installed": "1.3.16",
+          "fixed": "1.5.33"
+        },
+        {
+          "package": "ch.qos.logback:logback-core",
+          "installed": "1.3.16",
+          "fixed": "1.5.34"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.6",
+          "fixed": "2.18.11, 2.21.7, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.6",
+          "fixed": "2.18.8, 2.21.4"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.6",
+          "fixed": "2.21.7, 2.22.3, 2.18.11"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.8",
+          "fixed": "2.18.11, 2.21.7, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.8",
+          "fixed": "2.21.7, 2.22.3, 2.18.11"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.9",
+          "fixed": "2.18.11, 2.21.7, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-core",
+          "installed": "2.18.9",
+          "fixed": "2.21.7, 2.22.3, 2.18.11"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.10, 2.21.6, 2.22.2"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.11, 2.21.7, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.8, 2.21.4"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.8, 2.21.4, 3.1.4"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.8, 3.1.4, 2.21.4"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.9, 2.21.5"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.18.9, 2.21.5, 2.22.1"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.21.5, 2.18.9, 2.22.1"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "2.21.7, 2.18.11, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.6",
+          "fixed": "3.1.4, 2.18.9, 2.21.5, 2.22.1"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "2.18.10, 2.21.6, 2.22.2"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "2.18.11, 2.21.7, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "2.18.9, 2.21.5"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "2.18.9, 2.21.5, 2.22.1"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "2.21.5, 2.18.9, 2.22.1"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "2.21.7, 2.18.11, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.8",
+          "fixed": "3.1.4, 2.18.9, 2.21.5, 2.22.1"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.9",
+          "fixed": "2.18.10, 2.21.6, 2.22.2"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.9",
+          "fixed": "2.18.11, 2.21.7, 2.22.3"
+        },
+        {
+          "package": "com.fasterxml.jackson.core:jackson-databind",
+          "installed": "2.18.9",
+          "fixed": "2.21.7, 2.18.11, 2.22.3"
+        },
+        {
+          "package": "com.google.guava:guava",
+          "installed": "32.0.1-jre",
+          "fixed": "33.7.2"
+        },
+        {
+          "package": "com.google.guava:guava",
+          "installed": "33.4.0-jre",
+          "fixed": "33.7.2"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.53.0",
+          "fixed": "0.55.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.53.0",
+          "fixed": "0.56.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.53.0",
+          "fixed": "0.58.1-0.20261009181718-2f1f834330b2"
+        },
+        {
+          "package": "golang.org/x/net",
+          "installed": "v0.56.0",
+          "fixed": "0.60.0"
+        },
+        {
+          "package": "golang.org/x/net",
+          "installed": "v0.56.0",
+          "fixed": "0.62.0"
+        },
+        {
+          "package": "golang.org/x/text",
+          "installed": "v0.39.0",
+          "fixed": "0.41.0"
+        },
+        {
+          "package": "minimatch",
+          "installed": "9.0.3",
+          "fixed": "10.2.1, 9.0.6, 8.0.5, 7.4.7, 6.2.1, 5.1.7, 4.2.4, 3.1.3"
+        },
+        {
+          "package": "minimatch",
+          "installed": "9.0.3",
+          "fixed": "10.2.3, 9.0.7, 8.0.6, 7.4.8, 6.2.2, 5.1.8, 4.2.5, 3.1.3"
+        },
+        {
+          "package": "minimatch",
+          "installed": "9.0.3",
+          "fixed": "10.2.3, 9.0.7, 8.0.6, 7.4.8, 6.2.2, 5.1.8, 4.2.5, 3.1.4"
+        },
+        {
+          "package": "minimatch",
+          "installed": "9.0.3",
+          "fixed": "11.0.1"
+        },
+        {
+          "package": "org.jsoup:jsoup",
+          "installed": "1.15.3",
+          "fixed": "1.23.1"
+        },
+        {
+          "package": "org.jsoup:jsoup",
+          "installed": "1.15.3",
+          "fixed": "1.23.2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.26.4",
+          "fixed": "1.25.12, 1.26.5, 1.27.0-rc.2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.26.4",
+          "fixed": "1.25.13, 1.26.6, 1.27.0-rc.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.26.4",
+          "fixed": "1.26.10, 1.27.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.26.4",
+          "fixed": "1.26.11, 1.27.4"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.26.4",
+          "fixed": "1.26.6, 1.27.0-rc.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.26.4",
+          "fixed": "1.26.9, 1.27.2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.27.3",
+          "fixed": "1.26.11, 1.27.4"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "5.29.0, 6.21.2, 7.5.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "6.24.0, 7.24.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "6.27.0, 7.28.0, 8.5.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "6.28.0, 7.29.0, 8.9.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "6.28.1, 7.29.1, 8.10.2"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "6.29.1, 7.30.1, 8.12.2"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "7.18.2, 6.23.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "7.28.0, 8.5.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "7.29.0, 8.9.0"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "7.29.1, 8.10.2"
+        },
+        {
+          "package": "undici",
+          "installed": "7.3.0",
+          "fixed": "7.30.1, 8.12.2"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "linux-libc-dev",
+          "installed": "6.12.116-1",
+          "occurrences": 333
+        },
+        {
+          "package": "binutils",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "binutils-common",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "binutils-x86-64-linux-gnu",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "libbinutils",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "libctf-nobfd0",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "libctf0",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "libgprofng0",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "libsframe1",
+          "installed": "2.44-3",
+          "occurrences": 69
+        },
+        {
+          "package": "node-undici",
+          "installed": "7.3.0+dfsg1+~cs24.12.11-1",
+          "occurrences": 46
+        },
+        {
+          "package": "libcurl3t64-gnutls",
+          "installed": "8.14.1-2+deb13u7",
+          "occurrences": 39
+        },
+        {
+          "package": "libnode115",
+          "installed": "20.19.2+dfsg-1+deb13u3",
+          "occurrences": 26
+        },
+        {
+          "package": "nodejs",
+          "installed": "20.19.2+dfsg-1+deb13u3",
+          "occurrences": 26
+        },
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc-dev-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6-dev",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libgssapi-krb5-2",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libk5crypto3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5-3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5support0",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libpython3.13-minimal",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "libpython3.13-stdlib",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "python3.13",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "python3.13-minimal",
+          "installed": "3.13.5-2+deb13u5",
+          "occurrences": 21
+        },
+        {
+          "package": "libcares2",
+          "installed": "1.34.5-1+deb13u1",
+          "occurrences": 14
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "git",
+          "installed": "1:2.47.3-0+deb13u1",
+          "occurrences": 9
+        },
+        {
+          "package": "git-man",
+          "installed": "1:2.47.3-0+deb13u1",
+          "occurrences": 9
+        },
+        {
+          "package": "node-brace-expansion",
+          "installed": "2.0.1+~1.1.0-2",
+          "occurrences": 8
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "patch",
+          "installed": "2.8-2",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "cpp-14",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "cpp-14-x86-64-linux-gnu",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "g++-14",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "g++-14-x86-64-linux-gnu",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-x86-64-linux-gnu",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libasan8",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libatomic1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libcc1-0",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libexpat1",
+          "installed": "2.9.0-1~deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-14-dev",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libgnutls30t64",
+          "installed": "3.8.9-3+deb13u4",
+          "occurrences": 6
+        },
+        {
+          "package": "libgomp1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libhwasan0",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libitm1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "liblsan0",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libquadmath0",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++-14-dev",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libtsan2",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libubsan1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libldap2",
+          "installed": "2.6.10+dfsg-1",
+          "occurrences": 5
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "libperl5.40",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "node-minimatch",
+          "installed": "9.0.3-6",
+          "occurrences": 4
+        },
+        {
+          "package": "perl",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-modules-5.40",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libncursesw6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "libp11-kit0",
+          "installed": "0.25.5-3",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "bzip2",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libnghttp2-14",
+          "installed": "1.64.0-1.1+deb13u1",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libsasl2-2",
+          "installed": "2.1.28+dfsg1-9",
+          "occurrences": 1
+        },
+        {
+          "package": "libsasl2-modules-db",
+          "installed": "2.1.28+dfsg1-9",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2004-0230",
+        "CVE-2005-2541",
+        "CVE-2005-3660",
+        "CVE-2007-3719",
+        "CVE-2007-5686",
+        "CVE-2008-2544",
+        "CVE-2008-4609",
+        "CVE-2010-4563",
+        "CVE-2010-4651",
+        "CVE-2010-4756",
+        "CVE-2010-5321",
+        "CVE-2011-3374",
+        "CVE-2011-3389",
+        "CVE-2011-4116",
+        "CVE-2011-4915",
+        "CVE-2011-4916",
+        "CVE-2011-4917",
+        "CVE-2012-4542",
+        "CVE-2013-4392",
+        "CVE-2013-7445",
+        "CVE-2014-9892",
+        "CVE-2014-9900",
+        "CVE-2015-2877",
+        "CVE-2015-3276",
+        "CVE-2016-10723",
+        "CVE-2016-8660",
+        "CVE-2017-0630",
+        "CVE-2017-13693",
+        "CVE-2017-13694",
+        "CVE-2017-13716",
+        "CVE-2017-14159",
+        "CVE-2017-17740",
+        "CVE-2017-18018",
+        "CVE-2018-1000021",
+        "CVE-2018-1121",
+        "CVE-2018-12928",
+        "CVE-2018-17977",
+        "CVE-2018-20673",
+        "CVE-2018-20712",
+        "CVE-2018-20796",
+        "CVE-2018-5709",
+        "CVE-2018-6951",
+        "CVE-2018-6952",
+        "CVE-2018-9996",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-11191",
+        "CVE-2019-12378",
+        "CVE-2019-12379",
+        "CVE-2019-12380",
+        "CVE-2019-12381",
+        "CVE-2019-12382",
+        "CVE-2019-12455",
+        "CVE-2019-12456",
+        "CVE-2019-15213",
+        "CVE-2019-16089",
+        "CVE-2019-16229",
+        "CVE-2019-16230",
+        "CVE-2019-16231",
+        "CVE-2019-16232",
+        "CVE-2019-16233",
+        "CVE-2019-16234",
+        "CVE-2019-19070",
+        "CVE-2019-19378",
+        "CVE-2019-19449",
+        "CVE-2019-19814",
+        "CVE-2019-20794",
+        "CVE-2019-9192",
+        "CVE-2020-11725",
+        "CVE-2020-14304",
+        "CVE-2020-15719",
+        "CVE-2020-35501",
+        "CVE-2020-36694",
+        "CVE-2021-26934",
+        "CVE-2021-32256",
+        "CVE-2021-3714",
+        "CVE-2021-3847",
+        "CVE-2021-3864",
+        "CVE-2021-45261",
+        "CVE-2021-45346",
+        "CVE-2022-0400",
+        "CVE-2022-0563",
+        "CVE-2022-1247",
+        "CVE-2022-24975",
+        "CVE-2022-25265",
+        "CVE-2022-2961",
+        "CVE-2022-3238",
+        "CVE-2022-41848",
+        "CVE-2022-44032",
+        "CVE-2022-44033",
+        "CVE-2022-4543",
+        "CVE-2022-45884",
+        "CVE-2022-45885",
+        "CVE-2023-23039",
+        "CVE-2023-26242",
+        "CVE-2023-31081",
+        "CVE-2023-31082",
+        "CVE-2023-31085",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2023-3397",
+        "CVE-2023-3640",
+        "CVE-2023-37454",
+        "CVE-2023-6238",
+        "CVE-2023-6240",
+        "CVE-2024-0564",
+        "CVE-2024-21803",
+        "CVE-2024-2193",
+        "CVE-2024-21963",
+        "CVE-2024-24864",
+        "CVE-2024-25740",
+        "CVE-2024-26458",
+        "CVE-2024-26461",
+        "CVE-2024-52005",
+        "CVE-2024-56433",
+        "CVE-2024-56709",
+        "CVE-2024-58015",
+        "CVE-2025-10966",
+        "CVE-2025-11081",
+        "CVE-2025-11082",
+        "CVE-2025-11083",
+        "CVE-2025-11412",
+        "CVE-2025-11413",
+        "CVE-2025-11414",
+        "CVE-2025-1147",
+        "CVE-2025-1148",
+        "CVE-2025-1149",
+        "CVE-2025-11494",
+        "CVE-2025-11495",
+        "CVE-2025-1150",
+        "CVE-2025-1151",
+        "CVE-2025-1152",
+        "CVE-2025-1153",
+        "CVE-2025-1176",
+        "CVE-2025-1178",
+        "CVE-2025-1180",
+        "CVE-2025-1181",
+        "CVE-2025-1182",
+        "CVE-2025-11839",
+        "CVE-2025-11840",
+        "CVE-2025-12781",
+        "CVE-2025-14017",
+        "CVE-2025-15079",
+        "CVE-2025-15224",
+        "CVE-2025-15366",
+        "CVE-2025-15367",
+        "CVE-2025-21752",
+        "CVE-2025-21949",
+        "CVE-2025-23167",
+        "CVE-2025-3198",
+        "CVE-2025-37880",
+        "CVE-2025-38036",
+        "CVE-2025-38311",
+        "CVE-2025-39762",
+        "CVE-2025-39822",
+        "CVE-2025-40025",
+        "CVE-2025-40146",
+        "CVE-2025-40217",
+        "CVE-2025-40247",
+        "CVE-2025-47279",
+        "CVE-2025-5244",
+        "CVE-2025-5245",
+        "CVE-2025-5278",
+        "CVE-2025-5889",
+        "CVE-2025-6141",
+        "CVE-2025-66382",
+        "CVE-2025-66861",
+        "CVE-2025-66862",
+        "CVE-2025-66863",
+        "CVE-2025-66864",
+        "CVE-2025-66865",
+        "CVE-2025-66866",
+        "CVE-2025-68304",
+        "CVE-2025-68751",
+        "CVE-2025-69644",
+        "CVE-2025-69645",
+        "CVE-2025-69646",
+        "CVE-2025-69647",
+        "CVE-2025-69648",
+        "CVE-2025-69649",
+        "CVE-2025-69650",
+        "CVE-2025-69651",
+        "CVE-2025-69652",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2025-71117",
+        "CVE-2025-71188",
+        "CVE-2025-71202",
+        "CVE-2025-71302",
+        "CVE-2025-71315",
+        "CVE-2025-7545",
+        "CVE-2025-7546",
+        "CVE-2025-8225",
+        "CVE-2026-0004",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102276",
+        "CVE-2026-102277",
+        "CVE-2026-102278",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-102554",
+        "CVE-2026-10532",
+        "CVE-2026-10536",
+        "CVE-2026-105437",
+        "CVE-2026-105481",
+        "CVE-2026-105482",
+        "CVE-2026-106069",
+        "CVE-2026-106071",
+        "CVE-2026-106072",
+        "CVE-2026-106073",
+        "CVE-2026-106074",
+        "CVE-2026-107161",
+        "CVE-2026-107364",
+        "CVE-2026-107496",
+        "CVE-2026-107708",
+        "CVE-2026-107778",
+        "CVE-2026-107884",
+        "CVE-2026-107928",
+        "CVE-2026-107929",
+        "CVE-2026-109383",
+        "CVE-2026-109475",
+        "CVE-2026-109829",
+        "CVE-2026-109869",
+        "CVE-2026-109924",
+        "CVE-2026-109932",
+        "CVE-2026-111423",
+        "CVE-2026-111497",
+        "CVE-2026-111760",
+        "CVE-2026-111943",
+        "CVE-2026-112314",
+        "CVE-2026-112315",
+        "CVE-2026-112316",
+        "CVE-2026-112317",
+        "CVE-2026-112318",
+        "CVE-2026-112319",
+        "CVE-2026-112320",
+        "CVE-2026-112321",
+        "CVE-2026-112322",
+        "CVE-2026-112323",
+        "CVE-2026-113351",
+        "CVE-2026-113408",
+        "CVE-2026-114466",
+        "CVE-2026-114467",
+        "CVE-2026-114469",
+        "CVE-2026-114583",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115207",
+        "CVE-2026-11525",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115506",
+        "CVE-2026-115557",
+        "CVE-2026-115819",
+        "CVE-2026-116566",
+        "CVE-2026-116592",
+        "CVE-2026-116630",
+        "CVE-2026-117610",
+        "CVE-2026-118370",
+        "CVE-2026-118380",
+        "CVE-2026-11850",
+        "CVE-2026-11856",
+        "CVE-2026-118764",
+        "CVE-2026-119079",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-12003",
+        "CVE-2026-120222",
+        "CVE-2026-120415",
+        "CVE-2026-120423",
+        "CVE-2026-120474",
+        "CVE-2026-12064",
+        "CVE-2026-12151",
+        "CVE-2026-1225",
+        "CVE-2026-12345",
+        "CVE-2026-123828",
+        "CVE-2026-123829",
+        "CVE-2026-123862",
+        "CVE-2026-123863",
+        "CVE-2026-123864",
+        "CVE-2026-123865",
+        "CVE-2026-123866",
+        "CVE-2026-123867",
+        "CVE-2026-123868",
+        "CVE-2026-123871",
+        "CVE-2026-123872",
+        "CVE-2026-123874",
+        "CVE-2026-123875",
+        "CVE-2026-123877",
+        "CVE-2026-124317",
+        "CVE-2026-126051",
+        "CVE-2026-13149",
+        "CVE-2026-13608",
+        "CVE-2026-13697",
+        "CVE-2026-13757",
+        "CVE-2026-14257",
+        "CVE-2026-14643",
+        "CVE-2026-15003",
+        "CVE-2026-15059",
+        "CVE-2026-15157",
+        "CVE-2026-1525",
+        "CVE-2026-1526",
+        "CVE-2026-1527",
+        "CVE-2026-1528",
+        "CVE-2026-15308",
+        "CVE-2026-15310",
+        "CVE-2026-15534",
+        "CVE-2026-15806",
+        "CVE-2026-16728",
+        "CVE-2026-16729",
+        "CVE-2026-16742",
+        "CVE-2026-17084",
+        "CVE-2026-18149",
+        "CVE-2026-18220",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18503",
+        "CVE-2026-18508",
+        "CVE-2026-18540",
+        "CVE-2026-18924",
+        "CVE-2026-18938",
+        "CVE-2026-19032",
+        "CVE-2026-19445",
+        "CVE-2026-19481",
+        "CVE-2026-19484",
+        "CVE-2026-19499",
+        "CVE-2026-19534",
+        "CVE-2026-19542",
+        "CVE-2026-19548",
+        "CVE-2026-19552",
+        "CVE-2026-19553",
+        "CVE-2026-19672",
+        "CVE-2026-19931",
+        "CVE-2026-22036",
+        "CVE-2026-22185",
+        "CVE-2026-2229",
+        "CVE-2026-23102",
+        "CVE-2026-23152",
+        "CVE-2026-23265",
+        "CVE-2026-23348",
+        "CVE-2026-25547",
+        "CVE-2026-2581",
+        "CVE-2026-26127",
+        "CVE-2026-26131",
+        "CVE-2026-26996",
+        "CVE-2026-27903",
+        "CVE-2026-27904",
+        "CVE-2026-31435",
+        "CVE-2026-31536",
+        "CVE-2026-31537",
+        "CVE-2026-31568",
+        "CVE-2026-31591",
+        "CVE-2026-31692",
+        "CVE-2026-31777",
+        "CVE-2026-3184",
+        "CVE-2026-32178",
+        "CVE-2026-33630",
+        "CVE-2026-33750",
+        "CVE-2026-33818",
+        "CVE-2026-3441",
+        "CVE-2026-3442",
+        "CVE-2026-3479",
+        "CVE-2026-39821",
+        "CVE-2026-39822",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-42505",
+        "CVE-2026-43029",
+        "CVE-2026-43115",
+        "CVE-2026-43301",
+        "CVE-2026-43326",
+        "CVE-2026-43416",
+        "CVE-2026-45149",
+        "CVE-2026-45491",
+        "CVE-2026-46017",
+        "CVE-2026-46096",
+        "CVE-2026-46147",
+        "CVE-2026-46153",
+        "CVE-2026-46279",
+        "CVE-2026-46314",
+        "CVE-2026-46317",
+        "CVE-2026-4647",
+        "CVE-2026-46600",
+        "CVE-2026-47302",
+        "CVE-2026-48932",
+        "CVE-2026-50524",
+        "CVE-2026-50528",
+        "CVE-2026-50651",
+        "CVE-2026-50659",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-52953",
+        "CVE-2026-52994",
+        "CVE-2026-53106",
+        "CVE-2026-53107",
+        "CVE-2026-53246",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-54512",
+        "CVE-2026-54513",
+        "CVE-2026-54514",
+        "CVE-2026-54515",
+        "CVE-2026-56288",
+        "CVE-2026-56289",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-56851",
+        "CVE-2026-56853",
+        "CVE-2026-56854",
+        "CVE-2026-56855",
+        "CVE-2026-56857",
+        "CVE-2026-56858",
+        "CVE-2026-56859",
+        "CVE-2026-56860",
+        "CVE-2026-56862",
+        "CVE-2026-56866",
+        "CVE-2026-5704",
+        "CVE-2026-57108",
+        "CVE-2026-58044",
+        "CVE-2026-58045",
+        "CVE-2026-58055",
+        "CVE-2026-58280",
+        "CVE-2026-59888",
+        "CVE-2026-59889",
+        "CVE-2026-6238",
+        "CVE-2026-62899",
+        "CVE-2026-62901",
+        "CVE-2026-62909",
+        "CVE-2026-6368",
+        "CVE-2026-63805",
+        "CVE-2026-63819",
+        "CVE-2026-63858",
+        "CVE-2026-63941",
+        "CVE-2026-64066",
+        "CVE-2026-64067",
+        "CVE-2026-64078",
+        "CVE-2026-64160",
+        "CVE-2026-64212",
+        "CVE-2026-64255",
+        "CVE-2026-64520",
+        "CVE-2026-66822",
+        "CVE-2026-6733",
+        "CVE-2026-6734",
+        "CVE-2026-67693",
+        "CVE-2026-6791",
+        "CVE-2026-68086",
+        "CVE-2026-68382",
+        "CVE-2026-6844",
+        "CVE-2026-6845",
+        "CVE-2026-6846",
+        "CVE-2026-68494",
+        "CVE-2026-68497",
+        "CVE-2026-69152",
+        "CVE-2026-69184",
+        "CVE-2026-69186",
+        "CVE-2026-69651",
+        "CVE-2026-71199",
+        "CVE-2026-71200",
+        "CVE-2026-71497",
+        "CVE-2026-72042",
+        "CVE-2026-7210",
+        "CVE-2026-72355",
+        "CVE-2026-72365",
+        "CVE-2026-72454",
+        "CVE-2026-74314",
+        "CVE-2026-74324",
+        "CVE-2026-74337",
+        "CVE-2026-74342",
+        "CVE-2026-74354",
+        "CVE-2026-74560",
+        "CVE-2026-74638",
+        "CVE-2026-74866",
+        "CVE-2026-75140",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-77310",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-78659",
+        "CVE-2026-78660",
+        "CVE-2026-78661",
+        "CVE-2026-78662",
+        "CVE-2026-78663",
+        "CVE-2026-78667",
+        "CVE-2026-78669",
+        "CVE-2026-80229",
+        "CVE-2026-80230",
+        "CVE-2026-80255",
+        "CVE-2026-80489",
+        "CVE-2026-80579",
+        "CVE-2026-80580",
+        "CVE-2026-80670",
+        "CVE-2026-80721",
+        "CVE-2026-80785",
+        "CVE-2026-80872",
+        "CVE-2026-80899",
+        "CVE-2026-82049",
+        "CVE-2026-82208",
+        "CVE-2026-82209",
+        "CVE-2026-82560",
+        "CVE-2026-83557",
+        "CVE-2026-84243",
+        "CVE-2026-8458",
+        "CVE-2026-84890",
+        "CVE-2026-84933",
+        "CVE-2026-84947",
+        "CVE-2026-84961",
+        "CVE-2026-85008",
+        "CVE-2026-85014",
+        "CVE-2026-85024",
+        "CVE-2026-85152",
+        "CVE-2026-86409",
+        "CVE-2026-86410",
+        "CVE-2026-86414",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-87018",
+        "CVE-2026-87029",
+        "CVE-2026-87862",
+        "CVE-2026-87863",
+        "CVE-2026-87864",
+        "CVE-2026-87865",
+        "CVE-2026-87866",
+        "CVE-2026-87910",
+        "CVE-2026-88647",
+        "CVE-2026-88648",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-8926",
+        "CVE-2026-8932",
+        "CVE-2026-89407",
+        "CVE-2026-89425",
+        "CVE-2026-89610",
+        "CVE-2026-89611",
+        "CVE-2026-89632",
+        "CVE-2026-89637",
+        "CVE-2026-89639",
+        "CVE-2026-89675",
+        "CVE-2026-89722",
+        "CVE-2026-89826",
+        "CVE-2026-89862",
+        "CVE-2026-89866",
+        "CVE-2026-89935",
+        "CVE-2026-90040",
+        "CVE-2026-90098",
+        "CVE-2026-90211",
+        "CVE-2026-90237",
+        "CVE-2026-90261",
+        "CVE-2026-90306",
+        "CVE-2026-90315",
+        "CVE-2026-90317",
+        "CVE-2026-90379",
+        "CVE-2026-90401",
+        "CVE-2026-9079",
+        "CVE-2026-9080",
+        "CVE-2026-90801",
+        "CVE-2026-90802",
+        "CVE-2026-90803",
+        "CVE-2026-90804",
+        "CVE-2026-90828",
+        "CVE-2026-90829",
+        "CVE-2026-90830",
+        "CVE-2026-90831",
+        "CVE-2026-91776",
+        "CVE-2026-91777",
+        "CVE-2026-91779",
+        "CVE-2026-91780",
+        "CVE-2026-91781",
+        "CVE-2026-91782",
+        "CVE-2026-92386",
+        "CVE-2026-92387",
+        "CVE-2026-92388",
+        "CVE-2026-92389",
+        "CVE-2026-92390",
+        "CVE-2026-92391",
+        "CVE-2026-92493",
+        "CVE-2026-92499",
+        "CVE-2026-92500",
+        "CVE-2026-92518",
+        "CVE-2026-92707",
+        "CVE-2026-93044",
+        "CVE-2026-93047",
+        "CVE-2026-93099",
+        "CVE-2026-93135",
+        "CVE-2026-93154",
+        "CVE-2026-93237",
+        "CVE-2026-93270",
+        "CVE-2026-93276",
+        "CVE-2026-94266",
+        "CVE-2026-94439",
+        "CVE-2026-94440",
+        "CVE-2026-94448",
+        "CVE-2026-95184",
+        "CVE-2026-95210",
+        "CVE-2026-9538",
+        "CVE-2026-9545",
+        "CVE-2026-9547",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-96225",
+        "CVE-2026-96231",
+        "CVE-2026-96233",
+        "CVE-2026-9675",
+        "CVE-2026-9678",
+        "CVE-2026-9679",
+        "CVE-2026-9697",
+        "CVE-2026-97030",
+        "CVE-2026-97031",
+        "CVE-2026-97032",
+        "CVE-2026-97045",
+        "CVE-2026-97054",
+        "CVE-2026-97399",
+        "CVE-2026-97499",
+        "CVE-2026-97526",
+        "CVE-2026-97563",
+        "CVE-2026-97565",
+        "CVE-2026-98087",
+        "CVE-2026-98115",
+        "CVE-2026-98118",
+        "CVE-2026-98119",
+        "CVE-2026-98125",
+        "CVE-2026-98162",
+        "CVE-2026-98176",
+        "CVE-2026-98177",
+        "CVE-2026-98180",
+        "CVE-2026-98228",
+        "CVE-2026-98273",
+        "CVE-2026-98277",
+        "CVE-2026-98279",
+        "CVE-2026-9828",
+        "CVE-2026-98284",
+        "CVE-2026-98285",
+        "CVE-2026-98286",
+        "CVE-2026-98288",
+        "CVE-2026-98289",
+        "CVE-2026-98292",
+        "CVE-2026-98294",
+        "CVE-2026-98296",
+        "CVE-2026-98304",
+        "CVE-2026-98313",
+        "CVE-2026-98317",
+        "CVE-2026-98321",
+        "CVE-2026-98330",
+        "CVE-2026-98332",
+        "CVE-2026-98333",
+        "CVE-2026-98338",
+        "CVE-2026-98341",
+        "CVE-2026-98353",
+        "CVE-2026-98355",
+        "CVE-2026-98364",
+        "CVE-2026-98376",
+        "CVE-2026-98389",
+        "CVE-2026-98393",
+        "CVE-2026-98408",
+        "CVE-2026-98420",
+        "CVE-2026-98424",
+        "CVE-2026-98427",
+        "CVE-2026-98431",
+        "CVE-2026-98436",
+        "CVE-2026-98439",
+        "CVE-2026-98444",
+        "CVE-2026-98449",
+        "CVE-2026-98466",
+        "CVE-2026-98471",
+        "CVE-2026-98551",
+        "CVE-2026-98556",
+        "CVE-2026-98558",
+        "CVE-2026-98570",
+        "CVE-2026-98589",
+        "CVE-2026-98598",
+        "CVE-2026-98599",
+        "CVE-2026-98616",
+        "CVE-2026-98628",
+        "CVE-2026-98652",
+        "CVE-2026-98674",
+        "CVE-2026-98682",
+        "CVE-2026-98683",
+        "CVE-2026-98684",
+        "CVE-2026-98685",
+        "CVE-2026-98714",
+        "CVE-2026-98715",
+        "CVE-2026-98740",
+        "CVE-2026-98747",
+        "CVE-2026-98786",
+        "CVE-2026-98789",
+        "CVE-2026-98795",
+        "CVE-2026-98799",
+        "CVE-2026-98800",
+        "CVE-2026-98802",
+        "CVE-2026-98803",
+        "CVE-2026-98810",
+        "CVE-2026-98813",
+        "CVE-2026-98814",
+        "CVE-2026-98815",
+        "CVE-2026-98816",
+        "CVE-2026-98820",
+        "CVE-2026-98824",
+        "CVE-2026-98829",
+        "CVE-2026-98834",
+        "CVE-2026-98839",
+        "CVE-2026-98843",
+        "CVE-2026-98853",
+        "CVE-2026-98863",
+        "CVE-2026-98874",
+        "CVE-2026-98875",
+        "CVE-2026-98878",
+        "CVE-2026-98883",
+        "CVE-2026-98894",
+        "CVE-2026-98897",
+        "CVE-2026-98914",
+        "CVE-2026-98917",
+        "CVE-2026-98924",
+        "CVE-2026-98926",
+        "CVE-2026-98929",
+        "CVE-2026-98932",
+        "CVE-2026-98942",
+        "CVE-2026-98946",
+        "CVE-2026-98951",
+        "CVE-2026-98954",
+        "CVE-2026-98958",
+        "CVE-2026-98966",
+        "CVE-2026-98972",
+        "CVE-2026-98978",
+        "CVE-2026-98983",
+        "CVE-2026-98989",
+        "CVE-2026-98996",
+        "CVE-2026-98999",
+        "CVE-2026-99021",
+        "CVE-2026-99026",
+        "CVE-2026-99076",
+        "CVE-2026-99086",
+        "CVE-2026-99087",
+        "CVE-2026-99109",
+        "CVE-2026-99122",
+        "CVE-2026-99125",
+        "CVE-2026-99146",
+        "CVE-2026-99172",
+        "CVE-2026-99189",
+        "CVE-2026-99208",
+        "CVE-2026-99209",
+        "CVE-2026-99215",
+        "CVE-2026-99270",
+        "CVE-2026-99271",
+        "CVE-2026-99272",
+        "CVE-2026-99273",
+        "CVE-2026-99274",
+        "CVE-2026-99275",
+        "CVE-2026-99281",
+        "CVE-2026-99282",
+        "CVE-2026-99283",
+        "CVE-2026-99286",
+        "CVE-2026-99287",
+        "CVE-2026-99288",
+        "GHSA-mhm7-754m-9p8w",
+        "GHSA-p3jp-9v83-76w9",
+        "GO-2026-5932",
+        "TEMP-0000000-1568E2",
+        "TEMP-0000000-17144A",
+        "TEMP-0000000-1C3FE9",
+        "TEMP-0000000-3EDE07",
+        "TEMP-0000000-824999",
+        "TEMP-0000000-82552D",
+        "TEMP-0000000-9090EA",
+        "TEMP-0000000-95D344",
+        "TEMP-0000000-96B69D",
+        "TEMP-0000000-9844B1",
+        "TEMP-0000000-E04A24",
+        "TEMP-0000000-F7A20F",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "gitleaks",
+        "image": "sha256:45aeb5e533bff96ba43d08f615ba90ca3cf5f430afdb9fc883bf1e9fc5583f80",
+        "version": "8.30.1",
+        "revision": "8a5ab3a7aca0f5ca9ec8c6bf8fc0c0d27487cef8a3d56d32aa8343d26bff452f",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-09-trivy.native.json.log",
+        "sha256": "4018a7c638612f7b5752e8f0b543f6632b5b1ffd57f60d884f5bdedc1f4b21d2"
+      },
+      "vulnerability_occurrences": 460,
+      "fixed_version_reported": 74,
+      "no_fixed_version_reported": 386,
+      "severity": {
+        "LOW": 130,
+        "HIGH": 155,
+        "MEDIUM": 166,
+        "UNKNOWN": 8,
+        "CRITICAL": 1
+      },
+      "fixable_package_versions": [
+        {
+          "package": "github.com/klauspost/compress",
+          "installed": "v1.17.11",
+          "fixed": "1.18.7"
+        },
+        {
+          "package": "github.com/nwaples/rardecode/v2",
+          "installed": "v2.1.0",
+          "fixed": "2.2.0"
+        },
+        {
+          "package": "github.com/ulikunitz/xz",
+          "installed": "v0.5.12",
+          "fixed": "0.5.15"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.35.0",
+          "fixed": "0.43.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.35.0",
+          "fixed": "0.45.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.35.0",
+          "fixed": "0.52.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.35.0",
+          "fixed": "0.55.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.35.0",
+          "fixed": "0.56.0"
+        },
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.35.0",
+          "fixed": "0.58.1-0.20261009181718-2f1f834330b2"
+        },
+        {
+          "package": "golang.org/x/sys",
+          "installed": "v0.30.0",
+          "fixed": "0.44.0"
+        },
+        {
+          "package": "golang.org/x/text",
+          "installed": "v0.22.0",
+          "fixed": "0.39.0"
+        },
+        {
+          "package": "golang.org/x/text",
+          "installed": "v0.22.0",
+          "fixed": "0.41.0"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.24.12, 1.25.6"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.24.13, 1.25.7, 1.26.0-rc.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.25.10, 1.26.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.25.11, 1.26.4"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.25.12, 1.26.5, 1.27.0-rc.2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.25.13, 1.26.6, 1.27.0-rc.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.25.8, 1.26.1"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.25.9, 1.26.2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.26.10, 1.27.3"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.26.11, 1.27.4"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.24.11",
+          "fixed": "1.26.9, 1.27.2"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "libcurl3t64-gnutls",
+          "installed": "8.14.1-2+deb13u7",
+          "occurrences": 39
+        },
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libgssapi-krb5-2",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libk5crypto3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5-3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5support0",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "git",
+          "installed": "1:2.47.3-0+deb13u1",
+          "occurrences": 9
+        },
+        {
+          "package": "git-man",
+          "installed": "1:2.47.3-0+deb13u1",
+          "occurrences": 9
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libexpat1",
+          "installed": "2.9.0-1~deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libgnutls30t64",
+          "installed": "3.8.9-3+deb13u4",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libldap2",
+          "installed": "2.6.10+dfsg-1",
+          "occurrences": 5
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "libperl5.40",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-modules-5.40",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libp11-kit0",
+          "installed": "0.25.5-3",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libnghttp2-14",
+          "installed": "1.64.0-1.1+deb13u1",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libsasl2-2",
+          "installed": "2.1.28+dfsg1-9",
+          "occurrences": 1
+        },
+        {
+          "package": "libsasl2-modules-db",
+          "installed": "2.1.28+dfsg1-9",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-3389",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2015-3276",
+        "CVE-2017-14159",
+        "CVE-2017-17740",
+        "CVE-2017-18018",
+        "CVE-2018-1000021",
+        "CVE-2018-20796",
+        "CVE-2018-5709",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2020-15719",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2022-24975",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-26458",
+        "CVE-2024-26461",
+        "CVE-2024-52005",
+        "CVE-2024-56433",
+        "CVE-2025-10966",
+        "CVE-2025-11579",
+        "CVE-2025-14017",
+        "CVE-2025-15079",
+        "CVE-2025-15224",
+        "CVE-2025-47913",
+        "CVE-2025-47914",
+        "CVE-2025-5278",
+        "CVE-2025-58058",
+        "CVE-2025-58181",
+        "CVE-2025-6141",
+        "CVE-2025-61726",
+        "CVE-2025-61728",
+        "CVE-2025-61730",
+        "CVE-2025-66382",
+        "CVE-2025-68121",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-10536",
+        "CVE-2026-105437",
+        "CVE-2026-107161",
+        "CVE-2026-107364",
+        "CVE-2026-107496",
+        "CVE-2026-107708",
+        "CVE-2026-107778",
+        "CVE-2026-107884",
+        "CVE-2026-107928",
+        "CVE-2026-107929",
+        "CVE-2026-111423",
+        "CVE-2026-111760",
+        "CVE-2026-111943",
+        "CVE-2026-112314",
+        "CVE-2026-112315",
+        "CVE-2026-112316",
+        "CVE-2026-112317",
+        "CVE-2026-112318",
+        "CVE-2026-112319",
+        "CVE-2026-112320",
+        "CVE-2026-112321",
+        "CVE-2026-112322",
+        "CVE-2026-112323",
+        "CVE-2026-113351",
+        "CVE-2026-113408",
+        "CVE-2026-114466",
+        "CVE-2026-114467",
+        "CVE-2026-114469",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115506",
+        "CVE-2026-115819",
+        "CVE-2026-117610",
+        "CVE-2026-118370",
+        "CVE-2026-118380",
+        "CVE-2026-11850",
+        "CVE-2026-11856",
+        "CVE-2026-119079",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-12064",
+        "CVE-2026-124317",
+        "CVE-2026-13608",
+        "CVE-2026-13757",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-18924",
+        "CVE-2026-18938",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-19931",
+        "CVE-2026-22185",
+        "CVE-2026-25679",
+        "CVE-2026-27139",
+        "CVE-2026-27142",
+        "CVE-2026-27145",
+        "CVE-2026-3184",
+        "CVE-2026-32280",
+        "CVE-2026-32281",
+        "CVE-2026-32282",
+        "CVE-2026-32283",
+        "CVE-2026-32288",
+        "CVE-2026-32289",
+        "CVE-2026-33811",
+        "CVE-2026-33814",
+        "CVE-2026-33818",
+        "CVE-2026-39820",
+        "CVE-2026-39821",
+        "CVE-2026-39822",
+        "CVE-2026-39823",
+        "CVE-2026-39824",
+        "CVE-2026-39825",
+        "CVE-2026-39826",
+        "CVE-2026-39827",
+        "CVE-2026-39828",
+        "CVE-2026-39829",
+        "CVE-2026-39830",
+        "CVE-2026-39831",
+        "CVE-2026-39832",
+        "CVE-2026-39833",
+        "CVE-2026-39834",
+        "CVE-2026-39835",
+        "CVE-2026-39836",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-42499",
+        "CVE-2026-42504",
+        "CVE-2026-42505",
+        "CVE-2026-42507",
+        "CVE-2026-42508",
+        "CVE-2026-46595",
+        "CVE-2026-46597",
+        "CVE-2026-46598",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-56851",
+        "CVE-2026-56852",
+        "CVE-2026-56853",
+        "CVE-2026-56854",
+        "CVE-2026-56855",
+        "CVE-2026-56857",
+        "CVE-2026-56858",
+        "CVE-2026-56859",
+        "CVE-2026-56860",
+        "CVE-2026-56862",
+        "CVE-2026-56866",
+        "CVE-2026-5704",
+        "CVE-2026-58055",
+        "CVE-2026-6238",
+        "CVE-2026-63209",
+        "CVE-2026-6368",
+        "CVE-2026-67693",
+        "CVE-2026-6791",
+        "CVE-2026-71199",
+        "CVE-2026-71200",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-78659",
+        "CVE-2026-78660",
+        "CVE-2026-78662",
+        "CVE-2026-78663",
+        "CVE-2026-78667",
+        "CVE-2026-78669",
+        "CVE-2026-80229",
+        "CVE-2026-80230",
+        "CVE-2026-80255",
+        "CVE-2026-80489",
+        "CVE-2026-82208",
+        "CVE-2026-82209",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8458",
+        "CVE-2026-86409",
+        "CVE-2026-86410",
+        "CVE-2026-86414",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-87862",
+        "CVE-2026-87863",
+        "CVE-2026-87864",
+        "CVE-2026-87865",
+        "CVE-2026-87866",
+        "CVE-2026-88647",
+        "CVE-2026-88648",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-8926",
+        "CVE-2026-8932",
+        "CVE-2026-9079",
+        "CVE-2026-9080",
+        "CVE-2026-92386",
+        "CVE-2026-92387",
+        "CVE-2026-92388",
+        "CVE-2026-92389",
+        "CVE-2026-92390",
+        "CVE-2026-92391",
+        "CVE-2026-94266",
+        "CVE-2026-94439",
+        "CVE-2026-94440",
+        "CVE-2026-94448",
+        "CVE-2026-95184",
+        "CVE-2026-95210",
+        "CVE-2026-9538",
+        "CVE-2026-9545",
+        "CVE-2026-9547",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97030",
+        "CVE-2026-97031",
+        "CVE-2026-97032",
+        "CVE-2026-97054",
+        "CVE-2026-97399",
+        "GO-2026-5932",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "grype",
+        "image": "sha256:bbffd0b0b025a0674ac2cfdc33ce4be03d36104e4738d523914134df7f0b4bcb",
+        "version": "0.121.3",
+        "revision": "8a22acf617afbc43a0dfc2980c376d715cd3060cb5e55d9babac4782289c85a0",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-11-trivy.native.json.log",
+        "sha256": "1f891c12e91a8e09203f286a488695e25e86deb8faf552b61dba5ac5d22789de"
+      },
+      "vulnerability_occurrences": 205,
+      "fixed_version_reported": 2,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 6
+      },
+      "fixable_package_versions": [
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.58.0",
+          "fixed": "0.58.1-0.20261009181718-2f1f834330b2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.27.3",
+          "fixed": "1.26.11, 1.27.4"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97054",
+        "CVE-2026-97399",
+        "GO-2026-5932",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "opengrep",
+        "image": "sha256:e12eaec681626e1f82b5a08dbb4227a28d0e39e26a7804d6f8afa49da0f9fc4e",
+        "version": "1.33.1",
+        "revision": "88feb4bf1a79d270f81476f9df2b2d9f5a601b00d763329d0389a1f9c2e672af",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-13-trivy.native.json.log",
+        "sha256": "109204d9a015b757c96ce0d25abff6e6a69cc5fb392e2e13db55bd609f7cd3cb"
+      },
+      "vulnerability_occurrences": 203,
+      "fixed_version_reported": 0,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 4
+      },
+      "fixable_package_versions": [],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97399",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "osv-scanner",
+        "image": "sha256:11b6f38831c9e374bbbe679917e7401a484bd4fbaec28c3d7bff57268c566146",
+        "version": "2.7.1",
+        "revision": "5b98bdf3fac4c00b816a1e4e12e58dee741a8d0d9eaa83cba20b54e82006382c",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-15-trivy.native.json.log",
+        "sha256": "f682d9bb6ad05e1bb007fdc25a46c41015f2247feb8a5d074ad4ccdf33ae8155"
+      },
+      "vulnerability_occurrences": 205,
+      "fixed_version_reported": 2,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 6
+      },
+      "fixable_package_versions": [
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.58.0",
+          "fixed": "0.58.1-0.20261009181718-2f1f834330b2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.27.3",
+          "fixed": "1.26.11, 1.27.4"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97054",
+        "CVE-2026-97399",
+        "GO-2026-5932",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "playwright",
+        "image": "sha256:561b32ead256e280b0ae56a7f746507e8f67353eeff73316ff565e1337b702c9",
+        "version": "1.65.0",
+        "revision": "a0cf6c7c910dbd9762f6a395e563b54b33b4ae09a021409ec75624e25a27834a",
+        "variant": "chromium",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-17-trivy.native.json.log",
+        "sha256": "1254c239e6ea2d3f86a24c2e97d00b16ea8ba5cf237eda7181bc8cd26ad1a5ad"
+      },
+      "vulnerability_occurrences": 501,
+      "fixed_version_reported": 0,
+      "no_fixed_version_reported": 501,
+      "severity": {
+        "LOW": 145,
+        "HIGH": 131,
+        "MEDIUM": 196,
+        "UNKNOWN": 28,
+        "CRITICAL": 1
+      },
+      "fixable_package_versions": [],
+      "packages_without_fixed_version": [
+        {
+          "package": "libcups2t64",
+          "installed": "2.4.10-3+deb13u2",
+          "occurrences": 27
+        },
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libgssapi-krb5-2",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libk5crypto3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5-3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5support0",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "xserver-common",
+          "installed": "2:21.1.16-1.3+deb13u4",
+          "occurrences": 20
+        },
+        {
+          "package": "xvfb",
+          "installed": "2:21.1.16-1.3+deb13u4",
+          "occurrences": 20
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libxml2",
+          "installed": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+          "occurrences": 12
+        },
+        {
+          "package": "libxi6",
+          "installed": "2:1.8.2-1",
+          "occurrences": 9
+        },
+        {
+          "package": "libavahi-client3",
+          "installed": "0.8-16",
+          "occurrences": 8
+        },
+        {
+          "package": "libavahi-common-data",
+          "installed": "0.8-16",
+          "occurrences": 8
+        },
+        {
+          "package": "libavahi-common3",
+          "installed": "0.8-16",
+          "occurrences": 8
+        },
+        {
+          "package": "libelf1t64",
+          "installed": "0.192-4",
+          "occurrences": 7
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libatomic1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libexpat1",
+          "installed": "2.9.0-1~deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libgnutls30t64",
+          "installed": "3.8.9-3+deb13u4",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "libasound2-data",
+          "installed": "1.2.14-1+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libasound2t64",
+          "installed": "1.2.14-1+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libdbus-1-3",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "libgbm1",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libgl1-mesa-dri",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libglx-mesa0",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libnss3",
+          "installed": "2:3.110-1+deb13u5",
+          "occurrences": 4
+        },
+        {
+          "package": "libx11-6",
+          "installed": "2:1.8.12-1",
+          "occurrences": 4
+        },
+        {
+          "package": "libx11-data",
+          "installed": "2:1.8.12-1",
+          "occurrences": 4
+        },
+        {
+          "package": "libx11-xcb1",
+          "installed": "2:1.8.12-1",
+          "occurrences": 4
+        },
+        {
+          "package": "mesa-libgallium",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "x11-xkb-utils",
+          "installed": "7.7+9",
+          "occurrences": 4
+        },
+        {
+          "package": "libcairo2",
+          "installed": "1.18.4-1+b1",
+          "occurrences": 3
+        },
+        {
+          "package": "libllvm19",
+          "installed": "1:19.1.7-3+b1",
+          "occurrences": 3
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libglib2.0-0t64",
+          "installed": "2.84.4-3~deb13u5",
+          "occurrences": 2
+        },
+        {
+          "package": "libp11-kit0",
+          "installed": "0.25.5-3",
+          "occurrences": 2
+        },
+        {
+          "package": "libpng16-16t64",
+          "installed": "1.6.48-1+deb13u6",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "libxfont2",
+          "installed": "1:2.0.6-1+deb13u1",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libfreetype6",
+          "installed": "2.13.3+dfsg-1+deb13u1",
+          "occurrences": 1
+        },
+        {
+          "package": "libgl1",
+          "installed": "1.7.0-1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "libglvnd0",
+          "installed": "1.7.0-1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "libglx0",
+          "installed": "1.7.0-1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpixman-1-0",
+          "installed": "0.44.0-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libxpm4",
+          "installed": "1:3.5.17-1+deb13u1",
+          "occurrences": 1
+        },
+        {
+          "package": "libxrender1",
+          "installed": "1:0.9.12-1",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-3389",
+        "CVE-2011-4116",
+        "CVE-2012-0039",
+        "CVE-2013-4392",
+        "CVE-2014-8166",
+        "CVE-2017-11695",
+        "CVE-2017-11696",
+        "CVE-2017-11697",
+        "CVE-2017-11698",
+        "CVE-2017-18018",
+        "CVE-2017-7475",
+        "CVE-2018-15853",
+        "CVE-2018-15859",
+        "CVE-2018-15861",
+        "CVE-2018-15863",
+        "CVE-2018-18064",
+        "CVE-2018-20796",
+        "CVE-2018-5709",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-4214",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2023-37769",
+        "CVE-2023-45913",
+        "CVE-2023-45919",
+        "CVE-2023-45922",
+        "CVE-2023-45924",
+        "CVE-2023-45931",
+        "CVE-2023-5574",
+        "CVE-2024-25260",
+        "CVE-2024-26458",
+        "CVE-2024-26461",
+        "CVE-2024-52615",
+        "CVE-2024-52616",
+        "CVE-2024-56433",
+        "CVE-2024-7883",
+        "CVE-2025-1352",
+        "CVE-2025-1365",
+        "CVE-2025-1371",
+        "CVE-2025-1372",
+        "CVE-2025-1376",
+        "CVE-2025-1377",
+        "CVE-2025-50422",
+        "CVE-2025-5278",
+        "CVE-2025-58436",
+        "CVE-2025-59529",
+        "CVE-2025-6141",
+        "CVE-2025-61915",
+        "CVE-2025-66382",
+        "CVE-2025-68276",
+        "CVE-2025-68468",
+        "CVE-2025-68471",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-105326",
+        "CVE-2026-107364",
+        "CVE-2026-107496",
+        "CVE-2026-107655",
+        "CVE-2026-107708",
+        "CVE-2026-107778",
+        "CVE-2026-107884",
+        "CVE-2026-107885",
+        "CVE-2026-107886",
+        "CVE-2026-107888",
+        "CVE-2026-107890",
+        "CVE-2026-109089",
+        "CVE-2026-109090",
+        "CVE-2026-109091",
+        "CVE-2026-109092",
+        "CVE-2026-109093",
+        "CVE-2026-109094",
+        "CVE-2026-109095",
+        "CVE-2026-109096",
+        "CVE-2026-109903",
+        "CVE-2026-109904",
+        "CVE-2026-111423",
+        "CVE-2026-112314",
+        "CVE-2026-112315",
+        "CVE-2026-112316",
+        "CVE-2026-112317",
+        "CVE-2026-112318",
+        "CVE-2026-112319",
+        "CVE-2026-112320",
+        "CVE-2026-112321",
+        "CVE-2026-112322",
+        "CVE-2026-112323",
+        "CVE-2026-113351",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115506",
+        "CVE-2026-115819",
+        "CVE-2026-117610",
+        "CVE-2026-118370",
+        "CVE-2026-118380",
+        "CVE-2026-11850",
+        "CVE-2026-119079",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-11979",
+        "CVE-2026-120749",
+        "CVE-2026-124317",
+        "CVE-2026-13573",
+        "CVE-2026-13574",
+        "CVE-2026-13757",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-18938",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-24401",
+        "CVE-2026-27447",
+        "CVE-2026-3184",
+        "CVE-2026-34933",
+        "CVE-2026-34978",
+        "CVE-2026-34979",
+        "CVE-2026-34980",
+        "CVE-2026-34990",
+        "CVE-2026-3713",
+        "CVE-2026-39314",
+        "CVE-2026-39316",
+        "CVE-2026-40228",
+        "CVE-2026-41079",
+        "CVE-2026-42250",
+        "CVE-2026-44950",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-55453",
+        "CVE-2026-55467",
+        "CVE-2026-55480",
+        "CVE-2026-56109",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-59679",
+        "CVE-2026-61702",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6653",
+        "CVE-2026-67693",
+        "CVE-2026-6791",
+        "CVE-2026-71199",
+        "CVE-2026-71200",
+        "CVE-2026-74860",
+        "CVE-2026-76642",
+        "CVE-2026-76781",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-86137",
+        "CVE-2026-86138",
+        "CVE-2026-86139",
+        "CVE-2026-86140",
+        "CVE-2026-86141",
+        "CVE-2026-86142",
+        "CVE-2026-86143",
+        "CVE-2026-86144",
+        "CVE-2026-86469",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-87875",
+        "CVE-2026-87876",
+        "CVE-2026-88647",
+        "CVE-2026-88648",
+        "CVE-2026-88806",
+        "CVE-2026-88807",
+        "CVE-2026-88812",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-90781",
+        "CVE-2026-93515",
+        "CVE-2026-93516",
+        "CVE-2026-93517",
+        "CVE-2026-93518",
+        "CVE-2026-93519",
+        "CVE-2026-93520",
+        "CVE-2026-93521",
+        "CVE-2026-93523",
+        "CVE-2026-93524",
+        "CVE-2026-93536",
+        "CVE-2026-93541",
+        "CVE-2026-93542",
+        "CVE-2026-93543",
+        "CVE-2026-93544",
+        "CVE-2026-93545",
+        "CVE-2026-94281",
+        "CVE-2026-94282",
+        "CVE-2026-94283",
+        "CVE-2026-94284",
+        "CVE-2026-94285",
+        "CVE-2026-94287",
+        "CVE-2026-95184",
+        "CVE-2026-95210",
+        "CVE-2026-9538",
+        "CVE-2026-95512",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-96674",
+        "CVE-2026-96675",
+        "CVE-2026-97399",
+        "TEMP-0000000-3F659E",
+        "TEMP-0000000-51E1F8",
+        "TEMP-0000000-71B844",
+        "TEMP-0000000-EC06A3",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF",
+        "TEMP-1153842-A0EC76",
+        "TEMP-1153843-36094F",
+        "TEMP-1153844-83400A"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "ruff",
+        "image": "sha256:8cf322da34f777cef86f18f99266bfc1a7b545d6badbb8b365dd5885b7a8992c",
+        "version": "0.11.13",
+        "revision": "a60c2bb75e8dda7739a97a027458045b6963d39aa00019459bf426e3f409932e",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-19-trivy.native.json.log",
+        "sha256": "340c6024cbc83749ef704e359c018a25509a8279fee25bc631ded07d5e0b9d35"
+      },
+      "vulnerability_occurrences": 203,
+      "fixed_version_reported": 0,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 4
+      },
+      "fixable_package_versions": [],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97399",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "shellcheck",
+        "image": "sha256:e5ec894b4a505c67cc576bd715789cf6e01a22298191fce1331a1df41bc01750",
+        "version": "0.11.0",
+        "revision": "553a306ad671acc2e2f11d7394aee55ae579928062be40fb4520b1d02b2c2fe5",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-21-trivy.native.json.log",
+        "sha256": "60b05d82f5ed9742198136872b35d8e46eb80db712882ef41249a9d063b36575"
+      },
+      "vulnerability_occurrences": 203,
+      "fixed_version_reported": 0,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 4
+      },
+      "fixable_package_versions": [],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97399",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "syft",
+        "image": "sha256:dd0ab33d066227227fc7261e367b8faef683788f5c59b2afa4198b2f748dc70a",
+        "version": "1.57.1",
+        "revision": "93975d2512eb03fa3fabaef229845ea738e9f90c58408ec7596c89e35e2bf5f0",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-23-trivy.native.json.log",
+        "sha256": "2c6c81b9f361060d8991ee210380d04f1cf22c3bf0f06fdeb11a27853ef6fddd"
+      },
+      "vulnerability_occurrences": 205,
+      "fixed_version_reported": 2,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 6
+      },
+      "fixable_package_versions": [
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.58.0",
+          "fixed": "0.58.1-0.20261009181718-2f1f834330b2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.27.3",
+          "fixed": "1.26.11, 1.27.4"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97054",
+        "CVE-2026-97399",
+        "GO-2026-5932",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "trivy",
+        "image": "sha256:ab2c55d4a4135fee93c79022a87a88999fae885f0d46270adb73e45aa3c2a8cf",
+        "version": "0.76.2",
+        "revision": "e4ce0022ff9d7d478e251396702dbc8eb8a5e5240c4e0d0f8833bfdad59ae89f",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-25-trivy.native.json.log",
+        "sha256": "66069d587c76e9a398d2efe84d444b2050a1329cca27f7f674fcfb2ffd37d365"
+      },
+      "vulnerability_occurrences": 205,
+      "fixed_version_reported": 2,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 6
+      },
+      "fixable_package_versions": [
+        {
+          "package": "golang.org/x/crypto",
+          "installed": "v0.58.0",
+          "fixed": "0.58.1-0.20261009181718-2f1f834330b2"
+        },
+        {
+          "package": "stdlib",
+          "installed": "v1.27.3",
+          "fixed": "1.26.11, 1.27.4"
+        }
+      ],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97054",
+        "CVE-2026-97399",
+        "GO-2026-5932",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:active",
+        "tool": "yara-x",
+        "image": "sha256:ba433fc14e379a9bd4ca35d7db8b8db6948c506cb0a921fe37d6d79617bbf19c",
+        "version": "1.0.0",
+        "revision": "2ec8803da101bb784f6686fb6446f66a68e658e5ab0a1fb0005c63f410135280",
+        "variant": "native",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-27-trivy.native.json.log",
+        "sha256": "b8197f27514d8f8db8de61017d8445c5f6b8ef751815b07cd62a3fd0284f5478"
+      },
+      "vulnerability_occurrences": 203,
+      "fixed_version_reported": 0,
+      "no_fixed_version_reported": 203,
+      "severity": {
+        "LOW": 64,
+        "HIGH": 46,
+        "MEDIUM": 89,
+        "UNKNOWN": 4
+      },
+      "fixable_package_versions": [],
+      "packages_without_fixed_version": [
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-4116",
+        "CVE-2013-4392",
+        "CVE-2017-18018",
+        "CVE-2018-20796",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-9192",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2024-56433",
+        "CVE-2025-5278",
+        "CVE-2025-6141",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-107496",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115819",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-18374",
+        "CVE-2026-18477",
+        "CVE-2026-18508",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-3184",
+        "CVE-2026-40228",
+        "CVE-2026-42250",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-5704",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-6791",
+        "CVE-2026-76642",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-9538",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-97399",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    },
+    {
+      "selection": {
+        "reference": "toolbox:playwright:firefox",
+        "tool": "playwright",
+        "image": "sha256:fc836e0920ef6f1c2eddb26e3307cda9322a675f00d0d6265f86dd57a96607a2",
+        "version": "1.65.0",
+        "revision": "88bfdc381396abaace7c35a8293514566873e59c1f715018971ddec16ff44584",
+        "variant": "firefox",
+        "docker_verified": false
+      },
+      "native_report": {
+        "path": ".local/logs/2026-11-13/run-NSqpobP8-07-security-trivy-29-trivy.native.json.log",
+        "sha256": "3bba3966fed9ae6db1c0d10f463f9363ada6e611b9e6350a2fe2a92c81a822db"
+      },
+      "vulnerability_occurrences": 742,
+      "fixed_version_reported": 0,
+      "no_fixed_version_reported": 742,
+      "severity": {
+        "LOW": 207,
+        "HIGH": 190,
+        "MEDIUM": 294,
+        "UNKNOWN": 50,
+        "CRITICAL": 1
+      },
+      "fixable_package_versions": [],
+      "packages_without_fixed_version": [
+        {
+          "package": "libavcodec61",
+          "installed": "7:7.1.5-0+deb13u1",
+          "occurrences": 44
+        },
+        {
+          "package": "libavutil59",
+          "installed": "7:7.1.5-0+deb13u1",
+          "occurrences": 44
+        },
+        {
+          "package": "libswresample5",
+          "installed": "7:7.1.5-0+deb13u1",
+          "occurrences": 44
+        },
+        {
+          "package": "libcups2t64",
+          "installed": "2.4.10-3+deb13u2",
+          "occurrences": 27
+        },
+        {
+          "package": "libc-bin",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libc6",
+          "installed": "2.41-12+deb13u4",
+          "occurrences": 24
+        },
+        {
+          "package": "libgssapi-krb5-2",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libk5crypto3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5-3",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "libkrb5support0",
+          "installed": "1.21.3-5+deb13u1",
+          "occurrences": 23
+        },
+        {
+          "package": "xserver-common",
+          "installed": "2:21.1.16-1.3+deb13u4",
+          "occurrences": 20
+        },
+        {
+          "package": "xvfb",
+          "installed": "2:21.1.16-1.3+deb13u4",
+          "occurrences": 20
+        },
+        {
+          "package": "libopenjp2-7",
+          "installed": "2.5.3-2.1~deb13u2",
+          "occurrences": 15
+        },
+        {
+          "package": "libsqlite3-0",
+          "installed": "3.46.1-7+deb13u2",
+          "occurrences": 14
+        },
+        {
+          "package": "libtiff6",
+          "installed": "4.7.0-3+deb13u3",
+          "occurrences": 14
+        },
+        {
+          "package": "libxml2",
+          "installed": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+          "occurrences": 12
+        },
+        {
+          "package": "libxi6",
+          "installed": "2:1.8.2-1",
+          "occurrences": 9
+        },
+        {
+          "package": "libavahi-client3",
+          "installed": "0.8-16",
+          "occurrences": 8
+        },
+        {
+          "package": "libavahi-common-data",
+          "installed": "0.8-16",
+          "occurrences": 8
+        },
+        {
+          "package": "libavahi-common3",
+          "installed": "0.8-16",
+          "occurrences": 8
+        },
+        {
+          "package": "libelf1t64",
+          "installed": "0.192-4",
+          "occurrences": 7
+        },
+        {
+          "package": "libpam-systemd",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libsystemd-shared",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libsystemd0",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "libudev1",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "systemd",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "systemd-sysv",
+          "installed": "257.13-1~deb13u1",
+          "occurrences": 7
+        },
+        {
+          "package": "bsdutils",
+          "installed": "1:2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "gcc-14-base",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libatomic1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libblkid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libexpat1",
+          "installed": "2.9.0-1~deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libgcc-s1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libgnutls30t64",
+          "installed": "3.8.9-3+deb13u4",
+          "occurrences": 6
+        },
+        {
+          "package": "libgomp1",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "liblastlog2-2",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libmount1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libsmartcols1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libstdc++6",
+          "installed": "14.2.0-19",
+          "occurrences": 6
+        },
+        {
+          "package": "libuuid1",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "login",
+          "installed": "1:4.16.0-2+really2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "mount",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "util-linux",
+          "installed": "2.41.5-0+deb13u1",
+          "occurrences": 6
+        },
+        {
+          "package": "libssl3t64",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "openssl-provider-legacy",
+          "installed": "3.5.7-1~deb13u3",
+          "occurrences": 5
+        },
+        {
+          "package": "tar",
+          "installed": "1.35+dfsg-3.1",
+          "occurrences": 5
+        },
+        {
+          "package": "coreutils",
+          "installed": "9.7-3",
+          "occurrences": 4
+        },
+        {
+          "package": "dbus",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "dbus-bin",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "dbus-daemon",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "dbus-session-bus-common",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "dbus-system-bus-common",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "dbus-user-session",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "libasound2-data",
+          "installed": "1.2.14-1+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libasound2t64",
+          "installed": "1.2.14-1+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libdbus-1-3",
+          "installed": "1.16.2-2",
+          "occurrences": 4
+        },
+        {
+          "package": "libgbm1",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libgl1-mesa-dri",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libglx-mesa0",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "libx11-6",
+          "installed": "2:1.8.12-1",
+          "occurrences": 4
+        },
+        {
+          "package": "libx11-data",
+          "installed": "2:1.8.12-1",
+          "occurrences": 4
+        },
+        {
+          "package": "libx11-xcb1",
+          "installed": "2:1.8.12-1",
+          "occurrences": 4
+        },
+        {
+          "package": "mesa-libgallium",
+          "installed": "25.0.7-2+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "perl-base",
+          "installed": "5.40.1-6+deb13u1",
+          "occurrences": 4
+        },
+        {
+          "package": "x11-xkb-utils",
+          "installed": "7.7+9",
+          "occurrences": 4
+        },
+        {
+          "package": "libcairo-gobject2",
+          "installed": "1.18.4-1+b1",
+          "occurrences": 3
+        },
+        {
+          "package": "libcairo2",
+          "installed": "1.18.4-1+b1",
+          "occurrences": 3
+        },
+        {
+          "package": "libgdk-pixbuf-2.0-0",
+          "installed": "2.42.12+dfsg-4+deb13u1",
+          "occurrences": 3
+        },
+        {
+          "package": "libgdk-pixbuf2.0-common",
+          "installed": "2.42.12+dfsg-4+deb13u1",
+          "occurrences": 3
+        },
+        {
+          "package": "libllvm19",
+          "installed": "1:19.1.7-3+b1",
+          "occurrences": 3
+        },
+        {
+          "package": "login.defs",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "passwd",
+          "installed": "1:4.17.4-2",
+          "occurrences": 3
+        },
+        {
+          "package": "dash",
+          "installed": "0.5.12-12",
+          "occurrences": 2
+        },
+        {
+          "package": "libacl1",
+          "installed": "2.3.2-2+b1",
+          "occurrences": 2
+        },
+        {
+          "package": "libglib2.0-0t64",
+          "installed": "2.84.4-3~deb13u5",
+          "occurrences": 2
+        },
+        {
+          "package": "libjxl0.11",
+          "installed": "0.11.2-0.1~deb13u3",
+          "occurrences": 2
+        },
+        {
+          "package": "libncursesw6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "libp11-kit0",
+          "installed": "0.25.5-3",
+          "occurrences": 2
+        },
+        {
+          "package": "libpng16-16t64",
+          "installed": "1.6.48-1+deb13u6",
+          "occurrences": 2
+        },
+        {
+          "package": "libtinfo6",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "libxfont2",
+          "installed": "1:2.0.6-1+deb13u1",
+          "occurrences": 2
+        },
+        {
+          "package": "libxtst6",
+          "installed": "2:1.2.5-1",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-base",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "ncurses-bin",
+          "installed": "6.5+20250216-2",
+          "occurrences": 2
+        },
+        {
+          "package": "apt",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "bash",
+          "installed": "5.2.37-2+b10",
+          "occurrences": 1
+        },
+        {
+          "package": "diffutils",
+          "installed": "1:3.10-4",
+          "occurrences": 1
+        },
+        {
+          "package": "libapt-pkg7.0",
+          "installed": "3.0.4",
+          "occurrences": 1
+        },
+        {
+          "package": "libattr1",
+          "installed": "1:2.5.2-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libbz2-1.0",
+          "installed": "1.0.8-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libfreetype6",
+          "installed": "2.13.3+dfsg-1+deb13u1",
+          "occurrences": 1
+        },
+        {
+          "package": "libgl1",
+          "installed": "1.7.0-1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "libglvnd0",
+          "installed": "1.7.0-1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "libglx0",
+          "installed": "1.7.0-1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "libjbig0",
+          "installed": "2.1-6.1+b2",
+          "occurrences": 1
+        },
+        {
+          "package": "liblcms2-2",
+          "installed": "2.16-2+deb13u2",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-modules-bin",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam-runtime",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpam0g",
+          "installed": "1.7.0-5",
+          "occurrences": 1
+        },
+        {
+          "package": "libpixman-1-0",
+          "installed": "0.44.0-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libspeex1",
+          "installed": "1.2.1-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libtheoradec1",
+          "installed": "1.2.0~alpha1+dfsg-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libtheoraenc1",
+          "installed": "1.2.0~alpha1+dfsg-6",
+          "occurrences": 1
+        },
+        {
+          "package": "libva-drm2",
+          "installed": "2.22.0-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libva-x11-2",
+          "installed": "2.22.0-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libva2",
+          "installed": "2.22.0-3",
+          "occurrences": 1
+        },
+        {
+          "package": "libx264-164",
+          "installed": "2:0.164.3108+git31e19f9-2+b1",
+          "occurrences": 1
+        },
+        {
+          "package": "libxpm4",
+          "installed": "1:3.5.17-1+deb13u1",
+          "occurrences": 1
+        },
+        {
+          "package": "libxrender1",
+          "installed": "1:0.9.12-1",
+          "occurrences": 1
+        },
+        {
+          "package": "libzvbi-common",
+          "installed": "0.2.44-1",
+          "occurrences": 1
+        },
+        {
+          "package": "libzvbi0t64",
+          "installed": "0.2.44-1",
+          "occurrences": 1
+        },
+        {
+          "package": "sysvinit-utils",
+          "installed": "3.14-4",
+          "occurrences": 1
+        }
+      ],
+      "advisory_ids": [
+        "CVE-2005-2541",
+        "CVE-2007-5686",
+        "CVE-2010-4756",
+        "CVE-2011-3374",
+        "CVE-2011-3389",
+        "CVE-2011-4116",
+        "CVE-2012-0039",
+        "CVE-2013-4392",
+        "CVE-2014-8166",
+        "CVE-2016-10505",
+        "CVE-2016-9113",
+        "CVE-2016-9114",
+        "CVE-2016-9115",
+        "CVE-2016-9116",
+        "CVE-2016-9117",
+        "CVE-2016-9580",
+        "CVE-2016-9581",
+        "CVE-2017-16232",
+        "CVE-2017-18018",
+        "CVE-2017-7475",
+        "CVE-2017-9937",
+        "CVE-2018-10126",
+        "CVE-2018-15853",
+        "CVE-2018-15859",
+        "CVE-2018-15861",
+        "CVE-2018-15863",
+        "CVE-2018-16376",
+        "CVE-2018-18064",
+        "CVE-2018-20796",
+        "CVE-2018-5709",
+        "CVE-2019-1010022",
+        "CVE-2019-1010023",
+        "CVE-2019-1010024",
+        "CVE-2019-1010025",
+        "CVE-2019-6988",
+        "CVE-2019-9192",
+        "CVE-2021-36691",
+        "CVE-2021-4214",
+        "CVE-2021-45346",
+        "CVE-2022-0563",
+        "CVE-2022-1210",
+        "CVE-2023-31437",
+        "CVE-2023-31438",
+        "CVE-2023-31439",
+        "CVE-2023-37769",
+        "CVE-2023-39327",
+        "CVE-2023-39328",
+        "CVE-2023-39329",
+        "CVE-2023-45913",
+        "CVE-2023-45919",
+        "CVE-2023-45922",
+        "CVE-2023-45924",
+        "CVE-2023-45931",
+        "CVE-2023-5574",
+        "CVE-2024-25260",
+        "CVE-2024-26458",
+        "CVE-2024-26461",
+        "CVE-2024-52615",
+        "CVE-2024-52616",
+        "CVE-2024-56433",
+        "CVE-2024-7883",
+        "CVE-2025-1352",
+        "CVE-2025-1365",
+        "CVE-2025-1371",
+        "CVE-2025-1372",
+        "CVE-2025-1376",
+        "CVE-2025-1377",
+        "CVE-2025-25467",
+        "CVE-2025-29070",
+        "CVE-2025-50422",
+        "CVE-2025-5278",
+        "CVE-2025-58436",
+        "CVE-2025-59529",
+        "CVE-2025-61143",
+        "CVE-2025-61144",
+        "CVE-2025-61145",
+        "CVE-2025-6141",
+        "CVE-2025-61915",
+        "CVE-2025-66382",
+        "CVE-2025-68276",
+        "CVE-2025-68468",
+        "CVE-2025-68471",
+        "CVE-2025-69720",
+        "CVE-2025-70873",
+        "CVE-2025-8176",
+        "CVE-2025-8177",
+        "CVE-2025-8534",
+        "CVE-2026-100290",
+        "CVE-2026-102010",
+        "CVE-2026-102473",
+        "CVE-2026-102474",
+        "CVE-2026-105326",
+        "CVE-2026-107080",
+        "CVE-2026-107364",
+        "CVE-2026-107496",
+        "CVE-2026-107655",
+        "CVE-2026-107660",
+        "CVE-2026-107675",
+        "CVE-2026-107676",
+        "CVE-2026-107677",
+        "CVE-2026-107678",
+        "CVE-2026-107695",
+        "CVE-2026-107696",
+        "CVE-2026-107697",
+        "CVE-2026-107708",
+        "CVE-2026-107778",
+        "CVE-2026-107884",
+        "CVE-2026-107885",
+        "CVE-2026-107886",
+        "CVE-2026-107888",
+        "CVE-2026-107890",
+        "CVE-2026-109088",
+        "CVE-2026-109089",
+        "CVE-2026-109090",
+        "CVE-2026-109091",
+        "CVE-2026-109092",
+        "CVE-2026-109093",
+        "CVE-2026-109094",
+        "CVE-2026-109095",
+        "CVE-2026-109096",
+        "CVE-2026-109903",
+        "CVE-2026-109904",
+        "CVE-2026-110654",
+        "CVE-2026-111423",
+        "CVE-2026-112314",
+        "CVE-2026-112315",
+        "CVE-2026-112316",
+        "CVE-2026-112317",
+        "CVE-2026-112318",
+        "CVE-2026-112319",
+        "CVE-2026-112320",
+        "CVE-2026-112321",
+        "CVE-2026-112322",
+        "CVE-2026-112323",
+        "CVE-2026-113351",
+        "CVE-2026-114690",
+        "CVE-2026-114691",
+        "CVE-2026-115455",
+        "CVE-2026-115456",
+        "CVE-2026-115506",
+        "CVE-2026-115819",
+        "CVE-2026-116741",
+        "CVE-2026-117610",
+        "CVE-2026-118370",
+        "CVE-2026-118380",
+        "CVE-2026-11850",
+        "CVE-2026-119079",
+        "CVE-2026-119371",
+        "CVE-2026-119372",
+        "CVE-2026-119373",
+        "CVE-2026-119374",
+        "CVE-2026-119375",
+        "CVE-2026-119376",
+        "CVE-2026-119377",
+        "CVE-2026-119378",
+        "CVE-2026-119379",
+        "CVE-2026-119591",
+        "CVE-2026-11979",
+        "CVE-2026-120210",
+        "CVE-2026-120243",
+        "CVE-2026-120244",
+        "CVE-2026-120245",
+        "CVE-2026-120246",
+        "CVE-2026-120247",
+        "CVE-2026-120749",
+        "CVE-2026-124317",
+        "CVE-2026-13573",
+        "CVE-2026-13574",
+        "CVE-2026-13757",
+        "CVE-2026-15059",
+        "CVE-2026-15534",
+        "CVE-2026-16742",
+        "CVE-2026-16768",
+        "CVE-2026-18090",
+        "CVE-2026-18374",
+        "CVE-2026-18393",
+        "CVE-2026-18477",
+        "CVE-2026-18495",
+        "CVE-2026-18508",
+        "CVE-2026-18938",
+        "CVE-2026-19499",
+        "CVE-2026-19542",
+        "CVE-2026-24401",
+        "CVE-2026-27447",
+        "CVE-2026-30999",
+        "CVE-2026-3184",
+        "CVE-2026-34933",
+        "CVE-2026-34978",
+        "CVE-2026-34979",
+        "CVE-2026-34980",
+        "CVE-2026-34990",
+        "CVE-2026-36849",
+        "CVE-2026-3713",
+        "CVE-2026-38350",
+        "CVE-2026-39314",
+        "CVE-2026-39316",
+        "CVE-2026-40228",
+        "CVE-2026-41079",
+        "CVE-2026-42250",
+        "CVE-2026-44950",
+        "CVE-2026-50812",
+        "CVE-2026-50813",
+        "CVE-2026-52490",
+        "CVE-2026-52491",
+        "CVE-2026-52492",
+        "CVE-2026-53910",
+        "CVE-2026-5435",
+        "CVE-2026-54369",
+        "CVE-2026-54370",
+        "CVE-2026-54371",
+        "CVE-2026-54411",
+        "CVE-2026-55453",
+        "CVE-2026-55467",
+        "CVE-2026-55480",
+        "CVE-2026-56109",
+        "CVE-2026-56391",
+        "CVE-2026-56392",
+        "CVE-2026-56438",
+        "CVE-2026-5673",
+        "CVE-2026-5704",
+        "CVE-2026-58049",
+        "CVE-2026-59679",
+        "CVE-2026-61702",
+        "CVE-2026-6238",
+        "CVE-2026-6368",
+        "CVE-2026-64830",
+        "CVE-2026-64832",
+        "CVE-2026-64833",
+        "CVE-2026-64834",
+        "CVE-2026-64835",
+        "CVE-2026-65703",
+        "CVE-2026-65704",
+        "CVE-2026-65705",
+        "CVE-2026-65706",
+        "CVE-2026-66036",
+        "CVE-2026-66037",
+        "CVE-2026-66038",
+        "CVE-2026-66039",
+        "CVE-2026-66040",
+        "CVE-2026-66041",
+        "CVE-2026-6653",
+        "CVE-2026-67693",
+        "CVE-2026-6791",
+        "CVE-2026-70628",
+        "CVE-2026-70629",
+        "CVE-2026-70630",
+        "CVE-2026-70631",
+        "CVE-2026-70632",
+        "CVE-2026-71199",
+        "CVE-2026-71200",
+        "CVE-2026-74860",
+        "CVE-2026-75141",
+        "CVE-2026-75142",
+        "CVE-2026-75143",
+        "CVE-2026-75144",
+        "CVE-2026-75146",
+        "CVE-2026-76642",
+        "CVE-2026-76781",
+        "CVE-2026-77117",
+        "CVE-2026-78408",
+        "CVE-2026-78409",
+        "CVE-2026-78410",
+        "CVE-2026-80489",
+        "CVE-2026-81893",
+        "CVE-2026-82522",
+        "CVE-2026-82560",
+        "CVE-2026-84243",
+        "CVE-2026-86137",
+        "CVE-2026-86138",
+        "CVE-2026-86139",
+        "CVE-2026-86140",
+        "CVE-2026-86141",
+        "CVE-2026-86142",
+        "CVE-2026-86143",
+        "CVE-2026-86144",
+        "CVE-2026-86469",
+        "CVE-2026-8674",
+        "CVE-2026-86805",
+        "CVE-2026-87875",
+        "CVE-2026-87876",
+        "CVE-2026-88647",
+        "CVE-2026-88648",
+        "CVE-2026-88806",
+        "CVE-2026-88807",
+        "CVE-2026-88812",
+        "CVE-2026-88822",
+        "CVE-2026-88823",
+        "CVE-2026-89092",
+        "CVE-2026-90781",
+        "CVE-2026-90816",
+        "CVE-2026-93515",
+        "CVE-2026-93516",
+        "CVE-2026-93517",
+        "CVE-2026-93518",
+        "CVE-2026-93519",
+        "CVE-2026-93520",
+        "CVE-2026-93521",
+        "CVE-2026-93523",
+        "CVE-2026-93524",
+        "CVE-2026-93536",
+        "CVE-2026-93541",
+        "CVE-2026-93542",
+        "CVE-2026-93543",
+        "CVE-2026-93544",
+        "CVE-2026-93545",
+        "CVE-2026-94281",
+        "CVE-2026-94282",
+        "CVE-2026-94283",
+        "CVE-2026-94284",
+        "CVE-2026-94285",
+        "CVE-2026-94286",
+        "CVE-2026-94287",
+        "CVE-2026-95184",
+        "CVE-2026-95210",
+        "CVE-2026-9538",
+        "CVE-2026-95512",
+        "CVE-2026-95619",
+        "CVE-2026-95691",
+        "CVE-2026-95692",
+        "CVE-2026-95818",
+        "CVE-2026-96674",
+        "CVE-2026-96675",
+        "CVE-2026-97399",
+        "TEMP-0000000-3F659E",
+        "TEMP-0000000-51E1F8",
+        "TEMP-0000000-71B844",
+        "TEMP-0000000-EC06A3",
+        "TEMP-0290435-0B57B5",
+        "TEMP-0517018-A83CE6",
+        "TEMP-0628843-DBAD28",
+        "TEMP-0841856-B18BAF",
+        "TEMP-1153269-522F63",
+        "TEMP-1153842-A0EC76",
+        "TEMP-1153843-36094F",
+        "TEMP-1153844-83400A"
+      ],
+      "misconfiguration_failures": [
+        {
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile"
+        }
+      ]
+    }
+  ],
+  "interpretation": "Ocorrências por pacote/imagem, sem somar scanners como vulnerabilidades únicas. FixedVersion ausente é o estado informado pela base, não prova de inexistência universal de correção. Avisos de configuração, incluindo HEALTHCHECK em ferramentas CLI, continuam pendentes e exigem decisão contextual explícita.",
+  "next_actions": [
+    "Atualizar snapshot/base na Toolbox quando Debian publicar correções; reconstruir, qualificar e reanalisar as mesmas variantes por digest.",
+    "Acompanhar as dependências embarcadas nas releases oficiais, especialmente CodeQL e navegadores. Versão corrigida de uma biblioteca isolada não torna seguro substituir arquivos dentro de um bundle sem suporte; exigir nova qualificação.",
+    "Revisar a aplicabilidade dos avisos HEALTHCHECK por contrato de processos CLI e das associações de headers/camadas, mantendo relatório bruto e sem exclusão global.",
+    "Reexecutar Trivy, Grype e análise Grype do SBOM Syft e depois a suíte completa; somente resultado sem pendências permite aprovar o agregado."
+  ]
+}

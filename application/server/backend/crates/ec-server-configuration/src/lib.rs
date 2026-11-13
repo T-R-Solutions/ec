@@ -1,5 +1,6 @@
 //! Bounded YAML boundary. No persistence, execution or authorization occurs here.
 use std::collections::BTreeMap;
+use std::fmt::Write;
 use yaml_rust2::{
     parser::{Event, Parser},
     scanner::TScalarStyle,
@@ -30,6 +31,9 @@ impl Diagnostic {
 
 /// Parse exactly one flat mapping. Detect duplicates before map insertion.
 /// Fields remain text; the resource validator owns schema interpretation.
+///
+/// # Errors
+/// Retorna diagnóstico para sintaxe, construções não suportadas ou limites excedidos.
 pub fn parse(input: &str) -> Result<BTreeMap<String, String>, Diagnostic> {
     if input.len() > MAX_INPUT_BYTES {
         return Err(Diagnostic::plain("input_limit", "YAML excede 64 KiB"));
@@ -123,6 +127,7 @@ pub fn parse(input: &str) -> Result<BTreeMap<String, String>, Diagnostic> {
 }
 
 /// Semantic serialization; callers retain original source for comments/diffs.
+#[must_use]
 pub fn serialize(fields: &BTreeMap<String, String>) -> String {
     fn quote(value: &str) -> String {
         let mut out = String::from("\"");
@@ -133,17 +138,20 @@ pub fn serialize(fields: &BTreeMap<String, String>) -> String {
                 '\n' => out.push_str("\\n"),
                 '\r' => out.push_str("\\r"),
                 '\t' => out.push_str("\\t"),
-                ch if ch.is_control() => out.push_str(&format!("\\u{:04x}", ch as u32)),
+                ch if ch.is_control() => {
+                    let _ = write!(out, "\\u{:04x}", u32::from(ch));
+                }
                 ch => out.push(ch),
             }
         }
         out.push('"');
         out
     }
-    fields
-        .iter()
-        .map(|(k, v)| format!("{}: {}\n", quote(k), quote(v)))
-        .collect()
+    let mut out = String::new();
+    for (k, v) in fields {
+        let _ = writeln!(out, "{}: {}", quote(k), quote(v));
+    }
+    out
 }
 
 #[cfg(test)]
@@ -190,7 +198,10 @@ mod tests {
                 .code,
             "scalar_limit"
         );
-        let events = (0..2100).map(|i| format!("k{i}: v\n")).collect::<String>();
+        let mut events = String::new();
+        for i in 0..2100 {
+            let _ = writeln!(events, "k{i}: v");
+        }
         assert_eq!(parse(&events).unwrap_err().code, "event_limit");
         let error = parse("x: [").unwrap_err();
         assert!(error.line.is_some());

@@ -1,5 +1,67 @@
 # Plano — rota completa
 
+## Reparação do run-SNe1BAXu — 12/11/2026
+
+Pedido vigente autoriza análise, implementação, testes e validação sem commit.
+Retomar AC-39–42 e AC-36–38: preservar o alcance ampliado e a política única
+em scripts/config/automation.json e suas políticas nativas referenciadas.
+
+D-32/R-32: corrigir código e configuração comprovadamente incorretos, sem
+excluir alvos para recuperar verde. Aplicar primeiro fixes
+mecânicos seguros de Ruff/ShellCheck, revisar retornos mascarados, corrigir
+os 17 achados CodeQL e os dez Opengrep; reexaminar Clippy após desbloquear
+as primeiras bibliotecas. Triagem por conteúdo exige revisão nova; não renovar
+hashes Bandit automaticamente. Exceções de segredos devem distinguir hashes e
+assinaturas públicas de credenciais novas e ser exercitadas por controles
+positivos/negativos. Imagens externas vulneráveis exigem remediação na Toolbox;
+não criar receitas Ec paralelas nem dispensar os findings no consumidor.
+
+Primária software-delivery; auxiliares application-security (contexto/triagem)
+e rust (contratos e erros das bibliotecas). Entradas efetivas lidas em
+.codex/skills/<nome>/SKILL.md; identidades no relatório desta reparação.
+Alternativas rejeitadas: dispensa de grupos de segurança,
+baseline opaca, atualização incompatível só para deduplicar dependências.
+
+Adequação autorizada em 13/11/2026: o usuário pediu ajustar as regras ao código.
+Substituir Ruff ALL/preview por grupos estáveis explícitos na política nativa
+existente, preservando unittest, namespaces, CLI e Python 3.11. Remover os ignores
+de docstring/formatter que só existiam por causa de ALL. Imports após bootstrap
+recebem somente E402 em quatro caminhos concretos; erros de imports e demais
+regras continuam ativos. Não impor unpacking de listas nem a regra UP038
+depreciada; as duas exceções são explícitas na mesma política. Segurança S é
+coberta pelo Bandit integral já existente,
+com revisão exata por conteúdo, sem skips, exclusões ou baseline. Corrigir os
+diagnósticos remanescentes de bugs/imports; não criar configurações por diretório.
+
+Validação: regressões pelo runner autorizado, gates focais durante o diagnóstico
+e suíte completa sobre entradas estabilizadas. Downloads e escrita externa
+continuam sujeitos às permissões reais. Erros/achados remanescentes ficam
+explicitamente reprovados, com localização e condição de retomada.
+
+## D-26 / R-26 — ambiente automático, REQ-30
+
+O pedido de 11/11/2026 exige configuração por execução em todos os escopos.
+D-26 centraliza a descoberta local em `scripts/stacks/ec/environment.sh`,
+chamada por `run_plan` antes das tarefas. Um array local fornece somente as
+variáveis selecionadas a `env -i`; não há export no shell chamador nem arquivo
+de perfil. Encerramento do processo elimina seu ambiente; não usar `unset` no
+chamador, que apagaria valores anteriores. Recusar `source` antes de `set`/umask.
+
+R-26: fallback silencioso de override inválido, seleção de base ambígua,
+transporte de segredos e confusão entre caminho configurado e recurso preparado.
+Preservar override definido inclusive vazio, descoberta limitada/determinística,
+única base Git no cache ou caminho convencional, lista explícita de variáveis e
+validação pelos consumidores. Docker conserva o contexto padrão e os overrides;
+não inventar sockets, permissões, recursos ou credenciais. `plan` continua puro.
+CodeQL conserva sua montagem limitada e cópia apenas de registry/git.
+
+Skills lidas, pontes versão 1, sem delegação:
+- Primária `.codex/skills/software-delivery/SKILL.md`, SHA-256 `c7b5a1b1dc347bf6fe7b6a0d4b40fdf5f64dedbbe75e58543fe670445645fb98`: seleção de instalações/caches e separação entre configuração e preparo.
+- Auxiliar `.codex/skills/cli-engineering/SKILL.md`, SHA-256 `75ce12875adc3ee4c23910408c87a5475eb8b4d63d0445f23885f1e7391719c4`: precedência de overrides, efeitos no chamador e mensagens de pré-requisito.
+
+T045 implementa e inspeciona; T046 exige execução posterior autorizada conforme
+a política canônica. Nenhuma autorização histórica é reaproveitada.
+
 ## Correção do run-oUebC3O4 — 2026-11-07
 
 D-13 / R-13 / REQ-04/09/10/11: corrigir causas demonstradas pelos logs sem reduzir
@@ -385,3 +447,177 @@ Skills lidas/aplicadas, pontes versão 1, sem delegação:
   logs brutos/códigos nativos e show-env interpretado como dados, sem shell.
 
 [Inspeção e limitações](../../../docs/validation/geiger-coverage-remediation-20261109/report.md).
+
+## Estado local — 10/11/2026
+
+A retenção passa a executar após o encerramento, ainda sob o lock do runner. A mudança afeta a supervisão e exige reobservação dos critérios de concorrência, recuperação, saída e integridade das entradas. Não renovar evidências antigas; os testes de integração desta mudança permanecem UNVERIFIED. Decisões e tarefas em [local-state](../local-state/plan.md).
+
+
+## D-27 / R-27 — locks atualizáveis, REQ-31
+
+Instrução explícita de 11/11/2026: permitir atualizações durante as verificações.
+D-27 retira `--locked` dos comandos Rust, inclusive Geiger/coletor LLVM, e o
+requisito exato de `syn`. Mantém `--offline`: não há autorização de download.
+Cargo pode reutilizar a resolução existente; remover a flag não força upgrade.
+
+R-27: aprovar tarefas executadas sobre versões diferentes ou ocultar alteração
+concorrente de fonte. O supervisor conserva o inventário inicial/final e registra
+somente alterações de locks existentes nos três caminhos conhecidos como
+`updated_lockfiles` (path/before/after). Não atribui a origem da escrita.
+Essas mudanças exigem reexecução com `dependency-resolution`, exit agregado 2;
+adição/remoção de lock e demais mudanças mantêm `input-stability`. Cobertura
+continua exigindo entradas estáveis. Nenhum rollback automático de locks.
+
+Alternativas descartadas: congelar locks contradiz o pedido; ignorar seu drift
+aprovaria versões diferentes; atualizar dependências implicitamente pela rede
+excederia a autorização. Os resultados anteriores permanecem históricos.
+
+Skills efetivamente lidas e aplicadas, pontes versão 1, sem delegação:
+- `.codex/skills/cli-engineering/SKILL.md`, SHA-256 `75ce12875adc3ee4c23910408c87a5475eb8b4d63d0445f23885f1e7391719c4`; ponte `sdd/chain/cli-engineering.md`: primária: contrato dos argumentos Cargo, saída estruturada e condição de reexecução.
+- `.codex/skills/observability-and-diagnostics/SKILL.md`, SHA-256 `196dc48f5a13977f2ccebf5b2bf21ea6f842b088e8e9f757e8ee22654341f566`; ponte `sdd/chain/observability-and-diagnostics.md`: auxiliar: distinguir falhas observadas de hipótese e recursos ausentes de caminhos não selecionados.
+
+T047 implementa e inspeciona; T048 permanece pendente de execução autorizada.
+
+
+## D-28 / R-28 — preparo efêmero, REQ-32
+
+Por pedido explícito, o runner define shared e habilita renovação Trivy, mantendo
+overrides. Consulta o toolchain ativo na raiz e reutiliza RustSec nas gerações
+locais do Ox após a migração .cache; não altera perfis do shell nem recursos
+externos durante a descoberta. O Cargo resolve por update offline antes dos
+checks, sem impor versões de locks históricos. Downloads de crates ausentes
+foram autorizados condicionalmente pelo usuário; bibliotecas incompatíveis
+não são substituídas apenas por estarem no disco.
+
+A renovação Trivy usa exec/maintenance da Toolbox ativa, com diretório vazio,
+rede somente nas duas aquisições e diagnóstico próprio por etapa. Somente
+ausência/expiração dispara preparo; adulteração e futuro reprovam. A inspeção
+seguinte precisa observar a última publicação; scans mantêm identidade estável.
+R-28: publicação parcial, mudança concorrente, autorização de rede e confusão
+entre variável efêmera e dado persistente. Uma segunda aquisição que falhe
+não aprova o gate; próxima execução reavalia o estado central disponível.
+Sem imports internos, downgrade, relaxamento de idade ou retry infinito.
+
+A manutenção observada revelou cache Java nativo de três dias: download-only
+retornou zero sem renovar o conteúdo. A Toolbox ganhou --refresh-database,
+restrita a download-only em manutenção; remove apenas a cópia do subdiretório
+selecionado no staging e publica somente após sucesso. O Ec usa essa opção
+para ambas as bases. A base anterior permanece intacta em falha. Não limpar
+o snapshot central antes de baixar, pois isso deixaria consumidores sem base.
+
+Métodos: software-delivery (preparo e identidades), vue3-engineering (proxy do
+rascunho). T049 implementa; T050 exige ensaio posterior pelo fluxo autorizado.
+
+Deny também recebe a base selecionada, por link em diretório temporário no
+layout derivado da URL RustSec. Uma política temporária acrescenta somente
+db-path via EC_DENY_DB_ROOT; preserva regras, idade e restrições de rede.
+Não altera o checkout compartilhado nem replica o banco. Referência de layout:
+`url_to_db_path` em `cargo-deny/src/advisories/helpers/db.rs`, fonte oficial
+consultada da ferramenta instalada; não há seleção de versão por esse caminho.
+
+Entrada `.codex/skills/software-delivery/SKILL.md`, SHA-256 `c7b5a1b1dc347bf6fe7b6a0d4b40fdf5f64dedbbe75e58543fe670445645fb98`, ponte `sdd/chain/software-delivery.md`, versão 1.
+
+Entrada `.codex/skills/vue3-engineering/SKILL.md`, SHA-256 `4a8a4602db93e0380421e194c865d055795334052c15d7924085edc18c4825f2`, ponte `sdd/chain/vue3-engineering.md`, versão 1.
+
+## D-29 / R-29 — configuração responsável e executores, REQ-33/34/35
+
+Consolidar em `scripts/config/automation.json` o catálogo, componentes, seleção,
+recursos, limites, ambiente e referências às políticas nativas. Um carregador
+stdlib valida o contrato e projeta plano/dados para consumidores Bash/Python.
+Políticas que pertencem a uma ferramenta permanecem no seu formato nativo,
+referenciado uma única vez; não manter cópias de cobertura/projetos CodeQL.
+Evitar um framework de plugins: manter executores existentes com responsabilidades
+distintas (Cargo host, npm host, scanners Toolbox, serviços/harnesses locais).
+
+Preparo Cargo ocorre uma vez por workspace, antes dos checks, com cache local e
+toolchain ativo. Não compilar nem testar uma cópia particular do Geiger. A fonte
+vendorizada existente permanece como histórico de trabalho, sem participação no
+gate. Recursos ausentes não são instalados implicitamente. Renovação de bancos
+fica explícita antes do scan, separada do uso offline, com mesma política de
+diagnóstico e identidade. Serviço PostgreSQL existente dedicado pode ser iniciado
+e é parado somente quando o run o iniciou; não criar/substituir imagens ou volumes.
+
+Riscos: mudança de ferramenta Geiger reexpõe limitações nativas; não ocultá-las.
+Preparo não pode declarar check aprovado nem misturar resoluções sem registrar.
+Configuração não deve executar shell interpolado, aceitar chaves desconhecidas,
+perder dependências ou transportar ambiente arbitrário. Falha de limpeza reprova.
+Relatórios preservados podem conter dados privados: manter modos 0700/0600 e
+redação dos scanners de segredos antes de exportar.
+
+Métodos já lidos: software-design (primária, responsabilidades e consumidores) e
+software-delivery (auxiliar, recursos e proveniência), pontes versão 1. Sem
+delegação. T051–T054 separam mudança, inspeção e evidência executada.
+
+Após esclarecimento, todos os browsers passam para Docker. A Toolbox externa
+recebe `exec --browser`: escolhe a variante registrada compatível com a versão
+ativa, sem mudar o ponteiro global ou baixar imagens. Uma variante ausente ou
+ambígua bloqueia. O harness real compartilha oráculos entre Chromium/Firefox;
+Playwright e servidor/proxy do build estão no container, com rede host explícita
+para os serviços loopback. Controle por arquivos privados evita publicar um
+endpoint de automação. Credenciais/IPC/downloads são temporários; somente relatório
+sanitizado e identidade do browser permanecem. A imagem Chromium foi observada;
+Firefox não foi baixado. Método auxiliar lido: frontend-testing, ponte versão 1.
+Risco adicional: mudanças de viewport/foco e driver exigem reexecução real, não
+reaproveitamento da aprovação histórica do Firefox/Marionette.
+
+
+## D-30/R-30 — qualidade dos gates e triagem autorizada, 12/11/2026
+
+Aplicar REQ-36/37/38 por validação compartilhada SARIF, diagnóstico do extrator,
+grafo resolvido no plugin instalado e triagem Bandit no JSON canônico. Rejeitar
+baseline genérica, nosec, limiar reduzido e sucesso apenas por exit/arquivo citado.
+Riscos: falso verde sem semântica, arestas omitidas e revisão reaproveitada após
+mudança. Oráculos: casos negativos independentes, motores reais e suíte final.
+Métodos: software-delivery primária; application-security para triagem/negações;
+rust para o grafo do plugin. Pontes versão 1; sem delegação.
+- `.codex/skills/software-delivery/SKILL.md`: SHA-256 `c7b5a1b1dc347bf6fe7b6a0d4b40fdf5f64dedbbe75e58543fe670445645fb98`.
+- `.codex/skills/application-security/SKILL.md`: SHA-256 `3cc0f13461e849cf31e43db95ba3cbcf004881f0b7ade8e7f3dd7cd03d5f884f`.
+- `.codex/skills/rust/SKILL.md`: SHA-256 `d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a`.
+
+
+## D-31/R-31 — ampliação coerente de cobertura, REQ-39–42
+
+Manter catálogo/seleção/alvos no automation.json e cada política no formato nativo
+já referenciado. Packs externos são dados de regras com licença e proveniência,
+não perfis alternativos. O Ec define cobertura e aprovação; Toolbox mantém
+runtimes/imagens e sua configuração única. Não atualizar versões por inferência.
+
+Ativar conjuntos completos suportados, preservando os diagnósticos e a rejeição
+de execução parcial. Ruff inclui preview; Clippy usa all/pedantic/nursery/cargo,
+sem restriction em bloco, que a documentação declara contraditório. A ampliação
+pode revelar achados; não corrigi-los ou dispensá-los automaticamente. Histórico
+Git e dotenv permanecem privados e redigidos. Imagens são informadas pelo operador,
+exportadas por identidade e lidas sem socket Docker no scanner.
+
+Software-delivery continua primária e application-security auxilia limites de
+segredos, proveniência e rejeições; entradas e hashes já registrados em D-30
+foram relidos. Sem delegação. O usuário autorizou o download dos catálogos e
+indicou a instalação shared-toolbox em dev_audit. Seletores públicos de imagens
+usam a mesma autoridade de exec; os IDs resolvidos são evidência de cada execução,
+não uma cópia dos ponteiros na configuração Ec. A execução foi autorizada na retomada e concluída com resultados
+reprovados preservados; não houve promoção a aprovação de segurança.
+
+Questão auxiliar de preservação de saídas extensas: tool-output-engineering,
+entrada efetiva .codex/skills/tool-output-engineering/SKILL.md, SHA-256
+7a90694410e0313a1993b4ed5eeeab85d9ad6f089322ef9f95879d53c47af26e.
+Ponte SHA-256 1572d4815e84baebcb55c9b0ab7077d73586d3cccae6cb2aba00202b8abaacfa.
+Aplicação: preservar recibos/bytes/exit por arquivo sem ARG_MAX, pares de
+metadados YARA sem perda e descartes Grype como pendências, sem promover
+saída desconhecida a aprovação. Referências de formatos/fallback e avaliações
+foram lidas; não há alegação de economia de tokens nem execução de avaliação
+de seleção de agentes. Regressões reais/simuladas são distinguidas. Sem delegação.
+
+
+## D-33/R-33 — somente Ec, 13/11/2026
+
+Instrução vigente retira qualquer auditoria da Toolbox do consumidor. Remover
+inputs.images, exportação/resolução e ramos de análise de imagens; conservar
+filesystem Ec, os três locks, regras, severidades e controles de integridade.
+Não criar toggle ou configuração alternativa. T069 implementa; T070 valida
+regressões e scans Ec pelo runner autorizado. A disponibilidade e identidade
+dos executores continuam sendo pré-requisitos operacionais. Não executar testes
+ou reconstruções da plataforma externa. Registros anteriores permanecem históricos.
+
+Método: software-delivery primária (fronteira consumidor/ferramenta),
+application-security auxiliar (preservar detecção Ec e rejeições). Pontes versão 1;
+entradas efetivas e SHA-256 em scope-ec-only-method.json no relatório da reparação.

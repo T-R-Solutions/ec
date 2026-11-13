@@ -1,0 +1,2561 @@
+{
+  "schema": 1,
+  "components": {
+    "server": {
+      "root": "application/server/backend",
+      "lockfile": "application/server/backend/Cargo.lock",
+      "language": "rust",
+      "suite": "scripts/rules/codeql/codeql-rust.qls"
+    },
+    "agent": {
+      "root": "application/agents",
+      "lockfile": "application/agents/Cargo.lock",
+      "language": "rust",
+      "suite": "scripts/rules/codeql/codeql-rust.qls"
+    },
+    "frontend": {
+      "root": "application/server/frontend",
+      "lockfile": "application/server/frontend/package-lock.json",
+      "language": "javascript-typescript",
+      "suite": "scripts/rules/codeql/codeql.qls"
+    }
+  },
+  "policies": {
+    "cargo-deny": "scripts/config/native/cargo-deny/deny.toml",
+    "cargo-audit": "scripts/config/native/cargo-audit/audit.toml",
+    "ruff": "scripts/config/native/ruff/ruff.toml",
+    "shellcheck": "scripts/config/native/shellcheck/shellcheckrc",
+    "bandit": "scripts/config/native/bandit/bandit.yaml",
+    "gitleaks": "scripts/config/native/gitleaks/gitleaks.toml",
+    "grype": "scripts/config/native/grype/grype.yaml",
+    "osv-scanner": "scripts/config/native/osv-scanner/osv-scanner.toml",
+    "trivy": "scripts/config/native/trivy/trivy.yaml",
+    "playwright": "scripts/config/native/playwright/playwright.config.mjs",
+    "opengrep": "scripts/rules/opengrep",
+    "yara-x": "scripts/rules/yara-x/ec.yar",
+    "syft": "scripts/config/native/syft/syft.yaml",
+    "clippy": "scripts/config/native/clippy/clippy.toml"
+  },
+  "tools": {
+    "machete": {
+      "executor": "cargo"
+    },
+    "deny": {
+      "executor": "cargo"
+    },
+    "audit": {
+      "executor": "cargo"
+    },
+    "geiger": {
+      "executor": "cargo"
+    },
+    "llvm-cov": {
+      "executor": "cargo"
+    },
+    "ruff": {
+      "executor": "toolbox"
+    },
+    "shellcheck": {
+      "executor": "toolbox"
+    },
+    "bandit": {
+      "executor": "toolbox",
+      "triage": {
+        "application/integration/tests/e2e/frontend_browser.py": {
+          "sha256": "0c42f00345883e91a2b51035af3a3d2995b3a2c5c9b8d5742fe8705eeea6beca",
+          "rules": [
+            {
+              "id": "B101",
+              "lines": [
+                142,
+                144,
+                145,
+                148,
+                149,
+                150,
+                151,
+                153,
+                202,
+                205,
+                220,
+                227,
+                242,
+                259,
+                261,
+                284,
+                289,
+                290,
+                301,
+                303,
+                315,
+                317,
+                334,
+                342,
+                354,
+                357,
+                367,
+                372,
+                385,
+                407,
+                447,
+                450,
+                459,
+                460,
+                472,
+                474,
+                476,
+                484,
+                488,
+                497,
+                503,
+                504,
+                520,
+                522,
+                524
+              ],
+              "reason": "Oráculo dos harnesses de integração/E2E. settings.py, importado direta ou transitivamente por publication_http, rejeita Python otimizado antes dos serviços; a regressão cobre -O. Não é decisão de autorização de produção."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                11
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                52,
+                86,
+                88,
+                89,
+                104,
+                279,
+                431,
+                558
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                52,
+                86,
+                88,
+                89,
+                104,
+                558
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "application/integration/tests/integration/agent_http.py": {
+          "sha256": "42ab1b9033be9d5bc8fbad5bebf530c5aacd23ce8145645ce9a04b6ad52dbeb2",
+          "rules": [
+            {
+              "id": "B101",
+              "lines": [
+                44,
+                156,
+                158,
+                159,
+                160,
+                171,
+                174,
+                175,
+                176,
+                177,
+                178,
+                206,
+                207,
+                215,
+                216,
+                226,
+                245,
+                254,
+                281,
+                306,
+                327,
+                329,
+                343,
+                345,
+                365,
+                381,
+                383,
+                384,
+                405,
+                407,
+                408,
+                409,
+                410,
+                412,
+                419,
+                420,
+                421,
+                422,
+                429,
+                430,
+                440,
+                444,
+                445,
+                449,
+                450,
+                457,
+                461,
+                462,
+                463,
+                464,
+                465
+              ],
+              "reason": "Oráculo dos harnesses de integração/E2E. settings.py, importado direta ou transitivamente por publication_http, rejeita Python otimizado antes dos serviços; a regressão cobre -O. Não é decisão de autorização de produção."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                33,
+                54,
+                58,
+                59,
+                74,
+                145,
+                478
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                33,
+                54,
+                58,
+                59,
+                74,
+                478
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "application/integration/tests/integration/orchestration_http.py": {
+          "sha256": "ecb7d7d7ad47f98e2d425da935f05e3d63f06fdcc05140ee47abbb00e4276ca7",
+          "rules": [
+            {
+              "id": "B101",
+              "lines": [
+                22,
+                58,
+                107,
+                124,
+                175,
+                179,
+                185,
+                232,
+                258,
+                272,
+                273,
+                309,
+                314,
+                315,
+                316,
+                320,
+                322,
+                339,
+                340,
+                341,
+                343,
+                344,
+                353,
+                362,
+                363,
+                370,
+                372,
+                373,
+                377,
+                381,
+                386,
+                393,
+                394,
+                395,
+                398,
+                399,
+                400,
+                404,
+                405,
+                411,
+                412,
+                413,
+                414,
+                415,
+                432,
+                433,
+                434,
+                436,
+                439,
+                440,
+                445,
+                446,
+                448,
+                452,
+                466,
+                467,
+                468,
+                469,
+                470,
+                477,
+                478,
+                479,
+                480,
+                481,
+                486,
+                488,
+                494,
+                504,
+                514,
+                515,
+                516,
+                518,
+                519,
+                522,
+                523,
+                526,
+                527,
+                528,
+                536,
+                537,
+                563,
+                564,
+                572,
+                587,
+                590,
+                594,
+                600,
+                602,
+                603,
+                613,
+                615,
+                616,
+                623,
+                627,
+                628,
+                630,
+                640,
+                641
+              ],
+              "reason": "Oráculo dos harnesses de integração/E2E. settings.py, importado direta ou transitivamente por publication_http, rejeita Python otimizado antes dos serviços; a regressão cobre -O. Não é decisão de autorização de produção."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                9
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                84,
+                138,
+                197,
+                198,
+                214,
+                281,
+                297,
+                660
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                84,
+                138,
+                197,
+                198,
+                214,
+                281,
+                297,
+                660
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "application/integration/tests/integration/publication_http.py": {
+          "sha256": "a307edd8d9c089bf404baed10eeb96966be397db2be72b0dd62656f217a8835b",
+          "rules": [
+            {
+              "id": "B101",
+              "lines": [
+                97,
+                102,
+                105,
+                146,
+                148,
+                158,
+                159,
+                176,
+                218,
+                219,
+                220,
+                222,
+                223,
+                224,
+                237,
+                238,
+                239,
+                244,
+                245,
+                252,
+                257,
+                259,
+                260,
+                261,
+                262,
+                264,
+                265,
+                266,
+                267,
+                270,
+                271,
+                272,
+                294,
+                295,
+                310,
+                315,
+                316,
+                317,
+                322,
+                326,
+                329,
+                330,
+                334,
+                338,
+                340,
+                341,
+                346,
+                350,
+                351,
+                357,
+                358,
+                359,
+                360,
+                361,
+                366
+              ],
+              "reason": "Oráculo dos harnesses de integração/E2E. settings.py, importado direta ou transitivamente por publication_http, rejeita Python otimizado antes dos serviços; a regressão cobre -O. Não é decisão de autorização de produção."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                10
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                52,
+                76,
+                118,
+                152,
+                183,
+                184,
+                200,
+                275,
+                380
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                52,
+                152,
+                183,
+                184,
+                200,
+                275,
+                380
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "scripts/local-state.py": {
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "rules": [
+            {
+              "id": "B108",
+              "lines": [
+                48
+              ],
+              "reason": "Namespace /tmp derivado de UID/hash. local-state.py abre ancestrais com O_NOFOLLOW e exige dono/modo 0700; o teste usa o mesmo namespace e remove sua fixture. Não é um arquivo temporário aberto por nome inseguro."
+            },
+            {
+              "id": "B110",
+              "lines": [
+                36
+              ],
+              "reason": "FileExistsError é seguido por validação de dono/modo usando descritor sem seguir links; a existência não constitui aceite."
+            }
+          ]
+        },
+        "scripts/tests/test_automation_config.py": {
+          "sha256": "7223b4eb52badf17327d656ba41573b68b788ed9d27348a6f5be26ff2e24dd38",
+          "rules": [
+            {
+              "id": "B104",
+              "lines": [
+                361
+              ],
+              "reason": "Bind 0.0.0.0 existe somente no dicionário fixture para comprovar que inspect_postgres rejeita a configuração antes de iniciar o container; não abre socket."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                31
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "scripts/tests/test_browser_driver.py": {
+          "sha256": "694648991a0e974960255f965bc86071328e86cf9667c536d126106bf99c08b7",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                129
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "scripts/tests/test_consumer.py": {
+          "sha256": "a2e224cde0c575c3a3d4ce2d6aabd3e92ee5e6191f6080e6edbf319a7248af10",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                4
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                26,
+                85,
+                97,
+                124
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                26,
+                124
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "scripts/tests/test_environment.py": {
+          "sha256": "3ee62df1b970624e4dafff26496cb5927039d72e6077e05e9649b029b14cdea2",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                4
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                38,
+                155,
+                172
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "scripts/tests/test_native.py": {
+          "sha256": "f687ed9dc1ae1791c4f0fae0045765a6542455cc8f753b2ee4a2d2fc85b127ea",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                10
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                314,
+                383,
+                721,
+                888,
+                926,
+                976
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                383
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "scripts/tests/test_quality.py": {
+          "sha256": "a9091047824bf9a9a16bb524d60b65bf7b6d2cc007cbed831cc30b70aba96f2c",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                36,
+                56,
+                221,
+                335
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                36,
+                56,
+                335
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "scripts/tests/test_runtime_coverage.py": {
+          "sha256": "e705fccac091c6d30ff4b8e8feac548d730892cef032bc8f0bf6012c714f4689",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            }
+          ]
+        },
+        "scripts/tests/test_shell.py": {
+          "sha256": "d506f3a443accc488d2b626499659ae05d80badbc6f7fd302bf3a0cf4f4917f9",
+          "rules": [
+            {
+              "id": "B105",
+              "lines": [
+                428
+              ],
+              "reason": "Marcador literal de redação \"***\" em fixture do parser Gitleaks; representa saída já redigida, não credencial. O teste compara consistência entre relatório e exit e não autentica em serviço."
+            },
+            {
+              "id": "B108",
+              "lines": [
+                33
+              ],
+              "reason": "Namespace /tmp derivado de UID/hash. local-state.py abre ancestrais com O_NOFOLLOW e exige dono/modo 0700; o teste usa o mesmo namespace e remove sua fixture. Não é um arquivo temporário aberto por nome inseguro."
+            },
+            {
+              "id": "B110",
+              "lines": [
+                393
+              ],
+              "reason": "ProcessLookupError na limpeza de fixture significa processo já encerrado; outras falhas não são ocultadas."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                11
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                40,
+                76,
+                328
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                40,
+                76,
+                328
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "sdd/tools/validate.py": {
+          "sha256": "90d45cc142d138abd994c755d808f8d83e0cc456b2b9d6d41607fa9762255486",
+          "rules": [
+            {
+              "id": "B110",
+              "lines": [
+                167
+              ],
+              "reason": "ValueError já é registrado por trace_errors no mesmo fluxo; este bloco evita duplicar o diagnóstico e não aprova o caminho inválido."
+            }
+          ]
+        },
+        "tools/governance/tests/test_governance.py": {
+          "sha256": "0ca7a02cf852e823e49ebd523bd21fe4870c87c09d93c13b31bfbd843bb56b1b",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                284,
+                304,
+                360
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                292,
+                319,
+                374
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "tools/quality/automation_config.py": {
+          "sha256": "5d92a2fc3324005be06f7bc00bcaf1c12d4fd69c7a2e13135c85e02e4d0e6bd8",
+          "rules": [
+            {
+              "id": "B112",
+              "lines": [
+                713
+              ],
+              "reason": "Raiz opcional ausente é ignorada; erro de acesso/tipo não é capturado como ausência. Gates preservam a exigência dos componentes/locks obrigatórios."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                16
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                584
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "tools/quality/codeql_rust.py": {
+          "sha256": "909d4365ba54235855eaa41ee0b311f4364afc0808a8c70d83256b3920f5b1ce",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                7
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                56
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "tools/quality/collect_runtime_coverage.py": {
+          "sha256": "a2146f35c4ac1dee79dcf8aeb115fdbf52f53bc50b1577406b286ddad1355ab6",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                70,
+                82,
+                106,
+                132
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                132
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "tools/quality/native_gates.py": {
+          "sha256": "393fe5d993469dc20c5c3f0793b36d89217d258c49c92bbaa87e84d9b2059f87",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                15
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                639,
+                746,
+                1334
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                746,
+                1334
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "tools/quality/prepare_automation.py": {
+          "sha256": "1648e1a6e51a2bc62c142e6d704b4649d5cb4f08b3b9c826f0fbf20807001def",
+          "rules": [
+            {
+              "id": "B112",
+              "lines": [
+                110
+              ],
+              "reason": "Instalação LLVM auxiliar quebrada pode ser ignorada em favor de outra com release/commit/host/LLVM idênticos. Falta de candidato compatível bloqueia; regressão exerce essa distinção."
+            },
+            {
+              "id": "B404",
+              "lines": [
+                9
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                27
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            }
+          ]
+        },
+        "tools/quality/secret_history.py": {
+          "sha256": "0c62c8871c762674cc46b36c67eb03fabede9bf24a88f792045ae08daa581552",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                6
+              ],
+              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                26
+              ],
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+            },
+            {
+              "id": "B607",
+              "lines": [
+                26
+              ],
+              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        }
+      }
+    },
+    "gitleaks": {
+      "executor": "toolbox",
+      "decode_depth": 64,
+      "triage": {
+        "scripts/rules/yara-x/catalogs/Neo23x0-signature-base/yara/apt_dubnium.yar": {
+          "sha256": "f22ee3d864f1a7a0c2a3252e36e6fc66f2f628ff1bc9a6c551380b7776350fff",
+          "rules": [
+            {
+              "id": "generic-api-key",
+              "lines": [
+                20,
+                21
+              ],
+              "reason": "Indicador público literal do catálogo YARA importado e conferido por tree hash; não é credencial Ec. Revisão limitada ao conteúdo e à ocorrência na árvore atual, sem autorização para histórico."
+            }
+          ]
+        },
+        "scripts/rules/yara-x/catalogs/Neo23x0-signature-base/yara/apt_turla_neuron.yar": {
+          "sha256": "322b7dba621c03f3ae1aa5b336cdd974fd9a4ec4bc914909719a82b3ac2ca21b",
+          "rules": [
+            {
+              "id": "generic-api-key",
+              "lines": [
+                23,
+                24,
+                27
+              ],
+              "reason": "Indicador público literal do catálogo YARA importado e conferido por tree hash; não é credencial Ec. Revisão limitada ao conteúdo e à ocorrência na árvore atual, sem autorização para histórico."
+            }
+          ]
+        },
+        "scripts/rules/yara-x/catalogs/Neo23x0-signature-base/yara/configured_vulns_ext_vars.yar": {
+          "sha256": "6f0c7837baa9b7b81d06fc857e9ed58a1a885b61ce8b2efec1b19413392e21a3",
+          "rules": [
+            {
+              "id": "private-key",
+              "lines": [
+                109,
+                121,
+                182,
+                194
+              ],
+              "reason": "Indicador público literal do catálogo YARA importado e conferido por tree hash; não é credencial Ec. Revisão limitada ao conteúdo e à ocorrência na árvore atual, sem autorização para histórico."
+            }
+          ]
+        },
+        "scripts/rules/yara-x/catalogs/Neo23x0-signature-base/yara/gen_empire.yar": {
+          "sha256": "0b96f2718369ba56d1c302db218938fafc0dc1053ec35f369f5516b5f372039b",
+          "rules": [
+            {
+              "id": "generic-api-key",
+              "lines": [
+                549
+              ],
+              "reason": "Indicador público literal do catálogo YARA importado e conferido por tree hash; não é credencial Ec. Revisão limitada ao conteúdo e à ocorrência na árvore atual, sem autorização para histórico."
+            }
+          ]
+        }
+      }
+    },
+    "grype": {
+      "executor": "toolbox",
+      "timeout": 1800
+    },
+    "osv-scanner": {
+      "executor": "toolbox"
+    },
+    "trivy": {
+      "executor": "toolbox",
+      "timeout": 1800
+    },
+    "playwright": {
+      "executor": "toolbox"
+    },
+    "opengrep": {
+      "executor": "toolbox",
+      "timeout": 3600,
+      "catalogs": [
+        {
+          "repository": "elttam/semgrep-rules",
+          "revision": "244268562cc92d33f54b8a60a187df5520f91b26",
+          "license": "MIT",
+          "archive_sha256": "4a1c064f24391ec8423e53b9d423c5ba2cdedd5b481a0c73237ca32d6cd9d748",
+          "root": "scripts/rules/opengrep/catalogs/elttam-semgrep-rules",
+          "tree_sha256": "f10c75ac2d4df1b5ed2141cd2d45a5393f66b4c76a0995ca3004c7913ff3cec0",
+          "file_count": 30
+        },
+        {
+          "repository": "trailofbits/semgrep-rules",
+          "revision": "31390b3a99c04c81522d1b37c8d1900aa2dd4094",
+          "license": "AGPL-3.0",
+          "archive_sha256": "d581db6374b32e63509daf569798e7ccad7d40375a5058a85c21033598ec73d8",
+          "root": "scripts/rules/opengrep/catalogs/trailofbits-semgrep-rules",
+          "tree_sha256": "8e9de9a1a13529e0ac261c9c1f79b0eb59f2e2030695bc5aa28397e38b55c5d2",
+          "file_count": 73
+        },
+        {
+          "repository": "ajinabraham/njsscan",
+          "revision": "7cf982f07d1b04f32951b532e296b705ba370a46",
+          "license": "LGPL-3.0",
+          "archive_sha256": "db42b5e96642bf7d1e12737720a0899f54ed7372ca67cbf657c896aef27058bf",
+          "root": "scripts/rules/opengrep/catalogs/ajinabraham-njsscan",
+          "tree_sha256": "748468c07cd632ecb9a83071cdeb33d32e08f7a8adcf8840fa4c097c83932cc1",
+          "file_count": 69
+        }
+      ]
+    },
+    "syft": {
+      "executor": "toolbox",
+      "timeout": 1800
+    },
+    "yara-x": {
+      "executor": "toolbox",
+      "catalogs": [
+        {
+          "repository": "Neo23x0/signature-base",
+          "revision": "de3c7252c22b3376352b5a68defa46459a12a693",
+          "license": "DRL-1.1",
+          "archive_sha256": "cf95ae1f0e51235d0eb7a4231559808ed49e23c4b0d0ac078a68ba290302fde0",
+          "root": "scripts/rules/yara-x/catalogs/Neo23x0-signature-base",
+          "tree_sha256": "e4453bc3d0b1003191be174d7e14c861f904a8888bd94b5b9cb8c56a4bec181c",
+          "file_count": 755
+        }
+      ],
+      "timeout": 1800
+    },
+    "codeql": {
+      "executor": "toolbox",
+      "timeout": 1800,
+      "additional_projects": [
+        {
+          "name": "tooling",
+          "source": ".",
+          "language": "python",
+          "suite": "scripts/rules/codeql/codeql-python.qls"
+        }
+      ]
+    }
+  },
+  "selection": {
+    "surfaces": [
+      "docs",
+      "scripts",
+      "server",
+      "agent",
+      "frontend",
+      "security",
+      "integration",
+      "e2e"
+    ],
+    "explicit_surface": [
+      "coverage"
+    ],
+    "mandatory": [
+      "docs"
+    ]
+  },
+  "runtime": {
+    "task_timeout": 900,
+    "native_timeout": 600,
+    "probe_timeout": 15,
+    "cleanup_timeout": 120,
+    "log_bytes": 8388608,
+    "native_log_bytes": 134217728,
+    "geiger_stack_bytes": 16777216,
+    "json_bytes": 134217728
+  },
+  "environment": {
+    "defaults": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "NO_COLOR": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "RUSTUP_AUTO_INSTALL": "0",
+      "CARGO_NET_OFFLINE": "true",
+      "npm_config_offline": "true",
+      "npm_config_update_notifier": "false",
+      "TOOLBOX_SELINUX_LABEL": "shared",
+      "EC_TRIVY_REFRESH": "1",
+      "EC_GRYPE_REFRESH": "1"
+    },
+    "forward": [
+      "DOCKER_HOST",
+      "DOCKER_CONTEXT",
+      "DOCKER_CONFIG",
+      "DOCKER_TLS_VERIFY",
+      "DOCKER_CERT_PATH"
+    ]
+  },
+  "discovery": {
+    "toolbox": [
+      "{parent}/shared-toolbox/bin/toolbox",
+      "{parent}/dev_audit/shared-toolbox/bin/toolbox",
+      "{home}/.local/bin/toolbox"
+    ],
+    "rustsec": [
+      "{cargo_home}/advisory-db",
+      "{cargo_home}/advisory-dbs/*",
+      "{parent}/ox/.cache/ox/security/generations/*/rustsec"
+    ]
+  },
+  "databases": {
+    "rustsec": {
+      "maximum_age_seconds": 604800,
+      "url": "https://github.com/RustSec/advisory-db",
+      "deny_directory": "advisory-db-3157b0e258782691"
+    },
+    "scanners": {
+      "maximum_age_seconds": 86400
+    }
+  },
+  "coverage": {
+    "format": "lcov",
+    "minimum": {
+      "lines": 80
+    }
+  },
+  "services": {
+    "postgres": {
+      "container": "ec-publication-test",
+      "host": "127.0.0.1",
+      "port": 55439,
+      "container_port": 5432,
+      "user": "postgres",
+      "start_existing": true,
+      "ready_timeout": 30
+    },
+    "http": {
+      "host": "127.0.0.1",
+      "port": 58139
+    },
+    "frontend": {
+      "port": 5173
+    }
+  },
+  "inputs": {
+    "roots": [
+      "application",
+      "scripts",
+      "tools",
+      "sdd",
+      "config",
+      "docs/development"
+    ],
+    "files": [
+      "AGENTS.md",
+      "README.md"
+    ],
+    "exclude_names": [
+      ".git",
+      ".local",
+      ".codex",
+      ".agents",
+      ".aws",
+      "node_modules",
+      "target",
+      "dist",
+      "__pycache__",
+      ".venv",
+      "venv",
+      ".pytest_cache",
+      ".mypy_cache",
+      ".ruff_cache",
+      ".coverage",
+      ".coverage.*",
+      "coverage",
+      "htmlcov",
+      ".vitest",
+      ".nyc_output",
+      "playwright-report",
+      "test-results",
+      "blob-report",
+      ".pnpm-store",
+      ".npm",
+      ".vite",
+      ".vite-temp",
+      ".vite-inspect",
+      ".idea",
+      ".history",
+      "*.py[cod]",
+      "*.rs.bk",
+      "*.pdb",
+      "*.tsbuildinfo",
+      "vite.config.*.timestamp-*",
+      "*.profraw",
+      "*.profdata",
+      "*.gcda",
+      "*.gcno",
+      "*.tmp",
+      "*.temp",
+      "*.swp",
+      "*.swo",
+      "*~",
+      "*.bak",
+      "*.orig",
+      "*.rej",
+      ".DS_Store",
+      "Thumbs.db",
+      "Desktop.ini",
+      "npm-debug.log*",
+      "yarn-debug.log*",
+      "yarn-error.log*",
+      "pnpm-debug.log*",
+      "lerna-debug.log*"
+    ],
+    "exclude_paths": [
+      "config/governance/sources",
+      "config/governance/install.lock",
+      "config/governance/install-journal.json",
+      "tools/quality/vendor/cargo-geiger",
+      "application/.ec",
+      "application/server/frontend/dist-ssr",
+      "application/server/frontend/.cache",
+      "application/server/frontend/.eslintcache",
+      "application/server/frontend/.stylelintcache",
+      "application/server/frontend/.yarn/cache",
+      "application/server/frontend/.yarn/unplugged",
+      "application/server/frontend/.yarn/build-state.yml",
+      "application/server/frontend/.yarn/install-state.gz",
+      "application/server/frontend/.pnp.cjs",
+      "application/server/frontend/.pnp.loader.mjs"
+    ],
+    "python_roots": [
+      "scripts",
+      "tools",
+      "sdd/tools",
+      "application/integration/tests"
+    ],
+    "sast_extensions": [
+      ".rs",
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
+      ".mjs",
+      ".cjs",
+      ".vue",
+      ".py",
+      ".sh",
+      ".bash",
+      ".yml",
+      ".yaml",
+      ".json",
+      ".toml",
+      ".html",
+      ".css",
+      ".sql",
+      ".tf",
+      ".tfvars",
+      ".hcl"
+    ],
+    "root_patterns": [
+      ".env",
+      ".env.*"
+    ]
+  },
+  "tasks": [
+    {
+      "project": "docs",
+      "name": "governance",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "tools/governance/validate.py"
+      ],
+      "depends": [],
+      "surfaces": [
+        "docs"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "docs",
+      "name": "installed",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "tools/governance/validate.py",
+        "--require-installed"
+      ],
+      "depends": [],
+      "surfaces": [
+        "docs"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "docs",
+      "name": "skills",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "tools/governance/install_skills.py",
+        "--check"
+      ],
+      "depends": [],
+      "surfaces": [
+        "docs"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "docs",
+      "name": "sdd",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "sdd/tools/validate.py",
+        "--root",
+        "."
+      ],
+      "depends": [],
+      "surfaces": [
+        "docs"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "docs",
+      "name": "governance-tests",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/governance/tests",
+        "-v"
+      ],
+      "depends": [],
+      "surfaces": [
+        "docs"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "scripts",
+      "name": "syntax",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/check.sh"
+      ],
+      "depends": [],
+      "surfaces": [
+        "scripts"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "scripts",
+      "name": "shellcheck",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "shellcheck"
+      ],
+      "depends": [],
+      "surfaces": [
+        "scripts"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "shellcheck"
+    },
+    {
+      "project": "scripts",
+      "name": "ruff",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "ruff"
+      ],
+      "depends": [],
+      "surfaces": [
+        "scripts"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "ruff"
+    },
+    {
+      "project": "scripts",
+      "name": "tests",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "depends": [],
+      "surfaces": [
+        "scripts"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "prepare",
+      "name": "server-cargo",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "{code}/tools/quality/prepare_automation.py",
+        "cargo",
+        "server"
+      ],
+      "depends": [],
+      "surfaces": [],
+      "modes": [
+        "dependency"
+      ]
+    },
+    {
+      "project": "prepare",
+      "name": "agent-cargo",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "{code}/tools/quality/prepare_automation.py",
+        "cargo",
+        "agent"
+      ],
+      "depends": [],
+      "surfaces": [],
+      "modes": [
+        "dependency"
+      ]
+    },
+    {
+      "project": "prepare",
+      "name": "rustsec",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "{code}/tools/quality/prepare_automation.py",
+        "rustsec"
+      ],
+      "depends": [],
+      "surfaces": [],
+      "modes": [
+        "dependency"
+      ]
+    },
+    {
+      "project": "prepare",
+      "name": "postgres",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "{code}/tools/quality/prepare_automation.py",
+        "postgres"
+      ],
+      "depends": [],
+      "surfaces": [],
+      "modes": [
+        "dependency"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "fmt",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "fmt"
+      ],
+      "depends": [],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "check",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "check"
+      ],
+      "depends": [
+        "prepare:server-cargo"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "clippy",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "clippy"
+      ],
+      "depends": [
+        "prepare:server-cargo"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "test",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "test"
+      ],
+      "depends": [
+        "prepare:server-cargo"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "machete",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "machete"
+      ],
+      "depends": [],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "deny",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "deny"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:rustsec"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "audit",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "audit"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:rustsec"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "geiger",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "geiger"
+      ],
+      "depends": [
+        "prepare:server-cargo"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "coverage",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "coverage"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:agent-cargo",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "server",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "server",
+      "name": "harness-build",
+      "cwd": "@server",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "harness-build"
+      ],
+      "depends": [
+        "prepare:server-cargo"
+      ],
+      "surfaces": [
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "fmt",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "fmt"
+      ],
+      "depends": [],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "check",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "check"
+      ],
+      "depends": [
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "clippy",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "clippy"
+      ],
+      "depends": [
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "test",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "test"
+      ],
+      "depends": [
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "machete",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "machete"
+      ],
+      "depends": [],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "deny",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "deny"
+      ],
+      "depends": [
+        "prepare:agent-cargo",
+        "prepare:rustsec"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "audit",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "audit"
+      ],
+      "depends": [
+        "prepare:agent-cargo",
+        "prepare:rustsec"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "geiger",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "geiger"
+      ],
+      "depends": [
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "coverage",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "coverage"
+      ],
+      "depends": [
+        "prepare:agent-cargo",
+        "prepare:server-cargo",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "agent",
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "agent",
+      "name": "harness-build",
+      "cwd": "@agent",
+      "executor": "cargo",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/rust/check.sh",
+        "harness-build"
+      ],
+      "depends": [
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "integration",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "typecheck",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "typecheck"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "test",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "test"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "build",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "build"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "coverage",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "coverage"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "lint",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "lint"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "manual"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "build-budget",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "build-budget"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "manual"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "performance",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "performance"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "manual"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "dev",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "dev"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "manual"
+      ]
+    },
+    {
+      "project": "frontend",
+      "name": "setup",
+      "cwd": "@frontend",
+      "executor": "host",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/frontend/check.sh",
+        "setup"
+      ],
+      "depends": [],
+      "surfaces": [
+        "frontend",
+        "e2e"
+      ],
+      "modes": [
+        "manual"
+      ]
+    },
+    {
+      "project": "security",
+      "name": "secrets-rules",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "secrets-rules"
+      ],
+      "depends": [],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "gitleaks"
+    },
+    {
+      "project": "security",
+      "name": "secrets",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "secrets"
+      ],
+      "depends": [
+        "security:secrets-rules"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "gitleaks"
+    },
+    {
+      "project": "security",
+      "name": "sast-rules",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "sast-rules"
+      ],
+      "depends": [],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "opengrep"
+    },
+    {
+      "project": "security",
+      "name": "sast",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "sast"
+      ],
+      "depends": [
+        "security:sast-rules"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "opengrep",
+      "timeout": 4200
+    },
+    {
+      "project": "security",
+      "name": "dependencies",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "dependencies"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "osv-scanner"
+    },
+    {
+      "project": "security",
+      "name": "trivy",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "trivy"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "timeout": 7200,
+      "tool": "trivy"
+    },
+    {
+      "project": "security",
+      "name": "codeql",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "codeql"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "timeout": 14400,
+      "tool": "codeql"
+    },
+    {
+      "project": "security",
+      "name": "grype",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "grype"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "complete"
+      ],
+      "tool": "grype",
+      "timeout": 7200
+    },
+    {
+      "project": "security",
+      "name": "bandit",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "bandit"
+      ],
+      "depends": [],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "complete"
+      ],
+      "tool": "bandit"
+    },
+    {
+      "project": "security",
+      "name": "syft",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "syft"
+      ],
+      "depends": [
+        "prepare:server-cargo",
+        "prepare:agent-cargo"
+      ],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "complete"
+      ],
+      "tool": "syft",
+      "timeout": 7200
+    },
+    {
+      "project": "security",
+      "name": "yara-x",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "yara-x"
+      ],
+      "depends": [],
+      "surfaces": [
+        "security"
+      ],
+      "modes": [
+        "complete"
+      ],
+      "tool": "yara-x",
+      "timeout": 7200
+    },
+    {
+      "project": "integration",
+      "name": "publication_http",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/publication_http.py"
+      ],
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "integration"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "integration",
+      "name": "orchestration_http",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/orchestration_http.py"
+      ],
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "integration"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "integration",
+      "name": "agent_http",
+      "cwd": ".",
+      "executor": "host",
+      "argv": [
+        "python3",
+        "application/integration/tests/integration/agent_http.py"
+      ],
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "integration"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ]
+    },
+    {
+      "project": "e2e",
+      "name": "playwright",
+      "cwd": ".",
+      "executor": "toolbox",
+      "argv": [
+        "bash",
+        "{code}/scripts/stacks/ec/scanner-gate.sh",
+        "playwright"
+      ],
+      "depends": [
+        "frontend:build"
+      ],
+      "surfaces": [
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "playwright"
+    },
+    {
+      "project": "e2e",
+      "name": "chromium",
+      "cwd": ".",
+      "executor": "browser",
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_browser.py",
+        "chromium"
+      ],
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "playwright"
+    },
+    {
+      "project": "e2e",
+      "name": "firefox",
+      "cwd": ".",
+      "executor": "browser",
+      "argv": [
+        "python3",
+        "application/integration/tests/e2e/frontend_browser.py",
+        "firefox"
+      ],
+      "depends": [
+        "server:harness-build",
+        "agent:harness-build",
+        "frontend:build",
+        "prepare:postgres"
+      ],
+      "surfaces": [
+        "e2e"
+      ],
+      "modes": [
+        "default",
+        "complete"
+      ],
+      "tool": "playwright"
+    }
+  ],
+  "browser": {
+    "playwright": {
+      "browser": "chromium",
+      "port": 4173,
+      "expected_tests": 2,
+      "test_timeout_ms": 30000,
+      "expect_timeout_ms": 5000,
+      "server_timeout_ms": 10000,
+      "test_directory": "application/server/frontend/tests/playwright"
+    },
+    "journey": {
+      "engines": [
+        "chromium",
+        "firefox"
+      ],
+      "network": "host",
+      "startup_timeout": 45,
+      "command_timeout": 30,
+      "config": "scripts/config/native/playwright/journey.config.mjs"
+    }
+  }
+}

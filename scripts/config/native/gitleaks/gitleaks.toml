@@ -13,3 +13,11 @@ condition = "AND"
 regexTarget = "line"
 paths = ['''(^|/)config/governance/profile\.json$''']
 regexes = ['''^\s*"(?:SKILL\.md|references/[^"\r\n]+)": "[a-f0-9]{64}",?\s*$''']
+
+# Mapas históricos arquivo -> SHA-256: não são chaves de API.
+[[rules.allowlists]]
+description = "Mapas de integridade históricos, campos e arquivos revisados"
+condition = "AND"
+regexTarget = "line"
+paths = ["(^|/)\\.local/build/tooling-remediation/probe-sast-inputs\\.json$", "(^|/)docs/validation/geiger-coverage-remediation-20261109/commit-passed-inputs\\.json$", "(^|/)docs/validation/scripts-ec-20261105/final-inputs\\.json$", "(^|/)docs/validation/scripts-security-20261105/closure-inputs\\.json$", "(^|/)docs/validation/scripts-security-20261105/source-scope\\.json$", "(^|/)docs/validation/toolbox-native-20261108/full-run-inputs-after\\.json$", "(^|/)docs/validation/toolbox-native-20261108/full-run-inputs\\.json$", "(^|/)docs/validation/toolbox-native-20261108/rounds/run-fbfcTlTR/full-run-inputs-after\\.json$", "(^|/)docs/validation/toolbox-native-20261108/rounds/run-fbfcTlTR/full-run-inputs\\.json$", "(^|/)docs/validation/toolbox-native-20261108/rounds/run-zOrKuWph/full-run-inputs-after\\.json$", "(^|/)docs/validation/toolbox-native-20261108/rounds/run-zOrKuWph/full-run-inputs\\.json$"]
+regexes = ["^\\s*\"(?:application/server/frontend/src/shared/api\\.test\\.ts|application/server/frontend/src/shared/api\\.ts|sdd/chain/api-testing\\.md|sdd/chain/ec-people-and-access-administration\\.md|sdd/chain/http-api-contracts\\.md)\": \"[a-f0-9]{64}\",?\\s*$"]

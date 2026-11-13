@@ -72,3 +72,19 @@ Mantenha este índice ao adicionar ou substituir uma referência vigente. Cada g
 A [refatoração visual enterprise](validation/documentation-enterprise-20261104/report.md) registra a revisão atual das entradas, mapas e guias, com fontes editáveis e inspeção visual local. Os registros anteriores permanecem preservados.
 
 [Verificação de tarefas](development/task-verification.md) · [Inventário de scripts](development/scripts-inventory.md)
+
+[Estado local e retenção](development/local-state.md): estrutura de `.local/`, produtores, simulação e limpeza de intermediários.
+
+
+[Skills de frontend e design](development/frontend-design-skills.md): seleção
+sob demanda e mesclagem seletiva dos métodos Ox em quatro skills existentes.
+[Análise, plano, aplicação e limites](validation/frontend-skills-20261111/report.md).
+
+## Retenção local — 11/11/2026
+
+[Política vigente](development/local-state.md): somente logs por ferramenta de
+duas datas em `.local/logs/`. Backups `previous`, `before.zip` e cópias de
+recuperação foram removidos por solicitação explícita. Citações em relatórios
+datados descrevem arquivos disponíveis naquele momento, não disponibilidade
+atual. Fontes originais canônicas permanecem nos diretórios indicados no
+[registro da limpeza](validation/local-state-20261111/report.md).

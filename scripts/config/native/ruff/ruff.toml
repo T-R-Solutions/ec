@@ -1,12 +1,25 @@
 target-version = "py311"
 line-length = 100
 respect-gitignore = false
-extend-exclude = ["**/.local", "**/.codex", "**/.agents", "**/node_modules", "**/target", "**/dist", "**/reverse_engineering_teamcity"]
+preview = false
+# O inventário canônico seleciona as fontes; não manter exclusões paralelas.
+exclude = []
 
 [lint]
-select = ["E9", "F63", "F7", "F82", "S"]
-# Exceções somente por ocorrência revisada; triagem em docs/validation/tooling-remediation-20261106.
+# Scripts stdlib/CLI e testes unittest; sem impor pytest, docstrings, anotações,
+# copyright ou pacotes tradicionais às ferramentas que usam namespaces Python.
+# Erros, imports, compatibilidade Python 3.11 e construções suspeitas continuam ativos.
+select = ["E4", "E7", "E9", "F", "I", "UP", "B", "ASYNC", "BLE", "DTZ", "G", "LOG", "PIE", "RSE", "RUF", "T10"]
+ignore = ["RUF005", "UP038"]
+# Concatenação de listas é convenção válida; não exigir unpacking (RUF005).
+# isinstance aceita tupla de tipos; UP038 foi depreciada pelo próprio Ruff.
+# Segurança Python pertence ao scan Bandit integral, com revisão vinculada a
+# hash/regra/linha em automation.json; não duplicar S sem a mesma revisão contextual.
+# O formatter cuida de layout; não há exclusões de fontes nem fixes no gate.
 
 [lint.per-file-ignores]
-# Asserts são o oráculo dos testes, não controles de autorização em produção.
-"**/tests/**/*.py" = ["S101"]
+# Entradas executáveis precisam inserir a raiz antes dos imports locais.
+"**/application/integration/tests/e2e/browser_driver.py" = ["E402"]
+"**/application/integration/tests/e2e/frontend_browser.py" = ["E402"]
+"**/application/integration/tests/settings.py" = ["E402"]
+"**/tools/governance/tests/test_governance.py" = ["E402"]

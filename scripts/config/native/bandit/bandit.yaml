@@ -1,6 +1,9 @@
-# Sem baseline, exclusões de testes ou supressões globais.
-# Python e dependências são fornecidos pela imagem Toolbox.
-# Política exigida: ignorar nosec e avaliar todas as severidades/confianças.
-# Imposta por --ignore-nosec no chamador nativo Ec.
+# Scan integral: sem baseline nativa, exclusões ou supressões.
+# A triagem por ocorrência e hash pertence a tools.bandit.triage em automation.json.
+# --ignore-nosec preserva também ocorrências documentadas no código.
 exclude_dirs: []
 skips: []
+try_except_pass:
+  check_typed_exception: true
+try_except_continue:
+  check_typed_exception: true

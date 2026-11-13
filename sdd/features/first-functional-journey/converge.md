@@ -1,3 +1,21 @@
+# Convergência — primeira jornada funcional
+
+Estado atual conforme [evidence.json](evidence.json). As observações datadas abaixo
+são históricas; suas aprovações não se transferem aos inputs atuais. Backups
+mencionados foram removidos pela política de retenção de 11/11/2026.
+
+## Dependências durante o desenvolvimento — 11/11/2026
+
+Por pedido do usuário, os onze manifests de crates Agent/Server deixam de exigir
+versões exatas de terceiros; preservam as versões mínimas e permitem atualizações
+compatíveis. Dependências internas usam somente `path`. Os locks atuais não foram
+atualizados e o congelamento para lançamento aguarda pedido posterior. Método:
+inspeção dos manifests e diff, com a skill `rust`; distinção entre resolução,
+atualização e execução orientada por `software-delivery`. Guia operacional em
+[verification-tools](../../../docs/development/verification-tools.md#dependências-rust-em-desenvolvimento).
+Nenhum download, build, teste ou script de verificação foi executado nesta tarefa;
+compatibilidade com versões futuras permanece não verificada.
+
 ## Revisão dos scripts após análise do run-oUebC3O4 — 2026-11-07
 
 Os scripts vinculados à inspeção anterior foram corrigidos; nenhum script foi
@@ -13,7 +31,7 @@ nesse diretório. As observações abaixo são históricas.
 > autorizada; nenhum resultado antigo foi reaproveitado como aprovação atual.
 > [Registro e preservação](../../../docs/validation/default-quality-20261107/report.md).
 
-# Convergência T004 — fila e tentativas
+## Observação T004 — fila e tentativas
 
 | Critério | Estado | Observação |
 | --- | --- | --- |
@@ -36,7 +54,7 @@ Relatório reproduzível: docs/development/orchestration.md e docs/validation/or
 REQ-05 → D-05/R-05 → T005 → cinco crates Agent, results, migration 003 e composição HTTP → agent_http.py com SQL/processos/arquivos independentes → docs/validation/agent-20261105/. AC-02/03/04 reobservados nas regressões atuais; alterações dos contratos anteriores não reaproveitam hashes históricos. AC-07 recebe contribuição publicação → execução real → saída persistida, mas continua UNVERIFIED por T006/T007 e rejeições completas pendentes. Gate agregado continua falhando para AC-01/06/07. Fontes, decisões, comandos e limites no relatório e guia operacional. Sem commit/tag/publicação.
 
 
-## Convergência T006 — observação atual
+## Convergência T006 — observação de 05/11/2026
 
 AC-06 APPROVED no recorte da primeira jornada: frontend executável, round-trip pelo parser/schema Rust, publicação/conflito/resposta incerta, execuções/saída/artefato reais, teclado e estados de erro no Firefox do sistema. Não constitui certificação WCAG completa ou de outros navegadores. REQ-06 → D-06/R-06 → T006 → Editor.vue, Runs.vue, stores Pinia, shared/api e extensões service.rs → frontend_firefox.py, Vitest e regressões HTTP → docs/validation/frontend-20261105/ → AC-06. AC-02/03/04/05 são reobservados nas regressões desta fatia; veja checks.json. AC-01/T001 e AC-07/T007 permanecem UNVERIFIED, aceite agregado não aprovado. As tabelas anteriores descrevem a observação histórica anterior, preservada também em previous.zip.
 
@@ -50,3 +68,11 @@ anteriores preservadas em previous.zip. A política de verificação foi central
 e somente duas skills atualizadas. Gitleaks ausente bloqueia o aceite agregado da
 verificação; AC-01/AC-07 da primeira jornada continuam pendentes por seus próprios
 motivos. Não há aceitação por renovar hashes de observações antigas.
+
+## Migração do harness — 11/11/2026
+
+Por pedido do usuário, a jornada agora usa Chromium/Firefox no Docker através
+do Playwright da Toolbox. O oráculo corrente é `frontend_browser.py`; a seleção
+e os serviços vêm da configuração única dos scripts. A aprovação histórica do
+Firefox/Marionette não é reutilizada para esta implementação. A nova jornada
+permanece UNVERIFIED até execução real autorizada; não houve download de browser.

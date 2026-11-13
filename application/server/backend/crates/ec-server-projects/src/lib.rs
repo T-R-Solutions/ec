@@ -19,6 +19,10 @@ pub struct InvalidField {
 }
 
 impl ProjectPipeline {
+    /// Valida o schema e os limites dos campos de um pipeline.
+    ///
+    /// # Errors
+    /// Retorna o primeiro campo desconhecido, ausente ou inválido.
     pub fn validate(fields: &BTreeMap<String, String>) -> Result<Self, InvalidField> {
         let allowed = [
             "apiVersion",

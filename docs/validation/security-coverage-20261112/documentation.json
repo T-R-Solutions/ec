@@ -1,0 +1,46 @@
+{
+  "run": "run-KHaz42J3",
+  "command": "bash scripts/automate.sh run --surface docs",
+  "exit_code": 0,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "returncode": 0
+    }
+  ],
+  "raw_log": ".local/logs/2026-11-12/run-KHaz42J3-automate.results.log",
+  "raw_log_sha256": "b2cf17484914ded0b75417a1ffa5b1ca0dea8d1bdda91136b220a38f2c84302a",
+  "cleanup": {
+    "exit_code": 0,
+    "finished_at": "2026-11-12T18:11:21.340913-03:00",
+    "cleanup_error": null,
+    "intermediate_artifacts": "discarded"
+  },
+  "scope": "Auditoria documental sobre os inputs observados; recibo deste resultado escrito depois, sem renovar hashes da suíte completa."
+}

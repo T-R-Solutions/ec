@@ -1,1041 +1,388 @@
 {
   "schema_version": 2,
-  "environment": "09/11/2026: quatro suítes integrais neste pedido de commits. Última run-iNYFOPoN: 43 tarefas aprovadas, exit 0, entradas estáveis. Dependências Geiger atualizadas após autorização específica para as mais recentes compatíveis com o manifesto/MSRV; bases existentes reutilizadas. Observações anteriores preservadas em docs/validation/geiger-coverage-remediation-20261109.",
+  "environment": "13/11/2026: somente Ec, run-EWXWaWlJ exit 0 nos gates afetados; 174 regressões Ec passaram em rodada anterior. Sem nova suíte completa de produto.",
   "requirements": [
+    {
+      "id": "AC-30",
+      "criterion": "Ambiente automático por execução conforme REQ-30, preservando o chamador e seleções explícitas.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
     {
       "id": "AC-01",
       "criterion": "AC-01 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-02",
       "criterion": "AC-02 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-03",
       "criterion": "AC-03 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-04",
       "criterion": "AC-04 conforme spec.md; nova inspeção/revisão e testes documentados no relatório scripts-security-20261105.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-05",
       "criterion": "Integração e contratos de Opengrep/OSV conforme spec.md; eficácia real em AC-04.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-06",
       "criterion": "AC-06 conforme migração shell em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-07",
       "criterion": "AC-07 conforme spec.md; integração/configuração e falhas fechadas observadas; execução completa permanece em AC-04.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-08",
       "criterion": "AC-08 conforme spec.md; integração/configuração e falhas fechadas observadas; execução completa permanece em AC-04.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-09",
       "criterion": "Catálogo padrão e Geiger conforme AC-09.",
-      "status": "APPROVED",
-      "evidence_ids": [
-        "E-COMMIT-FULL-20261109"
-      ],
-      "reason": "Critério exercitado pelos testes de automação e pelos gates completos em run-iNYFOPoN; inputs observados vinculados. Ver relatório para falhas anteriores e limites."
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-10",
       "criterion": "Cobertura de linhas >=80% por componente conforme AC-10.",
-      "status": "APPROVED",
-      "evidence_ids": [
-        "E-COMMIT-FULL-20261109"
-      ],
-      "reason": "Critério exercitado pelos testes de automação e pelos gates completos em run-iNYFOPoN; inputs observados vinculados. Ver relatório para falhas anteriores e limites."
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-11",
       "criterion": "Trivy/CodeQL sem rede, integridade e rejeições conforme AC-11.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-12",
       "criterion": "Responsabilidades, configurações, preparo e rejeições conforme REQ-12/AC-12 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-13",
       "criterion": "Fronteira de escrita do consumidor conforme spec.md e toolbox-completion-plan.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-14",
       "criterion": "YARA-X local conforme spec.md e toolbox-completion-plan.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-15",
       "criterion": "Imagens e bases reais conforme spec.md e toolbox-completion-plan.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-16",
       "criterion": "Suíte padrão completa conforme spec.md e toolbox-completion-plan.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-17",
       "criterion": "Migração Trivy com paridade conforme spec.md e toolbox-completion-plan.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-18",
       "criterion": "Aceite observado da conclusão conforme spec.md e toolbox-completion-plan.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-19",
       "criterion": "Adequação STIC e limpeza conforme REQ-19.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-20",
       "criterion": "AC-20 conforme REQ-20 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-21",
       "criterion": "AC-21 conforme REQ-21 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-22",
       "criterion": "AC-22 conforme REQ-22 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-23",
       "criterion": "AC-23 conforme REQ-23 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-24",
       "criterion": "AC-24 conforme REQ-24 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-25",
       "criterion": "AC-25 conforme REQ-25 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-26",
       "criterion": "AC-26 conforme REQ-26 em spec.md.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-27",
       "criterion": "Adequação ao contrato central conforme REQ-27.",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Estado anterior preservado: este critério não foi reavaliado individualmente neste pedido de commits. A suíte padrão run-iNYFOPoN passou; isso não promove automaticamente critérios adicionais ou históricos."
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-28",
       "criterion": "Descoberta Geiger íntegra e dois workspaces aprovados conforme REQ-28.",
-      "status": "APPROVED",
-      "evidence_ids": [
-        "E-COMMIT-FULL-20261109"
-      ],
-      "reason": "Critério exercitado pelos testes de automação e pelos gates completos em run-iNYFOPoN; inputs observados vinculados. Ver relatório para falhas anteriores e limites."
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
     },
     {
       "id": "AC-29",
       "criterion": "Cobertura de linhas >=80% individual e suíte aprovada conforme REQ-29.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-31",
+      "criterion": "Resolução atualizável e evidência por hashes conforme REQ-31.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-32",
+      "criterion": "Preparo automático e ambiente efêmero conforme REQ-32.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-33",
+      "criterion": "Configuração única e executores declarados conforme REQ-33.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-34",
+      "criterion": "Preparo de recursos e limpeza de serviços conforme REQ-34.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-35",
+      "criterion": "Diagnósticos preservados e contratos de testes alinhados conforme REQ-35.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-36",
+      "criterion": "AC-36 conforme spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-37",
+      "criterion": "AC-37 conforme spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-38",
+      "criterion": "AC-38 conforme spec.md.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-39",
+      "criterion": "AC-39 conforme spec.md: ampliação coesa de cobertura e limites observados.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-40",
+      "criterion": "AC-40 conforme spec.md: ampliação coesa de cobertura e limites observados.",
+      "status": "UNVERIFIED",
+      "evidence_ids": [],
+      "reason": "Escopo alterado por instrução vigente: somente Ec. Observações anteriores preservadas no relatório; não renovadas para aprovar fontes atuais."
+    },
+    {
+      "id": "AC-41",
+      "criterion": "AC-41 conforme spec.md: ampliação coesa de cobertura e limites observados.",
       "status": "APPROVED",
       "evidence_ids": [
-        "E-COMMIT-FULL-20261109"
+        "ec-only-native",
+        "ec-only-review"
       ],
-      "reason": "Critério exercitado pelos testes de automação e pelos gates completos em run-iNYFOPoN; inputs observados vinculados. Ver relatório para falhas anteriores e limites."
+      "reason": "Instrução de escopo somente Ec implementada e verificada: configuração antiga rejeitada, código externo retirado, regressões e gates nativos passaram. Resultados antigos de imagens permanecem históricos."
+    },
+    {
+      "id": "AC-42",
+      "criterion": "AC-42 conforme spec.md: ampliação coesa de cobertura e limites observados.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "ec-only-native",
+        "ec-only-review"
+      ],
+      "reason": "Instrução de escopo somente Ec implementada e verificada: configuração antiga rejeitada, código externo retirado, regressões e gates nativos passaram. Resultados antigos de imagens permanecem históricos."
     }
   ],
   "evidence": [
     {
-      "id": "E-COMMIT-FULL-20261109",
+      "id": "ec-only-native",
       "kind": "test",
-      "command_or_method": "bash scripts/automate.sh run; suíte integral autorizada, sem filtros, run-iNYFOPoN",
-      "observed_result": "43 tarefas aprovadas; exit 0; sem cancelamento ou divergência de inputs. Geiger: seis membros Server e cinco Agent, build/regressões/scan exit 0. Cobertura: Server 1439/1554 (92,60%); Agent 626/686 (91,25%); frontend 109/112 (97,32%). 25 testes frontend aprovados; regressões de automação e jornadas reais aprovadas.",
-      "artifact": "docs/validation/geiger-coverage-remediation-20261109/commit-passed-results.json",
-      "sha256": "e31efaa1c6a75506f8e19990c8ac9ccafa14896ee198f27d3901e9f6bae0648a",
+      "command_or_method": "bash scripts/automate.sh run --check ruff --check bandit --check trivy --check grype --check syft",
+      "observed_result": "Todos os checks selecionados passaram; Trivy/Grype/Syft/Bandit zero pendentes, Ruff sem achados, exit 0 e sem drift.",
+      "artifact": "docs/validation/run-sne1baxu-repair-20261112/scope-ec-only-validation.json",
+      "sha256": "ed61b37b9224e1435a9cf4330d3e1880eb9b6207d35dea3fe460463052b6f450",
       "inputs": [
         {
-          "path": "application/agents/Cargo.lock",
-          "sha256": "94e9b3750b25a59e4c9be1cbb59d0bfb7ee81c1ed71518cd49aee55721ff9dd1",
+          "path": "tools/quality/native_gates.py",
+          "sha256": "393fe5d993469dc20c5c3f0793b36d89217d258c49c92bbaa87e84d9b2059f87",
           "role": "implementation"
         },
         {
-          "path": "application/agents/Cargo.toml",
-          "sha256": "68c9b501675a70ba8558b11fed64070d5080a154e14c225d5e18a26104894a72",
+          "path": "tools/quality/automation_config.py",
+          "sha256": "5d92a2fc3324005be06f7bc00bcaf1c12d4fd69c7a2e13135c85e02e4d0e6bd8",
           "role": "implementation"
         },
         {
-          "path": "application/agents/crates/ec-agent-app/Cargo.toml",
-          "sha256": "ab6ceef149bfe65c0de221fb7c400412603ef7ef92a09359b6ceee5ee7e6288e",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-app/src/main.rs",
-          "sha256": "d71a8a2dd0a32f144c8ce322e2f21fb5e33b46691310b404ccd234f57a74bbee",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-control/Cargo.toml",
-          "sha256": "cfbb796cf783daf12c248074c49897e98dcf6fb3dc039f15fa24ded351731ece",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-control/src/lib.rs",
-          "sha256": "8d5ae9a450babd95e81330f765f72df8c960f010aff1f79a132eaf23a341c7bd",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-control/tests/transport.rs",
-          "sha256": "012440e7e151835871ceb1fc867cf419411e817a8eb53ab518247766c621d6ab",
-          "role": "oracle"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
-          "sha256": "2d155f07cf63775709e33d974fbd488ac038bdab6beccc6b325869f86854a727",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-execution/src/lib.rs",
-          "sha256": "ce2790c7c5f4a621f340fb83800f6c5a4db958c66a0c6446b262d554b6f8231e",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-execution/tests/process.rs",
-          "sha256": "d2e21d0835a35747164105f999555fc3ec199f3e4d7af81ef78de85a5e0cb35c",
-          "role": "oracle"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-reporting/Cargo.toml",
-          "sha256": "9f24bdcef0afee050c63ac1c842e8569e49aaeba1099c8dcd9fd574155a65a04",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-reporting/src/lib.rs",
-          "sha256": "cb41ee1d20d041c979b35a182bddba74cbcd024afa4e467b108455038e786543",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-reporting/tests/spool.rs",
-          "sha256": "5500903654ff6c8e7a43ce5833b80a95fc32e89b431f1389f06c779b9e7642a1",
-          "role": "oracle"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-workspace/Cargo.toml",
-          "sha256": "b7d325d0e2c946d3f264f39f12c92af2e75fe81cece4ce4509fad9bcb4531fa8",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-workspace/src/lib.rs",
-          "sha256": "3b824f8c9f9ce2f2820ccc404930c4a7fde2ec2c970eb001e878a0d5877b129b",
-          "role": "implementation"
-        },
-        {
-          "path": "application/agents/crates/ec-agent-workspace/tests/checkout.rs",
-          "sha256": "8b8e8f2e69e45fa33acf194d5f15af8f64db7e53eb771ce95723c872422dae64",
-          "role": "oracle"
-        },
-        {
-          "path": "application/agents/rust-toolchain.toml",
-          "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2",
-          "role": "implementation"
-        },
-        {
-          "path": "application/integration/tests/e2e/frontend_firefox.py",
-          "sha256": "302b922265a021a95c20b3d10f52b06e0b4d1939fe69ec88f76e7014618027f0",
-          "role": "oracle"
-        },
-        {
-          "path": "application/integration/tests/integration/agent_http.py",
-          "sha256": "73ccc016baac18b9f0265aa22876b3a52c5ba4383af576d9c95213636790590f",
-          "role": "oracle"
-        },
-        {
-          "path": "application/integration/tests/integration/orchestration_http.py",
-          "sha256": "4e4b1d05872edd11d27c931438feacb0c765aea7a7c41acd7efe4d6db5fb6fb3",
-          "role": "oracle"
-        },
-        {
-          "path": "application/integration/tests/integration/publication_http.py",
-          "sha256": "67d913b0d455879aab1a980d6358916a75917dccb3637e1ad18cd26308c217a0",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/backend/Cargo.lock",
-          "sha256": "67967974f663ec67d50b90a376efb3ac7bf385920899ef12f82804a4f048be71",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/Cargo.toml",
-          "sha256": "3d8754499e7c265b39c4c0d9d532a6743edc2e7497d639d1510af255ba38aec4",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-access/Cargo.toml",
-          "sha256": "6a514e40d0948bc260f5742b193c1a149d502f44114fda4f58646b9d5d4c3af8",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-access/src/lib.rs",
-          "sha256": "ee133997b04862174732514b92a207a07f952d980f01a12f06cedcc5e09ff802",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-app/Cargo.toml",
-          "sha256": "64113c70fed6e264dd254838e1045a621ae350a0be80f234532dcfab8cc46e60",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-app/src/main.rs",
-          "sha256": "a7ce4af23b943e0c9e5b8658954a39c48c9b54d285f3b882da2f72b0399d88f4",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-app/src/service.rs",
-          "sha256": "059fc3d6ecf1d6c29a3cbae3cd66697912fef3e79ff399bbc690ae8526b882b6",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-app/src/service_tests.rs",
-          "sha256": "cfb57577d51a7a73bd46e44c86fd942ee2664c7ec22b37a90c47dbe350360ae0",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-app/tests/validation.rs",
-          "sha256": "25b50adfcdcbde3aa8ce23f55e6936ad428a8ff956d39c4427ada9cb3cf34052",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-configuration/Cargo.toml",
-          "sha256": "1f823283510863d95644a818419a1a33ce923287a19890babaec4c545bcbdf7d",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-configuration/src/lib.rs",
-          "sha256": "15abd9ba67ee707677b0372658ff438f76c47bfdb93df322448fb181ae7435fb",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-orchestration/Cargo.toml",
-          "sha256": "0c77f92aa7658e130a27cc3e8da1e70c5589b7eb2a8690bf5dfdcb48df36cff2",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-orchestration/src/lib.rs",
-          "sha256": "efafc04c43e795e89cd619ab50b3786923bd5d64142169599cb638595935c89f",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-projects/Cargo.toml",
-          "sha256": "48a12592d6420ca37fd21df5af4f95116da012e404918a582447d82e1618cad8",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-projects/src/lib.rs",
-          "sha256": "fd29e224abcad99d199bded93d3772887ce94758a41cc0fa2512e4cc48551ec3",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-projects/src/publication.rs",
-          "sha256": "9659b72bf1d08b5b940c576afff533a46ace2226439c630b2dbcd0ae11ead8cd",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-results/Cargo.toml",
-          "sha256": "837460667e867d304dc36b1be8c8f3f459d44223872d7fc3a5b97fc2c5e749d0",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-results/src/contracts_tests.rs",
-          "sha256": "78dab50875208c48a6d592e6bef8faa0bc3b2b968bc29b05d30be52ca483c4af",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/backend/crates/ec-server-results/src/lib.rs",
-          "sha256": "260609419c899ca556ac77b7c17b3bacb4d689306fe785e1bb46d7d58195c061",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/backend/rust-toolchain.toml",
-          "sha256": "ca67e66659a82661386e5a08471c913cb8b3f7c7ce37592207d3f513589a41c2",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/package-lock.json",
-          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/package.json",
-          "sha256": "9eafd3986a837677469cdafbe22f13e82c4cabc98467c4745ab4c1d93bd44ca7",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/app/App.test.ts",
-          "sha256": "f1ad1de64c1e229ea3436e6c293489fea5e49f215e7fc1a5f987ff77e5468dd9",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/app/App.vue",
-          "sha256": "3f9554de2ab5bb280e5d187b1a7ef6a112ab512fc62233eb9d1e48abb653b2e7",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/app/contrast.test.ts",
-          "sha256": "211fa6bea2aadaa0ac7df69587b57d0795ececc5a9b0c795aaaeacc0309854fd",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/app/main.ts",
-          "sha256": "0a333f20c86caf275eb09cd70949f88a71911dcb67c7db0d878169152389d7a9",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/access/src/index.ts",
-          "sha256": "5c1ac00fc99873fb00b5e2218f554583cacadeb2d0030c6070ce05cb3dba73f0",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/access/src/session.test.ts",
-          "sha256": "5db94c6b31ed34fbb11e33bcccc6badfb70da468488d926f260d0c7865a87440",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/domains/configuration/src/Editor.test.ts",
-          "sha256": "a8386abf1fa7a4647aeb0d3f23c7e00d65b5ae97ee0a44b918f28a64352aa858",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/domains/configuration/src/Editor.vue",
-          "sha256": "666ccc890866e64f3eb4db71d76e4bfa35758611657077c046c540fbf76920e6",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
-          "sha256": "0ba879744b269765d917b5ab1f44d68ebcb4de1fdcb2dc787c355e68fe5d49d0",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/domains/configuration/src/drafts.ts",
-          "sha256": "61a682e0818cf994503b16008d31bfd0a1b4700bce4793a470435156360aacf5",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/configuration/src/index.ts",
-          "sha256": "44ca2fe51630edc2fb1da9b83a7f39e6cbaa2bd8fe22bb65f16efed61e53727b",
-          "role": "implementation"
+          "path": "scripts/config/automation.json",
+          "sha256": "fd0024420bc8c2fd4d7a7402f67cb7eb91bc4050e7131543b8849bec80ebd8e6",
+          "role": "configuration"
         },
         {
-          "path": "application/server/frontend/src/domains/configuration/src/model.test.ts",
-          "sha256": "8c4bbc8142fd0914c3bac677326db32d3de53af4b1cdbd89f238199c7ae8a163",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/domains/configuration/src/model.ts",
-          "sha256": "f85492b474dabda091b365a12770c026c0957ca08a0ebdca8b1dd914e8fd5fe4",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/infrastructure/src/index.ts",
-          "sha256": "167a0c1d80f9cf78bf61751bd86547c1e997b408c43298087fa700f4ccb97ceb",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/projects/src/index.ts",
-          "sha256": "7710860c28259728bce093b74549848d6b78aef5c37377f91c03eeb674df8017",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/runs/src/Runs.test.ts",
-          "sha256": "c33aed4e64526dcfd7166f79419582960a38b2c0170d73ead77e59b9aaac22ca",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/domains/runs/src/Runs.vue",
-          "sha256": "9b875b7bef87ccfb8768ced9bbc4d34e0969490f105227dcf52b41e439f822bc",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/runs/src/bytes.test.ts",
-          "sha256": "5d74f664ca9049631e2ee6080db0121e054814e967d5520fda0b06b111e05528",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/domains/runs/src/bytes.ts",
-          "sha256": "853b1952d2a2bed93beb78e716f7fa4bd08488e9c4add767a7a7a7c2f938f268",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/domains/runs/src/index.ts",
-          "sha256": "d7a84f27be79c7894f642d85d2573b70fe1dc32f9928d2fd77a00b261f40c1dc",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/src/shared/api.test.ts",
-          "sha256": "e86e66ddee32b0f89351660dbd5b86c5d09bacaa332b79887eb3236dae00471d",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/src/shared/api.ts",
-          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/test-support/environment.ts",
-          "sha256": "6ef31c0de9787fe665d5a7d0e9e3a96a246f6fc8f3918c2adddf2e86d8845d42",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/test-support/renderer.ts",
-          "sha256": "553ac6c26def9acf17f30469b3d2bd5dc5e023041b3fb762be5a7f8687538ab9",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/tests/e2e/firefox_driver.py",
-          "sha256": "4052ff5d6ec1f01a466b948e07b829075453a5401df9aa50b32e3ee55de9cf97",
-          "role": "oracle"
-        },
-        {
-          "path": "application/server/frontend/tsconfig.json",
-          "sha256": "3393cc3b1b26f98fbc6db23f32a0d8c14fa3188e7e4e7baa8eba92ee0918e42f",
-          "role": "implementation"
-        },
-        {
-          "path": "application/server/frontend/vite.config.ts",
-          "sha256": "ee5c3e91f51936ecff2dd68580532eb400c9a69737bc615369317327266e2bc1",
-          "role": "implementation"
-        },
-        {
-          "path": "docs/validation/geiger-coverage-remediation-20261109/geiger-dependencies.json",
-          "sha256": "4ea675732b8179d0a71242c086dc61ff58a6c1fb3820e583e035d22cc03eb182",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/automate.sh",
-          "sha256": "6e37053ce2bc2a9e02916949a96e884893ff6155f362afaf849d753f1c4e0e09",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/check.sh",
-          "sha256": "cb524d37a1112e47330de39da3cdbd35bfec75f7da41c7cff34a6566530be1f4",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/config/native/cargo-audit/audit.toml",
-          "sha256": "56980089ca448f15fbe6fc38b9391e36ddd74d3c0577424606f4d4432f37e322",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/config/native/cargo-deny/deny.toml",
-          "sha256": "74c24c12c9ca9adbd5229dc804a0c8eb45a2c68ff62a5d23564c36b5ea22d117",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/config/native/codeql/projects.json",
-          "sha256": "7b96b2d0c748e097fc559992d628281edff71331aa5b7180dacdec1c32934eab",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/config/native/gitleaks/gitleaks.toml",
-          "sha256": "99e136dc342326fa5650248478dd49c4f2d75f05d63fa256dcd193c4446d76de",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/config/native/osv-scanner/osv-scanner.toml",
-          "sha256": "9311d41f8d1ef5fa4514eb78f8ead2a815332c7d4d711f5d9850e712fb11bf61",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/config/native/ruff/ruff.toml",
-          "sha256": "ec78c81a8cc1e4b94fe189498864e683a36a35220fbf18042372b02c7e589629",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/rules/opengrep/rust.rs",
-          "sha256": "0f4c26b24f357f1e318a07a4be8787115fc6a884e515bb8360be78ce9d694d14",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/rules/opengrep/typescript.ts",
-          "sha256": "27989e43e7ef5b6d9748b25925c5673b03c305536059d60c5306cd76726b68b0",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/rules/opengrep/vue.vue",
-          "sha256": "01188f0b7a109773f985cb5dabea3de657ebb5ec93399d7b2ecb09014210dac8",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/catalog.sh",
-          "sha256": "be395b3f07e69bcaccd898c823d1c0fb0a969a8d4d73fc77cf7bcf6be846d483",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/common.sh",
-          "sha256": "785d69945e5be6011b6bfc2357c7da762265cd3fd4a1a21426f7d47192232879",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/coverage.json",
-          "sha256": "152691c311aea4c59accfe1a42f86440761090a8b929118f67ae7c81d257b5a5",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/inputs.sh",
-          "sha256": "0a3304831d5cc371f0cfa2c36cb8b2aa5ff6b553c8737e1f8947be172e26f939",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/integration.sh",
-          "sha256": "31aa5c1c9bb9606b0b74e8e017390bf7a1b3fdd2990d2fd56dfbaefdda030d38",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/metrics/check.sh",
-          "sha256": "bc5db9c0db5ce683dc5cff390d4f31693621bc9134b5c7f5cb328df1cf64eca4",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/metrics/coverage.sh",
-          "sha256": "edbfb888fdc78e44cbfa8aaf238c4b036a7d3a676ac9cb7c0efc75057b5628dd",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/reports/summarize.sh",
-          "sha256": "d0d63adc75ff609d682bbca1a0e8dca26cb6e0dd00f7d4bcf78b610bdfd63c0d",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/runtime.sh",
-          "sha256": "f6c41b3c179e221927d6d070ffa4c8bf01ec509af243a4e4ea13a0f7dc0931ee",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/scanner-gate.sh",
-          "sha256": "67d5694658d43c5eee5c323a9b9a84f8edeb221ed1daa503fd950fffe56bb1b7",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/security/check-report.sh",
-          "sha256": "b52185cfa7dab9433ff999153dc33cf41cb9e65b69e12dd3589453f1c773be6d",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/ec/security/validate-exceptions.sh",
-          "sha256": "4bf783a86b06258edff6507793273881392c2e8b2f83a7af634e8109e7c1e5b6",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/frontend/check.sh",
-          "sha256": "361e589a11b1415711f517c62025b0721abcf6d7b47a118e085d38abcc199ca2",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/frontend/eslint-ratchet.sh",
-          "sha256": "8346087bd22256466e4b9abef89ac28da2584487605b4130f18b65235ad51aec",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/stacks/rust/check.sh",
-          "sha256": "0b51f1846b3ee10abd725a1956947a943804afb50a1b83a93f62ae4b04bdcb56",
-          "role": "implementation"
-        },
-        {
-          "path": "scripts/tests/test_consumer.py",
-          "sha256": "91f592fd7153229154bf355c49a55ba954e0ca6cafdd983c67ec3d9afb5a9764",
-          "role": "oracle"
-        },
-        {
-          "path": "scripts/tests/test_geiger_diagnostics.py",
-          "sha256": "22ee727dfd627f1732ba619ed8c48561cfeb4a1fbb1189b19e8b9251b685a830",
-          "role": "oracle"
-        },
-        {
-          "path": "scripts/tests/test_native.py",
-          "sha256": "62f07c22f0aefd4ae356d447b03b96c55d6de1b4ff4ca4457ee81244ff0d6c0b",
-          "role": "oracle"
-        },
-        {
-          "path": "scripts/tests/test_quality.py",
-          "sha256": "ef6b45443be560260e77101f7b615f9303580c508fb3f9e38835eaf5d47eb95f",
-          "role": "oracle"
-        },
-        {
-          "path": "scripts/tests/test_runtime_coverage.py",
-          "sha256": "807d795d2bc30d727ee08145e0c95f5289b23060bdb1ad530d90a353701ee6bc",
-          "role": "oracle"
-        },
-        {
-          "path": "scripts/tests/test_shell.py",
-          "sha256": "6c176bfe68df30ca40bb495c1a793f3c3a788fa0a24488b5ebe8980b19171b1c",
-          "role": "oracle"
-        },
-        {
-          "path": "scripts/toolbox.sh",
-          "sha256": "de43006956f7e528429f286ef9b8411e32a200c01e94d0604049d03ce626a96e",
-          "role": "implementation"
-        },
+          "path": "scripts/config/native/syft/syft.yaml",
+          "sha256": "f0d5c306c186da979c601dbf93a215084227c86cc71e7144b818008be14e95bd",
+          "role": "configuration"
+        }
+      ]
+    },
+    {
+      "id": "ec-only-review",
+      "kind": "inspection",
+      "command_or_method": "Inspeção final do escopo: catálogo não admite inputs.images, Gate não tem with_images, módulo de exportação removido, testes nativos não desviam o gate e recusam scan de imagem. Fechamento posterior modifica somente tarefas/convergência/evidências SDD.",
+      "observed_result": "Sem configuração ou código ativo de auditoria de imagens Toolbox; controles de inventário e achados Ec preservados. Fechamento documental separado da execução.",
+      "artifact": "docs/validation/run-sne1baxu-repair-20261112/scope-ec-only-closing.json",
+      "sha256": "d5f21467ccb37b5e6f0040a2a39300889c0010432f0d8f12379d295e7d7590b4",
+      "inputs": [
         {
-          "path": "sdd/features/scripts-verification/plan.md",
-          "sha256": "32526c24b07c68e77a8682b88ea564c475e07932f9ad545510b305ed2b114f3f",
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "73869d6db0e2342b086fffff59664d2562fad3cdd0a4c09289f438cf3fdb58ce",
           "role": "contract"
         },
         {
-          "path": "sdd/features/scripts-verification/spec.md",
-          "sha256": "483da83506219bd2aa8740992be0ca16cf80f6fd54ae03c14e310a7e460adbeb",
+          "path": "sdd/features/scripts-verification/plan.md",
+          "sha256": "ce38ee1a13f9db635460f342a269abe4e4ecf09700d009efee9f7379c1270bfe",
           "role": "contract"
         },
         {
           "path": "sdd/features/scripts-verification/tasks.md",
-          "sha256": "6ae2e517ee6307fd16dfb1fb9b4e86b10aa66d287931005ae2c7846cbd1fc1b6",
+          "sha256": "433aa36a64cf4d99ce1a2ea2abe1e28d6a3206b9f4787b105d13f9fcffd96178",
           "role": "contract"
         },
         {
           "path": "sdd/features/scripts-verification/traceability.json",
-          "sha256": "77d7687b9254280615667e9f8dafd82e7dad27e409fac054ad3555f198262d8b",
+          "sha256": "6310684d0e345cebb73f4f0a4573396172005bd887e96d34bb75b29425e2f886",
           "role": "contract"
         },
         {
-          "path": "tools/governance/install_skills.py",
-          "sha256": "e7f4713b926b91f4b2809e67f046e0108db111340897e133d6ece0fffd2f5251",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/governance/tests/test_governance.py",
-          "sha256": "455bc5656426f691aaba566b5aa7de1a0ecb6e07bed4b71a0827fdfa8de608e6",
+          "path": "scripts/tests/test_native.py",
+          "sha256": "f687ed9dc1ae1791c4f0fae0045765a6542455cc8f753b2ee4a2d2fc85b127ea",
           "role": "oracle"
         },
         {
-          "path": "tools/governance/validate.py",
-          "sha256": "48bf1e3e5014a405c180df5da3b9430320cfaf03b76c39a73e094e76ce71beb4",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/collect_runtime_coverage.py",
-          "sha256": "1f2990cfd0d5b9f03fe23dff1a4e6d0511e58d7ba210609937b2ee7144e6ece1",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/geiger_diagnostics.py",
-          "sha256": "1459d5202d2e7f4374b59e6151906148b8082cbeff628b6050e6424c6cd4d70c",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/native_gates.py",
-          "sha256": "5636915a139fed0740261a6166e4473f9a9841e4979d8a07d77604d4619e414f",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/Cargo.lock",
-          "sha256": "761b6ab53f38b4e47fb37a88d4a21c5a64aa4daba408d948419f61f40b911c51",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/Cargo.toml",
-          "sha256": "c17a9a43d174a6e3f90a62f6f6db757675905df553c88d6ba69e9cdefc19aed4",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/args.rs",
-          "sha256": "bd9fcfd76bc9defc3aa6d940673a79f8613cf01be9c3db5b53fe3c4ac52d6d39",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/cli.rs",
-          "sha256": "25df491b273af281f0a03a6146850abf8b2b56785aa443a5a178605f73bf2836",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format.rs",
-          "sha256": "64d8f62e6d24dcfe7c055645d784516030ccaca5148a78eaacf7a14e7d948eab",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/display.rs",
-          "sha256": "c88ce8bf3f0c5754f48d4b5dcb79ce8ae81eac0a025d1f4840a906e8acffb171",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/emoji_symbols.rs",
-          "sha256": "83d0bfd4a476153fed643b9192458aef0d093151814f7ab54e93ef35d40a4372",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/parse.rs",
-          "sha256": "63cd627f4348ed5f87856ba1d999475712fdbd64e6469ef83b3dbc1e29e6974a",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/pattern.rs",
-          "sha256": "5e182c6379a113e69e41022b4ce4ac691ff5b198350b3424f8db827ac5290ff7",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/print_config.rs",
-          "sha256": "dab43f053b69e26c69f983a16c7b262a0b3b2e2c9fb3b2d3951905a3a03b15d3",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/table.rs",
-          "sha256": "b0f2f4fef4417a4d8fbfb48531c06e72c965b2c561ac7b6fdcb55018c83de7fa",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/table/handle_text_tree_line.rs",
-          "sha256": "c7cc78f65ca82e80a9aab4e8fc4372e908c3d26a1893529c04715ab01ff8703a",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/format/table/total_package_counts.rs",
-          "sha256": "f506a43ea77c2e5219e50aeea093ca289bb1a3f0ea71b568e94feda87cabc95b",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/graph.rs",
-          "sha256": "1c1b84156a3d8113f2dce4cc5b35795ccc8f7f57643e936d9c726181b26fc56c",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/graph/extra_deps.rs",
-          "sha256": "5a1f6f6533f160c5a8a8218a2c7f51f13727a53061a473f1f898ce7e2488d74a",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/lib.rs",
-          "sha256": "daa018a35da79827a277807800e8518641c1cd751616be5f6d77d2e6de81af42",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/main.rs",
-          "sha256": "ac93436ee9b194f5813c5ec25d43d5a150874f761e05239413d2693fbcc43772",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping.rs",
-          "sha256": "e6417bfd9e7cd37f8cc437cf80291e2c452033fbc78e3a84891eb25f51060885",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping/geiger.rs",
-          "sha256": "b431c92aff89d3e31ebc67ee547a5ce248c7e5c176fd6a8a6a55e3889781ad9d",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping/krates_mapping.rs",
-          "sha256": "4db16b4189f5496254e1aa17d18f240d3cdf6c7552311b45c1b57c1a8fcce789",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping/metadata.rs",
-          "sha256": "113849ea3b93073de95efc00704989b9d1c05834495d33f2b2c70adbf9a759c5",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping/metadata/dependency.rs",
-          "sha256": "48481207998c7f75e6ac7de2feb521f0b59b6c709750249f0b776c379043dda2",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping/metadata/package.rs",
-          "sha256": "706648a8cb2fae57fdbb57d72a8b09c3144c21de3a798b697015ef05baa5e270",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/mapping/metadata/package_id.rs",
-          "sha256": "f55ba73f09713f13f2692f4c92f3aae60bc6a49fe8888927f3f189c2524d5067",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/readme.rs",
-          "sha256": "6277314edda3985ff03fe8218ffdf19961c6fd3fc70e9b5678eab32dead52061",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan.rs",
-          "sha256": "8796d942c7f37b7441e17ee688f255b1636d187e2e855e8fdd0423ff151fc9d0",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/default.rs",
-          "sha256": "a0634d86fa6ca31d65fbf8de0ec84dcc42f6f5a1a5370b89242e9ee679192af4",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/default/table.rs",
-          "sha256": "96c8877636253d29732f315cba32a97205bbda9d8f6bb47e0d1de277967277ac",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/find.rs",
-          "sha256": "85a6e7196712337716c770c371af0c0472f01d16eec8c05ed68e07fc2736eb3e",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/forbid.rs",
-          "sha256": "736a0873f8d59c25de5e948ab8f1a170c02c62000d0d045b0aa133916c2005b8",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/forbid/table.rs",
-          "sha256": "4b99da5b32ef2a9037b26dfcdceab2b6bfa18f4d0f4fff2f3c86f0ddc07dead9",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/rs_file.rs",
-          "sha256": "4f133af29e51f20ee80e31c6ea9957f189d6a8cf3ca3380014b7c4a7286a910f",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/rs_file/custom_executor.rs",
-          "sha256": "b99978515ada74e76e624df753a839dad72b6a55c585d700e2ca55644f291b05",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/scan/supplemental.rs",
-          "sha256": "aea6dc2161f4f34bde0d7537f4a2cf66a334a8aad66e9eeda86b01d2d05aa805",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/tree.rs",
-          "sha256": "6f8fdcc78273d7372b03d4914724c8b6ea8f579d532a920f8b860b1248041813",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/tree/traversal.rs",
-          "sha256": "867532af5c012d73c50c087fc07e530c8bbfbff56a1e0974bdd61ee921792ffa",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/tree/traversal/dependency_kind.rs",
-          "sha256": "df9361bbf1a00a373326ae1180371b4c9a531a2ab1b203bc6ae0eda31f0352e3",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/src/tree/traversal/dependency_node.rs",
-          "sha256": "48883e34e46244a797c223feb73f83a4e37d217dfad7e7146c338a7578f0229d",
-          "role": "implementation"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/context/mod.rs",
-          "sha256": "aadb893af9503587cd60cfe53dfd42cee8d0d356839036d85aaea33a9c375f47",
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "7223b4eb52badf17327d656ba41573b68b788ed9d27348a6f5be26ff2e24dd38",
           "role": "oracle"
         },
         {
-          "path": "tools/quality/vendor/cargo-geiger/tests/external_package_reports/mod.rs",
-          "sha256": "bcbf1cffa3eb3eaf1f48bb088fd0f154e95155cda30949d5343ae6680487b9df",
+          "path": "scripts/tests/test_security_scope.py",
+          "sha256": "c0867358693c523a7a23fea88685c5bab8dc349ba0e9944b4f6dcfd84cb1de47",
           "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/integration_test/mod.rs",
-          "sha256": "1cc07f94a22515805c4533576fec3b45bc006ff9cd0894f6c6b5db24eb6001d1",
-          "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/integration_tests.rs",
-          "sha256": "26939cebcdbb20bfa154fa412ab2519cfd2f1448f4af7bc79b1f7e8fda4809f2",
-          "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/readme_integration_tests.rs",
-          "sha256": "926b29787b027404497272292defca36f2eb66b96c2ac656da967622e0ff07a1",
-          "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/report/mod.rs",
-          "sha256": "e8264e0655c8188d0ca089bfcc8b1d760d2180215b90c6fe9c2b8f3e48c89334",
-          "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/run/mod.rs",
-          "sha256": "a0e122d23b1b4e69691a22d40043a9cd42822c3315c9f606c0ebdbe7b4015140",
-          "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/tests/serialize_integration_tests.rs",
-          "sha256": "066f8d9faef778344a4caad15410095a79e6e3bea251f1600bab103bb8917721",
-          "role": "oracle"
-        },
-        {
-          "path": "tools/quality/vendor/cargo-geiger/upstream-files.json",
-          "sha256": "6413720631053530369112fc127d8da40459c0da37976c40368b5db9f07008b2",
-          "role": "implementation"
         }
       ]
     }
   ],
   "limitations": [
-    "Somente AC-09/10/28/29 foram reavaliados e aprovados nesta retomada; demais critérios mantêm o estado anterior.",
-    "A suíte padrão não executa complementares opcionais por inferência.",
-    "Testes Vue usam renderer em Node e API simulada; jornadas reais Firefox/HTTP são evidências distintas, sem certificação completa de acessibilidade.",
-    "Resultados e inputs das rodadas anteriores permanecem históricos; o Firefox teve falha de bind na terceira rodada, preservada no relato.",
-    "Após a suíte aprovada, somente registros documentais/evidências foram atualizados e inspecionados manualmente; nenhuma alteração funcional posterior."
+    "A suíte completa Rust/frontend/integração/E2E não foi repetida nesta alteração; foram executados os checks afetados e regressões da automação Ec.",
+    "Os resultados históricos de imagens Toolbox não foram corrigidos nem convertidos em aprovação; deixaram de integrar o escopo por instrução vigente.",
+    "A Toolbox continua fornecendo executores e bases; disponibilidade/identidade permanecem pré-requisitos operacionais, sem auditoria da plataforma."
   ]
 }

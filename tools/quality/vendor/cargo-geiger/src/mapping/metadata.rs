@@ -3,8 +3,8 @@ pub mod package;
 pub mod package_id;
 
 use super::{
-    DepsNotReplaced, GetPackageIdInformation, MatchesIgnoringSource,
-    ToCargoGeigerPackageId, ToCargoMetadataPackageId,
+    DepsNotReplaced, GetPackageIdInformation, MatchesIgnoringSource, ToCargoGeigerPackageId,
+    ToCargoMetadataPackageId,
 };
 use package_id::ToCargoMetadataPackage;
 
@@ -28,58 +28,38 @@ impl DepsNotReplaced for Metadata {
         &self,
         package_id: &T,
         is_root_package: bool,
-    ) -> Option<Vec<(CargoMetadataPackageId, HashSet<CargoMetadataDependency>)>>
-    {
+    ) -> Option<Vec<(CargoMetadataPackageId, HashSet<CargoMetadataDependency>)>> {
         let mut cargo_metadata_deps_not_replaced = vec![];
         let mut package_id_hashset = HashSet::<CargoMetadataPackageId>::new();
 
         match package_id.to_cargo_metadata_package(self) {
             Some(package) => {
-                for dependency in package.dependencies {
-                    if let Some(package_id) =
-                        dependency.to_cargo_metadata_package_id(self)
-                    {
-                        if dependency.kind
-                            == krates::cm::DependencyKind::Development
-                            && !is_root_package
-                        {
-                            continue;
-                        }
-                        if !package_id_hashset.contains(&package_id) {
-                            cargo_metadata_deps_not_replaced.push((
-                                package_id.clone(),
-                                HashSet::<CargoMetadataDependency>::new(),
-                            ));
-                            package_id_hashset.insert(package_id);
-                        }
+                // Arestas do lock resolvido: não escolher uma versão pela faixa
+                // de uma declaração opcional/inativa nem perder renomeações.
+                let node = self
+                    .resolve
+                    .as_ref()?
+                    .nodes
+                    .iter()
+                    .find(|n| n.id == package.id)?;
+                for dependency in &node.deps {
+                    if dependency.dep_kinds.iter().all(|kind| {
+                        kind.kind == krates::cm::DependencyKind::Development && !is_root_package
+                    }) {
+                        continue;
+                    }
+                    if package_id_hashset.insert(dependency.pkg.clone()) {
+                        cargo_metadata_deps_not_replaced.push((
+                            dependency.pkg.clone(),
+                            HashSet::<CargoMetadataDependency>::new(),
+                        ));
                     }
                 }
                 Some(cargo_metadata_deps_not_replaced)
             }
             None => {
-                eprintln!("Failed to convert Package Id: {} to Cargo Metadata Package", package_id);
-                None
-            }
-        }
-    }
-}
-
-impl MatchesIgnoringSource for CargoMetadataDependency {
-    fn matches_ignoring_source<
-        T: GetPackage,
-        U: GetPackageIdInformation + Display,
-    >(
-        &self,
-        krates: &T,
-        package_id: &U,
-    ) -> Option<bool> {
-        match package_id.get_package_id_name_and_version(krates) {
-            Some((name, version)) => {
-                Some(name == self.name && self.req.matches(&version))
-            }
-            _ => {
                 eprintln!(
-                    "Failed to match (ignoring source) package: {} ",
+                    "Failed to convert Package Id: {} to Cargo Metadata Package",
                     package_id
                 );
                 None
@@ -88,20 +68,30 @@ impl MatchesIgnoringSource for CargoMetadataDependency {
     }
 }
 
-impl ToCargoGeigerDependencyKind for CargoMetadataDependencyKind {
-    fn to_cargo_geiger_dependency_kind(
+impl MatchesIgnoringSource for CargoMetadataDependency {
+    fn matches_ignoring_source<T: GetPackage, U: GetPackageIdInformation + Display>(
         &self,
-    ) -> Option<CargoGeigerSerdeDependencyKind> {
-        match self {
-            CargoMetadataDependencyKind::Build => {
-                Some(CargoGeigerSerdeDependencyKind::Build)
+        krates: &T,
+        package_id: &U,
+    ) -> Option<bool> {
+        match package_id.get_package_id_name_and_version(krates) {
+            Some((name, version)) => Some(name == self.name && self.req.matches(&version)),
+            _ => {
+                eprintln!("Failed to match (ignoring source) package: {} ", package_id);
+                None
             }
+        }
+    }
+}
+
+impl ToCargoGeigerDependencyKind for CargoMetadataDependencyKind {
+    fn to_cargo_geiger_dependency_kind(&self) -> Option<CargoGeigerSerdeDependencyKind> {
+        match self {
+            CargoMetadataDependencyKind::Build => Some(CargoGeigerSerdeDependencyKind::Build),
             CargoMetadataDependencyKind::Development => {
                 Some(CargoGeigerSerdeDependencyKind::Development)
             }
-            CargoMetadataDependencyKind::Normal => {
-                Some(CargoGeigerSerdeDependencyKind::Normal)
-            }
+            CargoMetadataDependencyKind::Normal => Some(CargoGeigerSerdeDependencyKind::Normal),
             _ => {
                 eprintln!("Unrecognised Dependency Kind");
                 None
@@ -161,25 +151,68 @@ mod metadata_tests {
     use cargo::core::registry::PackageRegistry;
     use cargo::core::resolver::features::CliFeatures;
     use cargo::core::resolver::features::HasDevUnits;
-    use cargo::core::{
-        Package, PackageId, PackageIdSpec, PackageSet, Resolve, Workspace,
-    };
+    use cargo::core::{Package, PackageId, PackageIdSpec, PackageSet, Resolve, Workspace};
     use cargo::sources::SourceConfigMap;
     use cargo::{ops, CargoResult, GlobalContext};
     use krates::semver::VersionReq;
     use rstest::*;
     use std::path::PathBuf;
 
+    #[test]
+    fn resolved_edges_ignore_inactive_declarations_and_other_versions() {
+        let (_, mut metadata) = construct_krates_and_metadata();
+        let root_id = metadata.root_package().unwrap().id.clone();
+        let expected = metadata.deps_not_replaced(&root_id, true).unwrap();
+        let mut other = metadata
+            .packages
+            .iter()
+            .find(|p| p.id == expected[0].0)
+            .unwrap()
+            .clone();
+        other.version.patch += 100;
+        other.id = krates::cm::PackageId {
+            repr: format!(
+                "registry+https://example.invalid#{}@{}",
+                other.name, other.version
+            ),
+        };
+        metadata.packages.push(other);
+        let root = metadata
+            .packages
+            .iter_mut()
+            .find(|p| p.id == root_id)
+            .unwrap();
+        root.dependencies[0].rename = Some("renamed_dependency".into());
+        let mut inactive = root.dependencies[0].clone();
+        inactive.optional = true;
+        inactive.name = "inactive_dependency".into();
+        root.dependencies.push(inactive);
+        assert_eq!(
+            metadata.deps_not_replaced(&root_id, true).unwrap(),
+            expected
+        );
+    }
+
+    #[test]
+    fn missing_resolve_node_does_not_return_an_empty_success() {
+        let (_, mut metadata) = construct_krates_and_metadata();
+        let root_id = metadata.root_package().unwrap().id.clone();
+        metadata
+            .resolve
+            .as_mut()
+            .unwrap()
+            .nodes
+            .retain(|n| n.id != root_id);
+        assert!(metadata.deps_not_replaced(&root_id, true).is_none());
+    }
+
     #[rstest]
     fn deps_not_replaced_test() {
         let args = FeaturesArgs::default();
         let gctx = GlobalContext::default().unwrap();
-        let (package, mut registry, workspace) =
-            construct_package_registry_workspace_tuple(&gctx);
+        let (package, mut registry, workspace) = construct_package_registry_workspace_tuple(&gctx);
 
-        let (_, resolve) =
-            resolve(&args, package.package_id(), &mut registry, &workspace)
-                .unwrap();
+        let (_, resolve) = resolve(&args, package.package_id(), &mut registry, &workspace).unwrap();
 
         let (krates, metadata) = construct_krates_and_metadata();
         let cargo_metadata_package_id = package
@@ -199,8 +232,7 @@ mod metadata_tests {
         let mut cargo_metadata_package_names = cargo_metadata_deps_not_replaced
             .iter()
             .map(|(p, _)| {
-                let (name, _) =
-                    p.get_package_id_name_and_version(&krates).unwrap();
+                let (name, _) = p.get_package_id_name_and_version(&krates).unwrap();
                 name
             })
             .collect::<Vec<String>>();
@@ -235,9 +267,7 @@ mod metadata_tests {
 
         let dependency_package_id = krates
             .krates()
-            .filter(|k| {
-                k.name == dependency.name && dependency.req.matches(&k.version)
-            })
+            .filter(|k| k.name == dependency.name && dependency.req.matches(&k.version))
             .map(|k| k.id.clone())
             .collect::<Vec<krates::cm::PackageId>>()
             .pop()
@@ -307,10 +337,8 @@ mod metadata_tests {
         gctx: &'a GlobalContext,
         package: &Package,
     ) -> CargoResult<PackageRegistry<'a>> {
-        let mut registry = PackageRegistry::new_with_source_config(
-            gctx,
-            SourceConfigMap::new(gctx).unwrap(),
-        )?;
+        let mut registry =
+            PackageRegistry::new_with_source_config(gctx, SourceConfigMap::new(gctx).unwrap())?;
         registry.add_sources(Some(package.package_id().source_id()))?;
         Ok(registry)
     }
@@ -358,9 +386,7 @@ mod metadata_tests {
         fn to_cargo_core_dep_kind(&self) -> DepKind {
             match self {
                 CargoMetadataDependencyKind::Build => DepKind::Build,
-                CargoMetadataDependencyKind::Development => {
-                    DepKind::Development
-                }
+                CargoMetadataDependencyKind::Development => DepKind::Development,
                 CargoMetadataDependencyKind::Normal => DepKind::Normal,
                 _ => panic!("Unknown dependency kind"),
             }

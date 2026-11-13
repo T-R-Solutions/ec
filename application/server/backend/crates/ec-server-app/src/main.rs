@@ -20,12 +20,11 @@ fn main() -> ExitCode {
         return ExitCode::from(2);
     }
     if std::env::args().nth(1).as_deref() != Some("validate-yaml") {
-        return match service::run() {
-            Ok(()) => ExitCode::SUCCESS,
-            Err(_) => {
-                eprintln!("Falha de operação; consulte configuração e contrato local");
-                ExitCode::from(1)
-            }
+        return if matches!(service::run(), Ok(())) {
+            ExitCode::SUCCESS
+        } else {
+            eprintln!("Falha de operação; consulte configuração e contrato local");
+            ExitCode::from(1)
         };
     }
     let args: Vec<_> = std::env::args_os().skip(1).collect();

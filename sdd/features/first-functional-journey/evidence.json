@@ -42,7 +42,7 @@
       "criterion": "AC-06 conforme spec.md",
       "status": "UNVERIFIED",
       "evidence_ids": [],
-      "reason": "Scripts vinculados alterados após análise do run-oUebC3O4; correções inspecionadas, sem execução atual. Observações anteriores preservadas no backup do relatório."
+      "reason": "Harness migrado para Chromium/Firefox via Playwright Docker em 11/11/2026. A evidência histórica permanece preservada; a nova implementação ainda não foi executada."
     },
     {
       "id": "AC-07",
@@ -61,6 +61,7 @@
     "Observações anteriores preservadas em docs/validation/tooling-remediation-20261106/previous-evidence.zip; nenhuma evidência histórica foi renovada.",
     "Observações anteriores E-REMEDIATION-20261107-FIRST-FUNCTIONAL-JOURNEY preservadas em docs/validation/default-quality-20261107/previous.zip ou previous-related-evidence.zip. Não reutilizar aprovação histórica nos inputs atuais.",
     "Inspeção do run-oUebC3O4 e correções em docs/validation/automation-run-oUebC3O4-20261107/report.md; histórico anterior preservado em previous.zip/previous-related-evidence.zip. Sem renovação de aprovações históricas ou execução atual.",
-    "Observações anteriores arquivadas integralmente em docs/validation/commit-readiness-20261107/first-functional-journey-previous-evidence.json após drift observado no run-Oc8k3QwU; hashes não renovados e critérios não aprovados por esta manutenção."
+    "Observações anteriores arquivadas integralmente em docs/validation/commit-readiness-20261107/first-functional-journey-previous-evidence.json após drift observado no run-Oc8k3QwU; hashes não renovados e critérios não aprovados por esta manutenção.",
+    "2026-11-11: política de .local alterada para somente logs de duas datas; baseline e backups previous/before foram removidos. Referências históricas a esses arquivos não indicam disponibilidade atual. Runner/harnesses/fixtures alterados sem suíte; registro em docs/validation/local-state-20261111/report.md."
   ]
 }

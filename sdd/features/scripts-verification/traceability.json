@@ -1,5 +1,17 @@
 [
   {
+    "acceptance": "AC-30",
+    "requirement": "REQ-30",
+    "decision": "D-26",
+    "risk": "R-26",
+    "tasks": [
+      "T045",
+      "T046"
+    ],
+    "implementation": "scripts/stacks/ec/environment.sh",
+    "oracle": "scripts/tests/test_environment.py"
+  },
+  {
     "acceptance": "AC-01",
     "requirement": "REQ-01",
     "decision": "D-01",
@@ -392,5 +404,156 @@
     ],
     "implementation": "tools/quality/collect_runtime_coverage.py",
     "oracle": "scripts/tests/test_runtime_coverage.py"
+  },
+  {
+    "acceptance": "AC-31",
+    "requirement": "REQ-31",
+    "decision": "D-27",
+    "risk": "R-27",
+    "tasks": [
+      "T047",
+      "T048"
+    ],
+    "implementation": "scripts/stacks/ec/runtime.sh",
+    "oracle": "scripts/tests/test_shell.py"
+  },
+  {
+    "acceptance": "AC-32",
+    "requirement": "REQ-32",
+    "decision": "D-28",
+    "risk": "R-28",
+    "tasks": [
+      "T049",
+      "T050"
+    ],
+    "implementation": "tools/quality/native_gates.py",
+    "oracle": "scripts/tests/test_native.py"
+  },
+  {
+    "acceptance": "AC-33",
+    "requirement": "REQ-33",
+    "decision": "D-29",
+    "risk": "R-29",
+    "tasks": [
+      "T051",
+      "T052",
+      "T053",
+      "T054"
+    ],
+    "implementation": "scripts/config/automation.json",
+    "oracle": "scripts/tests/test_automation_config.py"
+  },
+  {
+    "acceptance": "AC-34",
+    "requirement": "REQ-34",
+    "decision": "D-29",
+    "risk": "R-29",
+    "tasks": [
+      "T051",
+      "T052",
+      "T053",
+      "T054"
+    ],
+    "implementation": "tools/quality/prepare_automation.py",
+    "oracle": "scripts/tests/test_automation_config.py"
+  },
+  {
+    "acceptance": "AC-35",
+    "requirement": "REQ-35",
+    "decision": "D-29",
+    "risk": "R-29",
+    "tasks": [
+      "T051",
+      "T052",
+      "T053",
+      "T054"
+    ],
+    "implementation": "scripts/local-state.py",
+    "oracle": "scripts/tests/test_local_state.py"
+  },
+  {
+    "acceptance": "AC-36",
+    "requirement": "REQ-36",
+    "decision": "D-32",
+    "risk": "R-32",
+    "tasks": [
+      "T066",
+      "T067"
+    ],
+    "implementation": "tools/quality/sarif_report.py",
+    "oracle": "scripts/tests/test_native.py"
+  },
+  {
+    "acceptance": "AC-37",
+    "requirement": "REQ-37",
+    "decision": "D-32",
+    "risk": "R-32",
+    "tasks": [
+      "T066",
+      "T067"
+    ],
+    "implementation": "tools/quality/vendor/cargo-geiger/src/graph.rs",
+    "oracle": "tools/quality/vendor/cargo-geiger/src/graph.rs"
+  },
+  {
+    "acceptance": "AC-38",
+    "requirement": "REQ-38",
+    "decision": "D-32",
+    "risk": "R-32",
+    "tasks": [
+      "T066",
+      "T067",
+      "T068"
+    ],
+    "implementation": "tools/quality/native_gates.py",
+    "oracle": "scripts/tests/test_native.py"
+  },
+  {
+    "acceptance": "AC-39",
+    "requirement": "REQ-39",
+    "decision": "D-32",
+    "risk": "R-32",
+    "tasks": [
+      "T066",
+      "T067"
+    ],
+    "implementation": "tools/quality/native_gates.py",
+    "oracle": "scripts/tests/test_security_scope.py"
+  },
+  {
+    "acceptance": "AC-40",
+    "requirement": "REQ-40",
+    "decision": "D-32",
+    "risk": "R-32",
+    "tasks": [
+      "T066",
+      "T067"
+    ],
+    "implementation": "tools/quality/secret_history.py",
+    "oracle": "scripts/tests/test_security_scope.py"
+  },
+  {
+    "acceptance": "AC-41",
+    "requirement": "REQ-41",
+    "decision": "D-33",
+    "risk": "R-33",
+    "tasks": [
+      "T069",
+      "T070"
+    ],
+    "implementation": "tools/quality/native_gates.py",
+    "oracle": "scripts/tests/test_native.py"
+  },
+  {
+    "acceptance": "AC-42",
+    "requirement": "REQ-42",
+    "decision": "D-33",
+    "risk": "R-33",
+    "tasks": [
+      "T069",
+      "T070"
+    ],
+    "implementation": "scripts/config/automation.json",
+    "oracle": "scripts/tests/test_automation_config.py"
   }
 ]

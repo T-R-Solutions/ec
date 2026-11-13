@@ -1,71 +1,46 @@
-# Inventário vigente de scripts — inspeção de 09/11/2026
+# Inventário vigente de automação — 11/11/2026
 
-O mapa abaixo descreve os arquivos e consumidores observados após a integração
-nativa. É inspeção estática; nenhuma suíte foi executada nesta limpeza. Execução
-segue a [política canônica](task-verification.md); a autorização específica da
-migração de 08/11 não se transfere a outras tarefas.
+A [configuração responsável](../../scripts/config/automation.json) é consumida pelo
+[carregador](../../tools/quality/automation_config.py). O
+[guia do runner](../../scripts/README.md) explica comandos/estados; a
+[política de verificação](task-verification.md) define autorização. Esta atualização
+é implementação e inspeção, sem nova execução de testes ou aceite antecipado.
 
-A [revisão de scripts/](../validation/scripts-cleanup-20261109/report.md) retirou
-relatos superados e duplicação do README operacional. Os 44 arquivos de código,
-configuração, regras, testes e licença foram mantidos por seus consumidores;
-o texto anterior completo permanece arquivado no registro dessa revisão.
-
-| Caminho a partir da raiz | Papel e acionamento observado |
+| Arquivo ou área | Responsabilidade |
 | --- | --- |
-| `scripts/automate.sh` | Entrada plan/run; seleciona superfícies/checks e carrega common, catalog, inputs e runtime por `source` |
-| `scripts/toolbox.sh` | Interface pública transparente; TOOLBOX_BIN definido precisa ser executável, inclusive rejeição de vazio; senão descobre toolbox no PATH |
-| `scripts/check.sh` | Tarefa syntax do catálogo; descobre recursivamente `scripts/**/*.sh` e inspeciona sintaxe |
-| `scripts/stacks/ec/common.sh` | Funções usadas por source: caminhos, hashes, JSON, erros/bloqueios e agregação |
-| `scripts/stacks/ec/catalog.sh` | Único catálogo de tarefas, argv, cwd e dependências; não há catalog.json |
-| `scripts/stacks/ec/inputs.sh` | Descoberta dinâmica por escopo; exclui caches, segredos e históricos; locks explícitos para dependências |
-| `scripts/stacks/ec/runtime.sh` | Supervisor chamado por automate; ambiente selecionado, lock, grupos de processos, prazos, logs e classificação |
-| `scripts/stacks/ec/integration.sh` | Preflight inserido pelo runtime nos harnesses HTTP/Firefox; serviços e portas existentes, sem preparo implícito |
-| `scripts/stacks/ec/scanner-gate.sh` | Encaminha um check para `tools/quality/native_gates.py`; este usa a CLI pública toolbox exec |
-| `scripts/stacks/rust/check.sh` | Despacho Cargo nos dois workspaces; toolchain literal, plugins e políticas explícitos; cobertura carrega metrics/coverage |
-| `tools/quality/geiger_diagnostics.py` | Chamado pelo check Rust após erro Geiger; Python operacional fora de scripts, preserva referências/hashes dos streams e explica caminhos, finalidade e retenção, sem abrir os arquivos dos avisos ou alterar o resultado do gate |
-| `tools/quality/vendor/cargo-geiger/` | Mesmo Geiger 0.14.0 com correção local de descoberta, fontes/lock/licenças e hashes upstream preservados; build offline privado, dados incorporados identificados e Rust gerado contado pelo motor original |
-| `tools/quality/collect_runtime_coverage.py` | Coleta os perfis das jornadas reais com binário atual instrumentado; preflight existente e targets exclusivos; falha de build/harness impede a geração aprovada do LCOV |
-| `scripts/stacks/frontend/check.sh` | Despacho npm pelo package.json/lock, inclusive opções adicionais explícitas; coverage carrega biblioteca própria |
-| `scripts/stacks/ec/metrics/coverage.sh`, `coverage.json`, `metrics/check.sh` | Geração/inventário/avaliação LCOV e limiar de linhas >=80%; check também fornece budget/performance opcionais |
-| `scripts/stacks/ec/security/check-report.sh` | Parser usado por native_gates.parse para Gitleaks, Opengrep, OSV, SARIF e Trivy; não é scanner duplicado |
-| `scripts/stacks/ec/security/redact-trivy.jq` | Filtro chamado por native_gates.redact_trivy; conserva identificação/contagens sem valores de segredos |
-| `scripts/stacks/ec/security/validate-exceptions.sh` | Interface explícita de validação de registro; contrato preservado e exercitado por test_shell; validar não aplica exceções |
-| `scripts/stacks/ec/reports/summarize.sh` | Interface de leitura de results.json schema 1; consumidor manual e contrato em test_shell; não altera registros |
-| `scripts/stacks/frontend/eslint-ratchet.sh` | Interface para relatório/baseline explícitos e contrato em test_shell; não instala nem executa ESLint; frontend atual não define npm lint |
-| `scripts/config/native/` | Onze configurações: cargo-audit, cargo-deny, ruff, shellcheck, gitleaks, osv-scanner, trivy, grype, bandit, codeql e playwright; lidas explicitamente pelos checks/gates |
-| `scripts/rules/opengrep/` | Três regras e três fixtures Rust/TS/Vue; descoberta por diretório, extensões e anotações ruleid; gate de eficácia precede SAST |
-| `scripts/rules/codeql/*.qls` | Suites distintas Rust e JS/TS; projetos explícitos em config/native/codeql/projects.json; não são duplicatas |
-| `scripts/rules/yara-x/ec.yar` | Sentinela EICAR opcional, com fixtures positivas/negativas geradas pelo gate; não é catálogo universal de malware |
-| `scripts/tests/test_consumer.py`, `test_native.py`, `test_quality.py`, `test_shell.py` | Descobertos por unittest no catálogo; contratos de wrapper, execução nativa, qualidade e shell; simulações não homologam ferramentas reais |
-| `scripts/tests/test_geiger_diagnostics.py` | Descoberto pelo mesmo unittest; casos de retenção de dependências/gerados, caminhos desconhecidos, bytes inválidos, mensagens não reconhecidas e conteúdo tratado como dados; resultados e limites no relatório do diagnóstico Geiger |
-| `scripts/tests/test_runtime_coverage.py` | Contratos do show-env como dados, alvos instrumentados, harnesses e propagação de erro; fixtures não comprovam integração ou cobertura real |
-| `scripts/README.md`, `scripts/LICENSE` | Contrato operacional e licença MIT do componente importado; licença raiz GPL tem papel diferente |
+| `scripts/automate.sh` | Parser da entrada plan/run; coordenação sem catálogo paralelo |
+| `scripts/config/automation.json` | Tarefas, grafo, executores, componentes, recursos, ambiente, limites, serviços, navegadores, cobertura e políticas |
+| `tools/quality/automation_config.py` | Validar dados/grafo e projetar plano, ambiente, inventário e consultas; sem instalação |
+| `scripts/stacks/ec/catalog.sh`, `environment.sh`, `inputs.sh` | Adaptadores Bash das projeções canônicas |
+| `scripts/stacks/ec/runtime.sh`, `common.sh` | Lock, ambiente restrito, supervisão, classificação e estabilidade de entradas |
+| `tools/quality/prepare_automation.py` | Resolução Cargo offline, base RustSec, LLVM compatível, ciclo de vida PostgreSQL e preflight |
+| `scripts/stacks/rust/check.sh` | Cargo e plugins instalados no host, políticas nativas e targets privados |
+| `scripts/stacks/frontend/check.sh` | Scripts npm declarados no manifest; requisito Node lido do próprio manifest |
+| `tools/quality/collect_runtime_coverage.py` | Perfis das jornadas HTTP reais no componente instrumentado |
+| `scripts/stacks/ec/metrics/` | Inventário/coleta/avaliação de cobertura; política em automation.json; budget/performance opcionais |
+| `scripts/toolbox.sh`, `scripts/stacks/ec/scanner-gate.sh` | Transporte público para Toolbox e despacho de um gate |
+| `tools/quality/native_gates.py` | Snapshots, comandos nativos, manutenção prévia de bases, parsers e proveniência; ferramentas Docker |
+| `scripts/config/native/`, `scripts/rules/` | Políticas e regras nos formatos de suas ferramentas, referenciadas na configuração principal |
+| `scripts/stacks/ec/security/` | Parsers, redação Trivy e validação de exceções, sem scanner duplicado |
+| `scripts/local-state.py` | Temporários/lock e exportação de logs privados, somente duas datas |
+| `tools/quality/geiger_diagnostics.py` | Explicação complementar, sem alterar o resultado do Geiger instalado |
+| `tools/quality/vendor/cargo-geiger/` | Fonte do patch de descoberta para preparo explícito do plugin no host; sem build, instalação ou binário alternativo durante os gates |
+| `application/integration/tests/settings.py` | Projeção dos serviços canônicos para harnesses |
+| `application/integration/tests/integration/` | Jornadas HTTP com Server/Agent/PostgreSQL reais |
+| `application/integration/tests/e2e/frontend_browser.py`, `browser_driver.py` | Mesma jornada real para Chromium/Firefox, browser somente na Toolbox/Docker |
+| `application/server/frontend/tests/playwright/` | Testes de sessão com API simulada, browser/Node dentro da imagem |
+| `application/server/frontend/tests/browser-journey/` | Controle privado do Playwright e servidor/proxy do build real dentro do Docker |
+| `scripts/tests/` | Contratos de configuração, seleção, preparo, supervisão, parsers, retenção e browser; mocks não homologam ferramentas reais |
 
-O runner mantém governança obrigatória em `tools/governance/` e `sdd/tools/`.
-Server/Agent têm membros Cargo explícitos; frontend usa scripts npm e padrões
-Vitest. O catálogo registra três harnesses HTTP e a jornada Firefox em
-`application/integration/tests/`; imports por sys.path reutilizam publication_http,
-orchestration_http e o driver Firefox. Playwright é separado, com API simulada,
-config ESM central e servidor/testes mantidos pelo Ec.
+As configurações paralelas `stacks/ec/coverage.json` e
+`config/native/codeql/projects.json` foram retiradas após migração dos consumidores.
+O driver Marionette e a chamada ao Firefox do host foram substituídos pela jornada
+Playwright. Não houve download de navegador nessa mudança. A seleção pública
+`exec --browser` da Toolbox usa variantes já registradas da versão ativa.
 
-Os indiretos incluem `EC_ROOT`, `EC_TASK_DIR`, `EC_E2E_ARTIFACT_DIR`, `EC_TASK_TIMEOUT`,
-`EC_CARGO_BIN`, `CARGO_HOME`, `RUSTUP_HOME`, `EC_RUSTSEC_DB`,
-`TOOLBOX_STATE`, `DOCKER_HOST`, `DOCKER_CONTEXT`, `DOCKER_CONFIG`,
-`DOCKER_TLS_VERIFY`, `DOCKER_CERT_PATH`, `EC_CODEQL_RUSTUP_HOME`, `EC_CODEQL_CARGO_HOME`,
-`EC_CODEQL_CARGO_BIN`, `TOOLBOX_BIN` e `TOOLBOX_SELINUX_LABEL`. O ambiente do supervisor
-é selecionado, não uma cópia integral do host. OSV/Trivy usam a proveniência
-upstream do diagnóstico; o recibo externo OSV anterior foi retirado. Trivy exige
-bundle externo identificado e mount ro observado.
-[Adequação ao contrato central](../validation/toolbox-alignment-20261109/report.md).
-Não executar arquivos configurados
-como shell nem inferir download/preparo por existir um caminho.
-
-Nesta limpeza foram removidos apenas caches Python sob scripts/tests e outras
-raízes ativas, marcadores em diretórios já preenchidos e a consulta temporária
-erase.md da raiz. A consulta foi [arquivada integralmente](../validation/cleanup-20261109/retired/erase.md)
-como histórico; [preparação vigente](verification-tools.md). Nenhum wrapper,
-runner, regra, parser, fixture, teste, configuração ou licença foi retirado.
-[Relatório, inventário e recuperação](../validation/cleanup-20261109/report.md).
+Resultados correntes e lacunas ficam na
+[convergência da feature](../../sdd/features/scripts-verification/converge.md).
+Os registros abaixo são históricos, inclusive seus caminhos e contagens.
 
 ## Inventários e decisões anteriores — preservados integralmente
 
@@ -89,9 +64,10 @@ não existem. Para operar, use o mapa acima e o [guia nativo](../../scripts/READ
 
 O conteúdo foi inspecionado antes de executar importados. O inventário exato por
 arquivo/hash/decisão está em [inventory.json](../validation/scripts-ec-20261105/inventory.json).
-A cópia integral anterior está em [previous.zip](../validation/scripts-ec-20261105/previous.zip),
-incluindo licenças/fontes e versões anteriores dos documentos/skills editados. Não
-foi removido material histórico fora de scripts/. As decisões abaixo cobrem todos
+A cópia integral anterior, então registrada como `previous.zip`, foi removida
+pela [política de estado local de 11/11/2026](local-state.md). Ela não é um
+pré-requisito atual da verificação. Na inspeção de 05/11 não foi removido material
+histórico fora de scripts/. As decisões abaixo cobrem todos
 os arquivos originais por grupos coerentes; não conservam infraestrutura por hipótese futura.
 
 | Arquivos/grupo | Finalidade, consumidores e efeitos observados | Decisão Ec e verificação |
@@ -180,8 +156,8 @@ reintegração acima; indisponibilidade de ferramentas/bases dá blocked. As dep
 
 Reproduzir conforme [política canônica](task-verification.md). O relatório de
 [execução](../validation/scripts-ec-20261105/report.md) distingue baseline, resultados,
-bloqueios e evidências. Restaurar um arquivo de previous.zip exige comparar o conteúdo
-atual para preservar edições posteriores. Não extrair todo o arquivo sobre o checkout.
+bloqueios e evidências. Recuperar pela revisão correspondente no Git/GitHub
+exige comparar o conteúdo atual para preservar edições posteriores; não criar backups locais.
 Não usar erase.md como dependência operacional ou link essencial.
 
 ## Migração para shell — 2026-11-06

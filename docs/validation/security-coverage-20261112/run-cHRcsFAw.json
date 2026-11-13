@@ -1,0 +1,796 @@
+{
+  "schema": 1,
+  "run": "run-cHRcsFAw",
+  "command": "bash scripts/automate.sh run --scope complete",
+  "observed_configuration_sha256": "cf2b45ff31915cb4fa83468fac7a9f00fe8d38411201782d85cb182c6450a450",
+  "inputs_sha256": "ea91d319a351c4cebb64db36898ee765b5d02ddded7d087b9c05269e80634053",
+  "exit_code": 2,
+  "state_counts": {
+    "passed": 43,
+    "findings": 9,
+    "error": 2
+  },
+  "changed_inputs": [],
+  "updated_lockfiles": [],
+  "cancelled": false,
+  "cleanup": {
+    "exit_code": 2,
+    "finished_at": "2026-11-12T18:04:03.843482-03:00",
+    "cleanup_error": null,
+    "intermediate_artifacts": "discarded"
+  },
+  "raw_log": ".local/logs/2026-11-12/run-cHRcsFAw-automate.results.log",
+  "raw_log_sha256": "19d2bb4b3ccd6da2c432a4f65fba7459992d9a93ae7ccb0b88589ec58afec800",
+  "source_sbom": {
+    "artifact_count": 283,
+    "dependency_counts": {
+      "application/server/backend/Cargo.lock": 102,
+      "application/agents/Cargo.lock": 21,
+      "application/server/frontend/package-lock.json": 147
+    },
+    "javascript": {
+      "include-dev-dependencies": true,
+      "npm-base-url": "https://registry.npmjs.org",
+      "search-remote-licenses": false
+    },
+    "scope": {
+      "scope": "all-layers"
+    },
+    "catalogers": {
+      "default": [
+        "directory",
+        "file",
+        "image"
+      ]
+    }
+  },
+  "selected_images_identical_across_scanners": true,
+  "results": [
+    {
+      "project": "docs",
+      "task": "governance",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "installed",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "skills",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "sdd",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "docs",
+      "task": "governance-tests",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "syntax",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "scripts",
+      "task": "shellcheck",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 4234
+    },
+    {
+      "project": "scripts",
+      "task": "ruff",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 13023
+    },
+    {
+      "project": "scripts",
+      "task": "tests",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "fmt",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "server-cargo",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "check",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "clippy",
+      "state": "error",
+      "returncode": 101
+    },
+    {
+      "project": "server",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "machete",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "rustsec",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "deny",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "audit",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "geiger",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "agent-cargo",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "prepare",
+      "task": "postgres",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "coverage",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "server",
+      "task": "harness-build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "fmt",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "check",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "clippy",
+      "state": "error",
+      "returncode": 101
+    },
+    {
+      "project": "agent",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "machete",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "deny",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "audit",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "geiger",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "coverage",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "agent",
+      "task": "harness-build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "typecheck",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "test",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "build",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "frontend",
+      "task": "coverage",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "security",
+      "task": "secrets-rules",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "secrets",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 49
+    },
+    {
+      "project": "security",
+      "task": "sast-rules",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "sast",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 10
+    },
+    {
+      "project": "security",
+      "task": "dependencies",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0
+    },
+    {
+      "project": "security",
+      "task": "trivy",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 8607,
+      "image_count": 13,
+      "images": [
+        {
+          "image": "sha256:2c02ac66451c3557243e80e07b35a9e3fe5c9dfbd91d9cefa39e7900f1bd3919",
+          "config_digest": "sha256:1d28caab909e1b7e2f37a110c7173d24f804ee585f2dd0b4f84ce148b2ee733a",
+          "manifest_digest": "sha256:f2173cd02fdc5f6de8d50573ae0b47d76fe690be6bf76e4a2d5af43eae5d6761",
+          "state": "findings",
+          "finding_count": 355,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 740
+        },
+        {
+          "image": "sha256:0ee3284ac49c0a2ab676e90c6e9f7ead5985d021d1ee3c47fd9b6f80ae1bc494",
+          "config_digest": "sha256:2c4956aab7ec8fd8de4a6da42ad1021dbea7ac89d48c5285bd50b0386a5ba530",
+          "manifest_digest": "sha256:38f853561da8b06dc46e602e9d18ce5884f329c76763ba31322e60e2e2192a8e",
+          "state": "findings",
+          "finding_count": 4634,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 1463
+        },
+        {
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "config_digest": "sha256:00426d84b6b404ba2e4fbbf04fd556f2f4d00c73654daeeeb55032ec0035fb51",
+          "manifest_digest": "sha256:55debc6edcfa9f6e06eea1eecce3078cbf90f85af38494214e0d4e0cf806c5c2",
+          "state": "findings",
+          "finding_count": 507,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 917
+        },
+        {
+          "image": "sha256:56d089431bdb869e1b6e2357fd09a8670b68a07a7ab42274d8fe6dadddc7688e",
+          "config_digest": "sha256:a09f67159c72a733da079bef41c4f0d26c2fc08dd34ab1b7b8e12141aeb35a61",
+          "manifest_digest": "sha256:3f0589103e0c0828f4ba6436f5371add41b04b85fd8b69ee429869354ffd8e47",
+          "state": "findings",
+          "finding_count": 268,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:7eb87fed71d00ced341d2100ee9bdfcacb3b4f725d7b4b195d51e0f534c66ccc",
+          "config_digest": "sha256:ae4d56f7f84be870e431df2e49b3d419b189bfb6721b8e08c815426c908319bf",
+          "manifest_digest": "sha256:68b17eed784e1d9cf6793e906b5bcf44571bd902c2094a6a66680a28fdc36a73",
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:a6f08d5112ff5d427b83ba941b889765f1423d55354d66c0d982bac123a99f89",
+          "config_digest": "sha256:ee7c08c8a2ec003b36a2a3420349b31ec943e2ce7f6db55c2ab59e7c31be590a",
+          "manifest_digest": "sha256:b63ebe3510b02b3d0cae6b0b291c9fbf7406336b0715b88e052f20c28dd34904",
+          "state": "findings",
+          "finding_count": 240,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:8673ebc52277c1c10e99b07a4c01efabbee31a7d97f427645474b65debe871cf",
+          "config_digest": "sha256:dfe147e600c391309a9531fb85cfcd40169e2e033cd5bf004973d399be5a9915",
+          "manifest_digest": "sha256:45b29fa249f2363adceddc8756371f075fe2f79f0ff7b73bff7475bae3541251",
+          "state": "findings",
+          "finding_count": 531,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 1063
+        },
+        {
+          "image": "sha256:d2805f4120030ba62383ec263067893114f86acc229a15dbd1b0aea2db10f5b6",
+          "config_digest": "sha256:7a1dab5247154a627b3390e4ac075eb302acc3c6538cd38524fc5f7f8eb858a2",
+          "manifest_digest": "sha256:cda5164e4f9f09f547f0d9f8434f78d840b913306af49751f98507af9af7260d",
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:3124bba122bff75dce2623e63636d099fce0a4ea33c1c840929b6e6f13c54221",
+          "config_digest": "sha256:0f95e2a7aa46acbb399bc549ed1167413010fb57cb304a0fb09e986f6d0c3052",
+          "manifest_digest": "sha256:451633a62a56884adc8deb22a24c76f336085ef9442ced9b6e5de4c70d6634cb",
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:f85fd08a21bbd25fefac206e79761fa4b7f6dc09677968e588c064b1dd5d0cb7",
+          "config_digest": "sha256:f3493a1e4435d1873f12a3c094f56ae9c6835410964623319babe3de4369960d",
+          "manifest_digest": "sha256:5fd76cf62d44f0e77ab8ea3d85174f721542370d6be8359d4f4073d4753c4a7c",
+          "state": "findings",
+          "finding_count": 371,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "config_digest": "sha256:d369d5adbac8d7f31e2e0e6831ce808d85ab660452fad7558f9d57ab3203d446",
+          "manifest_digest": "sha256:e0928395822afae573cf2bfd818b3871503d88f200562a3d8e560af5210c3339",
+          "state": "findings",
+          "finding_count": 224,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:6299a77fe1fff724977738b37237f94e552460bdb4da50e773da6ceb50ba7bcb",
+          "config_digest": "sha256:370a2616f2808f844c9a78f8eda21ca6df87f19aa4a4fcecf7d45d8624c4d11b",
+          "manifest_digest": "sha256:c5378bdf714e687958148f9e04a511bf0aacc2d4d8da298b5a0a94dad3dbaa65",
+          "state": "findings",
+          "finding_count": 222,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 600
+        },
+        {
+          "image": "sha256:b70bfeb57368d845212aa38f410f09f0d6b867acb05a01720ceae739e4d16cbc",
+          "config_digest": "sha256:03cfe144e8783c44487d3e62feb0f615ddc828c72c42be280cb0bfef48c5bf00",
+          "manifest_digest": "sha256:72055ec114ff66662c5b8b42bab3876842ac5b960b5b9d5d04e08aa6c84d9677",
+          "state": "findings",
+          "finding_count": 589,
+          "native_finding_count": null,
+          "native_suppressed_count": null,
+          "license_count": 1316
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "codeql",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 17
+    },
+    {
+      "project": "security",
+      "task": "grype",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 12300,
+      "native_finding_count": 0,
+      "native_suppressed_count": 0,
+      "artifact_count": 283,
+      "image_count": 13,
+      "images": [
+        {
+          "image": "sha256:2c02ac66451c3557243e80e07b35a9e3fe5c9dfbd91d9cefa39e7900f1bd3919",
+          "config_digest": "sha256:1d28caab909e1b7e2f37a110c7173d24f804ee585f2dd0b4f84ce148b2ee733a",
+          "manifest_digest": "sha256:f2173cd02fdc5f6de8d50573ae0b47d76fe690be6bf76e4a2d5af43eae5d6761",
+          "state": "findings",
+          "finding_count": 369,
+          "native_finding_count": 369,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:0ee3284ac49c0a2ab676e90c6e9f7ead5985d021d1ee3c47fd9b6f80ae1bc494",
+          "config_digest": "sha256:2c4956aab7ec8fd8de4a6da42ad1021dbea7ac89d48c5285bd50b0386a5ba530",
+          "manifest_digest": "sha256:38f853561da8b06dc46e602e9d18ce5884f329c76763ba31322e60e2e2192a8e",
+          "state": "findings",
+          "finding_count": 4556,
+          "native_finding_count": 1547,
+          "native_suppressed_count": 3009,
+          "license_count": null
+        },
+        {
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "config_digest": "sha256:00426d84b6b404ba2e4fbbf04fd556f2f4d00c73654daeeeb55032ec0035fb51",
+          "manifest_digest": "sha256:55debc6edcfa9f6e06eea1eecce3078cbf90f85af38494214e0d4e0cf806c5c2",
+          "state": "findings",
+          "finding_count": 520,
+          "native_finding_count": 520,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:56d089431bdb869e1b6e2357fd09a8670b68a07a7ab42274d8fe6dadddc7688e",
+          "config_digest": "sha256:a09f67159c72a733da079bef41c4f0d26c2fc08dd34ab1b7b8e12141aeb35a61",
+          "manifest_digest": "sha256:3f0589103e0c0828f4ba6436f5371add41b04b85fd8b69ee429869354ffd8e47",
+          "state": "findings",
+          "finding_count": 286,
+          "native_finding_count": 286,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:7eb87fed71d00ced341d2100ee9bdfcacb3b4f725d7b4b195d51e0f534c66ccc",
+          "config_digest": "sha256:ae4d56f7f84be870e431df2e49b3d419b189bfb6721b8e08c815426c908319bf",
+          "manifest_digest": "sha256:68b17eed784e1d9cf6793e906b5bcf44571bd902c2094a6a66680a28fdc36a73",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:a6f08d5112ff5d427b83ba941b889765f1423d55354d66c0d982bac123a99f89",
+          "config_digest": "sha256:ee7c08c8a2ec003b36a2a3420349b31ec943e2ce7f6db55c2ab59e7c31be590a",
+          "manifest_digest": "sha256:b63ebe3510b02b3d0cae6b0b291c9fbf7406336b0715b88e052f20c28dd34904",
+          "state": "findings",
+          "finding_count": 254,
+          "native_finding_count": 254,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:8673ebc52277c1c10e99b07a4c01efabbee31a7d97f427645474b65debe871cf",
+          "config_digest": "sha256:dfe147e600c391309a9531fb85cfcd40169e2e033cd5bf004973d399be5a9915",
+          "manifest_digest": "sha256:45b29fa249f2363adceddc8756371f075fe2f79f0ff7b73bff7475bae3541251",
+          "state": "findings",
+          "finding_count": 4049,
+          "native_finding_count": 4049,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:d2805f4120030ba62383ec263067893114f86acc229a15dbd1b0aea2db10f5b6",
+          "config_digest": "sha256:7a1dab5247154a627b3390e4ac075eb302acc3c6538cd38524fc5f7f8eb858a2",
+          "manifest_digest": "sha256:cda5164e4f9f09f547f0d9f8434f78d840b913306af49751f98507af9af7260d",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:3124bba122bff75dce2623e63636d099fce0a4ea33c1c840929b6e6f13c54221",
+          "config_digest": "sha256:0f95e2a7aa46acbb399bc549ed1167413010fb57cb304a0fb09e986f6d0c3052",
+          "manifest_digest": "sha256:451633a62a56884adc8deb22a24c76f336085ef9442ced9b6e5de4c70d6634cb",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:f85fd08a21bbd25fefac206e79761fa4b7f6dc09677968e588c064b1dd5d0cb7",
+          "config_digest": "sha256:f3493a1e4435d1873f12a3c094f56ae9c6835410964623319babe3de4369960d",
+          "manifest_digest": "sha256:5fd76cf62d44f0e77ab8ea3d85174f721542370d6be8359d4f4073d4753c4a7c",
+          "state": "findings",
+          "finding_count": 393,
+          "native_finding_count": 393,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "config_digest": "sha256:d369d5adbac8d7f31e2e0e6831ce808d85ab660452fad7558f9d57ab3203d446",
+          "manifest_digest": "sha256:e0928395822afae573cf2bfd818b3871503d88f200562a3d8e560af5210c3339",
+          "state": "findings",
+          "finding_count": 238,
+          "native_finding_count": 238,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:6299a77fe1fff724977738b37237f94e552460bdb4da50e773da6ceb50ba7bcb",
+          "config_digest": "sha256:370a2616f2808f844c9a78f8eda21ca6df87f19aa4a4fcecf7d45d8624c4d11b",
+          "manifest_digest": "sha256:c5378bdf714e687958148f9e04a511bf0aacc2d4d8da298b5a0a94dad3dbaa65",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:b70bfeb57368d845212aa38f410f09f0d6b867acb05a01720ceae739e4d16cbc",
+          "config_digest": "sha256:03cfe144e8783c44487d3e62feb0f615ddc828c72c42be280cb0bfef48c5bf00",
+          "manifest_digest": "sha256:72055ec114ff66662c5b8b42bab3876842ac5b960b5b9d5d04e08aa6c84d9677",
+          "state": "findings",
+          "finding_count": 695,
+          "native_finding_count": 695,
+          "native_suppressed_count": 0,
+          "license_count": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "bandit",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 50,
+      "native_finding_count": 392,
+      "reviewed_count": 342
+    },
+    {
+      "project": "security",
+      "task": "syft",
+      "state": "findings",
+      "returncode": 1,
+      "finding_count": 12300,
+      "native_finding_count": 0,
+      "native_suppressed_count": 0,
+      "artifact_count": 283,
+      "image_count": 13,
+      "images": [
+        {
+          "image": "sha256:2c02ac66451c3557243e80e07b35a9e3fe5c9dfbd91d9cefa39e7900f1bd3919",
+          "config_digest": "sha256:1d28caab909e1b7e2f37a110c7173d24f804ee585f2dd0b4f84ce148b2ee733a",
+          "manifest_digest": "sha256:f2173cd02fdc5f6de8d50573ae0b47d76fe690be6bf76e4a2d5af43eae5d6761",
+          "state": "findings",
+          "finding_count": 369,
+          "native_finding_count": 369,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:0ee3284ac49c0a2ab676e90c6e9f7ead5985d021d1ee3c47fd9b6f80ae1bc494",
+          "config_digest": "sha256:2c4956aab7ec8fd8de4a6da42ad1021dbea7ac89d48c5285bd50b0386a5ba530",
+          "manifest_digest": "sha256:38f853561da8b06dc46e602e9d18ce5884f329c76763ba31322e60e2e2192a8e",
+          "state": "findings",
+          "finding_count": 4556,
+          "native_finding_count": 1547,
+          "native_suppressed_count": 3009,
+          "license_count": null
+        },
+        {
+          "image": "sha256:ddfb34a8382a85b20e58c88ac0a2cc8c0fd83f53fe380808ca48453d7fe5200f",
+          "config_digest": "sha256:00426d84b6b404ba2e4fbbf04fd556f2f4d00c73654daeeeb55032ec0035fb51",
+          "manifest_digest": "sha256:55debc6edcfa9f6e06eea1eecce3078cbf90f85af38494214e0d4e0cf806c5c2",
+          "state": "findings",
+          "finding_count": 520,
+          "native_finding_count": 520,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:56d089431bdb869e1b6e2357fd09a8670b68a07a7ab42274d8fe6dadddc7688e",
+          "config_digest": "sha256:a09f67159c72a733da079bef41c4f0d26c2fc08dd34ab1b7b8e12141aeb35a61",
+          "manifest_digest": "sha256:3f0589103e0c0828f4ba6436f5371add41b04b85fd8b69ee429869354ffd8e47",
+          "state": "findings",
+          "finding_count": 286,
+          "native_finding_count": 286,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:7eb87fed71d00ced341d2100ee9bdfcacb3b4f725d7b4b195d51e0f534c66ccc",
+          "config_digest": "sha256:ae4d56f7f84be870e431df2e49b3d419b189bfb6721b8e08c815426c908319bf",
+          "manifest_digest": "sha256:68b17eed784e1d9cf6793e906b5bcf44571bd902c2094a6a66680a28fdc36a73",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:a6f08d5112ff5d427b83ba941b889765f1423d55354d66c0d982bac123a99f89",
+          "config_digest": "sha256:ee7c08c8a2ec003b36a2a3420349b31ec943e2ce7f6db55c2ab59e7c31be590a",
+          "manifest_digest": "sha256:b63ebe3510b02b3d0cae6b0b291c9fbf7406336b0715b88e052f20c28dd34904",
+          "state": "findings",
+          "finding_count": 254,
+          "native_finding_count": 254,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:8673ebc52277c1c10e99b07a4c01efabbee31a7d97f427645474b65debe871cf",
+          "config_digest": "sha256:dfe147e600c391309a9531fb85cfcd40169e2e033cd5bf004973d399be5a9915",
+          "manifest_digest": "sha256:45b29fa249f2363adceddc8756371f075fe2f79f0ff7b73bff7475bae3541251",
+          "state": "findings",
+          "finding_count": 4049,
+          "native_finding_count": 4049,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:d2805f4120030ba62383ec263067893114f86acc229a15dbd1b0aea2db10f5b6",
+          "config_digest": "sha256:7a1dab5247154a627b3390e4ac075eb302acc3c6538cd38524fc5f7f8eb858a2",
+          "manifest_digest": "sha256:cda5164e4f9f09f547f0d9f8434f78d840b913306af49751f98507af9af7260d",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:3124bba122bff75dce2623e63636d099fce0a4ea33c1c840929b6e6f13c54221",
+          "config_digest": "sha256:0f95e2a7aa46acbb399bc549ed1167413010fb57cb304a0fb09e986f6d0c3052",
+          "manifest_digest": "sha256:451633a62a56884adc8deb22a24c76f336085ef9442ced9b6e5de4c70d6634cb",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:f85fd08a21bbd25fefac206e79761fa4b7f6dc09677968e588c064b1dd5d0cb7",
+          "config_digest": "sha256:f3493a1e4435d1873f12a3c094f56ae9c6835410964623319babe3de4369960d",
+          "manifest_digest": "sha256:5fd76cf62d44f0e77ab8ea3d85174f721542370d6be8359d4f4073d4753c4a7c",
+          "state": "findings",
+          "finding_count": 393,
+          "native_finding_count": 393,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:216aeb3c2b69bc83a066f639678d36a62f2e0e22110e3371b24e7bf230b7f518",
+          "config_digest": "sha256:d369d5adbac8d7f31e2e0e6831ce808d85ab660452fad7558f9d57ab3203d446",
+          "manifest_digest": "sha256:e0928395822afae573cf2bfd818b3871503d88f200562a3d8e560af5210c3339",
+          "state": "findings",
+          "finding_count": 238,
+          "native_finding_count": 238,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:6299a77fe1fff724977738b37237f94e552460bdb4da50e773da6ceb50ba7bcb",
+          "config_digest": "sha256:370a2616f2808f844c9a78f8eda21ca6df87f19aa4a4fcecf7d45d8624c4d11b",
+          "manifest_digest": "sha256:c5378bdf714e687958148f9e04a511bf0aacc2d4d8da298b5a0a94dad3dbaa65",
+          "state": "findings",
+          "finding_count": 235,
+          "native_finding_count": 235,
+          "native_suppressed_count": 0,
+          "license_count": null
+        },
+        {
+          "image": "sha256:b70bfeb57368d845212aa38f410f09f0d6b867acb05a01720ceae739e4d16cbc",
+          "config_digest": "sha256:03cfe144e8783c44487d3e62feb0f615ddc828c72c42be280cb0bfef48c5bf00",
+          "manifest_digest": "sha256:72055ec114ff66662c5b8b42bab3876842ac5b960b5b9d5d04e08aa6c84d9677",
+          "state": "findings",
+          "finding_count": 695,
+          "native_finding_count": 695,
+          "native_suppressed_count": 0,
+          "license_count": null
+        }
+      ]
+    },
+    {
+      "project": "security",
+      "task": "yara-x",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0
+    },
+    {
+      "project": "integration",
+      "task": "publication_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "integration",
+      "task": "orchestration_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "integration",
+      "task": "agent_http",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "e2e",
+      "task": "playwright",
+      "state": "passed",
+      "returncode": 0,
+      "finding_count": 0
+    },
+    {
+      "project": "e2e",
+      "task": "chromium",
+      "state": "passed",
+      "returncode": 0
+    },
+    {
+      "project": "e2e",
+      "task": "firefox",
+      "state": "passed",
+      "returncode": 0
+    }
+  ],
+  "subsequent_changes": "Limpeza posterior de scanner_roots, seletor sem consumidor no fluxo nativo: aliases trivy/inventory usam inputs.roots. Testes focais de configuração/seleção e fechamento documental são registrados separadamente; este run não executou os bytes desse refactor."
+}
