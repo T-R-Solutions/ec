@@ -1,0 +1,143 @@
+{
+  "fields": [
+    "apiVersion",
+    "kind",
+    "project",
+    "pipeline",
+    "repository",
+    "commit",
+    "script",
+    "timeoutSeconds",
+    "artifact"
+  ],
+  "constants": {
+    "API_VERSION": {
+      "rust_type": "str",
+      "value": "ec/v1alpha1"
+    },
+    "RESOURCE_KIND": {
+      "rust_type": "str",
+      "value": "ProjectPipeline"
+    },
+    "PROTOCOL_VERSION": {
+      "rust_type": "i64",
+      "value": 1
+    },
+    "AGENT_SLOTS": {
+      "rust_type": "i64",
+      "value": 1
+    },
+    "MAX_NAME_BYTES": {
+      "rust_type": "usize",
+      "value": 64
+    },
+    "MAX_REQUEST_ID_BYTES": {
+      "rust_type": "usize",
+      "value": 64
+    },
+    "MAX_INPUT_BYTES": {
+      "rust_type": "usize",
+      "value": 65536
+    },
+    "MAX_SCALAR_BYTES": {
+      "rust_type": "usize",
+      "value": 8192
+    },
+    "MAX_EVENTS": {
+      "rust_type": "usize",
+      "value": 4096
+    },
+    "MAX_SCRIPT_BYTES": {
+      "rust_type": "usize",
+      "value": 8192
+    },
+    "MAX_TIMEOUT_SECONDS": {
+      "rust_type": "u64",
+      "value": 3600
+    },
+    "MIN_TIMEOUT_SECONDS": {
+      "rust_type": "u64",
+      "value": 1
+    },
+    "MAX_LOG_BYTES": {
+      "rust_type": "usize",
+      "value": 16777216
+    },
+    "MAX_ARTIFACT_BYTES": {
+      "rust_type": "usize",
+      "value": 16777216
+    },
+    "MAX_LOG_CHUNK_BYTES": {
+      "rust_type": "usize",
+      "value": 65536
+    },
+    "MAX_ARTIFACT_CHUNK_BYTES": {
+      "rust_type": "usize",
+      "value": 65536
+    },
+    "AGENT_CHUNK_BYTES": {
+      "rust_type": "usize",
+      "value": 32768
+    },
+    "MAX_CHUNK_SEQUENCE": {
+      "rust_type": "i64",
+      "value": 2048
+    },
+    "SESSION_SECONDS": {
+      "rust_type": "u32",
+      "value": 28800
+    },
+    "LEASE_SECONDS": {
+      "rust_type": "u32",
+      "value": 30
+    },
+    "HEARTBEAT_INTERVAL_MILLIS": {
+      "rust_type": "u64",
+      "value": 2000
+    },
+    "HEARTBEAT_AUTHORITY_SECONDS": {
+      "rust_type": "u64",
+      "value": 10
+    },
+    "DELIVERY_TIMEOUT_SECONDS": {
+      "rust_type": "u64",
+      "value": 12
+    },
+    "PROCESS_TERM_GRACE_SECONDS": {
+      "rust_type": "u64",
+      "value": 2
+    },
+    "MAX_LOCAL_ATTEMPTS": {
+      "rust_type": "usize",
+      "value": 16
+    },
+    "HTTP_BODY_MAX_BYTES": {
+      "rust_type": "u64",
+      "value": 131072
+    },
+    "HTTP_OUTPUT_BODY_MAX_BYTES": {
+      "rust_type": "u64",
+      "value": 140000
+    },
+    "TOKEN_BYTES": {
+      "rust_type": "usize",
+      "value": 32
+    },
+    "MAX_RUN_ATTEMPTS": {
+      "rust_type": "i32",
+      "value": 2
+    },
+    "HEARTBEAT_TICK_MILLIS": {
+      "rust_type": "u64",
+      "value": 100
+    },
+    "GIT_COMMIT_HEX_BYTES": {
+      "rust_type": "usize",
+      "value": 40
+    },
+    "SHA256_HEX_BYTES": {
+      "rust_type": "usize",
+      "value": 64
+    }
+  }
+}

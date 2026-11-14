@@ -224,3 +224,17 @@ Nesta retomada, o usuário autorizou explicitamente a qualificação nativa, os
 testes Ec/Toolbox e a suíte completa com complementares, incluindo bases de
 vulnerabilidades quando necessário. Correções e repetições desta ampliação
 estão abrangidas, sem commit/publicação.
+
+## Consolidação com a aplicação — 13/11/2026
+
+REQ-43: inventário Rust de produção deriva dos membros efetivos do Cargo,
+inclusive pacote público fora da pasta do componente, preservando >=80% e
+rejeição de fonte omitida. Histórico Gitleaks conserva todas as ocorrências e
+somente classifica como dado público um digest comprovado contra arquivo do mesmo
+commit ou indicador de catálogo importado com bytes, regra e linha idênticos aos
+revisados. A revisão da árvore sozinha nunca aprova histórico; material sem prova
+permanece pendente. Não excluir caminhos do scan nem reescrever Git.
+
+- AC-43 → REQ-43: testes negativos rejeitam membro ausente, fonte omitida, blob
+  diferente, regra/linha/root divergentes e digest sem prova. Execução real preserva
+  contagens nativas, mede o pacote compartilhado e conclui suíte sem pendências.

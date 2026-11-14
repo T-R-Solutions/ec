@@ -15,7 +15,7 @@ pub struct ProjectPipeline {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InvalidField {
     pub field: String,
-    pub message: &'static str,
+    pub message: String,
 }
 
 impl ProjectPipeline {
@@ -24,20 +24,10 @@ impl ProjectPipeline {
     /// # Errors
     /// Retorna o primeiro campo desconhecido, ausente ou inválido.
     pub fn validate(fields: &BTreeMap<String, String>) -> Result<Self, InvalidField> {
-        let allowed = [
-            "apiVersion",
-            "kind",
-            "project",
-            "pipeline",
-            "repository",
-            "commit",
-            "script",
-            "timeoutSeconds",
-            "artifact",
-        ];
-        let error = |field: &str, message| InvalidField {
+        let allowed = ec_contracts::PIPELINE_FIELDS;
+        let error = |field: &str, message: &str| InvalidField {
             field: field.into(),
-            message,
+            message: message.into(),
         };
         for key in fields.keys() {
             if !allowed.contains(&key.as_str()) {
@@ -54,21 +44,15 @@ impl ProjectPipeline {
                 .cloned()
                 .ok_or_else(|| error(key, "Campo obrigatório"))
         };
-        if get("apiVersion")? != "ec/v1alpha1" {
+        if get("apiVersion")? != ec_contracts::API_VERSION {
             return Err(error("apiVersion", "Versão não suportada"));
         }
-        if get("kind")? != "ProjectPipeline" {
+        if get("kind")? != ec_contracts::RESOURCE_KIND {
             return Err(error("kind", "Kind não suportado"));
         }
         let name = |key: &str| -> Result<String, InvalidField> {
             let value = get(key)?;
-            if value.len() > 64
-                || !value.as_bytes()[0].is_ascii_lowercase()
-                || value.ends_with('-')
-                || !value
-                    .bytes()
-                    .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-')
-            {
+            if !ec_contracts::valid_name(&value) {
                 return Err(error(key, "Nome inválido"));
             }
             Ok(value)
@@ -86,26 +70,30 @@ impl ProjectPipeline {
             ));
         }
         let commit = get("commit")?;
-        if commit.len() != 40
-            || !commit
-                .bytes()
-                .all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))
-        {
+        if !ec_contracts::valid_commit(&commit) {
             return Err(error("commit", "Exige SHA Git completo minúsculo"));
         }
         let script = get("script")?;
-        if script.len() > 8192 || script.contains('\0') {
+        if script.len() > ec_contracts::MAX_SCRIPT_BYTES || script.contains('\0') {
             return Err(error("script", "Script inválido ou maior que limite"));
         }
+        let timeout_message = format!(
+            "Exige decimal entre {} e {}",
+            ec_contracts::MIN_TIMEOUT_SECONDS,
+            ec_contracts::MAX_TIMEOUT_SECONDS
+        );
         let timeout = get("timeoutSeconds")?;
         if !timeout.bytes().all(|b| b.is_ascii_digit()) {
-            return Err(error("timeoutSeconds", "Exige decimal entre 1 e 3600"));
+            return Err(error("timeoutSeconds", &timeout_message));
         }
         let timeout_seconds = timeout
             .parse::<u32>()
             .ok()
-            .filter(|v| (1..=3600).contains(v))
-            .ok_or_else(|| error("timeoutSeconds", "Exige decimal entre 1 e 3600"))?;
+            .filter(|v| {
+                (ec_contracts::MIN_TIMEOUT_SECONDS..=ec_contracts::MAX_TIMEOUT_SECONDS)
+                    .contains(&u64::from(*v))
+            })
+            .ok_or_else(|| error("timeoutSeconds", &timeout_message))?;
         let artifact = get("artifact")?;
         if artifact.starts_with('/')
             || artifact.contains(['\\', '\0'])

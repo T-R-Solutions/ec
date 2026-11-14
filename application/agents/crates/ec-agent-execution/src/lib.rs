@@ -10,7 +10,7 @@ use std::{
     time::{Duration, Instant},
 };
 fn drain(mut input: impl Read, stream: &str, spool: &Mutex<Spool>) -> io::Result<()> {
-    let mut b = vec![0; 32768];
+    let mut b = vec![0; ec_contracts::AGENT_CHUNK_BYTES];
     let mut used = 0;
     loop {
         let n = input.read(&mut b[used..])?;
@@ -87,7 +87,7 @@ pub fn run(
                 libc::kill(-pid, libc::SIGTERM);
             }
             let grace = Instant::now();
-            while grace.elapsed() < Duration::from_secs(2) {
+            while grace.elapsed() < Duration::from_secs(ec_contracts::PROCESS_TERM_GRACE_SECONDS) {
                 thread::sleep(Duration::from_millis(20));
             }
             // SAFETY: group remains owned until collection completes, cooperative jobs cannot escape.

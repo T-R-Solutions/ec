@@ -1,10 +1,7 @@
-use sha2::{Digest, Sha256};
-fn hash(bytes: &[u8]) -> String {
-    format!("{:x}", Sha256::digest(bytes))
-}
+pub use ec_contracts::Failure;
+use ec_contracts::hash;
 use postgres::Transaction;
 use serde_json::{Value, json};
-pub type Failure = (u16, &'static str);
 /// Consulta um recibo já confirmado para a identidade e projeto.
 ///
 /// # Errors
@@ -17,6 +14,10 @@ pub fn receipt(
 ) -> Result<Option<Value>, postgres::Error> {
     Ok(tx.query_opt("SELECT r.revision,r.base,v.hash FROM receipts r JOIN revisions v ON v.project=r.project AND v.revision=r.revision WHERE r.project=$1 AND r.identity=$2 AND r.request_id=$3", &[&project,&actor,&id])?.map(|r| json!({"requestId":id,"revision":r.get::<_,i64>(0),"baseRevision":r.get::<_,i64>(1),"sha256":r.get::<_,String>(2)})))
 }
+pub struct Publication {
+    pub receipt: Value,
+    pub created: bool,
+}
 #[derive(Clone, Copy)]
 pub struct Candidate<'a> {
     pub project: &'a str,
@@ -24,13 +25,17 @@ pub struct Candidate<'a> {
     pub id: &'a str,
     pub base: i64,
     pub yaml: &'a str,
-    pub projection: &'a str,
 }
 /// Publica a revisão ou recupera o recibo idempotente da mesma solicitação.
 ///
 /// # Errors
 /// Retorna falha de banco, recibo inválido ou conflito de base/solicitação.
-pub fn publish(tx: &mut Transaction<'_>, c: Candidate<'_>) -> Result<Value, Failure> {
+pub fn publish(
+    tx: &mut Transaction<'_>,
+    c: Candidate<'_>,
+    authorize: impl FnOnce(&mut Transaction<'_>) -> Result<(), Failure>,
+    prepare: impl FnOnce(&mut Transaction<'_>) -> Result<String, Failure>,
+) -> Result<Publication, Failure> {
     let db = |_| (500, "database");
     let current: i64 = tx
         .query_one(
@@ -39,6 +44,7 @@ pub fn publish(tx: &mut Transaction<'_>, c: Candidate<'_>) -> Result<Value, Fail
         )
         .map_err(db)?
         .get(0);
+    authorize(tx)?;
     if let Some(r) = receipt(tx, c.project, c.actor, c.id).map_err(db)? {
         let revision = r["revision"].as_i64().ok_or((500, "receipt"))?;
         let old: Vec<u8> = tx
@@ -49,11 +55,15 @@ pub fn publish(tx: &mut Transaction<'_>, c: Candidate<'_>) -> Result<Value, Fail
             .map_err(db)?
             .get(0);
         return if r["baseRevision"] == c.base && old == c.yaml.as_bytes() {
-            Ok(r)
+            Ok(Publication {
+                receipt: r,
+                created: false,
+            })
         } else {
             Err((409, "request_conflict"))
         };
     }
+    let projection = prepare(tx)?;
     if current != c.base {
         return Err((409, "base_conflict"));
     }
@@ -61,13 +71,7 @@ pub fn publish(tx: &mut Transaction<'_>, c: Candidate<'_>) -> Result<Value, Fail
     let digest = hash(c.yaml.as_bytes());
     tx.execute(
         "INSERT INTO revisions VALUES($1,$2,$3,$4,$5)",
-        &[
-            &c.project,
-            &next,
-            &c.yaml.as_bytes(),
-            &digest,
-            &c.projection,
-        ],
+        &[&c.project, &next, &c.yaml.as_bytes(), &digest, &projection],
     )
     .map_err(db)?;
     tx.execute(
@@ -80,7 +84,10 @@ pub fn publish(tx: &mut Transaction<'_>, c: Candidate<'_>) -> Result<Value, Fail
         &[&c.project, &c.actor, &c.id, &c.base, &next],
     )
     .map_err(db)?;
-    Ok(json!({"requestId":c.id,"revision":next,"baseRevision":c.base,"sha256":digest}))
+    Ok(Publication {
+        receipt: json!({"requestId":c.id,"revision":next,"baseRevision":c.base,"sha256":digest}),
+        created: true,
+    })
 }
 
 /// Immutable published snapshot. The composition authorizes project access first.

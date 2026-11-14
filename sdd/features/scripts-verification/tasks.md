@@ -222,3 +222,11 @@ Fechamento T057–T060: concluídas em 12/11/2026; `run-3BXITHOD` aprovou as 54 
 Entrega de configuração/qualificação concluída; aprovação operacional reprovada
 pelos achados e Clippy. Critérios operacionais permanecem UNVERIFIED, sem
 commit/publicação. Resultados e limites em docs/validation/security-coverage-20261112.
+
+## Consolidação autorizada — 13/11/2026
+
+- T071 [REQ-43, AC-43, D-34/R-34]: inventário Cargo real e prova histórica de dados
+  públicos; preservar contagens, escopo, relatórios e rejeições. Implementada;
+  execução final concluída.
+- T072 [REQ-43, AC-43, D-34/R-34]: regressões negativas, revisão de triagem por
+  conteúdo e suíte completa sobre inputs finais. Concluída; observar run no registro de consolidação.

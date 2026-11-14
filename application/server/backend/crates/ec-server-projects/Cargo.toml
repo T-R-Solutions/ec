@@ -6,6 +6,6 @@ publish.workspace = true
 license.workspace = true
 
 [dependencies]
-postgres = "0.19.12"
-sha2 = "0.10.9"
-serde_json = "1.0.145"
+ec-contracts.workspace = true
+postgres.workspace = true
+serde_json.workspace = true

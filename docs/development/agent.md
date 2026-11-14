@@ -1,17 +1,17 @@
 # Agent local — T005
 
-O Agent Rust executa somente jobs Linux confiáveis, de repositórios Git locais explicitamente admitidos, sem credenciais externas. Server e PostgreSQL continuam autoridade de sessão, fence, lease e retry. Não há isolamento de workloads nem garantia exactly-once. Segredos por referência continuam pendentes na T001; UI permanece T006.
+O Agent Rust executa somente jobs Linux confiáveis, de repositórios Git locais explicitamente admitidos, sem credenciais externas. Server e PostgreSQL continuam autoridade de sessão, fence, lease e retry. Não há isolamento de workloads nem garantia exactly-once. Segredos por referência continuam pendentes na T001; a interface operacional está delimitada no [guia frontend](frontend.md).
 
 ## Compilar e executar
 
-Da raiz do checkout, Rust 1.99.1, edição 2024, dependências diretas com faixas
-compatíveis e lockfiles atualizáveis durante o desenvolvimento. Consulte a
-[política de atualização](verification-tools.md#dependências-rust-em-desenvolvimento).
+Da raiz do checkout, use edição/toolchain e dependências dos manifests e locks.
+Os campos e limites pertencem ao [contrato público v1](../../application/contracts/README.md).
+Consulte a [política de atualização](verification-tools.md#dependências-rust-em-desenvolvimento).
 
 ```bash
 export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
 export CARGO_TARGET_DIR="$PWD/application/agents/target"
-cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline
+cargo build --manifest-path application/agents/Cargo.toml --locked --offline
 application/agents/target/debug/ec-agent-app /caminho/privado/agent.json
 ```
 
@@ -29,7 +29,7 @@ O lock de instância flock é herdado pelos subprocessos cooperantes. Queda abru
 
 ## Logs, artefatos e limites
 
-Duas drenagens escrevem spool de até 16MiB de bytes por tentativa; após o limite continuam drenando e output.truncated=true. Chunks Agent de até 32KiB, Server aceita até 64KiB. Bytes brutos são hex, sem conversão UTF-8; futuras telas devem escapar controles e apresentar substituição para UTF-8 inválido. Uma etapa implícita (1), sequência global desde 1, stream stdout/stderr; a ordem representa coleta, sem causalidade entre streams. Não há envio durante o processo nesta fatia: o spool é enviado após término, com heartbeat independente durante entrega. Memória de coleta é limitada; requisições/artefato carregam no máximo os limites declarados. Não há redaction arbitrária de segredos embutidos em scripts confiáveis.
+Duas drenagens escrevem spool de até 16MiB de bytes por tentativa; após o limite continuam drenando e output.truncated=true. Chunks Agent de até 32KiB, Server aceita até 64KiB. Bytes brutos são hex, sem conversão UTF-8; o frontend escapa controles e apresenta substituição para UTF-8 inválido. Uma etapa implícita (1), sequência global desde 1, stream stdout/stderr; a ordem representa coleta, sem causalidade entre streams. Não há envio durante o processo nesta fatia: o spool é enviado após término, com heartbeat independente durante entrega. Memória de coleta é limitada; requisições/artefato carregam no máximo os limites declarados. Não há redaction arbitrária de segredos embutidos em scripts confiáveis.
 
 Disco: spool JSON hex até aproximadamente 32MiB, cópia do artefato até 32MiB, mais checkout admitido. Até 16 diretórios de tentativa por raiz, depois intake falha explicitamente até manutenção do operador. Tamanho dos repositórios admitidos é responsabilidade do operador; espaço insuficiente produz erro e journal pendente. Sem limpeza automática de origem, checkout ou spool; retenção PostgreSQL permanece indefinida nesta capacidade inicial. Retries de entrega duram no máximo 12s por mensagem e param ao perder autoridade; não há retry local de execução.
 
@@ -44,8 +44,8 @@ Server guarda staging, bytes e metadados no mesmo PostgreSQL. Não há janela en
 Use somente ec-publication-test em 127.0.0.1:55439, PostgreSQL 18.4. Cada harness cria banco UUID e o remove em finally. Não execute harnesses simultaneamente: usam a mesma porta HTTP 58139. Imagem/digest efetivos e resultados em docs/validation/agent-20261105/.
 
 ```bash
-CARGO_TARGET_DIR="$PWD/application/server/backend/target" cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints
-CARGO_TARGET_DIR="$PWD/application/agents/target" cargo +1.99.1 build --manifest-path application/agents/Cargo.toml --locked --offline --features test-failpoints
+CARGO_TARGET_DIR="$PWD/application/server/backend/target" cargo build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints
+CARGO_TARGET_DIR="$PWD/application/agents/target" cargo build --manifest-path application/agents/Cargo.toml --locked --offline --features test-failpoints
 python3 application/integration/tests/integration/agent_http.py
 python3 application/integration/tests/integration/orchestration_http.py
 python3 application/integration/tests/integration/publication_http.py

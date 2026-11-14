@@ -101,11 +101,13 @@ fn run() -> io::Result<()> {
         &c,
         "POST",
         "/agent/session",
-        Some(&json!({"protocolVersion":1,"platform":"linux","slots":1})),
+        Some(
+            &json!({"protocolVersion":ec_contracts::PROTOCOL_VERSION,"platform":"linux","slots":ec_contracts::AGENT_SLOTS}),
+        ),
     )?;
-    if session["protocolVersion"] != 1
-        || session["leaseSeconds"] != 30
-        || text(&session, "token")?.len() != 64
+    if session["protocolVersion"] != ec_contracts::PROTOCOL_VERSION
+        || session["leaseSeconds"] != ec_contracts::LEASE_SECONDS
+        || text(&session, "token")?.len() != ec_contracts::TOKEN_BYTES * 2
     {
         return Err(err("session_envelope"));
     }
@@ -175,10 +177,12 @@ fn process_dispatch(
         .ok_or_else(|| err("fence"))?;
     if a["agentSessionId"] != session_id
         || a["state"] != "assigned"
-        || ![Some(1), Some(2)].contains(&a["ordinal"].as_i64())
+        || a["ordinal"].as_i64().is_none_or(|ordinal| {
+            !(1..=i64::from(ec_contracts::MAX_RUN_ATTEMPTS)).contains(&ordinal)
+        })
         || a["runId"].as_i64().is_none_or(|n| n <= 0)
         || dispatch["revisionId"].as_i64().is_none_or(|n| n <= 0)
-        || text(dispatch, "configHash")?.len() != 64
+        || text(dispatch, "configHash")?.len() != ec_contracts::SHA256_HEX_BYTES
     {
         return Err(err("dispatch"));
     }
@@ -330,7 +334,9 @@ impl Attempt<'_> {
         let timeout = text(model, "timeoutSeconds")?
             .parse::<u64>()
             .ok()
-            .filter(|n| (1..=3600).contains(n))
+            .filter(|n| {
+                (ec_contracts::MIN_TIMEOUT_SECONDS..=ec_contracts::MAX_TIMEOUT_SECONDS).contains(n)
+            })
             .ok_or_else(|| err("timeout"))?;
         let complete = ec_agent_execution::run(
             text(model, "script")?,
@@ -428,7 +434,7 @@ impl Attempt<'_> {
                     &json!({"fence":fence,"size":bytes.len(),"sha256":sha}),
                     lost,
                 )?;
-                for (n, b) in bytes.chunks(32768).enumerate() {
+                for (n, b) in bytes.chunks(ec_contracts::AGENT_CHUNK_BYTES).enumerate() {
                     deliver(
                         c,
                         &format!("{base}/artifact-chunk"),
@@ -457,7 +463,7 @@ fn check_retention(root: &Path) -> io::Result<()> {
         .filter_map(Result::ok)
         .filter(|p| p.file_name().to_string_lossy().starts_with("attempt-"))
         .count()
-        >= 16
+        >= ec_contracts::MAX_LOCAL_ATTEMPTS
     {
         return Err(err("local_retention_limit"));
     }

@@ -1,3 +1,6 @@
+> Registro histórico do incremento inicial de parsing em 05/11/2026. Para
+> implementação, comandos e pendências vigentes, consulte o [estado do projeto](../../sdd/project.md).
+
 Atualização T004 de 05/11/2026: [fila durável, tentativas e protocolo Server autenticado](orchestration.md) implementados e exercitados. Agent e frontend continuam pendentes.
 
 Atualização posterior de 05/11/2026: [publicação persistente e HTTP autenticado](publication.md) implementados e exercitados. O registro abaixo preserva o incremento inicial e seus comandos históricos.

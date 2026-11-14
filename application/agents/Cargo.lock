@@ -54,6 +54,7 @@ dependencies = [
  "ec-agent-execution",
  "ec-agent-reporting",
  "ec-agent-workspace",
+ "ec-contracts",
  "libc",
  "serde_json",
 ]
@@ -62,6 +63,7 @@ dependencies = [
 name = "ec-agent-control"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "serde_json",
 ]
 
@@ -70,6 +72,7 @@ name = "ec-agent-execution"
 version = "0.1.0"
 dependencies = [
  "ec-agent-reporting",
+ "ec-contracts",
  "libc",
  "serde_json",
 ]
@@ -78,15 +81,24 @@ dependencies = [
 name = "ec-agent-reporting"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "serde_json",
- "sha2",
 ]
 
 [[package]]
 name = "ec-agent-workspace"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "libc",
+]
+
+[[package]]
+name = "ec-contracts"
+version = "0.1.0"
+dependencies = [
+ "serde_json",
+ "sha2",
 ]
 
 [[package]]

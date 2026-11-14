@@ -1,14 +1,14 @@
 """Identidade do histórico Git local sem transportar configuração pessoal."""
 
 import hashlib
+import json
 import os
 import re
 import subprocess
 from pathlib import Path
 
 
-def history_identity(root, timeout):
-    root = Path(root).resolve()
+def _git_environment():
     environment = {
         key: os.environ[key] for key in ("PATH", "HOME", "LANG", "LC_ALL") if key in os.environ
     }
@@ -21,6 +21,12 @@ def history_identity(root, timeout):
         GIT_ALLOW_PROTOCOL="",
         GIT_NO_LAZY_FETCH="1",
     )
+    return environment
+
+
+def history_identity(root, timeout):
+    root = Path(root).resolve()
+    environment = _git_environment()
 
     def git(*arguments):
         result = subprocess.run(
@@ -98,3 +104,62 @@ def history_options(identity):
     ).items():
         options += ["--env", key + "=" + value]
     return options
+
+
+def history_blob_identities(root, report, timeout, maximum_bytes):
+    """Vincula ocorrências aos bytes do commit e comprova hashes de evidências."""
+    import tempfile
+    from pathlib import PurePosixPath
+
+    blobs = {}
+    sources = {}
+
+    def blob(commit, name):
+        path = PurePosixPath(name)
+        if (
+            not re.fullmatch(r"[0-9a-f]{40}|[0-9a-f]{64}", commit)
+            or not name or path.is_absolute() or ".." in path.parts
+            or str(path) != name or "\0" in name
+        ):
+            raise ValueError("identidade de ocorrência histórica inválida")
+        key = commit + ":" + name
+        if key not in blobs:
+            with tempfile.TemporaryFile() as output:
+                result = subprocess.run(
+                    ["git", "-c", "core.fsmonitor=false", "-C", str(Path(root).resolve()),
+                     "show", "--no-ext-diff", "--no-textconv", key],
+                    stdout=output, stderr=subprocess.PIPE, env=_git_environment(),
+                    check=False, timeout=timeout,
+                )
+                if result.returncode != 0 or output.seek(0, os.SEEK_END) > maximum_bytes:
+                    raise ValueError("arquivo histórico indisponível ou maior que limite")
+                output.seek(0)
+                blobs[key] = output.read()
+        return blobs[key]
+
+    for finding in report:
+        commit, name = finding.get("Commit", ""), finding.get("File", "")
+        content = blob(commit, name)
+        key = commit + ":" + name
+        source = sources.setdefault(key, {"sha256": hashlib.sha256(content).hexdigest(), "verified_digest_lines": []})
+        line_number = finding.get("StartLine")
+        if (
+            not name.startswith("docs/validation/") or not name.endswith(".json")
+            or type(line_number) is not int or line_number < 1
+            or finding.get("EndLine", line_number) != line_number
+        ):
+            continue
+        lines = content.decode("utf-8").splitlines()
+        if line_number > len(lines):
+            raise ValueError("localização histórica fora do arquivo")
+        line = lines[line_number - 1].strip().rstrip(",")
+        if not re.fullmatch(r'"[^"\n]+"\s*:\s*"[0-9a-f]{64}"', line):
+            continue
+        reference, expected = next(iter(json.loads("{" + line + "}").items()))
+        try:
+            referenced = blob(commit, reference)
+        except ValueError:
+            referenced = None
+        if referenced is not None and hashlib.sha256(referenced).hexdigest() == expected:
+            source["verified_digest_lines"].append(line_number)
+    return sources

@@ -260,6 +260,11 @@ def main():
             assert call("POST", path, tokens["alice"], payload(text=yaml + "# changed\n"))[0] == 409
             assert call("POST", path, tokens["alice"], payload(text="invalid"))[0] == 409
             assert call("POST", path, tokens["alice"], payload("stale"))[0] == 409
+            assert call("POST", path, tokens["alice"], payload("stale-invalid", text="invalid"))[0] == 422
+            sql("DELETE FROM repositories WHERE project='ec';")
+            assert call("POST", path, tokens["alice"], payload())[1] == receipt
+            assert call("POST", path, tokens["alice"], payload("new-reference", base=1))[0] == 422
+            cli("admit-repository", "ec", str(repo), commit)
             before = snapshot()
             assert sql("UPDATE revisions SET hash='tampered';", check=False).returncode != 0
             assert sql("DELETE FROM revisions;", check=False).returncode != 0

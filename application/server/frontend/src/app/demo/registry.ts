@@ -1,0 +1,11 @@
+import { ProjectsDemo } from '../../domains/projects/src'
+import { PipelinesDemo } from '../../domains/pipelines/src'
+import { RunsDemo } from '../../domains/runs/src'
+import { DeliveryDemo } from '../../domains/delivery/src'
+import { InfrastructureDemo } from '../../domains/infrastructure/src'
+import { AccessDemo } from '../../domains/access/src'
+import { ExtensionsDemo } from '../../domains/extensions/src'
+import { AdministrationDemo } from '../../domains/administration/src'
+import type { Component } from 'vue'
+import type { Area } from '../navigation'
+export const demos = { projects: ProjectsDemo, pipelines: PipelinesDemo, runs: RunsDemo, delivery: DeliveryDemo, infrastructure: InfrastructureDemo, access: AccessDemo, extensions: ExtensionsDemo, administration: AdministrationDemo } satisfies Record<Exclude<Area, 'overview'>, Component>

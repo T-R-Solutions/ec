@@ -3,34 +3,24 @@ import { computed, ref, watch, nextTick } from 'vue'
 import { useSession } from '../domains/access/src'
 import { ConfigurationEditor, configurationWorkspace } from '../domains/configuration/src'
 import { RunsView } from '../domains/runs/src'
-import type { Project } from '../domains/projects/src'
-import type { Agent } from '../domains/infrastructure/src'
-import { projectPath } from '../shared/api'
-import { areas, type Area } from './navigation'
+import { areas, isDemonstrationOnly, type Area } from './navigation'
 import { useDemoWorkspace } from './demo/store'
 import SignalGlyph from '../shared/ui/SignalGlyph.vue'
 import StateNotice from '../shared/ui/StateNotice.vue'
 import StatusBadge from '../shared/ui/StatusBadge.vue'
 import InspectorPanel from '../shared/ui/InspectorPanel.vue'
 import ComponentGallery from '../shared/ui/ComponentGallery.vue'
-import ProjectsDemo from '../domains/projects/src/Demo.vue'
-import PipelinesDemo from '../domains/pipelines/src/Demo.vue'
-import RunsDemo from '../domains/runs/src/Demo.vue'
-import DeliveryDemo from '../domains/delivery/src/Demo.vue'
-import InfrastructureDemo from '../domains/infrastructure/src/Demo.vue'
-import AccessDemo from '../domains/access/src/Demo.vue'
-import ExtensionsDemo from '../domains/extensions/src/Demo.vue'
-import AdministrationDemo from '../domains/administration/src/Demo.vue'
-const demos = { projects: ProjectsDemo, pipelines: PipelinesDemo, runs: RunsDemo, delivery: DeliveryDemo, infrastructure: InfrastructureDemo, access: AccessDemo, extensions: ExtensionsDemo, administration: AdministrationDemo }
+import { demos } from './demo/registry'
+import { useProjectContext } from './useProjectContext'
 const workspace = configurationWorkspace(); const session = useSession(); const demoWorkspace = useDemoWorkspace()
-const token = ref(''); const message = ref(''); const projects = ref<Project[]>([]); const project = ref(''); const agents = ref<Agent[]>([])
+const token = ref(''); const message = ref('')
 const page = ref<Area>('pipelines'); const theme = ref('light'); const density = ref('normal'); const demo = ref(false); const gallery = ref(false); const navOpen = ref(false)
-const query = ref(''); const projectsLoading = ref(false); const agentsLoading = ref(false); const projectError = ref(''); const agentError = ref(''); const entering = ref(false)
+const entering = ref(false)
+const { projects, project, agents, query, projectsLoading, agentsLoading, projectError,
+  agentError, filteredProjects, canWrite } = useProjectContext(session, workspace, () => { message.value = '' })
 const content = ref<HTMLElement>()
 const area = computed(() => areas.find(a => a.id === page.value)!)
-const filteredProjects = computed(() => projects.value.filter(p => p.project.toLocaleLowerCase('pt-BR').includes(query.value.toLocaleLowerCase('pt-BR'))))
-const canWrite = computed(() => projects.value.find(p => p.project === project.value)?.role !== 'viewer')
-const demonstration = computed(() => demo.value || ['delivery','access','extensions','administration'].includes(page.value))
+const demonstration = computed(() => demo.value || isDemonstrationOnly(page.value))
 watch(theme, v => document.documentElement.dataset.theme = v)
 watch(density, v => document.documentElement.dataset.density = v)
 // Somente parâmetros de apresentação públicos. Nunca contém token, identidade ou projeto privado.
@@ -42,29 +32,11 @@ if (typeof window !== 'undefined') {
   if (params.get('theme') === 'dark') theme.value = 'dark'
   if (params.get('density') === 'compact') density.value = 'compact'
 }
-watch(() => session.api, async (api, _, cleanup) => {
-  workspace.clear(); projects.value = []; project.value = ''; agents.value = []; message.value = ''; query.value = ''; projectError.value = ''; agentError.value = ''
-  projectsLoading.value = false; agentsLoading.value = false
-  if (!api) return
-  let current = true; const c = new AbortController(); cleanup(() => { current = false; c.abort() })
-  projectsLoading.value = true
-  try { const p = await api<{projects:Project[]}>('/projects', undefined, c.signal); if (current) projects.value = p.projects }
-  catch(e) { if (current) projectError.value = String(e) }
-  finally { if (current) projectsLoading.value = false }
-})
-watch(project, async (p, _, cleanup) => {
-  agents.value = []; agentError.value = ''; agentsLoading.value = false
-  if (!p || !session.api) return
-  let current = true; const c = new AbortController(); cleanup(() => { current = false; c.abort() }); agentsLoading.value = true
-  try { const a = await session.api<{agents:Agent[]}>(projectPath(p) + '/agents', undefined, c.signal); if (current) agents.value = a.agents }
-  catch(e) { if (current) agentError.value = String(e) }
-  finally { if (current) agentsLoading.value = false }
-})
 async function enter() { const value = token.value; token.value = ''; entering.value = true; try { await session.enter(value); message.value = 'Sessão verificada'; demo.value = false } catch(e) { message.value = String(e) } finally { entering.value = false } }
 async function navigate(id: Area) { page.value = id; gallery.value = false; navOpen.value = false; await nextTick(); content.value?.focus() }
 function toggleDemo() {
   demo.value = !demo.value; gallery.value = false
-  if (!demo.value && ['delivery','access','extensions','administration'].includes(page.value)) void navigate('projects')
+  if (!demo.value && isDemonstrationOnly(page.value)) void navigate('projects')
 }
 function selectProject(id: string) { project.value = id; void navigate('pipelines') }
 </script>

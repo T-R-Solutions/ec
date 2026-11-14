@@ -2,6 +2,21 @@
 
 Estado: implementação incremental, sem aceite da jornada. Governança possui feature própria.
 
+## Consolidação autorizada — 13/11/2026
+
+REQ-07: cada regra compartilhada da jornada tem um proprietário: publicação e
+submissão decidem replay no domínio; o contrato v1 fornece campos, limites e
+identificadores aos consumidores; dependências são herdadas de cada workspace;
+composição não replica decisões de negócio. Preservar bytes, recibos, autorização,
+locks, failpoints e rejeições. Verificações em fronteiras independentes permanecem.
+O pedido desta sessão autoriza planejamento, implementação, testes e revalidação
+iterativa, sem commit/publicação e sem downloads por inferência.
+
+- AC-08 → REQ-07: testes de contrato e arquitetura rejeitam deriva de campos,
+  limites, dependências e imports; regressões reais mantêm publicação, replay,
+  concorrência, execução e projeções. Revisão manual confirma responsabilidade
+  única e documentação atual. A suíte deve concluir com sucesso nos inputs finais.
+
 ## Escopo e contrato v1alpha1
 
 REQ-01: configuração canônica YAML de um projeto e um pipeline de uma etapa, sem DAG, triggers, herança ou plugins. `apiVersion: ec/v1alpha1`, `kind: ProjectPipeline`, `project`, `pipeline`, `repository`, `commit`, `script`, `timeoutSeconds`, `artifact`. Todos obrigatórios; nomes ASCII minúsculos/hífen até 64 caracteres, commit Git SHA-1 de 40 dígitos hexadecimais, repositório local absoluto controlado pelo operador, script até 8192 bytes, timeout decimal entre 1 e 3600 segundos (aspas aceitas; o schema define a interpretação numérica), artefato relativo sem traversal. Repositórios remotos e credenciais VCS ficam para próxima revisão de schema. O operador configura allowlist fora do YAML antes de habilitar execução. O schema sozinho não autoriza caminhos ou execução.

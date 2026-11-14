@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/ec-server-results", "crates/ec-server-configuration", "crates/ec-server-projects", "crates/ec-server-app", "crates/ec-server-access", "crates/ec-server-orchestration"]
+members = ["../../contracts", "crates/ec-server-results", "crates/ec-server-configuration", "crates/ec-server-projects", "crates/ec-server-app", "crates/ec-server-access", "crates/ec-server-orchestration"]
 resolver = "3"
 
 [workspace.package]
@@ -7,3 +7,11 @@ version = "0.1.0"
 edition = "2024"
 publish = false
 license = "GPL-3.0-only"
+
+[workspace.dependencies]
+yaml-rust2 = { version = "0.13.0", default-features = false }
+postgres = "0.19.12"
+serde_json = "1.0.145"
+tiny_http = "0.12.0"
+ec-contracts = { path = "../../contracts" }
+sha2 = "0.10.9"

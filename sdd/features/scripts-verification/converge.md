@@ -818,3 +818,26 @@ um import sem uso e revisar as 20 ocorrências Bandit afetadas, run-EWXWaWlJ
 aprovou Ruff, Bandit, Trivy, Grype, Syft e governança, exit 0, sem drift.
 T069/T070 concluídas; suíte completa de produto não foi repetida nesta alteração.
 Recibo: docs/validation/run-sne1baxu-repair-20261112/scope-ec-only-validation.json.
+
+## Consolidação com a aplicação — 13/11/2026
+
+O run-An85OKZ4 concluiu as 54 tarefas sem drift: integrações e três jornadas de
+browser passaram. Permaneceram SDD por binding antigo, inventário de cobertura
+Server sem o novo membro externo e 35 ocorrências Gitleaks históricas. Houve
+inspeção dos blobs: 25 valores são hashes comprovados dos arquivos do mesmo commit;
+dez são indicadores públicos com os mesmos bytes de catálogo já revisado.
+Nenhum conteúdo de credencial foi exportado. O resultado não foi aprovado.
+
+T071/T072 atualizam somente descoberta e prova, sem baixar limiar, excluir arquivo,
+remover assinatura ou reescrever Git. A contagem nativa permanece; ausência de
+prova continua achado. Os bindings anteriores de ec-only-native/ec-only-review
+foram retirados da evidência vigente após deriva, sem renovar hashes. Os artefatos
+originais permanecem em docs/validation/run-sne1baxu-repair-20261112. AC-41/42/43
+aguardam observação nova; demais critérios não recebem aprovação por inferência.
+
+## Reobservação completa da consolidação — run-hOzphSex
+
+T071/T072 concluídas. AC-43 aprovado por regressões negativas e suíte completa;
+AC-41/42 reobservados nos inputs atuais do escopo Ec. Inventário e limiar mantidos;
+Gitleaks preserva nativos e comprova contexto sem tabela paralela de exceções.
+Registros antigos não tiveram hashes renovados. [Resumo](../../../docs/validation/responsibility-consolidation-20261113/checks.json).

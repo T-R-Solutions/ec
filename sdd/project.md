@@ -1,7 +1,7 @@
 # Contexto e estado do Ec
 
 Ec é uma plataforma CI/CD em implementação. Esta entrada consolida o estado
-documentado em 11/11/2026; não representa uma nova execução ou aceite do produto.
+documentado em 13/11/2026; não representa uma nova execução ou aceite do produto.
 As [autoridades](../docs/constitution.md) definem requisitos e precedência;
 o [contexto arquitetural](../docs/architecture/context.md) define responsabilidades.
 
@@ -12,6 +12,7 @@ registram incrementos implementados, comandos reais, evidências e limites.
 
 | Área | Local | Estado e referência |
 | --- | --- | --- |
+| Contrato público v1 | `application/contracts/` | Campos/limites únicos, consumidos por Server, Agent e frontend. [Fronteira](../docs/decisions/ADR-003-public-journey-contract.md) |
 | Agent Rust | `application/agents/` | Workspace executável; sessão, execução, entrega de saída e artefatos no recorte da primeira jornada. [Operação e limites](../docs/development/agent.md) |
 | Server Rust | `application/server/backend/` | Parsing/schema, publicação, sessões/autorização HTTP, PostgreSQL e fila/tentativas. [Publicação](../docs/development/publication.md) e [orquestração](../docs/development/orchestration.md) |
 | Frontend Vue 3/TypeScript/Pinia | `application/server/frontend/` | Editor, publicação e operação da primeira jornada; shell e demonstrações visuais têm limites próprios. [Guia](../docs/development/frontend.md) e [contrato visual](../application/server/frontend/DESIGN.md) |

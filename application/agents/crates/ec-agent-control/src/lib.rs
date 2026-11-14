@@ -102,15 +102,18 @@ pub fn heartbeat(
                     break;
                 }
             }
-            if confirmed.elapsed() > Duration::from_secs(10) {
+            if confirmed.elapsed() > Duration::from_secs(ec_contracts::HEARTBEAT_AUTHORITY_SECONDS)
+            {
                 l.store(true, Ordering::SeqCst);
                 break;
             }
-            for _ in 0..20 {
+            for _ in
+                0..ec_contracts::HEARTBEAT_INTERVAL_MILLIS / ec_contracts::HEARTBEAT_TICK_MILLIS
+            {
                 if d.load(Ordering::SeqCst) {
                     break;
                 }
-                thread::sleep(Duration::from_millis(100));
+                thread::sleep(Duration::from_millis(ec_contracts::HEARTBEAT_TICK_MILLIS));
             }
         }
     })

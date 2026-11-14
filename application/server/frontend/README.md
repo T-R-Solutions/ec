@@ -1,5 +1,3 @@
-Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../docs/development/frontend.md). A baseline abaixo é histórica.
-
 # Frontend do Ec
 
 **Local:** `application/server/frontend/`, relativo à raiz. Caminhos abreviados neste documento são locais ao componente ou módulo citado.
@@ -37,11 +35,11 @@ Cada domínio contém `src/` e `tests/`. Páginas, componentes, composables, sto
 
 ## Interfaces e estado
 
-A interface pública futura de cada domínio será `src/index.ts`. Consumo externo usa somente exportações explícitas; imports profundos de stores, componentes e clientes internos são proibidos. Domínios não importam `app/`; `shared/` não importa domínios.
+A interface pública de cada domínio é `src/index.ts`. Consumo externo usa somente exportações explícitas; imports profundos de stores, componentes e clientes internos são proibidos. Domínios não importam `app/`; `shared/` não importa domínios.
 
 `app/` integra contribuições públicas de rotas e injeta contexto de sessão e dependências. Domínios configuráveis podem consumir a interface de `configuration`, que recebe descritores e adaptadores sem importar os domínios consumidores. Outros cruzamentos são compostos em `app/` ou obtidos por consultas do backend. Não é criado um pacote npm por domínio.
 
-Pinia organiza estado local da interface, sem substituir YAML canônico ou estado confirmado do backend. Definir propriedade, descarte e invalidação das stores quando cada fluxo for implementado. A autoridade da autorização permanece no backend.
+Pinia organiza estado local da interface, sem substituir YAML canônico ou estado confirmado do backend. Sessão e rascunhos operacionais têm descarte explícito; novos fluxos devem definir propriedade e invalidação. A autoridade da autorização permanece no backend.
 
 ## Testes e experiência
 

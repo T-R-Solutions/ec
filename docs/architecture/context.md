@@ -24,7 +24,8 @@ referências históricas independentes do Server/Agent.
 
 ## Organização e decisões
 
-A [ADR-002](../decisions/ADR-002-application-layout.md) e o
+A [ADR-002](../decisions/ADR-002-application-layout.md), a
+[ADR-003](../decisions/ADR-003-public-journey-contract.md) e o
 [mapa físico](application-layout.md) descrevem módulos e dependências.
 A [visão funcional](application-overview.md) e o [catálogo de contratos](contracts.md)
 organizam requisitos do alvo; descrições datadas de implementação devem ser

@@ -621,3 +621,21 @@ ou reconstruções da plataforma externa. Registros anteriores permanecem histó
 Método: software-delivery primária (fronteira consumidor/ferramenta),
 application-security auxiliar (preservar detecção Ec e rejeições). Pontes versão 1;
 entradas efetivas e SHA-256 em scope-ec-only-method.json no relatório da reparação.
+
+## D-34 / R-34 — Inventários e prova de conteúdo
+
+REQ-43/AC-43: fonte de membros é cargo metadata; helper stdlib enumera produção e
+não infere denominador do LCOV. O comparador de inventário e o limiar continuam.
+Para falsos positivos históricos, ler blobs locais com ambiente Git restrito,
+prazo e tamanho limitados, sem exportar conteúdo. Reutilizar o matcher existente
+apenas depois de comprovar contexto histórico. Um mapa paralelo de exceções por
+commit repetiria as revisões; allowlist de caminhos apagaria achados. Ambos
+rejeitados. Digests de evidência devem coincidir com bytes do arquivo referenciado
+no mesmo commit. Indicadores exigem catálogo verificado e identidade de conteúdo.
+
+Métodos: software-testing para oráculos negativos e application-security para
+fronteira de classificação. A instrução atual autoriza testes/reexecuções e
+correções; não autoriza downloads, reescrita de histórico ou publicação.
+
+Métodos efetivos D-34/R-34: software-testing e application-security, entradas e
+hashes observados no resumo revisado da consolidação; pontes versão 1.

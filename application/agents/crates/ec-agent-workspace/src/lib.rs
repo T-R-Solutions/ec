@@ -67,10 +67,7 @@ pub fn prepare(
     let source = fs::canonicalize(repository)?;
     if !allow.contains(&source)
         || source.to_str() != Some(repository)
-        || commit.len() != 40
-        || !commit
-            .bytes()
-            .all(|b| b.is_ascii_hexdigit() && !b.is_ascii_uppercase())
+        || !ec_contracts::valid_commit(commit)
     {
         return Err(io::Error::other("repository_not_admitted"));
     }
@@ -122,11 +119,13 @@ pub fn artifact(root: &Path, name: &str) -> io::Result<Vec<u8>> {
         .custom_flags(libc::O_NOFOLLOW | libc::O_NONBLOCK)
         .open(p)?;
     let before = f.metadata()?;
-    if !before.is_file() || before.len() > 16_777_216 {
+    if !before.is_file() || before.len() > ec_contracts::MAX_ARTIFACT_BYTES as u64 {
         return Err(io::Error::other("artifact_type_or_limit"));
     }
     let mut b = Vec::new();
-    (&mut f).take(16_777_217).read_to_end(&mut b)?;
+    (&mut f)
+        .take(ec_contracts::MAX_ARTIFACT_BYTES as u64 + 1)
+        .read_to_end(&mut b)?;
     let after = f.metadata()?;
     if b.len() as u64 != before.len()
         || before.len() != after.len()

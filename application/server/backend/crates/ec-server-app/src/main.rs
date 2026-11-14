@@ -33,7 +33,10 @@ fn main() -> ExitCode {
         return ExitCode::from(2);
     }
     let mut input = String::new();
-    if let Err(error) = std::io::stdin().take(65537).read_to_string(&mut input) {
+    if let Err(error) = std::io::stdin()
+        .take(ec_contracts::MAX_INPUT_BYTES as u64 + 1)
+        .read_to_string(&mut input)
+    {
         eprintln!("Leitura: {error}");
         return ExitCode::from(1);
     }

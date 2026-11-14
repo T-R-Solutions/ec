@@ -389,7 +389,7 @@
           ]
         },
         "application/integration/tests/integration/publication_http.py": {
-          "sha256": "a307edd8d9c089bf404baed10eeb96966be397db2be72b0dd62656f217a8835b",
+          "sha256": "3a652c636f73386b1f38d04dae03de66f0b7c986e40c8138ed50dd17d22a1b6a",
           "rules": [
             {
               "id": "B101",
@@ -419,36 +419,39 @@
                 260,
                 261,
                 262,
-                264,
+                263,
                 265,
                 266,
-                267,
+                269,
                 270,
                 271,
                 272,
-                294,
-                295,
-                310,
+                275,
+                276,
+                277,
+                299,
+                300,
                 315,
-                316,
-                317,
+                320,
+                321,
                 322,
-                326,
-                329,
-                330,
+                327,
+                331,
                 334,
-                338,
-                340,
-                341,
+                335,
+                339,
+                343,
+                345,
                 346,
-                350,
                 351,
-                357,
-                358,
-                359,
-                360,
-                361,
-                366
+                355,
+                356,
+                362,
+                363,
+                364,
+                365,
+                366,
+                371
               ],
               "reason": "Oráculo dos harnesses de integração/E2E. settings.py, importado direta ou transitivamente por publication_http, rejeita Python otimizado antes dos serviços; a regressão cobre -O. Não é decisão de autorização de produção."
             },
@@ -469,8 +472,8 @@
                 183,
                 184,
                 200,
-                275,
-                380
+                280,
+                385
               ],
               "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
             },
@@ -482,8 +485,8 @@
                 183,
                 184,
                 200,
-                275,
-                380
+                280,
+                385
               ],
               "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
             }
@@ -839,7 +842,7 @@
           ]
         },
         "tools/quality/native_gates.py": {
-          "sha256": "393fe5d993469dc20c5c3f0793b36d89217d258c49c92bbaa87e84d9b2059f87",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
           "rules": [
             {
               "id": "B404",
@@ -851,17 +854,17 @@
             {
               "id": "B603",
               "lines": [
-                639,
-                746,
-                1334
+                664,
+                771,
+                1366
               ],
               "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
             },
             {
               "id": "B607",
               "lines": [
-                746,
-                1334
+                771,
+                1366
               ],
               "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
             }
@@ -894,26 +897,28 @@
           ]
         },
         "tools/quality/secret_history.py": {
-          "sha256": "0c62c8871c762674cc46b36c67eb03fabede9bf24a88f792045ae08daa581552",
+          "sha256": "e32f52415f662ff0b49ed2a8bda7d8c5f0724bbc67d427294fde1d2c67d1f2aa",
           "rules": [
             {
               "id": "B404",
               "lines": [
-                6
+                7
               ],
               "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
             },
             {
               "id": "B603",
               "lines": [
-                26
+                32,
+                128
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados. A leitura de blobs históricos usa commit/caminho validados, flags locais sem filtros e conteúdo não exportado."
             },
             {
               "id": "B607",
               "lines": [
-                26
+                32,
+                128
               ],
               "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
             }

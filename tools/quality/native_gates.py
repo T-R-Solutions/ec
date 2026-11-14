@@ -28,7 +28,7 @@ from tools.quality.automation_config import (
     source_files,
     verify_catalogs,
 )
-from tools.quality.secret_history import history_identity, history_options
+from tools.quality.secret_history import history_blob_identities, history_identity, history_options
 from tools.quality.syft_inventory import verify_lock_inventory
 
 AUTOMATION = load_config()
@@ -502,6 +502,31 @@ def gitleaks_review(report, sources, reviews, *, history=False):
     )
 
 
+def gitleaks_history_review(report, sources, tree_reviews, catalog_roots):
+    """Requer prova histórica: hash referenciado ou bytes de indicador público."""
+    proofs = {}
+    findings = []
+    for item in report:
+        path = relative(item["File"])
+        key = item["Commit"] + ":" + path
+        line = item["StartLine"]
+        source = sources.get(key, {})
+        findings.append(dict(source=key, rule=item["RuleID"], line=line))
+        if line in source.get("verified_digest_lines", []):
+            proof = proofs.setdefault(key, dict(sha256=source.get("sha256"), rules=[]))
+            rule = dict(id=item["RuleID"], lines=[line], reason="SHA-256 comprovado contra os bytes do arquivo referenciado no mesmo commit; não é credencial.")
+            if rule not in proof["rules"]:
+                proof["rules"].append(rule)
+        elif any(path.startswith(root + "/") for root in catalog_roots):
+            review = tree_reviews.get(path, {})
+            if source.get("sha256") == review.get("sha256") and source.get("sha256"):
+                proofs[key] = dict(sha256=source["sha256"], rules=[
+                    dict(rule, reason="Bytes históricos idênticos ao indicador público importado e revisado: " + rule["reason"])
+                    for rule in review.get("rules", [])
+                ])
+    return reviewed_findings(findings, sources, proofs)
+
+
 class Gate:
     def __init__(self, check, root, task):
         self.check, self.root, self.task = check, root, task
@@ -838,26 +863,33 @@ class Gate:
         write_json(self.task / "gitleaks-history.json", before)
         step, code = self.secrets(history=before)
         history = self.parse("secrets", step / "results/native.json", code)
-        historical_review = gitleaks_review(
-            read_json(step / "results/native.json"),
-            self.before,
-            AUTOMATION["tools"]["gitleaks"].get("triage", {}),
-            history=True,
+        historical_data = read_json(step / "results/native.json")
+        historical_sources = history_blob_identities(
+            self.root, historical_data, AUTOMATION["runtime"]["probe_timeout"],
+            AUTOMATION["runtime"]["native_log_bytes"],
         )
+        historical_review = gitleaks_history_review(
+            historical_data, historical_sources,
+            AUTOMATION["tools"]["gitleaks"].get("triage", {}),
+            [catalog["root"] for catalog in AUTOMATION["tools"]["yara-x"].get("catalogs", [])],
+        )
+        write_json(self.task / "gitleaks-history-review.json", historical_review)
         require(
-            historical_review["finding_count"] == history["finding_count"],
-            "revisão da árvore não pode aprovar o histórico",
+            historical_review["native_finding_count"] == history["finding_count"],
+            "revisão histórica perdeu ocorrências nativas",
         )
         require(
             history_identity(self.root, AUTOMATION["runtime"]["probe_timeout"]) == before,
             "histórico Git mudou durante análise",
         )
-        count = review["finding_count"] + history["finding_count"]
+        count = review["finding_count"] + historical_review["finding_count"]
         return dict(
             state="findings" if count else "passed",
             finding_count=count,
             native_finding_count=tree["finding_count"] + history["finding_count"],
-            reviewed_count=review["reviewed_count"],
+            reviewed_count=review["reviewed_count"] + historical_review["reviewed_count"],
+            history_reviewed_count=historical_review["reviewed_count"],
+            history_pending_count=historical_review["finding_count"],
             tree_finding_count=tree["finding_count"],
             history_finding_count=history["finding_count"],
         )

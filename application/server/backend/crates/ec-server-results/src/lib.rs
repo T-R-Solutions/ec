@@ -1,5 +1,5 @@
 //! Attempt output; authority and terminal transitions belong to orchestration.
-use ec_server_access::hash;
+use ec_contracts::hash;
 use ec_server_orchestration::{self as control, Failure, Owner};
 use postgres::Transaction;
 use serde_json::{Value, json};
@@ -8,9 +8,9 @@ mod contracts_tests;
 fn db(_: postgres::Error) -> Failure {
     (500, "database")
 }
-fn decode(v: &Value) -> Result<Vec<u8>, Failure> {
+fn decode(v: &Value, limit: usize) -> Result<Vec<u8>, Failure> {
     let s = v.as_str().ok_or((400, "hex"))?;
-    if s.len() > 131_072 || !s.len().is_multiple_of(2) {
+    if s.len() > limit * 2 || !s.len().is_multiple_of(2) {
         return Err((413, "chunk_limit"));
     }
     s.as_bytes()
@@ -21,14 +21,7 @@ fn decode(v: &Value) -> Result<Vec<u8>, Failure> {
         })
         .collect()
 }
-fn hex(b: &[u8]) -> String {
-    use std::fmt::Write;
-    let mut out = String::with_capacity(b.len() * 2);
-    for byte in b {
-        let _ = write!(out, "{byte:02x}");
-    }
-    out
-}
+use ec_contracts::hex;
 fn seq(payload: &Value) -> Result<i64, Failure> {
     payload["sequence"]
         .as_i64()
@@ -124,8 +117,19 @@ fn chunk(
     fence: i64,
 ) -> Result<Value, Failure> {
     let sequence = seq(payload)?;
-    let data = decode(&payload["data"])?;
-    if data.is_empty() || sequence > 2048 {
+    let (chunk_limit, total_limit) = if action == "logs" {
+        (
+            ec_contracts::MAX_LOG_CHUNK_BYTES,
+            ec_contracts::MAX_LOG_BYTES,
+        )
+    } else {
+        (
+            ec_contracts::MAX_ARTIFACT_CHUNK_BYTES,
+            ec_contracts::MAX_ARTIFACT_BYTES,
+        )
+    };
+    let data = decode(&payload["data"], chunk_limit)?;
+    if data.is_empty() || sequence > ec_contracts::MAX_CHUNK_SEQUENCE {
         return Err((413, "chunk_count_or_empty"));
     }
     let existing_chunk_query = if action == "logs" {
@@ -156,7 +160,7 @@ fn chunk(
     }
     let total =
         row.get::<_, i64>(1) + i64::try_from(data.len()).map_err(|_| (413, "output_limit"))?;
-    if total > 16_777_216 {
+    if total > i64::try_from(total_limit).map_err(|_| (500, "contract_limit"))? {
         return Err((413, "output_limit"));
     }
     let receipt = json!({"sequence":sequence,"bytes":data.len()});
@@ -199,17 +203,15 @@ fn artifact_start(
     payload: &Value,
     fence: i64,
 ) -> Result<Value, Failure> {
+    let maximum =
+        i64::try_from(ec_contracts::MAX_ARTIFACT_BYTES).map_err(|_| (500, "contract_limit"))?;
     let size = payload["size"]
         .as_i64()
-        .filter(|s| (0..=16_777_216).contains(s))
+        .filter(|s| (0..=maximum).contains(s))
         .ok_or((413, "artifact_limit"))?;
     let sha = payload["sha256"]
         .as_str()
-        .filter(|s| {
-            s.len() == 64
-                && s.bytes()
-                    .all(|b| b.is_ascii_hexdigit() && !b.is_ascii_uppercase())
-        })
+        .filter(|s| ec_contracts::valid_sha256(s))
         .ok_or((400, "sha256"))?;
     if let Some(row) = transaction
         .query_opt(

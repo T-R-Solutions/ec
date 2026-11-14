@@ -15,3 +15,4 @@ export const useSession = defineStore('session', () => {
   async function leave() { try { await api.value?.('/session', undefined, undefined, 'DELETE') } finally { clear() } }
   return { api, identity, expires, generation, enter, leave, clear }
 })
+export { default as AccessDemo } from './Demo.vue'

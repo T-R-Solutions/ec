@@ -1,26 +1,12 @@
 //! Bounded durable local spool. Raw bytes are lossless hex on the wire.
+pub use ec_contracts::{hash, hex};
 use serde_json::{Value, json};
-use sha2::{Digest, Sha256};
 use std::{
     fs::{self, File, OpenOptions},
     io::{self, Write},
     path::{Path, PathBuf},
 };
-pub const LIMIT: usize = 16 * 1024 * 1024;
-#[must_use]
-pub fn hash(b: &[u8]) -> String {
-    format!("{:x}", Sha256::digest(b))
-}
-#[must_use]
-pub fn hex(b: &[u8]) -> String {
-    const DIGITS: &[u8; 16] = b"0123456789abcdef";
-    let mut out = String::with_capacity(b.len() * 2);
-    for byte in b {
-        out.push(char::from(DIGITS[usize::from(byte >> 4)]));
-        out.push(char::from(DIGITS[usize::from(byte & 0xf)]));
-    }
-    out
-}
+pub const LIMIT: usize = ec_contracts::MAX_LOG_BYTES;
 /// Persiste JSON por rename e sincroniza o diretório pai.
 ///
 /// # Errors
@@ -83,7 +69,8 @@ pub fn deliver(
     mut send: impl FnMut() -> io::Result<Option<Value>>,
     lost: impl Fn() -> bool,
 ) -> io::Result<Value> {
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(12);
+    let deadline = std::time::Instant::now()
+        + std::time::Duration::from_secs(ec_contracts::DELIVERY_TIMEOUT_SECONDS);
     loop {
         if lost() {
             return Err(io::Error::other("authority_lost"));

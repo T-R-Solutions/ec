@@ -29,6 +29,10 @@ allow-git = []
 # Licença dos crates próprios Ec confirmada pelo usuário; dependências mantêm a política existente.
 
 [[licenses.exceptions]]
+name = "ec-contracts"
+allow = ["GPL-3.0-only"]
+
+[[licenses.exceptions]]
 name = "ec-agent-app"
 allow = ["GPL-3.0-only"]
 

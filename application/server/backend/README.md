@@ -1,9 +1,9 @@
 # Backend do Ec Server
 
-Atualização T004 em 2026-11-05: parsing/schema, publicação PostgreSQL, sessões/autorização HTTP e fila/tentativas do Server estão implementados e exercitados. [Estado operacional, comandos e limites](../../../docs/development/orchestration.md). Os incrementos posteriores de Agent, logs/artefatos e frontend estão descritos
-nos guias vigentes de [Agent](../../../docs/development/agent.md) e
-[frontend](../../../docs/development/frontend.md); a indicação anterior de ausência
-dessas implementações foi superada nesses escopos. As descrições de ausência de implementação abaixo preservam a baseline documental e são superadas por esta atualização somente nesses incrementos. Governança não constitui aceite da jornada completa.
+Implementação e pendências são mantidas no [estado do projeto](../../../sdd/project.md).
+Os guias de [publicação](../../../docs/development/publication.md),
+[orquestração](../../../docs/development/orchestration.md) e
+[Agent/saída](../../../docs/development/agent.md) delimitam os incrementos.
 
 **Local:** `application/server/backend/`, relativo à raiz. Caminhos abreviados neste documento são locais ao componente ou módulo citado.
 
@@ -37,9 +37,9 @@ Projetos e definições de pipelines permanecem juntos por compartilharem escopo
 
 ## Workspace, adaptadores e testes
 
-O workspace Cargo futuro ficará em `application/server/backend/Cargo.toml`, com membros explícitos em `crates/`. Cada crate terá seu manifest. Não há workspace Cargo na raiz nem dependência por caminho dos crates internos do Agent.
+O workspace Cargo está em `application/server/backend/Cargo.toml`, com membros explícitos e versões em workspace.dependencies. O contrato público em application/contracts também é membro; não há dependência de implementação privada do Agent.
 
-Adaptadores HTTP, PostgreSQL e armazenamento pertencem aos domínios responsáveis por seus contratos, conectados por `ec-server-app`. Não haverá um crate genérico de banco ou DTOs como autoridade paralela. As transações que cruzarem domínios precisam ser especificadas antes do código; esta estrutura não estabelece uma transação por crate.
+Adaptadores HTTP, PostgreSQL e armazenamento pertencem aos domínios responsáveis por seus contratos, conectados por `ec-server-app`. O contrato público v1 compartilha vocabulário e limites, sem criar autoridade paralela de configuração. As transações que cruzarem domínios precisam ser especificadas antes do código; esta estrutura não estabelece uma transação por crate.
 
 Unitários ficam em `src/`; integração de cada crate em seu `tests/`. Integração entre crates/adaptadores e testes de processo do Server ficam em `crates/ec-server-app/tests/`. Cenários entre componentes ficam em `application/integration/tests/`.
 

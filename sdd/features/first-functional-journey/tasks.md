@@ -1,5 +1,11 @@
 # Tarefas
 
+- [x] T008 [REQ-07, AC-08, D-07, R-07]: contrato v1 único, herança das dependências,
+  replay único e módulos privados de composição, sem mudar comportamento externo.
+- [x] T009 [REQ-07, AC-08, D-07, R-07]: entradas públicas e responsabilidades do
+  frontend, documentação vigente e guardas contra deriva. Repetir testes e suíte
+  completa até evidência suficiente nos inputs finais; manter lacunas explícitas.
+
 - [ ] T001 [REQ-01, AC-01, D-01, R-01]: Parser, modelo, CLI e nove testes locais implementados; Referências projeto/repository/commit resolvidas contra cadastro PostgreSQL admitido de Git real por CLI. Campos de segredo continuam rejeitados; suporte de resolução de segredos pendente e AC-01 sem aceite.
 - [x] T002 [REQ-02, AC-02, D-02, R-02]: Migration 001, publicação, recibos e recuperação PostgreSQL/HTTP demonstrados no harness publication_http.py.
 - [x] T003 [REQ-03, AC-03, D-03, R-03]: Sessões opacas e papéis por projeto na API HTTP v1 demonstrados, inclusive negações sem efeitos.

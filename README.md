@@ -4,7 +4,7 @@ Estado observado em 2026-11-05: Server e Agent Rust executáveis, publicação/f
 
 **Engenharia de entrega contínua, da configuração ao resultado.**
 
-Plataforma independente de CI/CD planejada para administrar projetos, pipelines, execuções, agentes e entregas de software. Ec Server e Ec Agent serão monólitos modulares Rust; a interface será Vue 3, TypeScript e Pinia.
+Plataforma independente de CI/CD planejada para administrar projetos, pipelines, execuções, agentes e entregas de software. Ec Server e Ec Agent são monólitos modulares Rust; a interface usa Vue 3, TypeScript e Pinia.
 
 
 ## Uma plataforma, responsabilidades explícitas

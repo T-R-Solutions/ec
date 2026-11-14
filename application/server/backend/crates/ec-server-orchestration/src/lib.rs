@@ -1,8 +1,8 @@
 //! Durable single-slot orchestration. Callers own commit and user authorization.
-use ec_server_access::hash;
+pub use ec_contracts::Failure;
+use ec_contracts::hash;
 use postgres::Transaction;
 use serde_json::{Value, json};
-pub type Failure = (u16, &'static str);
 fn db(_: postgres::Error) -> Failure {
     (500, "database")
 }
@@ -30,14 +30,14 @@ pub fn reconcile(transaction: &mut Transaction<'_>) -> Result<(), Failure> {
             .map_err(db)?;
         let state = if cancel {
             "cancelled"
-        } else if ordinal == 2 {
+        } else if ordinal == ec_contracts::MAX_RUN_ATTEMPTS {
             "failed"
         } else {
             "queued"
         };
         let result = if cancel {
             Some(json!({"outcome":"cancelled","cause":"lease_lost"}).to_string())
-        } else if ordinal == 2 {
+        } else if ordinal == ec_contracts::MAX_RUN_ATTEMPTS {
             Some(json!({"outcome":"failed","cause":"attempts_exhausted"}).to_string())
         } else {
             None
@@ -86,14 +86,19 @@ pub fn submit(
     project: &str,
     actor: &str,
     key: &str,
-    snapshot: &Snapshot,
+    revision: i64,
+    prepare: impl FnOnce(&mut Transaction<'_>) -> Result<Snapshot, Failure>,
 ) -> Result<Value, Failure> {
     if let Some(old) = submission_receipt(transaction, project, actor, key)? {
-        return if old["revisionId"] == snapshot.revision {
+        return if old["revisionId"] == revision {
             Ok(old)
         } else {
             Err((409, "request_conflict"))
         };
+    }
+    let snapshot = prepare(transaction)?;
+    if snapshot.revision != revision {
+        return Err((500, "snapshot_revision"));
     }
     let id:i64=transaction.query_one("INSERT INTO runs(project,revision,config_hash,commit_sha,configuration) VALUES($1,$2,$3,$4,$5) RETURNING id", &[&project,&snapshot.revision,&snapshot.hash,&snapshot.commit,&snapshot.configuration]).map_err(db)?.get(0);
     let receipt = json!({"requestId":key,"runId":id,"revisionId":snapshot.revision,"configHash":snapshot.hash,"commit":snapshot.commit});
@@ -212,14 +217,16 @@ pub fn session(
         .map_err(db)?
         .ok_or((401, "agent_credential"))?
         .get(0);
-    transaction.execute("INSERT INTO agent_sessions VALUES($1,$2,$3,(SELECT instant FROM ec_operation_clock)+interval '8 hours')", &[&id,&agent,&hash(token.as_bytes())]).map_err(db)?;
+    transaction.execute("INSERT INTO agent_sessions VALUES($1,$2,$3,(SELECT instant FROM ec_operation_clock)+make_interval(secs => $4))", &[&id,&agent,&hash(token.as_bytes()),&f64::from(ec_contracts::SESSION_SECONDS)]).map_err(db)?;
     transaction
         .execute(
             "UPDATE agents SET current_session=$2 WHERE name=$1",
             &[&agent, &id],
         )
         .map_err(db)?;
-    Ok(json!({"agentSessionId":id,"token":token,"protocolVersion":1,"leaseSeconds":30}))
+    Ok(
+        json!({"agentSessionId":id,"token":token,"protocolVersion":ec_contracts::PROTOCOL_VERSION,"leaseSeconds":ec_contracts::LEASE_SECONDS}),
+    )
 }
 pub struct Owner {
     agent: String,
@@ -302,7 +309,7 @@ pub fn reserve(transaction: &mut Transaction<'_>, owner: &Owner) -> Result<Value
     }
     let Some(row)=transaction.query_opt("SELECT id FROM runs WHERE project=$1 AND state='queued' ORDER BY id LIMIT 1 FOR UPDATE", &[&owner.project]).map_err(db)? else {return Ok(json!({"attempt":null}));};
     let run: i64 = row.get(0);
-    let id:i64=transaction.query_one("INSERT INTO attempts(run_id,ordinal,agent,session_id,lease_until,state) SELECT $1,COALESCE(max(ordinal),0)+1,$2,$3,(SELECT instant FROM ec_operation_clock)+interval '30 seconds','assigned' FROM attempts WHERE run_id=$1 RETURNING id", &[&run,&owner.agent,&owner.session]).map_err(db)?.get(0);
+    let id:i64=transaction.query_one("INSERT INTO attempts(run_id,ordinal,agent,session_id,lease_until,state) SELECT $1,COALESCE(max(ordinal),0)+1,$2,$3,(SELECT instant FROM ec_operation_clock)+make_interval(secs => $4),'assigned' FROM attempts WHERE run_id=$1 RETURNING id", &[&run,&owner.agent,&owner.session,&f64::from(ec_contracts::LEASE_SECONDS)]).map_err(db)?.get(0);
     let attempt_state = attempt(transaction, id)?;
     let receipt = json!({"attemptId":id,"runId":run,"ordinal":attempt_state["ordinal"],"agentSessionId":owner.session,"fence":attempt_state["fence"],"leaseUntil":attempt_state["leaseUntil"]});
     transaction
@@ -374,7 +381,7 @@ pub fn mutate(
     }
     match action {
         "heartbeat" => {
-            transaction.execute("UPDATE attempts SET lease_until=(SELECT instant FROM ec_operation_clock)+interval '30 seconds' WHERE id=$1", &[&id]).map_err(db)?;
+            transaction.execute("UPDATE attempts SET lease_until=(SELECT instant FROM ec_operation_clock)+interval '1 second' * $2::double precision WHERE id=$1", &[&id,&f64::from(ec_contracts::LEASE_SECONDS)]).map_err(db)?;
             Ok(json!({"attempt":attempt(transaction,id)?,"cancelRequested":cancel}))
         }
         "running" => {

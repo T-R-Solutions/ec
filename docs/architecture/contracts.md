@@ -1,3 +1,8 @@
+> Catálogo de requisitos da visão de produto. Os contratos executáveis do recorte
+> atual estão na [primeira jornada](../../sdd/features/first-functional-journey/spec.md)
+> e o estado consolidado está em [sdd/project.md](../../sdd/project.md). Lacunas do
+> alvo abaixo não significam ausência dos incrementos já implementados.
+
 # Catálogo dos contratos do Ec
 
 Atualização de estado em 2026-11-05: existe um incremento Rust executável de parsing/schema e CLI local de validação, com nove testes; publicação, API, PostgreSQL, Agent e frontend funcionais continuam pendentes. Consulte [estado e comandos executados](../development/first-functional-journey.md). As descrições de ausência total de código abaixo registram a baseline documental anterior e são superadas por esta atualização apenas quanto a esse incremento. O aceite de governança não é aceite de produto.

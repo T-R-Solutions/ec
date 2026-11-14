@@ -4,6 +4,29 @@ Estado atual conforme [evidence.json](evidence.json). As observações datadas a
 são históricas; suas aprovações não se transferem aos inputs atuais. Backups
 mencionados foram removidos pela política de retenção de 11/11/2026.
 
+## Consolidação de responsabilidades — 13/11/2026
+
+REQ-07 → D-07/R-07 → T008/T009 → contrato público v1, módulos privados de
+composição, replay no domínio, dependências herdadas e entradas públicas Vue →
+testes de fronteiras com mutações negativas e regressões HTTP/browser → AC-08.
+Pedido atual autoriza execução/reexecução; não houve pedido de commit/publicação.
+
+Inspeção e checks focais demonstraram compilação, Clippy, unitários Rust e 27
+testes frontend. O primeiro run completo, run-NZqxTG9w, foi interrompido após
+falhas de escrita da Toolbox fora do sandbox; seu resultado não aprova a suíte.
+Reexecução com permissões apropriadas e confirmação dos inputs finais pendentes.
+O harness de publicação acrescenta regressões para prioridade de erro em base
+obsoleta/YAML inválido e replay após retirada da referência admitida. Não houve
+mudança de schema SQL nem remoção de verificação de autorização.
+
+O guard detecta versões locais em membros, dependências privadas entre
+componentes, imports privados/de composição, repetição de decisão de replay,
+campos sem validação semântica e incompatibilidade de limites com migration v1.
+Seus limites são análise textual e escopo da jornada; validação independente em
+fronteiras e configurações históricas de migração não são cópias a eliminar.
+
+[Registro e resultados](../../../docs/validation/responsibility-consolidation-20261113/report.md).
+
 ## Dependências durante o desenvolvimento — 11/11/2026
 
 Por pedido do usuário, os onze manifests de crates Agent/Server deixam de exigir
@@ -76,3 +99,11 @@ do Playwright da Toolbox. O oráculo corrente é `frontend_browser.py`; a seleç
 e os serviços vêm da configuração única dos scripts. A aprovação histórica do
 Firefox/Marionette não é reutilizada para esta implementação. A nova jornada
 permanece UNVERIFIED até execução real autorizada; não houve download de browser.
+
+## Fechamento da consolidação — run-hOzphSex
+
+T008/T009 e AC-08 aprovados por suíte completa e revisão dos proprietários;
+nenhum input de execução mudou. O fechamento atualiza somente registros de
+aceite. Resultados/skills/limites em docs/validation/responsibility-consolidation-20261113.
+REQ-01/AC-01 (segredos) e AC-07 mantêm seus próprios limites; nenhuma aprovação
+agregada de produto é inferida. Nova validação após o fechamento documental.

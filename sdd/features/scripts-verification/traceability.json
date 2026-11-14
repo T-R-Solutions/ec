@@ -555,5 +555,17 @@
     ],
     "implementation": "scripts/config/automation.json",
     "oracle": "scripts/tests/test_automation_config.py"
+  },
+  {
+    "acceptance": "AC-43",
+    "requirement": "REQ-43",
+    "decision": "D-34",
+    "risk": "R-34",
+    "tasks": [
+      "T071",
+      "T072"
+    ],
+    "implementation": "tools/quality/coverage_inventory.py",
+    "oracle": "scripts/tests/test_coverage_inventory.py"
   }
 ]

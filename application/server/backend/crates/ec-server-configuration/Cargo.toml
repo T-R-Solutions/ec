@@ -6,4 +6,5 @@ publish.workspace = true
 license.workspace = true
 
 [dependencies]
-yaml-rust2 = { version = "0.13.0", default-features = false }
+ec-contracts.workspace = true
+yaml-rust2.workspace = true

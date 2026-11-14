@@ -5,7 +5,7 @@ import StateNotice from '../../../shared/ui/StateNotice.vue'
 import type { Api } from '../../../shared/api'
 import { projectPath, ApiError } from '../../../shared/api'
 import { useDrafts } from './drafts'
-import { fields, seed, serialize, type Model, type Validation } from './model'
+import { fields, seed, serialize, apiVersion, resourceKind, type Model, type Validation } from './model'
 const props = defineProps<{api:Api;project:string;canWrite:boolean}>()
 const drafts=useDrafts();const {yaml,base,pending}=toRefs(drafts.open(props.project))
 const mode = ref('Visual'); const model = ref<Model>(); const validation = ref<Validation>(); const validating = ref(false)
@@ -62,7 +62,7 @@ void refresh().then(()=>{selectedRevision.value=published.value}).catch(e=>messa
 <pre v-if="validation?.diagnostic" role="alert">{{validation.diagnostic}}</pre>
 <label v-if="mode==='YAML'">YAML canônico<textarea v-model="yaml" rows="18" spellcheck="false" :readonly="!!pending" /></label>
 <div v-else :class="mode==='Visual'?'workspace editor-workspace':'form-workspace'">
-<div v-if="mode==='Visual'" class="pipeline"><p class="eyebrow">ProjectPipeline · ec/v1alpha1</p><strong>{{model?.project || project}} / {{model?.pipeline || 'pipeline'}}</strong><span aria-hidden="true">↓</span><strong>1 · Executar script Linux → coletar artefato</strong><p>Uma etapa · {{model?.timeoutSeconds}} segundos · {{model?.artifact}}</p></div>
+<div v-if="mode==='Visual'" class="pipeline"><p class="eyebrow">{{resourceKind}} · {{apiVersion}}</p><strong>{{model?.project || project}} / {{model?.pipeline || 'pipeline'}}</strong><span aria-hidden="true">↓</span><strong>1 · Executar script Linux → coletar artefato</strong><p>Uma etapa · {{model?.timeoutSeconds}} segundos · {{model?.artifact}}</p></div>
 <component :is="mode==='Visual'?InspectorPanel:'div'" title="Propriedades da etapa"><div class="fields" v-if="model"><label v-for="field in fields" :key="field">{{field}}<textarea v-if="field==='script'" :value="model[field]" @change="edit(field,($event.target as HTMLTextAreaElement).value)" :disabled="!valid || !!pending" /><input v-else :value="model[field]" @change="edit(field,($event.target as HTMLInputElement).value)" :disabled="!valid || !!pending" /></label></div><p v-else>Propriedades disponíveis após validação do YAML no Server.</p></component>
 </div>
 <section v-if="proposed" aria-label="Revisão da alteração textual"><h3>Confirmar substituição textual</h3><p>Comentários e apresentação podem ser perdidos. A equivalência semântica não preserva os bytes SHA-256.</p><div class="diff"><pre>Antes

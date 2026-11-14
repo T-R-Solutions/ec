@@ -177,17 +177,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "ec-contracts"
+version = "0.1.0"
+dependencies = [
+ "serde_json",
+ "sha2 0.10.9",
+]
+
+[[package]]
 name = "ec-server-access"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "postgres",
- "sha2 0.10.9",
 ]
 
 [[package]]
 name = "ec-server-app"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "ec-server-access",
  "ec-server-configuration",
  "ec-server-orchestration",
@@ -202,6 +211,7 @@ dependencies = [
 name = "ec-server-configuration"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "yaml-rust2",
 ]
 
@@ -209,7 +219,7 @@ dependencies = [
 name = "ec-server-orchestration"
 version = "0.1.0"
 dependencies = [
- "ec-server-access",
+ "ec-contracts",
  "postgres",
  "serde_json",
 ]
@@ -218,16 +228,16 @@ dependencies = [
 name = "ec-server-projects"
 version = "0.1.0"
 dependencies = [
+ "ec-contracts",
  "postgres",
  "serde_json",
- "sha2 0.10.9",
 ]
 
 [[package]]
 name = "ec-server-results"
 version = "0.1.0"
 dependencies = [
- "ec-server-access",
+ "ec-contracts",
  "ec-server-orchestration",
  "postgres",
  "serde_json",

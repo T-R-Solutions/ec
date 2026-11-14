@@ -1,20 +1,25 @@
 # Fila durável e tentativas locais
 
-T004 implementa no Server submissão de revisão publicada, fila PostgreSQL, reserva de um slot Linux por Agent, leases, fencing, cancelamento e recibos. [Contrato de envelopes e transições](../../sdd/features/first-functional-journey/spec.md) e [evidência T004](../validation/orchestration-20261105/report.md). O cliente HTTP do harness exercita o lado Server; Agent real, checkout, processos, logs, artefatos e frontend continuam pendentes.
+O Server implementa submissão de revisão publicada, fila PostgreSQL, reserva,
+leases, fencing, cancelamento e recibos. O [estado do projeto](../../sdd/project.md)
+é a entrada de implementação; [Agent](agent.md) e [frontend](frontend.md) descrevem
+os consumidores reais. [Contrato](../../sdd/features/first-functional-journey/spec.md).
 
-Use a preparação e o provisionamento de usuários/repositórios de [publicação](publication.md). Mesmos Rust 1.99.1/edition 2024, PostgreSQL 18.4, postgres 0.19.12, tiny_http 0.12.0 e serde_json 1.0.145. Nenhuma biblioteca externa nova. Da raiz:
+Use a preparação e o provisionamento de [publicação](publication.md). Versões e
+toolchain pertencem aos manifests/locks; limites ao [descritor v1](../../application/contracts/pipeline-v1.json).
+Da raiz:
 
 ```bash
 export CARGO_HOME="${CARGO_HOME:-$HOME/.cargo}"
 export CARGO_TARGET_DIR="$PWD/application/server/backend/target"
-cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline
+cargo build --manifest-path application/server/backend/Cargo.toml --locked --offline
 # EC_DATABASE_URL aponta para seu banco local de desenvolvimento.
 application/server/backend/target/debug/ec-server-app migrate
 application/server/backend/target/debug/ec-server-app provision-agent linux-a ec /caminho/privado/ec/linux-a.credential
 application/server/backend/target/debug/ec-server-app serve
 ```
 
-Migration 002 é aditiva e transacional; o comando aplica 001 e 002 sob o lock de migração. Banco v1 conserva revisões, recibos, ponteiros, sessões e grants. Não execute o binário novo sobre banco v1 antes de migrar. Rollback de código não remove os dados; binário antigo não entende fila/tentativas e não deve operar a entrega T004. Não há promessa de rollout misto. Backup/restauração e administração SQL são responsabilidade do operador confiável.
+Migration 002 é aditiva e transacional; o comando aplica as migrations vigentes sob o lock de migração. Banco v1 conserva revisões, recibos, ponteiros, sessões e grants. Não execute o binário novo sobre banco v1 antes de migrar. Rollback de código não remove os dados; binário antigo não entende fila/tentativas e não deve operar a entrega T004. Não há promessa de rollout misto. Backup/restauração e administração SQL são responsabilidade do operador confiável.
 
 CLI `provision-agent NAME PROJECT FILE` exige projeto existente, nome novo e arquivo novo; grava credencial aleatória de 256 bits uma vez, modo 0600, armazena só hash SHA-256. Não compartilhar com usuário ou colocar no YAML. `revoke-agent NAME` revoga credencial e autoridade da sessão atual; recuperação ocorre pelo reconciliador. Sem rotação por HTTP nesta fatia; provisione outra identidade para substituir uma credencial revogada. Token escrito em arquivo antes de commit não prova provisionamento bem-sucedido.
 
@@ -71,12 +76,12 @@ Server escuta em loopback, quatro workers e um reconciliador. Sem implantação 
 Use exclusivamente o container descartável `ec-publication-test`, porta 55439, descrito em publication.md. O harness cria/remove banco com UUID, Git e tokens temporários; não toca em bancos existentes. Os dois harnesses compartilham porta HTTP 58139, portanto execute sequencialmente.
 
 ```bash
-cargo +1.99.1 build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints
+cargo build --manifest-path application/server/backend/Cargo.toml --locked --offline --features test-failpoints
 python3 application/integration/tests/integration/orchestration_http.py
 python3 application/integration/tests/integration/publication_http.py
-cargo +1.99.1 test --manifest-path application/server/backend/Cargo.toml --locked --offline
-cargo +1.99.1 clippy --manifest-path application/server/backend/Cargo.toml --locked --offline --all-targets --all-features -- -D warnings
-cargo +1.99.1 fmt --manifest-path application/server/backend/Cargo.toml --all -- --check
+cargo test --manifest-path application/server/backend/Cargo.toml --locked --offline
+cargo clippy --manifest-path application/server/backend/Cargo.toml --locked --offline --all-targets --all-features -- -D warnings
+cargo fmt --manifest-path application/server/backend/Cargo.toml --all -- --check
 ```
 
 Failpoints só no build test-failpoints: header X-Ec-Test-Failure before-commit retorna 500 com rollback; crash-before-commit sai com 86; after-commit fecha resposta depois de persistir. EC_TEST_PAUSE_RECONCILER=1 pausa apenas o worker periódico de teste, preservando reconciliação de startup e reserva: o harness demonstra heartbeat rejeitado com tentativa SQL ainda assigned após vencer durante espera. Testes encurtam deadlines via SQL administrativo e atravessam tempo PostgreSQL real; não aguardam os 30 segundos completos em cada caso. Corridas observam conexões HTTP aguardando guard em pg_stat_activity; SQL independente verifica índices, ordinais, estados e ausência de efeitos negados.

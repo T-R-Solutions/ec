@@ -6,9 +6,7 @@ use yaml_rust2::{
     scanner::TScalarStyle,
 };
 
-pub const MAX_INPUT_BYTES: usize = 65536;
-pub const MAX_SCALAR_BYTES: usize = 8192;
-pub const MAX_EVENTS: usize = 4096;
+pub use ec_contracts::{MAX_EVENTS, MAX_INPUT_BYTES, MAX_SCALAR_BYTES};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Diagnostic {
@@ -36,7 +34,10 @@ impl Diagnostic {
 /// Retorna diagnóstico para sintaxe, construções não suportadas ou limites excedidos.
 pub fn parse(input: &str) -> Result<BTreeMap<String, String>, Diagnostic> {
     if input.len() > MAX_INPUT_BYTES {
-        return Err(Diagnostic::plain("input_limit", "YAML excede 64 KiB"));
+        return Err(Diagnostic::plain(
+            "input_limit",
+            &format!("YAML excede {MAX_INPUT_BYTES} bytes"),
+        ));
     }
     let mut parser = Parser::new_from_str(input);
     let mut fields = BTreeMap::new();
@@ -93,7 +94,10 @@ pub fn parse(input: &str) -> Result<BTreeMap<String, String>, Diagnostic> {
                     return Err(reject("shape", "Recurso deve ser um mapa"));
                 }
                 if value.len() > MAX_SCALAR_BYTES {
-                    return Err(reject("scalar_limit", "Campo excede 8192 bytes"));
+                    return Err(reject(
+                        "scalar_limit",
+                        &format!("Campo excede {MAX_SCALAR_BYTES} bytes"),
+                    ));
                 }
                 if let Some(name) = key.take() {
                     fields.insert(name, value);

@@ -76,5 +76,17 @@
     ],
     "implementation": "sdd/features/first-functional-journey/spec.md",
     "oracle": "sdd/features/first-functional-journey/tasks.md"
+  },
+  {
+    "acceptance": "AC-08",
+    "requirement": "REQ-07",
+    "decision": "D-07",
+    "risk": "R-07",
+    "tasks": [
+      "T008",
+      "T009"
+    ],
+    "implementation": "application/contracts/pipeline-v1.json",
+    "oracle": "scripts/tests/test_application_boundaries.py"
   }
 ]
