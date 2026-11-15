@@ -1,65 +1,21 @@
-# Ec / Signal — contrato da implementação visual
+# Ec — contrato visual da entrada
 
-Referência: DESIGN.md rev. 1.0 do ZIP `ec-signal-visual.zip`, preservado em
-`docs/design/sources/ec-signal-visual.zip`, membro
-`ec-signal-visual/DESIGN.md` (ZIP original movido em 11/11/2026;
-extrações locais foram removidas)
-(caminhos a partir da raiz). Prevalecem AGENTS.md e as duas normas Ec em `docs/`.
-Este arquivo registra decisões desta implementação, não substitui a referência.
+Reconstrução de 15/11/2026: entrada pública de login, seguida de confirmação da sessão. Shell, navegação, galeria, demonstrações, editor e views operacionais anteriores foram removidos por solicitação. O registro Signal de 11/11 é histórico em docs/validation/frontend-signal-20261111/report.md; não descreve a UI atual.
 
-## Decisões
+## Composição e identidade
 
-Precision Workbench: shell persistente, contexto de projeto, conteúdo dominante,
-separadores e inspector recolhível. Navegação global com nove áreas; seleção de
-projeto é independente da área. Galeria e demonstrações são acessíveis sem sessão.
-As demonstrações não recebem cliente API e usam fixtures isoladas por domínio.
-Pinia retém propostas somente na memória da aba. A seleção é conservada pelo
-KeepAlive entre áreas demonstrativas; sair desse modo pode reiniciar a seleção,
-mas conserva as propostas locais. Operação preserva rascunhos no store existente.
+Formulário estreito em superfície clara, marca Ec central acima do título e ação principal. Referência principal: captura oficial TeamCity https://resources.jetbrains.com/help/img/teamcity/2025.11/spaceauth.png, inspecionada em 15/11/2026, mostrando versão 2021.2 EAP. A composição é adaptada; marca, cores e método de autenticação pertencem ao Ec.
 
-Primitivos e papéis: `src/shared/ui/tokens.css`. Shell #243C59, contexto #182535,
-ação #28679F/#205483, seleção #E8F2FD, texto #263548, sucesso #226B50, atenção
-#80521D e falha #A53848. Seleção tem faixa persistente; foco tem outline independente.
-Categorias não representam resultados. Neutros Light propostos foram implementados
-como candidatos; Dark é opt-in, identificado como candidato, com valores propostos
-pelo Ec. Não há aceite de contraste/comparação abrangente.
+Tokens canônicos preservados em src/shared/ui/tokens.css: shell #243C59, contexto #182535, ação #28679F/#205483, seleção #E8F2FD, texto #263548, sucesso #226B50, atenção #80521D e falha #A53848. Ações, foco e mensagens têm papéis distintos. IBM Plex Sans/Mono continuam famílias preferidas; capturas usam fallback disponível, sem alegação de fonte instalada. Não houve download de fontes.
 
-IBM Plex Sans/Mono são famílias preferidas, pesos 400/500/600/700. Não há binários
-no pacote nem instalados encontrados por `fc-list` neste ambiente. Sem download ou
-CSS remoto. Capturas usam fallback; carregar e observar os pesos reais continua
-pendente. Nove SVGs inline de baseline foram preservados em SignalGlyph.vue,
-com geometria da referência. Não são apresentados como a biblioteca de 125 glyphs.
-Favicon azul histórico continua no ZIP; não foi promovido à nova marca.
+## Estados e comportamento
 
-## Contratos compartilhados
+Entrada aceita token provisionado pelo administrador, consulta /api/v1/session e limpa campo no envio. Campos/controles HTML nativos têm rótulo, foco e descrição. Estado pendente impede duplicação; recusa/conexão devolvem foco ao campo. Confirmação mostra identidade/validade e permite revogação. Revalida a cada30s e ao retomar foco; expiração conhecida ou401 limpa contexto. Falha de conexão torna a confirmação explicitamente desatualizada. Falha de revogação distingue saída local de confirmação remota ausente. Não existem links de cadastro, recuperação, demonstração ou provedores não implementados.
 
-| Componente | Props / slots | Estados e teclado | Consumidores |
-| --- | --- | --- | --- |
-| StatusBadge | label, tone restrito | Texto + símbolo; não interativo | Shell, agentes, demonstrações, galeria |
-| StateNotice | title, tone; default/action | role=status; ações nativas | Entrada, consultas, editor, demos, galeria |
-| InspectorPanel | title; default | Botão com aria-expanded; Tab/Enter/Espaço; recolhe sem remover controle | Editor, projetos, demos, galeria |
-| SignalGlyph | name de baseline | Decorativo aria-hidden; nome fica no controle | Nove áreas |
-| DemoWorkspace | definition, openDraft; visual(record,values) | Busca, seleção, modo, formulário, revisão/descartar/reter; foco no detalhe/revisão | Oito demonstrações por domínio |
+## Reflow e evidência
 
-Botões/campos/tabelas usam HTML nativo e estilos compartilhados. Componentes não
-possuem flags de domínio; cada domínio fornece fixture, campos, consequências e
-composição visual. DemoDefinition é contrato de apresentação, não schema Ec.
-YAML demonstrativo é projeção somente leitura, sem parser ou promessa de round-trip.
-O editor operacional mantém o parser Server e a comparação/aceite textual existente.
+Card até 27rem, largura fluida e espaçamento reduzido em viewports estreitos. Mensagens mantêm região reservada; textos longos quebram sem exceder viewport. Foco independente e reduced-motion/forced-colors têm regras próprias. Parâmetros antigos de galeria/demo/tema não habilitam UI retirada.
 
-Breakpoints: 1600, 1100, 760 e 420 CSS px. Grid colapsa o inspector abaixo do
-conteúdo; navegação móvel usa botão reabrível. Tabelas possuem rolagem local;
-logs/editores preservam região técnica. Densidade reduz espaços/controles, não
-texto essencial; movimento reduzido respeitado. Foco e reflow precisam de revisão
-manual completa nos consumidores, especialmente zoom 200%/400%.
+Capturas e observações atuais: docs/validation/login-rebuild-20261115/report.md. Elas não certificam WCAG integral nem substituem testes de interação e gate. Política de aceite: docs/development/task-verification.md (caminhos desde a raiz).
 
-## Acesso à galeria e demonstrações
-
-No frontend em desenvolvimento: botão “Galeria de componentes” ou `?gallery=1`.
-Demonstrações: `?demo=projects`, `?demo=access`, `?demo=extensions`, etc., usando
-os IDs de `src/app/navigation.ts`. `theme=dark` e `density=compact` permitem
-capturas reproduzíveis. Esses parâmetros não contêm sessão nem projeto privado.
-Navegação permanece interna à aba, como no frontend anterior; não implementa
-histórico de rotas/deep links privados.
-
-[Inventário, cobertura, evidências e limites](../../../docs/validation/frontend-signal-20261111/report.md).
+Fonte visual Ec preservada: docs/design/sources/ec-signal-visual.zip, membro ec-signal-visual/DESIGN.md. Normas de produto e instruções vigentes prevalecem.

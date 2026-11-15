@@ -1,4 +1,4 @@
-Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+Atualização de 15/11/2026: Estado atual: modelo e rascunhos preservados; Editor.vue e sua apresentação foram retirados por pedido de reconstrução. Autoria visual continua pendente. O texto de baseline abaixo descreve organização/escopo histórico, não disponibilidade atual.
 
 # configuration — Edição e publicação de configuração
 

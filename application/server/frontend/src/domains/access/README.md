@@ -1,4 +1,4 @@
-Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+Atualização de 15/11/2026: Estado atual: SignIn e store de sessão por token provisionado, com revalidação e revogação. Gestão de usuários/equipes permanece planejada. O texto de baseline abaixo descreve organização/escopo histórico, não disponibilidade atual.
 
 # access — Pessoas e acesso
 

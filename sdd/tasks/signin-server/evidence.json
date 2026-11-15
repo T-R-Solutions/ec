@@ -1,0 +1,828 @@
+{
+  "schema_version": 2,
+  "environment": "Linux; Vue frontend; Chromium Docker local, API simulada",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Entrada pública apresenta sign in sem sessão e preserva destino autenticado, demos e galeria explícitos.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-REAL",
+        "E-BOUNDARY-TYPECHECK",
+        "E-BOUNDARY-VITEST",
+        "E-BOUNDARY-BUILD"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Acesso valida token real via /session, preserva retorno e não inventa métodos de autenticação.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-REAL",
+        "E-BOUNDARY-TYPECHECK",
+        "E-BOUNDARY-VITEST",
+        "E-BOUNDARY-BUILD"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Identidade Signal, mensagens e composição visual derivam das referências Ec com conteúdo demonstrativo honesto.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-REAL",
+        "E-BOUNDARY-TYPECHECK",
+        "E-BOUNDARY-VITEST",
+        "E-BOUNDARY-BUILD"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "Estados de acesso, teclado, foco, contraste e reflow permanecem utilizáveis nos temas e viewports suportados.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-REAL",
+        "E-BOUNDARY-TYPECHECK",
+        "E-BOUNDARY-VITEST",
+        "E-BOUNDARY-BUILD"
+      ]
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Verificação funcional e capturas desktop/mobile inspecionadas sustentam aceite atual.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-REAL",
+        "E-BOUNDARY-TYPECHECK",
+        "E-BOUNDARY-VITEST",
+        "E-BOUNDARY-BUILD"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "command_or_method": "Nova revisão e reexecução após correção de import; métodos e limites no converge",
+      "observed_result": "Revisão independente pós-correção App/index e fronteira; componentes visuais/CSS inalterados, observações visuais anteriores preservadas no relato.",
+      "artifact": "sdd/tasks/signin-server/converge.md",
+      "sha256": "074cfa54012978f004b5021eb2888baf8608f36b8b4b9c80d39fc7ad7647e20f",
+      "inputs": [
+        {
+          "path": "sdd/tasks/signin-server/spec.md",
+          "sha256": "edb3892c7f28d77d4a971c2f118ee422a20827bd1d1d616926840cdbb154fd14",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/plan.md",
+          "sha256": "25f54d742a1a87940b3050d2011878fcfacf89146cf05a815bd6f843346d5a7e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/tasks.md",
+          "sha256": "226558cf0aeb898ed28dc5f27bca1706c9af2734e400476d7dbc2025fc2a4cfc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/traceability.json",
+          "sha256": "1fac38bda77593a1415d0b9460b0bf83cf070cb82999070d07eec55d5220d3fb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/workflow.json",
+          "sha256": "dd45f2a1fef0b5fa292e03708f55c4109194725ed71130953620c969231db9fc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "b01d9024332302578ff8df46dd89730d2ad325c7569fd80438b1e747c8459d9a",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "c2900ce0f3516cf371ba562a3c80312ebabd12ddef4f7dd6944739e4d4bd874d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "2015dfffa20410f056f8fd12414d14d77693e66950d59c9e19fd839d592dd21d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "9174ca03a5212bccde43a99a8a589fd92d8077e59ae97b9b12b0fa5c8645e457",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "31db6afe328843b31269f33b5c4cf74aa16e295655aa8aa8df834b191dc68a48",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "628c6b30e74264232c982802756f07da63a365457a2b13cfff44983afd7cd5c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "0097ef54a6932b02edf31018b16c536f81f97f00d644efa0411bc298b9d5b04a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "f879eedda58f074d455fe288e12ff7d851cd1e5b7d5e94698ed72a6a932d975d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "1f13bec20369ba93309a785326887d8c4ff8d069c040946b19ead72c6359753c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/design/sources/ec-signal-visual.zip",
+          "sha256": "93c4f3ada319f8095427b5e09220d75516c4b6dd1f1d0d3637c2c350de4db3a7",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-BROWSER",
+      "kind": "test",
+      "command_or_method": "Nova revisão e reexecução após correção de import; métodos e limites no converge",
+      "observed_result": "Frontend e3tarefas E2E aprovadas após correção; scripts boundary falhou antes da correção; inventário alterado impede aceite deste recibo.",
+      "artifact": ".local/logs/2026-11-14/run-0UwbOcyR-automate.results.log",
+      "sha256": "f0784635be3c33a44bfb8f934c6079b163949b7f08100e425384a7b14ff316aa",
+      "inputs": [
+        {
+          "path": "sdd/tasks/signin-server/spec.md",
+          "sha256": "edb3892c7f28d77d4a971c2f118ee422a20827bd1d1d616926840cdbb154fd14",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/plan.md",
+          "sha256": "25f54d742a1a87940b3050d2011878fcfacf89146cf05a815bd6f843346d5a7e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/tasks.md",
+          "sha256": "226558cf0aeb898ed28dc5f27bca1706c9af2734e400476d7dbc2025fc2a4cfc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/traceability.json",
+          "sha256": "1fac38bda77593a1415d0b9460b0bf83cf070cb82999070d07eec55d5220d3fb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/workflow.json",
+          "sha256": "dd45f2a1fef0b5fa292e03708f55c4109194725ed71130953620c969231db9fc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "b01d9024332302578ff8df46dd89730d2ad325c7569fd80438b1e747c8459d9a",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "c2900ce0f3516cf371ba562a3c80312ebabd12ddef4f7dd6944739e4d4bd874d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "2015dfffa20410f056f8fd12414d14d77693e66950d59c9e19fd839d592dd21d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "9174ca03a5212bccde43a99a8a589fd92d8077e59ae97b9b12b0fa5c8645e457",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "31db6afe328843b31269f33b5c4cf74aa16e295655aa8aa8df834b191dc68a48",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "628c6b30e74264232c982802756f07da63a365457a2b13cfff44983afd7cd5c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "0097ef54a6932b02edf31018b16c536f81f97f00d644efa0411bc298b9d5b04a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "f879eedda58f074d455fe288e12ff7d851cd1e5b7d5e94698ed72a6a932d975d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "1f13bec20369ba93309a785326887d8c4ff8d069c040946b19ead72c6359753c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/design/sources/ec-signal-visual.zip",
+          "sha256": "93c4f3ada319f8095427b5e09220d75516c4b6dd1f1d0d3637c2c350de4db3a7",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-REAL",
+      "kind": "test",
+      "command_or_method": "Nova revisão e reexecução após correção de import; métodos e limites no converge",
+      "observed_result": "Chromium/Firefox reais pós-delta aprovados; novo runner final obrigatório.",
+      "artifact": ".local/logs/2026-11-14/run-0UwbOcyR-automate.results.log",
+      "sha256": "f0784635be3c33a44bfb8f934c6079b163949b7f08100e425384a7b14ff316aa",
+      "inputs": [
+        {
+          "path": "sdd/tasks/signin-server/spec.md",
+          "sha256": "edb3892c7f28d77d4a971c2f118ee422a20827bd1d1d616926840cdbb154fd14",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/plan.md",
+          "sha256": "25f54d742a1a87940b3050d2011878fcfacf89146cf05a815bd6f843346d5a7e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/tasks.md",
+          "sha256": "226558cf0aeb898ed28dc5f27bca1706c9af2734e400476d7dbc2025fc2a4cfc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/traceability.json",
+          "sha256": "1fac38bda77593a1415d0b9460b0bf83cf070cb82999070d07eec55d5220d3fb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/workflow.json",
+          "sha256": "dd45f2a1fef0b5fa292e03708f55c4109194725ed71130953620c969231db9fc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "b01d9024332302578ff8df46dd89730d2ad325c7569fd80438b1e747c8459d9a",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "c2900ce0f3516cf371ba562a3c80312ebabd12ddef4f7dd6944739e4d4bd874d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "2015dfffa20410f056f8fd12414d14d77693e66950d59c9e19fd839d592dd21d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "9174ca03a5212bccde43a99a8a589fd92d8077e59ae97b9b12b0fa5c8645e457",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "31db6afe328843b31269f33b5c4cf74aa16e295655aa8aa8df834b191dc68a48",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "628c6b30e74264232c982802756f07da63a365457a2b13cfff44983afd7cd5c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "0097ef54a6932b02edf31018b16c536f81f97f00d644efa0411bc298b9d5b04a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "f879eedda58f074d455fe288e12ff7d851cd1e5b7d5e94698ed72a6a932d975d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "1f13bec20369ba93309a785326887d8c4ff8d069c040946b19ead72c6359753c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/design/sources/ec-signal-visual.zip",
+          "sha256": "93c4f3ada319f8095427b5e09220d75516c4b6dd1f1d0d3637c2c350de4db3a7",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-BOUNDARY-TYPECHECK",
+      "kind": "test",
+      "command_or_method": "Nova revisão e reexecução após correção de import; métodos e limites no converge",
+      "observed_result": "Reexecução pós-correção de import aprovada.",
+      "artifact": ".local/logs/2026-11-14/signin-boundary-typecheck.log",
+      "sha256": "203e621130e9156ef7efffa18636c4d1df9ea58fefbdcdea298d7413d9ad96aa",
+      "inputs": [
+        {
+          "path": "sdd/tasks/signin-server/spec.md",
+          "sha256": "edb3892c7f28d77d4a971c2f118ee422a20827bd1d1d616926840cdbb154fd14",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/plan.md",
+          "sha256": "25f54d742a1a87940b3050d2011878fcfacf89146cf05a815bd6f843346d5a7e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/tasks.md",
+          "sha256": "226558cf0aeb898ed28dc5f27bca1706c9af2734e400476d7dbc2025fc2a4cfc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/traceability.json",
+          "sha256": "1fac38bda77593a1415d0b9460b0bf83cf070cb82999070d07eec55d5220d3fb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/workflow.json",
+          "sha256": "dd45f2a1fef0b5fa292e03708f55c4109194725ed71130953620c969231db9fc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "b01d9024332302578ff8df46dd89730d2ad325c7569fd80438b1e747c8459d9a",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "c2900ce0f3516cf371ba562a3c80312ebabd12ddef4f7dd6944739e4d4bd874d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "2015dfffa20410f056f8fd12414d14d77693e66950d59c9e19fd839d592dd21d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "9174ca03a5212bccde43a99a8a589fd92d8077e59ae97b9b12b0fa5c8645e457",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "31db6afe328843b31269f33b5c4cf74aa16e295655aa8aa8df834b191dc68a48",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "628c6b30e74264232c982802756f07da63a365457a2b13cfff44983afd7cd5c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "0097ef54a6932b02edf31018b16c536f81f97f00d644efa0411bc298b9d5b04a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "f879eedda58f074d455fe288e12ff7d851cd1e5b7d5e94698ed72a6a932d975d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "1f13bec20369ba93309a785326887d8c4ff8d069c040946b19ead72c6359753c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/design/sources/ec-signal-visual.zip",
+          "sha256": "93c4f3ada319f8095427b5e09220d75516c4b6dd1f1d0d3637c2c350de4db3a7",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-BOUNDARY-VITEST",
+      "kind": "test",
+      "command_or_method": "Nova revisão e reexecução após correção de import; métodos e limites no converge",
+      "observed_result": "Reexecução pós-correção de import aprovada.",
+      "artifact": ".local/logs/2026-11-14/signin-boundary-vitest.log",
+      "sha256": "7aea166061188e849195ac88bdc40fa5cdb47f5fddb6d9a49531b8b715dbe817",
+      "inputs": [
+        {
+          "path": "sdd/tasks/signin-server/spec.md",
+          "sha256": "edb3892c7f28d77d4a971c2f118ee422a20827bd1d1d616926840cdbb154fd14",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/plan.md",
+          "sha256": "25f54d742a1a87940b3050d2011878fcfacf89146cf05a815bd6f843346d5a7e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/tasks.md",
+          "sha256": "226558cf0aeb898ed28dc5f27bca1706c9af2734e400476d7dbc2025fc2a4cfc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/traceability.json",
+          "sha256": "1fac38bda77593a1415d0b9460b0bf83cf070cb82999070d07eec55d5220d3fb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/workflow.json",
+          "sha256": "dd45f2a1fef0b5fa292e03708f55c4109194725ed71130953620c969231db9fc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "b01d9024332302578ff8df46dd89730d2ad325c7569fd80438b1e747c8459d9a",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "c2900ce0f3516cf371ba562a3c80312ebabd12ddef4f7dd6944739e4d4bd874d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "2015dfffa20410f056f8fd12414d14d77693e66950d59c9e19fd839d592dd21d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "9174ca03a5212bccde43a99a8a589fd92d8077e59ae97b9b12b0fa5c8645e457",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "31db6afe328843b31269f33b5c4cf74aa16e295655aa8aa8df834b191dc68a48",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "628c6b30e74264232c982802756f07da63a365457a2b13cfff44983afd7cd5c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "0097ef54a6932b02edf31018b16c536f81f97f00d644efa0411bc298b9d5b04a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "f879eedda58f074d455fe288e12ff7d851cd1e5b7d5e94698ed72a6a932d975d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "1f13bec20369ba93309a785326887d8c4ff8d069c040946b19ead72c6359753c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/design/sources/ec-signal-visual.zip",
+          "sha256": "93c4f3ada319f8095427b5e09220d75516c4b6dd1f1d0d3637c2c350de4db3a7",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-BOUNDARY-BUILD",
+      "kind": "test",
+      "command_or_method": "Nova revisão e reexecução após correção de import; métodos e limites no converge",
+      "observed_result": "Reexecução pós-correção de import aprovada.",
+      "artifact": ".local/logs/2026-11-14/signin-boundary-build.log",
+      "sha256": "a4ecbc0558d684e8e11e6ffbe8582fb23f2ac370ffc3371abf880695894a5f37",
+      "inputs": [
+        {
+          "path": "sdd/tasks/signin-server/spec.md",
+          "sha256": "edb3892c7f28d77d4a971c2f118ee422a20827bd1d1d616926840cdbb154fd14",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/plan.md",
+          "sha256": "25f54d742a1a87940b3050d2011878fcfacf89146cf05a815bd6f843346d5a7e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/tasks.md",
+          "sha256": "226558cf0aeb898ed28dc5f27bca1706c9af2734e400476d7dbc2025fc2a4cfc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/traceability.json",
+          "sha256": "1fac38bda77593a1415d0b9460b0bf83cf070cb82999070d07eec55d5220d3fb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/signin-server/workflow.json",
+          "sha256": "dd45f2a1fef0b5fa292e03708f55c4109194725ed71130953620c969231db9fc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "b01d9024332302578ff8df46dd89730d2ad325c7569fd80438b1e747c8459d9a",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "c2900ce0f3516cf371ba562a3c80312ebabd12ddef4f7dd6944739e4d4bd874d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "2015dfffa20410f056f8fd12414d14d77693e66950d59c9e19fd839d592dd21d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "9174ca03a5212bccde43a99a8a589fd92d8077e59ae97b9b12b0fa5c8645e457",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "31db6afe328843b31269f33b5c4cf74aa16e295655aa8aa8df834b191dc68a48",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "628c6b30e74264232c982802756f07da63a365457a2b13cfff44983afd7cd5c2",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "0097ef54a6932b02edf31018b16c536f81f97f00d644efa0411bc298b9d5b04a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "f879eedda58f074d455fe288e12ff7d851cd1e5b7d5e94698ed72a6a932d975d",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "1f13bec20369ba93309a785326887d8c4ff8d069c040946b19ead72c6359753c",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-DE-DESIGN-E-PRODUTO.md",
+          "sha256": "1cade893489fa42fb55eeed4baae5b95ff41bad04c929ae954d845f383b98f37",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/EC-REGRAS-CRIACAO-DE-TELAS-E-IMAGENS.md",
+          "sha256": "fe1efe3e000263d4d9a39350a464945c97f7d1d5d746f6ed89593349751b8e62",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/design/sources/ec-signal-visual.zip",
+          "sha256": "93c4f3ada319f8095427b5e09220d75516c4b6dd1f1d0d3637c2c350de4db3a7",
+          "role": "implementation"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Aprovação dos critérios observados não substitui gate final atual.",
+    "Sem certificação WCAG/leitor de tela;320CSS é reflow, não zoom nativo400%.",
+    "IBM Plex não comprovada; capturas temporárias seguem retenção local."
+  ]
+}

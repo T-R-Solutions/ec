@@ -42,3 +42,36 @@ test('401 de cliente antigo não limpa sessão nova; logout limpa mesmo com erro
   expect(session.api).toBeUndefined()
   await session.leave()
 })
+
+test('revalidação tardia não substitui uma sessão nova nem restaura sessão limpa', async () => {
+  const late = deferred<ReturnType<typeof response>>()
+  const fetch = vi.fn().mockResolvedValueOnce(response('primeira')).mockReturnValueOnce(late.promise).mockResolvedValueOnce(response('atual'))
+  vi.stubGlobal('fetch', fetch)
+  const session = useSession()
+  await session.enter('first')
+  const checking = session.refresh()
+  await session.enter('new')
+  late.resolve(response('antiga')); await checking
+  expect(session.identity).toBe('atual')
+  const cleared = deferred<ReturnType<typeof response>>()
+  fetch.mockReturnValueOnce(cleared.promise)
+  const pending = session.refresh()
+  session.clear()
+  cleared.resolve(response('revogada')); await pending
+  expect(session.identity).toBe('')
+  expect(session.api).toBeUndefined()
+  await session.refresh()
+})
+
+test('revalidação abortada ignora resposta mesmo quando transporte não respeita abort', async () => {
+  const late = deferred<ReturnType<typeof response>>()
+  const fetch = vi.fn().mockResolvedValueOnce(response('atual')).mockReturnValueOnce(late.promise)
+  vi.stubGlobal('fetch', fetch)
+  const session = useSession()
+  await session.enter('current')
+  const controller = new AbortController()
+  const pending = session.refresh(controller.signal)
+  controller.abort()
+  late.resolve(response('tardia')); await pending
+  expect(session.identity).toBe('atual')
+})

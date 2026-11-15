@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "surfaces": [
+    "docs",
+    "scripts",
+    "frontend",
+    "e2e"
+  ],
+  "scope": {
+    "kind": "task",
+    "related_features": [
+      {
+        "path": "sdd/features/first-functional-journey",
+        "criteria": [
+          "AC-03",
+          "AC-06"
+        ],
+        "coverage": "partial"
+      }
+    ],
+    "rationale": "Página pública de acesso; não aceita demais contratos da primeira jornada.",
+    "review": "Revisor independente confirmou escopo e relação parcial, sem achados bloqueadores código/visual; testes reais e limitações permanecem explícitos."
+  },
+  "stages": {
+    "analysis": [
+      "E-REVIEW"
+    ],
+    "planning": [
+      "E-REVIEW"
+    ],
+    "implementation": [
+      "E-REVIEW"
+    ],
+    "review": [
+      "E-REVIEW"
+    ],
+    "validation": [
+      "E-BROWSER",
+      "E-REAL"
+    ]
+  }
+}

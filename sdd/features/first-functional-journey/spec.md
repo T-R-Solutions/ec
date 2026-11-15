@@ -2,6 +2,10 @@
 
 Estado: implementação incremental, sem aceite da jornada. Governança possui feature própria.
 
+## Reconstrução de interface — 15/11/2026
+
+A tarefa [login-rebuild](../../tasks/login-rebuild/spec.md) substitui a UI existente por login e confirmação de sessão. REQ-06 e AC-06 continuam requisitos da jornada completa e ficam sem implementação de telas operacionais nesta reconstrução; não são removidos nem aprovados por aceite parcial de login. Backend, API e modelos preservados não equivalem à jornada visual.
+
 ## Consolidação autorizada — 13/11/2026
 
 REQ-07: cada regra compartilhada da jornada tem um proprietário: publicação e

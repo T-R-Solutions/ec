@@ -29,3 +29,7 @@ do editor e apresentação das execuções. Sessão, rascunhos, recibos e integr
 mantêm contratos existentes. Novas áreas sem API são demonstrações isoladas.
 As evidências históricas T006 não validam esta apresentação; typecheck, suíte e
 integração não foram reexecutados. [Registro atual](../../../docs/validation/frontend-signal-20261111/report.md).
+
+## Reconstrução visual de 15/11/2026
+
+T006: telas de configuração/execução retiradas por solicitação na tarefa login-rebuild. AC-06 permanece pendente; rastreabilidade aponta ao contrato/tarefa até nova implementação visual. Testes de login não aprovam os três modos nem execução na interface. Evidências antigas permanecem históricas e não foram renovadas.

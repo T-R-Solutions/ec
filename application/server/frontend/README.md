@@ -9,6 +9,8 @@ descreve as jornadas implementadas e limitações. Verificação e scanners segu
 [contrato Toolbox/Ec](../../../scripts/README.md); não instalar
 ferramentas ou alterar a Toolbox como efeito de execução dos testes.
 
+Estado atual (15/11/2026): login por token provisionado e confirmação/revogação de sessão. Shell, galerias, demonstrações e telas operacionais anteriores foram retirados por pedido. A organização de domínios abaixo mantém responsabilidades e código de contrato; não indica telas disponíveis.
+
 ## Mapa de responsabilidades
 
 [![Como evitar acoplamento entre domínios? app compõe contribuições públicas; domínios consomem shared e, quando configuráveis, a interface de configuration. Stores e implementações privadas não são interfaces de integração.](../../../docs/assets/diagrams/frontend-map.svg)](../../../docs/assets/diagrams/frontend-map.svg)

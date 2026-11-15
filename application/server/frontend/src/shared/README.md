@@ -1,4 +1,4 @@
-Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+Atualização de 15/11/2026: Estado atual: cliente HTTP e tokens visuais preservados; galeria e componentes sem consumidores foram removidos na reconstrução do login. O texto de baseline abaixo descreve organização/escopo histórico, não disponibilidade atual.
 
 # Elementos compartilhados da interface
 

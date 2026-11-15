@@ -1,0 +1,114 @@
+[
+  {
+    "acceptance": "AC-01",
+    "requirement": "REQ-01",
+    "decision": "D-01",
+    "risk": "R-01",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "application/server/frontend/tests/playwright/session.spec.mjs"
+  },
+  {
+    "acceptance": "AC-02",
+    "requirement": "REQ-02",
+    "decision": "D-03",
+    "risk": "R-03",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "docs/validation/login-rebuild-20261115/report.md"
+  },
+  {
+    "acceptance": "AC-03",
+    "requirement": "REQ-02",
+    "decision": "D-03",
+    "risk": "R-03",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "docs/validation/login-rebuild-20261115/report.md"
+  },
+  {
+    "acceptance": "AC-04",
+    "requirement": "REQ-03",
+    "decision": "D-03",
+    "risk": "R-03",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "application/server/frontend/tests/playwright/session.spec.mjs"
+  },
+  {
+    "acceptance": "AC-05",
+    "requirement": "REQ-03",
+    "decision": "D-03",
+    "risk": "R-03",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "application/server/frontend/tests/playwright/session.spec.mjs"
+  },
+  {
+    "acceptance": "AC-06",
+    "requirement": "REQ-03",
+    "decision": "D-02",
+    "risk": "R-02",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "application/integration/tests/e2e/frontend_browser.py"
+  },
+  {
+    "acceptance": "AC-07",
+    "requirement": "REQ-03",
+    "decision": "D-02",
+    "risk": "R-02",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "docs/validation/login-rebuild-20261115/report.md"
+  },
+  {
+    "acceptance": "AC-08",
+    "requirement": "REQ-03",
+    "decision": "D-02",
+    "risk": "R-02",
+    "tasks": [
+      "T001",
+      "T002",
+      "T003",
+      "T004"
+    ],
+    "implementation": "application/server/frontend/src/app/App.vue",
+    "oracle": "scripts/accept-task.sh"
+  }
+]

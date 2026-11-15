@@ -1,4 +1,4 @@
-Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+Atualização de 15/11/2026: Composição atual: bootstrap Vue/Pinia, login e confirmação/revalidação/revogação de sessão. Shell e navegação anteriores removidos por pedido. O texto de baseline abaixo descreve organização/escopo histórico, não disponibilidade atual.
 
 # Composição da interface
 

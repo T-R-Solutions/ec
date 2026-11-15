@@ -1,0 +1,1101 @@
+{
+  "schema_version": 2,
+  "environment": "Linux; Vue/Pinia; Chromium158 local e Firefox via Toolbox; API simulada identificada e Server/PostgreSQL reais no harness",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "A entrada sem sessão apresenta somente o novo login, incluindo parâmetros antigos de demo/galeria.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Marca, campos, rótulos, botão e mensagens compartilham alinhamentos e escala coerente de espaços e tipografia.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Composição vertical baseada em referência TeamCity inspecionada e identidade Ec, sem cortes, sobreposições ou espaços acidentais.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "Desktop, tablet, celular e reflow com zoom mantêm conteúdo e mensagens utilizáveis sem rolagem horizontal.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN",
+        "E-ZOOM"
+      ]
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Controles funcionam por mouse e teclado, com foco, nomes acessíveis e contraste adequado.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    },
+    {
+      "id": "AC-06",
+      "criterion": "Estados vazio, envio, recusa, falha de conexão, confirmação e saída preservam legibilidade e posição; autenticação usa contrato real.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    },
+    {
+      "id": "AC-07",
+      "criterion": "Inspeção no navegador e capturas atuais documentam dimensões/estados e correções observadas.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    },
+    {
+      "id": "AC-08",
+      "criterion": "Verificações pertinentes e gate de aceite aprovam os inputs finais sem reduzir critérios.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BROWSER",
+        "E-RUN"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "artifact": "sdd/tasks/login-rebuild/converge.md",
+      "sha256": "46a4d12d9d68ec2d41407375f1027509e4873fc30a790f29d536aa4d7a826327",
+      "command_or_method": "Revisão independente de código, escopo, capturas e correções; reexame dos registros estabilizados",
+      "observed_result": "Sem bloqueadores após correção freshness/skip; escopo parcial preserva pendências da jornada.",
+      "inputs": [
+        {
+          "path": "application/integration/tests/e2e/browser_driver.py",
+          "sha256": "5e82839b47c7cee1a0e4461b23655de42820f36ee4b39f384800e433240d5caa",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "9b5d6dedaaa843aac021a2ab8430309081f80043b716f4c7ad1983c710a6f943",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/index.html",
+          "sha256": "d52536423bcab98496a77273b25e9bd3097673179393c0a81aaefbb5c2f2dbac",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "36af3fbb7ab9dd2e6900c6ce0d5d3097de2359bc7521712c3113b28474a7fa02",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "9ec86531a3b1d0f16f8b5c334b20d10b18b99aa1da84636a8f30cd0373dc46df",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/contrast.test.ts",
+          "sha256": "b8ecc05d174911570adcef7086302b14c8079d2832ac2655413ac1cbd8789608",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/main.ts",
+          "sha256": "0a333f20c86caf275eb09cd70949f88a71911dcb67c7db0d878169152389d7a9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "b38883acbb3a80cde790b93805cf803167bc9c5148ec8c8dc85bb34842d89de0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "b7279b8207692b675efd64fd35cf12191589459c4000a7701e9425db67fac58a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "f8c2339ada7a9bd2440ebe627ce0c38ba03d0270ba7b5f097b1739af92668de8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/session.test.ts",
+          "sha256": "0500d52b60f04114169d29c54971db18ed0d611bd1a5e45494cf1bd5663a2fb8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
+          "sha256": "0ba879744b269765d917b5ab1f44d68ebcb4de1fdcb2dc787c355e68fe5d49d0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.ts",
+          "sha256": "61a682e0818cf994503b16008d31bfd0a1b4700bce4793a470435156360aacf5",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/index.ts",
+          "sha256": "b40c7a402fe9b5cc6c22cf1123f65237d4f8931567451c7d7d7baba7c96d1c8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.test.ts",
+          "sha256": "8c4bbc8142fd0914c3bac677326db32d3de53af4b1cdbd89f238199c7ae8a163",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.ts",
+          "sha256": "8c6a825a72645071e4a73bd19d09a0eb7714ae3ecc2372c8ffa34e440d44e06a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/src/index.ts",
+          "sha256": "b516fa981589437bb8879b9eabd593a37059f5790cdf1af9ca61bfdce862ef8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/src/index.ts",
+          "sha256": "7710860c28259728bce093b74549848d6b78aef5c37377f91c03eeb674df8017",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.test.ts",
+          "sha256": "5d74f664ca9049631e2ee6080db0121e054814e967d5520fda0b06b111e05528",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.ts",
+          "sha256": "853b1952d2a2bed93beb78e716f7fa4bd08488e9c4add767a7a7a7c2f938f268",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/index.ts",
+          "sha256": "a9078b37102270bdc1667ff272b330ccc0c701ae0deed24c1b79011bcbc53954",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.test.ts",
+          "sha256": "e86e66ddee32b0f89351660dbd5b86c5d09bacaa332b79887eb3236dae00471d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "ca88997042bbec24a238d8bdba1d57000d89f29be34fcd43e79a0dd7a04fbb62",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/development/frontend.md",
+          "sha256": "dc493b4d0479c01c03875aecc3dfcfa760e411fbc988364d20274c43c3d6004d",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/report.md",
+          "sha256": "424968055bca72e95f894c07b4178975000cb619de5d3de2ce7e61f60740f099",
+          "role": "contract"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "87350c3f6db4e7c573e36dd58dcb9e8a5550e42934ac6f82bf502978f425f6f7",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/plan.md",
+          "sha256": "a664108bfb9b96817a0e9a69e9a122b0ea54cc400344f2148c23bff39027dd70",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/spec.md",
+          "sha256": "c2682ecdb38c7a2cae70386e0af81de6f627e98599230565d054e71addc7f4ea",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/tasks.md",
+          "sha256": "ce502274beac06876b0bb1d5d6f9bd337a4c952c3744d15ebfad3105b105a99d",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/traceability.json",
+          "sha256": "8bbecfbb2620aedc6e219c4b649cba3109b2e47db5a0b3bf04240c30107416ca",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/workflow.json",
+          "sha256": "94e0f39e7dba5b4bb93f0284b210747bc93679ba9eba5af01cb0c6ccbe4a21ca",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/desktop.png",
+          "sha256": "fc17e71121c567c36f4005f8d3f1ce457e061ac93a590d43c30d192ff5cda16f",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/mobile.png",
+          "sha256": "bd630d86b62e3526f0c3f81cc9ed30ffeca1c371220c8694e54e3ddd8a4fcbe1",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/reflow.png",
+          "sha256": "77d91d41147e75ad908b3cb483ab26001249ffe91e9500954be4af895924e257",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/error.png",
+          "sha256": "0b496630ef89ae830845d85eaac6988109e498988f25380d0d26332caa4c0e62",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/native-zoom-4.png",
+          "sha256": "cd044e746807be4a4da508992599deaf5591c7ada114ccba9fc93bbf868c174e",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-BROWSER",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/login-rebuild-browser.log",
+      "sha256": "719a91f7516a6763b04aeefd1f588d2522780960c1e39136f1e74a63219eb9e5",
+      "command_or_method": "Playwright local; capturas e medidas DOM; complemento native-zoom.log e métodos logados",
+      "observed_result": "Desktop/tablet/mobile/reflow sem overflow; erro limpa campo e foco; contraste dos papéis de texto sobre branco>=5,94; zoomCSS2/4 sem overflow. Zoom nativo Chromium2/4 também observado e validado independentemente.",
+      "inputs": [
+        {
+          "path": "application/integration/tests/e2e/browser_driver.py",
+          "sha256": "5e82839b47c7cee1a0e4461b23655de42820f36ee4b39f384800e433240d5caa",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "9b5d6dedaaa843aac021a2ab8430309081f80043b716f4c7ad1983c710a6f943",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/index.html",
+          "sha256": "d52536423bcab98496a77273b25e9bd3097673179393c0a81aaefbb5c2f2dbac",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "36af3fbb7ab9dd2e6900c6ce0d5d3097de2359bc7521712c3113b28474a7fa02",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "9ec86531a3b1d0f16f8b5c334b20d10b18b99aa1da84636a8f30cd0373dc46df",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/contrast.test.ts",
+          "sha256": "b8ecc05d174911570adcef7086302b14c8079d2832ac2655413ac1cbd8789608",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/main.ts",
+          "sha256": "0a333f20c86caf275eb09cd70949f88a71911dcb67c7db0d878169152389d7a9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "b38883acbb3a80cde790b93805cf803167bc9c5148ec8c8dc85bb34842d89de0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "b7279b8207692b675efd64fd35cf12191589459c4000a7701e9425db67fac58a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "f8c2339ada7a9bd2440ebe627ce0c38ba03d0270ba7b5f097b1739af92668de8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/session.test.ts",
+          "sha256": "0500d52b60f04114169d29c54971db18ed0d611bd1a5e45494cf1bd5663a2fb8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
+          "sha256": "0ba879744b269765d917b5ab1f44d68ebcb4de1fdcb2dc787c355e68fe5d49d0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.ts",
+          "sha256": "61a682e0818cf994503b16008d31bfd0a1b4700bce4793a470435156360aacf5",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/index.ts",
+          "sha256": "b40c7a402fe9b5cc6c22cf1123f65237d4f8931567451c7d7d7baba7c96d1c8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.test.ts",
+          "sha256": "8c4bbc8142fd0914c3bac677326db32d3de53af4b1cdbd89f238199c7ae8a163",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.ts",
+          "sha256": "8c6a825a72645071e4a73bd19d09a0eb7714ae3ecc2372c8ffa34e440d44e06a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/src/index.ts",
+          "sha256": "b516fa981589437bb8879b9eabd593a37059f5790cdf1af9ca61bfdce862ef8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/src/index.ts",
+          "sha256": "7710860c28259728bce093b74549848d6b78aef5c37377f91c03eeb674df8017",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.test.ts",
+          "sha256": "5d74f664ca9049631e2ee6080db0121e054814e967d5520fda0b06b111e05528",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.ts",
+          "sha256": "853b1952d2a2bed93beb78e716f7fa4bd08488e9c4add767a7a7a7c2f938f268",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/index.ts",
+          "sha256": "a9078b37102270bdc1667ff272b330ccc0c701ae0deed24c1b79011bcbc53954",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.test.ts",
+          "sha256": "e86e66ddee32b0f89351660dbd5b86c5d09bacaa332b79887eb3236dae00471d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "ca88997042bbec24a238d8bdba1d57000d89f29be34fcd43e79a0dd7a04fbb62",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/development/frontend.md",
+          "sha256": "dc493b4d0479c01c03875aecc3dfcfa760e411fbc988364d20274c43c3d6004d",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/report.md",
+          "sha256": "424968055bca72e95f894c07b4178975000cb619de5d3de2ce7e61f60740f099",
+          "role": "contract"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "87350c3f6db4e7c573e36dd58dcb9e8a5550e42934ac6f82bf502978f425f6f7",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/plan.md",
+          "sha256": "a664108bfb9b96817a0e9a69e9a122b0ea54cc400344f2148c23bff39027dd70",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/spec.md",
+          "sha256": "c2682ecdb38c7a2cae70386e0af81de6f627e98599230565d054e71addc7f4ea",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/tasks.md",
+          "sha256": "ce502274beac06876b0bb1d5d6f9bd337a4c952c3744d15ebfad3105b105a99d",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/traceability.json",
+          "sha256": "8bbecfbb2620aedc6e219c4b649cba3109b2e47db5a0b3bf04240c30107416ca",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/workflow.json",
+          "sha256": "94e0f39e7dba5b4bb93f0284b210747bc93679ba9eba5af01cb0c6ccbe4a21ca",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/desktop.png",
+          "sha256": "fc17e71121c567c36f4005f8d3f1ce457e061ac93a590d43c30d192ff5cda16f",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/mobile.png",
+          "sha256": "bd630d86b62e3526f0c3f81cc9ed30ffeca1c371220c8694e54e3ddd8a4fcbe1",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/reflow.png",
+          "sha256": "77d91d41147e75ad908b3cb483ab26001249ffe91e9500954be4af895924e257",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/error.png",
+          "sha256": "0b496630ef89ae830845d85eaac6988109e498988f25380d0d26332caa4c0e62",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/native-zoom-4.png",
+          "sha256": "cd044e746807be4a4da508992599deaf5591c7ada114ccba9fc93bbf868c174e",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-RUN",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/run-VFcdLSog-automate.results.log",
+      "sha256": "01cbe2c92043b6931c03f5f06d22778f200ead5acc1d360d0c8fb447124e7abc",
+      "command_or_method": "bash scripts/automate.sh run --surface e2e --check chromium --check firefox",
+      "observed_result": "Diagnóstico Chromium/Firefox aprovado após correção da porta; fonte observada idêntica ao final. Runner amplo anterior aprovou frontend e demais checks mas sessões estavam bloqueadas. Documentos finalizados/reexaminados antes runner completo final e gate.",
+      "inputs": [
+        {
+          "path": "application/integration/tests/e2e/browser_driver.py",
+          "sha256": "5e82839b47c7cee1a0e4461b23655de42820f36ee4b39f384800e433240d5caa",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "9b5d6dedaaa843aac021a2ab8430309081f80043b716f4c7ad1983c710a6f943",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/index.html",
+          "sha256": "d52536423bcab98496a77273b25e9bd3097673179393c0a81aaefbb5c2f2dbac",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "36af3fbb7ab9dd2e6900c6ce0d5d3097de2359bc7521712c3113b28474a7fa02",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "9ec86531a3b1d0f16f8b5c334b20d10b18b99aa1da84636a8f30cd0373dc46df",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/contrast.test.ts",
+          "sha256": "b8ecc05d174911570adcef7086302b14c8079d2832ac2655413ac1cbd8789608",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/main.ts",
+          "sha256": "0a333f20c86caf275eb09cd70949f88a71911dcb67c7db0d878169152389d7a9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "b38883acbb3a80cde790b93805cf803167bc9c5148ec8c8dc85bb34842d89de0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "b7279b8207692b675efd64fd35cf12191589459c4000a7701e9425db67fac58a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "f8c2339ada7a9bd2440ebe627ce0c38ba03d0270ba7b5f097b1739af92668de8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/session.test.ts",
+          "sha256": "0500d52b60f04114169d29c54971db18ed0d611bd1a5e45494cf1bd5663a2fb8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
+          "sha256": "0ba879744b269765d917b5ab1f44d68ebcb4de1fdcb2dc787c355e68fe5d49d0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.ts",
+          "sha256": "61a682e0818cf994503b16008d31bfd0a1b4700bce4793a470435156360aacf5",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/index.ts",
+          "sha256": "b40c7a402fe9b5cc6c22cf1123f65237d4f8931567451c7d7d7baba7c96d1c8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.test.ts",
+          "sha256": "8c4bbc8142fd0914c3bac677326db32d3de53af4b1cdbd89f238199c7ae8a163",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.ts",
+          "sha256": "8c6a825a72645071e4a73bd19d09a0eb7714ae3ecc2372c8ffa34e440d44e06a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/src/index.ts",
+          "sha256": "b516fa981589437bb8879b9eabd593a37059f5790cdf1af9ca61bfdce862ef8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/src/index.ts",
+          "sha256": "7710860c28259728bce093b74549848d6b78aef5c37377f91c03eeb674df8017",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.test.ts",
+          "sha256": "5d74f664ca9049631e2ee6080db0121e054814e967d5520fda0b06b111e05528",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.ts",
+          "sha256": "853b1952d2a2bed93beb78e716f7fa4bd08488e9c4add767a7a7a7c2f938f268",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/index.ts",
+          "sha256": "a9078b37102270bdc1667ff272b330ccc0c701ae0deed24c1b79011bcbc53954",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.test.ts",
+          "sha256": "e86e66ddee32b0f89351660dbd5b86c5d09bacaa332b79887eb3236dae00471d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "ca88997042bbec24a238d8bdba1d57000d89f29be34fcd43e79a0dd7a04fbb62",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/development/frontend.md",
+          "sha256": "dc493b4d0479c01c03875aecc3dfcfa760e411fbc988364d20274c43c3d6004d",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/report.md",
+          "sha256": "424968055bca72e95f894c07b4178975000cb619de5d3de2ce7e61f60740f099",
+          "role": "contract"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "87350c3f6db4e7c573e36dd58dcb9e8a5550e42934ac6f82bf502978f425f6f7",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/plan.md",
+          "sha256": "a664108bfb9b96817a0e9a69e9a122b0ea54cc400344f2148c23bff39027dd70",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/spec.md",
+          "sha256": "c2682ecdb38c7a2cae70386e0af81de6f627e98599230565d054e71addc7f4ea",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/tasks.md",
+          "sha256": "ce502274beac06876b0bb1d5d6f9bd337a4c952c3744d15ebfad3105b105a99d",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/traceability.json",
+          "sha256": "8bbecfbb2620aedc6e219c4b649cba3109b2e47db5a0b3bf04240c30107416ca",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/workflow.json",
+          "sha256": "94e0f39e7dba5b4bb93f0284b210747bc93679ba9eba5af01cb0c6ccbe4a21ca",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/desktop.png",
+          "sha256": "fc17e71121c567c36f4005f8d3f1ce457e061ac93a590d43c30d192ff5cda16f",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/mobile.png",
+          "sha256": "bd630d86b62e3526f0c3f81cc9ed30ffeca1c371220c8694e54e3ddd8a4fcbe1",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/reflow.png",
+          "sha256": "77d91d41147e75ad908b3cb483ab26001249ffe91e9500954be4af895924e257",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/error.png",
+          "sha256": "0b496630ef89ae830845d85eaac6988109e498988f25380d0d26332caa4c0e62",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/native-zoom-4.png",
+          "sha256": "cd044e746807be4a4da508992599deaf5591c7ada114ccba9fc93bbf868c174e",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-ZOOM",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/login-rebuild-native-zoom.log",
+      "sha256": "a3344f2295d971ebc388ce7f4859ef866fa5790a21e53745dbb1f1c46b0562b9",
+      "command_or_method": "Chromium perfil descartável; extensão local chrome.tabs.setZoom2/4, captura CDP e inspeção independente",
+      "observed_result": "Zoom nativo200/400: innerWidth640/320, DPR2/4, sem overflow. Captura400 mostra campo/erro/botão legíveis com rolagem vertical.",
+      "inputs": [
+        {
+          "path": "application/integration/tests/e2e/browser_driver.py",
+          "sha256": "5e82839b47c7cee1a0e4461b23655de42820f36ee4b39f384800e433240d5caa",
+          "role": "implementation"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/DESIGN.md",
+          "sha256": "9b5d6dedaaa843aac021a2ab8430309081f80043b716f4c7ad1983c710a6f943",
+          "role": "contract"
+        },
+        {
+          "path": "application/server/frontend/index.html",
+          "sha256": "d52536423bcab98496a77273b25e9bd3097673179393c0a81aaefbb5c2f2dbac",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/package.json",
+          "sha256": "fa4e5f8b1e4206a97ef6f7ec240de9351b660d21daf8e1f7f68a94f6648baccb",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.test.ts",
+          "sha256": "36af3fbb7ab9dd2e6900c6ce0d5d3097de2359bc7521712c3113b28474a7fa02",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/App.vue",
+          "sha256": "9ec86531a3b1d0f16f8b5c334b20d10b18b99aa1da84636a8f30cd0373dc46df",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/contrast.test.ts",
+          "sha256": "b8ecc05d174911570adcef7086302b14c8079d2832ac2655413ac1cbd8789608",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/main.ts",
+          "sha256": "0a333f20c86caf275eb09cd70949f88a71911dcb67c7db0d878169152389d7a9",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/app/style.css",
+          "sha256": "b38883acbb3a80cde790b93805cf803167bc9c5148ec8c8dc85bb34842d89de0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/SignIn.vue",
+          "sha256": "b7279b8207692b675efd64fd35cf12191589459c4000a7701e9425db67fac58a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/index.ts",
+          "sha256": "f8c2339ada7a9bd2440ebe627ce0c38ba03d0270ba7b5f097b1739af92668de8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/access/src/session.test.ts",
+          "sha256": "0500d52b60f04114169d29c54971db18ed0d611bd1a5e45494cf1bd5663a2fb8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/administration/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.test.ts",
+          "sha256": "0ba879744b269765d917b5ab1f44d68ebcb4de1fdcb2dc787c355e68fe5d49d0",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/drafts.ts",
+          "sha256": "61a682e0818cf994503b16008d31bfd0a1b4700bce4793a470435156360aacf5",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/index.ts",
+          "sha256": "b40c7a402fe9b5cc6c22cf1123f65237d4f8931567451c7d7d7baba7c96d1c8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.test.ts",
+          "sha256": "8c4bbc8142fd0914c3bac677326db32d3de53af4b1cdbd89f238199c7ae8a163",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/configuration/src/model.ts",
+          "sha256": "8c6a825a72645071e4a73bd19d09a0eb7714ae3ecc2372c8ffa34e440d44e06a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/delivery/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/extensions/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/infrastructure/src/index.ts",
+          "sha256": "b516fa981589437bb8879b9eabd593a37059f5790cdf1af9ca61bfdce862ef8a",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/pipelines/src/index.ts",
+          "sha256": "7992a39d6cde5e050eb78461a8bf9ad986175a94826e835c110b3967290bd249",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/projects/src/index.ts",
+          "sha256": "7710860c28259728bce093b74549848d6b78aef5c37377f91c03eeb674df8017",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.test.ts",
+          "sha256": "5d74f664ca9049631e2ee6080db0121e054814e967d5520fda0b06b111e05528",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/bytes.ts",
+          "sha256": "853b1952d2a2bed93beb78e716f7fa4bd08488e9c4add767a7a7a7c2f938f268",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/domains/runs/src/index.ts",
+          "sha256": "a9078b37102270bdc1667ff272b330ccc0c701ae0deed24c1b79011bcbc53954",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.test.ts",
+          "sha256": "e86e66ddee32b0f89351660dbd5b86c5d09bacaa332b79887eb3236dae00471d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/api.ts",
+          "sha256": "cff90969b17b7d9f80e122b0857c95478c0ee5fa4f9c0bea4cee5473749d0ab8",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/src/shared/ui/tokens.css",
+          "sha256": "79bbd54adcfaee677488d8e1d6970e5233d921f99ad72acfcfe88b28b431330d",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/tests/playwright/session.spec.mjs",
+          "sha256": "ca88997042bbec24a238d8bdba1d57000d89f29be34fcd43e79a0dd7a04fbb62",
+          "role": "implementation"
+        },
+        {
+          "path": "application/server/frontend/vite.config.ts",
+          "sha256": "7c5d40eb74881bc41ec80eb792b427c428c24e0fc76daec8e500a70953c01665",
+          "role": "implementation"
+        },
+        {
+          "path": "docs/development/frontend.md",
+          "sha256": "dc493b4d0479c01c03875aecc3dfcfa760e411fbc988364d20274c43c3d6004d",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/report.md",
+          "sha256": "424968055bca72e95f894c07b4178975000cb619de5d3de2ce7e61f60740f099",
+          "role": "contract"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "87350c3f6db4e7c573e36dd58dcb9e8a5550e42934ac6f82bf502978f425f6f7",
+          "role": "implementation"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/plan.md",
+          "sha256": "a664108bfb9b96817a0e9a69e9a122b0ea54cc400344f2148c23bff39027dd70",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/spec.md",
+          "sha256": "c2682ecdb38c7a2cae70386e0af81de6f627e98599230565d054e71addc7f4ea",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/tasks.md",
+          "sha256": "ce502274beac06876b0bb1d5d6f9bd337a4c952c3744d15ebfad3105b105a99d",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/traceability.json",
+          "sha256": "8bbecfbb2620aedc6e219c4b649cba3109b2e47db5a0b3bf04240c30107416ca",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/login-rebuild/workflow.json",
+          "sha256": "94e0f39e7dba5b4bb93f0284b210747bc93679ba9eba5af01cb0c6ccbe4a21ca",
+          "role": "contract"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/desktop.png",
+          "sha256": "fc17e71121c567c36f4005f8d3f1ce457e061ac93a590d43c30d192ff5cda16f",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/mobile.png",
+          "sha256": "bd630d86b62e3526f0c3f81cc9ed30ffeca1c371220c8694e54e3ddd8a4fcbe1",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/reflow.png",
+          "sha256": "77d91d41147e75ad908b3cb483ab26001249ffe91e9500954be4af895924e257",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/error.png",
+          "sha256": "0b496630ef89ae830845d85eaac6988109e498988f25380d0d26332caa4c0e62",
+          "role": "other"
+        },
+        {
+          "path": "docs/validation/login-rebuild-20261115/native-zoom-4.png",
+          "sha256": "cd044e746807be4a4da508992599deaf5591c7ada114ccba9fc93bbf868c174e",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-15/login-rebuild-native-zoom-method.log",
+          "sha256": "d14922d701b38211216b231d50db257667d43b501a380fa14bbeba0bf3fa0982",
+          "role": "oracle"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Sem leitor de tela ou certificação WCAG integral.",
+    "IBM Plex não comprovada; capturas usam fallback.",
+    "Zoom nativo observado Chromium; Firefox exercita reflow e jornada real.",
+    "Aceite agregado primeira jornada pendente; telas operacionais removidas por pedido.",
+    "Recibo final obrigatório depois desta estabilização; gate executado por validador independente."
+  ]
+}

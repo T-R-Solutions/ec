@@ -1,4 +1,4 @@
-Atualização T006 em 2026-11-05: implementação executável disponível. [Operação, contratos e testes](../../../../../../docs/development/frontend.md). A baseline abaixo é histórica.
+Atualização de 15/11/2026: Estado atual: contratos preservados; nenhuma tela de infraestrutura é exposta na reconstrução centrada em login. O texto de baseline abaixo descreve organização/escopo histórico, não disponibilidade atual.
 
 # infrastructure — Gestão de infraestrutura
 

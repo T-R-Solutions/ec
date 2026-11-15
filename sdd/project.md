@@ -15,7 +15,7 @@ registram incrementos implementados, comandos reais, evidências e limites.
 | Contrato público v1 | `application/contracts/` | Campos/limites únicos, consumidos por Server, Agent e frontend. [Fronteira](../docs/decisions/ADR-003-public-journey-contract.md) |
 | Agent Rust | `application/agents/` | Workspace executável; sessão, execução, entrega de saída e artefatos no recorte da primeira jornada. [Operação e limites](../docs/development/agent.md) |
 | Server Rust | `application/server/backend/` | Parsing/schema, publicação, sessões/autorização HTTP, PostgreSQL e fila/tentativas. [Publicação](../docs/development/publication.md) e [orquestração](../docs/development/orchestration.md) |
-| Frontend Vue 3/TypeScript/Pinia | `application/server/frontend/` | Editor, publicação e operação da primeira jornada; shell e demonstrações visuais têm limites próprios. [Guia](../docs/development/frontend.md) e [contrato visual](../application/server/frontend/DESIGN.md) |
+| Frontend Vue 3/TypeScript/Pinia | `application/server/frontend/` | Entrada de login reconstruída em 15/11/2026; shell, demos e telas operacionais retirados. Modelos/API preservados; reconstrução das demais telas pendente. [Guia](../docs/development/frontend.md) e [contrato visual](../application/server/frontend/DESIGN.md) |
 | Testes entre componentes | `application/integration/tests/` | Harnesses de integração e ponta a ponta separados. [Guia](../docs/development/testing.md) |
 | Verificação | `scripts/` | Runner e integração nativa com a Toolbox; disponibilidade/preparo externos não são presumidos. [Guia](../scripts/README.md) |
 | Governança | `.codex/skills/`, `config/governance/`, `tools/governance/` | Instalação ativa, catálogo/proveniência e ferramentas. [Seleção e pontes](chain/README.md) |

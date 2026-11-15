@@ -1,80 +1,23 @@
-# Interface web — T006
+# Interface web — entrada de login
 
-Interface Vue 3/TypeScript/Pinia executável em `application/server/frontend/`. Escopo: projetos concedidos, ProjectPipeline ec/v1alpha1 de uma etapa, publicação, execuções, saída e agentes do projeto. Apenas Linux confiável, Git local admitido e nenhuma credencial externa. Não implementa DAG, IdP, senha, pools ou segredos por referência.
+O frontend Vue 3/TypeScript/Pinia em `application/server/frontend/` foi reconstruído em 15/11/2026 para começar pela tela de login. Shell, demos, galeria, configuração e execuções da interface anterior foram retirados por pedido. As APIs e a lógica de domínio preservadas continuam disponíveis para futura reconstrução; nenhuma tela operacional é anunciada como pronta.
 
-Da raiz, depois de preparar Server/PostgreSQL, sessões e repositório conforme [publicação](publication.md), [orquestração](orchestration.md) e [Agent](agent.md):
+## Executar
+
+Com dependências npm do lock já preparadas e Server/PostgreSQL configurados conforme [publicação](publication.md):
 
 ```bash
-npm --prefix application/server/frontend ci --ignore-scripts
 npm --prefix application/server/frontend run dev -- --port 5173 --strictPort
 ```
 
-Abra http://127.0.0.1:5173. Vite encaminha `/api` ao Server loopback em 58139. Para usar essa configuração, execute o Server com `EC_PORT=58139`; a CLI operacional mantém `EC_DATABASE_URL` somente no processo Server. Agent usa sua configuração e credencial separadas. Não coloque essas credenciais no navegador. O build gera `dist/`; implantação remota, TLS e proxy de produção não são demonstrados por este incremento.
+Abra http://127.0.0.1:5173. O proxy Vite encaminha `/api` ao endereço configurado em `scripts/config/automation.json`. Use o token provisionado pela CLI do Server; não coloque credenciais de banco ou Agent no navegador. Instalação de dependências exige autorização própria quando necessária.
 
-A entrada recebe o bearer opaco provisionado pelo administrador via CLI atual, sem identidade ou papel selecionável. O token fica capturado somente em memória na função cliente, nunca em URL, storage web ou YAML. O campo é limpo ao enviar. Recarregar a aba exige nova entrada. A sessão expira em oito horas pelo relógio PostgreSQL; `revoke` administrativo e “Revogar e sair” a invalidam no Server. Uma resposta 401 descarta o contexto privado e volta à entrada. 403 não confirma operação; projetos invisíveis retornam 404. Não há logs de headers ou captura de tráfego com tokens nos ensaios.
+## Contrato de acesso
 
-Pinia mantém sessão e rascunhos em memória por projeto. Navegação entre páginas/projetos preserva rascunho, base e pedido incerto na mesma sessão. Troca/expiração de sessão descarta o contexto privado, inclusive os rascunhos em memória. Fechar/recarregar a aba não oferece recuperação durável; copie o YAML antes de sair se precisar conservá-lo. Viewer pode editar um rascunho e validar, mas controles de mutação ficam desabilitados e o Server rejeita requisições diretas.
+O token opaco é consultado em GET `/api/v1/session`, fica apenas na memória da aba e é limpo do campo no envio. Não há usuário/senha, cadastro, recuperação ou SSO implementados. Confirmação mostra identidade e validade retornadas pelo Server. Recarregar a aba exige nova entrada; “Revogar e sair” envia DELETE da sessão. Uma falha distingue descarte local de revogação remota não confirmada. Revalidação ocorre a cada30s e ao retomar foco, sem sobreposição; erro de transporte exibe confirmação desatualizada e401 ou expiração conhecida remove o contexto. Autorização continua sendo decisão do Server.
 
-Visual é uma etapa real com campos editáveis; Formulário e YAML representam o mesmo modelo. A validação sem efeitos usa o parser/schema Rust, preservando sua interpretação textual de escalares e seus limites. O último modelo válido permanece visível quando o texto é inválido. Edição estruturada propõe a serialização completa: mostra antes/depois e exige escolha explícita para perder comentários/apresentação. Nenhum modo altera bytes apenas por ser aberto. SHA-256 identifica bytes YAML, não equivalência semântica. Publicação continua responsável por referências e autorização.
+## Verificação
 
-A base do rascunho é explícita. “Carregar publicada” substitui o rascunho por ação expressa; conflitos oferecem comparação e adoção explícita da base sem descartar o texto. Não há merge automático. Pedido incerto conserva requestId e payload: consultar recibo ou repetir o mesmo pedido. Um novo requestId não contorna resposta incerta. A revisão escolhida para submissão é independente do rascunho; recibo e execução mostram revisão/hash/commit fixados pelo Server.
+Comandos locais: `npm run typecheck`, `npm test`, `npm run build` no frontend. O runner canônico e o gate são definidos na [política de verificação](task-verification.md). Playwright testa API simulada; `application/integration/tests/e2e/frontend_browser.py` testa sessão com Server/PostgreSQL reais via browsers Chromium/Firefox preparados na Toolbox Docker. As jornadas anteriores de editor/execuções são históricas, pois as telas foram retiradas; harnesses de API/backend continuam próprios.
 
-Consultas de execuções são polling sequencial a cada dois segundos após a consulta anterior. Cada ciclo tem geração e AbortController. Navegação, troca de projeto e unmount cancelam consultas/timers; geração descarta respostas tardias mesmo se o transporte ignorar abort. Validação usa debounce de 200 ms e a mesma defesa. Dados anteriores ficam identificados como possivelmente desatualizados em falha de conexão; reconexão consulta o Server sem inventar transições. Catálogo de agentes é um snapshot da consulta e não declara heartbeat/capacidade. Nenhuma rota Agent é chamada pela interface.
-
-Logs são chunks hex por tentativa, decodificados com substituição de UTF-8 inválido e controles escapados, interpolação textual Vue sem HTML ou terminal. Paginação de 50 chunks limita a renderização sem descartar os chunks recebidos. A ordem é coleta entre streams; não há transmissão durante o processo no Agent atual. Recibo terminal, lastSequence e truncated delimitam completude conhecida. artifactError distingue sucesso do processo de saída completa. Download reconsulta saída autorizada, exige recibo publicado, ordenação de partes, tamanho e SHA-256 iguais, e entrega Blob dos bytes originais. Divergência bloqueia entrega.
-
-## Verificações reproduzíveis
-
-```bash
-npm --prefix application/server/frontend run typecheck
-npm --prefix application/server/frontend test
-npm --prefix application/server/frontend run build
-bash scripts/automate.sh run --surface e2e
-```
-
-O último comando usa **`/usr/bin/firefox` do sistema**, Marionette em perfil temporário, sem baixar navegador. O perfil temporário habilita MOZ_REMOTE_ALLOW_SYSTEM_ACCESS apenas para ajustar zoom de reflow via Marionette; não usa nem modifica o perfil pessoal. Exige container dedicado `ec-publication-test` em 55439, binários em `application/server/backend/target/debug/` e `application/agents/target/debug/`, compilados conforme os guias. Cria banco UUID, Git, sessões e raízes Agent temporários; remove banco em finally. Usa portas 5173, 58139 e 58282. Nunca execute em paralelo com publication_http.py, orchestration_http.py ou agent_http.py. Os comandos usam Docker e criação de processos/browser, sujeitos às permissões reais do ambiente.
-
-O cliente Marionette fica em `frontend/tests/e2e/`; a jornada entre componentes fica em `application/integration/tests/e2e/`. Campos são preenchidos por eventos DOM, cliques e Tab usam WebDriver nativo. Falhas de transporte deliberadas no fetch são identificadas; respostas de domínio e persistência são reais. Testes unitários verificam integridade/corrupção de artefato, bytes de logs, serialização e reatividade/isolação dos rascunhos. Ver [evidências](../validation/frontend-20261105/report.md).
-
-T007 deve reutilizar a fixture, sem substituir seu próprio harness completo/rejeições. T001 deve especificar e implementar referência/resolução segura de segredos antes de jobs com credenciais; não liberar esses jobs por este frontend. Aceite agregado permanece pendente enquanto AC-01 ou AC-07 não forem aprovados.
-
-## Retenção de novas observações
-
-Os novos testes próximos de Editor, Runs, App, cliente HTTP e sessão exercitam
-estado, eventos, rejeições, pedidos incertos e descarte de respostas tardias.
-Usam Vue/Pinia reais e um renderer de teste em `frontend/test-support/renderer.ts`;
-respostas HTTP são simuladas. O parser `@vue/compiler-dom` 3.5.45, já presente
-transitivamente, foi explicitado como dependência de desenvolvimento para os
-fragmentos estáticos desse renderer, sem baixar pacotes. Não substituem DOM real,
-layout, teclado ou os harnesses de navegador. A descoberta Vitest e o inventário
-de produção permanecem. [Implementação e limites atuais](../validation/geiger-coverage-remediation-20261109/report.md).
-
-O harness agora usa EC_E2E_ARTIFACT_DIR quando informado ou cria diretório temporário
-exclusivo; não grava novamente em docs/validation/frontend-20261105. Pelo runner,
-imagens e browser-results.json ficam no run privado. Copiar somente resultados
-revisados para um novo registro oficial. Seguir [verificação de tarefas](task-verification.md).
-
-## Evolução visual Signal — 11/11/2026
-
-O shell agora organiza nove áreas, tema claro/escuro candidato e densidade
-normal/compacta. Galeria de componentes e demonstrações locais estão acessíveis
-sem sessão, separadas da operação. O editor real de uma etapa, publicação,
-execuções/saída e agentes mantêm seus contratos. Não há implementação implícita
-de backend para as áreas demonstrativas.
-
-[Contrato visual e componentes](../../application/server/frontend/DESIGN.md) e
-[inventário, decisões, evidências e limites](../validation/frontend-signal-20261111/report.md).
-Scripts de verificação não foram executados nesta evolução.
-
-
-## Métodos das skills — 11/11/2026
-
-Quatro skills existentes receberam orientações selecionadas do pacote de design:
-migração de tokens/estados, tipografia, crítica, painéis/densidade e evidência de
-captura. Consulte [seleção e aplicação](frontend-design-skills.md). Esta manutenção
-atualiza métodos de trabalho; não revalida as capturas ou jornadas anteriores.
-
-A consolidação de 11/11/2026 substituiu Marionette pela jornada compartilhada
-`frontend_browser.py`: browser e servidor do build executam na Toolbox/Docker.
-Resultados anteriores permanecem históricos; a migração ainda requer execução
-autorizada. [Configuração e preparo](verification-tools.md).
+Consulte [contrato visual](../../application/server/frontend/DESIGN.md), [observações desta reconstrução](../validation/login-rebuild-20261115/report.md) e [tarefa SDD](../../sdd/tasks/login-rebuild/spec.md). Aceite desta tarefa não aprova a primeira jornada funcional agregada. Capturas comprovam apresentação observada; leitor de tela e certificação WCAG integral não foram executados.
