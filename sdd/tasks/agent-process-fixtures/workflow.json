@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "surfaces": ["docs", "agent"],
+  "scope": {
+    "kind": "task",
+    "related_features": [
+      {
+        "path": "sdd/features/first-functional-journey",
+        "criteria": ["AC-05"],
+        "coverage": "partial"
+      }
+    ],
+    "rationale": "Correção do suporte privado de testes de processos; preserva pendências da jornada e não altera contratos do Agent.",
+    "review": "revisao_fixture confirmou escopo local, relação parcial com AC-05, consumidores e superfícies docs/agent; sem achados bloqueadores no código e nos oráculos examinados."
+  },
+  "stages": {
+    "analysis": ["E-REVIEW"],
+    "planning": ["E-REVIEW"],
+    "implementation": ["E-REVIEW"],
+    "review": ["E-REVIEW"],
+    "validation": ["E-FOCUSED", "E-MUTATION"]
+  }
+}

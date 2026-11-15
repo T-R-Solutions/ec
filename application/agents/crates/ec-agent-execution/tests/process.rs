@@ -2,24 +2,38 @@ use ec_agent_execution::run;
 use ec_agent_reporting::Spool;
 use serde_json::Value;
 use std::{
-    fs,
-    path::PathBuf,
-    sync::{Arc, Mutex},
+    fs, io,
+    path::{Path, PathBuf},
+    sync::{
+        Arc, Mutex,
+        atomic::{AtomicU64, Ordering},
+    },
 };
+
+static NEXT_FIXTURE_ID: AtomicU64 = AtomicU64::new(0);
 
 struct Fixture(PathBuf);
 impl Fixture {
     fn new() -> Self {
-        let path = std::env::temp_dir().join(format!(
-            "ec-process-{}-{}",
-            std::process::id(),
-            std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
-                .unwrap()
-                .as_nanos()
-        ));
-        fs::create_dir(&path).unwrap();
-        Self(path)
+        Self::new_in(&std::env::temp_dir(), &NEXT_FIXTURE_ID)
+            .expect("failed to reserve a process test directory")
+    }
+
+    fn new_in(base: &Path, next_id: &AtomicU64) -> io::Result<Self> {
+        for _ in 0..1024 {
+            // The counter only supplies names; create_dir exclusively reserves ownership.
+            let id = next_id.fetch_add(1, Ordering::Relaxed);
+            let path = base.join(format!("ec-process-{}-{id}", std::process::id()));
+            match fs::create_dir(&path) {
+                Ok(()) => return Ok(Self(path)),
+                Err(error) if error.kind() == io::ErrorKind::AlreadyExists => {}
+                Err(error) => return Err(error),
+            }
+        }
+        Err(io::Error::new(
+            io::ErrorKind::AlreadyExists,
+            "process test directory candidates exhausted",
+        ))
     }
     fn spool(&self) -> Arc<Mutex<Spool>> {
         Arc::new(Mutex::new(Spool::new(self.0.join("spool")).unwrap()))
@@ -29,6 +43,82 @@ impl Drop for Fixture {
     fn drop(&mut self) {
         let _ = fs::remove_dir_all(&self.0);
     }
+}
+
+#[test]
+fn fixture_skips_existing_paths_and_cleans_up_only_its_directory() {
+    let root = Fixture::new();
+    let prefix = format!("ec-process-{}", std::process::id());
+    let occupied_dir = root.0.join(format!("{prefix}-0"));
+    let occupied_file = root.0.join(format!("{prefix}-1"));
+    fs::create_dir(&occupied_dir).unwrap();
+    fs::write(occupied_dir.join("sentinel"), b"keep directory").unwrap();
+    fs::write(&occupied_file, b"keep file").unwrap();
+
+    let fixture = Fixture::new_in(&root.0, &AtomicU64::new(0)).unwrap();
+    let owned_path = fixture.0.clone();
+    assert_ne!(owned_path, occupied_dir);
+    assert_ne!(owned_path, occupied_file);
+    fs::write(owned_path.join("owned"), b"remove with fixture").unwrap();
+    drop(fixture);
+
+    assert!(!owned_path.exists());
+    assert_eq!(
+        fs::read(occupied_dir.join("sentinel")).unwrap(),
+        b"keep directory"
+    );
+    assert_eq!(fs::read(occupied_file).unwrap(), b"keep file");
+}
+
+#[test]
+fn parallel_fixtures_reserve_distinct_directories() {
+    let root = Fixture::new();
+    let next_id = AtomicU64::new(0);
+    let start = std::sync::Barrier::new(8);
+    let mut fixtures = std::thread::scope(|scope| {
+        let workers = (0..8)
+            .map(|_| {
+                scope.spawn(|| {
+                    start.wait();
+                    Fixture::new_in(&root.0, &next_id).unwrap()
+                })
+            })
+            .collect::<Vec<_>>();
+        workers
+            .into_iter()
+            .map(|worker| worker.join().unwrap())
+            .collect::<Vec<_>>()
+    });
+    let paths = fixtures
+        .iter()
+        .map(|fixture| fixture.0.clone())
+        .collect::<std::collections::HashSet<_>>();
+    assert_eq!(paths.len(), 8);
+    for fixture in &fixtures {
+        fs::write(fixture.0.join("sentinel"), b"independent").unwrap();
+    }
+
+    let first = fixtures.pop().unwrap();
+    let removed = first.0.clone();
+    drop(first);
+    assert!(!removed.exists());
+    for fixture in &fixtures {
+        assert_eq!(
+            fs::read(fixture.0.join("sentinel")).unwrap(),
+            b"independent"
+        );
+    }
+    drop(fixtures);
+    assert_eq!(fs::read_dir(&root.0).unwrap().count(), 0);
+}
+
+#[test]
+fn fixture_reports_errors_other_than_collisions() {
+    let root = Fixture::new();
+    let missing = root.0.join("missing");
+    let error = Fixture::new_in(&missing, &AtomicU64::new(0)).err().unwrap();
+    assert_eq!(error.kind(), io::ErrorKind::NotFound);
+    assert!(!missing.exists());
 }
 
 #[test]

@@ -1,0 +1,29 @@
+[
+  {
+    "acceptance": "AC-01",
+    "requirement": "REQ-01",
+    "decision": "D-01",
+    "risk": "R-01",
+    "tasks": ["T001", "T002", "T003", "T004", "T005"],
+    "implementation": "application/agents/crates/ec-agent-execution/tests/process.rs",
+    "oracle": "sdd/tasks/agent-process-fixtures/spec.md"
+  },
+  {
+    "acceptance": "AC-02",
+    "requirement": "REQ-01",
+    "decision": "D-01",
+    "risk": "R-01",
+    "tasks": ["T001", "T002", "T003", "T004", "T005"],
+    "implementation": "application/agents/crates/ec-agent-execution/tests/process.rs",
+    "oracle": "sdd/tasks/agent-process-fixtures/spec.md"
+  },
+  {
+    "acceptance": "AC-03",
+    "requirement": "REQ-01",
+    "decision": "D-01",
+    "risk": "R-01",
+    "tasks": ["T001", "T002", "T003", "T004", "T005"],
+    "implementation": "application/agents/crates/ec-agent-execution/tests/process.rs",
+    "oracle": "sdd/tasks/agent-process-fixtures/spec.md"
+  }
+]

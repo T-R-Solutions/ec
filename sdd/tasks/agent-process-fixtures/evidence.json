@@ -1,0 +1,363 @@
+{
+  "schema_version": 2,
+  "environment": "Linux, Rust stable 1.99.1, edição 2024; Cargo offline; testes reais locais e harness isolado std-only; 15/11/2026.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Colisões preservam caminhos preexistentes e outros erros são explícitos.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-FOCUSED",
+        "E-MUTATION"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Fixtures simultâneas são distintas e cleanup pertence à fixture.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-FOCUSED",
+        "E-MUTATION"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Regressões controladas e cenários de processos aprovados.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-FOCUSED",
+        "E-MUTATION"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "command_or_method": "Revisão independente por revisao_fixture; inspeção de código, contratos, consumidores e logs; git diff --check exit 0.",
+      "observed_result": "Sem achados bloqueadores; critérios/escopo adequados, fontes e limitações documentadas.",
+      "artifact": "sdd/tasks/agent-process-fixtures/converge.md",
+      "sha256": "ab3bb801981ec56c2e31e0556ee5aa87d3a3714880f6a93d8383a8fbc6e5776b",
+      "inputs": [
+        {
+          "path": "sdd/tasks/agent-process-fixtures/spec.md",
+          "sha256": "9092fe18bd12c51fe5b30b7811041c0049dd069e111f8dd2cfac6801188e1ea0",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/plan.md",
+          "sha256": "b3a1ac593696e6e093b466b91b35a9ea1a66dfecab3fe5cdca99ed5c55d2368a",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/tasks.md",
+          "sha256": "2405e5b12e0d7b7decb279498b9f5832c424e30534a766802412b7b90ac267b5",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/traceability.json",
+          "sha256": "fe0ffd9563d3a5ece8ea1c5822c24667caa5f9e4c7a47c5a827ef52e2a1fe8e2",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/workflow.json",
+          "sha256": "72edf7dd0b02b6dea06767c17a5ba991a12b85cbb39de30e23bfa002f74c5d03",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/tests/process.rs",
+          "sha256": "d97d266564f2266b81eb3697715052786cfc45e3e17426f2edb8a59d94a1cdde",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/Cargo.toml",
+          "sha256": "6d0e639fed20c4ae7c1d91da31f35668db0d569c983c4a2388699f35065b937c",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/Cargo.lock",
+          "sha256": "beab5780528402161b09a3a7fdeedd30ce7b2a31c14c1c79c0c8145d7a3956f3",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+          "sha256": "f071cdea9cc8fa3d49cf302394e3a142f93cde0b0ab4496bf37ff95a24aae911",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/rust-toolchain.toml",
+          "sha256": "ebc5360fd3b6b35d0578ec1607d2a671e74fa5c3527a7fee576e15e57eed175d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/rust/SKILL.md",
+          "sha256": "d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/SKILL.md",
+          "sha256": "047c71403f89a029b1ec797536169b90a3cd82e3d3c943f46dc7c3dc513cf3ba",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-FOCUSED",
+      "kind": "test",
+      "command_or_method": "cargo test --offline -p ec-agent-execution --test process (cwd application/agents; temporários/target fora do checkout).",
+      "observed_result": "Exit 0: 7/7 aprovados, incluindo quatro cenários anteriores e três regressões.",
+      "artifact": ".local/logs/2026-11-15/fixture-fix-ac585f0c.focused.stdout.log",
+      "sha256": "796573e20c504b73fab78cf11a1062b9ab640fb85ace37f0ababb5ffabd5439b",
+      "inputs": [
+        {
+          "path": "sdd/tasks/agent-process-fixtures/spec.md",
+          "sha256": "9092fe18bd12c51fe5b30b7811041c0049dd069e111f8dd2cfac6801188e1ea0",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/plan.md",
+          "sha256": "b3a1ac593696e6e093b466b91b35a9ea1a66dfecab3fe5cdca99ed5c55d2368a",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/tasks.md",
+          "sha256": "2405e5b12e0d7b7decb279498b9f5832c424e30534a766802412b7b90ac267b5",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/traceability.json",
+          "sha256": "fe0ffd9563d3a5ece8ea1c5822c24667caa5f9e4c7a47c5a827ef52e2a1fe8e2",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/workflow.json",
+          "sha256": "72edf7dd0b02b6dea06767c17a5ba991a12b85cbb39de30e23bfa002f74c5d03",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/tests/process.rs",
+          "sha256": "d97d266564f2266b81eb3697715052786cfc45e3e17426f2edb8a59d94a1cdde",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/Cargo.toml",
+          "sha256": "6d0e639fed20c4ae7c1d91da31f35668db0d569c983c4a2388699f35065b937c",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/Cargo.lock",
+          "sha256": "beab5780528402161b09a3a7fdeedd30ce7b2a31c14c1c79c0c8145d7a3956f3",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+          "sha256": "f071cdea9cc8fa3d49cf302394e3a142f93cde0b0ab4496bf37ff95a24aae911",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/rust-toolchain.toml",
+          "sha256": "ebc5360fd3b6b35d0578ec1607d2a671e74fa5c3527a7fee576e15e57eed175d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/rust/SKILL.md",
+          "sha256": "d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/SKILL.md",
+          "sha256": "047c71403f89a029b1ec797536169b90a3cd82e3d3c943f46dc7c3dc513cf3ba",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-MUTATION",
+      "kind": "test",
+      "command_or_method": "Extração literal helper/regressões std-only, rustc --edition 2024 --test; baseline e mutante sem retry EEXIST.",
+      "observed_result": "Baseline compila/passa; mutante compila e falha por EEXIST com exit 101 na regressão de colisão. Primeira tentativa inválida preservada.",
+      "artifact": ".local/logs/2026-11-15/fixture-fix-ac585f0c.mutation2-results.log",
+      "sha256": "51b5dfbe1229c154b53e257ddebd5357e10f0214b80735a9adc6a9f780da9215",
+      "inputs": [
+        {
+          "path": "sdd/tasks/agent-process-fixtures/spec.md",
+          "sha256": "9092fe18bd12c51fe5b30b7811041c0049dd069e111f8dd2cfac6801188e1ea0",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/plan.md",
+          "sha256": "b3a1ac593696e6e093b466b91b35a9ea1a66dfecab3fe5cdca99ed5c55d2368a",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/tasks.md",
+          "sha256": "2405e5b12e0d7b7decb279498b9f5832c424e30534a766802412b7b90ac267b5",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/traceability.json",
+          "sha256": "fe0ffd9563d3a5ece8ea1c5822c24667caa5f9e4c7a47c5a827ef52e2a1fe8e2",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/workflow.json",
+          "sha256": "72edf7dd0b02b6dea06767c17a5ba991a12b85cbb39de30e23bfa002f74c5d03",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/tests/process.rs",
+          "sha256": "d97d266564f2266b81eb3697715052786cfc45e3e17426f2edb8a59d94a1cdde",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/Cargo.toml",
+          "sha256": "6d0e639fed20c4ae7c1d91da31f35668db0d569c983c4a2388699f35065b937c",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/Cargo.lock",
+          "sha256": "beab5780528402161b09a3a7fdeedd30ce7b2a31c14c1c79c0c8145d7a3956f3",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+          "sha256": "f071cdea9cc8fa3d49cf302394e3a142f93cde0b0ab4496bf37ff95a24aae911",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/rust-toolchain.toml",
+          "sha256": "ebc5360fd3b6b35d0578ec1607d2a671e74fa5c3527a7fee576e15e57eed175d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/rust/SKILL.md",
+          "sha256": "d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/SKILL.md",
+          "sha256": "047c71403f89a029b1ec797536169b90a3cd82e3d3c943f46dc7c3dc513cf3ba",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-15/fixture-fix-ac585f0c.mutation2-source.log",
+          "sha256": "725448742b150ca3cee03d2e57b9f77735a10466468d131f097fe0dd0c389471",
+          "role": "oracle"
+        },
+        {
+          "path": ".local/logs/2026-11-15/fixture-fix-ac585f0c.baseline2-test.stdout.log",
+          "sha256": "6516215b97871adc9196ee70c7b59196dcacc12f7e3851afad5ce7aa03726efc",
+          "role": "oracle"
+        },
+        {
+          "path": ".local/logs/2026-11-15/fixture-fix-ac585f0c.mutation2-test.stdout.log",
+          "sha256": "dcad05b5145b67806dea25b9c40553cd502fe2d1c168a2111538b43883983a5d",
+          "role": "oracle"
+        }
+      ]
+    },
+    {
+      "id": "E-CAUSE",
+      "kind": "test",
+      "command_or_method": "Reprodução controlada de duas criações com o mesmo PID/timestamp conforme fonte preservada.",
+      "observed_result": "AlreadyExists/OS17 reproduzido; não demonstra qual processo criou o caminho histórico.",
+      "artifact": ".local/logs/2026-11-15/fixture-fix-ac585f0c.original-proof.stdout.log",
+      "sha256": "f5713fabbc7110c4258bcc35516612e35a3a05bfe3a1ec00706967c7310001e0",
+      "inputs": [
+        {
+          "path": "sdd/tasks/agent-process-fixtures/spec.md",
+          "sha256": "9092fe18bd12c51fe5b30b7811041c0049dd069e111f8dd2cfac6801188e1ea0",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/plan.md",
+          "sha256": "b3a1ac593696e6e093b466b91b35a9ea1a66dfecab3fe5cdca99ed5c55d2368a",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/tasks.md",
+          "sha256": "2405e5b12e0d7b7decb279498b9f5832c424e30534a766802412b7b90ac267b5",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/traceability.json",
+          "sha256": "fe0ffd9563d3a5ece8ea1c5822c24667caa5f9e4c7a47c5a827ef52e2a1fe8e2",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/agent-process-fixtures/workflow.json",
+          "sha256": "72edf7dd0b02b6dea06767c17a5ba991a12b85cbb39de30e23bfa002f74c5d03",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/first-functional-journey/spec.md",
+          "sha256": "826a03923a3002b1f9c4a9622a5dda9ea68cdeaf8ed786042e7592cb35403914",
+          "role": "contract"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/tests/process.rs",
+          "sha256": "d97d266564f2266b81eb3697715052786cfc45e3e17426f2edb8a59d94a1cdde",
+          "role": "implementation"
+        },
+        {
+          "path": "application/agents/Cargo.toml",
+          "sha256": "6d0e639fed20c4ae7c1d91da31f35668db0d569c983c4a2388699f35065b937c",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/Cargo.lock",
+          "sha256": "beab5780528402161b09a3a7fdeedd30ce7b2a31c14c1c79c0c8145d7a3956f3",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/crates/ec-agent-execution/Cargo.toml",
+          "sha256": "f071cdea9cc8fa3d49cf302394e3a142f93cde0b0ab4496bf37ff95a24aae911",
+          "role": "configuration"
+        },
+        {
+          "path": "application/agents/rust-toolchain.toml",
+          "sha256": "ebc5360fd3b6b35d0578ec1607d2a671e74fa5c3527a7fee576e15e57eed175d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/rust/SKILL.md",
+          "sha256": "d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/SKILL.md",
+          "sha256": "047c71403f89a029b1ec797536169b90a3cd82e3d3c943f46dc7c3dc513cf3ba",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-15/fixture-fix-ac585f0c.original-proof-source.log",
+          "sha256": "716e9d878ee436c058e8edacb35b4dc4d8fc113d0a234e58ec0a6c19547816ad",
+          "role": "oracle"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "A prova controlada explica o mecanismo de colisão, mas não identifica o primeiro criador histórico.",
+    "Primeiro harness de mutação não compilou; somente baseline e mutante corrigidos sustentam sensibilidade.",
+    "Observações focadas não substituem runner final docs/agent e gate atual; não aprovam scope complete nem a primeira jornada agregada."
+  ]
+}
