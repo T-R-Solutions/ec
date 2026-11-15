@@ -3,7 +3,9 @@ use super::projects::ProjectRequest;
 use super::{AnyError, connect, name, random};
 use ec_contracts::Failure;
 use serde_json::{Value, json};
-use std::{io::Read, sync::Arc};
+#[cfg(feature = "test-failpoints")]
+use std::io::Read;
+use std::sync::Arc;
 use tiny_http::{Header, Request, Response, Server};
 pub(super) fn serve() -> Result<(), AnyError> {
     let port = std::env::var("EC_PORT")
