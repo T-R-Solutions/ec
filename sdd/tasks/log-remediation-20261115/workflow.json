@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "surfaces": [
+    "docs",
+    "scripts",
+    "server",
+    "agent",
+    "frontend",
+    "security",
+    "integration",
+    "e2e"
+  ],
+  "scope": {
+    "kind": "task",
+    "related_features": [
+      {
+        "path": "sdd/features/scripts-verification",
+        "criteria": [
+          "AC-36",
+          "AC-38"
+        ],
+        "coverage": "partial"
+      }
+    ],
+    "rationale": "Remediação delimitada dos diagnósticos; não aprova critérios agregados relacionados.",
+    "review": "Revisor independente confirmou escopo e implementação; validador alta confirmou cobertura exata das 74 tuplas e adequação dos três critérios. Pendências agregadas preservadas."
+  },
+  "stages": {
+    "analysis": [
+      "E-REVIEW"
+    ],
+    "planning": [
+      "E-REVIEW"
+    ],
+    "implementation": [
+      "E-REVIEW"
+    ],
+    "review": [
+      "E-REVIEW"
+    ],
+    "validation": [
+      "E-TEST"
+    ]
+  }
+}

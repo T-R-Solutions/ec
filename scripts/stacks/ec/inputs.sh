@@ -5,7 +5,11 @@ source_files() {
     : "${ROOT:?raiz necessária}"
     local implementation
     implementation=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../../.." && pwd -P) || return "$?"
-    python3 "${implementation}/tools/quality/automation_config.py" inputs "${1:-all}" --root "${ROOT}" || return "$?"
+    if [[ ${1:-all} == acceptance ]]; then
+        python3 "${implementation}/tools/quality/automation_config.py" acceptance-inputs --root "${ROOT}" || return "$?"
+    else
+        python3 "${implementation}/tools/quality/automation_config.py" inputs "${1:-all}" --root "${ROOT}" || return "$?"
+    fi
 }
 observe_inputs() {
     local scope=$1 dest=$2 copy=${3:-} file path digest copied_digest

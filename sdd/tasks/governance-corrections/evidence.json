@@ -1,0 +1,4249 @@
+{
+  "schema_version": 2,
+  "environment": "Ec local em Linux, 14/11/2026; Python 3 stdlib, fixtures temporárias, revisão em contexto independente; aplicação .codex aprovada no mecanismo real da sessão raiz.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Gate aceita tarefa com critérios próprios e rejeita aceite agregado de feature pendente; relações, escopo vazio/inválido e revisão ausente são rejeitados.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Catálogo verifica schemas, IDs e referências sem exigir logs históricos; aceite estrito rejeita log expirado ou input obsoleto.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Adicionar, remover, renomear ou alterar perfil/config após run invalida aceite; links/escape são rejeitados; seleção de scanners permanece igual.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "Entrada Ec exige ciclo, seis artefatos e runner/gate; uso portátil/manual separado; exemplos válidos permanecem UNVERIFIED.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEMPLATE"
+      ]
+    },
+    {
+      "id": "AC-05",
+      "criterion": "Método permite conferência semântica pelo agente com fontes e reserva humano para decisão ou autorização ainda pendente.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-GOV"
+      ]
+    },
+    {
+      "id": "AC-06",
+      "criterion": "Cinco skills distinguem checks pertinentes à entrega de avaliações de seleção/eficácia, sem impor ensaio LLM à tarefa cotidiana.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-GOV"
+      ]
+    },
+    {
+      "id": "AC-07",
+      "criterion": "Identidade e descrição profile/SKILL coincidem; negativos com hashes recalculados rejeitam divergência; UI representa o mesmo escopo.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-GOV"
+      ]
+    },
+    {
+      "id": "AC-08",
+      "criterion": "Procedimento cobre preflight, limite real, sequenciamento, liberação observada e bloqueio por falta permanente de contexto/vaga sem espera infinita.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-GOV"
+      ]
+    },
+    {
+      "id": "AC-09",
+      "criterion": "Treze perfis preservam modelos/esforços e encaminham ao procedimento comum; adaptações remetem a histórico substituído preservado.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-GOV"
+      ]
+    },
+    {
+      "id": "AC-10",
+      "criterion": "Skills de banco/scheduler reconhecem decisão vigente PostgreSQL, implementação parcial e SQLite proposto, em coerência com constituição/projeto.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-GOV"
+      ]
+    },
+    {
+      "id": "AC-11",
+      "criterion": "Índice SDD aponta seis features e tarefas, com links locais válidos e sem duplicar estados de aceite.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEMPLATE"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "command_or_method": "Revisão independente ec_revisor com contexto próprio; leitura de 77 inputs e specs relacionadas, casos normais/negativos, confronto dos onze itens com contratos e consumidores.",
+      "observed_result": "Sem achados pendentes; dois P2 e um P3 corrigidos e reexaminados; UI real semanticamente conferida; 28 ativos iguais ao candidato; preservação de 71 source_files e matriz 13.",
+      "artifact": ".local/logs/2026-11-14/governance-corrections-final-review.log",
+      "sha256": "13c91962fef08afd50e13d7876ee90930396dd175a35bd053fbf8ea3fdb15e7a",
+      "inputs": [
+        {
+          "path": ".codex/agents/ec_analista.toml",
+          "sha256": "dab2f12b9fe8658ec69f9817de79ae0d9e8a19244ace96afaab6777279989e49",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_analista_alta.toml",
+          "sha256": "0ee73cc774f37408adec779183fa24b92380d178453d35f7ebea6dfa06c7a0d9",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_implementador.toml",
+          "sha256": "c0a239ad74caf892313b1509969eee5a7118b41c16baed8b757e8cf91f696d0d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_implementador_extra_alto.toml",
+          "sha256": "709fdf48271c2d224f13740a7eccfa1a9b04ab66543d11d09e363c09db050a58",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_alta.toml",
+          "sha256": "d5196f29ef1ac848dc9c4b315f981cd6bf69e7e87138aceabe9a27b3fff8f409",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_normal.toml",
+          "sha256": "53bedc6fbe79793305ae115ffd0475f93168a79611ed6a2ae9894d9a22bd034e",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_planejador.toml",
+          "sha256": "36bd0410797dfdb1cc7ab8f9592431801bf4ef3cb9b6ec49e65383539b50eb5a",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_planejador_alta.toml",
+          "sha256": "e289dccf286c6131c80e65dec16417276d5e6de252866e550b8dba7ea8d67d4d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_revisor.toml",
+          "sha256": "bff2c757d7c31559d84aa6655f72b901e612912dce0a8502040b2dbdf91ff0d4",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_testador.toml",
+          "sha256": "5f4d0e6dc8341b162dac5920b7c4c4da0246ae15bcecb9380b2fb3e3929f1fda",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_triador.toml",
+          "sha256": "08f16da37a8333c3345aed5fa130a3c587bb7248c907b869e2853de43b7f00a4",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_validador.toml",
+          "sha256": "560c201c00b46507288d642b7e0ecd1a5862f10dfc6b28030783e71ba7f133a0",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_validador_alta.toml",
+          "sha256": "93af3cbe1319448576b8797dca4af7acc0068b1b494ba8204482d0ece9442986",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/config.toml",
+          "sha256": "14c7a79b0202da683578ff1d1a2e23f33273d500a82ce72c4dbce4f3c8d19835",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/SKILL.md",
+          "sha256": "c869699a347761547d292496e0f3b1461fe4f982faafdbcc54f71840380e5d42",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/agents/openai.yaml",
+          "sha256": "e4c60afd1920354fd289abdb5f1f617ed90395bea44ef0b0042eec3078a0a12a",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/references/evaluation-cases.md",
+          "sha256": "39dc6fde87bacb50224127c5bd785993deac28fe1e4e3527c59e8b8fecf289ae",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
+          "sha256": "684fa71dd9261e7cf97b554bd542b0f1bb9d4a5c3e47b47ee561403f29b69a0e",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/references/evaluation-cases.md",
+          "sha256": "f521c057d634991db000e35f4d1a32cae2e9dca114780f3c4f02c84fa677d7bb",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/SKILL.md",
+          "sha256": "6d2bf7abe59ce5f92f4036cb5bae8dc2e9347ecc4400e0b60f3f7808c61f8b8f",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/commit-governance/SKILL.md",
+          "sha256": "4fe04e16268d9bef7121809d47702be31622376616de5bcc8dcd7138426687ef",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/commit-governance/agents/openai.yaml",
+          "sha256": "07e753a477e749ed9af3209c62c979932c4441cbeda7bedd65891306dd3f2a9a",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/database-engineering/SKILL.md",
+          "sha256": "a15b19145c91413c2a7e6e845ad41a5b739f7c765531b8719ac802f1e32956f5",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
+          "sha256": "eaecd31925b043b8a51c7544f87d9f8913dbb3ca9a6547fd9f4495cd18e34958",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/references/evaluation-cases.md",
+          "sha256": "5d8c38fd67aa2645312329b1b8634b4b5f6c121bce430fc5a6414f3dd8647603",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/maintenance-and-change-triggers.md",
+          "sha256": "b9e4aeb8daf0c91a02058a2c9ee003c482437db94f77f83ef820114d16a62fe3",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/SKILL.md",
+          "sha256": "9b308771ab92daecc800e67b4f260e96182d62e6ec8675d74568c485e6bcaf20",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/references/evaluation-cases.md",
+          "sha256": "ee154345d3d0c34658c1a7e7ebc36b1f5aa4b5a8349654dcdc118f6f6a29ddbc",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
+          "sha256": "97b88759f532f60e2e6e79415810e2a761e7a4a1eb8fcbedc4aae1df22a2ba8d",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/references/evaluation-cases.md",
+          "sha256": "c7bc4fe2fac5a48ce929112d1cf7ecb0e61b7825399880ec3049643805b9c832",
+          "role": "configuration"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "contract"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "77932c51f512e622cefae52223567ca69ccaddfa562c4f2e555f23a5c11e6f66",
+          "role": "configuration"
+        },
+        {
+          "path": "docs/architecture/context.md",
+          "sha256": "1ae017e4c429f5a090ff98cce99ce2fb1e166aee536848fb8765106b6466d9d0",
+          "role": "contract"
+        },
+        {
+          "path": "docs/constitution.md",
+          "sha256": "af167c91aacccc3dec0088a5aa8fed50851ebc5dbf70b78850b805ab3fd73ceb",
+          "role": "contract"
+        },
+        {
+          "path": "docs/development/codex-agents.md",
+          "sha256": "7f863e73fe285c181153da15c5b8eadd55a0c78449997ba5cf056ec491e4d588",
+          "role": "contract"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "contract"
+        },
+        {
+          "path": "docs/development/skill-policy-history.md",
+          "sha256": "ebf6d233a339583002cb975dae60e99aa7123f533cc57ff6ff21158e2ee84d78",
+          "role": "contract"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "contract"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "3794b8c5d5440b852aeab5aeaaab287d410e64465ee568893731e3069c0b6259",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "867675a9ad7003c8ceb0c2486b427767d48d830513aa660082f6ef6b9ba25cfc",
+          "role": "configuration"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "1e94e3a6a0e938d9ad112978d8d379d38d79e2f34ebe4bf4f0b1d68b3af9cccb",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "11c093614784d78b9369871146e0b85549f08159ce41a9e014a114bc8e82246f",
+          "role": "implementation"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "35feca69c4a9332539826a994ba828478c1a1c395e105b9050540834f56f3d44",
+          "role": "oracle"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "9a3b46151a112cd7d8fed0f4674e323002be19e714d4adb3114f02de9e996112",
+          "role": "oracle"
+        },
+        {
+          "path": "sdd/README.md",
+          "sha256": "edac9e54a09ae0c61d1dc76d2e077d7785cd1de34de60ea681c8c22193304dbc",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/chain/README.md",
+          "sha256": "c8baa6544d1e73897497883ead26585f0f330db1a0a29f8cd5d6c951a562959d",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "30e405dfca843ca9b5836df5b1fa7a70f3e9e9c08075806ae64083c5f28e6c29",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/spec.md",
+          "sha256": "332c6456cc39cc12d96d72ef6c8668d7db64baa074ff1cdaf1fa9244d1721688",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/converge.md",
+          "sha256": "2c591216c2b4f739453e46f1d263003f0c90691f0187a0ba0635a95ea1f76558",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/plan.md",
+          "sha256": "587395312b3168ed7f3f1a1dfa16b2db2815e0553c4fb9000772d94c57112cfb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "50221512df7c4a8d68b731a3f026fda985edbb264a85e31759b9f02be1630b13",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/governance-adoption/tasks.md",
+          "sha256": "29d393b72b6ed6a19aede18e4938b444b542204276197770c607206d02703735",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/spec.md",
+          "sha256": "6f9d37fe073050cfdca7b66c6ed38e66a9543a3af6a0f7b0589da6012995fdeb",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/project.md",
+          "sha256": "aba303e135f9dbb175fec2597c2ed5c71f1b664171cbb2ab09ce1f4ea01c4f8f",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/README.md",
+          "sha256": "8b8e6bf45f0a916b66e1ffca1516d239277f2a1973c41da7cefcb6def22ff7e7",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/governance-corrections/plan.md",
+          "sha256": "dffe6e821307c88a88a98440d58dfbc39126106231d5786623caf00314f5dd4e",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/governance-corrections/spec.md",
+          "sha256": "f32c8f49ce598a79e9ac4e70878dedbaeb0d0d6ffb90c4a3968aba8605135e2a",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/governance-corrections/tasks.md",
+          "sha256": "4ffb5e9ee79da1e977cb3fa6a20ca56fc89f13ff0773f443fafbbfe174fb3ae2",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/governance-corrections/traceability.json",
+          "sha256": "e080db123fb4f08478bb3e48a591d26a17831af07ce2d4d50738c54f729ce8b2",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tasks/governance-corrections/workflow.json",
+          "sha256": "8e0fee80d468a75e0ca8183a779f0f691fe18ea23c1b8f80e98f0da4e06855ac",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/README.md",
+          "sha256": "0e86f5ef354627445430a476d69c077b15b573c94ec8cfc0ef707fdb27ed9924",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/evidence.json",
+          "sha256": "3459621381b120db825ae11ad85dad117fda041f8f183e605dc42949208b55e9",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/plan.md",
+          "sha256": "70373edbfa3b87ca1f1f315ee07a1a4b5bc765cc4c741d3090f9303881d75845",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/spec.md",
+          "sha256": "133c8c5bc2aaa9c9089bd705f769f0e262debd16b40421744d9a901b51e52053",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/tasks.md",
+          "sha256": "22138a5998925e5894db79a7161a8ad716fd2dc4f2ffece08527a3f244419232",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/traceability.json",
+          "sha256": "ac12d909c7fd64c8570964fee113cfd1745d8a3f4d0be37ede470358c4b26182",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/templates/workflow.json",
+          "sha256": "847c23aace574e172797b086f38899c96e8e7a14760d3e616ccc161b762fde08",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "contract"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "3292fa8b46e7871066211875a0f6e2f516b1fca6c597769b5940a0b50e4b4413",
+          "role": "contract"
+        },
+        {
+          "path": "tools/governance/README.md",
+          "sha256": "34bbde81fefd4b9656685d67f79b206ad430222c2e4f181219499f9f370f0560",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "aad5c4e5bc7631870d54a9e2c2e45648d9d5de2692300422942038ccc8ff5cab",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
+          "role": "oracle"
+        },
+        {
+          "path": "tools/governance/tests/test_sdd_catalog.py",
+          "sha256": "d9867d006343cad41ea00fa6dc95d2bedd1ab6a3a527d5df60b4f0f31c016303",
+          "role": "oracle"
+        },
+        {
+          "path": "tools/governance/tests/test_task_gate.py",
+          "sha256": "1a49e8b071a510f5ba743bdbf85e57f636ffc9c1481836fde9f46b096cba648e",
+          "role": "oracle"
+        },
+        {
+          "path": "tools/governance/validate.py",
+          "sha256": "b5b89f975ae8f3347715a5e15f2db3ed7f81ba9ae46c843d340e740822fa18f2",
+          "role": "implementation"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "10141aab13d57527caa2c1d37900c53545b73dc4072e44376c06015da8474961",
+          "role": "implementation"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "command_or_method": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tools.governance.tests.test_task_gate tools.governance.tests.test_sdd_catalog scripts.tests.test_automation_config scripts.tests.test_shell scripts.tests.test_security_scope -v",
+      "observed_result": "104 testes aprovados em 35,065 s; exit 0. Fixtures rejeitam escopo/relação inválidos, histórico expirado no reaceite, inventário alterado, falha/skip/cleanup/paths/JSON inválidos; consumidores scanners preservados.",
+      "artifact": ".local/logs/2026-11-14/governance-corrections-focused-da256f74.log",
+      "sha256": "d75945770b4628c36f5f7c1dd62a0b7b7d938ad225fe2c2791c5a3e6df797ecd",
+      "inputs": [
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "aad5c4e5bc7631870d54a9e2c2e45648d9d5de2692300422942038ccc8ff5cab",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_task_gate.py",
+          "sha256": "1a49e8b071a510f5ba743bdbf85e57f636ffc9c1481836fde9f46b096cba648e",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_sdd_catalog.py",
+          "sha256": "d9867d006343cad41ea00fa6dc95d2bedd1ab6a3a527d5df60b4f0f31c016303",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "10141aab13d57527caa2c1d37900c53545b73dc4072e44376c06015da8474961",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "867675a9ad7003c8ceb0c2486b427767d48d830513aa660082f6ef6b9ba25cfc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "1e94e3a6a0e938d9ad112978d8d379d38d79e2f34ebe4bf4f0b1d68b3af9cccb",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "11c093614784d78b9369871146e0b85549f08159ce41a9e014a114bc8e82246f",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "35feca69c4a9332539826a994ba828478c1a1c395e105b9050540834f56f3d44",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "9a3b46151a112cd7d8fed0f4674e323002be19e714d4adb3114f02de9e996112",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_scope.py",
+          "sha256": "c0867358693c523a7a23fea88685c5bab8dc349ba0e9944b4f6dcfd84cb1de47",
+          "role": "other"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/governance-corrections/workflow.json",
+          "sha256": "8e0fee80d468a75e0ca8183a779f0f691fe18ea23c1b8f80e98f0da4e06855ac",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-GOV",
+      "kind": "test",
+      "command_or_method": "python3 tools/governance/validate.py --require-installed; python3 -m unittest tools.governance.tests.test_governance, após aplicação real e refresh de 14 hashes files.",
+      "observed_result": "Auditor PASS, 67 selecionadas e 599 arquivos; 40 testes em 54,301 s, ambos exit 0, inputs_unchanged=true. Negativos recalculam hashes e rejeitam identidade/descrição divergente, inline--- e continuação YAML.",
+      "artifact": ".local/logs/2026-11-14/run-7768777d40db-skills-final.tests.stderr.log",
+      "sha256": "4bd3df2462d47f68c88461dcc1f81e35cb7aeb1c88602e71055332c5c2310b02",
+      "inputs": [
+        {
+          "path": ".codex/agents/ec_analista.toml",
+          "sha256": "dab2f12b9fe8658ec69f9817de79ae0d9e8a19244ace96afaab6777279989e49",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista_alta.toml",
+          "sha256": "0ee73cc774f37408adec779183fa24b92380d178453d35f7ebea6dfa06c7a0d9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_implementador.toml",
+          "sha256": "c0a239ad74caf892313b1509969eee5a7118b41c16baed8b757e8cf91f696d0d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_implementador_extra_alto.toml",
+          "sha256": "709fdf48271c2d224f13740a7eccfa1a9b04ab66543d11d09e363c09db050a58",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_alta.toml",
+          "sha256": "d5196f29ef1ac848dc9c4b315f981cd6bf69e7e87138aceabe9a27b3fff8f409",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_normal.toml",
+          "sha256": "53bedc6fbe79793305ae115ffd0475f93168a79611ed6a2ae9894d9a22bd034e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_planejador.toml",
+          "sha256": "36bd0410797dfdb1cc7ab8f9592431801bf4ef3cb9b6ec49e65383539b50eb5a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_planejador_alta.toml",
+          "sha256": "e289dccf286c6131c80e65dec16417276d5e6de252866e550b8dba7ea8d67d4d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_revisor.toml",
+          "sha256": "bff2c757d7c31559d84aa6655f72b901e612912dce0a8502040b2dbdf91ff0d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_testador.toml",
+          "sha256": "5f4d0e6dc8341b162dac5920b7c4c4da0246ae15bcecb9380b2fb3e3929f1fda",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_triador.toml",
+          "sha256": "08f16da37a8333c3345aed5fa130a3c587bb7248c907b869e2853de43b7f00a4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_validador.toml",
+          "sha256": "560c201c00b46507288d642b7e0ecd1a5862f10dfc6b28030783e71ba7f133a0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_validador_alta.toml",
+          "sha256": "93af3cbe1319448576b8797dca4af7acc0068b1b494ba8204482d0ece9442986",
+          "role": "other"
+        },
+        {
+          "path": ".codex/config.toml",
+          "sha256": "14c7a79b0202da683578ff1d1a2e23f33273d500a82ce72c4dbce4f3c8d19835",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/SKILL.md",
+          "sha256": "c869699a347761547d292496e0f3b1461fe4f982faafdbcc54f71840380e5d42",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/agents/openai.yaml",
+          "sha256": "e4c60afd1920354fd289abdb5f1f617ed90395bea44ef0b0042eec3078a0a12a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/references/acp-and-cli-adapters.md",
+          "sha256": "d7f5ad8f2650cd0215299102b2c9a98983bc672cf0da2eec5f9a1c1125b3d9af",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/references/evaluation-cases.md",
+          "sha256": "39dc6fde87bacb50224127c5bd785993deac28fe1e4e3527c59e8b8fecf289ae",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/references/process-supervision.md",
+          "sha256": "3a78f316900838d0b9bd41eec76cae7b8938d339f1f4d1de9b3099d7bdc2f333",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/agent-runtime-engineering/references/session-state-machine.md",
+          "sha256": "3ccea3d90a99bf6048a4200eece20a1abb6d9294c4bab8f416167155e78fc490",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/SKILL.md",
+          "sha256": "60163a92b58d11c13e1f8da1616160ff385a86e726a610336c5d7093a3051502",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/agents/openai.yaml",
+          "sha256": "9df477edca976ad8330169ac97da67053fed5f6b82de8f537ea5e2e9d068e903",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/references/adaptation-and-operation.md",
+          "sha256": "5ab9d2b9159cf50ad2ec66c5667efae4c5bf04a5382babbb2f05edf9023fd711",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/references/agent-boundaries.md",
+          "sha256": "426dbdb2cc6ea7af7973b50fe016ec31b5153c1344cd149d3951f4721e4d03f5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/references/evaluation-and-data.md",
+          "sha256": "e99f783f28d5d1b6509ea54c98dd71496ff962886d065b5deb8c4287449d8005",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/references/model-resource-diagnosis.md",
+          "sha256": "a8b0405d0fdabd4f3775252924697708999f32365c5c990a06a91f86ae05d063",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ai-engineering/references/retrieval.md",
+          "sha256": "70454eb39597b76d18f1c436e726002b6e4fb58c9b3f21bec30ebe36602ffb47",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/api-testing/SKILL.md",
+          "sha256": "77cb20fee1804109fec012cd8aac0749e432c47a3b7fea61993549ae68fc06a5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/api-testing/agents/openai.yaml",
+          "sha256": "f47440dfb0f47575a4b09d6c0d440195f43ae3b6f343c24e67bcb711c16e1b10",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/api-testing/references/access-control-matrix.md",
+          "sha256": "f976a0a37386816b3067c8655779152ab55f5b8307df4d5052bb0b405e001ae1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/api-testing/references/boundary-scenarios.md",
+          "sha256": "57dc592fc932386de450ee57a4f2aef96291df0779952d7e71d0a45bd8dddec3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/api-testing/references/contracts.md",
+          "sha256": "ef92a1c361215fa186d4060bc20504bb77a6e386701dc1ce1aed16f4986af98a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/api-testing/references/portable-sources.md",
+          "sha256": "af3956a95bc9da214bc627dc08d7ef547bfa8f3f795729b8b51decf97ce9f2b2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/SKILL.md",
+          "sha256": "3cc0f13461e849cf31e43db95ba3cbcf004881f0b7ade8e7f3dd7cd03d5f884f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/agents/openai.yaml",
+          "sha256": "18ad79ae563118e3800a61adedda1e646e3dbaa930732b721e4440de2331223d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/bound-credentials-and-replay.md",
+          "sha256": "1b395ca1306242f97719df0717deba77b8e309198f739265af5ce59e4a300323",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/controls.md",
+          "sha256": "80ef899acf741a7a018b4aaacf7aabb0eb6b1c0b298ab5bd53d86df1dff1600b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/delegation-and-artifacts.md",
+          "sha256": "5cdf9dae49ea3ceeb5fef4bf0021d32e02ebff30347b51bb462742f9fc8040ec",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/imported/api-testing/access-control-matrix.md",
+          "sha256": "5423aef399dc91b815dba2646161b2ec69fd92010533ed8fce04898e18e9a585",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/imported/api-testing/portable-sources.md",
+          "sha256": "47782cca58ddeb1595c4bd2707d6e6b2b63a0412696144758bc016e738afe1d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/imported/prompt/evaluation-and-trust.md",
+          "sha256": "70b0fc55131e55e958aa81bea69dba2f5891285e50080642dace052cfc48068d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/imported/prompt/portable-sources.md",
+          "sha256": "7428aee9fd2f2eb324a5b419038200c0e81cee0fcdafa74e2dced9b213f38b5b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/imported/reliability-engineering/resource-lifecycle.md",
+          "sha256": "e03d0d45be3a62e5f37179fe827560acd3cb51f431e7659e9aace042569e1db1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/application-security/references/portable-sources.md",
+          "sha256": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
+          "sha256": "684fa71dd9261e7cf97b554bd542b0f1bb9d4a5c3e47b47ee561403f29b69a0e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/agents/openai.yaml",
+          "sha256": "36e71ebbc575868be39fbd325d1f9f0efff32cc725b9d993624793f94e7afec9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/references/acceptance-verdicts.md",
+          "sha256": "82bfb6801c64939710ef17b83a7816e0f399ef82de99a7264c30d16756ad73c9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/references/evaluation-cases.md",
+          "sha256": "f521c057d634991db000e35f4d1a32cae2e9dca114780f3c4f02c84fa677d7bb",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/references/evidence-provenance.md",
+          "sha256": "f5d308b8c0a1bf60bcf2a595df465571b2636918f70698a86bbb3986a9cb9356",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/autonomous-verification-engineering/references/independent-oracles.md",
+          "sha256": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/SKILL.md",
+          "sha256": "94aa06f5c05fff22e15348e5587d72654624f19dead5a507036eff5cb4064276",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/agents/openai.yaml",
+          "sha256": "95567abd2222f01c0382267cd0caf1ed937bd712baf5d27f24ac29757c8eb7e9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/capabilities-and-slots.md",
+          "sha256": "41dff968395699e29507203018ba67a8aeac8be9b2018c552c639cfb39aae18b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/implementation-details.md",
+          "sha256": "95ca3e246c2177e97fbb784566a6ab9637961061d98709a2322f61a6d2040eda",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/lifecycle-and-liveness.md",
+          "sha256": "046721855919b001d70d92ed1e1098bbc465f94cef352a93d8af3d210fdcec7b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/recovery-and-fencing.md",
+          "sha256": "fbd86ff39c5db98bc826299955ff8573f4116779feba070e2abed5be4791ea8f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/routing-and-oracles.md",
+          "sha256": "ec60f8f11254f5dfedfdf1278a48e4be5645bd1bef3ecabf7af74d1d57e0c8ce",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/security-and-observability.md",
+          "sha256": "f446b19a2f326b5b12457aa772d35cc11b26d024f548f449ef17680483b0cb7a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-agent-runtime/references/sources-and-decisions.md",
+          "sha256": "170f5739b85c33a5a3c30dc21eba9ef773d5f7e5cd314b929e64e6ea0fae9c62",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/SKILL.md",
+          "sha256": "b11016ade6da418f094cfcb253607c49a7d22c4bd536b59639f15807f1568f8f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/agents/openai.yaml",
+          "sha256": "b71d8c463cd2de2a088ca950a58cc5518cf7ab798daa14112689fae7ea0a3b7a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/implementation-details.md",
+          "sha256": "cebd8ab1bec241c6bc0ff9360519662ca3d51e893ac2334e6dd1c0a3b06b42bc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/integrity-and-upload.md",
+          "sha256": "caf53d4973025cb11df979b4e12b7582f84264f1d98c520e1283d1a4beab2cb5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/provenance-and-access.md",
+          "sha256": "7a67f54bb89a749a5839aa12f5a1d123409c86f4919c2e972af2fd97fc9c62d5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/retention-and-gc.md",
+          "sha256": "ffe7a476fb3eb512b25fcdf3c3dd605f77100e2c8c6d2696b58c00fbf7c4cab9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/routing-and-oracles.md",
+          "sha256": "dc478af065ee06c7477581c58b414f5594b154f6dc850abf95daaa8ab57d2fe4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/sources-and-evidence.md",
+          "sha256": "18c040e1cf2d360e2d350447275059af415c012581743a40c2da87c0e4211786",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-artifacts-and-retention/references/storage-and-deletion.md",
+          "sha256": "459b5b533217512ba93d49fa88b4a60e92e5aa73fecf6e2169a9dc910e5cf41c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/SKILL.md",
+          "sha256": "30b9f9ea55e338a999017758ae3b44537376a9377bbfdf17ddf797b562ddadd7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/agents/openai.yaml",
+          "sha256": "fa5ad6a500866f07e5dd888cc6e94f8727877ce23ada0c9c3aed80381a3dd492",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/cas-and-integrity.md",
+          "sha256": "38d6aaff93f0ef2a6a2a2e370247b875cc839ede18e55dfef929e69a256a80d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/implementation-details.md",
+          "sha256": "0450b8c81169049372038ff0330a69f301f85f782802833cc8a2b161548fde22",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/invalidation-and-eviction.md",
+          "sha256": "ea7297ae2fc746d3d6eb3f52bbee805a632c7ca2d9919b432c53ad34275ed8f5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/keys-and-hermeticity.md",
+          "sha256": "5eb841407e0c5a0377a97db8ec63760286a611856e002b5b217de10dcf141e6b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/sources-and-evidence.md",
+          "sha256": "880d925e5ee8ff7c4d5d233e6efcb17c0f0abc8b1c82c3363296ee9865ce9dd0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/testing-and-routing.md",
+          "sha256": "e4e08ee212ed9858839546354365e648fb651b742db9a74587c94b4e32edd1dc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-build-cache/references/trust-and-poisoning.md",
+          "sha256": "8f5cbd87555a6fb91c8ec88e663c68a325caba0cf18122ec56ef3a2878fa44e9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/SKILL.md",
+          "sha256": "0feb8990e630c6d915960dc383cfdcaa7875415b2086e4f92c93604f3a476ab0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/agents/openai.yaml",
+          "sha256": "4c6677ab242bc3c391b64a26922351e047bc3242c09e8d21fa9f145e2a970d47",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/cancellation.md",
+          "sha256": "f9883586141df8b76974c4db71afda5780c4df9279bc463b026bfab7d70c8163",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/implementation-details.md",
+          "sha256": "1f9a0f1e568af18a36dc274611129ec4996a818205a86b5940cca69379e585a8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/isolation.md",
+          "sha256": "b867cc5842ffe249d7c081c036dc0d3e27673296152c4601dcde019f92baf987",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/oracles-and-routing.md",
+          "sha256": "a717c4ae8b13e5784c8ca354ed16d10fb314b5064b6a6f955f30595c4036ad92",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/process-execution.md",
+          "sha256": "cbb5b8d470e915e56f329537d8a452bae3b37b3ea40f89b739e09e8bfbb72d6d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/sources.md",
+          "sha256": "5ac309981a079691e5da48ad10545c336b2d636700d3917ebba52da9c5cafc07",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-execution-runtime/references/streaming.md",
+          "sha256": "0dd78a0761112202bc4482b46685acd457e5d182b148f0a4eb81033246362f19",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/SKILL.md",
+          "sha256": "684ca8ffd5399496b2b5625bc8052ace3b815c01269fd3b3bb0047b6b64a82d1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/agents/openai.yaml",
+          "sha256": "ffea3dfe0b15fcbecee0b8f97f88e5dfd829944bfbfbbd97b9867db86f6d0f3f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/chunks-and-replay.md",
+          "sha256": "754f3650886f472957cb82c740d85139d7613a35ac46d4b4e981cd5a0c06200e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/failure-taxonomy.md",
+          "sha256": "4772ea4356656d51520150cd9e1fb7608a5f210adbbba740640e3c11f0c3f6d1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/implementation-details.md",
+          "sha256": "1ac0c6b3eff0c6d90bd52f9f11675277f9f0c4d03ce8306d50c4fbfbf0573ac5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/routing-and-oracles.md",
+          "sha256": "d5277d2c64314e174ab28aeead660f36cf73dc53f7cd10a19ed61298fad7f86f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/security-and-redaction.md",
+          "sha256": "04dbe8ad752e9b16722ff5a0b0eeb52eb2c5dc3c260c1b6ee62122128b824cce",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/sources-and-evidence.md",
+          "sha256": "52c759fc6c2b4bbb4bfdd352464764a8a5ee8ff50f8939ead99c758dc7388ca0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-logs-and-test-results/references/test-report-ingestion.md",
+          "sha256": "551f377500a9ad198025469bdbbbc138af5c1064f374f7dba033c6d39dcdaa10",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/SKILL.md",
+          "sha256": "e336b793f72e4d3588a1890350f62904263329d3013acd2ec7198023b53a9a8a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/agents/openai.yaml",
+          "sha256": "4ac2adccf8aae511308bc6c53979924610a8977abcee91313638c5eb14bd8a37",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/cycle-diagnostics.md",
+          "sha256": "f1af36e3fad0985da3773f81f8f07a4d39c8ba6f46b6d07a450550f97cc0aa8c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/evidence-and-reporting.md",
+          "sha256": "b18f74b7c2fa06807364ce51dd54ac7c3beba7afa32f00669326e5b2c57bc548",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/fan-in-fan-out.md",
+          "sha256": "8a2064454165da4f962265ec0b8870020d36cfa11cb5d61cc07d9b872027b609",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/graph-contract-and-trust-boundaries.md",
+          "sha256": "46c65be9ad28480cdb4a27f24b4bfbb84a8c832e0c00fb9b6ee08b0d78501c44",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/graph-edits-and-revisions.md",
+          "sha256": "e96e5bafbcb833827ab83259501f61fc0b9f900eacb48839a06f3cd5ab5ce328",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/implementation-details.md",
+          "sha256": "77cda052e194e52e97ffb808e222bdb5395d9230727d9634bc2ec1baf39a8fc8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/performance-and-limits.md",
+          "sha256": "86774ca37879e4dfb3bc47b047d09bf98a36a506bdde084418923ff013b7f2f1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/readiness-and-status.md",
+          "sha256": "028db20ae07e2581a947ccba4f4c92008f0052be1a3d3d4c0ecb3242a4f17485",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/routing-and-test-oracles.md",
+          "sha256": "f3fae40cf2c30d6420188f3d2f79a7ea048a8e05122f1cd445b6e722135bd3f3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/scientific-evidence-and-limits.md",
+          "sha256": "6cd54c855603513d4a1e76a8ebba3f10d4607cd8e6c306ee0444096aa3dc98ab",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/sources-and-decisions.md",
+          "sha256": "83e9103fba0abbde96b7171ed7247a85d1dd7a79c1057399725957209daa58e1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/testing-and-oracles.md",
+          "sha256": "da0524acec7a7bce617fad3c1f2c3db672a1277d2869a0b2e9fa9c2eab9a9b46",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/topological-ordering.md",
+          "sha256": "3a8ace5c92dd4695531dcf15ba93516d56e4e939ff48dc88c01eea517d4ce51b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-pipeline-graph/references/validation-and-diagnostics.md",
+          "sha256": "dbe229ba65fc87786d2525d3369fb3f0058321f232cc95911b1cb8889b033318",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/SKILL.md",
+          "sha256": "c6f8c278b9994bb0c50c248de1fa16a28800240a590ca6cf800c2173189c988e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/agents/openai.yaml",
+          "sha256": "2c1c0c9c027ba8f79cffbc27e0d3f7d1663cefb9e059011c13e7ecd60bbca2a5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/abort-rollback-and-recovery.md",
+          "sha256": "4cb270ffd6cf81daf7d6af896550007300d636717564fdc20e35eef8cc367a0d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/approvals-and-change-windows.md",
+          "sha256": "226339d081ecf20194029d2b6737e459f379b901bfeb98e4f62b7eeb2038cfbe",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/concurrency-and-reconciliation.md",
+          "sha256": "827e1205b04aa9ce42c758f6d8cd6b9267bebb1380e23b498d83ef947da40654",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/deployment-state-contract.md",
+          "sha256": "b370ca107fb30ebf9d23b854c14b28367fe8164b55120923ea052644adc125ea",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/evidence-and-reporting.md",
+          "sha256": "42cdc0cbca6e404d57f54a7fe049531fda16dfdfa256e6ed169a545f30f22414",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/health-gates-and-statistics.md",
+          "sha256": "6541608a2e6fff035c1fe7e12fc601748bc59ea007c03ad0de65f1ffb4991ca1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/implementation-details.md",
+          "sha256": "8580f77a79bed2931bc48acf9708c61e2703906f567acce8593d2f56643ae8fc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/promotion-and-environments.md",
+          "sha256": "9ea437f6dee062de8547d1435e3e2eda3b36b2cd48cdd6c1132ec11f62feda8a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/release-identity-and-provenance.md",
+          "sha256": "5549edfc04dd3aeade59b133c4d91ed1dec874399f4af35e583615a48ad89115",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/schema-migration-safety.md",
+          "sha256": "8d5e4712511a6aa5c0a57139acf1e743f197d3d4b7e0347e50561939952492d9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/scientific-evidence-and-limits.md",
+          "sha256": "d8becb36baff45441965139d47d44545da6cd7402c82e48c59cf4e200f2cd99d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/security-and-supply-chain.md",
+          "sha256": "f2e0b59bd69db53a884b6119520f93bdcee4dc8796cf5c308088fc0f69d9eb98",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/selection-and-boundaries.md",
+          "sha256": "0a1024395cf6b3caa3990047f94013bc964deddb833cb751a59b1743d0815820",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/sources-and-decisions.md",
+          "sha256": "d60f36f472ad613bdf3e003acc50a044df5c31b47d563e0e9cc70e131db2196f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/strategies-and-traffic.md",
+          "sha256": "d6042aa2530ea9267b3a0ec941e2753bc897a5d6618c8ccfd574b0243c757a98",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-release-and-deployment/references/testing-and-test-oracles.md",
+          "sha256": "ceec107bd010d157b365c0e07bbc83409dd1deec6e136f906725e411e101fa66",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/SKILL.md",
+          "sha256": "6d2bf7abe59ce5f92f4036cb5bae8dc2e9347ecc4400e0b60f3f7808c61f8b8f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/agents/openai.yaml",
+          "sha256": "15ed3ec1d52641b24220d1ea1e2a6a6336e815a5560011fec7fb61030daee4f8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/fairness.md",
+          "sha256": "6ebdd9a7929a6f2c8a67af3a7d33070f161e1c32b94b8446e0953dd4665af34c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/implementation-details.md",
+          "sha256": "f8d0f3ff1a9db78d1ed32888cf88ee47560237a784f4c4c41a106e8eb5e0600e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/leases.md",
+          "sha256": "318190edc75721f804379e6a01164caa07ead8337e2aa00163df0ff04f0aeff2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/oracles.md",
+          "sha256": "fcc52db62e8773e95913b8ab27fa72ec173aca64eb781a46901ada33825f5b3c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/routing.md",
+          "sha256": "bd02e190ee0c2cf13b4faf66f3e109ec745b7bb9b160db6bb092102403c86c34",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/sources.md",
+          "sha256": "ef90a04b0236422d96d84a39dca89ff4fcd29db3f11264e16229ea7763a8b927",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-scheduler/references/transactions.md",
+          "sha256": "f14d77f5d257bd557c84743f0530126727ed6e32333c8699cb134282019e0576",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/SKILL.md",
+          "sha256": "bd5796e79390ddc01ce0f087d81300240473b88647d2566575892fb2af9bc458",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/agents/openai.yaml",
+          "sha256": "a3474823a93fd3695cbf7f655274c174ff1c48ff60a76064aa1e4ef7e81d3d39",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/authentication.md",
+          "sha256": "0f05d439055433a90f7e1b7e9f6bf3bf0dd253b08a53b7c92ddd8e8db4881185",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/durability-and-idempotency.md",
+          "sha256": "8b1d8e46408f9892df2b74b70ddbe2b8eebf31df854222796c90b096b1b82015",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/failure-oracles.md",
+          "sha256": "09db9e48ed7e49afccd9231700af5135a99214138784413806d93b7c27eb90d0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/implementation-details.md",
+          "sha256": "8fcad4ef2ff824aab58b83d1c13d92d244231783488b94460d59bc0df4c14dfc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/normalization-and-filters.md",
+          "sha256": "2bb5963c91dd9bda24b1ebce32e8abb988dc85bcdabdc62b26090072ec085033",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/revisions-and-trust.md",
+          "sha256": "f665a8df6c2d0d9effc08f53ab49109fd072f8742f3e725a68f055e6a9d3171c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cicd-vcs-event-processing/references/sources-and-evidence.md",
+          "sha256": "97eaa96bfd76bf425177598209ba02a53c60a99e4204cbf105d3b0e144d69e77",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/SKILL.md",
+          "sha256": "75ce12875adc3ee4c23910408c87a5475eb8b4d63d0445f23885f1e7391719c4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/agents/openai.yaml",
+          "sha256": "a360336a68ff28f5bf02611cbffb1113fa819f29e87d8011f33fd5b8b65af932",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/argument-parsing-and-exit-status.md",
+          "sha256": "a21be713a5b97ae78ae9a63966f9e7fd81329de0fb21313976ee0e6b0d2d9453",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/authentication-and-secrets.md",
+          "sha256": "f5fa6175c868fec38192a404d3c073259a34d59edef64a6110702a7eebb0e862",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/command-taxonomy-and-help.md",
+          "sha256": "91f37b6f5ae2aa8818c77f88d0d9cf1180ebc7dd85372b67ca054d9e062ec6ed",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/config-environment-and-portability.md",
+          "sha256": "2733075753df6c8ff91c762a88eb9927bda586e82eb29ca766664a500256ab7c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/confirmation-and-risk.md",
+          "sha256": "bfd8587ad29f270f58de9e05ffdb3b72f644749db7c2fbf057ead7892f28de0f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/idempotency-and-concurrency.md",
+          "sha256": "0ab17308a5320c3151e5169602947992afdb0ac1dfa17d55767abff5c185bba3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/implementation-details.md",
+          "sha256": "53938d8a427c5c48c68224777a05f71e289116df94edc0a2f87f9e366a5a9f89",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/integration-and-evidence.md",
+          "sha256": "4a6fd90c3f269c3fca01b3058e780abf288223e3ae97a8d1e5649788dd60a914",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/output-and-automation.md",
+          "sha256": "e58e09e23be2ca8bfe43213e82f6f2ced82282f6cadba76f8d17395d6176153a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/routing-and-test-oracles.md",
+          "sha256": "7d2408ae97339cac6d746387d42eea414f3b5026aa1dacf486cda912abf662ba",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/scientific-evidence-and-limits.md",
+          "sha256": "82e6fbe9349523dc4f7393738eea5f955dc9739a5710b64e7d831261de060b99",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/sources-and-decisions.md",
+          "sha256": "059171d9684e0699d47c70a9d77732c9d8b59577037e63f3f5ebf26678d0799a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/cli-engineering/references/subprocess-and-terminal-safety.md",
+          "sha256": "e08f924ab71128a0e833b748cfcaa36688bffda222322d36c596f6058215d174",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/commit-governance/SKILL.md",
+          "sha256": "4fe04e16268d9bef7121809d47702be31622376616de5bcc8dcd7138426687ef",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/commit-governance/agents/openai.yaml",
+          "sha256": "07e753a477e749ed9af3209c62c979932c4441cbeda7bedd65891306dd3f2a9a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/SKILL.md",
+          "sha256": "44033d98b09a7980a454a54f570a900041e17884a4be505b9163b51e628f8d8e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/agents/openai.yaml",
+          "sha256": "eedf67fc6a5edfbe2c13ec29dc3825bbfebdecbcc6f3d094865146d7c7c7d191",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/browser-verification-and-oracles.md",
+          "sha256": "a85d91914d015f9d6df621d6c8230dea994ed5e3277d0bf6bc205b4b32f5189b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/cascade-performance-and-resilience.md",
+          "sha256": "fadb2946388f970f6b957a7743cfc6f4403ce8f5962032edb5c28d6b1ed231e5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/container-media-and-feature-queries.md",
+          "sha256": "aa807dd66ac04f59ee6b58b1db65399f112e0a359c80e93a30124e290cfd902b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/flexbox-and-content-flow.md",
+          "sha256": "0121a89842f3c91662200d57bbf2fd43032f71d7bf19132761359b08911be705",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/grid-and-intrinsic-sizing.md",
+          "sha256": "6f5b7ad7e7664783ac678b2decb29dd3df00975ebae4483a760e5cd93700e94a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/implementation-details.md",
+          "sha256": "a7a9b75245c6ef8471af4c95f520fb6b7ea86cb1800ff5a838c0732c9de1029c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/layout-accessibility-and-zoom.md",
+          "sha256": "0b06918b5fecc35a3ebc0f8099fff57c209532df8aa9fdfce6b2d3d6178127c3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/logical-properties-and-localization.md",
+          "sha256": "deb40bf21d0af5270aaffeb39f2100d65ab2c67631b83fc2d58a6ef1b9718046",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/responsive-shells-and-overflow.md",
+          "sha256": "6872220a13d140b2891354cfed3f6833376facfd546fea4b3c3b745bd9780efe",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "885521771467b456a4d2c55b7b3fd6d1dd8accb30e7cbeccfeec3cbb7f45fb39",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/css-layout-engineering/references/sources-and-decisions.md",
+          "sha256": "de30a12d81d09e080ee16205f519457b6b8b65f2bc3196eb2c16a6dd8719b9e6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/database-engineering/SKILL.md",
+          "sha256": "a15b19145c91413c2a7e6e845ad41a5b739f7c765531b8719ac802f1e32956f5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/database-engineering/agents/openai.yaml",
+          "sha256": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/database-engineering/references/access-and-change.md",
+          "sha256": "e243a93a0839564f2acf3bdf287ad86060fd5cfe667592c1d2f184862b2bb6ba",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/database-engineering/references/model-and-transactions.md",
+          "sha256": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-review/SKILL.md",
+          "sha256": "9734f3c4bf14fa29efcbbe44100cefd4883c862195af8b292aeb723300e5f85f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-review/agents/openai.yaml",
+          "sha256": "910d8b636b7cfefdfde51abe38c17ca13df3d44df2569a24bf30eb30d1ee2085",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-review/references/decision-communication.md",
+          "sha256": "85f7a961c743a78a20bd032fdba58babc75c0bf05011c5f98ed3c9a219314edf",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-review/references/review-method.md",
+          "sha256": "95092f1c5bb1ac87c3dc6739cd9a5e50b2355c8d1af1fccaf93a839e0ab5d9c2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-system/SKILL.md",
+          "sha256": "df68c2652f2b04b04bd67094d977dccc816fb3cfb1815df04ae90ed087c82e80",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-system/agents/openai.yaml",
+          "sha256": "244440a0047dcc4a00e1784de92aa7fbeeef6d6ce514fb30590f4b4b290f9ae7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-system/references/accessibility.md",
+          "sha256": "54c2064005c5bf560a7010cb21cc7189c9862759b55e789b2ffc331a6278885b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-system/references/pattern-decisions.md",
+          "sha256": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-system/references/typography-and-finish.md",
+          "sha256": "137f4280f8ffa5283b32225e4affd84e4e6d3945f9d01d302e8b9db8c6df0361",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/design-system/references/visual-token-migration.md",
+          "sha256": "f86c054e5898bf7769c49edbc06b8c1cd6d62b021c79c781863b9ba4a90d80ed",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/distributed-systems/SKILL.md",
+          "sha256": "827a7b4146154e074143d0872c3673d09a227d9eeb12c71de2ce75266e12c410",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/distributed-systems/agents/openai.yaml",
+          "sha256": "49f8aeac3efa97fc428c48e07fe438082bf4b04cbbd30847992b1057cc721876",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/distributed-systems/references/guarantees-and-failures.md",
+          "sha256": "0e9d33e8c9ec56c3b14a7d03aa10836c5dc5cd49bff6e4add73b323022eaa79f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/domain-modeling/SKILL.md",
+          "sha256": "178e80079b117248bc168c21c76853cdc4f7033ed880c1c13e401fca1120a444",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/domain-modeling/agents/openai.yaml",
+          "sha256": "26e6d1f0521f2136b8e3802b45481cdbcd849bc32d93ad92d0a0683ff11513b8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/domain-modeling/references/integration-and-evolution.md",
+          "sha256": "628997b195dbdf83950b38356afe99ef0828b4364071c8c890dd8d8f84d8a9ac",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/domain-modeling/references/modeling-decisions.md",
+          "sha256": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
+          "sha256": "ad9f170d635ebd5fe102d082929a6aad505fb5a15fffc73fe8029e223fade551",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/agents/openai.yaml",
+          "sha256": "92a57fedf4cf7741b0d88f4ddd95a3e623222f47c2b15f8a0c2239937c5d47d6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/references/implementation-details.md",
+          "sha256": "0a828bbc352e3c95c2c02fcbe1e3aa64f414f813b987fed3157fe3a56e9a356a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/references/protocol-decision-guide.md",
+          "sha256": "e364fa4669a587281cb3197f5b0739bf84bb2e6b0616581caf284150db26ec4e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/references/routing-and-test-oracles.md",
+          "sha256": "bdd422c396e9fbef4e5d9c17ddbd47dca43d876dbc557bfe7ea025709f9af6dd",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/references/sources-and-decisions.md",
+          "sha256": "fdc89bc0422880f3fae7a5203912eb16865c4bd3c07503178024d9ed5477af7f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-control-protocol/references/threat-and-compatibility-matrix.md",
+          "sha256": "c41148d3e7484ae8f66aa114c239627eda83bbb34a97fc02e5b29f20543dab3d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/SKILL.md",
+          "sha256": "e30cf1fc1d29fd3ff03ecef9ed5e5ab24379c0117591bc2493fcf5e3cccec1fa",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/agents/openai.yaml",
+          "sha256": "5cf14233acefd45f4701b8629fad4989931b2b866928caa2adc4b7e353f01012",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/references/administration-and-ui.md",
+          "sha256": "1951e12fa090dadaaa2d8c1eb423fa11885d62b12334f0c6081056f5a8b6886a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/references/eligibility-and-evidence.md",
+          "sha256": "187e267b66298147804879f27fef3b31fd45975666d0c06f6236c5aa8d3f3147",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/references/implementation-details.md",
+          "sha256": "20e80221dbed9f477aa0721df21f7e886df68522423158afba5781992d66f01e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/references/routing-and-test-oracles.md",
+          "sha256": "0c11644a8f5e55cad63949fcebdb7194c171081a5c2dc778ed0551c6b054c19b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-agent-pool-console/references/sources-and-decisions.md",
+          "sha256": "21ae4841c179c51187d766763aaf501d4e7eeca73d1d7717973b1774f870588e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-configuration-publication/SKILL.md",
+          "sha256": "2404c9a8ea8be537b7f0e0cc2b4cbdcf5a0b5450800f4589240080f353f1c9d5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-configuration-publication/agents/openai.yaml",
+          "sha256": "5f3d4dd100ad91d282133625ba19db3ba99e56b53f23b5fbd21446da46e2291b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-configuration-publication/references/implementation-details.md",
+          "sha256": "4bedd6e8f9140c12235022eb4b41d2941a61a1cff824ddd2001cf79b7743ccd4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-configuration-publication/references/sources-and-decisions.md",
+          "sha256": "a25afdc0ad5d4c408e1d94b4d4a27d9f6cc0d4627b26af5e6fce502deae11ecb",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-configuration-publication/references/state-machine-and-boundaries.md",
+          "sha256": "2d2972f2109fbefb92bb7cc6f7319940b5f0d501d652b1008f3fac73c1b1f0e1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-configuration-publication/references/test-oracles-and-routing.md",
+          "sha256": "de3ce232d9bb5075abcbc509fc1d70f170dba3af6d4864d87511291b18c8eb23",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
+          "sha256": "44b6061cfd834d8511e2f4f5ea606f5c7297b1f791d273303b17a08ffba7be6b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-declarative-resource-schemas/agents/openai.yaml",
+          "sha256": "a234db6784a1ca198e1c322d1dd2da72b9a251aa983e85616c1bdce90360ef08",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-declarative-resource-schemas/references/checks-and-examples.md",
+          "sha256": "ec1b0bb65636c4f52eaa100254ae051945c6ee6b0e2acb6206b9857636f40750",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-declarative-resource-schemas/references/implementation-details.md",
+          "sha256": "07d46f44787c39822b685ab36080af1f1a21773cd6b7792b6908f3eef7d80d77",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-declarative-resource-schemas/references/sources-and-decisions.md",
+          "sha256": "620231e4a260f788290690fda3d13af008a5378d1a34dd14c5f484ec27909a82",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-effective-permissions/SKILL.md",
+          "sha256": "cf3b803fddce72ad1d16465c61b592c4038b78f0fcdd5efc37ca3cd8a17e758a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-effective-permissions/agents/openai.yaml",
+          "sha256": "29ed645c245955ff1974a3a117657b34200f5823ade22948eec4d1247179ae24",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-effective-permissions/references/evaluation-contract-and-freshness.md",
+          "sha256": "4834ee6aea6f282723ccee0261edd9b7279ef2dc792c79bee367aad6af7956a2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-effective-permissions/references/implementation-details.md",
+          "sha256": "363e30402956f977a2b508f09e810a338a249a86f8c42a6a32672a6350c45345",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-effective-permissions/references/routing-and-test-oracles.md",
+          "sha256": "3eeadc07c070491b409cf861e042015dc2e6da3e8a33361d1648ed7d835c6677",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-effective-permissions/references/sources-and-decisions.md",
+          "sha256": "42465f05ab384334c8baa3df1f0ed737ba4d387110180c93a4dc2bacbf7627f7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/SKILL.md",
+          "sha256": "a45d798db610321b8fc97332c1a3867f444dddb3cde50de142b6da699d8b0dba",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/agents/openai.yaml",
+          "sha256": "b99648a0556a77a75015d91f4aaf40732f11b5aecd1c04d71d2e641a2e61697b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/references/gates-and-promotion-lifecycle.md",
+          "sha256": "ff06dba2bd07390ae461a0ebe975e22bb232b9166172c3ed1a135e5bd259cc00",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/references/implementation-details.md",
+          "sha256": "0b61e1cc7f20cfdfb95fded933f1e927f40da2002cb191014a5374d7357b5f12",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/references/routing-and-test-oracles.md",
+          "sha256": "33acf7e8ae1185e20d1674bb43472924c8ebc6319cba64172be873bc387b0cf6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/references/security-and-ui.md",
+          "sha256": "37718085e57aaf264bcabe590acb41548854d9b9501615580a61a73539e413dd",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-environments-and-approvals/references/sources-and-decisions.md",
+          "sha256": "7f9cbdbbcfd356e19e585c2ff98ac4754683cffe078dc43abed80a599bcdd43d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/SKILL.md",
+          "sha256": "46b3f500ca823478de3bead4afc9ae20a8f24ec6f2855b4bf5a8637b60f4aadc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/agents/openai.yaml",
+          "sha256": "ba2741560dc19c1a1d49440dcc647916876ecacf4b8d297449a3c54414259c67",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/references/connector-configuration-and-credentials.md",
+          "sha256": "f264d2bcbfcae07d4df58915ae19a2847ddc49d40bab10403dcc65d5edfbe0b6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/references/implementation-details.md",
+          "sha256": "352e05b94ad709ff7d53377b111da8d16c59c73f8e78f1f633e055569e8924f3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/references/inbound-webhook-security-and-admission.md",
+          "sha256": "b2f906c540fc9089015ea7816adf66a1b555e41e8f9de20443ccfa6aaec4bfcb",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/references/outbound-delivery-and-observability.md",
+          "sha256": "910f8aec2501ea42e80da75ee14481347bf5b827dcb929bb977e1a14596f264e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/references/routing-and-test-oracles.md",
+          "sha256": "5707ab2f7975ba0cac31386382d4da1aae32c8c54127ab35b43e71d5448a6796",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-integrations-and-webhooks/references/sources-and-decisions.md",
+          "sha256": "34619d36c40793cd8e22f2c814ac60a070019b10454ffa96b687c68ece528d9e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/SKILL.md",
+          "sha256": "b6dbc0b3c90c97ebe1aacae394c82dd58c61dee5315a28042aad009d80037019",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/agents/openai.yaml",
+          "sha256": "6d8052dd811a8106d1302123a10e6091878152fc30ab548d4750ba88c8c37fd7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/references/admin-command-and-audit-safety.md",
+          "sha256": "33fde06a738f6f6299bc17047b656d75c8e82ed6b960c0e09348cf8ae8996f12",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/references/health-evidence-and-information-architecture.md",
+          "sha256": "07b12e908867cdcce5840e45017e4094190a80a91b0abe2dc1f4a8cdf8feec95",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/references/implementation-details.md",
+          "sha256": "e91672306a9f97e47c73ab0d0975e9325b32d60b8f8a4eb7e8fb8d285bc88d41",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/references/recovery-and-ux-oracles.md",
+          "sha256": "16b55c13135679beb3c4c9b09fcc9a46713efb8b049ebe8c8a142afafc85a3de",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/references/routing-and-test-oracles.md",
+          "sha256": "d2b3b567fa1768d275280a29a0cf3647f13a8a3d54e6e8c9f0095ab88da1dbc3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-operations-and-administration-console/references/sources-and-decisions.md",
+          "sha256": "0e9d5a7c981a318576a7c3b0c492a604813dbef3bc6eed9ecc57da561f182d30",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-people-and-access-administration/SKILL.md",
+          "sha256": "6e7b1003f710e64c2c20519dc6fbce1ef69bd07e5aed84cff3d5bbc23981c369",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-people-and-access-administration/agents/openai.yaml",
+          "sha256": "6acd78b29fe8a2b8343a39698a3829aa647b785070e69ce63bb8335436580b7e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-people-and-access-administration/references/identity-lifecycle-and-bindings.md",
+          "sha256": "3ab7585d8120e4b8ab066777c3fcd45e91729454b8113a41301d06d17bdb508d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-people-and-access-administration/references/implementation-details.md",
+          "sha256": "6faadc9301f7de6aad3a3bf2d2542742590cbc03c3d12442c4648f98c95eeed1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-people-and-access-administration/references/routing-and-test-oracles.md",
+          "sha256": "2fb773f38feee0e333000e21c73142674fb0f7c9ea46b7b9b81f6152f376a527",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-people-and-access-administration/references/sources-and-decisions.md",
+          "sha256": "6fd332e150e8cb771e45c2492d7ecf53eba95f3e72306c96a2ee8ea9108ad734",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-pipeline-authoring-workspace/SKILL.md",
+          "sha256": "4f115909f8e40e993c5e0c1847e1aaa51d79884f7ccb0b9e4c53f341aecaf983",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-pipeline-authoring-workspace/agents/openai.yaml",
+          "sha256": "70afd3101d1df8ae2d5a4ee94edf93b71cf70df49f3771810288f195947d305d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-pipeline-authoring-workspace/references/implementation-details.md",
+          "sha256": "ee278134b99b54b83035d7845ba09c468420f4d9527a23ee5a15587d0e619625",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-pipeline-authoring-workspace/references/interaction-and-state-contract.md",
+          "sha256": "05f66f430c4914c09a0a00b9dc64c9613da9656305970cd82f183e10cf41e8ac",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-pipeline-authoring-workspace/references/routing-and-test-oracles.md",
+          "sha256": "c3a8ffbdb787a6ce487e01d3bc56dac36b5a5b67db247239ef1c0268f47f03b0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-pipeline-authoring-workspace/references/sources-and-decisions.md",
+          "sha256": "fe067b6ff340d443c7a9654a447f4b60ca4a179af35f84fcf1a2025cd1a9aa67",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
+          "sha256": "2f305094d01d2a85d63bc22242a5a9989f27235ec1b4685cc82870ecc9110cf0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/agents/openai.yaml",
+          "sha256": "c88fa8c117165c0e042c9e6d20ccddc73038f3d9e9dadb61ea326a6617d47d39",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/artifact-verification-and-trust.md",
+          "sha256": "31f3b36c878fbe89cf53a864c8b75d5c04f50c7406ab0c430e2251e8b10bd48c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/implementation-details.md",
+          "sha256": "bcb36a3080c690c83a0cacf41ef4b6c68c867aaa1b7fe2b55cfc85c11d4feff7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/isolation-and-capability-enforcement.md",
+          "sha256": "75ba08d0cd8ecdcd4c1ec13845e231e549605b0efcf09399d5d882a25a59cd44",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/lifecycle-and-reconciliation.md",
+          "sha256": "39a0de2dd67f2e3829fb432fe2c5d0005630684050af78f443207f2eeb45fd3c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/routing-and-test-oracles.md",
+          "sha256": "2c93cbccf580a88c9002e08af127f1a73d75a313897d5f39c5bab077368a7101",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/references/sources-and-decisions.md",
+          "sha256": "00201d8fd9bf699f0fa2abaee90f54bde813147f2cc672a71b2357fb24daefb8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
+          "sha256": "692efe1ce8721ffce7ae92adbcf354e84877e7f2c8fc7b57781c75b0d7f3ef7b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/agents/openai.yaml",
+          "sha256": "bdf72e62b2f43916f2c5d9f2bf93cef0171eed36344402b64d67c9ee1ab174b0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/constraint-resolution-and-contract-tests.md",
+          "sha256": "6bb32ed88e1163356353cd02b73a0c7af8bb41cb137e949a881060b2374b81f6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/implementation-details.md",
+          "sha256": "805ca0179c615248d3fbbcca93fb59323afa2e9e91612738a2e15f6d2ff13d76",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/manifest-and-version-matrix.md",
+          "sha256": "8c2b74ce621b6982da4dc6e278da4107cdf3bd4c05e2c7688286cb3c05e57229",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/routing-and-test-oracles.md",
+          "sha256": "d38b3b3a055b8869e123e5b93ded5c478be0f84b5b094573d185effb4b7a4a93",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/security-catalog-and-ui.md",
+          "sha256": "d0ba1f20b1d6f8e3a467fd3ad536b84da020ae7192114f2fd8c36d46739bc8d0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-plugin-manifests-and-compatibility/references/sources-and-decisions.md",
+          "sha256": "0c48eb014acc0f2bc26e36f4e8d5aaae08d341d079e9e4210b29f44420452a01",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/SKILL.md",
+          "sha256": "39e581133218ce5cf1334aab5ef8873a137096e326bfb45b3dd064a95ac5e908",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/agents/openai.yaml",
+          "sha256": "ffbd47a2f2b8c00050b48a206dedd015dbb7233b1ba1bc148894dba10e25b6f8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/authorization-version-and-reconciliation-oracles.md",
+          "sha256": "3f98278c52ebda0c0a860ba55b3d9f0dbf3631c01ba41578450ab6e9d94aa927",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/execution-evidence-and-fault-injection.md",
+          "sha256": "eb905d27421a732ec5d914d9d31ef50cdd51f283676b3c4bdfe51893c8867a62",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/harness-architecture-and-adapters.md",
+          "sha256": "a9ec822dcb2271c020dfde665271c1efbb0bf9ea52e4861e99851c8149a3cb30",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/implementation-details.md",
+          "sha256": "e422ac9571e5f9d56691c4a4ce97a0a7d2e921ddc1ffb16ecfb12e4865d43320",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/routing-and-test-oracles.md",
+          "sha256": "65cd938bfd23d83701ff0ed60b24c45e592405f8c6908695ea3b5c544a8f34a9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/semantic-config-contract-vectors.md",
+          "sha256": "b7b47f94dd68040cab7cdffe95b4d341ea3da8370a65714e98148830d51a546d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-product-contract-test-harness/references/sources-and-decisions.md",
+          "sha256": "8029a35e8e375bb6adaef927d590c0ad3d0c20c514af519d0e7dd889799b5645",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-project-hierarchy-management/SKILL.md",
+          "sha256": "077707a26abb27f3376086cdc1b57ba5f843e6b4ab065709d4a120e652302135",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-project-hierarchy-management/agents/openai.yaml",
+          "sha256": "66a307d5c5da2a7c6e300590699e0726802c7730870ccbda5cf862781cabbe28",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-project-hierarchy-management/references/hierarchy-model-and-inheritance.md",
+          "sha256": "eb1359828edad83c522d5be930211dc0d5897e08e152bb5aa5565041a7b31744",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-project-hierarchy-management/references/implementation-details.md",
+          "sha256": "8f108b06799072633e2a7679bed1b57a7752475b7947479581b206dcac5d38e2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-project-hierarchy-management/references/routing-and-test-oracles.md",
+          "sha256": "10f0135ace7a12d6bb68b6f4aedbbb4e49b59b460ea24d9071fd30969d2bb9af",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-project-hierarchy-management/references/sources-and-decisions.md",
+          "sha256": "c54572729d1e46baf532ca5bd3f330d30d39cb844e44fa37041b05db1c895cc8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-run-execution-operations/SKILL.md",
+          "sha256": "2ae3ccbc3b38528ce049f29478698d5ce1263bb7ed7609ec5a0166abf2d9ea31",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-run-execution-operations/agents/openai.yaml",
+          "sha256": "432227a56f950ef280cce3f658dcffcfdd4a7d2948606de895c8c13b1834998f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-run-execution-operations/references/implementation-details.md",
+          "sha256": "8c6016eb07603cb670720e937eed6a70f9d2a1084affbb3cf4e85a12fdf71ea3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-run-execution-operations/references/lifecycle-and-operation-contract.md",
+          "sha256": "e8c18234c3172f7f3a2b7b8ea3aae5c1cee74a6c690feb1043b73a9ba1fb23b3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-run-execution-operations/references/routing-and-test-oracles.md",
+          "sha256": "a65e84e48d43919805f027db082f85804a03a1dc6974e3dee0cece5b3073d4a8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-run-execution-operations/references/sources-and-decisions.md",
+          "sha256": "8e80a8d0817aa1d182909772ae20f6455f091fc3944c536f58307c958a0e22bd",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-semantic-configuration-projections/SKILL.md",
+          "sha256": "3328985ff9d64190535bb6d610d9e8115127d287f66fa4d5215f2c3630cb3b7d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-semantic-configuration-projections/agents/openai.yaml",
+          "sha256": "880cc8a29a7be0186c7d3b8d418d05aadd9163ff175f1356d6f15327f79890d1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-semantic-configuration-projections/references/implementation-details.md",
+          "sha256": "abd9d23c4c7d847c1e490172b62832256ccf2d610d1b1e88dc3677d17810f780",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-semantic-configuration-projections/references/lens-laws-and-data-model.md",
+          "sha256": "eed446f520041b0d6bdef969d82facdd16be02f5224b249eae2a3d4e0e2d373b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-semantic-configuration-projections/references/sources-and-decisions.md",
+          "sha256": "05bce94632b98a5d2497e53b08ffb73017d83d6ecbc9b2b5b9f444d0576774a9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/ec-semantic-configuration-projections/references/test-oracles-and-routing.md",
+          "sha256": "4435b452c0bd69c8086e29835394d947963f164c960e672e3b23256a33719d11",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/engineering-productivity/SKILL.md",
+          "sha256": "32551c78f9351f17efe7e61f6f870b7b3a4df51768686554ea0b4ad69878e740",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/engineering-productivity/agents/openai.yaml",
+          "sha256": "0b3b325bd05637d16d229edca798b2800e304c6ab1949d87ef8074fc98caf17c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/SKILL.md",
+          "sha256": "15f0692409322fc1bf119b85b032d554a7fd163297974439ac87842c1887481e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/agents/openai.yaml",
+          "sha256": "e0344eedc526d16e52aa657246c5b475464aa6c83127c47770f181026a95c17a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/async-submission-and-concurrency.md",
+          "sha256": "f35774d80ad8e089260685db0a528f638534a3180e6476df606f3d0cd112b828",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/conditional-and-dynamic-fields.md",
+          "sha256": "665b135ec997e2899d838c34006d30e92e1a5634a08289a3b4a6afeda0f04d32",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/field-types-and-formatting.md",
+          "sha256": "8a3d4ac959a174a9a388287fb0b8f3832bb5ad94c7498d6f5462ca696426fcab",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/form-contract-and-state.md",
+          "sha256": "e5f5ea4efb726349da3507850bc3aafe5fb2ed75e5adf615e717be356d58ff73",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/implementation-details.md",
+          "sha256": "6b9b4628ee9dee215a3ecc5c1babd66e938a888b3b7b7ee51561c487ab3a146e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/native-accessible-controls.md",
+          "sha256": "0f7892c2616e8e5a4bb39eabd75311658785375b3b960d692ab22ccc3c047b04",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "c8a2da56b7d2812c62a4c40bdffd22a5c3310e0cd48d9abe5cb3e6057bc89544",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/scientific-evidence-and-limits.md",
+          "sha256": "2364e42430dfb3f3dc24c9f294a294e65db1eb326a3d913ececfee4001ce0f01",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/server-reconciliation-and-security.md",
+          "sha256": "025e1d92f24bcc4095c4f6c52370c6c041bfdca5537299928ffd02247ee25c2a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/sources-and-decisions.md",
+          "sha256": "e4ac35f82cce78928ac1527f258f71d30e6f66eecde80361e07f53f34fbbc0f1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/tests-and-evidence-oracles.md",
+          "sha256": "ae4c9777ab219eaa65662f1ec6e904581c8040237f69f668a72a5fd927cefcf9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/validation-and-errors.md",
+          "sha256": "8b0242eb77c178e9b013cb30b09297ebcfd39e7b6f891a5d148822c3fc49902d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-form-engineering/references/vue-adapter-boundaries.md",
+          "sha256": "3e49226dde206a9e2028ecdfc4df7ff59df87cb7cc2b8151395f94f2d3d934f5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/SKILL.md",
+          "sha256": "21c519152d17306c5ba716390c1527263ce8da2845792faf188df34cdee534be",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/agents/openai.yaml",
+          "sha256": "3f6436cc68e9b25ec139f6d7dc753b906ba659b4a79b7a31dcd0b9b0e8a1f88a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/accessibility-focus-and-scroll.md",
+          "sha256": "f9fac0e5596c4fe4fb927ef33fc668b3e45e9d15fbd943b05036186920b49ba9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/data-loading-and-race-avoidance.md",
+          "sha256": "772b4abc4acbfe49177bed90d2f1b221e3a7f5abc97c68c7ff20fe518591ccb2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/guards-and-navigation-failures.md",
+          "sha256": "de4909764f36f4798775c792ccd415f86dacd53083413a663f4913c4882f215c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/history-and-deep-links.md",
+          "sha256": "add9197a16319520ec7aa0897fca1771c5ccddc7cbc10e65777cdc806c2a97c6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/implementation-details.md",
+          "sha256": "5b52f2f184470f49423f26a325972ec54800d5a23641f3f7a883e8970002a3f1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/performance-and-migrations.md",
+          "sha256": "6c830af6908b86de5d374d6b741f0d59c7d9f478d2f0790071e3b268f7f8f653",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/route-identity-and-boundaries.md",
+          "sha256": "e62a4fe1f12270b486eef5c9ea8c7af06362426a02b2bd32151c40876aaa60f0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/route-testing-and-evidence.md",
+          "sha256": "4cb4141fcd9a34b3bb52651044475e6e27cfb56dedeaed93cddfaa173ee11853",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/routing-and-selection-oracles.md",
+          "sha256": "d7a58d1700732c84667c189ebe33e525f9794473594610c3c50831fc5669ebf0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/safe-redirects-and-url-security.md",
+          "sha256": "07bf554f4abdb86fcac94605c001e491f8ad2f9714375bfa9b5bb2d28fe45025",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/scientific-evidence-and-limits.md",
+          "sha256": "09a2c7587bfafae423f2bd7acd9c8f504f9bda88e72cab0b28efd039057cedae",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/scope-transitions-and-permissions.md",
+          "sha256": "2bf1896072845acbe681d002328e30952df6e0c60b5de98bc1858143f0efb670",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/server-fallback-and-ssr.md",
+          "sha256": "391c349b68791c949ad255bbd797335f6418d35b5f258e423d69af8625325f07",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/sources-and-decisions.md",
+          "sha256": "c981a19fb87c2a8688152ff22cffb3068f560857923f743ee0ce8137aff57633",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/url-contracts-and-query-parameters.md",
+          "sha256": "df5f7ccd14c51eb36a3d0a73bd5d758b52a998844229862a01b4bb1eacbcefc8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-routing/references/vue-router-implementation.md",
+          "sha256": "ce6d1aadf3bef9316e4d318ee4c277751c6f2ad1c4b5ba08de70f2c52b9baa5e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/SKILL.md",
+          "sha256": "1aee4e54a94e624fa13569f2da31aee943d3a90b5144bb736e082e7cc813be74",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/agents/openai.yaml",
+          "sha256": "0e68545c003d38dc78b5536d82015f6c68b955ad9a68f27c1329269b7a8746ff",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/cache-freshness-and-invalidation.md",
+          "sha256": "57a11553cdbfd08f54679a123555b28a719283030c4b83d6d8bde60fb9f5aafa",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/concurrency-cancellation-and-fencing.md",
+          "sha256": "0bfb68e5a92904ea8461008906ab0c0136fa7dbd5bf5a8652620f94a2eeb1da0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/implementation-details.md",
+          "sha256": "cd2ce1ff3bc162e72df18d2c1335d894e84248a9aa735490bb255e4f869bb93e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/lifecycle-memory-and-ssr.md",
+          "sha256": "960147a1604cfe83935bb440b9bf6242ffb6a3350e6543f317ec0311f24ab14f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/mutation-and-optimistic-safety.md",
+          "sha256": "ad63046de46c917dd66717331f4cab891c2a405eca7a0eeca626f1804acd0664",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/query-identity-and-isolation.md",
+          "sha256": "40599ddb043814432b036ed34f9790af10388525184cf22f0cce624911064a49",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/realtime-offline-and-resumption.md",
+          "sha256": "41b712178ff2e02cf46dd261fa00c521334fa1cc23682107822430f93af2944f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/routing-and-selection-oracles.md",
+          "sha256": "cf6206989375324cf22f94e8c9efd0afe1feff601d0211142c9d26823e448c0b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/scientific-evidence-and-limits.md",
+          "sha256": "9d17523fc148b0878494276ac45ed63a78e2dcaa893f013d571407859c0a61eb",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/security-privacy-and-http-cache.md",
+          "sha256": "f4b43e8e436a7dabf4461ff5bfc41e22e384c4f06b2b9118c38010b2249d2642",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/server-ack-conflict-and-revisions.md",
+          "sha256": "ee4f801c507b527c6c7aacc8ae4c66b24e4fe2e01308a326f52145d1a29e384d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/sources-and-decisions.md",
+          "sha256": "d19f8c09200b29bef71d2c5616cecd52a675d36def22c18328591baf9feb30d3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/state-ownership-and-projections.md",
+          "sha256": "eebdce3436c5dbbfd7d0a9ae45b61861f1782372215f6101e837513bc6b1eb1b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/testing-and-evidence-oracles.md",
+          "sha256": "8ac97fde9885b39be8620f3c113b83378bc20bb43fca27ffc073a1f4457c1049",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-state-and-cache/references/vue-pinia-query-adapters.md",
+          "sha256": "748cf387b01c84880bd6fcec8de2dc0d50a7094a12bde7116c860235f73f6d41",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/SKILL.md",
+          "sha256": "5bdbd988f566bacc18de0b81b6de8baedbcd7ac9ef0de8f05a42fdb9299a4a69",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/agents/openai.yaml",
+          "sha256": "16a9553783909196411a7d89a5a9ee1ab960687cdd3761b95b7981104427360e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/acceptance-oracles-and-traceability.md",
+          "sha256": "1d57605a3b704a1d49eae45f71cbe4b633af4f5c8c51df54ab013bf0cba0ab14",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/asynchronous-behavior-and-timers.md",
+          "sha256": "08b5927991446fba753f636b73eafe4fde5e6f1b36659b59c77617e91ab1d19b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/browser-matrix-and-accessibility.md",
+          "sha256": "b811e2b9f07e4b2412172215a3c95f99862ce0a3908d607b03c3de80aab74bb1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/fixtures-and-isolation.md",
+          "sha256": "57d162e24ec10433302ff1780afae90dfb5d4156f70876f75274e2653e1bc2d8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/flakiness-and-ci-diagnostics.md",
+          "sha256": "e04c4dd76f7e1a24d05c05baf41e9f455857adf91038cf8e81a4f61ecca10a8a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/implementation-details.md",
+          "sha256": "86d5126cf7b3d3f47f9692c75fa564c9cc8a58a4cd4797124805b7aa8c4d9603",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/mutation-and-coverage.md",
+          "sha256": "aeb7ab9f206e695e5778c8489e5f3cb619ce7887abb1acfde8772dcba0ebd7ec",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/network-and-contract-testing.md",
+          "sha256": "cffe7315a977db8b335be5462fba7be410ba99a5124f697af796c0cbaeafcbed",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/playwright-e2e-and-locators.md",
+          "sha256": "16a143869f309bb6f2bc22f0ad71c5e32119a49ca43fe78a7bb2c1c0280ad231",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/routing-and-test-oracles.md",
+          "sha256": "179486b2d00dd006a2b03a939d7e021ade1f6f50dcdb3965340136347f541536",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/scientific-evidence-and-limits.md",
+          "sha256": "a2b5cb63de98fd44e8e90fad9afed202562a9d6f3c4b375fbf304ec5c26da036",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/sources-and-decisions.md",
+          "sha256": "7c395fb1a084a38ba5c10b9167a85a37e621cd647851489b9755f55a1dd5e5c2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/test-evidence-and-reporting.md",
+          "sha256": "cc90a6b4742b7e758f17dc531481cb0225fc60bbf9ef68a18e5c77bad14e3667",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/test-layers-and-scope.md",
+          "sha256": "d376cd6ad04c231dad116307f5ae868911f33f4db05219cd8f4afbe96c2af894",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/visual-capture-evidence.md",
+          "sha256": "5788987e3dcba1e0f28fde0af82ce887451f75159c90807a30fc66db862b0f2b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/vitest-and-test-environments.md",
+          "sha256": "215c58f5da5570763a1ed4f83112a2fd84b8c97a4fc3eb59f9d648c55a8da614",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/frontend-testing/references/vue-component-testing.md",
+          "sha256": "55365a2bd9b3d3ed2af6bf6c86b9cb297f437a6e0aebc5c12de09a4154fc6545",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/SKILL.md",
+          "sha256": "e700f72b975890dbc3f8873415147d06d0c85f8a6743f9b5dac1a9bc19cd43b4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/agents/openai.yaml",
+          "sha256": "e4270e3cb633b9ffbed455e560760af4816cae876fd128ded9eb2e0299757080",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/asynchronous-operations-and-idempotency.md",
+          "sha256": "6a0bd9e03e9dffc6ff3925cad5d6c2daea486ba2348fcb0ca5f602d0373c56df",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/caching-privacy-and-validators.md",
+          "sha256": "948315bb16dc34bfa77f79f450f08ae52ff2f2ea7459ebd455f7fda55c780b9d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/conditional-requests-and-lost-update.md",
+          "sha256": "e138fcdb53af5e896a78918180c8fcac9835ebafdc1881f134defc0c65f62cc9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/errors-and-problem-details.md",
+          "sha256": "8e262e2424e39e9b52b8c8aa04ec6556f5bd7f24741f0ca43a64bd95de0d4850",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/implementation-details.md",
+          "sha256": "814c1ece3302c1d5e48662e77a2f282467eacf5d8aa59473fc15dbada7cea425",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/integration-and-evidence.md",
+          "sha256": "2b6c0286669ba4e2179802eee3025507653b1980d90007ea10584ffdefb683b9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/openapi-and-schema-evolution.md",
+          "sha256": "c9ad02795b6d813fafd571720e2a195a5af5f319ff8a56aaa5c058cbce2779f2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/pagination-filtering-and-linking.md",
+          "sha256": "2e684b1e29b86edd98f47d1f9eb7d8dbaa4fde16ebfbc318572e5f9e5dc56a55",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/rate-limits-and-client-resilience.md",
+          "sha256": "1c54e0c4823f1fdaee70e489f757c689a4307a77832ae9f299dbc87206859fed",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/request-response-media-and-validation.md",
+          "sha256": "4be606ae710a1ddc2a70f23baa27ee03910eaf65eb65182b50c53241240abe78",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/resource-and-method-semantics.md",
+          "sha256": "6803960fdd795a123bb6f260bc81d398763e1bb742e4067c553b01cc64382a64",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/routing-and-test-oracles.md",
+          "sha256": "767ea3698fbba686d29c220b9bb1ff8e723a74f7b507ec39f03314b0ecbdb6f2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/scientific-evidence-and-limits.md",
+          "sha256": "101de64bcf007795cee20daee59ce030ae9341811a4b52990575071b59c07da1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/security-boundaries.md",
+          "sha256": "b49a4cb80fd08424de36faa1404a9035fa49a59a53260faba6beb92f79f12f26",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/sources-and-decisions.md",
+          "sha256": "66ea0112702ac50c233be88fd2fc48500fde063d1c2c70d182ab7ebb8177421c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/testing-and-evidence-matrix.md",
+          "sha256": "9fa5665187211059a506f38289741b5a2d32a86b9c510f5b5f83a790e1e12da2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/http-api-contracts/references/versioning-deprecation-and-compatibility.md",
+          "sha256": "bc61f10ba9ba5c6ebf52c9816f0241086cab2551367c732562f394d6fbae4b4f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/SKILL.md",
+          "sha256": "c8b9ac58002fe42f57dcebb7f290224949998ac9a7ea6967afee83e35eb4a0a1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/agents/openai.yaml",
+          "sha256": "356e430ea42ed4bdba1f0c59f7cfdc09aa105773f8beeff6bb9ee84487e97218",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/authorization-code-pkce-and-callback.md",
+          "sha256": "7ca1b88aa1d446947d582b67c861c0b62cd71acf4e649acb581398e75da5c7e1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/browser-clients-and-bff.md",
+          "sha256": "e4f7dda656e4d517778da7f216c10542406c37e804cebf78f14ffdf68a5aec4e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/browser-sessions-and-csrf.md",
+          "sha256": "4277cbd08dddf7aa037e2bc40b7572fa6a554a8b5d22fb3c44d889c8aa10f566",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/id-token-validation-and-jose.md",
+          "sha256": "6af2a6ed0eda2c3c79311e2298dc5bb724e95853bac8aca9b5eaec5407f0d862",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/implementation-details.md",
+          "sha256": "fcc85bb4ab678113ec1d8ebc0a5b8c1781c61bc1bc795fa4b80a576ab51811d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/integration-and-evidence.md",
+          "sha256": "8f48a56c33993179c9d51d00a898dc7d50d9970bae5c5b3e35eb31742c246a9d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/interoperability-and-test-oracles.md",
+          "sha256": "0f20cbdb1a8da503eb4f24ea9720f751321939d1b11b630bebd1c65c11b63650",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/logout-and-recovery.md",
+          "sha256": "2e2cc027768e5fe6db6ad4f7ca8089ff49f40153378a4e0a27b9130e64fd1f2e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/multi-issuer-and-account-linkage.md",
+          "sha256": "287d0467eb837c0acfaa6ca3f5f3876b5ef4fda87f51c9786a77dba58be66ede",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/provider-discovery-and-key-management.md",
+          "sha256": "336ffdfaf37151f58937efa0db04b21d52cb11221418fb4e567aa3a6fc759af1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/refresh-rotation-and-revocation.md",
+          "sha256": "a3b70fbefcfccf029241079558fef94cbc058aa2c635f84c39b8e6802c68338d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/routing-and-test-oracles.md",
+          "sha256": "7844fe76b8f6ab58c7449a3fbd68edd98876c50e738276d22ce835a6277778fc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/scientific-evidence-and-limits.md",
+          "sha256": "e5f8f77144400f11c31d231f23f62fafa7c2cdee08f7fe52165817a7816946ee",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/sources-and-decisions.md",
+          "sha256": "03096fbabcaa30ab5f7335a0d0da2e80313f74d1329d96330c139e6e487e8b2b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/tokens-and-api-audiences.md",
+          "sha256": "2d3ef4ee9d02d7f643053472c8f61a581e1965be8c824f3f3c3dd665cacd4b6b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/identity-federation/references/trust-boundaries-and-threat-model.md",
+          "sha256": "9ea847402cc0ac31cfe5f8bca3648c803d7e7e964119c9a31c0f2ccf85016b9c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/SKILL.md",
+          "sha256": "39e3f401d918ae261aa19d0acf13baa7f5b2c813b795e3da56a41045b5815ca2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/agents/openai.yaml",
+          "sha256": "49f95c930c2663802ae6917e334268757ac4dc39aa12b426abf50748361691d3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/acceptance-contracts-and-reporting.md",
+          "sha256": "6b60c287b14ff9734b10bd0c24901c3c7c95cd25081514f58d7b49c4d4d91dd2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/content-model-and-taxonomy.md",
+          "sha256": "c26f11c2cd216a709cc3897f3a4a5931d4eb9e1b7e950eafb04ece1b6a4a43ef",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/discovery-and-evidence.md",
+          "sha256": "344c823cd67262085cb31fbaaea75ae2e00a5cc669c8b0b6764e51beeae11eb8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/experiments-and-metrics.md",
+          "sha256": "003d3b23275671bea0c0033861904844320830d93e5ceb20d2f7a66fab4bb5a5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/implementation-details.md",
+          "sha256": "edd5622dce228ca5feffe8b366abf72e33e0fe20dcb2c11e7bf2633697c7f44f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/labeling-and-information-scent.md",
+          "sha256": "e154fad803b367889dbedc3b1b87666a740ca561a18294c8a2aa6f9d43c44238",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/migration-and-url-governance.md",
+          "sha256": "ec102f33ccf1701ab079e9e4dc418338a484ce1cd93e677e55a40c8a6e698b84",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/navigation-and-context.md",
+          "sha256": "294a927c25da2bd0985edf8a06aef8dba742e093c6fce6cc6db0335acc6234d8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/routing-and-selection-oracles.md",
+          "sha256": "331316925fd9831f64680262d11d3b6c7fa834fa9a6ff5d3000ba65926a4cf11",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/scientific-evidence-and-limits.md",
+          "sha256": "34c19b45b414721ebdc3e9b688ae1ba45894ee938e15921f09bdc6b0753fb0f1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/search-and-findability.md",
+          "sha256": "eedab3d09725f63e2634aacb8ffcad2b762aaaffd5d31d3ad2be301ea81e0d3f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/sources-and-decisions.md",
+          "sha256": "6fc0cce210c83415af5de0c0b766748c23b6d14d081b1f447e6d960444849073",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/information-architecture/references/wayfinding-and-accessibility.md",
+          "sha256": "b552ce6246c75d9255ed6d672ce2336f24cf506dfe3c99f6a2366768db130f60",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/SKILL.md",
+          "sha256": "450f12056a3ba84d2984dabb61664ed9e3db49344926550def0f2b6deaa7ef73",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/agents/openai.yaml",
+          "sha256": "ce97f2180b037001e7cf854637ae5e6a2a5acf60c3a395e5de15036c81b1c7b8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/bidi-rtl-and-input.md",
+          "sha256": "b2b7265f6681b3c7bf832733357716836c2a5cc67c1ba42f4bff8779c0287da2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/date-time-and-time-zones.md",
+          "sha256": "ecb15336e4f71fabebb8ba0ded1ff89a2b16043f310dfce318476985e44f68b5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/implementation-details.md",
+          "sha256": "f7929b6f43e3efb7be4445ae1e856a084e597237b3e46ae137becc472e5f7637",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/integration-and-evidence.md",
+          "sha256": "f1d9715a54c6400ee7e794a29bae18a907d70e9bf92fcbd2a9ea1128b7900c93",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/locale-negotiation-bcp47.md",
+          "sha256": "b8cac8d46a337f19dbd0ec352cd72c8e8a33f35019e87db073ed283f40ae1a40",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/numeric-currency-unit-duration.md",
+          "sha256": "0f4e8af6e3b36aac585124899a0985e705c8857e028372ed6be45f172625e6ed",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/plural-messageformat-and-context.md",
+          "sha256": "23f1439c901b5429a6db8dde379faa5091ab47d91afcd2252f782116f308cb97",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/resource-contracts-and-extraction.md",
+          "sha256": "4de052ef6ff3ad9a9148868eaa240b4118b617dadf623f1945d3fb9810184cc1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/routing-and-test-oracles.md",
+          "sha256": "bfdb376d009dfc193bd6b6f9f0bed544ed5fd5ee82ad3fe09ea14e99095bfa5e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/scientific-evidence-and-limits.md",
+          "sha256": "1fac3bb41ff111f3116fab3e1db6d7cbe3f69f0a0990ce5b13ddaf7ae12767af",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/sort-search-segmentation.md",
+          "sha256": "f41cd50bc99a7367fae2d31c35d52721ba934cec522fdb563c30192604f3f470",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/sources-and-decisions.md",
+          "sha256": "04c611b09c78afe9c74df29e52980c6f6477e94b2f2fb22e60c74b64a57ab84d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/testing-matrix-and-oracles.md",
+          "sha256": "f2acc2a5ae6719d1890190580d3f36bc33fdc5dc4409f9a509623abe35f28d23",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/text-length-pseudolocalization-and-layout.md",
+          "sha256": "1d050e76697700bffafeb9230fe532040a8145a6be8dd83514224b26ac213d8b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/translation-workflow-and-security.md",
+          "sha256": "01da2fb29cc2526972029f5677724735d85e6cc612039164b315fbed0e9b57ac",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/internationalization/references/vue-integration.md",
+          "sha256": "56892da05fba9455d4c33cc771d3bf6e1793da90620210216e3e23e4e88c6661",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/observability-and-diagnostics/SKILL.md",
+          "sha256": "196dc48f5a13977f2ccebf5b2bf21ea6f842b088e8e9f757e8ee22654341f566",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/observability-and-diagnostics/agents/openai.yaml",
+          "sha256": "fdb89e79567f000e74d8d4d714a93af87d18e3db264a3a08c37df41d0ea79f28",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/observability-and-diagnostics/references/hypothesis-and-evidence.md",
+          "sha256": "78baa562d0631c66db394658c0e772b168495df0a9656702723e5c5641d276f6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/observability-and-diagnostics/references/signal-design.md",
+          "sha256": "a8b5327558d996b8fbf9232ab2476be2da26b9170cf18a2a633c67c9174d3d2b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/SKILL.md",
+          "sha256": "ff5ccae78315b5c52eb55e52e51daecb37113ef6f4d4676ec43807246896e486",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/agents/openai.yaml",
+          "sha256": "efcf46fd9163d5b55f574fcb2a8adb505717ecf88ea5165ed6f4ccfa09799055",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/benchmark-inference.md",
+          "sha256": "29ab4059971a6765755711806a6147bd1a05e379219a707724bc24d366613911",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/changes-and-comparisons.md",
+          "sha256": "007394ab92f32df7c82fa25bbf8bb304c261ca7ad7b5b3eb04600fb56b21c211",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/gc-diagnosis.md",
+          "sha256": "195b5e05d42cc17ff581d9807908e3e5353402a0148363d7d20577c5fdce21c2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/measurement-and-diagnosis.md",
+          "sha256": "c5a62cb8f3bbcfcd7dbb29cff9978f9d382ab78838bc8fe857332ee739a1b090",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/memory-and-work.md",
+          "sha256": "5f1dd350fe4af41630f0b1597c792c3b2af1639424aaa10c9578c28bf4507195",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/observation-boundaries.md",
+          "sha256": "068cb076029bacf5c04baa1011fc421b8cb02bdffedc200aceeb66328c3e6b66",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/performance-engineering/references/portable-sources.md",
+          "sha256": "7168585bc1b4a485d99b5cce658503c5ed4aeebc5d8c753e1bb48ee38b05911c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
+          "sha256": "eaecd31925b043b8a51c7544f87d9f8913dbb3ca9a6547fd9f4495cd18e34958",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/agents/openai.yaml",
+          "sha256": "9db53b60491567395cfb75f150829356af1e2ca2ba56366479785894c60916b8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/references/evaluation-cases.md",
+          "sha256": "5d8c38fd67aa2645312329b1b8634b4b5f6c121bce430fc5a6414f3dd8647603",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/references/permissions-and-isolation.md",
+          "sha256": "fe7138487cbe61edf732b763f451e2e5ebeeeccaf8932e770ee49afca245e66e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/references/protocol-negotiation.md",
+          "sha256": "3a9c0fdcd141a6cb71166db6ef054861a6299663de0e5d37dfe3e508fcec6879",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/plugin-protocol-engineering/references/versioning-and-faults.md",
+          "sha256": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/SKILL.md",
+          "sha256": "a1cea8b35f0c4ef6327c41d7a3980bbc2e1a9cd2df428ad34ad9091855e3e990",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/agents/openai.yaml",
+          "sha256": "e95795a175718df6b56bf5fde549dc74cfa318cfef40fd47ffe4e406425a48d7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/references/evaluation-and-trust.md",
+          "sha256": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/references/portable-sources.md",
+          "sha256": "319f0741ec3bc974479b8716f40da15cdc842ae9a1d21947f6b7d3fd0fff9244",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/SKILL.md",
+          "sha256": "c4374498321ae2ab3de21e1fe8b1d9c1752fc32bfb7057755643129240966cc7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/agents/openai.yaml",
+          "sha256": "25f00e1d15c003d451553cd9bd97f7585067aff0e15ff5ce1e709c8737b981bc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/evidence-and-reporting.md",
+          "sha256": "7a59762c568d93d7eeab266a3011d802ebf0dd96c785ecf49492aca3c94d649c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/framework-matrix.md",
+          "sha256": "1f522cca8874b36adefd3921c5492c8eab4215e5b273030c0a4b86b893f19ebb",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/fuzzing-parser-and-security.md",
+          "sha256": "804ed6f3c7a71b6719f3f846e308808c1c0467f39dc9ef83a45b024af14b532b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/generators-and-domain-partitions.md",
+          "sha256": "db78884f82f435d52468d4c1476ee2d8a135c7691e0340d057f606d2a893df93",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/implementation-details.md",
+          "sha256": "ccd96c7dfc966564f5d276a699849918ecd637ad662683216ce486413f9b0359",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/mutation-oracle-quality.md",
+          "sha256": "13779ea89be6f95f2ec43c2d97213a47ac55f5f05ed0d90be4d81565cbfafa8e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/property-oracles-and-metaprops.md",
+          "sha256": "6f3e0a4e0fa00a18d898102e6ce605ed5414db97a2107be9c8d3914eeb1587b8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/reproducibility-and-corpus.md",
+          "sha256": "9964e7d7c3f0ef6ffe2a537f7e08b47c09c08b348e6e7ef1823af9f4a2a3ae22",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/routing-and-test-oracles.md",
+          "sha256": "6aaa6c36460f18fb42789df5c9d0fa780f464746b5dafae2c7141374a67d80d8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/scientific-evidence-and-limits.md",
+          "sha256": "86a232227aeb8ddc3423fa23a4bc0dbaa659d39090692fe7e0f04a0db2b9ebc9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/shrinking-and-minimization.md",
+          "sha256": "d5cd7308d8641f2c27a23fd316f377c120bec304295707c40c6eff69cf49a8ca",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/sources-and-decisions.md",
+          "sha256": "dcc337b078edb12c9f465b3452963e99f93f1a9dbf50528ee9bb6d0c5d4fe584",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/property-based-testing/references/state-machine-testing.md",
+          "sha256": "cb3517faf84cadd8e5ef305f23f0240dd19cf77d2a9cf80ab587bb69aec75463",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
+          "sha256": "095fe5cf9cac008d1fdb95b3d6edbd7a2075141353ba4f10ac9f9ad6ec385879",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/agents/openai.yaml",
+          "sha256": "a284c53da7d7f26fea4670c2d5725eeb9f1f9b790fe949093705812fa6951e38",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/documentation-topology-and-diataxis.md",
+          "sha256": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/ec-consumer-boundaries.md",
+          "sha256": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/implementation-details.md",
+          "sha256": "c1a56adf3d4dc27ef98ce9f5910780e4eb5d84b7a26d4dc66f5df1cfa6047081",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/maintenance-and-change-triggers.md",
+          "sha256": "b9e4aeb8daf0c91a02058a2c9ee003c482437db94f77f83ef820114d16a62fe3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/readme-scope-and-content.md",
+          "sha256": "808c804407c11765788b79b973eb026fa7998be3f68a3634bf4d2b6e86fa43c2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/routing-and-oracles.md",
+          "sha256": "3ceb6ef81c44a87041132a92eced77dcea805452d22511b659c886ca7200f38e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/scientific-evidence-and-limits.md",
+          "sha256": "6e1e14f826fa0da31a3689fdbf907483e78be15f9345df82040789365a58527e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/sources-and-decisions.md",
+          "sha256": "9be659af822a906bde93f84fe7282c9d8e84b137d7bd92ffd5a206e204698005",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/readme-lifecycle-engineering/references/verification-and-acceptance.md",
+          "sha256": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/SKILL.md",
+          "sha256": "2a11ccdde1550cabe314918a135ad8c2140449b58ab1d73a417eb56ffb39d9aa",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/agents/openai.yaml",
+          "sha256": "7c05b297f31439fd24dd606d7096141ca39a3840c58edcb752d8280a62139782",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/references/deployment-and-recovery.md",
+          "sha256": "2b152ba8f22c553cf0ba8a4887f900787cc6c22b26d63d5b25d5266cf2bd95e1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/references/failure-controls.md",
+          "sha256": "5ba76483d998449412263773cf5a88325507110ebe319d395e68d6ad903b1cf7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/references/operational-signals.md",
+          "sha256": "5bdcac50859d3e93a98c9e942e11ea91e9878ced6f52e25344b5585ef79f99fa",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/references/portable-sources.md",
+          "sha256": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/references/resource-lifecycle.md",
+          "sha256": "aec134afdf83f5cbc813820e834cda721720d9e1e0e8064403d558f6b78f903e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/reliability-engineering/references/trust-preserving-recovery.md",
+          "sha256": "4bf45f7777b29633160a49d50573fd9c8e24e5ce24be70eb560471b2d40242ce",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/SKILL.md",
+          "sha256": "d027c1be9dbc5164168075427aa90a15a351202eb5021d2433ac0a016addf50a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/agents/openai.yaml",
+          "sha256": "61c496ae4d9bb073390dfb9375129eaf4e0a36fc43cfbfa2ba104806e42eb399",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/advanced-boundaries.md",
+          "sha256": "3c4e88ae866a1c304f1cf74752f9436bd0864d053787defeeb9fdc3916e41535",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/atomic-publication.md",
+          "sha256": "b6f38d5d5c4f02efa32fa43bf4f00de98d8f230040484796d3186a37a6e3ee15",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/concurrency-and-safety.md",
+          "sha256": "9c2ab9cec0d1794bd7a67221d223a1d6e2fb64da157985512495d68f36abd60c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/concurrent-primitives.md",
+          "sha256": "486f5604fbe29e7bbcdb12a0ab8985cac9e8f0cc5dcf6b27e0b5af07505a6fbd",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/design.md",
+          "sha256": "050b1a84770236986c40d81169155decbfd0a05f3077db964321763727e063c1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/examples.md",
+          "sha256": "79b684bd733de8f982193c620484dac444355d8df303a24400228874c9ebd5c7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/portable-sources.md",
+          "sha256": "38c5f6bd80984e10a98519a87c1eb9dfead8e26eee3300300be559b1580916c8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/service-engineering.md",
+          "sha256": "0d2c1300f079aa27cacbf06c33927a3870e9a602e4f2bcd8045e7a3647e42586",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/source-conflicts.md",
+          "sha256": "11cf8fc3d569ead02cc59d5f0c094964a1d04563ddecbe9e50ae567cb392a166",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/sources.md",
+          "sha256": "29a20f4bb00af9053c73f5bd4d7944d0161d6ed8acedaf9e89bdf0e3feca72d8",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/rust/references/validation-and-maintenance.md",
+          "sha256": "092ec4d268ad8516a95f5676fe49972cd9b7ed965e558dfe6aab59082d9d515c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-architecture/SKILL.md",
+          "sha256": "0c1ba63835245b8e1cb155375b49790474f271fae299cdaf8aca1f0317f82925",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-architecture/agents/openai.yaml",
+          "sha256": "2df6efff9a60518d3e99c5f9e2206afed6fabd189649315e4545a563172cf5d7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-architecture/references/architecture-decisions.md",
+          "sha256": "55c3b5b5c36bd7ae34550816883b818de789debd032d90404a18dd3e77d745aa",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-architecture/references/fitness-functions.md",
+          "sha256": "e0665214ea44bb94a565d8f85294e1dc383af87b4806e83e8f0c041ad9e43422",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-architecture/references/portable-sources.md",
+          "sha256": "b8dfa0354beb49d7a544535af1edf11c77199d0df1c299b6b6d31906d70b0650",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-delivery/SKILL.md",
+          "sha256": "c7b5a1b1dc347bf6fe7b6a0d4b40fdf5f64dedbbe75e58543fe670445645fb98",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-delivery/agents/openai.yaml",
+          "sha256": "64816ff241416f2f0880a87ebf6b9e5e93ba391e1a7ed1425fc0982d728fd078",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-delivery/references/build-inputs-and-trust.md",
+          "sha256": "e1a6e47a7f79101f2f940e70b7c0c81745531f2fb93d00fb0ca9d76593eff7ad",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-delivery/references/release-and-state.md",
+          "sha256": "39eedb1662cf3c6b53cd19f8ac713a89c58c1911808717420d87a192fc83e99d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-design/SKILL.md",
+          "sha256": "576df4157d5f4d72065c05cd96462e373e9406f3c3894bd79c60ca41fe3b9eff",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-design/agents/openai.yaml",
+          "sha256": "01fbc2fca737f8ca307453866bd8ad07ef3b1a18cfdfe9d1d0102e159c460eb9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-design/references/algorithm-decisions.md",
+          "sha256": "f98d4fe6d7754315c33ded2a678bd66295f797320eb17ffff798332c7ec3eade",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-design/references/design-decisions.md",
+          "sha256": "e52de77b16c2da4706adb72c07ac2ecbdfca6be396159c9b99c591c86a209046",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-design/references/refactoring-evidence.md",
+          "sha256": "88a789f669b9f7a34b2fc74d9b20556cdbb53604147fa78c6ab2883b44e44b7d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-evolution/SKILL.md",
+          "sha256": "baef344475e0818541b9e5a14aa05bd61944caa17f6279aacbc993d577cf0436",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-evolution/agents/openai.yaml",
+          "sha256": "f8b80a5637ea6e49cd798d3b62798a14afb44762858a4036b038958ae681d541",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-evolution/references/state-migration.md",
+          "sha256": "77fd0706b58a32bf45c8a6c87783388d1f2ed74883afaf3e534fc6416c984dff",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-evolution/references/transition-decisions.md",
+          "sha256": "9f9abae4f80618b0f98637b42cf175981d4179da9d614fe512dc2b5a6be3d8f0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/SKILL.md",
+          "sha256": "047c71403f89a029b1ec797536169b90a3cd82e3d3c943f46dc7c3dc513cf3ba",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/agents/openai.yaml",
+          "sha256": "ad921163723ad852df45b7c88b38e7a0d7fa2604f7937f82ebe314a42e6adf61",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/references/boundary-evidence.md",
+          "sha256": "32a79b7001cfb8b0a7b76d7c89afe55fb8468ebcdee24f8426e199f56f30e15c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/references/case-design.md",
+          "sha256": "d13fe4d628689203be043b568eab997b16ecf1a387e3c779775bd8737ae3eb4b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/references/coverage-guided-fuzzing.md",
+          "sha256": "eed081e17416f75166282e1ddff828a86cc2c71e7343823e047e7b916b460a8a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/references/suite-quality.md",
+          "sha256": "1f56d2ca697d36c1039ac2b03e404e319bf77ccb98005d038b313f16607e5c39",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/software-testing/references/visual-regression.md",
+          "sha256": "c874d4c78c3be1bcaa2791acdf4a2ff57c9537e2dca1d3ee333cd91daf362976",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/technical-documentation/SKILL.md",
+          "sha256": "60c83c5c34472fcfb0c3c6ede11253ecb14f0eb2e1ea550de3fede94db68ccf7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/technical-documentation/agents/openai.yaml",
+          "sha256": "93b82edabca8ef5db04aabbac2796c8afd3ade35b1021a53720ca6f716e674c5",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/technical-documentation/references/mermaid-and-assets.md",
+          "sha256": "3f2e8e1af4c204322555601f3de46113ebe4b0efecd1b4dc227c2393b3be60f2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/technical-documentation/references/visual-quality.md",
+          "sha256": "a190c452ba27ac2749a5845b7333ee94486ddbf0a74e42ae8de53a1d66ee72e9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/SKILL.md",
+          "sha256": "9b308771ab92daecc800e67b4f260e96182d62e6ec8675d74568c485e6bcaf20",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/agents/openai.yaml",
+          "sha256": "34332f59e9be0409aa25d26ce68561c4763d1de99ffa804a92cd2f0d61a1da06",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/references/evaluation-cases.md",
+          "sha256": "ee154345d3d0c34658c1a7e7ebc36b1f5aa4b5a8349654dcdc118f6f6a29ddbc",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/references/loss-aware-transformations.md",
+          "sha256": "fb4b14a18194d6d6f9a7a592f095bc22e8f3c03cbb080c5605fa73b01d282647",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/references/token-measurement.md",
+          "sha256": "05f7fb7d405b84e2680518031486b8a843b0891f47fd11464105b8f410ee3303",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/tool-output-engineering/references/tool-parsers-and-fallbacks.md",
+          "sha256": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/SKILL.md",
+          "sha256": "82186b54c4c1a113f1ef53728a658199c4551001d41a2986fc6938502692418f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/agents/openai.yaml",
+          "sha256": "2d67746413ca0f2e85a42aaa47d9b2bd4bfff51ed3f22a0e765bd50397d5b7ee",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/generics-and-public-api-design.md",
+          "sha256": "e8a0f792a2c58eaaa54f8b83b5483935ee224aac3f2b6fb8a714c2a1881add78",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/implementation-details.md",
+          "sha256": "2e4d731cf1a367569699ab0c11577f516046abc6425c5329c36bdfecd2ce79b4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/migration-and-version-gates.md",
+          "sha256": "82a50bbf084e01299f8a73e0c55d6d0c29c0a13aaecb8399409925ff3614ba3e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/module-resolution-and-runtime.md",
+          "sha256": "25fbcc5fe436766480f339c6f4bc78c1bc86b2b8c39812ddb83a36070ee1f001",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "4e1298cdbcca0a8ab0f44d96a55138c3d53c8eb728609417550559bbe580a717",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/runtime-interop-and-safety.md",
+          "sha256": "afc35e92f8ebb560d42782ef8c2d5eacc8773839e844cfe50ea4e1f04467b631",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/sources-and-decisions.md",
+          "sha256": "06f4a80a957232632efa8c282d447cd2c476cf88f70affaa5abd2cf0de81ca62",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/strictness-control-flow-and-boundaries.md",
+          "sha256": "8cdb15a795e4b1245dd4065c30586f31817a60f576e7c8d244d790ec774a3aee",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/tsconfig-build-and-declarations.md",
+          "sha256": "0ee56eaf98a01e51e5ee9d211cc7224459799834b6bfb01bfce426931e38a018",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/typescript-engineering/references/verification-and-diagnostic-oracles.md",
+          "sha256": "d6a72f0b0271fcbc9b4d3c43e5a64181bcd3ba418d7751408308fe01b3754b86",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/SKILL.md",
+          "sha256": "4a8a4602db93e0380421e194c865d055795334052c15d7924085edc18c4825f2",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/agents/openai.yaml",
+          "sha256": "8d535159dadc2001294b756550b51cc1dc8035189df4ab83edaa0bb8886bd332",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/composables-lifecycle-and-ssr.md",
+          "sha256": "c0a6e786ed4f599a73d4b784577b9ec28407e7f3defae5c8164b9503c681d262",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/implementation-details.md",
+          "sha256": "0823a4c2c17f6c5ee69b0ddc509fef841e28083e8e5a4bd160f7f167f0623585",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/reactivity-and-watchers.md",
+          "sha256": "740115dbec0dc2adca8bb5dd8039dc5f3c2a30684c72b3b38782617b8dfde49e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/rendering-performance-and-testing.md",
+          "sha256": "ade39e3d45ac9dae82ab1ed6bd8e7fcd6bad2a5dee5a623501c82afc851a270b",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/routing-and-selection-oracles.md",
+          "sha256": "b91e92853b3e46fc6cd2d82f7947d480e4d1d911d96757aff2b44198b2a2ddcd",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/security-accessibility-and-product-boundaries.md",
+          "sha256": "3541113689cd8dc37f5bd7954e5a2912ab4259dd1a2f35a4a2888d4e0b1e3f21",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/sfc-and-typed-component-contracts.md",
+          "sha256": "0cd9fb9f21c5fa916a6a29a89784f69757dc71ee7962a230296426ee3ece94be",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/vue3-engineering/references/sources-and-decisions.md",
+          "sha256": "ff98f1136e96c683f7b249c941c5d550dde128e47a68e9b9c58e9649121024bd",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/SKILL.md",
+          "sha256": "46f66fa6135a4389cd0508bdc13648d7ce881d0d53bb4c73b0c7faba414a5d37",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/agents/openai.yaml",
+          "sha256": "c1d6b22e8be8a8e294da4e92cdb3da7ca43b55b7137c1621d0a78da99fc7564e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/composite-widgets-and-structured-alternatives.md",
+          "sha256": "17c09130c6e0f05ec72713438de5ccb5e2d25fc85de95d9d157d03089d484e4d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/contrast-reflow-motion-pointer.md",
+          "sha256": "203fa799eff2ce946b3ea7d8dce13b19b255695360d36791145195059fb8a61f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/evaluation-matrix.md",
+          "sha256": "646beb450e792257fc92c8aaad3f7314cdd47a12b062c6aff332ec1863f3fa87",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/forms-errors-and-feedback.md",
+          "sha256": "0b6ca754f766653612024ab7fd53fc3118f78eb486794faf940a780825900420",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/implementation-details.md",
+          "sha256": "afe0da0514e735587a1ea33d2c3b4bcd55d617f6e3a59e6929ebdaa07ef7c2ad",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/keyboard-focus-and-dialogs.md",
+          "sha256": "d637de969e228bbd73587386a4367a18ce1e4dd1a5e665ca0bc9dbdd679a75d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/routing-and-selection-oracles.md",
+          "sha256": "60b9729df605ceb826151edc1c03dee57ea8036d50f735a233849e01ac1eddb1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/scientific-evidence-and-limits.md",
+          "sha256": "ced4bb11488735eb876298472d45b19088bac8a013a6875ddde78ef007da8d7f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/semantics-and-names.md",
+          "sha256": "7759a0d13876c130eeb4fb6aa9a05e135ceadaad1cc69a27ba10185ccba9e352",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/sources-and-decisions.md",
+          "sha256": "a48d7b8beb935cc63389532e4560e9e88684d8564a438b96cb0caca04b40bcf7",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/standards-and-scope.md",
+          "sha256": "5b8c5a6ec67dd537f46f364a70dc6814385fff239a1ab0323fbd073c0c6977a4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-accessibility/references/testing-oracles-and-assistive-technology.md",
+          "sha256": "a36a0c65a95bed490b3a8e90f7baf4178b08fdc7cd81d16fcd4df4534020488a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/SKILL.md",
+          "sha256": "9bd902038f52ceecb002d67c46fdaf9b4815848cd9cd85c6b7ccb44197e187c4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/agents/openai.yaml",
+          "sha256": "4d80e723f37d08d61cb4ee0700d3b8c81c2d1e1bb0dbbbccbf4a5f0b369615d9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/backpressure-bounded-queues-and-flow-control.md",
+          "sha256": "9f8393914fe8c852af693da310eb1d77ec1e17641e70bee0731bc28345473ab1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/failure-and-recovery-matrix.md",
+          "sha256": "027b6ed66c4294ef2994ee92d33de7823980e23e4f8cbcc3ba7df3db50fb7e5c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/implementation-details.md",
+          "sha256": "74bb80ec7949b04cd8142ed93b337179de0bd33efde1dc08dd72a47a10a4168c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/integration-contract-and-evidence.md",
+          "sha256": "6405d6ee75ca7688420630dc1f297b24f663f56518f4c8a2477cdf53d96c0b4e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/observability-and-reliability.md",
+          "sha256": "7595a140e53f1889602ea64ec6915fa61977817c2dceb5282e54bb08f3665c7f",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/reconnect-retry-and-offline.md",
+          "sha256": "8d115746e4ffa5f357000ef43851d9a65a12a7d180857575644e94e925ab3dd6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/routing-and-test-oracles.md",
+          "sha256": "9f5dcca75acc27c26e1ae029a366ab69d9917661c8202fd8ed83e1ed15bf94ba",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/scientific-evidence-and-limits.md",
+          "sha256": "e754f94bdfe8c820660469b890e5e4a5a3a85a1b380886ad390c093cad0bf603",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/security-origin-auth-and-data-isolation.md",
+          "sha256": "544877a7a0ced7115cf08afe59a9ec22f6beae86e6562e71fe0b82e014f4a994",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/sequencing-deduplication-and-snapshots.md",
+          "sha256": "aee29d6a68a3fb19926bc7c8d48219f5b07a7497ff3f7a8770e0ce16e706344a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/sources-and-decisions.md",
+          "sha256": "32a37761437c4a1a5e51c05865333471e53c8522f5bb84160a87a58b9a19f00a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/sse-event-stream-format-and-resume.md",
+          "sha256": "0d3cd410646ba7193d3c5cbec96438c78fe9f70fb5d343849ddf4a61749a5099",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/testing-transport-and-browser-matrix.md",
+          "sha256": "ec241037b830af4fb36a90e9deda4c9fa6e0ec25efdac2a16be4b0fe09648534",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/transport-choice-and-protocols.md",
+          "sha256": "b3b398bb025178d411c9d0aa3df70bb61eba4adbebe713514e8ae87b11c6bb66",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/vue-lifecycle-and-client-architecture.md",
+          "sha256": "0e5671aa280eace19ad45588cfc26b0b8e814fb2d7a28aec3adaa9c78bd6dfc1",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/web-realtime-streaming/references/websocket-lifecycle-and-message-contracts.md",
+          "sha256": "c771e5b949e900e1ccd0180c437e041b18e6fbb96343810b8b18cab1df5d0a92",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
+          "sha256": "97b88759f532f60e2e6e79415810e2a761e7a4a1eb8fcbedc4aae1df22a2ba8d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/agents/openai.yaml",
+          "sha256": "7f2e47dce012aeae680eafaa5018d4e674df0dab4a6e9c36e6677f4f5d08e38a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/references/evaluation-cases.md",
+          "sha256": "c7bc4fe2fac5a48ce929112d1cf7ecb0e61b7825399880ec3049643805b9c832",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/references/file-operations.md",
+          "sha256": "8a74d3e3725a3c1bd64a1f44cff0ec769738fe28e9f67fa0dcaea1948ed6d32c",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/references/git-worktrees-and-conflicts.md",
+          "sha256": "cd85ac8a420e2ed6265d2c2087bb2cb368ea83869b6c526afd6f9381867322f0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/workspace-integrity-engineering/references/watcher-and-recovery.md",
+          "sha256": "046382bbb97faa08006f341eedcce2720c499a83b05bce71566d948710693867",
+          "role": "other"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "77932c51f512e622cefae52223567ca69ccaddfa562c4f2e555f23a5c11e6f66",
+          "role": "other"
+        },
+        {
+          "path": "config/governance/sources/SKILLS-DESIGN-v4.0.0.zip",
+          "sha256": "c974706e84420c72807931b965e536057efde376d66364ff84777e4e275ca3ad",
+          "role": "other"
+        },
+        {
+          "path": "config/governance/sources/skills-inputs.zip",
+          "sha256": "18f24bc03a469b2dd731510add367e37f704e237deebde67633d0a300a792aa7",
+          "role": "other"
+        },
+        {
+          "path": "docs/architecture/application-layout.md",
+          "sha256": "932d4fcc2d01810b7ea907c58ff4e28d50b8c671fa477e54ce15c4399020df67",
+          "role": "other"
+        },
+        {
+          "path": "docs/architecture/application-overview.md",
+          "sha256": "b808dc4c8ef933d736b51ccf27ff6f1d00d7c97004d8e8e19653f03cd161804d",
+          "role": "other"
+        },
+        {
+          "path": "docs/architecture/context.md",
+          "sha256": "1ae017e4c429f5a090ff98cce99ce2fb1e166aee536848fb8765106b6466d9d0",
+          "role": "other"
+        },
+        {
+          "path": "docs/architecture/contracts.md",
+          "sha256": "88f354c9d8f7e88861a5b3df82134eeef4e788486d3e6c0ca2fb6e5af5ce7305",
+          "role": "other"
+        },
+        {
+          "path": "docs/decisions/ADR-001-skills-sdd-adoption.md",
+          "sha256": "3251232d941b6595a3519985ec08ca40075b2ec230e965c317422b69a7e8823a",
+          "role": "other"
+        },
+        {
+          "path": "docs/decisions/ADR-002-application-layout.md",
+          "sha256": "6f86163b5fc7a4b546acb568c60e9cd97958a2041ba769a3b426123c490149ad",
+          "role": "other"
+        },
+        {
+          "path": "docs/decisions/ADR-003-public-journey-contract.md",
+          "sha256": "e4df169174c21dde06db139069e43186d8d09b04281ac49c4256c9db7527dd0a",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/agent.md",
+          "sha256": "5b91727c57894e9f3d0d5335dd966e9f21c6097d96d4d3353eec69893dd65595",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents.md",
+          "sha256": "7f863e73fe285c181153da15c5b8eadd55a0c78449997ba5cf056ec491e4d588",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/contributing.md",
+          "sha256": "9a17129bf6c84b173944d3e2a0b7a489aa4b0be39879fc9525d892823b561f79",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/first-functional-journey.md",
+          "sha256": "05a6133ca73df8628aa46dbb67312a4783b21c2290861ac7df178636639bb86e",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/frontend-design-skills.md",
+          "sha256": "640e868539f672bc15d0ddb4a81c370317487d9017a8b13d6aab5e94abfc5046",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/frontend.md",
+          "sha256": "f4d4c4a6c6212b6b732cffce3117082cc7899fe6cf5b8465cfa0907f4ee7fbc3",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/licensing.md",
+          "sha256": "addbaf0da9757c6330895b3e1d80b9f21c847787554734d52d5badb39bb62531",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/orchestration.md",
+          "sha256": "624bf8576f1cb7312c0acf5771545c067814195455b261144776c015181ff9b8",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/publication.md",
+          "sha256": "e9e633caa09458afce266183bb3e419d6cf1b837b5b7d501a16f354f15fff04c",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/scripts-inventory.md",
+          "sha256": "b46e4111a5e3114cec957db727eab019bb60560b11749f9c8958f34cb5997105",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/skill-installation.md",
+          "sha256": "a2f2e501721c1cf77397ecc65931872ce0e61db7c70e4e7ab5706d00a349f46c",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/skill-policy-history.md",
+          "sha256": "ebf6d233a339583002cb975dae60e99aa7123f533cc57ff6ff21158e2ee84d78",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/skills-analysis.md",
+          "sha256": "41ec5e25b63f6cef0cff0783aff912f72153d95483f351d26aef4aa20e46b234",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/testing.md",
+          "sha256": "d9a58475d72b83049f6f044d6aa1bf07498d5fcbebaafc4136cdb5663e4ea485",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/verification-tools.md",
+          "sha256": "b2b98fd27ae8fc6d9469b69321f2ffc2a743ff620e8b93e68614075c5ab1ff1b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/README.md",
+          "sha256": "c8baa6544d1e73897497883ead26585f0f330db1a0a29f8cd5d6c951a562959d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/agent-runtime-engineering.md",
+          "sha256": "4e5a5c273dd01973ed5bd6124d031f63031695604171ef4b2370f918bc119879",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ai-engineering.md",
+          "sha256": "fa6f40381a813637b5bb62b07623d46e1509259e1eb7ed73d7879860d797e693",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/api-testing.md",
+          "sha256": "72a3e9cc10c882ba936175a8a4e0a518c4873a598d0e8548097552433e0584de",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/application-security.md",
+          "sha256": "b56bacd53b8e7153b70578f1422a961d76d9f936092c0e95532ce1ba5421d796",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/autonomous-verification-engineering.md",
+          "sha256": "def85f5b603eeac41b071c740d0d3d3a95497b2a9da9efd42985058d3e57bd0a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-agent-runtime.md",
+          "sha256": "10332e0d13f15001c9dfa05309c010694e5cb299a95d8439ed97212c44437861",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-artifacts-and-retention.md",
+          "sha256": "9d81b4aa8072f3415cdad7a9aa93b788fd9ec6a5e6de933b07d5d34b43b82044",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-build-cache.md",
+          "sha256": "e8bb04271154762771cc709e16173c1bcc4c42d5c4b448c72458b871fb292f18",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-execution-runtime.md",
+          "sha256": "fe1938e666eecd4776e3972eec7a4abe90e79e0c12f7d8fa59299a81c883c820",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-logs-and-test-results.md",
+          "sha256": "72e8d2d0fbf6f9b8b4223283d74b91a9423b742773e1ab850a1a924acd066c57",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-pipeline-graph.md",
+          "sha256": "4b3cb9b2c15d521474d7cb80c27f4ae49b1452aec6c298a6210683641db80c17",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-release-and-deployment.md",
+          "sha256": "f87de4f4b7e98af5a633f7ec98dc02d586d4774ac50dd416b5b9c8bfce6913fb",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-scheduler.md",
+          "sha256": "86f01737f9e467a0e5567fca2bb9440698c4002b1dcdacaa50267357e0160812",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cicd-vcs-event-processing.md",
+          "sha256": "acc4d11ff866092b6e52d161ae0f455f488e7fdaf3509f52e0445a60091b936e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/cli-engineering.md",
+          "sha256": "e691c061cd12d45a326cf2e3c9f1a7602b3e07c0a01372d3be28539aa74cf9e8",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/commit-governance.md",
+          "sha256": "e37e3635a479296df3f179ad0646aab1f1a0f267406c7c85f20bc637fb2b43e1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/css-layout-engineering.md",
+          "sha256": "49556c536850a94261da562df81be600decd569b79f0a0c485dc84f9fefd1cae",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/database-engineering.md",
+          "sha256": "8b4281be262754946b7f52859cb055508b1687b7650d858b286601afb75f1077",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/design-review.md",
+          "sha256": "505c7559f2c1d58335fcc85fd18e1ad1421b149ea7e9dc8b0de24677d5986ec3",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/design-system.md",
+          "sha256": "f20d77d96b8a6e00253920227833823f5519e3c698d113711ef285b2460dd76b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/distributed-systems.md",
+          "sha256": "fc58660b6b3a5b6e4eef7c0fd75a31bd2abfc7d30efaaac0920d16fec7622c7d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/domain-modeling.md",
+          "sha256": "bc06ad44bf5af63152d35143017cdf6186ebe474c8c91f1e7007a31802872887",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-agent-control-protocol.md",
+          "sha256": "9fde8f9cb6b4c86163c7916283ee6a12972e75eea52598b6e11004b9091e1f9e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-agent-pool-console.md",
+          "sha256": "baccd3492874557fe64602f1e56905aadc4bfa1304130220e550703dff6a1256",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-configuration-publication.md",
+          "sha256": "44be368dedb54bc5e19a05d5a08319ce609cf980af3f0d9f13b86a4747203337",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-declarative-resource-schemas.md",
+          "sha256": "0ac1536474ac99c2babeb6a6c050468526a769a0174aaee1d83f6f0467c51d28",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-effective-permissions.md",
+          "sha256": "faaa4fe15f53c24bd770dbd41d2976150ad1c12c7cac80752d1a22aa5d3d5f49",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-environments-and-approvals.md",
+          "sha256": "2815967e43424e259170505dee7074e4509d8792409b2cb7cad8869be98c4a83",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-integrations-and-webhooks.md",
+          "sha256": "4708c0be28bb1ab7f2aa4930a8958a7936fdd25d6f309f5343dee3df420a2ec5",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-operations-and-administration-console.md",
+          "sha256": "5bf2193760c288c726f1a6cae4e5e0c60ff9d255af48a2b20718b5dbe5f2c0fe",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-people-and-access-administration.md",
+          "sha256": "72cba42978bd02b6c46ea9e8a2953a3c9fe4aef034749f3c2e8d6e4effff7087",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-pipeline-authoring-workspace.md",
+          "sha256": "3a7921507985a0b884719a8715f39eeacdc8dd02dca6f081b216df3a9b95aa13",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-plugin-isolation-and-lifecycle.md",
+          "sha256": "afd7a11f3a693ff8c57cddd291c03a69118a1464d4692a565f46624bd5c012a6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-plugin-manifests-and-compatibility.md",
+          "sha256": "0aee235a522e29df626def1299853fcd8b503c7ee1ab3e459fb6d9e502a8dba9",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-product-contract-test-harness.md",
+          "sha256": "eeccd6162f10715f1839efac14ee1fbc86921b4bda22ead51567f0714dc64fea",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-project-hierarchy-management.md",
+          "sha256": "779bb3c3cb61de59b0041493437281a4933abca26ab3c3827d74c4271365c307",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-run-execution-operations.md",
+          "sha256": "cbe3aba10180047a94f26307f2b584b01cb21c855ab480e1c2f3eacadf31fd03",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/ec-semantic-configuration-projections.md",
+          "sha256": "1634ff42856469c70c13e19b48b8fdb6030cf8b031ee9c08e42f30e93275da4a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/engineering-productivity.md",
+          "sha256": "996a6096ff300d30a4edf4a3df68f02edc69147bbd448b7358ea82ebd1aef814",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-form-engineering.md",
+          "sha256": "b13eaf5376e29396c6b3d9cb2aa0942d65db68a911756c2e5f903ebde9a55c81",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-routing.md",
+          "sha256": "9b57d1a4c8bf14d0299b57abcdeb15805e846e50a88d323bd9eaaeb2b879f6d2",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-state-and-cache.md",
+          "sha256": "5c3034e75638f3c7b8008a9c1e665cc19b24c300e1e0c63a2effbdc828ec3fd1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/frontend-testing.md",
+          "sha256": "99e89fe792da4666e607c5c0ff7056feab0e6384e365296bc62cb5d39d9c69e0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/http-api-contracts.md",
+          "sha256": "3013f002c72818810b2ddd271d0b1a4bd33bc244a530c06b901f8c52f7ffa3a4",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/identity-federation.md",
+          "sha256": "f89bb02dbf2cfcffe17b55a679b5c532b8bad9a9087333cacf4c876f6d1ed0b0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/information-architecture.md",
+          "sha256": "14023f2a533ff4acc1c7feb8452395e67f722ba88a1c5d2b7d918af31a5af69c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/internationalization.md",
+          "sha256": "76981b9dc96d12f0395cb0b8e63966356e8c36334dfac37ef418ab13d298f814",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/observability-and-diagnostics.md",
+          "sha256": "2031002c67991aa56e5ce8565fad8efcb0694cf7cd5b9842b46dd9555f9b2548",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/performance-engineering.md",
+          "sha256": "a3c1a1ce37400d5867af628cec92bb6d3b2eeffb25db2e08e1a797823952af86",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/plugin-protocol-engineering.md",
+          "sha256": "3dbdcdd146343cd52542248aa917735329c177a8479c916520b46a31d398ad4a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/prompt.md",
+          "sha256": "df7d7b6b907b6cf1e0c2f8305dd90f843258439a74b28114e674ff6e832276f3",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/property-based-testing.md",
+          "sha256": "96210ece46b87d3b0ca3183925e14f45be0250721063289874276b29e80667c1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/readme-lifecycle-engineering.md",
+          "sha256": "1f8ca5a794947326abb0deee2ad87f98e1322f0249f365d62e95b63ecbff93f0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/reliability-engineering.md",
+          "sha256": "265fb311bec040374a069275f1b405f0c76e8c234f79a5beab15893189453762",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/rust.md",
+          "sha256": "6cba451374034102eaf0fbe05526b38c85e025aeaae60c000f2ef15ec90cd2df",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-architecture.md",
+          "sha256": "5aa259bd30ac635fdcb680fa1fcd12ba80e49c5bb60811e265476e42654b93b1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-delivery.md",
+          "sha256": "e0128a73d09fdc83708c7757cf1976ce95d606b89febfadf80b5a9431a6ebe17",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-design.md",
+          "sha256": "572f3929b9630fa5af1416dfced79965aba524cb0f2a3cc8550eb872c7c06764",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-evolution.md",
+          "sha256": "b1de95f039426c861316637a9b7807317a3f72b739e9d223a69d164e30aafd2f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/software-testing.md",
+          "sha256": "12806b253209e977d224f42bacc2701c48428ec72cf1eae5089e211df958444e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/technical-documentation.md",
+          "sha256": "d759cea51b7ef31a33b6de99b142761e869482523760a6fd6acb3cff8469f47e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/tool-output-engineering.md",
+          "sha256": "1572d4815e84baebcb55c9b0ab7077d73586d3cccae6cb2aba00202b8abaacfa",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/typescript-engineering.md",
+          "sha256": "5e8ca3919e5ce7196ff8f899cba8b43caff3d0d2aef3def0c4ffc350513871e0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/vue3-engineering.md",
+          "sha256": "14f6b10a3575587d70161220b01c45739e4657af312cb8359763c3e3de774df1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/web-accessibility.md",
+          "sha256": "85121c514266261095a2fd90188b4750a653346d8e187339921ffb9199c79d90",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/web-realtime-streaming.md",
+          "sha256": "4980db76c3cba5b3ba26b0487948342f43c2c049d2395b5c63065a047ab84ae2",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/workspace-integrity-engineering.md",
+          "sha256": "fc7b67662f734200f686dde80b36628fbfdc2722acbe908904a82318903e8eb7",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "3292fa8b46e7871066211875a0f6e2f516b1fca6c597769b5940a0b50e4b4413",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/install_skills.py",
+          "sha256": "0594c4cab0c324c9320a3dde228dcfe174e05aca4434fc572c378c8d81199603",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "aad5c4e5bc7631870d54a9e2c2e45648d9d5de2692300422942038ccc8ff5cab",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/validate.py",
+          "sha256": "b5b89f975ae8f3347715a5e15f2db3ed7f81ba9ae46c843d340e740822fa18f2",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-14/run-7768777d40db-skills-final.exit.log",
+          "sha256": "2824ea7bf1733c947bf35809e326faf08156eb67fc1421d9bbb1cf137528d603",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-14/run-7768777d40db-skills-final.auditor.stdout.log",
+          "sha256": "9cbc5816095c2c03755ccb57f08762a07b8c0c1706d6305558f8aa8bf4dafe70",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-TEMPLATE",
+      "kind": "test",
+      "command_or_method": "Validador SDD final: evidence_errors, trace_errors, input_errors e workflow_errors sobre sdd/templates; markdown_errors sobre sdd.",
+      "observed_result": "Nenhum erro de schema/rastreabilidade/workflow ou link SDD. Exemplo continua UNVERIFIED, sem observações ou etapas fictícias.",
+      "artifact": ".local/logs/2026-11-14/governance-corrections-final-template.log",
+      "sha256": "6bcee1fbb6469be02d31833db03d8cab2b97dc3b11ad280280674ce94056ea7f",
+      "inputs": [
+        {
+          "path": "sdd/templates/README.md",
+          "sha256": "0e86f5ef354627445430a476d69c077b15b573c94ec8cfc0ef707fdb27ed9924",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/checklist.md",
+          "sha256": "62dcff26c6b6a0711edcaa2cdd52b49e076b1ddfebacb26f53139621f60ef213",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/converge.md",
+          "sha256": "f5a4930bbbf33f34d0d1879424f811c9d5790c42466effcaa49220416b2cf222",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/evidence.json",
+          "sha256": "3459621381b120db825ae11ad85dad117fda041f8f183e605dc42949208b55e9",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/plan.md",
+          "sha256": "70373edbfa3b87ca1f1f315ee07a1a4b5bc765cc4c741d3090f9303881d75845",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/spec.md",
+          "sha256": "133c8c5bc2aaa9c9089bd705f769f0e262debd16b40421744d9a901b51e52053",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/tasks.md",
+          "sha256": "22138a5998925e5894db79a7161a8ad716fd2dc4f2ffece08527a3f244419232",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/traceability.json",
+          "sha256": "ac12d909c7fd64c8570964fee113cfd1745d8a3f4d0be37ede470358c4b26182",
+          "role": "other"
+        },
+        {
+          "path": "sdd/templates/workflow.json",
+          "sha256": "847c23aace574e172797b086f38899c96e8e7a14760d3e616ccc161b762fde08",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "sdd/README.md",
+          "sha256": "edac9e54a09ae0c61d1dc76d2e077d7785cd1de34de60ea681c8c22193304dbc",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/README.md",
+          "sha256": "8b8e6bf45f0a916b66e1ffca1516d239277f2a1973c41da7cefcb6def22ff7e7",
+          "role": "other"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Parecer por critério não substitui runner/gate atual; recibo final é passado fora do workflow para evitar ciclo de hashes.",
+    "Aceite desta tarefa não aprova features relacionadas, nem renova observações históricas.",
+    "Revisão e fixtures não comprovam eficácia comportamental de LLM, desempenho de equipe ou integração protegida de host/CI/chat/Git.",
+    "Gate verifica escopo explícito e vínculos, não completude semântica ou autenticidade contra escritor do checkout; revisão independente permanece necessária.",
+    "Logs seguem retenção de duas datas; reaceite após expiração exige novas observações."
+  ]
+}

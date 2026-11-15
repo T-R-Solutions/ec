@@ -78,6 +78,14 @@ segue os guias centrais consumer-integration/application; a
 [adequação de 09/11](docs/validation/toolbox-alignment-20261109/report.md) registra
 ambiente, proveniência de bases e Checks Bundle, sem execução da suíte.
 
+## Agentes de desenvolvimento
+
+A configuração em `.codex/config.toml` e os treze perfis em `.codex/agents/`
+seguem o [procedimento dos agentes](docs/development/codex-agents.md). Para adotar
+essa organização em outra aplicação, consulte o
+[guia de replicação](docs/development/codex-agents-replication.md), com arquivos,
+adaptações e verificações. Esses assistentes são distintos do Ec Agent do produto.
+
 ## Explore o repositório
 
 | Entrada | Conteúdo |

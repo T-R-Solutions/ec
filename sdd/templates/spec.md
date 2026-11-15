@@ -21,3 +21,8 @@ conforme a mudança. Metas devem identificar unidades, carga e fonte da exigênc
 ## Questões abertas
 
 Hipóteses e ambiguidades materiais, distintas dos requisitos aprovados.
+
+## Escopo e relações
+
+Declare objetivo, contratos/consumidores, limites e features/ACs relacionados.
+Tarefa delimitada preserva critérios e pendências agregados, com revisão do recorte.

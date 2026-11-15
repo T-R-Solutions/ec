@@ -1,0 +1,38 @@
+[
+  {
+    "acceptance": "AC-01",
+    "requirement": "REQ-01",
+    "decision": "D-01",
+    "risk": "R-01",
+    "tasks": [
+      "T001",
+      "T004"
+    ],
+    "implementation": "scripts/config/automation.json",
+    "oracle": "scripts/tests/test_security_evidence.py"
+  },
+  {
+    "acceptance": "AC-02",
+    "requirement": "REQ-02",
+    "decision": "D-02",
+    "risk": "R-02",
+    "tasks": [
+      "T002",
+      "T004"
+    ],
+    "implementation": "application/server/backend/crates/ec-server-app/src/service/http.rs",
+    "oracle": "scripts/config/automation.json"
+  },
+  {
+    "acceptance": "AC-03",
+    "requirement": "REQ-03",
+    "decision": "D-03",
+    "risk": "R-03",
+    "tasks": [
+      "T003",
+      "T004"
+    ],
+    "implementation": "sdd/tasks/log-remediation-20261115/diagnostic-decisions.md",
+    "oracle": "sdd/features/scripts-verification/spec.md"
+  }
+]

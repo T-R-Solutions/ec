@@ -1,0 +1,315 @@
+{
+  "schema_version": 2,
+  "environment": "Linux local; Bash/Python stdlib; testes com fixtures descartáveis e PTY; configuração e fontes vinculadas por SHA-256.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Progresso e apresentação honestos em TTY e saída redirecionada.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Logs brutos, códigos, retenção e diagnóstico conservados.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Configuração com consumidores/validação e mapa geral Ox→Ec.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST",
+        "E-CONFIG"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "artifact": "sdd/tasks/scripts-output-ox-20261115/converge.md",
+      "sha256": "4f29405c2aa2d87a5351dbcf7c8df07a9c7dceb4f81c2d917130b69c0ae6b504",
+      "command_or_method": "Comparação Ox/Ec, análise/plano e revisão independente ec_revisor de contratos, consumidores, implementação e escopo; fixture final reexaminada após correção. Reobservação independente do delta SC2312/SC2310.",
+      "observed_result": "Sem achados abertos após correção dos dois caminhos de progresso incompleto; mapa geral e superfícies proporcionais.",
+      "inputs": [
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/spec.md",
+          "sha256": "4da82dcbfc72333203da2d80853f16bf52fb443d5a0224eda35e266446a9e88a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/plan.md",
+          "sha256": "ea9ac5765c338739127f3b8fb80a028c66ecb344cc5f87cdce7273c8bbc12e3f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/tasks.md",
+          "sha256": "9f9b9a3336b00258953cbc49256e147fb8de83a3d03f2633ac238ec09af03f35",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/traceability.json",
+          "sha256": "0ce49a344f34b6a1218fb720f9cc59df55dbbf5781c40a01cf4ffbafc1a4b517",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/workflow.json",
+          "sha256": "bbe3abd206b6335fd35e272fbbc9d1de93ca67a2ba097b5cc5ff181c0e1f4b9d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/progress.sh",
+          "sha256": "1ca5f98a5c092bf904bdaccbd286d5d790ea7ea0efea196867d2acdba2e6f0ef",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "3bb38dd03db9794c428d50ccb9349e8e29d91d3d9f49333fdf1fe8e85f7ae170",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "7d8cfd96002479fd79be05ca55287fd40a2b2b06b3d0db5f0d23225b02f6ce0a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "df2dbe82693640171f146c049a082a912891a2904121d3114fe282ddbed2eadc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
+          "role": "other"
+        },
+        {
+          "path": "scripts/local-state.py",
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "de2bcfe9045520e07982a735356ea924fe5b15096ddad6c3a49c3b322b5e0dc0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/scripts-output-ox-shellfix.log",
+      "sha256": "1037259ff548e543e7a6ef08171381941db4cba28083eb5a5e34e9b2fbeddd05",
+      "command_or_method": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest scripts.tests.test_shell.ShellTests.test_progress_is_plain_bounded_and_does_not_echo_untrusted_output scripts.tests.test_shell.ShellTests.test_progress_tty_color_no_color_and_dumb_terminal scripts.tests.test_shell.ShellTests.test_cancellation_stops_group_and_later_tasks scripts.tests.test_shell.ShellTests.test_progress_rejects_success_when_service_cleanup_fails scripts.tests.test_shell.ShellTests.test_progress_early_metadata_and_final_inventory_errors_never_announce_100",
+      "observed_result": "5 regressões afetadas reexecutadas sobre runtime/progress corrigidos: OK, exit 0, 11.988s, sem skips.",
+      "inputs": [
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/spec.md",
+          "sha256": "4da82dcbfc72333203da2d80853f16bf52fb443d5a0224eda35e266446a9e88a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/plan.md",
+          "sha256": "ea9ac5765c338739127f3b8fb80a028c66ecb344cc5f87cdce7273c8bbc12e3f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/tasks.md",
+          "sha256": "9f9b9a3336b00258953cbc49256e147fb8de83a3d03f2633ac238ec09af03f35",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/traceability.json",
+          "sha256": "0ce49a344f34b6a1218fb720f9cc59df55dbbf5781c40a01cf4ffbafc1a4b517",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/workflow.json",
+          "sha256": "bbe3abd206b6335fd35e272fbbc9d1de93ca67a2ba097b5cc5ff181c0e1f4b9d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/progress.sh",
+          "sha256": "1ca5f98a5c092bf904bdaccbd286d5d790ea7ea0efea196867d2acdba2e6f0ef",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "3bb38dd03db9794c428d50ccb9349e8e29d91d3d9f49333fdf1fe8e85f7ae170",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "7d8cfd96002479fd79be05ca55287fd40a2b2b06b3d0db5f0d23225b02f6ce0a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "df2dbe82693640171f146c049a082a912891a2904121d3114fe282ddbed2eadc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
+          "role": "other"
+        },
+        {
+          "path": "scripts/local-state.py",
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "de2bcfe9045520e07982a735356ea924fe5b15096ddad6c3a49c3b322b5e0dc0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-CONFIG",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/scripts-output-ox-focused.log",
+      "sha256": "e257aa07939497ffd4b29a5adf02c7a90ef633ed175bf3b9bdc9a21369ec3137",
+      "command_or_method": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest scripts.tests.test_shell scripts.tests.test_automation_config",
+      "observed_result": "73 testes passaram na rodada anterior; aqui reutiliza-se apenas a verificação de configuração, cujos inputs permanecem inalterados. Não aprova runtime/progress posteriores.",
+      "inputs": [
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/spec.md",
+          "sha256": "4da82dcbfc72333203da2d80853f16bf52fb443d5a0224eda35e266446a9e88a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/plan.md",
+          "sha256": "ea9ac5765c338739127f3b8fb80a028c66ecb344cc5f87cdce7273c8bbc12e3f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/tasks.md",
+          "sha256": "9f9b9a3336b00258953cbc49256e147fb8de83a3d03f2633ac238ec09af03f35",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/traceability.json",
+          "sha256": "0ce49a344f34b6a1218fb720f9cc59df55dbbf5781c40a01cf4ffbafc1a4b517",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/scripts-output-ox-20261115/workflow.json",
+          "sha256": "bbe3abd206b6335fd35e272fbbc9d1de93ca67a2ba097b5cc5ff181c0e1f4b9d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "7d8cfd96002479fd79be05ca55287fd40a2b2b06b3d0db5f0d23225b02f6ce0a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "df2dbe82693640171f146c049a082a912891a2904121d3114fe282ddbed2eadc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
+          "role": "other"
+        },
+        {
+          "path": "scripts/local-state.py",
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "de2bcfe9045520e07982a735356ea924fe5b15096ddad6c3a49c3b322b5e0dc0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Sinais nas janelas preexistentes preparação/finalização não foram redesenhados; interrupção abrupta pode exigir recuperação de temporários.",
+    "Não aprova a feature agregada nem eficácia dos scanners completos; aceite desta alteração depende do recibo atual e gate."
+  ]
+}

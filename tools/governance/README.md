@@ -34,3 +34,14 @@ Uma divergência exige examinar o arquivo e sua origem; não renovar hashes para
 O validador [SDD](../../sdd/README.md) verifica outro contrato: estrutura, rastreabilidade e evidências. Nenhuma dessas ferramentas certifica eficácia das skills, comportamento ou conformidade do produto.
 
 [Contribuição](../../docs/development/contributing.md) · [Política de testes](../../docs/development/testing.md) · [Projeto](../../README.md)
+
+
+## Aceite de alterações
+
+A entrada `bash scripts/accept-task.sh --task sdd/tasks/NOME --run RECIBO` usa
+[task_gate.py](task_gate.py) para exigir etapas, critérios e recibo atual do runner.
+O contrato e a autorização estão na
+[política canônica](../../docs/development/task-verification.md).
+`--feature sdd/features/NOME` preserva o aceite agregado de todos os critérios.
+O catálogo global do SDD não exige logs históricos atuais; os modos de aceite
+continuam estritos. Não equivale a controle externo do chat ou de operações Git.

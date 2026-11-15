@@ -70,3 +70,10 @@ contexto, templates e perfil. T007 recebe alinhamento da preparação temporári
 eficácia não executados. AC-01 a AC-07 continuam UNVERIFIED.
 
 [Resultado e condição de retomada](../../../docs/validation/governance-cohesion-20261111/report.md).
+
+
+## Aceite obrigatório — 14/11/2026
+
+Manutenção de AGENTS, workflow e política de verificação encaminhada à
+[feature de aceite obrigatório](../workflow-enforcement/spec.md). Os critérios
+históricos desta feature não recebem aprovação automática pela mudança.

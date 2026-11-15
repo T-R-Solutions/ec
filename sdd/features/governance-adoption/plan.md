@@ -89,3 +89,10 @@ As demais skills são objetos da análise, não especialidades executadas. Inven
 precondições e candidatos ficaram em temporários; escrita na pasta protegida foi
 autorizada pelo ambiente. Sem suíte, downloads, commits ou ensaio comportamental.
 [Análise, alterações e limites](../../../docs/validation/governance-cohesion-20261111/report.md).
+
+
+## Aceite obrigatório — 14/11/2026
+
+Manutenção de AGENTS, workflow e política de verificação encaminhada à
+[feature de aceite obrigatório](../workflow-enforcement/spec.md). Os critérios
+históricos desta feature não recebem aprovação automática pela mudança.

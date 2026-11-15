@@ -30,7 +30,9 @@ class ShellTests(unittest.TestCase):
 
     def runtime_directory(self):
         identity = hashlib.sha256(os.fsencode(self.root.resolve())).hexdigest()[:24]
-        return Path("/tmp") / f"ec-automation-{os.getuid()}-{identity}"  # Mesmo namespace privado do runner; fixture removida no tearDown.
+        return (
+            Path("/tmp") / f"ec-automation-{os.getuid()}-{identity}"
+        )  # Mesmo namespace privado do runner; fixture removida no tearDown.
 
     def tearDown(self):
         shutil.rmtree(self.runtime_directory(), ignore_errors=True)
@@ -38,7 +40,11 @@ class ShellTests(unittest.TestCase):
 
     def shell(self, script, *args, cwd=None, env=None):
         return subprocess.run(
-            ["bash", str(SCRIPTS / script), *map(str, args)],  # Bash do PATH confiável; script versionado ou programa literal, argumentos separados, sem interpolação em código shell.
+            [
+                "bash",
+                str(SCRIPTS / script),
+                *map(str, args),
+            ],  # Bash do PATH confiável; script versionado ou programa literal, argumentos separados, sem interpolação em código shell.
             cwd=cwd or self.root,
             env=env or self.env,
             capture_output=True,
@@ -62,7 +68,7 @@ class ShellTests(unittest.TestCase):
             timeout=timeout,
         )
 
-    def start_tasks(self, tasks):
+    def start_tasks(self, tasks, stderr=subprocess.PIPE):
         plan = self.write_json("plan.json", {"schema": 1, "tasks": tasks, "surfaces": ["scripts"]})
         harness = """set -euo pipefail
 umask 077
@@ -74,11 +80,19 @@ PLAN=$(cat "$3")
 run_plan
 """
         return subprocess.Popen(
-            ["bash", "-c", harness, "fixture", str(ROOT), str(self.root), str(plan)],  # Bash do PATH confiável; programa harness literal, caminhos passados como parâmetros posicionais.
+            [
+                "bash",
+                "-c",
+                harness,
+                "fixture",
+                str(ROOT),
+                str(self.root),
+                str(plan),
+            ],  # Bash do PATH confiável; programa harness literal, caminhos passados como parâmetros posicionais.
             cwd=self.root,
             env=self.env,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=stderr,
         )
 
     def run_tasks(self, tasks):
@@ -228,10 +242,12 @@ run_plan
         self.assertFalse((self.root / ".local").exists())
 
     def test_raw_bytes_exit_and_continuation(self):
-        code, directory, doc, _, err = self.run_tasks([
-            self.task("fail", "printf 'raw\\0\\377'; printf diagnostic >&2; exit 17"),
-            self.task("next", "true"),
-        ])
+        code, directory, doc, _, err = self.run_tasks(
+            [
+                self.task("fail", "printf 'raw\\0\\377'; printf diagnostic >&2; exit 17"),
+                self.task("next", "true"),
+            ]
+        )
         self.assertEqual(code, 2, err)
         self.assertEqual([r["returncode"] for r in doc["results"]], [17, 0])
         self.assertEqual(
@@ -242,19 +258,95 @@ run_plan
         )
         self.assertFalse(doc["complete"])
 
-    def test_missing_tool_and_dependency_block(self):
-        code, _, doc, _, err = self.run_tasks([
-            self.task("missing", "exec ec-nonexistent-tool"),
-            self.task("next", "touch forbidden", ["scripts:missing"]),
+    def test_progress_is_plain_bounded_and_does_not_echo_untrusted_output(self):
+        code, directory, _, out, err = self.run_tasks([
+            self.task("unsafe", "printf '\\033]0;SECRET\\007' >&2; printf '\\000\\377'; exit 17"),
+            self.task("next", "true"),
         ])
+        self.assertEqual(code, 2)
+        self.assertIn("EC · AUTOMAÇÃO".encode(), err)
+        self.assertIn(b"[1/4]", err)
+        self.assertIn(b"[4/4]", err)
+        self.assertIn(b"FALHA", err)
+        self.assertIn(b"total: 100%", err)
+        self.assertIn(b"Log/relat", err)
+        self.assertIn(str(directory).encode(), err)
+        self.assertNotIn(b"SECRET", out + err)
+        self.assertNotIn(b"\x1b", out + err)
+        self.assertNotIn(b"\r", err)
+        self.assertLess(len(err), 4000)
+        self.assertEqual(Path(str(directory) + "-00-scripts-unsafe.stdout.log").read_bytes(), b"\x00\xff")
+        self.assertEqual(Path(str(directory) + "-00-scripts-unsafe.stderr.log").read_bytes(), b"\x1b]0;SECRET\x07")
+
+    def test_progress_tty_color_no_color_and_dumb_terminal(self):
+        for no_color, term, colored, control in (
+            ("", "xterm", True, True),
+            ("1", "xterm", False, True),
+            ("", "dumb", False, False),
+        ):
+            with self.subTest(no_color=no_color, term=term):
+                self.env.update(NO_COLOR=no_color, TERM=term)
+                master, slave = os.openpty()
+                try:
+                    process = self.start_tasks([self.task("ok", "true")], stderr=slave)
+                finally:
+                    os.close(slave)
+                try:
+                    process.communicate(timeout=30)
+                    output = b""
+                    while True:
+                        try:
+                            data = os.read(master, 65536)
+                        except OSError:
+                            break
+                        if not data:
+                            break
+                        output += data
+                finally:
+                    os.close(master)
+                self.assertEqual(process.returncode, 0, output)
+                self.assertEqual(b"\x1b[32m" in output, colored)
+                self.assertEqual(b"\x1b[2K" in output, control)
+                self.assertIn(b"SUCESSO", output)
+
+    def test_progress_rejects_success_when_service_cleanup_fails(self):
+        code, _, doc, _, err = self.run_tasks([
+            self.task("invalid-receipt", "printf '{' > \"$EC_RUN_DIR/services.json\""),
+        ])
+        self.assertEqual(code, 2, err)
+        self.assertEqual(doc["service_cleanup"], "failed")
+        self.assertFalse(doc["complete"])
+        self.assertIn(b"FALHA", err)
+        self.assertNotIn(b"total: 100%", err)
+        self.assertIn("Execução incompleta".encode(), err)
+
+    def test_progress_early_metadata_and_final_inventory_errors_never_announce_100(self):
+        for command in (
+            "printf '{' > \"$EC_TASK_DIR/tool.json\"",
+            "ln -s . scripts",
+        ):
+            with self.subTest(command=command):
+                code, _, doc, _, err = self.run_tasks([self.task("invalid", command)])
+                self.assertEqual(code, 2, err)
+                self.assertFalse(doc["complete"])
+                self.assertNotIn(b"total: 100%", err)
+                self.assertIn("Execução incompleta".encode(), err)
+
+    def test_missing_tool_and_dependency_block(self):
+        code, _, doc, _, err = self.run_tasks(
+            [
+                self.task("missing", "exec ec-nonexistent-tool"),
+                self.task("next", "touch forbidden", ["scripts:missing"]),
+            ]
+        )
         self.assertEqual(code, 3, err)
         self.assertEqual([r["state"] for r in doc["results"]], ["blocked", "blocked"])
         self.assertFalse((self.root / "forbidden").exists())
 
     def test_timeout_retains_partial_logs(self):
-        code, directory, doc, _, err = self.run_tasks([
-            self.task("slow", "echo started; sleep 10", timeout=1)
-        ])
+        code, directory, doc, _, err = self.run_tasks(
+            [self.task("slow", "echo started; sleep 10", timeout=1)]
+        )
         self.assertEqual(code, 2, err)
         self.assertEqual(doc["results"][0]["reason"], "timeout")
         self.assertEqual(
@@ -277,13 +369,41 @@ run_plan
         self.assertEqual(code, 2, err)
         self.assertIn("README.md", doc["changed_inputs"])
 
+    def test_acceptance_inventory_observes_agents_config_and_active_skills(self):
+        config_path = self.root / ".codex/config.toml"
+        agent = self.root / ".codex/agents/reviewer.toml"
+        skill = self.root / ".codex/skills/method/SKILL.md"
+        for path in (config_path, agent, skill):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("before")
+        mutations = (
+            (".codex/config.toml", "echo changed > .codex/config.toml"),
+            (".codex/agents/reviewer.toml", "echo changed > .codex/agents/reviewer.toml"),
+            (".codex/agents/reviewer.toml", "rm .codex/agents/reviewer.toml"),
+            (
+                ".codex/agents/reviewer.toml",
+                "mv .codex/agents/reviewer.toml .codex/agents/renamed.toml",
+            ),
+            (".codex/agents/new.toml", "echo new > .codex/agents/new.toml"),
+            (".codex/skills/method/SKILL.md", "echo changed > .codex/skills/method/SKILL.md"),
+        )
+        for expected, command in mutations:
+            with self.subTest(expected=expected, command=command):
+                code, _, doc, _, err = self.run_tasks([self.task("mutate", command)])
+                self.assertEqual(code, 2, err)
+                self.assertFalse(doc["complete"])
+                self.assertIn(expected, doc["changed_inputs"])
+                self.assertEqual(doc["acceptance_inventory_version"], 1)
+            for path in (config_path, agent, skill):
+                path.write_text("before")
+
     def test_cargo_lock_update_is_retained_but_requires_final_resolution_run(self):
         lock = self.root / "application/agents/Cargo.lock"
         lock.parent.mkdir(parents=True)
         lock.write_text("before\n")
-        code, _, doc, _, err = self.run_tasks([
-            self.task("resolve", "printf 'after\\n' > application/agents/Cargo.lock")
-        ])
+        code, _, doc, _, err = self.run_tasks(
+            [self.task("resolve", "printf 'after\\n' > application/agents/Cargo.lock")]
+        )
         self.assertEqual(code, 2, err)
         self.assertEqual(lock.read_text(), "after\n")
         self.assertEqual(doc["results"][0]["state"], "passed")
@@ -308,11 +428,13 @@ run_plan
         lock = self.root / "application/agents/Cargo.lock"
         lock.parent.mkdir(parents=True)
         lock.write_text("before\n")
-        code, _, doc, _, err = self.run_tasks([
-            self.task(
-                "mutate", "echo after > application/agents/Cargo.lock; echo changed > README.md"
-            )
-        ])
+        code, _, doc, _, err = self.run_tasks(
+            [
+                self.task(
+                    "mutate", "echo after > application/agents/Cargo.lock; echo changed > README.md"
+                )
+            ]
+        )
         self.assertEqual(code, 2, err)
         self.assertIn("README.md", doc["changed_inputs"])
         self.assertEqual(
@@ -325,6 +447,7 @@ run_plan
         process = self.start_tasks([self.task("ok", "true")])
         _, err = process.communicate(timeout=10)
         self.assertEqual(process.returncode, 2, err)
+        self.assertNotIn(b"total: 100%", err)
         result = subprocess.run(
             [
                 "bash",
@@ -350,10 +473,12 @@ run_plan
         self.assertFalse((self.root / "forbidden").exists())
 
     def test_cancellation_stops_group_and_later_tasks(self):
-        process = self.start_tasks([
-            self.task("slow", "echo started; sleep 20"),
-            self.task("next", "touch forbidden"),
-        ])
+        process = self.start_tasks(
+            [
+                self.task("slow", "echo started; sleep 20"),
+                self.task("next", "touch forbidden"),
+            ]
+        )
         deadline = time.monotonic() + 10
         while time.monotonic() < deadline:
             logs = list((self.root / ".local/logs").glob("*/*-00-*.stdout.log"))
@@ -364,6 +489,8 @@ run_plan
         _, err = process.communicate(timeout=10)
         self.assertEqual(process.returncode, 2, err)
         self.assertFalse((self.root / "forbidden").exists())
+        self.assertIn(b"CANCELADA", err)
+        self.assertNotIn(b"total: 100%", err)
 
     def test_runner_death_releases_lock_while_workload_exists(self):
         process = self.start_tasks([self.task("slow", "echo $$ > child.pid; exec sleep 20")])
@@ -401,20 +528,22 @@ run_plan
         self.assertIn("log", doc["results"][0]["reason"])
 
     def test_log_limit_does_not_limit_workload_files(self):
-        code, _, doc, _, err = self.run_tasks([
-            self.task("file", "head -c 18000000 /dev/zero > workload.bin")
-        ])
+        code, _, doc, _, err = self.run_tasks(
+            [self.task("file", "head -c 18000000 /dev/zero > workload.bin")]
+        )
         self.assertEqual(code, 0, err)
         self.assertTrue(doc["complete"])
         self.assertEqual((self.root / "workload.bin").stat().st_size, 18000000)
 
     def test_environment_does_not_leak_tokens(self):
         self.env["EC_TEST_SECRET_TOKEN"] = os.urandom(16).hex()
-        code, _, _, _, err = self.run_tasks([
-            self.task(
-                "env", 'test -z "${EC_TEST_SECRET_TOKEN:-}"; test "$CARGO_NET_OFFLINE" = true'
-            )
-        ])
+        code, _, _, _, err = self.run_tasks(
+            [
+                self.task(
+                    "env", 'test -z "${EC_TEST_SECRET_TOKEN:-}"; test "$CARGO_NET_OFFLINE" = true'
+                )
+            ]
+        )
         self.assertEqual(code, 0, err)
 
     def parse_report(self, kind, data, rc, expected=None):
@@ -901,9 +1030,9 @@ echo 'unsafe inventory fixture'
     def test_toolbox_override_survives_clean_environment_including_empty(self):
         for value in ("/trusted path/toolbox", ""):
             self.env["TOOLBOX_BIN"] = value
-            code, directory, _, _, err = self.run_tasks([
-                self.task("override", 'test "${TOOLBOX_BIN+x}" = x && printf "%s" "$TOOLBOX_BIN"')
-            ])
+            code, directory, _, _, err = self.run_tasks(
+                [self.task("override", 'test "${TOOLBOX_BIN+x}" = x && printf "%s" "$TOOLBOX_BIN"')]
+            )
             self.assertEqual(code, 0, err)
             self.assertEqual(
                 Path(str(directory) + "-00-scripts-override.stdout.log").read_text(), value
@@ -912,12 +1041,14 @@ echo 'unsafe inventory fixture'
     def test_selinux_policy_survives_clean_environment_including_empty(self):
         for value in ("shared", "private", ""):
             self.env["TOOLBOX_SELINUX_LABEL"] = value
-            code, directory, _, _, err = self.run_tasks([
-                self.task(
-                    "selinux",
-                    'test "${TOOLBOX_SELINUX_LABEL+x}" = x && printf "%s" "$TOOLBOX_SELINUX_LABEL"',
-                )
-            ])
+            code, directory, _, _, err = self.run_tasks(
+                [
+                    self.task(
+                        "selinux",
+                        'test "${TOOLBOX_SELINUX_LABEL+x}" = x && printf "%s" "$TOOLBOX_SELINUX_LABEL"',
+                    )
+                ]
+            )
             self.assertEqual(code, 0, err)
             self.assertEqual(
                 Path(str(directory) + "-00-scripts-selinux.stdout.log").read_text(), value
@@ -935,9 +1066,9 @@ echo 'unsafe inventory fixture'
             with self.subTest(key=key):
                 value = "selected value " + key
                 self.env[key] = value
-                code, directory, _, _, err = self.run_tasks([
-                    self.task("selection", 'printf "%s" "$' + key + '"')
-                ])
+                code, directory, _, _, err = self.run_tasks(
+                    [self.task("selection", 'printf "%s" "$' + key + '"')]
+                )
                 self.assertEqual(code, 0, err)
                 self.assertEqual(
                     Path(str(directory) + "-00-scripts-selection.stdout.log").read_text(), value
@@ -945,9 +1076,9 @@ echo 'unsafe inventory fixture'
 
     def test_new_configuration_is_bound_to_input_manifest(self):
         self.write_json("scripts/config/automation.json", {"schema": 1})
-        code, _, doc, _, err = self.run_tasks([
-            self.task("mutate-tool-policy", "printf '{}' > scripts/config/automation.json")
-        ])
+        code, _, doc, _, err = self.run_tasks(
+            [self.task("mutate-tool-policy", "printf '{}' > scripts/config/automation.json")]
+        )
         self.assertEqual(code, 2, err)
         self.assertIn("scripts/config/automation.json", doc["changed_inputs"])
 
@@ -980,11 +1111,13 @@ echo 'unsafe inventory fixture'
 
     def test_trivy_secrets_and_misconfigurations_cannot_pass_as_zero_vulns(self):
         report, inputs = self.trivy_report()
-        report["Results"].append({
-            "Target": "config",
-            "Secrets": [{"RuleID": "fixture"}],
-            "Misconfigurations": [{"ID": "fixture", "Status": "FAIL"}],
-        })
+        report["Results"].append(
+            {
+                "Target": "config",
+                "Secrets": [{"RuleID": "fixture"}],
+                "Misconfigurations": [{"ID": "fixture", "Status": "FAIL"}],
+            }
+        )
         result = self.parse_report("trivy", report, 1, inputs)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout)["finding_count"], 2)

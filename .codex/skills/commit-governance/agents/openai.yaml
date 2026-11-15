@@ -1,4 +1,4 @@
 interface:
   display_name: "Commit Governance"
-  short_description: "Classify commits and map GitHub labels for Ec"
-  default_prompt: "Use $commit-governance to classify authorized Ec commits with Conventional Commits, distinguish GitHub labels from version tags, and perform only the requested Git operations."
+  short_description: "Commits e tags Ec explicitamente solicitados"
+  default_prompt: "Use $commit-governance para revisar e criar somente commits ou tags Ec explicitamente solicitados, preservando escopo, mudanças alheias e validação atual. Publicação exige autorização própria."

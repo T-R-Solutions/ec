@@ -174,6 +174,63 @@ class GovernanceTests(unittest.TestCase):
         self.profile.write_text(json.dumps(profile))
         self.assertTrue(any("missing link" in e for e in self.audit()["errors"]))
 
+    def mutate_rehashed_entrypoint(self, field, replacement):
+        profile = json.loads(self.profile.read_text())
+        row = next(row for row in profile["skills"] if row["name"] == "rust")
+        path = self.root / row["path"]
+        before = path.read_text()
+        original = next(line for line in before.splitlines() if line.startswith(field + ": "))
+        path.write_text(before.replace(original, f"{field}: {replacement}", 1))
+        # Hash integrity alone must not accept a catalog/entrypoint disagreement.
+        row["files"]["SKILL.md"] = validate.digest(path)
+        self.profile.write_text(json.dumps(profile))
+
+    def test_identity_divergence_is_rejected_even_with_rehashed_entrypoint(self):
+        self.mutate_rehashed_entrypoint("name", "different-skill")
+        errors = self.audit()["errors"]
+        self.assertTrue(any("Identity mismatch: rust" in error for error in errors))
+        self.assertFalse(any("Hash mismatch" in error for error in errors))
+
+    def test_description_divergence_is_rejected_even_with_rehashed_entrypoint(self):
+        self.mutate_rehashed_entrypoint("description", "A changed selection contract.")
+        errors = self.audit()["errors"]
+        self.assertTrue(any("Description mismatch: rust" in error for error in errors))
+        self.assertFalse(any("Hash mismatch" in error for error in errors))
+
+    def test_inline_delimiter_does_not_hide_rehashed_description_divergence(self):
+        profile = json.loads(self.profile.read_text())
+        row = next(row for row in profile["skills"] if row["name"] == "rust")
+        self.mutate_rehashed_entrypoint(
+            "description", row["description"] + " --- Additional incompatible scope."
+        )
+        errors = self.audit()["errors"]
+        self.assertIn("Description mismatch: rust", errors)
+        self.assertFalse(any("Hash mismatch" in error for error in errors))
+
+    def test_continued_description_is_rejected_even_with_rehashed_entrypoint(self):
+        profile = json.loads(self.profile.read_text())
+        row = next(row for row in profile["skills"] if row["name"] == "rust")
+        self.mutate_rehashed_entrypoint(
+            "description", row["description"] + "\n  Additional incompatible scope."
+        )
+        errors = self.audit()["errors"]
+        self.assertTrue(any("Invalid entrypoint identity: rust" in error for error in errors))
+        self.assertFalse(any("Hash mismatch" in error for error in errors))
+
+    def test_catalog_description_divergence_is_rejected(self):
+        profile = json.loads(self.profile.read_text())
+        next(row for row in profile["skills"] if row["name"] == "rust")["description"] = "Stale catalog description."
+        self.profile.write_text(json.dumps(profile))
+        self.assertIn("Description mismatch: rust", self.audit()["errors"])
+
+    def test_ui_copy_does_not_need_literal_entrypoint_description(self):
+        profile = json.loads(self.profile.read_text())
+        row = next(row for row in profile["skills"] if row["name"] == "rust")
+        path = self.root / row["path"]
+        ui = path.parent / "agents/openai.yaml"
+        self.assertNotIn(row["description"], ui.read_text())
+        self.assertEqual(self.audit()["status"], "PASS")
+
     def test_unrelated_destination_is_preserved(self):
         dest = self.root / ".codex/skills/custom"
         dest.mkdir(parents=True)

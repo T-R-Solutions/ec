@@ -47,7 +47,11 @@ def strict_json(path):
             result[key] = value
         return result
 
-    return json.loads(path.read_text(), object_pairs_hook=unique)
+    return json.loads(
+        path.read_text(),
+        object_pairs_hook=unique,
+        parse_constant=lambda value: (_ for _ in ()).throw(ValueError(f"Nonfinite JSON: {value}")),
+    )
 
 
 def acceptance_ids(text):
@@ -98,7 +102,29 @@ def acceptance_ids(text):
     return ids
 
 
-def input_errors(document, root, rows, feature, require_fresh):
+def reference_path(root, value):
+    """Validate a reference without requiring a retained historical artifact."""
+    if (
+        not isinstance(value, str)
+        or not value
+        or "\x00" in value
+        or "\n" in value
+        or Path(value).is_absolute()
+        or ".." in Path(value).parts
+        or Path(value).as_posix() != value
+    ):
+        raise ValueError(f"Invalid relative reference: {value!r}")
+    path = root / value
+    if any(part.is_symlink() for part in [path, *path.parents] if part.is_relative_to(root)):
+        raise ValueError(f"Symlink reference: {value}")
+    return path
+
+
+def valid_hash(value):
+    return isinstance(value, str) and re.fullmatch(r"[a-f0-9]{64}", value) is not None
+
+
+def input_errors(document, root, rows, feature, require_fresh, catalog_only=False):
     """Content bindings are scoped per observation; they do not attest execution."""
     if not isinstance(document, dict):
         return []  # schema diagnostics belong to evidence_errors
@@ -131,12 +157,16 @@ def input_errors(document, root, rows, feature, require_fresh):
                 errors.append(f"Invalid input binding: {identifier}")
                 continue
             try:
-                path = local_file(root, value.get("path"))
+                path = reference_path(root, value.get("path"))
+                if not valid_hash(value.get("sha256")):
+                    raise ValueError(f"Invalid input hash: {identifier}")
+                if not catalog_only:
+                    path = local_file(root, value.get("path"))
                 relative = str(path.relative_to(root.resolve()))
                 if relative in paths:
                     errors.append(f"Duplicate input binding: {identifier}: {relative}")
                 paths.add(relative)
-                if digest(path) != value.get("sha256"):
+                if not catalog_only and digest(path) != value.get("sha256"):
                     errors.append(f"Stale input: {identifier}: {relative}")
             except ValueError as exc:
                 errors.append(str(exc))
@@ -171,7 +201,7 @@ def input_errors(document, root, rows, feature, require_fresh):
     return errors
 
 
-def evidence_errors(document, root):
+def evidence_errors(document, root, catalog_only=False):
     errors = []
     if not isinstance(document, dict):
         return ["Evidence document must be an object"]
@@ -210,8 +240,12 @@ def evidence_errors(document, root):
         }:
             errors.append(f"Invalid evidence kind: {identifier}")
         try:
-            path = local_file(root, item.get("artifact"))
-            if digest(path) != item.get("sha256"):
+            reference_path(root, item.get("artifact"))
+            if not valid_hash(item.get("sha256")):
+                raise ValueError(f"Invalid artifact hash: {identifier}")
+            if not catalog_only and digest(local_file(root, item.get("artifact"))) != item.get(
+                "sha256"
+            ):
                 errors.append(f"Artifact hash mismatch: {identifier}")
         except ValueError as exc:
             errors.append(str(exc))
@@ -302,8 +336,103 @@ def trace_errors(rows, root, feature, document=None):
     return errors
 
 
+def workflow_errors(workflow, root, directory, kind, require_complete=False):
+    """Validate workflow identity and scope; this never accepts related features."""
+    errors = []
+    if not isinstance(workflow, dict):
+        return ["Workflow must be an object"]
+    version = workflow.get("schema_version")
+    fields = {"schema_version", "stages", "surfaces"}
+    if type(version) is not int or version not in (1, 2):
+        return ["Unsupported workflow schema_version"]
+    if version == 2:
+        fields.add("scope")
+    if set(workflow) != fields or (kind == "task" and version != 2):
+        return ["Invalid workflow fields or task workflow version"]
+    stages = workflow.get("stages")
+    stage_names = {"analysis", "planning", "implementation", "review", "validation"}
+    if not isinstance(stages, dict) or set(stages) != stage_names:
+        errors.append("Workflow requires all five stages")
+    else:
+        for stage, refs in stages.items():
+            if (
+                not isinstance(refs, list)
+                or (require_complete and not refs)
+                or any(not isinstance(ref, str) or not ref.strip() for ref in refs)
+                or len(refs) != len(set(refs))
+            ):
+                errors.append(f"Invalid workflow stage references: {stage}")
+    surfaces = workflow.get("surfaces")
+    if (
+        not isinstance(surfaces, list)
+        or not surfaces
+        or any(not isinstance(ref, str) or not ref.strip() for ref in surfaces)
+        or len(surfaces) != len(set(surfaces))
+    ):
+        errors.append("Invalid workflow surfaces")
+    if version == 1:
+        return errors
+    scope = workflow.get("scope")
+    if not isinstance(scope, dict) or set(scope) != {
+        "kind",
+        "related_features",
+        "rationale",
+        "review",
+    }:
+        return errors + ["Invalid workflow scope fields"]
+    if scope["kind"] != kind:
+        errors.append("Workflow scope kind differs from requested scope")
+    for field in ("rationale", "review"):
+        if not isinstance(scope[field], str) or not scope[field].strip():
+            errors.append(f"Missing scope {field}")
+    relations = scope["related_features"]
+    if not isinstance(relations, list) or (kind == "task" and not relations):
+        return errors + ["Task scope requires existing related features"]
+    if kind == "feature" and relations:
+        errors.append("Feature scope must have no related_features")
+    seen = set()
+    for relation in relations:
+        if not isinstance(relation, dict) or set(relation) != {"path", "criteria", "coverage"}:
+            errors.append("Invalid related feature fields")
+            continue
+        try:
+            path = reference_path(root, relation["path"])
+            if (
+                path.parent != root / "sdd/features"
+                or path == directory
+                or relation["path"] in seen
+            ):
+                raise ValueError("Invalid or duplicate related feature path")
+            seen.add(relation["path"])
+            spec = reference_path(root, relation["path"] + "/spec.md")
+            local_file(root, relation["path"] + "/spec.md")
+            expected = acceptance_ids(spec.read_text())
+            refs = relation["criteria"]
+            if (
+                not isinstance(refs, list)
+                or not refs
+                or any(not isinstance(ref, str) for ref in refs)
+                or len(refs) != len(set(refs))
+                or not set(refs) <= expected
+            ):
+                raise ValueError("Invalid related feature criteria")
+            coverage = relation["coverage"]
+            if coverage not in ("partial", "complete"):
+                raise ValueError("Invalid related feature coverage")
+            if (coverage == "complete") != (set(refs) == expected):
+                raise ValueError("Coverage must match declared related feature criteria")
+        except (OSError, ValueError, TypeError) as exc:
+            errors.append(str(exc))
+    return errors
+
+
 def feature_errors(
-    root, check_evidence=True, require_approved=False, directory=None, require_fresh=False
+    root,
+    check_evidence=True,
+    require_approved=False,
+    directory=None,
+    require_fresh=False,
+    catalog_only=False,
 ):
     """Check every direct feature; keep integrity distinct from acceptance."""
     directory = directory or root / "sdd/features"
@@ -329,13 +458,39 @@ def feature_errors(
             if check_evidence:
                 path = local_file(root, str((feature / "evidence.json").relative_to(root)))
                 document = strict_json(path)
-                errors.extend(f"{prefix}: {e}" for e in evidence_errors(document, root))
+                errors.extend(
+                    f"{prefix}: {e}" for e in evidence_errors(document, root, catalog_only)
+                )
+            if feature.parent.name == "tasks" and not (feature / "workflow.json").exists():
+                errors.append(f"{prefix}: Task requires workflow schema_version 2")
+            if (feature / "workflow.json").exists():
+                workflow = strict_json(reference_path(root, prefix + "/workflow.json"))
+                kind = "task" if feature.parent.name == "tasks" else "feature"
+                errors.extend(
+                    f"{prefix}: {e}" for e in workflow_errors(workflow, root, feature, kind)
+                )
+                if (
+                    isinstance(document, dict)
+                    and isinstance(workflow, dict)
+                    and isinstance(workflow.get("stages"), dict)
+                ):
+                    observed = {
+                        item.get("id")
+                        for item in document.get("evidence", [])
+                        if isinstance(item, dict) and isinstance(item.get("id"), str)
+                    }
+                    for refs in workflow["stages"].values():
+                        if isinstance(refs, list) and all(isinstance(ref, str) for ref in refs):
+                            if not set(refs) <= observed:
+                                errors.append(f"{prefix}: Dangling workflow stage evidence")
             rows = strict_json(feature / "traceability.json")
             errors.extend(f"{prefix}: {e}" for e in trace_errors(rows, root, feature, document))
             if check_evidence:
                 errors.extend(
                     f"{prefix}: {e}"
-                    for e in input_errors(document, root, rows, feature, require_fresh)
+                    for e in input_errors(
+                        document, root, rows, feature, require_fresh, catalog_only
+                    )
                 )
             if require_approved:
                 expected = acceptance_ids((feature / "spec.md").read_text())
@@ -454,6 +609,7 @@ def audit(
     features=None,
     model="sdd",
     require_fresh=False,
+    catalog_only=False,
 ):
     root = root.resolve()
     if not root.is_dir():
@@ -484,7 +640,22 @@ def audit(
         return errors + ["Feature path must stay inside the project root"]
     if features and not directory.is_dir():
         return errors + ["Explicit feature directory is missing"]
-    errors.extend(feature_errors(root, check_evidence, require_approved, directory, require_fresh))
+    errors.extend(
+        feature_errors(
+            root, check_evidence, require_approved, directory, require_fresh, catalog_only
+        )
+    )
+    if not features and (root / model / "tasks").exists():
+        errors.extend(
+            feature_errors(
+                root,
+                check_evidence,
+                require_approved,
+                root / model / "tasks",
+                require_fresh,
+                catalog_only,
+            )
+        )
     return errors
 
 
@@ -509,12 +680,21 @@ def main():
     )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--structure-only", action="store_true")
+    mode.add_argument(
+        "--catalog-only",
+        action="store_true",
+        help="Validate catalog references and schemas without historical content checks",
+    )
     mode.add_argument("--require-approved", action="store_true")
     args = parser.parse_args()
-    if args.structure_only and args.require_fresh:
-        parser.error("--require-fresh cannot be combined with --structure-only")
+    if (args.structure_only or args.catalog_only) and args.require_fresh:
+        parser.error("--require-fresh cannot be combined with structural/catalog modes")
     if args.skill and (
-        args.features or args.require_approved or args.structure_only or args.require_fresh
+        args.features
+        or args.require_approved
+        or args.structure_only
+        or args.catalog_only
+        or args.require_fresh
     ):
         parser.error("--skill cannot be combined with feature modes")
     try:
@@ -528,6 +708,7 @@ def main():
                 args.features,
                 args.model,
                 args.require_fresh,
+                args.catalog_only,
             )
         )
     except (OSError, ValueError, KeyError, TypeError) as exc:

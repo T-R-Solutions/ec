@@ -19,6 +19,7 @@ from pathlib import Path, PurePosixPath
 
 CODE = Path(__file__).resolve().parents[2]
 CONFIG_PATH = CODE / "scripts/config/automation.json"
+ACCEPTANCE_INVENTORY_VERSION = 1
 
 
 def fields(value, required, optional=()):
@@ -80,6 +81,7 @@ def load_config(path=CONFIG_PATH):
             "tools",
             "selection",
             "runtime",
+            "presentation",
             "environment",
             "discovery",
             "databases",
@@ -238,6 +240,13 @@ def load_config(path=CONFIG_PATH):
     )
     for limit in value["runtime"].values():
         positive(limit)
+    fields(value["presentation"], ("enabled", "refresh_seconds", "heartbeat_seconds"))
+    if type(value["presentation"]["enabled"]) is not bool:
+        raise ValueError("presentation.enabled deve ser booleano")
+    for key in ("refresh_seconds", "heartbeat_seconds"):
+        positive(value["presentation"][key])
+    if value["presentation"]["heartbeat_seconds"] < value["presentation"]["refresh_seconds"]:
+        raise ValueError("heartbeat_seconds deve ser >= refresh_seconds")
     fields(value["environment"], ("defaults", "forward"))
     if not isinstance(value["environment"]["defaults"], dict):
         raise ValueError("defaults deve mapear variáveis de ambiente")
@@ -518,6 +527,7 @@ def plan(config, root, surfaces=(), checks=(), scope="default"):
         "surfaces": sorted(set(surfaces)),
         "tasks": tasks,
         "executed": False,
+        "acceptance_inventory_version": ACCEPTANCE_INVENTORY_VERSION,
         "configuration_sha256": hashlib.sha256(
             json.dumps(config, sort_keys=True).encode()
         ).hexdigest(),
@@ -744,9 +754,63 @@ def source_files(config, root, scope):
     return select_files(config, set(names), scope)
 
 
+def acceptance_files(config, root):
+    """Acceptance contract v1; scanner source_files selections remain unchanged.
+
+    Include active instructions/skills and canonical documentation, independently
+    of scanner exclusions. Membership changes are part of the observed input.
+    """
+    root = root.resolve(strict=True)
+    names = set(source_files(config, root, "all"))
+
+    def checked(name):
+        internal(name)
+        path = root / name
+        if any(part.is_symlink() for part in [path, *path.parents] if part.is_relative_to(root)):
+            raise ValueError("symlink no inventário de aceite: " + name)
+        if not path.resolve().is_relative_to(root):
+            raise ValueError("escape no inventário de aceite: " + name)
+        return path
+
+    def inaccessible(error):
+        raise error
+
+    for base, suffix in ((".codex/agents", ".toml"), (".codex/skills", None), ("docs", None)):
+        folder = checked(base)
+        if not folder.exists():
+            continue
+        if not folder.is_dir():
+            raise ValueError("raiz de aceite não é diretório: " + base)
+        for directory, directories, files in os.walk(
+            folder, followlinks=False, onerror=inaccessible
+        ):
+            for name in list(directories) + files:
+                relative = (Path(directory) / name).relative_to(root).as_posix()
+                path = checked(relative)
+                if name in directories:
+                    if name == "__pycache__":
+                        directories.remove(name)
+                    continue
+                if name.endswith((".pyc", ".pyo")):
+                    continue
+                if suffix is None or path.suffix == suffix:
+                    names.add(relative)
+    config_path = checked(".codex/config.toml")
+    if config_path.exists():
+        names.add(".codex/config.toml")
+    for name in names:
+        path = checked(name)
+        if not path.is_file():
+            raise ValueError("entrada de aceite não é arquivo regular: " + name)
+    return sorted(names)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("operation", choices=("plan", "environment", "inputs", "get"))
+    parser.add_argument(
+        "operation",
+        choices=("plan", "environment", "inputs", "acceptance-inputs", "acceptance-version", "get"),
+    )
     parser.add_argument("key", nargs="?")
     parser.add_argument("--root", type=Path, default=CODE)
     parser.add_argument("--surface", action="append", default=[])
@@ -766,6 +830,11 @@ def main():
         elif args.operation == "environment":
             for key, value in environment(config, args.root, os.environ).items():
                 sys.stdout.buffer.write(os.fsencode(key + "=" + value) + b"\0")
+        elif args.operation == "acceptance-version":
+            print(ACCEPTANCE_INVENTORY_VERSION)
+        elif args.operation == "acceptance-inputs":
+            for name in acceptance_files(config, args.root):
+                sys.stdout.buffer.write(os.fsencode(name) + b"\0")
         elif args.operation == "inputs":
             for name in source_files(config, args.root, args.key or "all"):
                 sys.stdout.buffer.write(os.fsencode(name) + b"\0")

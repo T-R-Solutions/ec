@@ -1,0 +1,361 @@
+{
+  "schema_version": 2,
+  "environment": "Linux local; ferramentas e imagens identificadas nos recibos nativos; fontes atuais vinculadas por SHA-256.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Triagem contextual estrita e negativos preservados",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST",
+        "E-BANDIT"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Import condicionado e variantes válidas",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-VARIANTS"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Avisos investigados e decisão revisada",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "artifact": "sdd/tasks/log-remediation-20261115/converge.md",
+      "sha256": "d41b198ca49be85a6d2e372d93d00f0229ae7f9ba37b11662c13dca54f2d475f",
+      "command_or_method": "Revisão independente dos contextos e escopo; comparação de hashes/tuplas e fontes; consolidação do parecer ec_revisor e preflight ec_validador_alta.",
+      "observed_result": "Sem bloqueador de implementação;74 ocorrências cobertas; decisões CodeQL/YARA preservam limites e diagnósticos.",
+      "inputs": [
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "63c2cb906237db9e795e517d503fc1e8d17280c1a768831de718af1963c7b7b4",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "dc1410a867725149a3de33bd95ce6f76ec04347309d5203055c7000e453491f4",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/sarif_report.py",
+          "sha256": "753c6c5e4a4530f9b8da4ac2c8213b3944b4b5767e064ae79b2b0c0a6ad91d1d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/codeql_rust.py",
+          "sha256": "909d4365ba54235855eaa41ee0b311f4364afc0808a8c70d83256b3920f5b1ce",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/yara_scan.py",
+          "sha256": "5e26cc37102b16e752375a3dbab1102fc9ff63b4ce167829f20cec18fabeff10",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_evidence.py",
+          "sha256": "20955aec5c3d035dfce77e8500caf1cc32c41fc65648128253ca41ca2f57699c",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/src/service/http.rs",
+          "sha256": "bd608c64af4c04d10b47dc4d1cce570fd34b96fda669554d205f8759dd8ab4f3",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/settings.py",
+          "sha256": "756a2829b9ab8d65e49f933899d83364a4bce03208d3524f61afad1f43e0bb06",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/integration/publication_http.py",
+          "sha256": "3a652c636f73386b1f38d04dae03de66f0b7c986e40c8138ed50dd17d22a1b6a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "35feca69c4a9332539826a994ba828478c1a1c395e105b9050540834f56f3d44",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "9a3b46151a112cd7d8fed0f4674e323002be19e714d4adb3114f02de9e996112",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_sdd_catalog.py",
+          "sha256": "d9867d006343cad41ea00fa6dc95d2bedd1ab6a3a527d5df60b4f0f31c016303",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "10141aab13d57527caa2c1d37900c53545b73dc4072e44376c06015da8474961",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/verification-tools.md",
+          "sha256": "b2b98fd27ae8fc6d9469b69321f2ffc2a743ff620e8b93e68614075c5ab1ff1b",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/spec.md",
+          "sha256": "facab21810206d43476354d1376ca48e5b563f3844a04e6a3ef64962333b764a",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/plan.md",
+          "sha256": "f1d1257bf8ce61b5fa6e16f8d46019ed86e4891fb6b371a4d8bdaf5509adb52c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/tasks.md",
+          "sha256": "11aef6866ff8203233d83c7c59333f4b53e33c9476e289e1bbc82a08a2301ba1",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/traceability.json",
+          "sha256": "a5c3b833627464e4dfbf54666ac7621466980aa92bb12527da9502bf47ce1b8e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/workflow.json",
+          "sha256": "3c1abd686102d921d1cd2159cb8ffc34f2fc3d50b9b7c79d4d11aa77168e749f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/reviewed-findings.md",
+          "sha256": "fae4fdb192931a0d575d3d14c3227105d628224315c65e7ff85ec9eeec4fa974",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/log-remediation-20261115/diagnostic-decisions.md",
+          "sha256": "1a85948009d6c79463832bbdea2b044b13e745f3b6999ecaa259d2eae025292a",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/log-remediation-evidence-final-tests.log",
+      "sha256": "5b8a3ccb28c32f172271a641e8142fdb66c37cd396f681ca016266abfdb51bb3",
+      "command_or_method": "python3 -m unittest discover -s scripts/tests -p 'test_security_evidence.py'",
+      "observed_result": "8 testes OK,exit 0; mutações inválidas rejeitadas.",
+      "inputs": [
+        {
+          "path": "sdd/tasks/log-remediation-20261115/workflow.json",
+          "sha256": "3c1abd686102d921d1cd2159cb8ffc34f2fc3d50b9b7c79d4d11aa77168e749f",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_evidence.py",
+          "sha256": "20955aec5c3d035dfce77e8500caf1cc32c41fc65648128253ca41ca2f57699c",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/sarif_report.py",
+          "sha256": "753c6c5e4a4530f9b8da4ac2c8213b3944b4b5767e064ae79b2b0c0a6ad91d1d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "63c2cb906237db9e795e517d503fc1e8d17280c1a768831de718af1963c7b7b4",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-BANDIT",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/run-HqFSXpvK-05-security-bandit.result.log",
+      "sha256": "d319325ac3f1a5b74e815ddb0a324f54779a663eec400e3e4e02ff7405995a9d",
+      "command_or_method": "bash scripts/automate.sh run --surface security --check bandit",
+      "observed_result": "Check Bandit passed,375 nativos / 375 revisados / 0 pendentes; agregado exit 2 por documento alterado, não é recibo de aceite.",
+      "inputs": [
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "63c2cb906237db9e795e517d503fc1e8d17280c1a768831de718af1963c7b7b4",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "dc1410a867725149a3de33bd95ce6f76ec04347309d5203055c7000e453491f4",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/sarif_report.py",
+          "sha256": "753c6c5e4a4530f9b8da4ac2c8213b3944b4b5767e064ae79b2b0c0a6ad91d1d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/codeql_rust.py",
+          "sha256": "909d4365ba54235855eaa41ee0b311f4364afc0808a8c70d83256b3920f5b1ce",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/yara_scan.py",
+          "sha256": "5e26cc37102b16e752375a3dbab1102fc9ff63b4ce167829f20cec18fabeff10",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_evidence.py",
+          "sha256": "20955aec5c3d035dfce77e8500caf1cc32c41fc65648128253ca41ca2f57699c",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/settings.py",
+          "sha256": "756a2829b9ab8d65e49f933899d83364a4bce03208d3524f61afad1f43e0bb06",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/integration/publication_http.py",
+          "sha256": "3a652c636f73386b1f38d04dae03de66f0b7c986e40c8138ed50dd17d22a1b6a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "35feca69c4a9332539826a994ba828478c1a1c395e105b9050540834f56f3d44",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "9a3b46151a112cd7d8fed0f4674e323002be19e714d4adb3114f02de9e996112",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_sdd_catalog.py",
+          "sha256": "d9867d006343cad41ea00fa6dc95d2bedd1ab6a3a527d5df60b4f0f31c016303",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "10141aab13d57527caa2c1d37900c53545b73dc4072e44376c06015da8474961",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-VARIANTS",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-15/run-IN5LNZrN-automate.results.log",
+      "sha256": "6da25bfaa0f79361bfd0b516eb70759abc0bbf9aad94d41e11a8bf0a65dddedf",
+      "command_or_method": "bash scripts/automate.sh run --surface server --surface integration --surface e2e",
+      "observed_result": "39/39 passed,exit 0,cleanup sem erro; variantes, harnesses, integrações e browsers válidos; import sem aviso.",
+      "inputs": [
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "63c2cb906237db9e795e517d503fc1e8d17280c1a768831de718af1963c7b7b4",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/crates/ec-server-app/src/service/http.rs",
+          "sha256": "bd608c64af4c04d10b47dc4d1cce570fd34b96fda669554d205f8759dd8ab4f3",
+          "role": "other"
+        },
+        {
+          "path": "application/server/backend/Cargo.lock",
+          "sha256": "34176efec4b7fea9aa63ef3d4492613c23f671715909f9f46d277586e81c57bd",
+          "role": "other"
+        },
+        {
+          "path": "application/agents/Cargo.lock",
+          "sha256": "beab5780528402161b09a3a7fdeedd30ce7b2a31c14c1c79c0c8145d7a3956f3",
+          "role": "other"
+        },
+        {
+          "path": "application/server/frontend/package-lock.json",
+          "sha256": "5ae33646980786210879179df4428d872a44d1c419a93f8c9e21a5e9f0fa6364",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/rust/check.sh",
+          "sha256": "1c6ee74b9b2a5ab016002e6126d1137fa938e94fc634cababab9dfb6f8cf70c9",
+          "role": "other"
+        },
+        {
+          "path": "application/integration/tests/e2e/frontend_browser.py",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
+          "role": "other"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Aprovação da tarefa depende do recibo final e gate externo; estes não são antecipados nesta evidência.",
+    "CodeQL dynload: perda de resolução nativa não demonstrada; imagem histórica não inspecionada internamente.",
+    "YARA: ausência de timeout observado não prova limite universal de custo.",
+    "Revisão pressupõe checkout/configuração/PATH locais confiáveis; não abrange workloads remotos não confiáveis."
+  ]
+}

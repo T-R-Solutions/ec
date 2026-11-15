@@ -41,7 +41,18 @@ Inspect actual contracts and resources before execution. A missing version requi
 
 preserved raw output, structured events, summaries flagging loss/truncation, comparable measurements.
 
-Bind each conclusion to observed inputs, method, result and limitations. Run the normal, boundary and failure cases from the [evaluations](references/evaluation-cases.md) in the authorized environment; distinguish review, simulation and integration results. Written cases remain unexecuted until run. Skill text neither proves effectiveness nor grants authority.
+Vincule conclusões aos inputs observados, método, resultado e limitações. Na tarefa
+cotidiana, execute apenas checks técnicos pertinentes aos critérios e riscos da
+mudança, conforme a política do consumidor. Registre inspeção estática, mocks,
+simulação e integração real separadamente; seus resultados têm alcances distintos.
+
+Os [casos de avaliação](references/evaluation-cases.md) são usados na manutenção da
+skill ou quando o escopo inclui avaliar seleção, comportamento ou eficácia do
+método. Não exigem rodada com modelo para cada tarefa que aplica a skill. Uma
+avaliação com LLM real requer identidade/configuração, inputs, resposta observada
+e oráculo independente; mocks e inspeção estática não demonstram esse comportamento.
+Casos escritos permanecem não executados até observação registrada. A skill não
+comprova eficácia nem concede autorização.
 
 ## Boundaries and handoff
 

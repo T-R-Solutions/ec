@@ -11,7 +11,7 @@ raiz). Em outros consumidores, siga as políticas locais.
 
 ## Aplicação no Ec
 
-PostgreSQL é a autoridade global planejada de fila, tentativas, quotas e leases. Testar duas reservas concorrentes, fencing obsoleto e reatribuição; lease expirado não encerra efeitos externos.
+PostgreSQL é a autoridade vigente da fila e do estado operacional, conforme `docs/constitution.md` e `docs/architecture/context.md`; o alcance implementado de tentativas, quotas e leases deve ser conferido em `sdd/project.md` e nos guias dos componentes. SQLite no Agent continua proposta. Testar duas reservas concorrentes, fencing obsoleto e reatribuição quando pertinentes; lease expirado não encerra efeitos externos.
 
 ## Scope and inputs
 

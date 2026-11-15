@@ -1,0 +1,391 @@
+{
+  "schema_version": 2,
+  "environment": "Linux local; Python stdlib; Toolbox Docker Bandit 1.9.4 imagem sha256:4017dbc3a35b7687b748de5444823dad6339f09e6e7fb8c8b84a6b8f351bae8c.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Scan Bandit integral com zero pendências e revisão por conteúdo.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-BANDIT"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Rejeições de triagem e contratos da automação verificados; superfícies completas exigidas pelo gate.",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "command_or_method": "Inspeção de fontes, relatório original e revisão independente revisao_bandit; transcrição pelo coordenador.",
+      "observed_result": "16 ocorrências inspecionadas: fixtures/argv literal/exceções específicas justificadas. Hash/linha atualizados só em três registros; precisão B112 incorporada. Revisor confirmou escopo parcial e workflow final sem bloqueadores.",
+      "artifact": ".local/logs/2026-11-15/bandit-refresh-review.log",
+      "sha256": "ad6629a4baa0dce01e6d11d30b76663ea5ac2c0e684aae9a98d4f5a15baa023f",
+      "inputs": [
+        {
+          "path": "sdd/tasks/bandit-review-refresh/spec.md",
+          "sha256": "0df42e7056d225779ced0d9f5fa2f8515bcac11e77b17de72ea7e5723ab9e4c0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/plan.md",
+          "sha256": "6c4e60f7efdc282c25959de4b0a1b7cfd9bec2534bc78776e4846f0bda2efe3f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/tasks.md",
+          "sha256": "326d38d15ad17e798f14e9da28d92a0a1b2fd4d7db1d6e4c05092ace3ada373e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/traceability.json",
+          "sha256": "35f2e380a7e78a4d194551ee8efcf7bea6685d7acffffd76afdb84f9c3b61c1e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/workflow.json",
+          "sha256": "20758a80bac8d1652a5ade061c3c71aa788c122631ccc05b234425c2e7a75813",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "dcbaa05532c25ba763f263e2a527956a7c8ecf78d41d3707116cf129ea555289",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "dc1410a867725149a3de33bd95ce6f76ec04347309d5203055c7000e453491f4",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_evidence.py",
+          "sha256": "20955aec5c3d035dfce77e8500caf1cc32c41fc65648128253ca41ca2f57699c",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/sarif_report.py",
+          "sha256": "753c6c5e4a4530f9b8da4ac2c8213b3944b4b5767e064ae79b2b0c0a6ad91d1d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/prepare_automation.py",
+          "sha256": "1648e1a6e51a2bc62c142e6d704b4649d5cb4f08b3b9c826f0fbf20807001def",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/codeql_rust.py",
+          "sha256": "909d4365ba54235855eaa41ee0b311f4364afc0808a8c70d83256b3920f5b1ce",
+          "role": "other"
+        },
+        {
+          "path": "scripts/local-state.py",
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "3bb38dd03db9794c428d50ccb9349e8e29d91d3d9f49333fdf1fe8e85f7ae170",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/common.sh",
+          "sha256": "894889f96deebb8c642faceea0c8d0d738790910c1fc51e67568467421a4acd1",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "1e94e3a6a0e938d9ad112978d8d379d38d79e2f34ebe4bf4f0b1d68b3af9cccb",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "command_or_method": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest scripts.tests.test_security_evidence scripts.tests.test_automation_config scripts.tests.test_shell scripts.tests.test_native.NativeTests.test_bandit_new_finding_preserves_native_count_and_blocks",
+      "observed_result": "82 testes passaram, exit 0 em 42.089s; rejeições de hash/regra/linha/nova ocorrência/razão vazia preservadas.",
+      "artifact": ".local/logs/2026-11-15/bandit-refresh-tests-final.log",
+      "sha256": "605a1468f3ac185845549408792c459dd566da9a5ffd57b7189d7e4ba2547b48",
+      "inputs": [
+        {
+          "path": "sdd/tasks/bandit-review-refresh/spec.md",
+          "sha256": "0df42e7056d225779ced0d9f5fa2f8515bcac11e77b17de72ea7e5723ab9e4c0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/plan.md",
+          "sha256": "6c4e60f7efdc282c25959de4b0a1b7cfd9bec2534bc78776e4846f0bda2efe3f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/tasks.md",
+          "sha256": "326d38d15ad17e798f14e9da28d92a0a1b2fd4d7db1d6e4c05092ace3ada373e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/traceability.json",
+          "sha256": "35f2e380a7e78a4d194551ee8efcf7bea6685d7acffffd76afdb84f9c3b61c1e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/workflow.json",
+          "sha256": "20758a80bac8d1652a5ade061c3c71aa788c122631ccc05b234425c2e7a75813",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "dcbaa05532c25ba763f263e2a527956a7c8ecf78d41d3707116cf129ea555289",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "dc1410a867725149a3de33bd95ce6f76ec04347309d5203055c7000e453491f4",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_evidence.py",
+          "sha256": "20955aec5c3d035dfce77e8500caf1cc32c41fc65648128253ca41ca2f57699c",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/sarif_report.py",
+          "sha256": "753c6c5e4a4530f9b8da4ac2c8213b3944b4b5767e064ae79b2b0c0a6ad91d1d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/prepare_automation.py",
+          "sha256": "1648e1a6e51a2bc62c142e6d704b4649d5cb4f08b3b9c826f0fbf20807001def",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/codeql_rust.py",
+          "sha256": "909d4365ba54235855eaa41ee0b311f4364afc0808a8c70d83256b3920f5b1ce",
+          "role": "other"
+        },
+        {
+          "path": "scripts/local-state.py",
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "3bb38dd03db9794c428d50ccb9349e8e29d91d3d9f49333fdf1fe8e85f7ae170",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/common.sh",
+          "sha256": "894889f96deebb8c642faceea0c8d0d738790910c1fc51e67568467421a4acd1",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "1e94e3a6a0e938d9ad112978d8d379d38d79e2f34ebe4bf4f0b1d68b3af9cccb",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-BANDIT",
+      "kind": "test",
+      "command_or_method": "bash scripts/automate.sh run --check bandit (run-KvCjDEhX); examinar resultado security:bandit e relatório nativo integral.",
+      "observed_result": "security:bandit passou (exit 0): 375 nativos, 375 revisados, 0 pendentes. Bandit 1.9.4, cleanup removed. Runner diagnóstico exit 2 devido exclusivamente a referências SDD ainda em preparação; não usado como recibo de aceite.",
+      "artifact": ".local/logs/2026-11-15/run-KvCjDEhX-05-security-bandit.result.log",
+      "sha256": "d319325ac3f1a5b74e815ddb0a324f54779a663eec400e3e4e02ff7405995a9d",
+      "inputs": [
+        {
+          "path": "sdd/tasks/bandit-review-refresh/spec.md",
+          "sha256": "0df42e7056d225779ced0d9f5fa2f8515bcac11e77b17de72ea7e5723ab9e4c0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/plan.md",
+          "sha256": "6c4e60f7efdc282c25959de4b0a1b7cfd9bec2534bc78776e4846f0bda2efe3f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/tasks.md",
+          "sha256": "326d38d15ad17e798f14e9da28d92a0a1b2fd4d7db1d6e4c05092ace3ada373e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/traceability.json",
+          "sha256": "35f2e380a7e78a4d194551ee8efcf7bea6685d7acffffd76afdb84f9c3b61c1e",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/bandit-review-refresh/workflow.json",
+          "sha256": "20758a80bac8d1652a5ade061c3c71aa788c122631ccc05b234425c2e7a75813",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/scripts-verification/spec.md",
+          "sha256": "d79fc65a845a575646811edb301342b4fd19caafa8891e867d8403e47b65d2fa",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "dcbaa05532c25ba763f263e2a527956a7c8ecf78d41d3707116cf129ea555289",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/native/bandit/bandit.yaml",
+          "sha256": "dc1410a867725149a3de33bd95ce6f76ec04347309d5203055c7000e453491f4",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_security_evidence.py",
+          "sha256": "20955aec5c3d035dfce77e8500caf1cc32c41fc65648128253ca41ca2f57699c",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_automation_config.py",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_shell.py",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
+          "role": "other"
+        },
+        {
+          "path": "scripts/tests/test_native.py",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/native_gates.py",
+          "sha256": "3de2f36ba6bd891e1f49c765fd019d76da3cfbe5af485e48676e0803c736cf62",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/sarif_report.py",
+          "sha256": "753c6c5e4a4530f9b8da4ac2c8213b3944b4b5767e064ae79b2b0c0a6ad91d1d",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/prepare_automation.py",
+          "sha256": "1648e1a6e51a2bc62c142e6d704b4649d5cb4f08b3b9c826f0fbf20807001def",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/codeql_rust.py",
+          "sha256": "909d4365ba54235855eaa41ee0b311f4364afc0808a8c70d83256b3920f5b1ce",
+          "role": "other"
+        },
+        {
+          "path": "scripts/local-state.py",
+          "sha256": "6eb05741c7b048eb1ba7c7f085762d2fdd9a56249e7ffcdebf9027447f1bde63",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "3bb38dd03db9794c428d50ccb9349e8e29d91d3d9f49333fdf1fe8e85f7ae170",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/common.sh",
+          "sha256": "894889f96deebb8c642faceea0c8d0d738790910c1fc51e67568467421a4acd1",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/inputs.sh",
+          "sha256": "1e94e3a6a0e938d9ad112978d8d379d38d79e2f34ebe4bf4f0b1d68b3af9cccb",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-15/run-KvCjDEhX-05-security-bandit.bandit-review.log",
+          "sha256": "1cd7ab07589f86d8f43e0400545199db8ffdcc780e8862558a684efd1fd586cb",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-15/run-KvCjDEhX-05-security-bandit.sources.log",
+          "sha256": "821271fd14839d8d8981e9c0718016d1dcab16183ba0b3c13953106e95d11f80",
+          "role": "other"
+        },
+        {
+          "path": ".local/logs/2026-11-15/run-KvCjDEhX-05-security-bandit.targets.log",
+          "sha256": "bbe71af7630a33bde2648fd8fc06dcc2e402250d3ac9f8bba744858f8edbedbe",
+          "role": "other"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Não aprova AC-38 agregado nem executa toda a suíte de segurança/produto.",
+    "Runs diagnósticos lBmuzKzs e KvCjDEhX têm exit 2 por registro SDD incompleto; aprovação final depende de runner docs/scripts posterior e gate atual.",
+    "375 ocorrências nativas são preservadas e revisadas por contexto; zero pendências não equivale a ausência geral de vulnerabilidades."
+  ]
+}

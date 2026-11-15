@@ -16,7 +16,7 @@ Distinguish confirmed policy from assumptions. Do not prescribe a new database.
 
 ## Aplicação no Ec
 
-PostgreSQL é a autoridade global planejada. SQLite privado por Agent, WAL e synchronous=FULL são hipóteses de durabilidade a ensaiar se a ADR for adotada. Avaliar inbox/outbox, UNIQUE e transações; não afirmar atomicidade entre Git e PostgreSQL.
+PostgreSQL é a autoridade vigente da fila e do estado operacional, conforme `docs/constitution.md` e `docs/architecture/context.md`; o alcance implementado é parcial e está em `sdd/project.md`. SQLite privado por Agent, WAL e synchronous=FULL continuam propostas de durabilidade a decidir e ensaiar. Avaliar inbox/outbox, UNIQUE e transações no escopo real; não afirmar atomicidade entre Git e PostgreSQL.
 
 ## Procedure
 

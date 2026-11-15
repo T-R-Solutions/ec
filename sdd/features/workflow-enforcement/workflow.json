@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "surfaces": [
+    "docs",
+    "scripts"
+  ],
+  "stages": {
+    "analysis": [
+      "E-REVIEW"
+    ],
+    "planning": [
+      "E-REVIEW"
+    ],
+    "implementation": [
+      "E-REVIEW"
+    ],
+    "review": [
+      "E-REVIEW"
+    ],
+    "validation": [
+      "E-TEST"
+    ]
+  }
+}

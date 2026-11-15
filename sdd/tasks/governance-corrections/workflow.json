@@ -1,0 +1,59 @@
+{
+  "schema_version": 2,
+  "surfaces": [
+    "docs",
+    "scripts"
+  ],
+  "scope": {
+    "kind": "task",
+    "related_features": [
+      {
+        "path": "sdd/features/governance-adoption",
+        "criteria": [
+          "AC-01",
+          "AC-02",
+          "AC-03",
+          "AC-04",
+          "AC-05"
+        ],
+        "coverage": "partial"
+      },
+      {
+        "path": "sdd/features/workflow-enforcement",
+        "criteria": [
+          "AC-01",
+          "AC-02",
+          "AC-03"
+        ],
+        "coverage": "complete"
+      },
+      {
+        "path": "sdd/features/agent-orchestration-proposal",
+        "criteria": [
+          "AC-03",
+          "AC-04"
+        ],
+        "coverage": "partial"
+      }
+    ],
+    "rationale": "Manutenção dos onze achados; preserva critérios agregados e pendências das features. Cobertura descreve critérios relacionados, sem declarar seu aceite.",
+    "review": "Revisão independente confronta o recorte com os onze itens autorizados e suas interfaces."
+  },
+  "stages": {
+    "analysis": [
+      "E-REVIEW"
+    ],
+    "planning": [
+      "E-REVIEW"
+    ],
+    "implementation": [
+      "E-REVIEW"
+    ],
+    "review": [
+      "E-REVIEW"
+    ],
+    "validation": [
+      "E-TEST"
+    ]
+  }
+}

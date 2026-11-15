@@ -62,91 +62,72 @@
       "executor": "toolbox",
       "triage": {
         "application/integration/tests/e2e/frontend_browser.py": {
-          "sha256": "0c42f00345883e91a2b51035af3a3d2995b3a2c5c9b8d5742fe8705eeea6beca",
+          "sha256": "b8f75070ce6513a180d79709392eff3fb4af447a2b94aa9fbcfc202af5778618",
           "rules": [
             {
               "id": "B101",
               "lines": [
-                142,
-                144,
-                145,
+                70,
+                72,
+                73,
+                74,
+                75,
+                85,
+                104,
+                109,
+                111,
+                112,
+                116,
+                123,
+                124,
+                125,
+                127,
+                131,
+                132,
+                139,
+                140,
+                141,
+                147,
                 148,
                 149,
-                150,
-                151,
-                153,
-                202,
-                205,
-                220,
-                227,
-                242,
-                259,
-                261,
-                284,
-                289,
-                290,
-                301,
-                303,
-                315,
-                317,
-                334,
-                342,
-                354,
-                357,
-                367,
-                372,
-                385,
-                407,
-                447,
-                450,
-                459,
-                460,
-                472,
-                474,
-                476,
-                484,
-                488,
-                497,
-                503,
-                504,
-                520,
-                522,
-                524
+                155,
+                158,
+                167,
+                170,
+                171,
+                181,
+                184,
+                185,
+                196,
+                197,
+                201,
+                203,
+                204
               ],
-              "reason": "Oráculo dos harnesses de integração/E2E. settings.py, importado direta ou transitivamente por publication_http, rejeita Python otimizado antes dos serviços; a regressão cobre -O. Não é decisão de autorização de produção."
+              "reason": "Oráculos HTTP/DOM/foco e proteção de screenshots do harness real de login. settings.py é importado antes de main por publication_http e rejeita -O/PYTHONOPTIMIZE; os asserts não implementam autorização do produto. O teste test_optimized_harness_cannot_drop_assertions_and_report_success comprova a rejeição de otimização."
             },
             {
               "id": "B404",
               "lines": [
-                11
+                12
               ],
-              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+              "reason": "Import usado somente nas duas chamadas Docker revisadas abaixo; o harness usa serviços locais dedicados, não executa programa recebido por HTTP."
             },
             {
               "id": "B603",
               "lines": [
-                52,
-                86,
-                88,
-                89,
-                104,
-                279,
-                431,
-                558
+                33,
+                231
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "Docker exec com argv separado, comandos literais createdb/dropdb, container e usuário da configuração local confiável e nome de banco gerado por UUID em publication_http. Sem shell=True; dados da sessão/browser não selecionam programa ou argumentos."
             },
             {
               "id": "B607",
               "lines": [
-                52,
-                86,
-                88,
-                89,
-                104,
-                558
+                33,
+                231
               ],
-              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+              "reason": "docker é selecionado pelo PATH confiável do operador/runner. Esta revisão exige instalação e PATH locais confiáveis; não cobre execução em PATH controlado por terceiros. Argumentos são separados e banco UUID dedicado."
             }
           ]
         },
@@ -512,28 +493,28 @@
           ]
         },
         "scripts/tests/test_automation_config.py": {
-          "sha256": "7223b4eb52badf17327d656ba41573b68b788ed9d27348a6f5be26ff2e24dd38",
+          "sha256": "9a076de28b998467fa1969d3ef69172b8c09b3f82dc16ac65e4fa89795c3ec7d",
           "rules": [
             {
               "id": "B104",
               "lines": [
-                361
+                437
               ],
-              "reason": "Bind 0.0.0.0 existe somente no dicionário fixture para comprovar que inspect_postgres rejeita a configuração antes de iniciar o container; não abre socket."
+              "reason": "0.0.0.0 é somente dado do mock docker inspect em test_wrong_postgres_binding_is_rejected_before_start. prepare.command é mockado e inspect_postgres deve lançar Unavailable; nenhum socket público é aberto."
             },
             {
               "id": "B404",
               "lines": [
                 6
               ],
-              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+              "reason": "Import de subprocess para testar o guard de otimização do harness; a única chamada atual está revisada em B603."
             },
             {
               "id": "B603",
               "lines": [
                 31
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "sys.executable executa -O e import literal de settings em cwd do checkout para exigir rejeição de asserts desabilitados; sem shell, sem serviço/rede e timeout de 10 segundos."
             }
           ]
         },
@@ -608,14 +589,14 @@
           ]
         },
         "scripts/tests/test_native.py": {
-          "sha256": "f687ed9dc1ae1791c4f0fae0045765a6542455cc8f753b2ee4a2d2fc85b127ea",
+          "sha256": "051d4b2a78c23ed51eb59220ad4fa592d5df671fd25bc8838f4bcef3d1120d2f",
           "rules": [
             {
               "id": "B404",
               "lines": [
                 10
               ],
-              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+              "reason": "Import para testes locais dos gates/supervisor; as seis chamadas atuais estão revisadas por B603 e a seleção de Git por B607."
             },
             {
               "id": "B603",
@@ -627,14 +608,14 @@
                 926,
                 976
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "Chamadas do teste usam /bin/bash com scanner-gate versionado e executor fixture, Git com argumentos literais em raiz temporária, ou Bash -c com harness literal. Raízes/plans são parâmetros posicionais, sem interpolação de entrada externa no programa; os harnesses exercitam redação, cancelamento e inventário grande."
             },
             {
               "id": "B607",
               "lines": [
                 383
               ],
-              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+              "reason": "git vem do PATH confiável do ambiente de teste, com -C e raiz temporária; operações init/config/add/commit e mensagem são definidas no teste. PATH controlado por atacante não está coberto pela revisão."
             }
           ]
         },
@@ -682,114 +663,114 @@
           ]
         },
         "scripts/tests/test_shell.py": {
-          "sha256": "d506f3a443accc488d2b626499659ae05d80badbc6f7fd302bf3a0cf4f4917f9",
+          "sha256": "b8d1a4be5b7c9ec75cdae481c17e3827c40750c70fb00702b5eef65bdcecc902",
           "rules": [
             {
               "id": "B105",
               "lines": [
-                428
+                557
               ],
-              "reason": "Marcador literal de redação \"***\" em fixture do parser Gitleaks; representa saída já redigida, não credencial. O teste compara consistência entre relatório e exit e não autentica em serviço."
+              "reason": "Valor literal de redação usado como campo Secret da fixture do parser Gitleaks para conferir consistência relatório/exit. Não é uma credencial nem é utilizado para autenticação."
             },
             {
               "id": "B108",
               "lines": [
-                33
+                34
               ],
-              "reason": "Namespace /tmp derivado de UID/hash. local-state.py abre ancestrais com O_NOFOLLOW e exige dono/modo 0700; o teste usa o mesmo namespace e remove sua fixture. Não é um arquivo temporário aberto por nome inseguro."
+              "reason": "Namespace /tmp/ec-automation-UID-HASH é derivado da raiz criada por TemporaryDirectory do próprio teste e coincide com o contrato do runner. Os testes exercitam diretório privado/lock; tearDown remove apenas o namespace dessa fixture. Não é nome de arquivo aberto para armazenar segredo."
             },
             {
               "id": "B110",
               "lines": [
-                393
+                520
               ],
-              "reason": "ProcessLookupError na limpeza de fixture significa processo já encerrado; outras falhas não são ocultadas."
+              "reason": "ProcessLookupError na limpeza significa que o grupo do processo fixture já encerrou; somente esse erro é aceito. Outros erros propagam e communicate(timeout=5) permanece obrigatório após a tentativa de término."
             },
             {
               "id": "B404",
               "lines": [
                 11
               ],
-              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+              "reason": "Import das rotinas shell/start_tasks e teste de caminho rejeitado; chamadas concretas revisadas em B603/B607."
             },
             {
               "id": "B603",
               "lines": [
-                40,
-                76,
-                328
+                42,
+                82,
+                451
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "Bash recebe script versionado ou harness literal; caminhos e valores da fixture seguem em argv/posicionais. start_tasks usa plan temporário gerado pelo teste; o teste de inside exige rejeição de ../outside. Nenhum input remoto vira código shell."
             },
             {
               "id": "B607",
               "lines": [
-                40,
-                76,
-                328
+                42,
+                82,
+                451
               ],
-              "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+              "reason": "bash é dependência local resolvida pelo PATH confiável do operador/runner. Scripts versionados e programas literais; esta revisão não aceita PATH sob controle de atacante."
             }
           ]
         },
         "sdd/tools/validate.py": {
-          "sha256": "90d45cc142d138abd994c755d808f8d83e0cc456b2b9d6d41607fa9762255486",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
           "rules": [
             {
               "id": "B110",
               "lines": [
-                167
+                197
               ],
-              "reason": "ValueError já é registrado por trace_errors no mesmo fluxo; este bloco evita duplicar o diagnóstico e não aprova o caminho inválido."
+              "reason": "ValueError ao coletar bindings redundantes não aprova path inválido: audit chama trace_errors antes de input_errors e trace_errors valida os mesmos campos implementation/oracle com local_file, registrando o erro. Outros tipos de exceção não são capturados aqui."
             }
           ]
         },
         "tools/governance/tests/test_governance.py": {
-          "sha256": "0ca7a02cf852e823e49ebd523bd21fe4870c87c09d93c13b31bfbd843bb56b1b",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
           "rules": [
             {
               "id": "B404",
               "lines": [
-                284,
-                304,
-                360
+                341,
+                361,
+                417
               ],
-              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+              "reason": "Imports locais dos três testes de lock e morte/interrupção do instalador; chamadas concretas revisadas por B603."
             },
             {
               "id": "B603",
               "lines": [
-                292,
-                319,
-                374
+                349,
+                376,
+                431
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "sys.executable com programa -c literal e caminhos em argv separado exercita lock e mortes controladas do instalador sobre a raiz temporária criada em setUp. Código versionado, sem entrada HTTP e sem programa externo interpolado; não é instalação no checkout real."
             }
           ]
         },
         "tools/quality/automation_config.py": {
-          "sha256": "5d92a2fc3324005be06f7bc00bcaf1c12d4fd69c7a2e13135c85e02e4d0e6bd8",
+          "sha256": "ccba8dfda5da44621be9c8cc50fe87101d96d8394dc806d108189656982e353b",
           "rules": [
             {
               "id": "B112",
               "lines": [
-                713
+                723
               ],
-              "reason": "Raiz opcional ausente é ignorada; erro de acesso/tipo não é capturado como ausência. Gates preservam a exigência dos componentes/locks obrigatórios."
+              "reason": "Somente FileNotFoundError ao consultar raiz declarada do inventário é ignorado. PermissionError e demais erros propagam; links são devolvidos para rejeição pelo consumidor e arquivos em lugar de diretório são rejeitados. O consumidor SAST exige explicitamente os três componentes em native_gates.Gate.targets(kind=sast); este continue não aprova a disponibilidade deles."
             },
             {
               "id": "B404",
               "lines": [
                 16
               ],
-              "reason": "Import de subprocess da automação/teste local. As chamadas concretas foram revisadas por B603/B607; não há shell=True nem entrada remota promovida a programa."
+              "reason": "Import usado na descoberta local Rustup; chamada específica revisada em B603."
             },
             {
               "id": "B603",
               "lines": [
-                584
+                594
               ],
-              "reason": "Automação/harness local revisado: argv em lista, executável de ferramenta/binário compilado/fixture selecionado pelo operador, argumentos separados e sem shell=True. Os programas Bash/Python com -c são literais dos testes; valores seguem em parâmetros separados."
+              "reason": "Executável rustup resolvido por shutil.which no PATH selecionado pelo operador; argv literal show active-toolchain, ambiente limitado e RUSTUP_AUTO_INSTALL=0. Timeout do catálogo e falha preservada como recurso indisponível pelos consumidores; não executa comando recebido pelo produto."
             }
           ]
         },
@@ -921,6 +902,25 @@
                 128
               ],
               "reason": "Executável literal do PATH confiável do operador (Bash, Git, Docker ou jq), com argv separado. Fixtures de PATH são explícitas e descartáveis; não é execução de comando fornecido por usuário HTTP."
+            }
+          ]
+        },
+        "tools/governance/tests/test_sdd_catalog.py": {
+          "sha256": "d9867d006343cad41ea00fa6dc95d2bedd1ab6a3a527d5df60b4f0f31c016303",
+          "rules": [
+            {
+              "id": "B404",
+              "lines": [
+                5
+              ],
+              "reason": "Import usado somente pelo helper cli que executa o validador SDD versionado, revisado em B603."
+            },
+            {
+              "id": "B603",
+              "lines": [
+                41
+              ],
+              "reason": "sys.executable e caminho fixo CODE/sdd/tools/validate.py com --root apontando fixture temporária; args são flags literais dos casos de teste. Sem shell, rede ou serviços; timeout de 10 segundos. Não permite consumidor remoto fornecer programa."
             }
           ]
         }
@@ -1158,7 +1158,7 @@
       "port": 58139
     },
     "frontend": {
-      "port": 5173
+      "port": 58140
     }
   },
   "inputs": {
@@ -1348,7 +1348,8 @@
         "python3",
         "sdd/tools/validate.py",
         "--root",
-        "."
+        ".",
+        "--catalog-only"
       ],
       "depends": [],
       "surfaces": [
@@ -2546,7 +2547,7 @@
     "playwright": {
       "browser": "chromium",
       "port": 4173,
-      "expected_tests": 2,
+      "expected_tests": 3,
       "test_timeout_ms": 30000,
       "expect_timeout_ms": 5000,
       "server_timeout_ms": 10000,
@@ -2562,5 +2563,10 @@
       "command_timeout": 30,
       "config": "scripts/config/native/playwright/journey.config.mjs"
     }
+  },
+  "presentation": {
+    "enabled": true,
+    "refresh_seconds": 1,
+    "heartbeat_seconds": 30
   }
 }

@@ -125,3 +125,17 @@ O log docs:sdd de run-orZMYUEe rejeitou uma referência em prosa iniciada por
 AC-05. A frase foi reescrita com “critério AC-05” na continuação, preservando a
 declaração normativa e seu requisito. Inspeção do parser e da spec; nenhum
 validador executado ou critério promovido. O estado atual continua UNVERIFIED.
+
+
+## Aceite obrigatório — 14/11/2026
+
+Manutenção de AGENTS, workflow e política de verificação encaminhada à
+[feature de aceite obrigatório](../workflow-enforcement/spec.md). Os critérios
+históricos desta feature não recebem aprovação automática pela mudança.
+
+## Manutenção relacionada — 14/11/2026
+
+A [tarefa de correções de governança](../../tasks/governance-corrections/spec.md)
+registra escopo e critérios próprios para onze achados. Seus resultados não
+renovam observações anteriores nem aprovam esta feature. Os critérios e pendências
+agregados permanecem nos artefatos desta feature; reaceite exige evidências atuais.

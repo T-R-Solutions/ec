@@ -1,0 +1,531 @@
+{
+  "schema_version": 2,
+  "environment": "Ec Linux local, Python3.13.16/Bash5.3.20; CLI0.169.0 somente --version/--help; fontes oficiais14/11/2026.",
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "AC-01 conforme spec: documentação de replicação e limites",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "AC-02 conforme spec: documentação de replicação e limites",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "AC-03 conforme spec: documentação de replicação e limites",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "AC-04 conforme spec: documentação de replicação e limites",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "command_or_method": "Revisão independente ec_revisor; reobservação independente ec_validador do delta final; pareceres transcritos pelo coordenador.",
+      "observed_result": "Revisão original mais duas reobservações independentes dos deltas documentais finais; sem achados abertos. Falha run-MNrzZMo8 por hyperlink na fixture corrigida sem alterar critérios/testes.",
+      "artifact": ".local/logs/2026-11-14/agent-replication-final-review-02.log",
+      "sha256": "128f739a4a612d66bbbf5b9ba1cc3507aaf515ed9e3bb9a2a29ea6df0fda411e",
+      "inputs": [
+        {
+          "path": "README.md",
+          "sha256": "1b03c65de8d98bf46d8497d1d025ee166409e8d01d128db94bb527cab480a34c",
+          "role": "other"
+        },
+        {
+          "path": "docs/README.md",
+          "sha256": "57fa23bc34d07ce948206a1062a546a9bf30216cade6edf6dea3e586acb98e9b",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/contributing.md",
+          "sha256": "3b1465f2149adfeb31bc2bf0c5d6c809c8bf543e343fabbde666b96ebee8c864",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents.md",
+          "sha256": "96f771ce6224b0a80a159cb26ce8f03e6c691cb5d2c7ce42108b1f61e88e77fc",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents-replication.md",
+          "sha256": "758ce0c6690706d2efdc6428e7fa8a345d0497c3fdce0b42e8ac80bcd3e614d6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/config.toml",
+          "sha256": "14c7a79b0202da683578ff1d1a2e23f33273d500a82ce72c4dbce4f3c8d19835",
+          "role": "other"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "3292fa8b46e7871066211875a0f6e2f516b1fca6c597769b5940a0b50e4b4413",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "30e405dfca843ca9b5836df5b1fa7a70f3e9e9c08075806ae64083c5f28e6c29",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/README.md",
+          "sha256": "c8baa6544d1e73897497883ead26585f0f330db1a0a29f8cd5d6c951a562959d",
+          "role": "other"
+        },
+        {
+          "path": "docs/constitution.md",
+          "sha256": "af167c91aacccc3dec0088a5aa8fed50851ebc5dbf70b78850b805ab3fd73ceb",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "3794b8c5d5440b852aeab5aeaaab287d410e64465ee568893731e3069c0b6259",
+          "role": "other"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "3665e6aa76d70875cdfc07dd807b3866c90caf1863004f8c6c1510fff287e5cc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "11c093614784d78b9369871146e0b85549f08159ce41a9e014a114bc8e82246f",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/environment.sh",
+          "sha256": "20887b67be5f77e67546bc8a6b42d926c1fd1bde391e614be110796e0c7a9a9e",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "867675a9ad7003c8ceb0c2486b427767d48d830513aa660082f6ef6b9ba25cfc",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "aad5c4e5bc7631870d54a9e2c2e45648d9d5de2692300422942038ccc8ff5cab",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "10141aab13d57527caa2c1d37900c53545b73dc4072e44376c06015da8474961",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/prepare_automation.py",
+          "sha256": "1648e1a6e51a2bc62c142e6d704b4649d5cb4f08b3b9c826f0fbf20807001def",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "77932c51f512e622cefae52223567ca69ccaddfa562c4f2e555f23a5c11e6f66",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista.toml",
+          "sha256": "dab2f12b9fe8658ec69f9817de79ae0d9e8a19244ace96afaab6777279989e49",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista_alta.toml",
+          "sha256": "0ee73cc774f37408adec779183fa24b92380d178453d35f7ebea6dfa06c7a0d9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_implementador.toml",
+          "sha256": "c0a239ad74caf892313b1509969eee5a7118b41c16baed8b757e8cf91f696d0d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_implementador_extra_alto.toml",
+          "sha256": "709fdf48271c2d224f13740a7eccfa1a9b04ab66543d11d09e363c09db050a58",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_alta.toml",
+          "sha256": "d5196f29ef1ac848dc9c4b315f981cd6bf69e7e87138aceabe9a27b3fff8f409",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_normal.toml",
+          "sha256": "53bedc6fbe79793305ae115ffd0475f93168a79611ed6a2ae9894d9a22bd034e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_planejador.toml",
+          "sha256": "36bd0410797dfdb1cc7ab8f9592431801bf4ef3cb9b6ec49e65383539b50eb5a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_planejador_alta.toml",
+          "sha256": "e289dccf286c6131c80e65dec16417276d5e6de252866e550b8dba7ea8d67d4d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_revisor.toml",
+          "sha256": "bff2c757d7c31559d84aa6655f72b901e612912dce0a8502040b2dbdf91ff0d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_testador.toml",
+          "sha256": "5f4d0e6dc8341b162dac5920b7c4c4da0246ae15bcecb9380b2fb3e3929f1fda",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_triador.toml",
+          "sha256": "08f16da37a8333c3345aed5fa130a3c587bb7248c907b869e2853de43b7f00a4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_validador.toml",
+          "sha256": "560c201c00b46507288d642b7e0ecd1a5862f10dfc6b28030783e71ba7f133a0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_validador_alta.toml",
+          "sha256": "93af3cbe1319448576b8797dca4af7acc0068b1b494ba8204482d0ece9442986",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/spec.md",
+          "sha256": "0b3de4f2cd47bb65f3acb871a7b0dbdeb2a47345db5d9a5b538bbd39f99ce481",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/plan.md",
+          "sha256": "3576e0683ac457578b7d36fe4fb0da22a80f1901cb4ca307e390206938bcb35d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/tasks.md",
+          "sha256": "0075739e95aaa112475b2bdc4cd96576913abd5ce91ac45f899a32bdcebb5920",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/traceability.json",
+          "sha256": "1ccd25937548a5429e5d32c248d23bdbedb190170e8e2b65802af66339cee4b9",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/workflow.json",
+          "sha256": "e5393c526ae178694b45fe097a08afe11fbe8e9c4a65f7dfa9fbe889f413215c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/spec.md",
+          "sha256": "332c6456cc39cc12d96d72ef6c8668d7db64baa074ff1cdaf1fa9244d1721688",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "50221512df7c4a8d68b731a3f026fda985edbb264a85e31759b9f02be1630b13",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/spec.md",
+          "sha256": "6f9d37fe073050cfdca7b66c6ed38e66a9543a3af6a0f7b0589da6012995fdeb",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
+          "role": "oracle"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "command_or_method": "Testes independentes iniciais mais reteste dos consumidores afetados após delta exclusivo hyperlink config→texto; logs preservados e vinculados pelo artefato agregado.",
+      "observed_result": "Inicial6/6; reteste atual4/4 exit0:137links nos5docs,fixture real preparação PASS/controle negativo FAIL esperado/restauração PASS,snippet íntegro sem mutação,rg14consumidores. Lógica dos9cenários rejeitados não mudou; não foram reexecutados nesse reteste.",
+      "artifact": ".local/logs/2026-11-14/agent-replication-final-tests.log",
+      "sha256": "b64f5b61368ec44188a801174f5071af94121dd545dc1983f4470f48266d4088",
+      "inputs": [
+        {
+          "path": "README.md",
+          "sha256": "1b03c65de8d98bf46d8497d1d025ee166409e8d01d128db94bb527cab480a34c",
+          "role": "other"
+        },
+        {
+          "path": "docs/README.md",
+          "sha256": "57fa23bc34d07ce948206a1062a546a9bf30216cade6edf6dea3e586acb98e9b",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/contributing.md",
+          "sha256": "3b1465f2149adfeb31bc2bf0c5d6c809c8bf543e343fabbde666b96ebee8c864",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents.md",
+          "sha256": "96f771ce6224b0a80a159cb26ce8f03e6c691cb5d2c7ce42108b1f61e88e77fc",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents-replication.md",
+          "sha256": "758ce0c6690706d2efdc6428e7fa8a345d0497c3fdce0b42e8ac80bcd3e614d6",
+          "role": "other"
+        },
+        {
+          "path": ".codex/config.toml",
+          "sha256": "14c7a79b0202da683578ff1d1a2e23f33273d500a82ce72c4dbce4f3c8d19835",
+          "role": "other"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "3292fa8b46e7871066211875a0f6e2f516b1fca6c597769b5940a0b50e4b4413",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "30e405dfca843ca9b5836df5b1fa7a70f3e9e9c08075806ae64083c5f28e6c29",
+          "role": "other"
+        },
+        {
+          "path": "sdd/chain/README.md",
+          "sha256": "c8baa6544d1e73897497883ead26585f0f330db1a0a29f8cd5d6c951a562959d",
+          "role": "other"
+        },
+        {
+          "path": "docs/constitution.md",
+          "sha256": "af167c91aacccc3dec0088a5aa8fed50851ebc5dbf70b78850b805ab3fd73ceb",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b9a2f944e49029b750701d8f28e79ed302a75faacfad357d8178acfbd373d434",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "3794b8c5d5440b852aeab5aeaaab287d410e64465ee568893731e3069c0b6259",
+          "role": "other"
+        },
+        {
+          "path": "scripts/automate.sh",
+          "sha256": "3665e6aa76d70875cdfc07dd807b3866c90caf1863004f8c6c1510fff287e5cc",
+          "role": "other"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/runtime.sh",
+          "sha256": "11c093614784d78b9369871146e0b85549f08159ce41a9e014a114bc8e82246f",
+          "role": "other"
+        },
+        {
+          "path": "scripts/stacks/ec/environment.sh",
+          "sha256": "20887b67be5f77e67546bc8a6b42d926c1fd1bde391e614be110796e0c7a9a9e",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "867675a9ad7003c8ceb0c2486b427767d48d830513aa660082f6ef6b9ba25cfc",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "aad5c4e5bc7631870d54a9e2c2e45648d9d5de2692300422942038ccc8ff5cab",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "10141aab13d57527caa2c1d37900c53545b73dc4072e44376c06015da8474961",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/prepare_automation.py",
+          "sha256": "1648e1a6e51a2bc62c142e6d704b4649d5cb4f08b3b9c826f0fbf20807001def",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "f0ba6f4292f4939a44c709628ddb72b1940db8659eb83d11e232a76af3fe5c18",
+          "role": "other"
+        },
+        {
+          "path": "config/governance/profile.json",
+          "sha256": "77932c51f512e622cefae52223567ca69ccaddfa562c4f2e555f23a5c11e6f66",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista.toml",
+          "sha256": "dab2f12b9fe8658ec69f9817de79ae0d9e8a19244ace96afaab6777279989e49",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista_alta.toml",
+          "sha256": "0ee73cc774f37408adec779183fa24b92380d178453d35f7ebea6dfa06c7a0d9",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_implementador.toml",
+          "sha256": "c0a239ad74caf892313b1509969eee5a7118b41c16baed8b757e8cf91f696d0d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_implementador_extra_alto.toml",
+          "sha256": "709fdf48271c2d224f13740a7eccfa1a9b04ab66543d11d09e363c09db050a58",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_alta.toml",
+          "sha256": "d5196f29ef1ac848dc9c4b315f981cd6bf69e7e87138aceabe9a27b3fff8f409",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_normal.toml",
+          "sha256": "53bedc6fbe79793305ae115ffd0475f93168a79611ed6a2ae9894d9a22bd034e",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_planejador.toml",
+          "sha256": "36bd0410797dfdb1cc7ab8f9592431801bf4ef3cb9b6ec49e65383539b50eb5a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_planejador_alta.toml",
+          "sha256": "e289dccf286c6131c80e65dec16417276d5e6de252866e550b8dba7ea8d67d4d",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_revisor.toml",
+          "sha256": "bff2c757d7c31559d84aa6655f72b901e612912dce0a8502040b2dbdf91ff0d4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_testador.toml",
+          "sha256": "5f4d0e6dc8341b162dac5920b7c4c4da0246ae15bcecb9380b2fb3e3929f1fda",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_triador.toml",
+          "sha256": "08f16da37a8333c3345aed5fa130a3c587bb7248c907b869e2853de43b7f00a4",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_validador.toml",
+          "sha256": "560c201c00b46507288d642b7e0ecd1a5862f10dfc6b28030783e71ba7f133a0",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_validador_alta.toml",
+          "sha256": "93af3cbe1319448576b8797dca4af7acc0068b1b494ba8204482d0ece9442986",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/spec.md",
+          "sha256": "0b3de4f2cd47bb65f3acb871a7b0dbdeb2a47345db5d9a5b538bbd39f99ce481",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/plan.md",
+          "sha256": "3576e0683ac457578b7d36fe4fb0da22a80f1901cb4ca307e390206938bcb35d",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/tasks.md",
+          "sha256": "0075739e95aaa112475b2bdc4cd96576913abd5ce91ac45f899a32bdcebb5920",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/traceability.json",
+          "sha256": "1ccd25937548a5429e5d32c248d23bdbedb190170e8e2b65802af66339cee4b9",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tasks/agent-replication-docs/workflow.json",
+          "sha256": "e5393c526ae178694b45fe097a08afe11fbe8e9c4a65f7dfa9fbe889f413215c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/spec.md",
+          "sha256": "332c6456cc39cc12d96d72ef6c8668d7db64baa074ff1cdaf1fa9244d1721688",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/governance-adoption/spec.md",
+          "sha256": "50221512df7c4a8d68b731a3f026fda985edbb264a85e31759b9f02be1630b13",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/spec.md",
+          "sha256": "6f9d37fe073050cfdca7b66c6ed38e66a9543a3af6a0f7b0589da6012995fdeb",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "sha256": "126a31bba5b5f118570ba1722ad192c277f4dc69dc19a9730d0d31c59de2b307",
+          "role": "oracle"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Parecer documental não instala outro projeto nem prova eficácia de modelos.",
+    "TOML/fixtures não comprovam carregamento de perfis por outro cliente/conta.",
+    "Nenhum commit/publicação ou configuração ativa alterada nesta tarefa.",
+    "Aceite final depende de runner/gate atual; features relacionadas não aprovadas por consequência.",
+    "Logs preservam falhas corrigidas; somente execução final sobre inputs atuais sustenta os critérios."
+  ]
+}

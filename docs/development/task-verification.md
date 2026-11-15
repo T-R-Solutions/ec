@@ -1,50 +1,66 @@
-# Verificação opcional após pedido de commit
+# Verificação obrigatória antes do aceite
 
-Esta é a política canônica do Ec para SDD e skills. Scripts de verificação não são
-acionados automaticamente durante implementação, revisão ou encerramento de tarefas.
-Inspecione as alterações e registre resultados e lacunas; a execução depende do
-fluxo abaixo, somente após pedido explícito de commit.
+Esta política substitui em 14/11/2026 o fluxo opcional após pedido de commit,
+por instrução explícita de tornar obrigatório o ciclo de trabalho. O pedido de
+uma alteração autoriza inspeção, testes pertinentes, correções e reexecuções
+locais necessárias. Downloads, publicação e permissões reais do ambiente
+continuam exigindo a autorização correspondente. Não perguntar se o usuário
+quer testar uma mudança: verificação faz parte da tarefa.
 
-## Pergunta obrigatória
+## Ciclo e condição de conclusão
 
-Após o pedido de commit, apresente exatamente:
+Siga análise → planejamento → implementação → revisão → teste → validação.
+Falha exige diagnóstico, correção e nova verificação dos inputs afetados.
+Não repetir indefinidamente a mesma execução diante de uma dependência externa
+inalterada. Falta de ferramenta, permissão, execução ou evidência mantém o aceite
+bloqueado e deve indicar a condição exata de retomada. Não reduzir critérios,
+remover testes ou atualizar hashes de resultados antigos para obter aprovação.
 
-> Deseja executar o script automate.sh (que roda todos os outros scripts)?
+Use `bash scripts/automate.sh run` para a suíte padrão. Durante a tarefa,
+`--surface` permite executar as superfícies pertinentes, justificadas no plano;
+`--check` permite diagnóstico, mas não substitui as superfícies exigidas no aceite.
+Testes focados locais, sem downloads, podem ser executados diretamente durante
+implementação e correção; registre resultados e limitações. A suíte integral
+continua obrigatória antes de commits solicitados. Não há mais opção de pular
+verificação para criar commit. Este fluxo não autoriza commit ou publicação.
 
-Ofereça somente duas respostas: `sim` e `não`. Aguarde a escolha; silêncio ou opção
-pré-selecionada não constituem resposta. Faça a pergunta para o pedido de commit
-atual, sem repetir a escolha para cada commit do mesmo pedido.
+## Entrada de aceite
 
-- `não`: crie normalmente os commits solicitados, sem executar scripts de verificação.
-  Registre que a suíte não foi executada por escolha do usuário; isso não é erro nem
-  impedimento para o commit e não equivale a aceite técnico das features.
-- `sim`: execute, da raiz, a suíte completa pela única entrada abaixo. Só crie os
-  commits se todos os scripts da suíte terminarem sem erros. Qualquer erro, ferramenta
-  ausente, interrupção ou execução incompleta bloqueia os commits. Corrija problemas
-  dentro do escopo autorizado e execute novamente a suíte completa antes de criar
-  commits; se não puder resolvê-los, relate o bloqueio sem criar commits.
+Para uma alteração, preparar `workflow.json` junto aos artefatos da tarefa,
+conforme o [contrato de evidência](../../sdd/evidence.md), e executar:
 
 ```bash
-bash scripts/automate.sh run
+bash scripts/accept-task.sh --task sdd/tasks/NOME --run .local/logs/AAAA-MM-DD/run-ID-automate.results.log
 ```
 
-Não usar `--surface` ou `--check` nesse fluxo, nem substituir o runner por scripts
-avulsos, validadores SDD ou comandos de teste indicados em skills, templates ou guias.
-Exemplos de comandos nessas fontes descrevem interfaces; não autorizam acionamento
-fora deste fluxo. A regra trata de scripts de verificação, sem impedir leitura,
-inspeção manual, edição de arquivos ou operações Git solicitadas.
+Substituir NOME/data/ID pelos valores reais. Para aceite agregado, usar
+`--feature sdd/features/NOME`, que exige todos os ACs da feature. `--task` exige
+os ACs próprios e relações revisadas, sem aprovar critérios da feature por
+consequência. Escopo não pode omitir trabalho necessário ao pedido.
+O comando exige etapas e critérios
+com evidências atuais, resultados completos das superfícies declaradas,
+encerramento e limpeza bem-sucedidos, e inventário atual idêntico ao observado.
+Finalize os artefatos antes do último run: editá-los depois invalida o recibo.
+Logs expirados pela retenção exigem nova execução para reaceite do registro.
+O check global `docs:sdd` usa catálogo: valida schemas/referências sem exigir
+freshness de observações históricas. Um PASS de catálogo/estrutura não é aceite.
+O inventário de aceite é versionado e inclui governança ativa além das fontes;
+recibos anteriores sem essa cobertura não aprovam a garantia atual. Scanners
+conservam seus escopos próprios.
 
-Ao escolher `sim`, o usuário autoriza as ações necessárias à execução e à resolução
-dos problemas encontrados nessa mesma tarefa, exceto downloads. Não repetir
-confirmações para correções e reexecuções já abrangidas; downloads exigem autorização
-específica e as permissões reais do ambiente continuam aplicáveis. Essa autorização
-não implica publicação ou trabalho externo à tarefa de verificação.
+O agente deve chamar esta entrada antes de declarar uma alteração concluída.
+Se ela rejeitar, continuar as correções autorizadas ou entregar estado bloqueado,
+sem declarar conclusão. Perguntas sem alteração exigem fontes e resposta revisada,
+mas não criar feature, rodar suíte ou fabricar evidência de implementação.
 
-A execução cobre todas as superfícies padrão configuradas no runner. Opções extras
-não incluídas no catálogo padrão não passam a ser executadas por esta instrução.
-O runner resolve a raiz pela própria localização; para caminhos com espaços, use
-`bash "/caminho com espaços/ec/scripts/automate.sh" run`. Não depende de hooks e não
-instala hooks. Esta política orienta o agente; não altera a CLI do runner.
+## Fronteira de proteção
+
+A entrada bloqueia o aceite emitido pela automação local. Não intercepta respostas
+do chat, comandos Git diretos ou escritores que possam alterar código e recibos.
+Não existe hook de término do agente configurado neste repositório. Para tornar
+a regra incontornável nesses canais, o host/CI deve exigir este gate e proteger
+validador, critérios e recibos fora da escrita do executor. Não declarar essa
+integração externa implantada. Instruções superiores e permissões reais prevalecem.
 
 ## Suíte e critérios vigentes — execução nativa
 
@@ -65,8 +81,8 @@ supervisão. Ferramentas centrais precisam estar qualificadas/ativas e suas base
 atuais. Cargo/npm e dependências de aplicação pertencem ao Ec. Os detalhes de
 RustSec, database_metadata OSV/Trivy, Checks Bundle externo Trivy, seleção de
 ambiente/estado, runtime CodeQL Rust, PostgreSQL e Firefox
-estão no [guia de preparação](verification-tools.md). Aplicam-se o alcance da escolha
-e a exceção de downloads definidos acima. O guia registra a atualização automática
+estão no [guia de preparação](verification-tools.md). Aplicam-se o escopo da tarefa
+e a autorização específica de downloads definidos acima. O guia registra a atualização automática
 OSV observada na Toolbox externa e o preparo Trivy/Grype anterior ao scan;
 esse efeito exige autorização específica ou uma interface que permita impedi-lo.
 

@@ -19,3 +19,8 @@ Sem necessidade de skill especializada, registre essa conclusão e prossiga.
 ## Implementação
 
 Superfícies afetadas, compatibilidade, migração e recuperação proporcionais ao risco.
+
+## Superfícies e estabilização
+
+Justifique superfícies do runner pelos arquivos e consumidores. Colete observações,
+estabilize os seis artefatos, encerre escritores, execute runner e gate com recibo real.

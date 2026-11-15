@@ -38,3 +38,10 @@ menções históricas à baseline não exigem uma cópia permanente.
 
 - REQ-07: retomar instalação interrompida, preservando conteúdo alheio, fonte de preparação autorizada e auditoria estrita.
 - AC-07 → REQ-07: interrupções na cópia, entre pontes e antes/depois do perfil convergem por retry; conflitos de metadados, pacotes, preparação e journal são rejeitados; instaladores concorrentes não escrevem simultaneamente e morte do processo libera o lock. Preparação de testes usa fixtures temporárias, conforme a política de retenção.
+
+
+## Aceite obrigatório — 14/11/2026
+
+Manutenção de AGENTS, workflow e política de verificação encaminhada à
+[feature de aceite obrigatório](../workflow-enforcement/spec.md). Os critérios
+históricos desta feature não recebem aprovação automática pela mudança.

@@ -3,6 +3,7 @@
 set -o pipefail
 : "${CODE:?raiz do código necessária}"
 source "${CODE}/scripts/stacks/ec/environment.sh"
+source "${CODE}/scripts/stacks/ec/progress.sh"
 execute_task() {
     local pid rc=0 cause='' size stdout_reader stderr_reader
     touch "${TASK_STDOUT}" "${TASK_STDERR}"
@@ -22,6 +23,7 @@ execute_task() {
         size=$(( $(stat -c %s "${TASK_STDOUT}" 9>&-) + $(stat -c %s "${TASK_STDERR}" 9>&-) ))
         if (( size > LOG_BYTES )); then cause='log byte limit exceeded'; break; fi
         if (( CANCELLED )); then cause=cancelled; break; fi
+        progress_tick
         sleep 0.1 9>&-
     done
     if [[ -n ${cause} ]]; then
@@ -68,14 +70,23 @@ run_plan() {
     RUN_DIR=$(mktemp -d "${parent}/run-XXXXXXXX")
     chmod 700 "${RUN_DIR}"
     trap 'finish_run "$?"' EXIT
-    observe_inputs all "${RUN_DIR}/inputs.json"
+    CANCELLED=0 ACTIVE_PID=''
+    local task_count log_reference
+    task_count=$(jq '.tasks|length' <<<"${PLAN}")
+    progress_init "${task_count}"
+    progress_begin preparation
+    observe_inputs acceptance "${RUN_DIR}/inputs.json"
     printf '[]\n' > "${RUN_DIR}/rows.json"
-    local input_digest server_target agent_target finished
+    local input_digest server_target agent_target finished inventory_version
     input_digest=$(hash "${RUN_DIR}/inputs.json")
+    inventory_version=$(python3 "${CODE}/tools/quality/automation_config.py" acceptance-version)
     server_target=$(local_path server)
     agent_target=$(local_path agent)
-    jq --arg digest "${input_digest}" '.tasks |= map(del(.argv)) | . + {schema:1,executed:true,results:[],inputs_sha256:$digest,complete:false}' <<< "${PLAN}" | atomic_json "${RUN_DIR}/results.json"
-    printf 'Logs: %s/%s-*\n' "${LOG_DIR}" "${RUN_DIR##*/}"
+    jq --arg digest "${input_digest}" --argjson inventory_version "${inventory_version}" '.tasks |= map(del(.argv)) | . + {schema:1,executed:true,results:[],acceptance_inventory_version:$inventory_version,inputs_sha256:$digest,complete:false}' <<< "${PLAN}" | atomic_json "${RUN_DIR}/results.json"
+    log_reference=$(progress_safe "${LOG_DIR}/${RUN_DIR##*/}-*")
+    printf 'Logs: %s\n' "${log_reference}"
+    progress_end passed 0
+
     CANCELLED=0 ACTIVE_PID=''
     trap cancel_run INT TERM HUP
     jq -c '.tasks[]' <<< "${PLAN}" > "${RUN_DIR}/tasks.list"
@@ -85,6 +96,7 @@ run_plan() {
         mkdir -m 700 "${TASK_DIR}"
         TASK_STDOUT=${LOG_DIR}/${RUN_DIR##*/}-${TASK_DIR##*/}.stdout.log
         TASK_STDERR=${LOG_DIR}/${RUN_DIR##*/}-${TASK_DIR##*/}.stderr.log
+        progress_begin "${project}:${name}"
         state=error reason='' raw=null
         depends=$(jq -c .depends <<< "${task}")
         if (( CANCELLED )); then state=blocked; reason='cancelado antes da tarefa'
@@ -141,10 +153,14 @@ run_plan() {
         jq --slurpfile row "${TASK_DIR}/result.json" '.+[$row[0]]' "${RUN_DIR}/rows.json" | atomic_json "${RUN_DIR}/rows.json"
         code=$(aggregate < "${RUN_DIR}/rows.json")
         jq --slurpfile rows "${RUN_DIR}/rows.json" --argjson code "${code}" '.results=$rows[0] | .exit_code=$code' "${RUN_DIR}/results.json" | atomic_json "${RUN_DIR}/results.json"
-        printf '%s:%s: %s (exit=%s) %s\n' "${project}" "${name}" "${state}" "${raw}" "${reason}"
+        # Motivos livres (inclusive texto de scanners) ficam apenas no recibo.
+        printf '%s:%s: %s (exit=%s)\n' "${project}" "${name}" "${state}" "${raw}"
+        local display_state=${state}
+        if (( CANCELLED )); then display_state=cancelled; fi
+        progress_end "${display_state}" "${raw}" "${LOG_DIR}/${RUN_DIR##*/}-${TASK_DIR##*/}.result.log"
         index=$((index+1))
     done < "${RUN_DIR}/tasks.list"
-    observe_inputs all "${RUN_DIR}/inputs-after.json"
+    observe_inputs acceptance "${RUN_DIR}/inputs-after.json"
     local changes lock_updates unexpected cargo_locks
     cargo_locks=$(configuration components)
     cargo_locks=$(jq '[.[]|select(.language=="rust")|.lockfile]' <<< "${cargo_locks}")
@@ -181,26 +197,40 @@ run_plan() {
         code=2
         jq '.exit_code=2 | .complete=false | .cancelled=true' "${RUN_DIR}/results.json" | atomic_json "${RUN_DIR}/results.json"
     fi
+    PROGRESS_RECORDED=true
     trap - INT TERM HUP
     return "${code}"
 }
 
 # EXIT também cobre erros de preparação/classificação; conservar o exit original.
 finish_run() {
-    local code=$1
+    local code=$1 publication_code=0 quoted_run
     trap - EXIT
+    if [[ ${PROGRESS_ACTIVE:-false} == true ]]; then
+        local interrupted=error
+        if (( CANCELLED )); then interrupted=cancelled; fi
+        progress_end "${interrupted}" "${code}"
+    fi
+    progress_begin finalization
     if ! timeout --signal=TERM --kill-after="${CLEANUP_TIMEOUT}" "${CLEANUP_TIMEOUT}" \
         env -i "${RUN_ENV[@]}" EC_RUN_DIR="${RUN_DIR}" python3 "${CODE}/tools/quality/prepare_automation.py" cleanup; then
         printf 'error: limpeza de serviços de teste incompleta\n' >&2
-        code=2
+        code=2 publication_code=2
         if [[ -f ${RUN_DIR}/results.json ]]; then
             jq '.complete=false | .exit_code=2 | .service_cleanup="failed"' "${RUN_DIR}/results.json" | atomic_json "${RUN_DIR}/results.json"
         fi
     fi
     if ! python3 "${CODE}/scripts/local-state.py" finish --root "${ROOT}" --lock-fd 9 \
         --workspace "${RUN_DIR}" --log-dir "${LOG_DIR}" --exit-code "${code}"; then
-        printf 'error: exportação/limpeza incompleta em %s\n' "${RUN_DIR}" >&2
-        code=2
+        quoted_run=$(progress_safe "${RUN_DIR}")
+        printf 'error: exportação/limpeza incompleta em %s\n' "${quoted_run}" >&2
+        code=2 publication_code=2
     fi
+    if (( publication_code )); then
+        progress_end error "${code}"
+    else
+        progress_end passed 0 "${LOG_DIR}/${RUN_DIR##*/}-automate.exit.log"
+    fi
+    progress_finish "${code}" "${publication_code}" "${CANCELLED}"
     exit "${code}"
 }

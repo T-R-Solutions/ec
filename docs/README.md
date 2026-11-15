@@ -2,7 +2,7 @@
 
 O Ec possui incrementos executáveis Rust Server/Agent e frontend Vue 3/TypeScript/Pinia.
 Os guias de desenvolvimento delimitam implementação e pendências; o produto completo
-não está aceito. Índice atualizado em 2026-11-07. Consulte o [README principal](../README.md)
+não está aceito. Índice atualizado em 14/11/2026. Consulte o [README principal](../README.md)
 e o [estado do projeto](../sdd/project.md).
 
 ## Leitura visual
@@ -27,6 +27,7 @@ O README encaminha para produto ou contribuição. Normas conservam requisitos; 
 
 | Documento | Use para |
 | --- | --- |
+| [Agentes: procedimento](development/codex-agents.md) e [replicação](development/codex-agents-replication.md) | Usar os perfis ou adaptá-los para outra aplicação |
 | [Guia de contribuição](development/contributing.md) | Escolher a rota, editar e verificar uma mudança |
 | [Instruções do repositório](../AGENTS.md) | Consultar convenções e autoridades locais |
 | [Mapa da aplicação](../application/README.md) | Entrar no Agent, Server ou testes da plataforma |

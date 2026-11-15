@@ -23,8 +23,9 @@ skills fornecem métodos.
 ## Verificação e entrega
 
 A [política de verificação](docs/development/task-verification.md) é a única
-fonte do fluxo de scripts, da pergunta após pedido de commit e do alcance da
-autorização. Recomendações de execução em skills, referências e SDD se subordinam
+fonte do fluxo obrigatório de scripts, do gate de aceite e do alcance da
+autorização. Não declarar uma alteração concluída sem aprovação atual do gate;
+falha ou ausência de evidência exige correção ou estado bloqueado explícito. Recomendações de execução em skills, referências e SDD se subordinam
 a ela. Registre inspeções, resultados e lacunas sem declarar checks não executados
 como aprovados.
 

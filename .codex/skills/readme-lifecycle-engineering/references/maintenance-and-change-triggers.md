@@ -50,8 +50,11 @@ to actual product conventions.
 
 ## Avoid harmful automation
 
-- A doc generator or LLM can flag missing sections but cannot prove user success or actual
-  implementation; require human review of semantic claims.
+- Um gerador ou LLM pode apontar lacunas, mas não comprova sucesso do leitor nem
+  implementação. O agente revisa afirmações semânticas contra fontes canônicas e
+  evidências observadas, registrando lacunas honestamente. Revisão humana fica
+  reservada a decisões editoriais ou de produto do responsável e a autorizações
+  ainda ausentes.
 - CI link success checks only destinations, not conceptual correctness.
 - A command that exits 0 may still not exercise the promised operation; inspect outputs/state.
 - Never regenerate existing examples from incompatible schemas or invent version numbers.

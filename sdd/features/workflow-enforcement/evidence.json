@@ -1,0 +1,240 @@
+{
+  "schema_version": 2,
+  "environment": "Linux local, Python unittest e entrada Bash; 14/11/2026",
+  "limitations": [
+    "Aceite global exige recibo final atual do runner.",
+    "Sem supervisor externo protegido ou bloqueio de chat/Git.",
+    "Testes de recibos usam fixtures sintéticas."
+  ],
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "Critério local AC-01 da spec",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Critério local AC-02 da spec",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Critério local AC-03 da spec",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "artifact": "sdd/features/workflow-enforcement/converge.md",
+      "sha256": "f8d3b3b96fc9292cc366aaf6c374a0dcbe180c26142808c027417e1fb0a88262",
+      "command_or_method": "Leitura das autoridades, comparação das mudanças com AC-01/02/03 e chamada Bash negativa",
+      "observed_result": "Integração e limites conferidos; chamada rejeitou etapa sem evidência.",
+      "inputs": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b24d477471a80ca8ec10655cccb45c8b7ca7dfce0c12a8fce5eb3ceca55b595a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "f6e948653d448f8db2f9f38934e6be5bc217c22bb43f19a8b3f4d4e35cef1ade",
+          "role": "other"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "cd5dbf21c88c6a68924cd738858b44adab8878e8cb9a226042107e06fbba8d47",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "fb2460cd51e0f8d59f08229a63b318619f31926290e1e74d3d16a467a0448ebe",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "e81e42d0a99ac990b3faa154641641f92d0f62bb5f943342c324e78d6f20f351",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_task_gate.py",
+          "sha256": "346d32cbc419f163afa19e10a903f06b9afc113637899fd9806c958360209007",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/README.md",
+          "sha256": "9ffd5506dac4e8ef8876ec1080a406737c330c5e7b7456aa9db6f4ec9bbcb7db",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "90d45cc142d138abd994c755d808f8d83e0cc456b2b9d6d41607fa9762255486",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "5d92a2fc3324005be06f7bc00bcaf1c12d4fd69c7a2e13135c85e02e4d0e6bd8",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "dfe0d66cee120d1383e12ef8e9fe91493f3166fe2c490d78d93c5c6d45d18549",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/spec.md",
+          "sha256": "6f9d37fe073050cfdca7b66c6ed38e66a9543a3af6a0f7b0589da6012995fdeb",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/plan.md",
+          "sha256": "6f886dd6ec556d26a310b75b8e7fbd04c253aa61fec344b852d698eacaac68b4",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/tasks.md",
+          "sha256": "76274025647682a119276e138a45bd992aa354fff1f178f2ec4ed6d11d698890",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/traceability.json",
+          "sha256": "580017b5ecece0c055d8ea1a57341925ce3032b6395e4933b646d45102da2cf6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/workflow.json",
+          "sha256": "403b509d18e97503bb5f6a445c005132e52ae55f8484d7bd40938e40e0e95c2f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/converge.md",
+          "sha256": "f8d3b3b96fc9292cc366aaf6c374a0dcbe180c26142808c027417e1fb0a88262",
+          "role": "other"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-14/workflow-gate-focused.log",
+      "sha256": "f82ed2d007a94d85c4503365fe5b0e09d656d2bde9282dda988d362792c03f19",
+      "command_or_method": "python3 -m unittest discover -s tools/governance/tests -p test_task_gate.py -v",
+      "observed_result": "9 testes passaram; fixtures sintéticas de rejeição e aprovação.",
+      "inputs": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b24d477471a80ca8ec10655cccb45c8b7ca7dfce0c12a8fce5eb3ceca55b595a",
+          "role": "other"
+        },
+        {
+          "path": "scripts/README.md",
+          "sha256": "f6e948653d448f8db2f9f38934e6be5bc217c22bb43f19a8b3f4d4e35cef1ade",
+          "role": "other"
+        },
+        {
+          "path": "scripts/accept-task.sh",
+          "sha256": "cc3aadc95caf4946859b1aeddba08e7c95059c9a99482dd1eb586682f87143b0",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "cd5dbf21c88c6a68924cd738858b44adab8878e8cb9a226042107e06fbba8d47",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "fb2460cd51e0f8d59f08229a63b318619f31926290e1e74d3d16a467a0448ebe",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/task_gate.py",
+          "sha256": "e81e42d0a99ac990b3faa154641641f92d0f62bb5f943342c324e78d6f20f351",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_task_gate.py",
+          "sha256": "346d32cbc419f163afa19e10a903f06b9afc113637899fd9806c958360209007",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/README.md",
+          "sha256": "9ffd5506dac4e8ef8876ec1080a406737c330c5e7b7456aa9db6f4ec9bbcb7db",
+          "role": "other"
+        },
+        {
+          "path": "sdd/tools/validate.py",
+          "sha256": "90d45cc142d138abd994c755d808f8d83e0cc456b2b9d6d41607fa9762255486",
+          "role": "other"
+        },
+        {
+          "path": "tools/quality/automation_config.py",
+          "sha256": "5d92a2fc3324005be06f7bc00bcaf1c12d4fd69c7a2e13135c85e02e4d0e6bd8",
+          "role": "other"
+        },
+        {
+          "path": "scripts/config/automation.json",
+          "sha256": "dfe0d66cee120d1383e12ef8e9fe91493f3166fe2c490d78d93c5c6d45d18549",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/spec.md",
+          "sha256": "6f9d37fe073050cfdca7b66c6ed38e66a9543a3af6a0f7b0589da6012995fdeb",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/plan.md",
+          "sha256": "6f886dd6ec556d26a310b75b8e7fbd04c253aa61fec344b852d698eacaac68b4",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/tasks.md",
+          "sha256": "76274025647682a119276e138a45bd992aa354fff1f178f2ec4ed6d11d698890",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/traceability.json",
+          "sha256": "580017b5ecece0c055d8ea1a57341925ce3032b6395e4933b646d45102da2cf6",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/workflow.json",
+          "sha256": "403b509d18e97503bb5f6a445c005132e52ae55f8484d7bd40938e40e0e95c2f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/workflow-enforcement/converge.md",
+          "sha256": "f8d3b3b96fc9292cc366aaf6c374a0dcbe180c26142808c027417e1fb0a88262",
+          "role": "other"
+        }
+      ]
+    }
+  ]
+}

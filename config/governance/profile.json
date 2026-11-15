@@ -38,7 +38,7 @@
       "adaptations": [
         "Slots e recuperação pertencem ao Agent, a autoridade de tentativa pertence ao Server. SQLite privado/outbox persist-before-send/limpeza após ACK são propostas condicionadas a ADR e testes de crash e disco cheio; não declarar adoção por instalar esta skill.",
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-agent-runtime/SKILL.md",
@@ -73,7 +73,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-artifacts-and-retention/SKILL.md",
@@ -108,7 +108,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-build-cache/SKILL.md",
@@ -144,7 +144,7 @@
       "adaptations": [
         "Distinguir comando recebido, processo iniciado, término observado e resultado persistido no Server. Cancelamento exige observar descendentes e coleta; testar corridas e efeitos parciais.",
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-execution-runtime/SKILL.md",
@@ -180,7 +180,7 @@
       "adaptations": [
         "Identificar chunks por job/attempt/stream/offset; testar duplicatas, gaps, replay e redaction entre chunks. Controlar volume sem impedir cancelamento; truncamento nunca silencioso.",
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-logs-and-test-results/SKILL.md",
@@ -222,7 +222,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-pipeline-graph/SKILL.md",
@@ -273,7 +273,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-release-and-deployment/SKILL.md",
@@ -316,15 +316,15 @@
         "references/transactions.md": "f14d77f5d257bd557c84743f0530126727ed6e32333c8699cb134282019e0576"
       },
       "adaptations": [
-        "PostgreSQL é a autoridade global planejada de fila, tentativas, quotas e leases. Testar duas reservas concorrentes, fencing obsoleto e reatribuição; lease expirado não encerra efeitos externos.",
+        "PostgreSQL é a autoridade vigente da fila e do estado operacional conforme docs/constitution.md e docs/architecture/context.md; conferir o alcance implementado de tentativas, quotas e leases em sdd/project.md. SQLite no Agent continua proposta. Testar reservas concorrentes, fencing obsoleto e reatribuição quando pertinentes; lease expirado não encerra efeitos externos.",
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-scheduler/SKILL.md",
       "target_path": ".codex/skills/cicd-scheduler/SKILL.md",
       "files": {
-        "SKILL.md": "4f4004ac16da839873d714a398b952b544a3355547e6a5e65d3ec6d5a6e37102",
+        "SKILL.md": "6d2bf7abe59ce5f92f4036cb5bae8dc2e9347ecc4400e0b60f3f7808c61f8b8f",
         "agents/openai.yaml": "15ed3ec1d52641b24220d1ea1e2a6a6336e815a5560011fec7fb61030daee4f8",
         "references/fairness.md": "6ebdd9a7929a6f2c8a67af3a7d33070f161e1c32b94b8446e0953dd4665af34c",
         "references/implementation-details.md": "f8d0f3ff1a9db78d1ed32888cf88ee47560237a784f4c4c41a106e8eb5e0600e",
@@ -353,7 +353,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cicd-vcs-event-processing/SKILL.md",
@@ -394,7 +394,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/cli-engineering/SKILL.md",
@@ -439,7 +439,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: mesclagem seletiva de métodos de SKILLS-DESIGN-v4.0.0, com referências sob demanda; mapa de origem/destino em docs/validation/frontend-skills-20261111/report.md e provenance.json. Fonte suplementar preservada, sem novos gatilhos, dependências Ox ou execução de verificadores.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
@@ -478,7 +478,7 @@
       "adaptations": [
         "HTTP versionado é a decisão vigente. gRPC bidirecional/HTTP2/Protobuf e compatibilidade N/N−1 específica são propostas sujeitas a ADR e ensaios. Separar ACK durável, efeito aplicado e conclusão; verificar autenticação, sessão, tentativa, fencing, replay, reconexão e backpressure.",
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-agent-control-protocol/SKILL.md",
@@ -509,7 +509,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-agent-pool-console/SKILL.md",
@@ -539,7 +539,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-configuration-publication/SKILL.md",
@@ -567,7 +567,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-declarative-resource-schemas/SKILL.md",
@@ -595,7 +595,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-effective-permissions/SKILL.md",
@@ -625,7 +625,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-environments-and-approvals/SKILL.md",
@@ -657,7 +657,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-integrations-and-webhooks/SKILL.md",
@@ -690,7 +690,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-operations-and-administration-console/SKILL.md",
@@ -721,7 +721,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-people-and-access-administration/SKILL.md",
@@ -750,7 +750,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-pipeline-authoring-workspace/SKILL.md",
@@ -781,7 +781,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-plugin-isolation-and-lifecycle/SKILL.md",
@@ -814,7 +814,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-plugin-manifests-and-compatibility/SKILL.md",
@@ -849,7 +849,7 @@
       "adaptations": [
         "Testar parser YAML real, autorização, revisão imutável e paridade Visual/Formulário/YAML quando implementados. Contratos gRPC/SQLite somente após ADR; não substituir integração real por um segundo produto simulado.",
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-product-contract-test-harness/SKILL.md",
@@ -881,7 +881,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-project-hierarchy-management/SKILL.md",
@@ -910,7 +910,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-run-execution-operations/SKILL.md",
@@ -939,7 +939,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ec-semantic-configuration-projections/SKILL.md",
@@ -977,7 +977,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/frontend-form-engineering/SKILL.md",
@@ -1027,7 +1027,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/frontend-routing/SKILL.md",
@@ -1079,7 +1079,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/frontend-state-and-cache/SKILL.md",
@@ -1131,7 +1131,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: mesclagem seletiva de métodos de SKILLS-DESIGN-v4.0.0, com referências sob demanda; mapa de origem/destino em docs/validation/frontend-skills-20261111/report.md e provenance.json. Fonte suplementar preservada, sem novos gatilhos, dependências Ox ou execução de verificadores.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
@@ -1187,7 +1187,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/http-api-contracts/SKILL.md",
@@ -1241,7 +1241,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/identity-federation/SKILL.md",
@@ -1291,7 +1291,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/information-architecture/SKILL.md",
@@ -1341,7 +1341,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/internationalization/SKILL.md",
@@ -1391,7 +1391,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/property-based-testing/SKILL.md",
@@ -1435,7 +1435,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/typescript-engineering/SKILL.md",
@@ -1474,7 +1474,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/vue3-engineering/SKILL.md",
@@ -1515,7 +1515,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/web-accessibility/SKILL.md",
@@ -1564,7 +1564,7 @@
       },
       "adaptations": [
         "Metadados agents/openai.yaml adicionados; ausentes nas 40 skills Ec originais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/web-realtime-streaming/SKILL.md",
@@ -1594,7 +1594,7 @@
       "name": "agent-runtime-engineering",
       "origin": "ox",
       "decision": "conditional",
-      "description": "Engineer CLI agent supervision, session state, event ordering, cancellation and recovery. Use for process adapters and execution lifecycles; skip prompt writing and model-quality evaluation without process effects.",
+      "description": "Support CI/CD process supervision, event ordering, cancellation and recovery when the Ec runtime skills need a distinct supervisor question. Use ACP or LLM session adapters only for explicitly scoped AI integrations.",
       "reason": "CONDICIONAL — aproveitar supervisão de processos, eventos, cancelamento e retomada; excluir semântica de sessões LLM/ACP quando não aplicável. Complementa cicd-agent-runtime e cicd-execution-runtime.",
       "source_files": {
         "SKILL.md": "8222848e53bb07724becc6d67a854f233cd3eb370881f8ee153d0e7b264c8a08",
@@ -1606,16 +1606,16 @@
       },
       "adaptations": [
         "Use como auxiliar somente para supervisão, eventos, cancelamento e recuperação de processos. As primárias são cicd-agent-runtime e cicd-execution-runtime. Sessões LLM, ACP e uso de tokens não são contratos do Ec Agent.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/agent-runtime-engineering/SKILL.md",
       "target_path": ".codex/skills/agent-runtime-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "8beb9cac9c0264383a5682b5e15d09aac86dce964a7ab571590ccc73c4af933c",
+        "SKILL.md": "c869699a347761547d292496e0f3b1461fe4f982faafdbcc54f71840380e5d42",
         "agents/openai.yaml": "e4c60afd1920354fd289abdb5f1f617ed90395bea44ef0b0042eec3078a0a12a",
         "references/acp-and-cli-adapters.md": "d7f5ad8f2650cd0215299102b2c9a98983bc672cf0da2eec5f9a1c1125b3d9af",
-        "references/evaluation-cases.md": "4e216a83e617e653e986ae7b685350138ccac64b8b666c9198c7ee5968deadfb",
+        "references/evaluation-cases.md": "39dc6fde87bacb50224127c5bd785993deac28fe1e4e3527c59e8b8fecf289ae",
         "references/process-supervision.md": "3a78f316900838d0b9bd41eec76cae7b8938d339f1f4d1de9b3099d7bdc2f333",
         "references/session-state-machine.md": "3ccea3d90a99bf6048a4200eece20a1abb6d9294c4bab8f416167155e78fc490"
       }
@@ -1653,7 +1653,7 @@
       },
       "adaptations": [
         "Condicional a recurso de IA explicitamente incluído no escopo. Scheduler e Agent CI/CD não são agentes de IA.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/ai-engineering/SKILL.md",
@@ -1684,7 +1684,7 @@
       },
       "adaptations": [
         "Verificar API pública HTTP, permissões e efeitos duráveis. Testes de gRPC/Protobuf e pares N/N−1 dependem da ADR e implementação; mocks não validam consumidores/provedores reais.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/api-testing/SKILL.md",
@@ -1718,7 +1718,7 @@
         "references/portable-sources.md": "7257d977c162b0a96f9ffd6932b66be2874da0222e1f8b1a25f7f368f9693ad3"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/application-security/SKILL.md",
@@ -1752,16 +1752,16 @@
         "references/independent-oracles.md": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
       "target_path": ".codex/skills/autonomous-verification-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "569696eab8348b370ab2f73d7ffc688d9fc88483419f8179c3bf84789e2866c0",
+        "SKILL.md": "684fa71dd9261e7cf97b554bd542b0f1bb9d4a5c3e47b47ee561403f29b69a0e",
         "agents/openai.yaml": "36e71ebbc575868be39fbd325d1f9f0efff32cc725b9d993624793f94e7afec9",
         "references/acceptance-verdicts.md": "82bfb6801c64939710ef17b83a7816e0f399ef82de99a7264c30d16756ad73c9",
-        "references/evaluation-cases.md": "aca5982f048888099b13d27da224742dfc27598e0a5ce297d447b4eaa668263e",
+        "references/evaluation-cases.md": "f521c057d634991db000e35f4d1a32cae2e9dca114780f3c4f02c84fa677d7bb",
         "references/evidence-provenance.md": "f5d308b8c0a1bf60bcf2a595df465571b2636918f70698a86bbb3986a9cb9356",
         "references/independent-oracles.md": "33a8f918cbee82e9583d340fcd91c2ef421d4b104fa1bf0e8bd83385a64f6b1e"
       }
@@ -1802,7 +1802,7 @@
       "name": "commit-governance",
       "origin": "ox",
       "decision": "conditional",
-      "description": "Classify and govern authorized Ox commits with Conventional Commits, map GitHub labels, and manage explicitly requested version tags and publication.",
+      "description": "Review and create explicitly requested Ec commits or version tags, preserving scope, unrelated changes and current validation. Publishing requires its own authorization.",
       "reason": "CONDICIONAL — útil no desenvolvimento do Ec quando commits/tags forem solicitados, não implica commits automáticos.",
       "source_files": {
         "SKILL.md": "ba960d6f089969c73c2b75a0ebe29aba01b82d9194c24c5b52c54f3dcdf57e43",
@@ -1810,14 +1810,14 @@
       },
       "adaptations": [
         "Procedimento Git reescrito para Ec sem paths/versões/autorização do Ox.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/commit-governance/SKILL.md",
       "target_path": ".codex/skills/commit-governance/SKILL.md",
       "files": {
         "SKILL.md": "4fe04e16268d9bef7121809d47702be31622376616de5bcc8dcd7138426687ef",
-        "agents/openai.yaml": "0e4ef65891b33c49828a221e981957840db4b2c33831ccbd9a99f8c4b2217ee7"
+        "agents/openai.yaml": "07e753a477e749ed9af3209c62c979932c4441cbeda7bedd65891306dd3f2a9a"
       }
     },
     {
@@ -1825,7 +1825,7 @@
       "origin": "ox",
       "decision": "adopt",
       "description": "Design and change application persistence, relational schemas, transactional invariants, query access paths, and data migrations. Use for substantive database decisions across engines; skip analytical platforms, routine field mapping, and edits without persistence consequences.",
-      "reason": "ADOTAR — PostgreSQL global (fila, estados, inbox/outbox, unicidade e transações) e SQLite local privado por Agent (WAL, durabilidade crítica e recuperação), com migrações e limites operacionais.",
+      "reason": "ADOTAR — PostgreSQL é a autoridade vigente da fila e do estado operacional; o alcance implementado é parcial (sdd/project.md). SQLite privado por Agent, WAL e durabilidade local continuam propostas.",
       "source_files": {
         "SKILL.md": "9fcee66df99fda30e51a004dd16143e2ac1fde12a4398cb8da88ec4ca72ab686",
         "agents/openai.yaml": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
@@ -1833,14 +1833,14 @@
         "references/model-and-transactions.md": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2"
       },
       "adaptations": [
-        "PostgreSQL é a autoridade global planejada. SQLite privado por Agent, WAL e synchronous=FULL são hipóteses de durabilidade a ensaiar se a ADR for adotada. Avaliar inbox/outbox, UNIQUE e transações; não afirmar atomicidade entre Git e PostgreSQL.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "PostgreSQL é a autoridade vigente da fila e do estado operacional conforme docs/constitution.md e docs/architecture/context.md; o alcance implementado é parcial em sdd/project.md. SQLite privado por Agent, WAL e synchronous=FULL continuam propostas de durabilidade a decidir e ensaiar. Avaliar inbox/outbox, UNIQUE e transações; não afirmar atomicidade entre Git e PostgreSQL.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/database-engineering/SKILL.md",
       "target_path": ".codex/skills/database-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "5171345167439a323c6e6f27353e3596a513b01e08fcacf8565b4dba0b165f6a",
+        "SKILL.md": "a15b19145c91413c2a7e6e845ad41a5b739f7c765531b8719ac802f1e32956f5",
         "agents/openai.yaml": "2b99aca4784341b096a42e7e075d8c25c5eec9c1b4b6d3ec328409273a8abc16",
         "references/access-and-change.md": "e243a93a0839564f2acf3bdf287ad86060fd5cfe667592c1d2f184862b2bb6ba",
         "references/model-and-transactions.md": "24218a027be332e02b9bf821e936bd4433b3d217a0e6b45da974728f5e9127e2"
@@ -1859,7 +1859,7 @@
         "references/review-method.md": "b7a4c4eb9ab146065153c7893865d573f351517ee1c7dff9284697fa28284bdf"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: mesclagem seletiva de métodos de SKILLS-DESIGN-v4.0.0, com referências sob demanda; mapa de origem/destino em docs/validation/frontend-skills-20261111/report.md e provenance.json. Fonte suplementar preservada, sem novos gatilhos, dependências Ox ou execução de verificadores.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
@@ -1885,7 +1885,7 @@
         "references/pattern-decisions.md": "bb5635228031250d5383a8d551669f4c2b91b342fbfd0fcaecca889f193a1a9e"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: mesclagem seletiva de métodos de SKILLS-DESIGN-v4.0.0, com referências sob demanda; mapa de origem/destino em docs/validation/frontend-skills-20261111/report.md e provenance.json. Fonte suplementar preservada, sem novos gatilhos, dependências Ox ou execução de verificadores.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
@@ -1913,7 +1913,7 @@
       },
       "adaptations": [
         "Dois monólitos em hosts independentes têm falhas distribuídas. Explicitar ACK após commit, IDs estáveis, deduplicação, ordem por tentativa, fencing e recuperação. Não prometer exactly-once externo nem exigir broker/microsserviços.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/distributed-systems/SKILL.md",
@@ -1937,7 +1937,7 @@
         "references/modeling-decisions.md": "aaf5945be805e3a9827a9c44258a4d015c39d0a5cde563b603daa3f6ce7f7929"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/domain-modeling/SKILL.md",
@@ -1961,7 +1961,7 @@
       },
       "adaptations": [
         "Condicional a pergunta sobre fluxo de trabalho dos desenvolvedores. Desempenho de jobs é responsabilidade de performance-engineering.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/engineering-productivity/SKILL.md",
@@ -2001,7 +2001,7 @@
       },
       "adaptations": [
         "Correlacionar sessão, job/attempt, fila, leases, ACK/retry, backlog e ingestão de logs. Métricas gRPC/SQLite só quando esses componentes existirem; ausência de telemetria não é zero.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/observability-and-diagnostics/SKILL.md",
@@ -2032,7 +2032,7 @@
       },
       "adaptations": [
         "100/500/1.000/2.000 agentes são patamares propostos de ensaio. Separar conectados/ociosos/executando, hardware, duração, perfil de logs, percentis e erros; 1.000 não é capacidade comprovada. Não adotar os números ilustrativos como SLO/default.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/performance-engineering/SKILL.md",
@@ -2064,15 +2064,15 @@
         "references/versioning-and-faults.md": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
       "target_path": ".codex/skills/plugin-protocol-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "474c97347cb02da0c1f567d29c9cabbf15981fa6c0fa0fb4ebf219373ad78edb",
+        "SKILL.md": "eaecd31925b043b8a51c7544f87d9f8913dbb3ca9a6547fd9f4495cd18e34958",
         "agents/openai.yaml": "9db53b60491567395cfb75f150829356af1e2ca2ba56366479785894c60916b8",
-        "references/evaluation-cases.md": "2c93959130236da7623aa72b9eff187655d9cd0428c7ab70fab21baa27447222",
+        "references/evaluation-cases.md": "5d8c38fd67aa2645312329b1b8634b4b5f6c121bce430fc5a6414f3dd8647603",
         "references/permissions-and-isolation.md": "fe7138487cbe61edf732b763f451e2e5ebeeeccaf8932e770ee49afca245e66e",
         "references/protocol-negotiation.md": "3a9c0fdcd141a6cb71166db6ef054861a6299663de0e5d37dfe3e508fcec6879",
         "references/versioning-and-faults.md": "c226bd05a68cc5b6574460c8217e54b30ecfb63c20d74ded6a8ec27d385d6f72"
@@ -2092,7 +2092,7 @@
       },
       "adaptations": [
         "Condicional a autoria ou revisão de prompts solicitada; não interpretar jobs CI/CD como prompts.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/prompt/SKILL.md",
@@ -2122,7 +2122,7 @@
       },
       "adaptations": [
         "Cobrir perda de ACK, crash antes/depois de commit, partições, falha de banco, esgotamento de armazenamento e reconexão coletiva. Outbox SQLite é proposta; deadlines/backoff/jitter precisam de contratos e limites verificáveis.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/reliability-engineering/SKILL.md",
@@ -2160,7 +2160,7 @@
         "references/validation-and-maintenance.md": "092ec4d268ad8516a95f5676fe49972cd9b7ed965e558dfe6aab59082d9d515c"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/rust/SKILL.md",
@@ -2195,7 +2195,7 @@
         "references/portable-sources.md": "b8dfa0354beb49d7a544535af1edf11c77199d0df1c299b6b6d31906d70b0650"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/software-architecture/SKILL.md",
@@ -2222,7 +2222,7 @@
       },
       "adaptations": [
         "Referência ao procedimento canônico de encerramento/verificação Ec, 2026-11-05; propósito preservado.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/software-delivery/SKILL.md",
@@ -2248,7 +2248,7 @@
         "references/refactoring-evidence.md": "88a789f669b9f7a34b2fc74d9b20556cdbb53604147fa78c6ab2883b44e44b7d"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/software-design/SKILL.md",
@@ -2275,7 +2275,7 @@
       },
       "adaptations": [
         "Condicional a migração, coexistência ou rollout de contratos/dados entre versões; não exigir workflow de migração para correção textual.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/software-evolution/SKILL.md",
@@ -2304,7 +2304,7 @@
       },
       "adaptations": [
         "Referência ao procedimento canônico de encerramento/verificação Ec, 2026-11-05; propósito preservado.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/software-testing/SKILL.md",
@@ -2331,7 +2331,7 @@
       },
       "adaptations": [
         "2026-11-04: refatoração autorizada para Mermaid, iconografia vetorial especializada, critérios visuais mensuráveis e referências de renderização/acessibilidade; originais preservados e baseline atualizada.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/technical-documentation/SKILL.md",
@@ -2358,15 +2358,15 @@
         "references/tool-parsers-and-fallbacks.md": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/tool-output-engineering/SKILL.md",
       "target_path": ".codex/skills/tool-output-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "7a90694410e0313a1993b4ed5eeeab85d9ad6f089322ef9f95879d53c47af26e",
+        "SKILL.md": "9b308771ab92daecc800e67b4f260e96182d62e6ec8675d74568c485e6bcaf20",
         "agents/openai.yaml": "34332f59e9be0409aa25d26ce68561c4763d1de99ffa804a92cd2f0d61a1da06",
-        "references/evaluation-cases.md": "d3bee6289434dd9d3c8fabc3429fa8ad7b5f2fe792a6f99585363724ce3acf9f",
+        "references/evaluation-cases.md": "ee154345d3d0c34658c1a7e7ebc36b1f5aa4b5a8349654dcdc118f6f6a29ddbc",
         "references/loss-aware-transformations.md": "fb4b14a18194d6d6f9a7a592f095bc22e8f3c03cbb080c5605fa73b01d282647",
         "references/token-measurement.md": "05f7fb7d405b84e2680518031486b8a843b0891f47fd11464105b8f410ee3303",
         "references/tool-parsers-and-fallbacks.md": "fff670b43ed083b684d4835e54be59d08472aaf1233602e23529f4ef1317aa95"
@@ -2388,15 +2388,15 @@
       },
       "adaptations": [
         "Aplicar a checkout em revisão fixa, workspace por tentativa, contenção de caminhos/symlinks, concorrência e limpeza. Não pressupor editor multiagente nem reconstruir Git.",
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
       "target_path": ".codex/skills/workspace-integrity-engineering/SKILL.md",
       "files": {
-        "SKILL.md": "427f183b8508d642f6ffdda383e9cc7b36bc95ca03a14d29d73f4be8f762cb8d",
+        "SKILL.md": "97b88759f532f60e2e6e79415810e2a761e7a4a1eb8fcbedc4aae1df22a2ba8d",
         "agents/openai.yaml": "7f2e47dce012aeae680eafaa5018d4e674df0dab4a6e9c36e6677f4f5d08e38a",
-        "references/evaluation-cases.md": "14a0da21921ed8fc1a22a80c4b67f879e59d3f6353aa8e4807d5e7384d5e56f6",
+        "references/evaluation-cases.md": "c7bc4fe2fac5a48ce929112d1cf7ecb0e61b7825399880ec3049643805b9c832",
         "references/file-operations.md": "8a74d3e3725a3c1bd64a1f44cff0ec769738fe28e9f67fa0dcaea1948ed6d32c",
         "references/git-worktrees-and-conflicts.md": "cd85ac8a420e2ed6265d2c2087bb2cb368ea83869b6c526afd6f9381867322f0",
         "references/watcher-and-recovery.md": "046382bbb97faa08006f341eedcce2720c499a83b05bce71566d948710693867"
@@ -2422,7 +2422,7 @@
         "references/verification-and-acceptance.md": "a6d67cb3bd6d2915a3b8ae142bd7c59e5f974f06ba525ab9557b9fbd2b980336"
       },
       "adaptations": [
-        "2026-11-07: scripts de verificação somente após pedido de commit e escolha sim/não; opção negativa libera commits sem scripts; opção afirmativa exige suíte completa sem erros. Fontes originais preservadas.",
+        "Histórico de 07/11/2026, substituído em 14/11/2026: docs/development/skill-policy-history.md.",
         "2026-11-11: revisão de coesão; políticas Ec referenciadas nas fontes canônicas e preâmbulos redundantes reduzidos. Métodos, nomes, gatilhos e fontes originais preservados; auditoria e eficácia não executadas nesta revisão."
       ],
       "path": ".codex/skills/readme-lifecycle-engineering/SKILL.md",
@@ -2433,7 +2433,7 @@
         "references/documentation-topology-and-diataxis.md": "5765e519ebeb88e046c56d023ab55d34fab8158c2c7e37675f1c764294b1acf0",
         "references/ec-consumer-boundaries.md": "6bef52508ebefa8c67e398a3a57625060bc3d1e0d32baf7f780b1cbe19679e43",
         "references/implementation-details.md": "c1a56adf3d4dc27ef98ce9f5910780e4eb5d84b7a26d4dc66f5df1cfa6047081",
-        "references/maintenance-and-change-triggers.md": "12a5a8b9e523a54abc35011c3b0c09fe278b972e9580c96e7b87be5e7a2b6ba9",
+        "references/maintenance-and-change-triggers.md": "b9e4aeb8daf0c91a02058a2c9ee003c482437db94f77f83ef820114d16a62fe3",
         "references/readme-scope-and-content.md": "808c804407c11765788b79b973eb026fa7998be3f68a3634bf4d2b6e86fa43c2",
         "references/routing-and-oracles.md": "3ceb6ef81c44a87041132a92eced77dcea805452d22511b659c886ca7200f38e",
         "references/scientific-evidence-and-limits.md": "6e1e14f826fa0da31a3689fdbf907483e78be15f9345df82040789365a58527e",

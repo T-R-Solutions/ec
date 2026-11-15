@@ -21,6 +21,8 @@ Checks de segurança: secrets sast dependencies (secrets/sast incluem testes de 
 Sem --surface, --check seleciona sua superfície; coverage exige server/agent/frontend explícito.
 plan produz JSON sem executar tarefas. run preserva logs, exit e resultados em .local/logs/AAAA-MM-DD (somente as duas datas mais recentes).
 run configura o ambiente temporário automaticamente, em qualquer escopo, usando instalações locais.
+Fases e duração em stderr; presentation em scripts/config/automation.json controla atualização e atividade.
+Cores apenas em TTY compatível, respeitando NO_COLOR; saídas brutas permanecem nos logs privados.
 HELP
 }
 [[ $# -gt 0 ]] || { usage >&2; exit 2; }

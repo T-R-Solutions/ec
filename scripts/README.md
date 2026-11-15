@@ -1,6 +1,7 @@
 # Automação Ec
 
-A entrada é `bash scripts/automate.sh plan|run`. A configuração responsável é
+As entradas são `bash scripts/automate.sh plan|run` e `bash scripts/accept-task.sh --task sdd/tasks/NOME --run RECIBO` (ou `--feature sdd/features/NOME` para aceite agregado).
+O aceite exige etapas, critérios e execução atual conforme a política canônica. A configuração responsável é
 [`config/automation.json`](config/automation.json): tarefas, dependências,
 componentes, executores, ambiente, serviços, limites, cobertura, navegadores e
 referências de políticas. O carregador
@@ -50,6 +51,13 @@ cobertura, relatórios de testes e arquivos temporários ficam fora. Estado loca
 do frontend e da aplicação tem exclusões por caminho. Fontes, testes, fixtures,
 lockfiles, logs de evidência e plugins/releases Yarn versionáveis continuam
 elegíveis conforme o escopo; não há exclusão genérica de `.yarn` ou `*.log`.
+
+O inventário de aceite é separado: `acceptance-inputs` acrescenta governança
+ativa (configuração, conjunto de perfis, skills e documentação canônica) às
+fontes atuais, sem alterar os alvos dos scanners/cobertura. Runner antes/depois
+e gate usam o mesmo contrato `acceptance_inventory_version: 1`; recibos sem
+essa versão exigem nova execução. Arquivos privados alheios em `.codex` não
+integram essa enumeração. Adição/remoção de perfis também invalida o recibo.
 
 ## Preparo, execução e encerramento
 
@@ -168,3 +176,39 @@ Detalhes e referências oficiais estão no [guia de cobertura](../docs/developme
 As entradas root_patterns tornam dotenv da raiz elegível; exclusões de caches e
 credenciais externas permanecem. Catálogos são conferidos antes do uso.
 Não tratar os runs anteriores como validação da configuração ampliada.
+
+## Saída, logs e configurações gerais
+
+A apresentação humana foi adaptada de `ox/scripts/lib/progress.sh` para o
+supervisor Ec. O bloco `presentation` de `config/automation.json` controla
+`enabled` (ativação), `refresh_seconds` (atualização em terminal) e
+`heartbeat_seconds` (sinal periódico de atividade em saída redirecionada).
+As fases exibem atividade, duração, estado e referências dos logs em stderr;
+o stdout mantém as linhas compactas da automação. O progresso conta etapas
+observadas e não estima o trabalho interno de uma ferramenta. Concluir etapas
+não significa aprovar checks. Cancelamento e encerramento incompleto não anunciam
+100%. Cores e atualização da linha dependem de TTY e TERM; `NO_COLOR` informado
+pelo usuário desliga cores. Ferramentas continuam recebendo os defaults próprios.
+
+Os detalhes livres das ferramentas permanecem nos logs privados. A apresentação
+usa descrições controladas e caminhos escapados, sem reproduzir streams brutos
+ou atribuir uma causa que o resultado não demonstrou.
+
+| Configuração de referência do Ox | Local e adaptação no Ec |
+| --- | --- |
+| Saída humana em `lib/progress.sh` | `stacks/ec/progress.sh`, com tarefas e resultados Ec; opções em `presentation` |
+| Diretório `.local/logs/AAAA-MM-DD` e duas datas | Mesma organização, implementada por `local-state.py`; política canônica em [estado local](../docs/development/local-state.md) |
+| Nomes e publicação dos logs | Convenção Ec `run-ID-ordem-projeto-ferramenta.{stdout,stderr,result}.log`, agregados e recibos preservados |
+| Temporários e locks | `/tmp/ec-automation-UID-HASH/`, workspace por run e lock cooperativo; limpeza pelo supervisor |
+| Cache particular `.cache/ox` | Ec consome Cargo preparado pelo usuário e Toolbox selecionada; não cria cópia de cache Ox |
+| Locale, saída das ferramentas e offline | `environment.defaults`, incluindo C.UTF-8, NO_COLOR, Python sem bytecode e Cargo offline; Ec acrescenta npm offline |
+| Descoberta da Toolbox | `discovery.toolbox`, com caminhos relativos ao projeto/usuário e overrides existentes |
+| Deadlines, limites de logs e pilha Geiger | `runtime`, preservando os limites e consumidores Ec |
+| Componentes, seleção e políticas | Catálogo Ec em `components`, `tasks` e configurações nativas referenciadas; respeita os workspaces Server/Agent e frontend |
+
+Diretórios de logs são privados (0700), arquivos novos 0600. Cada execução
+conserva a data inicial; a retenção mantém somente as duas datas mais recentes,
+recusa relógio regressivo e conteúdo inesperado. Os bytes de stdout/stderr e
+os códigos nativos continuam disponíveis junto aos resultados estruturados.
+A entrada `plan` continua produzindo JSON sem preparar recursos nem exibir
+progresso de execução.

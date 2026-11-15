@@ -86,6 +86,35 @@ def audit_source_bundle(root, profile):
     return errors
 
 
+def entrypoint_identity(text):
+    """Read the catalog's one-line identity fields, without treating UI copy as identity."""
+    header = re.match(r"\A---\n(.*?)\n---(?:\n|$)", text, re.DOTALL)
+    if header is None:
+        raise ValueError("Missing entrypoint frontmatter")
+    current_field = None
+    for line in header[1].splitlines():
+        field = re.match(r"^([a-zA-Z_][a-zA-Z_0-9-]*):", line)
+        if field:
+            current_field = field[1]
+        elif line.strip() and not line.lstrip().startswith("#"):
+            if current_field in ("name", "description"):
+                raise ValueError(f"Identity must use a one-line scalar: {current_field}")
+    result = {}
+    for key in ("name", "description"):
+        values = re.findall(rf"^{key}:[ \t]*(.*)$", header[1], re.MULTILINE)
+        if len(values) != 1 or not values[0].strip():
+            raise ValueError(f"Expected one nonempty {key}")
+        value = values[0].strip()
+        if value.startswith('"'):
+            value = json.loads(value)
+        elif value.startswith("'") and value.endswith("'"):
+            value = value[1:-1].replace("''", "'")
+        if not isinstance(value, str) or not value or value in ("|", ">"):
+            raise ValueError(f"Unsupported identity scalar: {key}")
+        result[key] = value
+    return result
+
+
 def audit(root, require_installed=False):
     root = root.resolve()
     profile = strict_json(root / "config/governance/profile.json")
@@ -159,6 +188,15 @@ def audit(root, require_installed=False):
             if not re.fullmatch(r"[0-9a-f]{64}", expected_hash) or digest(path) != expected_hash:
                 errors.append(f"Hash mismatch: {name}/{relative}")
         errors.extend(mod.skill_errors(folder, name))
+        try:
+            identity = entrypoint_identity((folder / "SKILL.md").read_text())
+        except (ValueError, TypeError) as exc:
+            errors.append(f"Invalid entrypoint identity: {name}: {exc}")
+        else:
+            if identity["name"] != name:
+                errors.append(f"Identity mismatch: {name}")
+            if identity["description"] != row["description"]:
+                errors.append(f"Description mismatch: {name}")
         bridge = safe(root, f"sdd/chain/{name}.md").read_text()
         if f"\nskill_path: {expected_path}\n" not in bridge:
             errors.append(f"Bridge points to wrong active location: {name}")

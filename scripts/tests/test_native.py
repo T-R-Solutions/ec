@@ -123,9 +123,9 @@ elif tool in ('grype','syft'):
     if tool == 'grype' and MODE == 'grype-finding':
         data['matches'] = [{'vulnerability': {'id': 'CVE-fixture'}}]
 elif tool=='playwright':
-    data={'errors':[],'stats':{'expected':2,'unexpected':0,'skipped':0,'flaky':0},
+    data={'errors':[],'stats':{'expected':3,'unexpected':0,'skipped':0,'flaky':0},
           'suites':[{'specs':[{'title':t,'tests':[{'expectedStatus':'passed','status':'expected',
-                     'results':[{'status':'passed'}]}]} for t in ('one','two')]}]}
+                     'results':[{'status':'passed'}]}]} for t in ('one','two','three')]}]}
 elif tool=='yara-x':
     def mapped(value):
         if value.startswith('/project/'): return root/value.removeprefix('/project/')
@@ -771,7 +771,7 @@ class NativeTests(unittest.TestCase):
     def test_playwright_rejects_skipped_flaky_empty_or_duplicate_tests(self):
         good = {
             "errors": [],
-            "stats": dict(expected=2, unexpected=0, skipped=0, flaky=0),
+            "stats": dict(expected=3, unexpected=0, skipped=0, flaky=0),
             "suites": [
                 {
                     "specs": [
@@ -785,7 +785,7 @@ class NativeTests(unittest.TestCase):
                                 }
                             ],
                         }
-                        for title in ("a", "b")
+                        for title in ("a", "b", "c")
                     ]
                 }
             ],

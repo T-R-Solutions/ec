@@ -12,6 +12,10 @@ Inspecione fontes e consumidores, escolha a rota pelo risco, implemente e verifi
 
 [Ampliar figura](../assets/diagrams/contribution.svg) · [Fonte Mermaid](../assets/diagrams/contribution.mmd)
 
+Para trabalho coordenado por assistentes, consulte o
+[procedimento dos agentes](codex-agents.md); para levar a configuração a outro
+repositório, use o [guia de replicação](codex-agents-replication.md).
+
 ## Preparar a mudança
 
 1. Leia [AGENTS.md](../../AGENTS.md), [estado e escopo](../../sdd/project.md), [autoridades](../constitution.md), [contexto arquitetural](../architecture/context.md) e ADRs pertinentes.

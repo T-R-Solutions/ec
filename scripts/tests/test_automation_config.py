@@ -64,6 +64,18 @@ class ConfigurationTests(unittest.TestCase):
             with self.subTest(mutate=mutate), self.assertRaises((ValueError, KeyError)):
                 self.load(value)
 
+    def test_presentation_configuration_is_typed_and_consumable(self):
+        value = copy.deepcopy(self.value)
+        value["presentation"] = {"enabled": False, "refresh_seconds": 2, "heartbeat_seconds": 15}
+        self.assertEqual(self.load(value)["presentation"], value["presentation"])
+        for field, invalid in (("enabled", "false"), ("refresh_seconds", 0),
+                               ("refresh_seconds", True), ("heartbeat_seconds", 1),
+                               ("unknown", 1)):
+            candidate = copy.deepcopy(value)
+            candidate["presentation"][field] = invalid
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                self.load(candidate)
+
     def test_public_secret_reviews_allow_only_supported_tools_and_native_rule_ids(self):
         review = {
             "rules/public.yar": {
@@ -187,6 +199,70 @@ class ConfigurationTests(unittest.TestCase):
             self.assertRaises(PermissionError),
         ):
             config.source_files(self.value, self.root, "all")
+
+    def test_acceptance_inventory_adds_governance_without_expanding_scanners(self):
+        extra = (
+            ".codex/config.toml",
+            ".codex/agents/nested/reviewer.toml",
+            ".codex/skills/method/SKILL.md",
+            ".codex/skills/method/references/oracle.md",
+            "docs/constitution.md",
+            "docs/architecture/context.md",
+        )
+        for name in ("AGENTS.md", "README.md", *extra):
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("fixture")
+        scanner = set(config.source_files(self.value, self.root, "all"))
+        acceptance = set(config.acceptance_files(self.value, self.root))
+        self.assertTrue(scanner.isdisjoint(extra))
+        self.assertEqual(acceptance, scanner | set(extra))
+        self.assertEqual(
+            config.plan(self.value, self.root)["acceptance_inventory_version"],
+            config.ACCEPTANCE_INVENTORY_VERSION,
+        )
+        self.assertIn(
+            "--catalog-only",
+            next(t for t in self.value["tasks"] if t["project"] == "docs" and t["name"] == "sdd")[
+                "argv"
+            ],
+        )
+
+    def test_acceptance_inventory_rejects_symlinks_files_and_parents(self):
+        for name in ("AGENTS.md", "README.md"):
+            (self.root / name).write_text("fixture")
+        outside = self.root / "outside"
+        outside.mkdir()
+        for name in (
+            ".codex",
+            ".codex/agents",
+            ".codex/agents/nested",
+            ".codex/skills",
+            ".codex/skills/method",
+            "docs/architecture",
+        ):
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.symlink_to(outside, target_is_directory=True)
+            with self.subTest(name=name), self.assertRaisesRegex(ValueError, "symlink"):
+                config.acceptance_files(self.value, self.root)
+            path.unlink()
+        for name in (
+            ".codex/config.toml",
+            ".codex/agents/alias.toml",
+            ".codex/skills/alias.md",
+            "docs/alias.md",
+        ):
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.symlink_to(self.root / "README.md")
+            with self.subTest(name=name), self.assertRaisesRegex(ValueError, "symlink"):
+                config.acceptance_files(self.value, self.root)
+            path.unlink()
+        value = copy.deepcopy(self.value)
+        value["inputs"]["files"].append("../escape")
+        with self.assertRaises(ValueError):
+            config.acceptance_files(value, self.root)
 
     def test_inventory_excludes_generated_files_before_selecting_scanner_sources(self):
         frontend = "application/server/frontend"

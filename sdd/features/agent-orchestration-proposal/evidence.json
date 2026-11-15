@@ -1,0 +1,389 @@
+{
+  "schema_version": 2,
+  "environment": "Linux local; Codex CLI 0.169.0; configuração de projeto e instruções observadas em 14/11/2026",
+  "limitations": [
+    "Parsing e carregamento nativo não demonstram eficácia comportamental de modelos nem enforcement do fluxo.",
+    "Nenhuma tarefa de modelo foi iniciada; qualidade, custo, latência e classificação real não foram medidos.",
+    "A configuração local não altera o modelo da conversa já em execução; políticas do host e opções da sessão prevalecem."
+  ],
+  "requirements": [
+    {
+      "id": "AC-01",
+      "criterion": "AC-01 da spec vigente",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "criterion": "AC-02 da spec vigente",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "criterion": "AC-03 da spec vigente",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "criterion": "AC-04 da spec vigente",
+      "status": "APPROVED",
+      "evidence_ids": [
+        "E-REVIEW",
+        "E-TEST"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E-REVIEW",
+      "kind": "inspection",
+      "artifact": "sdd/features/agent-orchestration-proposal/converge.md",
+      "sha256": "a6250bc345cdbdeda69e91bec1635043fda424bef712c0d94e7209b8628d0459",
+      "command_or_method": "Leitura semântica dos 14 TOMLs, guia final e proposta histórica contra a matriz aprovada e os dez cenários de risco/continuidade/capacidade da convergência. Inspeção confirma restauração integral da fixture; auditor e instalador preservados.",
+      "observed_result": "Contratos atendem REQ-01 a REQ-04 dentro do escopo de configuração; revisão não constitui ensaio de modelos.",
+      "inputs": [
+        {
+          "path": "ANALISE-SUBAGENTES.md",
+          "sha256": "dfff405cccb3a83cc094cbc4e6e81c4253a2f7d2a69fb9b42dce10e5bc38e4db",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents.md",
+          "sha256": "06dee5602fd189a6f2038b5a9c1994f7d0fa8df5a54217182fd7d82707f36783",
+          "role": "other"
+        },
+        {
+          "path": ".codex/config.toml",
+          "sha256": "1d244719273894ef7879177a3830912f25e1b799d44f2f1644c58d20c272491f",
+          "role": "configuration"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "cd5dbf21c88c6a68924cd738858b44adab8878e8cb9a226042107e06fbba8d47",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "fb2460cd51e0f8d59f08229a63b318619f31926290e1e74d3d16a467a0448ebe",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b24d477471a80ca8ec10655cccb45c8b7ca7dfce0c12a8fce5eb3ceca55b595a",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        },
+        {
+          "path": "docs/architecture/context.md",
+          "sha256": "1ae017e4c429f5a090ff98cce99ce2fb1e166aee536848fb8765106b6466d9d0",
+          "role": "other"
+        },
+        {
+          "path": "docs/decisions/ADR-003-public-journey-contract.md",
+          "sha256": "e4df169174c21dde06db139069e43186d8d09b04281ac49c4256c9db7527dd0a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/SKILL.md",
+          "sha256": "a1cea8b35f0c4ef6327c41d7a3980bbc2e1a9cd2df428ad34ad9091855e3e990",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/references/evaluation-and-trust.md",
+          "sha256": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista.toml",
+          "sha256": "b028c8c81ddf1f3ed509130ce4c298397612af8b0db64c6d02ce0efb4ee55af5",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_analista_alta.toml",
+          "sha256": "e8ea9d584fad5b489df0d0569bb4311ca6abbcd64a041743558a7862d3783f8f",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_implementador.toml",
+          "sha256": "22119bba7a8e6ade45340a369c8ef7c79c74b7357adb439299eff29a1b1d07e0",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_implementador_extra_alto.toml",
+          "sha256": "180dc07c105b236c5a3c21a5313e6349be6539744d67bb5d5cd9ecf0f4709636",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_alta.toml",
+          "sha256": "969972f7424dbbfb3be39a6876d5bf22f26309abea60a0510b3063d6a48cd0b3",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_normal.toml",
+          "sha256": "05ff997471f3a0c14529a7040300bd525ab452926eaad8892d26b7a149e245f8",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_planejador.toml",
+          "sha256": "9b02c81086f53f4f8dbf44278cff2fc42f42207c6f2cbd79566b4353f2e59534",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_planejador_alta.toml",
+          "sha256": "c339e0dc3f33d82bae118d85a1908c9a498600c692a6819d30fd40bc0af03654",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_revisor.toml",
+          "sha256": "fc74747db3308c7f04da5b0689e9ed9346fa1063cf254291c34ecf58c2f56260",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_testador.toml",
+          "sha256": "829deff32b648d58a26caf72099255dc905be7f720f59c86fa18d828c7038cb9",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_triador.toml",
+          "sha256": "e5a7f330c1f3a895e5d1c6612cb33ea2f97436e506a82cc4e695670312be8604",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_validador.toml",
+          "sha256": "d71bebced78bf2095bec3323d65434e80562702f969754b11d7ac4999d14b993",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_validador_alta.toml",
+          "sha256": "1c0a5bf2fd7426a4e4d26b25742e14854d8f1c6a9f691539dc888235ad12b730",
+          "role": "configuration"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/spec.md",
+          "sha256": "332c6456cc39cc12d96d72ef6c8668d7db64baa074ff1cdaf1fa9244d1721688",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/plan.md",
+          "sha256": "a417e96d67d2928fb55194fb14223fcf3c6f95693d81141a7f1890474ea0a83f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/tasks.md",
+          "sha256": "4466cb6c51870e92e3b79ab34bcddb0d850e0b32011aa878742d683a1c3ca901",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/traceability.json",
+          "sha256": "0998469bdf51f761b346cad50caece3b954df7ba9a629059339459007e38c62c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/workflow.json",
+          "sha256": "dd2617e9ce69addbf9887a3665b8a43cbad5a777538ca07e8c5efcbbabd7a389",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/converge.md",
+          "sha256": "a6250bc345cdbdeda69e91bec1635043fda424bef712c0d94e7209b8628d0459",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "role": "oracle",
+          "sha256": "0ca7a02cf852e823e49ebd523bd21fe4870c87c09d93c13b31bfbd843bb56b1b"
+        }
+      ]
+    },
+    {
+      "id": "E-TEST",
+      "kind": "test",
+      "artifact": ".local/logs/2026-11-14/agent-config-check.log",
+      "sha256": "0ee72b7c4cb41366d06f6f99879cf13981dd1a890cdc761809baf2e6f87033ff",
+      "command_or_method": "python3 /tmp/ec-check-agent-config.py: tomllib, matriz explícita, unicidade, links; codex app-server --strict-config --print-startup-config; codex debug prompt-input.",
+      "observed_result": "PASS: 14 TOMLs, 13 agentes, 8 links locais, exemplos históricos válidos; CLI aceita configuração e renderiza encaminhamento e nomes/descrições dos 13 perfis.",
+      "inputs": [
+        {
+          "path": "ANALISE-SUBAGENTES.md",
+          "sha256": "dfff405cccb3a83cc094cbc4e6e81c4253a2f7d2a69fb9b42dce10e5bc38e4db",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/codex-agents.md",
+          "sha256": "06dee5602fd189a6f2038b5a9c1994f7d0fa8df5a54217182fd7d82707f36783",
+          "role": "other"
+        },
+        {
+          "path": ".codex/config.toml",
+          "sha256": "1d244719273894ef7879177a3830912f25e1b799d44f2f1644c58d20c272491f",
+          "role": "configuration"
+        },
+        {
+          "path": "AGENTS.md",
+          "sha256": "f22fc9a4f167a5c9d11729a24d3d90fc698cf70f6a7f384b3736a8fd89609b37",
+          "role": "other"
+        },
+        {
+          "path": "sdd/workflow.md",
+          "sha256": "cd5dbf21c88c6a68924cd738858b44adab8878e8cb9a226042107e06fbba8d47",
+          "role": "other"
+        },
+        {
+          "path": "sdd/evidence.md",
+          "sha256": "fb2460cd51e0f8d59f08229a63b318619f31926290e1e74d3d16a467a0448ebe",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/task-verification.md",
+          "sha256": "b24d477471a80ca8ec10655cccb45c8b7ca7dfce0c12a8fce5eb3ceca55b595a",
+          "role": "other"
+        },
+        {
+          "path": "docs/development/local-state.md",
+          "sha256": "df84fca329e1c49d675186927ee1b37ce35c66a03ed2b6903a77607a2029becc",
+          "role": "other"
+        },
+        {
+          "path": "docs/architecture/context.md",
+          "sha256": "1ae017e4c429f5a090ff98cce99ce2fb1e166aee536848fb8765106b6466d9d0",
+          "role": "other"
+        },
+        {
+          "path": "docs/decisions/ADR-003-public-journey-contract.md",
+          "sha256": "e4df169174c21dde06db139069e43186d8d09b04281ac49c4256c9db7527dd0a",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/SKILL.md",
+          "sha256": "a1cea8b35f0c4ef6327c41d7a3980bbc2e1a9cd2df428ad34ad9091855e3e990",
+          "role": "other"
+        },
+        {
+          "path": ".codex/skills/prompt/references/evaluation-and-trust.md",
+          "sha256": "2a117985248492f7257f8c9ce97c506918108e5dadb08de83da7de5ab1872212",
+          "role": "other"
+        },
+        {
+          "path": ".codex/agents/ec_analista.toml",
+          "sha256": "b028c8c81ddf1f3ed509130ce4c298397612af8b0db64c6d02ce0efb4ee55af5",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_analista_alta.toml",
+          "sha256": "e8ea9d584fad5b489df0d0569bb4311ca6abbcd64a041743558a7862d3783f8f",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_implementador.toml",
+          "sha256": "22119bba7a8e6ade45340a369c8ef7c79c74b7357adb439299eff29a1b1d07e0",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_implementador_extra_alto.toml",
+          "sha256": "180dc07c105b236c5a3c21a5313e6349be6539744d67bb5d5cd9ecf0f4709636",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_alta.toml",
+          "sha256": "969972f7424dbbfb3be39a6876d5bf22f26309abea60a0510b3063d6a48cd0b3",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_orquestrador_normal.toml",
+          "sha256": "05ff997471f3a0c14529a7040300bd525ab452926eaad8892d26b7a149e245f8",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_planejador.toml",
+          "sha256": "9b02c81086f53f4f8dbf44278cff2fc42f42207c6f2cbd79566b4353f2e59534",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_planejador_alta.toml",
+          "sha256": "c339e0dc3f33d82bae118d85a1908c9a498600c692a6819d30fd40bc0af03654",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_revisor.toml",
+          "sha256": "fc74747db3308c7f04da5b0689e9ed9346fa1063cf254291c34ecf58c2f56260",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_testador.toml",
+          "sha256": "829deff32b648d58a26caf72099255dc905be7f720f59c86fa18d828c7038cb9",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_triador.toml",
+          "sha256": "e5a7f330c1f3a895e5d1c6612cb33ea2f97436e506a82cc4e695670312be8604",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_validador.toml",
+          "sha256": "d71bebced78bf2095bec3323d65434e80562702f969754b11d7ac4999d14b993",
+          "role": "configuration"
+        },
+        {
+          "path": ".codex/agents/ec_validador_alta.toml",
+          "sha256": "1c0a5bf2fd7426a4e4d26b25742e14854d8f1c6a9f691539dc888235ad12b730",
+          "role": "configuration"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/spec.md",
+          "sha256": "332c6456cc39cc12d96d72ef6c8668d7db64baa074ff1cdaf1fa9244d1721688",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/plan.md",
+          "sha256": "a417e96d67d2928fb55194fb14223fcf3c6f95693d81141a7f1890474ea0a83f",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/tasks.md",
+          "sha256": "4466cb6c51870e92e3b79ab34bcddb0d850e0b32011aa878742d683a1c3ca901",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/traceability.json",
+          "sha256": "0998469bdf51f761b346cad50caece3b954df7ba9a629059339459007e38c62c",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/workflow.json",
+          "sha256": "dd2617e9ce69addbf9887a3665b8a43cbad5a777538ca07e8c5efcbbabd7a389",
+          "role": "other"
+        },
+        {
+          "path": "sdd/features/agent-orchestration-proposal/converge.md",
+          "sha256": "a6250bc345cdbdeda69e91bec1635043fda424bef712c0d94e7209b8628d0459",
+          "role": "other"
+        },
+        {
+          "path": "tools/governance/tests/test_governance.py",
+          "role": "oracle",
+          "sha256": "0ca7a02cf852e823e49ebd523bd21fe4870c87c09d93c13b31bfbd843bb56b1b"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,14 @@
 # Skill evaluations
 
-Case contract; execution must be recorded separately. These are not completed tests.
+Contratos de avaliação para manutenção da skill ou escopo explícito de seleção,
+comportamento e eficácia. Não são checklist obrigatório de toda tarefa consumidora.
+Os cenários técnicos preservados abaixo podem orientar checks cotidianos quando
+pertinentes à mudança, sem exigir execução de todos os casos ou uma rodada de LLM.
+
+Registre separadamente inspeção estática, mocks/simulação, integração técnica real e
+ensaio comportamental com LLM real. Somente o último observa seleção/comportamento
+do modelo; os demais não comprovam eficácia da skill. Execução e resultados devem
+ser registrados à parte; estes casos escritos não são testes concluídos.
 
 ## Preserved technical scenarios
 

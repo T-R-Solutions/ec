@@ -9,3 +9,6 @@ Acionamento de checks conforme `docs/development/task-verification.md`.
   T001; concluir quando os cenários e verificações pertinentes forem satisfeitos.
 - [ ] T003 [AC-01]: registrar evidências e convergência; depende de T002; declarar
   resultados observados, limites e tarefas residuais segundo `sdd/evidence.md`.
+
+Cada arquivo tem um único dono. Identifique revisor/validador em contexto
+independente, executor do runner final e condição de retomada dos bloqueios.
